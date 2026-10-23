@@ -1,0 +1,296 @@
+{
+ "generated": "2026-10-23",
+ "rule": "统一的「神」分档（按模型家族）。唯一入口：fam(name) 归一化家族名；build() 生成 tiers.json；tier_of(name) 给所有榜单用。\n家族规则：小写 → 去括号内容（effort/日期/fallback 等）→ 去厂商前缀 → 连字符/下划线变空格 → 去尾部修饰词\n（preview/exp/experimental/full/thinking/reasoning/high/xhigh/max/medium/low/latest/codex/chat/pro(仅 GPT)/日期 4–8 位数字）→ 别名表。\n因此 Codex 视为同版本 GPT 家族的变体（GPT-5.2-Codex ∈ GPT-5.2；GPT-5.3 Codex 家族名为 GPT-5.3）。\n小号排除：mini/nano/lite/instant/fast/flash-lite/distill/haiku（除非家族名本身含该词）。",
+ "families": {
+  "gpt 6 astra": {
+   "org": "OpenAI",
+   "family": "gpt 6 astra",
+   "release": "2026-09-03",
+   "score": 53,
+   "live": true,
+   "best": "GPT-6 Astra (Max)",
+   "slug": "gpt-6-astra",
+   "tier": "now",
+   "name": "GPT-6 Astra"
+  },
+  "claude opus 5.5": {
+   "org": "Anthropic",
+   "family": "claude opus 5.5",
+   "release": "2026-09-22",
+   "score": 58,
+   "live": true,
+   "best": "Claude Opus 5.5 (Max, Default Fallback)",
+   "slug": "claude-opus-5-5",
+   "tier": "now",
+   "name": "Claude Opus 5.5"
+  },
+  "gemini 4 argon": {
+   "org": "Google",
+   "family": "gemini 4 argon",
+   "release": "2026-09-30",
+   "score": 53,
+   "live": true,
+   "best": "Gemini 4 Argon (High)",
+   "slug": "gemini-4-argon",
+   "tier": "now",
+   "name": "Gemini 4 Argon"
+  },
+  "muse wonder": {
+   "org": "Meta",
+   "family": "muse wonder",
+   "release": "2026-10-12",
+   "score": 56,
+   "live": true,
+   "best": "Muse Wonder Full (Max)",
+   "slug": "muse-wonder-full",
+   "tier": "now",
+   "name": "Muse Wonder Full"
+  },
+  "grok 4.7": {
+   "org": "xAI",
+   "family": "grok 4.7",
+   "release": "2026-09-21",
+   "score": 46,
+   "live": true,
+   "best": "Grok 4.7 (Xhigh)",
+   "slug": "grok-4-7",
+   "tier": "now",
+   "name": "Grok 4.7"
+  },
+  "deepseek v4.1 flash": {
+   "org": "DeepSeek",
+   "family": "deepseek v4.1 flash",
+   "release": "2026-09-10",
+   "score": 45,
+   "live": true,
+   "best": "DeepSeek V4.1 Flash 1017 (Max)",
+   "slug": "deepseek-v4-1-flash-1017",
+   "tier": "now",
+   "name": "DeepSeek V4.1 Flash 1017"
+  },
+  "claude opus 4.7": {
+   "family": "claude opus 4.7",
+   "name": "Claude Opus 4.7",
+   "release": "2026-04-16",
+   "tier": "half",
+   "slug": "claude-opus-4-7",
+   "org": ""
+  },
+  "claude opus 4.6": {
+   "family": "claude opus 4.6",
+   "name": "Claude Opus 4.6",
+   "release": "2026-02-05",
+   "tier": "half",
+   "slug": "claude-opus-4-6",
+   "org": ""
+  },
+  "claude sonnet 4.6": {
+   "family": "claude sonnet 4.6",
+   "name": "Claude Sonnet 4.6",
+   "release": "2026-02-17",
+   "tier": "half",
+   "slug": "claude-sonnet-4-6",
+   "org": ""
+  },
+  "claude opus 4.5": {
+   "family": "claude opus 4.5",
+   "name": "Claude Opus 4.5",
+   "release": "2025-11-24",
+   "tier": "half",
+   "slug": "claude-opus-4-5",
+   "org": ""
+  },
+  "claude sonnet 4.5": {
+   "family": "claude sonnet 4.5",
+   "name": "Claude Sonnet 4.5",
+   "release": "2025-09-29",
+   "tier": "half",
+   "slug": "claude-4-5-sonnet",
+   "org": ""
+  },
+  "claude opus 4.1": {
+   "family": "claude opus 4.1",
+   "name": "Claude Opus 4.1",
+   "release": "2025-08-05",
+   "tier": "half",
+   "slug": "claude-4-1-opus",
+   "org": ""
+  },
+  "gpt 5.5": {
+   "family": "gpt 5.5",
+   "name": "GPT-5.5",
+   "release": "2026-04-23",
+   "tier": "half",
+   "slug": "gpt-5-5",
+   "org": ""
+  },
+  "gpt 5.4": {
+   "family": "gpt 5.4",
+   "name": "GPT-5.4",
+   "release": "2026-03-05",
+   "tier": "half",
+   "slug": "gpt-5-4",
+   "org": ""
+  },
+  "gpt 5.3": {
+   "family": "gpt 5.3",
+   "name": "GPT-5.3 Codex",
+   "release": "2026-02-05",
+   "tier": "half",
+   "slug": "gpt-5-3-codex",
+   "org": ""
+  },
+  "gpt 5.2": {
+   "family": "gpt 5.2",
+   "name": "GPT-5.2",
+   "release": "2025-12-11",
+   "tier": "half",
+   "slug": "gpt-5-2",
+   "org": ""
+  },
+  "gpt 5.1": {
+   "family": "gpt 5.1",
+   "name": "GPT-5.1",
+   "release": "2025-11-13",
+   "tier": "half",
+   "slug": "gpt-5-1",
+   "org": ""
+  },
+  "gpt 5": {
+   "family": "gpt 5",
+   "name": "GPT-5",
+   "release": "2025-08-07",
+   "tier": "half",
+   "slug": "gpt-5",
+   "org": ""
+  },
+  "gemini 3.1 pro": {
+   "family": "gemini 3.1 pro",
+   "name": "Gemini 3.1 Pro",
+   "release": "2026-02-19",
+   "tier": "half",
+   "slug": "gemini-3-1-pro-preview",
+   "org": ""
+  },
+  "gemini 3 pro": {
+   "family": "gemini 3 pro",
+   "name": "Gemini 3 Pro",
+   "release": "2025-11-18",
+   "tier": "half",
+   "slug": "gemini-3-pro-preview",
+   "org": ""
+  },
+  "gemini 3 deep think": {
+   "family": "gemini 3 deep think",
+   "name": "Gemini 3 Deep Think",
+   "release": "2026-02-05",
+   "tier": "half",
+   "slug": "gemini-3-deep-think",
+   "org": ""
+  },
+  "gemini 2.5 pro": {
+   "family": "gemini 2.5 pro",
+   "name": "Gemini 2.5 Pro",
+   "release": "2025-06-05",
+   "tier": "half",
+   "slug": "gemini-2-5-pro",
+   "org": ""
+  },
+  "grok 4.20": {
+   "family": "grok 4.20",
+   "name": "Grok 4.20",
+   "release": "2026-03-10",
+   "tier": "half",
+   "slug": "grok-4-20",
+   "org": ""
+  },
+  "grok 4": {
+   "family": "grok 4",
+   "name": "Grok 4",
+   "release": "2025-07-10",
+   "tier": "half",
+   "slug": "grok-4",
+   "org": ""
+  },
+  "gpt 4o": {
+   "family": "gpt 4o",
+   "name": "GPT-4o",
+   "release": "2024-11-20",
+   "tier": "y2",
+   "slug": "gpt-4o",
+   "org": ""
+  },
+  "o1": {
+   "family": "o1",
+   "name": "o1",
+   "release": "2024-12-05",
+   "tier": "y2",
+   "slug": "o1",
+   "org": ""
+  },
+  "claude 3.5 sonnet": {
+   "family": "claude 3.5 sonnet",
+   "name": "Claude 3.5 Sonnet",
+   "release": "2024-10-22",
+   "tier": "y2",
+   "slug": "claude-35-sonnet",
+   "org": ""
+  },
+  "claude 3.7 sonnet": {
+   "family": "claude 3.7 sonnet",
+   "name": "Claude 3.7 Sonnet",
+   "release": "2025-02-24",
+   "tier": "y2",
+   "slug": "claude-3-7-sonnet",
+   "org": ""
+  },
+  "gemini 1.5 pro": {
+   "family": "gemini 1.5 pro",
+   "name": "Gemini 1.5 Pro",
+   "release": "2024-09-24",
+   "tier": "y2",
+   "slug": "gemini-1-5-pro",
+   "org": ""
+  },
+  "gemini 2.0 pro": {
+   "family": "gemini 2.0 pro",
+   "name": "Gemini 2.0 Pro",
+   "release": "2025-02-05",
+   "tier": "y2",
+   "slug": "gemini-2-0-pro-experimental-02-05",
+   "org": ""
+  },
+  "grok 3": {
+   "family": "grok 3",
+   "name": "Grok 3",
+   "release": "2025-02-19",
+   "tier": "y2",
+   "slug": "grok-3",
+   "org": ""
+  },
+  "deepseek v3": {
+   "family": "deepseek v3",
+   "name": "DeepSeek V3",
+   "release": "2024-12-26",
+   "tier": "y2",
+   "slug": "deepseek-v3",
+   "org": ""
+  },
+  "deepseek r1": {
+   "family": "deepseek r1",
+   "name": "DeepSeek R1",
+   "release": "2025-01-20",
+   "tier": "y2",
+   "slug": "deepseek-r1-0120",
+   "org": ""
+  },
+  "llama 3.1 405b": {
+   "family": "llama 3.1 405b",
+   "name": "Llama 3.1 405B",
+   "release": "2024-07-23",
+   "tier": "y2",
+   "slug": "llama-3-1-instruct-405b",
+   "org": ""
+  }
+ }
+}
