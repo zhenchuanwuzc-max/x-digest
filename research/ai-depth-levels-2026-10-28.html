@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>专题 · AI 使用深度水位（2026-10-28）</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+<meta name="theme-color" content="#176b75">
+<style>
+:root{
+  --bg:#faf9f6;--surface:#ffffff;--ink:#202a30;--ink-2:#303c42;--ink-3:#59656b;--ink-4:#657176;
+  --line:#dfe4e1;--line-strong:#d1d9d5;--accent:#176b75;--accent-ink:#145f68;
+  --accent-soft:rgba(23,107,117,.08);--hot:#b3402a;--ok:#2f7d5c;--amber:#b8873a;
+  --font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --shadow:0 1px 2px rgba(32,42,48,.04);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-ink);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:880px;margin:0 auto;padding:20px 18px 56px}
+.topnav{display:flex;flex-wrap:wrap;gap:10px 16px;font-size:13px;color:var(--ink-3);margin-bottom:14px}
+.topnav a{color:var(--accent)}
+.mast h1{font-size:26px;letter-spacing:-.02em;margin:0 0 6px;line-height:1.25}
+.meta{font-size:13px;color:var(--ink-3);margin:0 0 18px}
+.lead{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);margin:0 0 18px}
+.lead p{margin:0 0 8px}.lead p:last-child{margin:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;box-shadow:var(--shadow);margin:0 0 16px}
+.card h2{margin:0 0 10px;font-size:18px;letter-spacing:-.01em}
+.card h3{margin:14px 0 6px;font-size:15px;color:var(--accent-ink)}
+.card p,.card li{color:var(--ink-2)}
+.note{font-size:12.5px;color:var(--ink-4);margin:8px 0 0}
+.tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:999px;background:var(--accent-soft);color:var(--accent-ink);margin-right:6px;vertical-align:middle}
+.tag.warn{background:rgba(184,135,58,.12);color:#7c5a24}
+.tag.hot{background:rgba(179,64,42,.1);color:var(--hot)}
+.ladder{display:grid;gap:8px;margin:8px 0 4px}
+.lv{display:grid;grid-template-columns:64px 1fr;gap:10px;align-items:start;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#fdfdfb}
+.lv .id{font-weight:700;color:var(--accent);font-size:14px}
+.lv .nm{font-weight:600;margin:0 0 2px}
+.lv .ds{margin:0;font-size:13.5px;color:var(--ink-3)}
+.lv.l0{border-left:4px solid #9aa5aa}
+.lv.l1{border-left:4px solid #7aa0a6}
+.lv.l2{border-left:4px solid #4f8f97}
+.lv.l3{border-left:4px solid #176b75}
+.lv.l4{border-left:4px solid #0f5a62}
+.lv.l5{border-left:4px solid #0a3f45;background:linear-gradient(90deg,#fff,#f0f7f7)}
+.matrix{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+.matrix th,.matrix td{border:1px solid var(--line);padding:8px 8px;vertical-align:top;text-align:left}
+.matrix th{background:#f3f3ef;font-weight:600;color:var(--ink)}
+.matrix td.lvcol{white-space:nowrap;font-weight:700;color:var(--accent);width:52px}
+.matrix .mute{color:var(--ink-4);font-size:12px}
+.quote{border-left:3px solid var(--accent);padding:6px 0 6px 12px;margin:10px 0;color:var(--ink-2);font-size:14px}
+.quote cite{display:block;margin-top:4px;font-size:12px;color:var(--ink-4);font-style:normal}
+.src{font-size:13px}
+.src li{margin:6px 0}
+.insight{background:linear-gradient(180deg,#fff,#f7fbfb);border:1px solid #c9dde0}
+.insight ol{margin:6px 0 0;padding-left:20px}
+.insight li{margin:8px 0}
+footer{margin-top:22px;padding-top:12px;border-top:1px solid var(--line-strong);font-size:12.5px;color:var(--ink-4)}
+@media (max-width:640px){
+  .wrap{padding:14px 12px 40px}
+  .mast h1{font-size:22px}
+  .lv{grid-template-columns:48px 1fr}
+  .matrix{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="topnav" aria-label="面包屑">
+    <a href="../">← 最新周报</a>
+    <a href="../archive.html">往期与专题</a>
+  </nav>
+  <header class="mast">
+    <h1>AI 使用深度水位：上手容易，用深很难</h1>
+    <p class="meta">专题调研 · 2026-10-28（北京时间）· 情报站私有版 · 证据优先，无出处数字标「待核」</p>
+  </header>
+
+  <section class="lead">
+    <p><b>一句话结论：</b>早期大家说「小白也能很快上手」指的是 <b>L1 对话门槛</b>；到了 2026 年，真正拉开差距的是 <b>L3→L5</b>——把模型嵌进工作流、交给 Agent、再做成可评测的流水线。触达率已经很高，深度分布却像漏斗。</p>
+    <p>本页把使用深度拆成 L0–L5，再按个人 / 企业通用办公 / 垂直（电商）对照；观点来自 X 与公开报告，YouTube/播客作补充。</p>
+  </section>
+
+  <section class="card" id="ladder">
+    <h2>水位框架 <span class="tag">L0→L5</span></h2>
+    <div class="ladder">
+      <div class="lv l0"><div class="id">L0</div><div><p class="nm">不用 / 几乎不用</p><p class="ds">听说过，或偶尔看别人演示；自己工作流里没有 AI。</p></div></div>
+      <div class="lv l1"><div class="id">L1</div><div><p class="nm">简单对话</p><p class="ds">当更好的搜索 / 润色器：问一句答一句，改邮件、翻译、写提纲。</p></div></div>
+      <div class="lv l2"><div class="id">L2</div><div><p class="nm">提示词 + 上下文喂料</p><p class="ds">多轮改写、贴文档/截图、定人设与格式；开始「会提问」。</p></div></div>
+      <div class="lv l3"><div class="id">L3</div><div><p class="nm">工具与工作流嵌入</p><p class="ds">IDE Copilot、自定义 GPT/Skill、表格分析、平台内置助手；AI 出现在固定步骤里。</p></div></div>
+      <div class="lv l4"><div class="id">L4</div><div><p class="nm">Agent 委托（半自动）</p><p class="ds">多步任务交给 Agent 跑，人审关键节点；开始改流程，而不只改单次回答。</p></div></div>
+      <div class="lv l5"><div class="id">L5</div><div><p class="nm">多 Agent 全自动流水线</p><p class="ds">编排、权限、评测、回放与生产接入；失败可追责、成功可规模化。</p></div></div>
+    </div>
+    <p class="note">这是工作用的尺子，不是学术量表。同一人可以在写邮件上停在 L1，在写代码上到 L4。</p>
+  </section>
+
+  <section class="card" id="funnel">
+    <h2>为什么「简单」和「用深」不是一回事</h2>
+    <div class="quote">
+      Karpathy（2026-10-11）把认知差距画成漏斗：约 60 亿人几乎没接触大模型；约 10–20 亿人偶尔用免费聊天；约 2000 万人（他按 0.2% 估）在编程/数学里亲眼看到 Agent 几天做完原本几周的项目；约 5000 人能摸到内部更强系统。漏斗由「问题够不够大」「能力是否可验证（编程/数学）」「免费/付费/内部档位」三者叠出来。
+      <cite>原文 <a href="https://x.com/karpathy/status/2109361546505966046" target="_blank" rel="noopener">@karpathy</a> · 中文转述 <a href="https://x.com/dotey/status/2109401538279977114" target="_blank" rel="noopener">@dotey</a> · 数字为作者 napkin math，非普查</cite>
+    </div>
+    <div class="quote">
+      OpenAI《Ending the Capability Overhang》（2026-01）：同一 ChatGPT Plus 档位里，典型 power user（约 95 分位）用的「thinking capabilities」是典型用户（中位数）的 <b>7 倍</b>；还指出许多企业用户从未点开数据分析 / 推理 / 搜索等高级能力。
+      <cite><a href="https://cdn.openai.com/pdf/openai-ending-the-capability-overhang.pdf" target="_blank" rel="noopener">OpenAI PDF</a></cite>
+    </div>
+    <div class="quote">
+      OpenAI Enterprise Signals（2026-05，原 B2B Signals）：前沿企业（用量约 95 分位）每名员工消耗的「intelligence」是典型企业的 <b>3.5 倍</b>（一年前约 2 倍）；消息量只解释差距的 36%，其余来自更深用法；Codex 上前沿企业人均消息约是典型企业的 <b>16 倍</b>。「典型企业用 AI 回答问题；前沿企业用 AI 执行复杂工作。」
+      <cite><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">openai.com</a></cite>
+    </div>
+    <div class="quote">
+      Microsoft 2026 Work Trend Index：在已使用 AI 的知识工作者里，<b>Frontier Professionals 约占 16%</b>——会用 Agent 做多步/多 Agent 工作流、常改流程、参与团队级规范；66% 的 AI 用户说 AI 让他们能把时间花在更高价值工作上，Frontier 群体里这一比例到 80%。组织因素对「感知到的 AI 影响」的解释力约是个人因素的两倍以上。
+      <cite><a href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank" rel="noopener">Microsoft WTI 2026</a> · 样本为「至少偶尔用 AI」的工作者，不是全体人口</cite>
+    </div>
+    <div class="quote">
+      Ethan Mollick 的 jagged frontier：模型在某些任务上很强、在另一些任务上离谱失败，而且边界会移动；他强调组织要用实验摸清边界，而不是当成又一个 IT 项目。相关视频/播客：<a href="https://www.youtube.com/watch?v=Yka2S-yTX70" target="_blank" rel="noopener">Navigating the jagged frontier</a>、<a href="https://www.youtube.com/watch?v=KEQjwE7hDjk" target="_blank" rel="noopener">Strange Loop · AI-first organization</a>。
+      <cite>YouTube；时间轴因平台版本可能漂移，引用主题而非精确秒数</cite>
+    </div>
+    <div class="quote">
+      Andrew Ng 谈 agentic workflows：把「写草稿→检索→自检→改→测」做成循环，往往比单次提示更能榨出模型能力；常见模式含 reflection、tool use、planning、multi-agent。
+      <cite><a href="https://www.youtube.com/watch?v=sal78ACtGTc" target="_blank" rel="noopener">What's next for AI agentic workflows ft. Andrew Ng</a></cite>
+    </div>
+    <div class="quote">
+      宝玉：搭 Agent 本身不值钱，「给 Agent 做工具、用 Agent 重构工作流」更值钱；并对「从没高频用过 Coding Agent 的人突然体验聪明模型+自动执行」的科幻感，对比天天用 Claude Code/Codex 的人「内心没什么波澜」。
+      <cite><a href="https://x.com/dotey/status/2113637983333093855" target="_blank" rel="noopener">搭 Agent</a> · <a href="https://x.com/dotey/status/2114203536477053273" target="_blank" rel="noopener">刘姥姥进大观园</a></cite>
+    </div>
+  </section>
+
+  <section class="card" id="matrix">
+    <h2>分人群对照表</h2>
+    <p class="note" style="margin-top:0">占比只在有公开数据时填写；没有统一普查处写「形态」与「门槛」，避免编造。</p>
+    <table class="matrix">
+      <thead>
+        <tr><th>水位</th><th>个人用户</th><th>企业 · 通用办公</th><th>垂直 · 电商经营</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="lvcol">L0</td>
+          <td>不用 ChatGPT/Claude/豆包等。<span class="mute">全球人口侧：Karpathy 估约 75% 几乎未接触（napkin）。</span></td>
+          <td>公司没采购，或禁用；个人也不敢用。<span class="mute">McKinsey 2025：仍有大量组织未规模化，仅约 7% 称已 fully scaled（组织口径，≠个人 L0）。</span></td>
+          <td>仍纯人工客服/美工。<span class="mute">亿邦 2025-02：约 21.36% 商家尚未在电商运营用 AI；另报「已用智能工具」约 58%（样本&gt;200，待核抽样偏差）。</span></td>
+        </tr>
+        <tr>
+          <td class="lvcol">L1</td>
+          <td>偶尔问天气式问题、改简历、翻译。<span class="mute">对应 Karpathy「1–2B 轻度免费用户」层。</span></td>
+          <td>用 Copilot/ChatGPT 写邮件、会议纪要摘要；无团队规范。</td>
+          <td>用大模型写一段详情文案、改标题；工具随手换。</td>
+        </tr>
+        <tr>
+          <td class="lvcol">L2</td>
+          <td>会贴长文/PDF、定格式、多轮打磨；开始存提示词。</td>
+          <td>按部门模板提问；上传制度/合同做比对（仍需人审）。</td>
+          <td>按品类 SOP 喂卖点、竞品截图；人改一版再发。</td>
+        </tr>
+        <tr>
+          <td class="lvcol">L3</td>
+          <td>Cursor/Copilot 写代码；自定义 GPT；连接网盘/日历。<span class="mute">OpenAI：即便付费企业用户，仍有约 19%/14%/12% 从未用过数据分析/推理/搜索。</span></td>
+          <td>Office/IDE/CRM 内嵌助手成固定步骤；有共享提示词库。</td>
+          <td>平台生意管家、AI 客服、批量生图/切片。<span class="mute">淘天白皮书：访谈商家中日常高频用约 60%+（深访偏重度用户，待核外推）。</span></td>
+        </tr>
+        <tr>
+          <td class="lvcol">L4</td>
+          <td>Claude Code/Codex/Computer Use 跑多步任务；人在关键点验收。<span class="mute">MS：Frontier Professionals ≈ AI 用户的 16%。</span></td>
+          <td>Agent 处理工单/研报草稿；人审后再进生产系统。<span class="mute">Anthropic Economic Index（2026-01）：Claude.ai 上 augmentation 约 52%、automation 约 45%（对话分类，非企业渗透率）。</span></td>
+          <td>巡店→策略→素材→客服半自动串联；人定预算与合规。<span class="mute">淘天「AI 融合指数」：L3 深度应用约 24.77%，L4 全链路约 9.84%（白皮书口径）。</span></td>
+        </tr>
+        <tr>
+          <td class="lvcol">L5</td>
+          <td>个人「数字员工」常驻：定时任务、多 Agent、有日志与回滚。<span class="mute">人口侧极稀；Karpathy 内部档 ~5000 人为量级参考（待核且不可直接等同）。</span></td>
+          <td>多 Agent + 权限/评测/Owned Intelligence；MS 称 M365 活跃 Agent 同比约 15×（大企业更高）。</td>
+          <td>「AI 店长 + 多个 AI 员工」托管经营环节；平台宣称覆盖多数场景，但全链路自洽仍少见。<span class="mute">抖音智能文案助手活跃商家使用率公开案例 28.18%（单功能，非 L5）。</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card" id="data">
+    <h2>几组硬数据（只摘有出处的）</h2>
+    <ul class="src">
+      <li><b>触达 ≠ 深度：</b>McKinsey State of AI —— 约 88% 受访组织在至少一项业务功能里「经常用 AI」；规模化仍远低于触达（2025 图表写 fully scaled 约 7%；2026 文称 scaling across enterprise 约 44%）。来源：<a href="https://www.mckinsey.com/featured-insights/charts/ai-at-work-but-not-at-scale" target="_blank" rel="noopener">2025 chart</a>、<a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener">2026 survey</a>。</li>
+      <li><b>员工比老板想的更敢用：</b>McKinsey —— 13% 员工自称 gen AI 已占日常工作 &gt;30%，C-suite 估计仅 4%。来源：<a href="https://www.mckinsey.com/featured-insights/charts/leaders-underestimate-employees-ai-use" target="_blank" rel="noopener">Leaders underestimate…</a>（2024 末美样本）。</li>
+      <li><b>Agent 在大企业更快：</b>McKinsey 2026 —— 营收&gt;$10 亿组织中，40% 称在 scale AI agents（上年 27%）；小组织约 22% 持平。</li>
+      <li><b>电商水位已有自家尺子：</b>淘天《2026 中国电商 AI 应用白皮书》L0–L4：L0 6.18%、L1 20.67%、L2 38.54%、L3 24.77%、L4 9.84%；淘系「已在用」约 70%。来源：白皮书 PDF / <a href="https://m.tech.china.com/redian/2026/0609/062026_1889437.html" target="_blank" rel="noopener">中华网转述</a>。平台白皮书可能偏积极，标待核外推。</li>
+      <li><b>增强仍略多于全自动（消费端对话）：</b>Anthropic Economic Index 2026-01 —— Claude.ai 上 augmentation 52% vs automation 45%。来源：<a href="https://www.anthropic.com/research/anthropic-economic-index-january-2026-report" target="_blank" rel="noopener">Anthropic</a>。</li>
+    </ul>
+  </section>
+
+  <section class="card insight" id="insights">
+    <h2>我的总结与洞察</h2>
+    <ol>
+      <li><b>真正的悬崖在 L2→L3，第二道在 L3→L4。</b>学会聊天几乎零成本；把 AI 嵌进每天重复的步骤（L3）要改习惯和工具链；把结果权交给 Agent（L4）要评测、权限和「出了错谁负责」。OpenAI 的 7× / 3.5× / 16× 都在说：同一工具，深度差一个数量级。</li>
+      <li><b>「上手容易」没有过时，过时的是用它当终点。</b>L1 仍然是大众入口；但若停在 L1，会像 Karpathy 说的那样：觉得模型「没啥用 / 这一年没进步」——因为你的问题规模根本压不到能力曲线。</li>
+      <li><b>可验证领域水位抬得最快。</b>编程、数学、电商转化率、客服 SLA——有自动判分或业务指标，强化学习与产品投入都堆在这里；写长文、谈感受、跨部门政治协调抬升慢。jagged frontier 解释了为什么同一办公室有人「科幻片成真」，有人「就那样」。</li>
+      <li><b>垂直场景往往比通用办公更深，但深度被平台产品「承包」了。</b>电商商家 L2–L3 比例高，很多是平台生意管家/客服组件，不等于商家自己会搭 Agent。对卖家来说，差异化更可能出在：私有数据、选品判断、内容品味，以及会不会把平台 AI 接到自己的 SOP。</li>
+      <li><b>对 Ocean 的含义：</b>你已经长期在 L3–L4（Cursor/Codex、情报站自动化、CRM-Accio 垂直观察）。继续升水位不在「再多聊两句」，而在：① 把周报/监控/干净版发布做成可回放流水线（L5 的评测与失败处理）；② 电商侧用 Accio 类工具时盯「进工作流没有」而不是「会不会问」；③ 若做儿童 AI 教育或信息差教程，教的是 L2→L3 的跨越（喂料、验收、嵌入日常），不是又一个 ChatGPT 入门。</li>
+    </ol>
+  </section>
+
+  <section class="card" id="sources">
+    <h2>主要出处一览</h2>
+    <ul class="src">
+      <li>X · <a href="https://x.com/karpathy/status/2109361546505966046">Karpathy 漏斗</a> · <a href="https://x.com/dotey/status/2109401538279977114">宝玉转述</a> · <a href="https://x.com/emollick/status/2114942007533515261">Mollick human-in-the-loop</a> · <a href="https://x.com/dotey/status/2113637983333093855">宝玉·工作流</a> · <a href="https://x.com/dotey/status/2114203536477053273">宝玉·体验差</a></li>
+      <li>报告 · <a href="https://cdn.openai.com/pdf/openai-ending-the-capability-overhang.pdf">OpenAI Capability Overhang</a> · <a href="https://openai.com/index/introducing-b2b-signals/">OpenAI B2B/Enterprise Signals</a> · <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization">Microsoft WTI 2026</a> · <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-is-here-now-comes-the-hard-part">Microsoft WTI 2025 power users</a> · <a href="https://www.anthropic.com/research/anthropic-economic-index-january-2026-report">Anthropic Economic Index 2026-01</a> · <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai">McKinsey State of AI 2026</a></li>
+      <li>电商 · <a href="https://top-public.oss-cn-beijing.aliyuncs.com/2026%E4%B8%AD%E5%9B%BD%E7%94%B5%E5%95%86AI%E5%BA%94%E7%94%A8%E7%99%BD%E7%9A%AE%E4%B9%A66.5.pdf">淘天白皮书 PDF</a> · <a href="https://imgs.ebrun.com/operater/report/2025-06/AI%E7%94%B5%E5%95%86%E5%BA%94%E7%94%A8%E8%B0%83%E6%9F%A5%E6%8A%A5%E5%91%8A2025-%E7%BB%88%E7%89%88.pdf">亿邦 2025 调查</a> · <a href="https://docs.coze.cn/customers_douyindianshang_with_cozeloop">抖音×扣子案例</a></li>
+      <li>YouTube · <a href="https://www.youtube.com/watch?v=sal78ACtGTc">Andrew Ng agentic workflows</a> · <a href="https://www.youtube.com/watch?v=Yka2S-yTX70">Mollick jagged frontier</a> · <a href="https://www.youtube.com/watch?v=KEQjwE7hDjk">Mollick Strange Loop</a></li>
+    </ul>
+    <p class="note">未收录付费墙全文或无法核验的「某博主月入」数字。平台白皮书与厂商报告存在样本偏差，已在文中标待核。</p>
+  </section>
+
+  <footer>
+    <p>本页仅发布于私有情报站，不进公开干净版。编校：情报官 · 2026-10-28（北京时间）</p>
+  </footer>
+</div>
+</body>
+</html>
