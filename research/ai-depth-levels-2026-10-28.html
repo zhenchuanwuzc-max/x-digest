@@ -97,6 +97,32 @@ footer{margin-top:22px;padding-top:12px;border-top:1px solid var(--line-strong);
   .fbar .ftop{flex-direction:column;align-items:flex-start;gap:4px}
 }
 
+
+.funnel-card{margin:0 0 16px}
+.funnel-note{font-size:12.5px;color:var(--ink-4);margin:0 0 10px}
+.funnel-stage{margin:4px 0 8px}
+.funnel-svg{display:block;width:100%;height:auto;max-width:720px;margin:0 auto}
+.funnel-svg.mob{display:none}
+.case-list{display:flex;flex-direction:column;gap:8px;margin:14px 0 4px}
+.case-row{display:grid;grid-template-columns:72px 1fr;gap:10px;align-items:start;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fdfdfb}
+.case-row .chip{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--accent);padding:3px 8px;border-radius:6px;text-align:center;letter-spacing:.02em}
+.case-row .chip.l0{background:#7aa0a6}
+.case-row .chip.l1{background:#5b9199}
+.case-row .chip.l2{background:#3f818a}
+.case-row .chip.l3{background:#176b75}
+.case-row .chip.l4{background:#0f5a62}
+.case-row .chip.l5{background:#0a3f45}
+.case-row .body{font-size:13px;color:var(--ink-2);line-height:1.55}
+.case-row .body p{margin:0 0 6px}
+.case-row .body p:last-child{margin:0}
+.case-row .stuck{color:var(--hot)}
+.case-row .seg{display:inline-block;font-size:10.5px;padding:0 6px;border-radius:999px;background:var(--accent-soft);color:var(--accent-ink);margin-right:4px}
+@media (max-width:640px){
+  .funnel-svg.desk{display:none}
+  .funnel-svg.mob{display:block}
+  .case-row{grid-template-columns:56px 1fr;gap:8px;padding:9px 10px}
+}
+
 </style>
 </head>
 <body>
@@ -116,79 +142,97 @@ footer{margin-top:22px;padding-top:12px;border-top:1px solid var(--line-strong);
   </section>
 
 
+
   <section class="card funnel-card" id="funnel-viz">
-    <h2>深度漏斗 + 到达时间 <span class="tag hot">越深越花时间</span></h2>
-    <p class="funnel-note">各层<strong>宽度为示意，非实测比例</strong>（人口侧越深越窄）。淘天白皮书在「已接触商家」样本里 L2 最宽，那是另一把尺子，见下方数据卡。时间标签：有出处的会链到源；其余标「估算」。</p>
-    <div class="funnel" role="img" aria-label="L0到L5深度漏斗示意，宽度随深度收窄">
-      <div class="frow">
-        <div class="fbar w0">
-          <div class="ftop"><span class="fid">L0</span><span class="fnm">不用 / 几乎不用</span><span class="ftime">尚未开始 / 停留态 <span class="est">· 状态</span></span></div>
-          <p class="fds">工作流里没有 AI；听说过或看过演示。</p>
-        </div>
-        <div class="fcases">
-          <div class="fcase"><span class="seg">人群</span><b>全球未触达层</b>：Karpathy 估约 60 亿人几乎没接触大模型（napkin，非普查）。<span class="stuck">卡在：接入与习惯都还没开始</span><br><a href="https://x.com/karpathy/status/2109361546505966046" target="_blank" rel="noopener">@karpathy</a></div>
-          <div class="fcase"><span class="seg">电商</span><b>小商家「开箱」都难</b>：雇不起夜班客服、又不会自己配 AI，IM 不响应率过高还有平台罚则；于是「帮商家搭 AI 客服」成了小生意。<span class="stuck">卡在：不会配置 + 怕踩平台规则</span><br><a href="https://x.com/cshengqun/status/2106954050285760533" target="_blank" rel="noopener">@cshengqun</a> · 亿邦约 21% 商家尚未在运营用 AI（待核抽样）</div>
-        </div>
-      </div>
-      <div class="farrow" aria-hidden="true">↓ 开始用 · 门槛最低</div>
-      <div class="frow">
-        <div class="fbar w1">
-          <div class="ftop"><span class="fid">L1</span><span class="fnm">简单对话</span><span class="ftime">第一天就能到 <span class="est">· 共识</span></span></div>
-          <p class="fds">当更好的搜索 / 润色器；问一句答一句。</p>
-        </div>
-        <div class="fcases">
-          <div class="fcase"><span class="seg">个人</span><b>中位数用户</b>：同一 Plus 档位里，典型用户「thinking」用量远低于 95 分位 power user（差约 <b>7×</b>）；许多人从不点开高级能力。<span class="stuck">卡在：问题太浅，觉得模型「没啥进步」</span><br><a href="https://cdn.openai.com/pdf/openai-ending-the-capability-overhang.pdf" target="_blank" rel="noopener">OpenAI Capability Overhang</a></div>
-          <div class="fcase"><span class="seg">办公</span><b>偶尔写邮件 / 摘要</b>：无团队提示词库、无验收标准；对应 Karpathy「1–2B 轻度免费用户」量级层。<span class="stuck">卡在：当聊天玩具，不进业务步骤</span><br><a href="https://x.com/karpathy/status/2109361546505966046" target="_blank" rel="noopener">漏斗原文</a></div>
-        </div>
-      </div>
-      <div class="farrow" aria-hidden="true">↓ 学会喂料 · 通常数周</div>
-      <div class="frow">
-        <div class="fbar w2">
-          <div class="ftop"><span class="fid">L2</span><span class="fnm">提示词 + 上下文喂料</span><span class="ftime">约数周熟练 <span class="est">· 估算</span></span></div>
-          <p class="fds">多轮改写、贴文档/截图、定人设与格式。</p>
-        </div>
-        <div class="fcases">
-          <div class="fcase"><span class="seg">电商</span><b>淘天样本最大层</b>：白皮书 L2「应用探索」约 <b>38.54%</b>（已接触商家口径）。按品类 SOP 喂卖点、竞品图，人改一版再发。<span class="stuck">卡在：每次从零开聊，没嵌进固定工具链</span><br><a href="https://m.tech.china.com/redian/2026/0609/062026_1889437.html" target="_blank" rel="noopener">白皮书转述</a> <span class="est">待核外推</span></div>
-          <div class="fcase"><span class="seg">办公</span><b>上传制度/合同比对</b>：有模板但仍靠人审；McKinsey 显示触达已高、规模化仍低——很多人停在「会问」。<span class="stuck">卡在：不会改自己的工作步骤</span><br><a href="https://www.mckinsey.com/featured-insights/charts/ai-at-work-but-not-at-scale" target="_blank" rel="noopener">McKinsey</a></div>
-        </div>
-      </div>
-      <div class="farrow" aria-hidden="true">↓ 嵌进日常 · 往往数月</div>
-      <div class="frow">
-        <div class="fbar w3">
-          <div class="ftop"><span class="fid">L3</span><span class="fnm">工具与工作流嵌入</span><span class="ftime">约数月成习惯 <span class="est">· 估算</span></span></div>
-          <p class="fds">IDE / Skill / 平台助手出现在固定步骤里。</p>
-        </div>
-        <div class="fcases">
-          <div class="fcase"><span class="seg">电商·平台</span><b>抖音智能文案助手</b>（扣子罗盘）：活跃商家使用率 <b>28.18%</b>，AI 消息发送量占比 +191%，转化 +33%（厂商案例）。<span class="stuck">卡在：深度被平台组件承包，不等于商家自建流水线</span><br><a href="https://docs.coze.cn/customers_douyindianshang_with_cozeloop" target="_blank" rel="noopener">Coze 案例</a></div>
-          <div class="fcase"><span class="seg">个人/办公</span><b>Copilot / Cursor 进 IDE</b>：OpenAI 仍观察到不少企业用户从未用过数据分析 / 推理 / 搜索等能力（约 19%/14%/12%）。<span class="stuck">卡在：装了插件，高级能力一次都没点开</span><br><a href="https://cdn.openai.com/pdf/openai-ending-the-capability-overhang.pdf" target="_blank" rel="noopener">Overhang PDF</a></div>
-        </div>
-      </div>
-      <div class="farrow" aria-hidden="true">↓ 把结果权交给 Agent · 半年以上常见</div>
-      <div class="frow">
-        <div class="fbar w4">
-          <div class="ftop"><span class="fid">L4</span><span class="fnm">Agent 委托（半自动）</span><span class="ftime">约半年以上 <span class="est">· 估算</span></span></div>
-          <p class="fds">多步任务交给 Agent，人审关键节点；开始改流程。</p>
-        </div>
-        <div class="fcases">
-          <div class="fcase"><span class="seg">个人</span><b>yetone × Magpie</b>：Claude Code + Opus，同时开 3 个 <code>/loop</code>，让 AI 盯 GitHub issue/PR、Discord、推特反馈并修补（宝玉转述）。<span class="stuck">卡在：缺人审与回滚时，自治循环会静默跑偏</span><br><a href="https://x.com/dotey/status/2110084393255514268" target="_blank" rel="noopener">@dotey</a></div>
-          <div class="fcase"><span class="seg">企业</span><b>Microsoft Camp AIR</b>：三周集中改造，Agent 支援需求综合/文档/测试；试点团队自述产品周期从「数月」压到「数周」。<span class="stuck">卡在：个人猛、组织弱 → Blocked Agency；缺决策权与质量标准</span><br><a href="https://assets-c4akfrf5b4d3f4b7.z01.azurefd.net/assets/2026/05/WTI-HowToGuide-Leaders_69f9a1c757906.pdf" target="_blank" rel="noopener">WTI How-to</a> · Frontier ≈ AI 用户 16%</div>
-        </div>
-      </div>
-      <div class="farrow" aria-hidden="true">↓ 可评测的流水线 · 团队年投入</div>
-      <div class="frow">
-        <div class="fbar w5">
-          <div class="ftop"><span class="fid">L5</span><span class="fnm">多 Agent 全自动流水线</span><span class="ftime">团队级约一年+ <span class="est">· 估算</span></span></div>
-          <p class="fds">编排、权限、评测、回放；失败可追责、成功可规模化。</p>
-        </div>
-        <div class="fcases">
-          <div class="fcase"><span class="seg">平台/研发</span><b>Claude Managed Agents 动态工作流</b>：主 Agent 写计划，再派阶段任务，单次最多调度约 <b>1000</b> 个智能体（公测叙述）。<span class="stuck">卡在：成本、权限边界、评测集谁维护</span><br><a href="https://x.com/dotey/status/2108695019846619424" target="_blank" rel="noopener">@dotey 转述</a></div>
-          <div class="fcase"><span class="seg">企业</span><b>M365 Agent 生态</b>：活跃 Agent 同比约 <b>15×</b>（大企业约 18×）；Frontier Firm 把失败信号编进共享规范。抖音文案助手的 Trace/评测闭环偏<strong>平台侧</strong> L5 能力。<span class="stuck">卡在：商家侧「AI 店长全托管」公开可核案例仍少</span><br><a href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank" rel="noopener">WTI 2026</a></div>
-        </div>
-      </div>
+    <h2>深度漏斗 + 到达时间</h2>
+    <div class="funnel-stage">
+<svg class="funnel-svg desk" viewBox="0 0 680 400" role="img" aria-label="AI使用深度漏斗 L0到L5，右侧为到达时间轴">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#176b75"/></marker></defs>
+<polygon points="15.0,16.0 495.0,16.0 455.0,70.0 55.0,70.0" fill="#cfe7ea" stroke="#faf9f6" stroke-width="2"/>
+<text x="255" y="48.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="700" fill="#1a3338">L0 不用</text>
+<polygon points="55.0,73.0 455.0,73.0 415.0,127.0 95.0,127.0" fill="#b5dbe0" stroke="#faf9f6" stroke-width="2"/>
+<text x="255" y="105.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="700" fill="#1a3338">L1 简单对话</text>
+<polygon points="95.0,130.0 415.0,130.0 375.0,184.0 135.0,184.0" fill="#84bcc5" stroke="#faf9f6" stroke-width="2"/>
+<text x="255" y="162.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="700" fill="#143036">L2 提示词喂料</text>
+<polygon points="135.0,187.0 375.0,187.0 340.0,241.0 170.0,241.0" fill="#4a97a1" stroke="#faf9f6" stroke-width="2"/>
+<text x="255" y="219.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="700" fill="#ffffff">L3 工具工作流</text>
+<polygon points="170.0,244.0 340.0,244.0 310.0,298.0 200.0,298.0" fill="#2a7d88" stroke="#faf9f6" stroke-width="2"/>
+<text x="255" y="267.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#ffffff">L4</text>
+<text x="255" y="283.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12" font-weight="600" fill="#ffffff">Agent半自动</text>
+<polygon points="200.0,301.0 310.0,301.0 290.0,355.0 220.0,355.0" fill="#176b75" stroke="#faf9f6" stroke-width="2"/>
+<text x="255" y="324.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#ffffff">L5</text>
+<text x="255" y="340.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12" font-weight="600" fill="#ffffff">多Agent流水线</text>
+<line x1="560" y1="43.0" x2="560" y2="328.0" stroke="#176b75" stroke-width="2"/>
+<circle cx="560" cy="43.0" r="5" fill="#cfe7ea" stroke="#176b75" stroke-width="1.5"/>
+<text x="576" y="48.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="600" fill="#303c42">尚未开始</text>
+<circle cx="560" cy="100.0" r="5" fill="#b5dbe0" stroke="#176b75" stroke-width="1.5"/>
+<text x="576" y="105.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="600" fill="#303c42">第一天</text>
+<circle cx="560" cy="157.0" r="5" fill="#84bcc5" stroke="#176b75" stroke-width="1.5"/>
+<text x="576" y="162.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="600" fill="#303c42">数周</text>
+<circle cx="560" cy="214.0" r="5" fill="#4a97a1" stroke="#176b75" stroke-width="1.5"/>
+<text x="576" y="219.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="600" fill="#303c42">数月</text>
+<circle cx="560" cy="271.0" r="5" fill="#2a7d88" stroke="#176b75" stroke-width="1.5"/>
+<text x="576" y="276.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="600" fill="#303c42">半年+</text>
+<circle cx="560" cy="328.0" r="5" fill="#176b75" stroke="#176b75" stroke-width="1.5"/>
+<text x="576" y="333.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="600" fill="#303c42">一年+</text>
+<line x1="560" y1="328.0" x2="560" y2="360.0" stroke="#176b75" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="576" y="356.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12.5" font-weight="700" fill="#176b75">越深越花时间</text>
+</svg>
+<svg class="funnel-svg mob" viewBox="0 0 360 410" role="img" aria-label="AI使用深度漏斗 L0到L5（手机）">
+<polygon points="12.0,10.0 348.0,10.0 323.0,70.0 37.0,70.0" fill="#cfe7ea" stroke="#faf9f6" stroke-width="2"/>
+<text x="180" y="36.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#1a3338">L0 不用</text>
+<text x="180" y="54.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11.5" font-weight="600" fill="#1a3338" opacity="0.92">尚未开始</text>
+<polygon points="37.0,73.0 323.0,73.0 298.0,133.0 62.0,133.0" fill="#b5dbe0" stroke="#faf9f6" stroke-width="2"/>
+<text x="180" y="99.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#1a3338">L1 简单对话</text>
+<text x="180" y="117.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11.5" font-weight="600" fill="#1a3338" opacity="0.92">第一天</text>
+<polygon points="62.0,136.0 298.0,136.0 273.0,196.0 87.0,196.0" fill="#84bcc5" stroke="#faf9f6" stroke-width="2"/>
+<text x="180" y="162.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#143036">L2 提示词喂料</text>
+<text x="180" y="180.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11.5" font-weight="600" fill="#143036" opacity="0.92">数周</text>
+<polygon points="87.0,199.0 273.0,199.0 250.0,259.0 110.0,259.0" fill="#4a97a1" stroke="#faf9f6" stroke-width="2"/>
+<text x="180" y="225.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#ffffff">L3 工具工作流</text>
+<text x="180" y="243.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11.5" font-weight="600" fill="#ffffff" opacity="0.92">数月</text>
+<polygon points="110.0,262.0 250.0,262.0 230.0,322.0 130.0,322.0" fill="#2a7d88" stroke="#faf9f6" stroke-width="2"/>
+<text x="180" y="288.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#ffffff">L4 Agent半自动</text>
+<text x="180" y="306.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11.5" font-weight="600" fill="#ffffff" opacity="0.92">半年+</text>
+<polygon points="130.0,325.0 230.0,325.0 213.0,385.0 147.0,385.0" fill="#176b75" stroke="#faf9f6" stroke-width="2"/>
+<text x="180" y="351.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#ffffff">L5 多Agent流水线</text>
+<text x="180" y="369.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11.5" font-weight="600" fill="#ffffff" opacity="0.92">一年+</text>
+<text x="180" y="400" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12.5" font-weight="700" fill="#176b75">↓ 越深越花时间</text>
+</svg>
     </div>
-    <p class="depth-hint">↓ 越往下人数越少、所需时间与组织投入越大 ↓</p>
-    <p class="note">时间轴不是证书考试：同一人可在邮件停 L1、在代码到 L4。Camp AIR「三周」是<strong>有教练的团队集中改造</strong>，不等于个人自然爬升速度。</p>
+    <p class="funnel-note">宽度为<strong>示意，非实测比例</strong>。时间轴：L0「尚未开始」为状态；L1「第一天」为上手共识；L2–L5 为<strong>估算</strong>（Camp AIR「三周」是有教练的团队集中改造，≠个人自然爬升）。淘天样本里 L2 最宽，那是「已接触商家」另一把尺子，见下方数据卡。</p>
+
+    <h3 style="margin-top:16px">分层案例</h3>
+    <div class="case-list">
+      <div class="case-row"><span class="chip l0">L0</span><div class="body">
+        <p><span class="seg">人群</span><b>全球未触达层</b>：Karpathy 估约 60 亿人几乎没接触大模型（napkin）。<span class="stuck">卡在：接入与习惯都还没开始</span> · <a href="https://x.com/karpathy/status/2109361546505966046" target="_blank" rel="noopener">@karpathy</a></p>
+        <p><span class="seg">电商</span><b>小商家开箱都难</b>：雇不起夜班客服、不会配 AI，IM 不响应还有平台罚则。<span class="stuck">卡在：不会配置 + 怕踩规则</span> · <a href="https://x.com/cshengqun/status/2106954050285760533" target="_blank" rel="noopener">@cshengqun</a></p>
+      </div></div>
+      <div class="case-row"><span class="chip l1">L1</span><div class="body">
+        <p><span class="seg">个人</span><b>中位数用户</b>：同一 Plus 档位，典型用户 thinking 用量约为 95 分位的 1/7；许多人从不点高级能力。<span class="stuck">卡在：问题太浅，觉得模型没进步</span> · <a href="https://cdn.openai.com/pdf/openai-ending-the-capability-overhang.pdf" target="_blank" rel="noopener">OpenAI Overhang</a></p>
+        <p><span class="seg">办公</span><b>偶尔写邮件/摘要</b>：无团队规范；对应 Karpathy「1–2B 轻度免费用户」层。<span class="stuck">卡在：当聊天玩具，不进业务步骤</span></p>
+      </div></div>
+      <div class="case-row"><span class="chip l2">L2</span><div class="body">
+        <p><span class="seg">电商</span><b>淘天样本最大层</b>：白皮书 L2 约 38.54%（已接触商家口径）。<span class="stuck">卡在：每次从零开聊，没嵌进工具链</span> · <a href="https://m.tech.china.com/redian/2026/0609/062026_1889437.html" target="_blank" rel="noopener">白皮书转述</a>（待核外推）</p>
+        <p><span class="seg">办公</span><b>上传制度/合同比对</b>：有模板仍靠人审；触达高、规模化低。<span class="stuck">卡在：不会改自己的工作步骤</span> · <a href="https://www.mckinsey.com/featured-insights/charts/ai-at-work-but-not-at-scale" target="_blank" rel="noopener">McKinsey</a></p>
+      </div></div>
+      <div class="case-row"><span class="chip l3">L3</span><div class="body">
+        <p><span class="seg">电商</span><b>抖音智能文案助手</b>（扣子）：活跃商家使用率 28.18%，转化 +33%。<span class="stuck">卡在：深度被平台组件承包</span> · <a href="https://docs.coze.cn/customers_douyindianshang_with_cozeloop" target="_blank" rel="noopener">Coze 案例</a></p>
+        <p><span class="seg">个人/办公</span><b>Copilot/Cursor 进 IDE</b>：仍有企业用户从未用数据分析/推理/搜索（约 19%/14%/12%）。<span class="stuck">卡在：装了插件当摆设</span> · <a href="https://cdn.openai.com/pdf/openai-ending-the-capability-overhang.pdf" target="_blank" rel="noopener">Overhang</a></p>
+      </div></div>
+      <div class="case-row"><span class="chip l4">L4</span><div class="body">
+        <p><span class="seg">个人</span><b>yetone × Magpie</b>：Claude Code 同时开 3 个 /loop 盯 issue/PR/社区（宝玉转述）。<span class="stuck">卡在：缺人审与回滚会静默跑偏</span> · <a href="https://x.com/dotey/status/2110084393255514268" target="_blank" rel="noopener">@dotey</a></p>
+        <p><span class="seg">企业</span><b>Microsoft Camp AIR</b>：三周改造，试点自述周期「数月→数周」。Frontier ≈ AI 用户 16%。<span class="stuck">卡在：个人猛、组织弱（Blocked Agency）</span> · <a href="https://assets-c4akfrf5b4d3f4b7.z01.azurefd.net/assets/2026/05/WTI-HowToGuide-Leaders_69f9a1c757906.pdf" target="_blank" rel="noopener">WTI How-to</a></p>
+      </div></div>
+      <div class="case-row"><span class="chip l5">L5</span><div class="body">
+        <p><span class="seg">平台/研发</span><b>Claude Managed Agents</b>：动态工作流，单次最多约 1000 个智能体（公测叙述）。<span class="stuck">卡在：成本、权限、评测集谁维护</span> · <a href="https://x.com/dotey/status/2108695019846619424" target="_blank" rel="noopener">@dotey</a></p>
+        <p><span class="seg">企业</span><b>M365 Agent 生态</b>：活跃 Agent 同比约 15×；商家侧「AI 店长全托管」公开可核仍少。<span class="stuck">卡在：团队投入与可回放流水线</span> · <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank" rel="noopener">WTI 2026</a></p>
+      </div></div>
+    </div>
+
+    <p class="note">同一人可在邮件停 L1、在代码到 L4。案例只摘有出处的；自述数字标待核。</p>
   </section>
+
 
   <section class="card" id="ladder">
     <h2>水位框架 <span class="tag">L0→L5</span></h2>
@@ -318,7 +362,7 @@ footer{margin-top:22px;padding-top:12px;border-top:1px solid var(--line-strong);
   </section>
 
   <footer>
-    <p>本页仅发布于私有情报站，不进公开干净版。编校：情报官 · 2026-10-28（北京时间）· 补漏斗/时间轴/案例</p>
+    <p>本页仅发布于私有情报站，不进公开干净版。编校：情报官 · 2026-10-28（北京时间）· 真漏斗 SVG 重绘</p>
   </footer>
 </div>
 </body>
