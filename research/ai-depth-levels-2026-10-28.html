@@ -83,11 +83,13 @@ footer{margin-top:22px;padding-top:12px;border-top:1px solid var(--line-strong);
 .fcase .seg{display:inline-block;font-size:10.5px;padding:0 6px;border-radius:999px;background:var(--accent-soft);color:var(--accent-ink);margin-right:4px}
 .farrow{font-size:11px;color:var(--ink-4);letter-spacing:.04em;user-select:none}
 .fbar.w0{width:100%;border-left:4px solid #9aa5aa}
-.fbar.w1{width:92%;border-left:4px solid #7aa0a6}
-.fbar.w2{width:72%;border-left:4px solid #4f8f97}
-.fbar.w3{width:48%;border-left:4px solid #176b75}
-.fbar.w4{width:28%;border-left:4px solid #0f5a62}
-.fbar.w5{width:16%;border-left:4px solid #0a3f45;background:linear-gradient(180deg,#fff,#f0f7f7)}
+.fbar.w1{width:96%;border-left:4px solid #7aa0a6}
+.fbar.w2{width:88%;border-left:4px solid #4f8f97}
+.fbar.w3{width:76%;border-left:4px solid #176b75}
+.fbar.w4{width:62%;border-left:4px solid #0f5a62}
+.fbar.w5{width:48%;min-width:min(100%,280px);border-left:4px solid #0a3f45;background:linear-gradient(180deg,#fff,#f0f7f7)}
+/* 视觉收窄条：右侧渐隐暗示漏斗，正文仍可读 */
+.fbar::after{content:"";position:absolute;right:0;top:0;bottom:0;width:18px;pointer-events:none;border-radius:0 10px 10px 0;background:linear-gradient(90deg,transparent,rgba(250,249,246,.55))}
 .depth-hint{text-align:center;font-size:12.5px;color:var(--hot);font-weight:600;margin:8px 0 0}
 @media (max-width:640px){
   .fbar.w0,.fbar.w1,.fbar.w2,.fbar.w3,.fbar.w4,.fbar.w5{width:100%}
