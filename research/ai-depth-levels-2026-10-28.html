@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>专题 · AI 使用深度水位（加深版 · 2026-10-28）</title>
+<title>专题 · AI 使用深度水位（加深版 · 2026-10-30）</title>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
 <meta name="theme-color" content="#176b75">
@@ -14,24 +14,42 @@
   --accent-soft:rgba(23,107,117,.08);--hot:#b3402a;--ok:#2f7d5c;--amber:#b8873a;
   --font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
   --shadow:0 1px 2px rgba(32,42,48,.04);
+  --rail:168px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
 a{color:var(--accent-ink);text-decoration:none}
 a:hover{text-decoration:underline}
-.wrap{max-width:880px;margin:0 auto;padding:20px 18px 56px}
-.topnav{display:flex;flex-wrap:wrap;gap:10px 16px;font-size:13px;color:var(--ink-3);margin-bottom:14px}
-.topnav a{color:var(--accent)}
+.elevator{
+  position:fixed;top:0;left:0;bottom:0;width:var(--rail);padding:18px 12px 24px;
+  background:rgba(250,249,246,.92);border-right:1px solid var(--line);backdrop-filter:blur(8px);
+  overflow-y:auto;z-index:40;font-size:12.5px;
+}
+.elevator .brand{display:block;font-size:12px;color:var(--ink-3);margin:0 0 12px;padding:0 6px}
+.elevator .brand strong{display:block;color:var(--accent-ink);font-size:13px;margin-top:2px}
+.elevator ol{list-style:none;margin:0;padding:0}
+.elevator li{margin:0 0 2px}
+.elevator a{
+  display:block;padding:7px 8px;border-radius:8px;color:var(--ink-3);line-height:1.35;
+  border-left:3px solid transparent;text-decoration:none;
+}
+.elevator a:hover{background:var(--accent-soft);color:var(--accent-ink);text-decoration:none}
+.elevator a.active{background:var(--accent-soft);color:var(--accent-ink);border-left-color:var(--accent);font-weight:600}
+.elevator .home{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.elevator .home a{color:var(--accent)}
+.elev-toggle{
+  display:none;position:fixed;top:12px;left:12px;z-index:50;border:1px solid var(--line);
+  background:var(--surface);border-radius:999px;padding:6px 12px;font-size:13px;color:var(--accent-ink);
+  box-shadow:var(--shadow);cursor:pointer;font-family:inherit;
+}
+.elev-backdrop{display:none;position:fixed;inset:0;background:rgba(32,42,48,.28);z-index:35}
+body.elev-open .elev-backdrop{display:block}
+.wrap{max-width:880px;margin:0 auto;padding:20px 18px 56px;margin-left:calc(var(--rail) + 18px);margin-right:18px}
 .mast h1{font-size:26px;letter-spacing:-.02em;margin:0 0 6px;line-height:1.25}
 .meta{font-size:13px;color:var(--ink-3);margin:0 0 18px}
 .lead{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);margin:0 0 18px}
 .lead p{margin:0 0 8px}.lead p:last-child{margin:0}
-.toc{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);margin:0 0 18px}
-.toc h2{margin:0 0 8px;font-size:15px}
-.toc ol{margin:0;padding-left:22px;font-size:13.5px}
-.toc li{margin:4px 0}
-.toc a{color:var(--accent)}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;box-shadow:var(--shadow);margin:0 0 16px}
 .card h2{margin:0 0 10px;font-size:18px;letter-spacing:-.01em}
 .card h3{margin:14px 0 6px;font-size:15px;color:var(--accent-ink)}
@@ -47,7 +65,7 @@ a:hover{text-decoration:underline}
 .funnel-card{margin:0 0 16px}
 .funnel-note{font-size:12.5px;color:var(--ink-4);margin:0 0 10px}
 .funnel-stage{margin:4px 0 8px}
-.funnel-svg{display:block;width:100%;height:auto;max-width:720px;margin:0 auto}
+.funnel-svg{display:block;width:100%;height:auto;max-width:760px;margin:0 auto}
 .funnel-svg.mob{display:none}
 @media (max-width:640px){
   .funnel-svg.desk{display:none}
@@ -60,6 +78,8 @@ a:hover{text-decoration:underline}
 .seggrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:8px 0}
 .segbox{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:#fff;font-size:12.5px;line-height:1.5}
 .segbox b{display:block;font-size:11px;color:var(--accent-ink);margin-bottom:3px;letter-spacing:.02em}
+.excos{font-size:12.5px;margin:8px 0 0;padding:8px 10px;border-radius:8px;background:#f3f7f7;border:1px dashed #c9dde0;color:var(--ink-2)}
+.excos b{color:var(--accent-ink)}
 .checklist{margin:6px 0 0;padding-left:18px;font-size:13px}
 .checklist li{margin:3px 0}
 .skills{font-size:12.5px;color:var(--ink-3);margin:6px 0;padding:8px 10px;background:var(--accent-soft);border-radius:8px}
@@ -87,125 +107,144 @@ a:hover{text-decoration:underline}
 .quote{border-left:3px solid var(--accent);padding:6px 0 6px 12px;margin:10px 0;color:var(--ink-2);font-size:14px}
 .quote cite{display:block;margin-top:4px;font-size:12px;color:var(--ink-4);font-style:normal}
 footer{margin-top:22px;padding-top:12px;border-top:1px solid var(--line-strong);font-size:12.5px;color:var(--ink-4)}
+@media (max-width:960px){
+  .elevator{transform:translateX(-105%);transition:transform .2s ease}
+  body.elev-open .elevator{transform:translateX(0)}
+  .elev-toggle{display:inline-flex;align-items:center;gap:6px}
+  .wrap{margin-left:auto;margin-right:auto;padding-top:52px}
+}
 @media (max-width:640px){
-  .wrap{padding:14px 12px 40px}
+  .wrap{padding:52px 12px 40px}
   .mast h1{font-size:22px}
   .seggrid{grid-template-columns:1fr}
   .money{grid-template-columns:1fr}
   .quiz{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
 }
-sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}</style>
+sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
+</style>
 </head>
 <body>
-<div class="wrap">
-<nav class="topnav">
-  <a href="../index.html">← 情报站</a>
-  <a href="../archive.html">归档</a>
-  <a href="#toc">本页目录</a>
+<button type="button" class="elev-toggle" id="elevToggle" aria-expanded="false" aria-controls="elevator">☰ 目录</button>
+<div class="elev-backdrop" id="elevBackdrop" hidden></div>
+<nav class="elevator" id="elevator" aria-label="本页电梯导航">
+  <a class="brand" href="../index.html"><span>← 情报站</span><strong>深度水位</strong></a>
+  <ol>
+    <li><a href="#thin" data-sec="thin">上一版薄在哪</a></li>
+    <li><a href="#funnel" data-sec="funnel">深度漏斗</a></li>
+    <li><a href="#levels" data-sec="levels">每档差在哪</a></li>
+    <li><a href="#quiz" data-sec="quiz">自测表</a></li>
+    <li><a href="#cases" data-sec="cases">厚案例 + 反证</a></li>
+    <li><a href="#insights" data-sec="insights">机制 · 漂移 · 搞钱</a></li>
+    <li><a href="#ocean" data-sec="ocean">对 Ocean</a></li>
+    <li><a href="#sources" data-sec="sources">全部来源</a></li>
+    <li><a href="#pending" data-sec="pending">待核清单</a></li>
+  </ol>
+  <div class="home"><a href="../archive.html">归档</a></div>
 </nav>
+
+<div class="wrap">
 <header class="mast">
   <h1>AI 使用深度水位：上手容易、用深难</h1>
-  <p class="meta">专题加深版 · 2026-10-28（Asia/Taipei） · L0–L5 × 个人 / 企业办公 / 电商垂直 · 每条数字有出处 · 未核实标「待核」</p>
+  <p class="meta">专题加深版 · 2026-10-30（Asia/Taipei） · L0–L5 × 个人 / 企业办公 / 电商垂直 · 高层级补公司例 · 每条数字有出处 · 未核实标「待核」</p>
 </header>
 
-<div class="toc" id="toc">
-  <h2>本页目录</h2>
-  <ol>
-    <li><a href="#thin">上一版薄在哪（诚实诊断）</a></li>
-    <li><a href="#funnel">深度漏斗（保留 SVG）</a></li>
-    <li><a href="#axis1">轴一：拆透每档差在哪 + 自测表</a></li>
-    <li><a href="#axis2">轴二：厚案例 + 反证</a></li>
-    <li><a href="#axis3">轴三：机制洞察 · 水位漂移 · 搞钱地图 · 对 Ocean</a></li>
-    <li><a href="#sources">全部来源</a></li>
-    <li><a href="#pending">待核清单</a></li>
-  </ol>
+<div class="lead">
+  <p>本页不再用「轴一 / 轴二 / 轴三」编号，按内容分块：<b>每档差在哪</b>、<b>厚案例与反证</b>、<b>机制洞察 / 水位漂移 / 搞钱地图 / 对 Ocean</b>。旧锚点 <code>#axis1</code> <code>#axis2</code> <code>#axis3</code> 仍可用。</p>
+  <p>左侧电梯随滚动高亮；手机点「目录」展开。漏斗右侧时间轴旁补了可核验的代表组织/人。</p>
 </div>
 
 <section class="card thin" id="thin">
   <h2>上一版薄在哪</h2>
   <ul>
-    <li><b>档位只有一句话</b>：没有「到了这一档你会做什么 / 缺什么技能 / 花多少 / 卡在哪 / 怎么跨」。</li>
+    <li><b>档位只有一句话</b>：没有「到了这一档你会做什么 / 缺什么技能 / 花多少 / 卡在哪 / 怎么跨」；高层级也缺公司锚点。</li>
     <li><b>案例是摘要句</b>：没有试了什么、翻了什么车、什么数字才算成。</li>
-    <li><b>洞察是五条口号</b>：缺验证成本、隐性知识、组织激励、锯齿前沿等机制；没有反证（METR 变慢、MIT 试点漏斗）；搞钱地图与对 Ocean 太泛。</li>
-    <li><b>没有 TOC、没有自测表</b>；YouTube 只挂了标题，没读字幕。</li>
+    <li><b>洞察是五条口号</b>：缺验证成本、隐性知识、组织激励、锯齿前沿等机制；没有反证（METR 变慢、MIT 试点漏斗）。</li>
+    <li><b>导航是页顶横条</b>：长页难定位；本版改左侧电梯。</li>
   </ul>
-  <p class="note">本版按三条轴整页重写；漏斗 SVG 保留，并修了手机端 L5 标签溢出。</p>
+  <p class="note">本版加深：每档补行为/技能/成本/卡点/跨档 checklist + 组织例；漏斗右侧挂代表；机制与案例补可点开的出处。</p>
 </section>
 
 <section class="card funnel-card" id="funnel">
-  <h2>深度漏斗 <span class="tag">人越少越深</span> <span class="tag warn">时间轴在右</span></h2>
-  <p class="funnel-note">上宽下窄 = 用得浅的人多、用得深的人少。右侧是「从认真用 AI 起，大约多久能站稳这一档」的经验区间（不是承诺）。颜色从上到下加深。</p>
+  <h2>深度漏斗 <span class="tag">人越少越深</span> <span class="tag warn">时间轴 + 代表</span></h2>
+  <p class="funnel-note">上宽下窄 = 用得浅的人多、用得深的人少。右侧是经验到达时间（不是承诺）+ 可核验的代表组织/人（不是排名）。颜色从上到下加深。</p>
   <div class="funnel-stage">
-<svg class="funnel-svg desk" viewBox="0 0 680 400" role="img" aria-label="AI使用深度漏斗 L0到L5，右侧为到达时间轴">
+<svg class="funnel-svg desk" viewBox="0 0 760 400" role="img" aria-label="AI使用深度漏斗 L0到L5，右侧为时间轴与代表组织">
 <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#176b75"/></marker></defs>
-<polygon points="15.0,16.0 495.0,16.0 455.0,70.0 55.0,70.0" fill="#cfe7ea" stroke="#faf9f6" stroke-width="2"/>
-<text x="255" y="48.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="700" fill="#1a3338">L0 不用</text>
-<polygon points="55.0,73.0 455.0,73.0 415.0,127.0 95.0,127.0" fill="#b5dbe0" stroke="#faf9f6" stroke-width="2"/>
-<text x="255" y="105.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="700" fill="#1a3338">L1 简单对话</text>
-<polygon points="95.0,130.0 415.0,130.0 375.0,184.0 135.0,184.0" fill="#84bcc5" stroke="#faf9f6" stroke-width="2"/>
-<text x="255" y="162.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="700" fill="#143036">L2 提示词喂料</text>
-<polygon points="135.0,187.0 375.0,187.0 340.0,241.0 170.0,241.0" fill="#4a97a1" stroke="#faf9f6" stroke-width="2"/>
-<text x="255" y="219.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="700" fill="#ffffff">L3 工具工作流</text>
-<polygon points="170.0,244.0 340.0,244.0 310.0,298.0 200.0,298.0" fill="#2a7d88" stroke="#faf9f6" stroke-width="2"/>
-<text x="255" y="267.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#ffffff">L4</text>
-<text x="255" y="283.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12" font-weight="600" fill="#ffffff">Agent半自动</text>
-<polygon points="200.0,301.0 310.0,301.0 290.0,355.0 220.0,355.0" fill="#176b75" stroke="#faf9f6" stroke-width="2"/>
-<text x="255" y="324.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#ffffff">L5</text>
-<text x="255" y="340.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12" font-weight="600" fill="#ffffff">多Agent流水线</text>
-<line x1="560" y1="43.0" x2="560" y2="328.0" stroke="#176b75" stroke-width="2"/>
-<circle cx="560" cy="43.0" r="5" fill="#cfe7ea" stroke="#176b75" stroke-width="1.5"/>
-<text x="576" y="48.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="600" fill="#303c42">尚未开始</text>
-<circle cx="560" cy="100.0" r="5" fill="#b5dbe0" stroke="#176b75" stroke-width="1.5"/>
-<text x="576" y="105.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="600" fill="#303c42">第一天</text>
-<circle cx="560" cy="157.0" r="5" fill="#84bcc5" stroke="#176b75" stroke-width="1.5"/>
-<text x="576" y="162.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="600" fill="#303c42">数周</text>
-<circle cx="560" cy="214.0" r="5" fill="#4a97a1" stroke="#176b75" stroke-width="1.5"/>
-<text x="576" y="219.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="600" fill="#303c42">数月</text>
-<circle cx="560" cy="271.0" r="5" fill="#2a7d88" stroke="#176b75" stroke-width="1.5"/>
-<text x="576" y="276.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="600" fill="#303c42">半年+</text>
-<circle cx="560" cy="328.0" r="5" fill="#176b75" stroke="#176b75" stroke-width="1.5"/>
-<text x="576" y="333.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="600" fill="#303c42">一年+</text>
-<line x1="560" y1="328.0" x2="560" y2="360.0" stroke="#176b75" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="576" y="356.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12.5" font-weight="700" fill="#176b75">越深越花时间</text>
+<polygon points="15.0,16.0 455.0,16.0 415.0,70.0 55.0,70.0" fill="#cfe7ea" stroke="#faf9f6" stroke-width="2"/>
+<text x="235" y="48.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="700" fill="#1a3338">L0 不用</text>
+<polygon points="55.0,73.0 415.0,73.0 375.0,127.0 95.0,127.0" fill="#b5dbe0" stroke="#faf9f6" stroke-width="2"/>
+<text x="235" y="105.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="700" fill="#1a3338">L1 简单对话</text>
+<polygon points="95.0,130.0 375.0,130.0 335.0,184.0 135.0,184.0" fill="#84bcc5" stroke="#faf9f6" stroke-width="2"/>
+<text x="235" y="162.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="700" fill="#143036">L2 提示词喂料</text>
+<polygon points="135.0,187.0 335.0,187.0 300.0,241.0 170.0,241.0" fill="#4a97a1" stroke="#faf9f6" stroke-width="2"/>
+<text x="235" y="219.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="14" font-weight="700" fill="#ffffff">L3 工具工作流</text>
+<polygon points="170.0,244.0 300.0,244.0 275.0,298.0 195.0,298.0" fill="#2a7d88" stroke="#faf9f6" stroke-width="2"/>
+<text x="235" y="267.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#ffffff">L4</text>
+<text x="235" y="283.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12" font-weight="600" fill="#ffffff">Agent半自动</text>
+<polygon points="195.0,301.0 275.0,301.0 260.0,355.0 210.0,355.0" fill="#176b75" stroke="#faf9f6" stroke-width="2"/>
+<text x="235" y="324.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#ffffff">L5</text>
+<text x="235" y="340.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12" font-weight="600" fill="#ffffff">多Agent流水线</text>
+<line x1="500" y1="43.0" x2="500" y2="328.0" stroke="#176b75" stroke-width="2"/>
+<circle cx="500" cy="43.0" r="5" fill="#cfe7ea" stroke="#176b75" stroke-width="1.5"/>
+<text x="516" y="40.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12.5" font-weight="700" fill="#303c42">尚未开始</text>
+<text x="516" y="56.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11" fill="#657176">有席位未登录 · NANDA</text>
+<circle cx="500" cy="100.0" r="5" fill="#b5dbe0" stroke="#176b75" stroke-width="1.5"/>
+<text x="516" y="97.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12.5" font-weight="700" fill="#303c42">第一天</text>
+<text x="516" y="113.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11" fill="#657176">典型企业问答 · OpenAI</text>
+<circle cx="500" cy="157.0" r="5" fill="#84bcc5" stroke="#176b75" stroke-width="1.5"/>
+<text x="516" y="154.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12.5" font-weight="700" fill="#303c42">数周</text>
+<text x="516" y="170.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11" fill="#657176">Sidekick新商户 · Duolingo</text>
+<circle cx="500" cy="214.0" r="5" fill="#4a97a1" stroke="#176b75" stroke-width="1.5"/>
+<text x="516" y="211.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12.5" font-weight="700" fill="#303c42">数月</text>
+<text x="516" y="227.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11" fill="#657176">BCG顾问 · Mollick/Centaur</text>
+<circle cx="500" cy="271.0" r="5" fill="#2a7d88" stroke="#176b75" stroke-width="1.5"/>
+<text x="516" y="268.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12.5" font-weight="700" fill="#303c42">半年+</text>
+<text x="516" y="284.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11" fill="#657176">Cisco·Codex · Stripe Minions</text>
+<circle cx="500" cy="328.0" r="5" fill="#176b75" stroke="#176b75" stroke-width="1.5"/>
+<text x="516" y="325.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12.5" font-weight="700" fill="#303c42">一年+</text>
+<text x="516" y="341.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11" fill="#657176">Travelers理赔 · Klarna客服</text>
+<line x1="500" y1="328.0" x2="500" y2="360.0" stroke="#176b75" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="516" y="358.0" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12" font-weight="700" fill="#176b75">越深越花时间</text>
 </svg>
-<svg class="funnel-svg mob" viewBox="0 0 360 410" role="img" aria-label="AI使用深度漏斗 L0到L5（手机）">
-<polygon points="12.0,10.0 348.0,10.0 323.0,70.0 37.0,70.0" fill="#cfe7ea" stroke="#faf9f6" stroke-width="2"/>
-<text x="180" y="36.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#1a3338">L0 不用</text>
-<text x="180" y="54.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11.5" font-weight="600" fill="#1a3338" opacity="0.92">尚未开始</text>
-<polygon points="37.0,73.0 323.0,73.0 298.0,133.0 62.0,133.0" fill="#b5dbe0" stroke="#faf9f6" stroke-width="2"/>
-<text x="180" y="99.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#1a3338">L1 简单对话</text>
-<text x="180" y="117.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11.5" font-weight="600" fill="#1a3338" opacity="0.92">第一天</text>
-<polygon points="62.0,136.0 298.0,136.0 273.0,196.0 87.0,196.0" fill="#84bcc5" stroke="#faf9f6" stroke-width="2"/>
-<text x="180" y="162.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#143036">L2 提示词喂料</text>
-<text x="180" y="180.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11.5" font-weight="600" fill="#143036" opacity="0.92">数周</text>
-<polygon points="87.0,199.0 273.0,199.0 250.0,259.0 110.0,259.0" fill="#4a97a1" stroke="#faf9f6" stroke-width="2"/>
-<text x="180" y="225.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#ffffff">L3 工具工作流</text>
-<text x="180" y="243.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11.5" font-weight="600" fill="#ffffff" opacity="0.92">数月</text>
-<polygon points="110.0,262.0 250.0,262.0 230.0,322.0 130.0,322.0" fill="#2a7d88" stroke="#faf9f6" stroke-width="2"/>
-<text x="180" y="288.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#ffffff">L4 Agent半自动</text>
-<text x="180" y="306.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11.5" font-weight="600" fill="#ffffff" opacity="0.92">半年+</text>
-<polygon points="130.0,325.0 230.0,325.0 213.0,385.0 147.0,385.0" fill="#176b75" stroke="#faf9f6" stroke-width="2"/>
-<text x="180" y="344.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#ffffff">L5</text>
-<text x="180" y="360.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12" font-weight="600" fill="#ffffff">流水线</text>
-<text x="180" y="369.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11.5" font-weight="600" fill="#ffffff" opacity="0.92">一年+</text>
-<text x="180" y="400" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12.5" font-weight="700" fill="#176b75">↓ 越深越花时间</text>
+<svg class="funnel-svg mob" viewBox="0 0 360 470" role="img" aria-label="AI使用深度漏斗 L0到L5（手机，含代表）">
+<polygon points="12.0,8.0 348.0,8.0 323.0,62.0 37.0,62.0" fill="#cfe7ea" stroke="#faf9f6" stroke-width="2"/>
+<text x="180" y="30.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#1a3338">L0 不用</text>
+<text x="180" y="48.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11" fill="#1a3338" opacity="0.9">尚未开始 · 有席位未登录</text>
+<polygon points="37.0,65.0 323.0,65.0 298.0,119.0 62.0,119.0" fill="#b5dbe0" stroke="#faf9f6" stroke-width="2"/>
+<text x="180" y="87.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#1a3338">L1 简单对话</text>
+<text x="180" y="105.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11" fill="#1a3338" opacity="0.9">第一天 · 典型企业问答</text>
+<polygon points="62.0,122.0 298.0,122.0 273.0,176.0 87.0,176.0" fill="#84bcc5" stroke="#faf9f6" stroke-width="2"/>
+<text x="180" y="144.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#143036">L2 提示词喂料</text>
+<text x="180" y="162.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11" fill="#143036" opacity="0.9">数周 · Sidekick / Duolingo</text>
+<polygon points="87.0,179.0 273.0,179.0 250.0,233.0 110.0,233.0" fill="#4a97a1" stroke="#faf9f6" stroke-width="2"/>
+<text x="180" y="201.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#ffffff">L3 工具工作流</text>
+<text x="180" y="219.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11" fill="#ffffff" opacity="0.92">数月 · BCG Centaur</text>
+<polygon points="110.0,236.0 250.0,236.0 230.0,290.0 130.0,290.0" fill="#2a7d88" stroke="#faf9f6" stroke-width="2"/>
+<text x="180" y="258.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#ffffff">L4 Agent半自动</text>
+<text x="180" y="276.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11" fill="#ffffff" opacity="0.92">半年+ · Cisco / Stripe</text>
+<polygon points="130.0,293.0 230.0,293.0 213.0,347.0 147.0,347.0" fill="#176b75" stroke="#faf9f6" stroke-width="2"/>
+<text x="180" y="312.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#ffffff">L5 流水线</text>
+<text x="180" y="330.0" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11" fill="#ffffff" opacity="0.92">一年+ · Travelers / Klarna</text>
+<text x="180" y="380" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="12" font-weight="700" fill="#176b75">↓ 越深越花时间 · 右侧代表可核验</text>
+<text x="180" y="402" text-anchor="middle" font-family="system-ui,-apple-system,PingFang SC,sans-serif" font-size="11" fill="#657176">详见下方每档「组织例」与来源节</text>
 </svg>
   </div>
-  <p class="note">桌面 / 手机两套 SVG；手机 L5 改为两行「L5 / 流水线」避免挤出梯形。</p>
+  <p class="note">桌面版：时间轴旁第二行写代表；手机版：代表写在每层梯形内第二行。代表是「公开披露过深度用法」的锚点，不是完整榜单。</p>
 </section>
 
-<section class="card" id="axis1">
-  <h2>轴一 · 拆透每档差在哪</h2>
-  <p>每一档回答五件事：<b>行为标志</b>（你在干什么才算到了）、<b>必备技能</b>（拆任务 / 写上下文 / 验收 / 评测 / 权限 / 数据接入）、<b>成本</b>、<b>卡点</b>、<b>怎么跨到下一档</b>。三段：个人 · 企业通用办公 · 电商垂直。</p>
+<section class="card" id="levels">
+  <h2 id="axis1">每档差在哪：行为 · 技能 · 成本 · 卡点 · 组织例</h2>
+  <p>每一档回答五件事：<b>行为标志</b>、<b>必备技能</b>、<b>成本</b>、<b>卡点</b>、<b>怎么跨到下一档</b>；并从 L2 起为组织侧补<strong>可核验公司/团队例</strong>（带出处）。三段：个人 · 企业通用办公 · 电商垂直。</p>
 
   <div class="lvdeep l0">
     <h3>L0 · 旁观 / 偶尔问一句</h3>
     <p class="hid">时间轴：随时可进 · 几乎零成本 <span class="tag">本页判断</span></p>
     <div class="seggrid">
       <div class="segbox"><b>个人</b>听说过 ChatGPT / 豆包，偶发问天气、翻译一句；输出不进工作流，也不存对话。</div>
-      <div class="segbox"><b>企业办公</b>公司开了 Copilot 席位但登录率低；IT 发过邮件，业务当「又一个工具」。</div>
+      <div class="segbox"><b>企业办公</b>公司开了 Copilot / ChatGPT Enterprise 席位但登录率低；IT 发过邮件，业务当「又一个工具」。</div>
       <div class="segbox"><b>电商</b>刷到「AI 写标题」短视频，没注册；或注册了没用过店铺后台 AI。</div>
     </div>
+    <div class="excos"><b>组织例（浅）：</b>MIT NANDA《GenAI Divide》写 ChatGPT/Copilot 类工具探索或试点可超约 80%、部署近 40%，但多数价值停在个人效率、未必进 P&amp;L——大量组织实质停在 L0–L1 之间。<sup class="src"><a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf" target="_blank" rel="noopener">〔源〕</a></sup> 淘天白皮书口径「L0 尚未应用」约 6.18%（样本偏老板/决策层）。<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup></div>
     <div class="skills">技能：几乎无。卡点：不知道「问什么值得问」。 <span class="tag">本页判断</span></div>
     <p class="cost">成本：0–几分钟；钱 ≈ 免费额度。 <span class="tag">本页判断</span></p>
     <p class="blocker">卡点：恐惧 / 没空 / 「跟我没关系」。 <span class="tag">本页判断</span></p>
@@ -217,9 +256,10 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}</style>
     <p class="hid">时间轴：约 1–2 周 <span class="tag">本页判断</span></p>
     <div class="seggrid">
       <div class="segbox"><b>个人</b>写摘要、润色、解释概念成习惯；仍是「一问一答」，很少贴长文档。</div>
-      <div class="segbox"><b>企业办公</b>用 ChatGPT/Copilot 写邮件、会议纪要；OpenAI 称典型企业仍偏「问答深度」，前沿企业人均智力用量约 3.5× 典型企业<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup>。</div>
-      <div class="segbox"><b>电商</b>用免费工具改标题/详情；淘天白皮书里约 70% 商家已在用 AI 工具、约 60% 每天高频用，但「L1 浅层应用」仍占 20.67%<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup>。</div>
+      <div class="segbox"><b>企业办公</b>用 ChatGPT/Copilot 写邮件、会议纪要；OpenAI：典型企业仍偏「问答深度」，前沿企业人均智力用量约 3.5× 典型企业。<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup></div>
+      <div class="segbox"><b>电商</b>用免费工具改标题/详情；淘天白皮书：约 70% 商家在用 AI、约 60% 每天高频，但「L1 浅层应用」仍占 20.67%。<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup></div>
     </div>
+    <div class="excos"><b>组织例：</b>OpenAI B2B Signals 里的「典型企业」（中位用量段）——主要用来回答问题，而不是委托复杂执行。<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup> Klarna 早期给全员开 ChatGPT Enterprise、宣称约 90% 员工日活（偏 L1–L2 普及，不等于客服流水线已到位）。<sup class="src"><a href="https://openai.com/index/klarna/" target="_blank" rel="noopener">〔源〕</a></sup></div>
     <div class="skills">技能：会写清楚问题；还不会系统贴上下文。缺：验收标准、评测。 <span class="tag">本页判断</span></div>
     <p class="cost">成本：每天 15–40 分钟；订阅 0–20 美元/月。 <span class="tag">本页判断</span></p>
     <p class="blocker">卡点：幻觉没被抓住 → 不敢用在客户/老板面前；或「AI 写的一眼假」。 <span class="tag">本页判断</span></p>
@@ -231,9 +271,10 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}</style>
     <p class="hid">时间轴：约 1–2 月 <span class="tag">本页判断</span></p>
     <div class="seggrid">
       <div class="segbox"><b>个人</b>上传 PDF/代码/表格；多轮「按这版改第三节」；开始有自己的 prompt 库。</div>
-      <div class="segbox"><b>企业办公</b>知识库/定制 GPT 小范围试点；OpenAI 称「开通权限已不再是差异点」，重点转向使用深度<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup>。</div>
-      <div class="segbox"><b>电商</b>上传店铺数据截图/CSV 问「哪款该加投」；Shopify Sidekick Q1'26 周活店铺同比约 4×，近半 Flow 由 Sidekick 生成<sup class="src"><a href="https://www.fool.com/earnings/call-transcripts/2026/05/05/shopify-shop-q1-2026-earnings-transcript/" target="_blank" rel="noopener">〔源〕</a></sup>。</div>
+      <div class="segbox"><b>企业办公</b>知识库/定制 GPT 小范围试点；OpenAI：开通权限已不再是差异点，重点转向使用深度。<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup></div>
+      <div class="segbox"><b>电商</b>上传店铺数据截图/CSV 问「哪款该加投」；Shopify Sidekick Q1'26 周活店铺同比约 4×，近半 Flow 由 Sidekick 生成。<sup class="src"><a href="https://www.fool.com/earnings/call-transcripts/2026/05/05/shopify-shop-q1-2026-earnings-transcript/" target="_blank" rel="noopener">〔源〕</a></sup></div>
     </div>
+    <div class="excos"><b>组织例：</b>Shopify（Sidekick：新商户前 30 天约一半对话在装修——典型「喂上下文」深度）<sup class="src"><a href="https://www.fool.com/earnings/call-transcripts/2026/08/12/shopify-shop-q2-2026-earnings-call-transcript/" target="_blank" rel="noopener">〔源〕</a></sup>；Duolingo（GPT-4 生成练习/课程素材，学习设计师填 prompt 约束后人工审改——产品内容侧的 L2→L3 过渡）<sup class="src"><a href="https://blog.duolingo.com/large-language-model-duolingo-lessons/" target="_blank" rel="noopener">〔源〕</a></sup>；淘天白皮书「L2 常规应用」约 38.54%。<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup></div>
     <div class="skills">技能：写上下文、拆子任务。缺：可重复验收、权限与数据治理。 <span class="tag">本页判断</span></div>
     <p class="cost">成本：搭模板 数小时–数天；企业还要合规评审。 <span class="tag">本页判断</span></p>
     <p class="blocker">卡点：上下文太散、模型「装懂」；企业侧数据进不了模型（权限墙）。 <span class="tag">本页判断</span></p>
@@ -246,11 +287,12 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}</style>
     <div class="seggrid">
       <div class="segbox"><b>个人</b>对代码跑测试、对文案对照清单；Mollick/BCG：前沿内任务质量↑、前沿外正确率低约 19 个百分点<sup class="src"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4573321" target="_blank" rel="noopener">〔源〕</a></sup>——你会主动判断任务是否在 frontier 内。</div>
       <div class="segbox"><b>企业办公</b>有黄金集/抽检；区分 Centaur（切任务）与 Cyborg（融合工作流）。</div>
-      <div class="segbox"><b>电商</b>上线前后比 CTR/转化；淘天白皮书口径「L3 深度应用」占 24.77%<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup>。</div>
+      <div class="segbox"><b>电商</b>上线前后比 CTR/转化；淘天白皮书口径「L3 深度应用」占 24.77%。<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup></div>
     </div>
+    <div class="excos"><b>组织例：</b>BCG（758 顾问实验，前沿外任务正确率掉约 19pp——验收/切任务本身就是能力）<sup class="src"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4573321" target="_blank" rel="noopener">〔源〕</a></sup>；Ethan Mollick 总结的 Centaur / Cyborg 用法<sup class="src"><a href="https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged" target="_blank" rel="noopener">〔源〕</a></sup>；Duolingo Max（Roleplay / Explain My Answer：场景与初始句由人写，AI 回复持续抽检）<sup class="src"><a href="https://blog.duolingo.com/duolingo-max/" target="_blank" rel="noopener">〔源〕</a></sup>。反面教材：METR 早期-2025 RCT——资深开发者自我感觉快了 20%，实际慢 19%。<sup class="src"><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank" rel="noopener">〔源〕</a></sup></div>
     <div class="skills">技能：验收、评测、任务切分（在/出 frontier）。缺：系统权限编排、多 Agent。 <span class="tag">本页判断</span></div>
     <p class="cost">成本：建评测集 数天–数周；组织要改 OKR/质检岗。 <span class="tag">本页判断</span></p>
-    <p class="blocker">卡点：没有「错了谁负责」；METR 显示资深开发者早期-2025 用 AI 完成真实 issue 反而慢 19%，且自我感觉还快了 20%<sup class="src"><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank" rel="noopener">〔源〕</a></sup>——验收不准会自我欺骗。</p>
+    <p class="blocker">卡点：没有「错了谁负责」；验收不准会自我欺骗（见 METR）。</p>
     <ol class="checklist"><li>写清「AI 可自动合并」vs「必须人审」边界。</li><li>每周抽 10 条产出打分，盯错误类型分布。</li><li>电商：同一批素材用/不用 AI 做对照投放（小预算）。</li></ol>
   </div>
 
@@ -258,9 +300,17 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}</style>
     <h3>L4 · 会编：Agent / IDE / 工具链进生产</h3>
     <p class="hid">时间轴：约 6–12 月 <span class="tag">本页判断</span></p>
     <div class="seggrid">
-      <div class="segbox"><b>个人</b>Cursor/Claude Code/Codex 日常改仓库；Andrew Ng：GPT-3.5 + agentic workflow 可超过 GPT-4 zero-shot（HumanEval：GPT-3.5 约 48%、GPT-4 约 67%）<sup class="src"><a href="https://www.youtube.com/watch?v=sal78ACtGTc" target="_blank" rel="noopener">〔源〕</a></sup>。</div>
-      <div class="segbox"><b>企业办公</b>前沿企业 Codex 消息量可达典型企业约 16×（OpenAI B2B Signals）；Cisco 称 Codex 助每月省 1500+ 工程小时、缺陷处理吞吐升 10–15×（同报告引用）<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup>。</div>
+      <div class="segbox"><b>个人</b>Cursor/Claude Code/Codex 日常改仓库；Andrew Ng：GPT-3.5 + agentic workflow 可超过 GPT-4 zero-shot（HumanEval：GPT-3.5 约 48%、GPT-4 约 67%）。<sup class="src"><a href="https://www.youtube.com/watch?v=sal78ACtGTc" target="_blank" rel="noopener">〔源〕</a></sup></div>
+      <div class="segbox"><b>企业办公</b>前沿企业 Codex 消息量可达典型企业约 16×（OpenAI B2B Signals）；Cisco：构建时间约 −20%，每月省 1500+ 工程小时，缺陷吞吐 10–15×。<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup></div>
       <div class="segbox"><b>电商</b>Sidekick 代建页/自动化；Pulse 主动建议并执行；代运营用 Agent 批量出图+上架但仍人审价格库存。</div>
+    </div>
+    <div class="excos"><b>组织例：</b>
+      <ul style="margin:4px 0 0;padding-left:18px">
+        <li><b>Cisco</b>：Codex 进生产工程；AI Defense 新功能大量由 Codex 写；跨 15+ 仓优化构建；CodeWatch 缺陷修复吞吐 10–15×。<sup class="src"><a href="https://openai.com/index/cisco/" target="_blank" rel="noopener">〔源〕</a></sup></li>
+        <li><b>Stripe</b>：自研 Minions one-shot coding agents；官方称每周 1000+（后公开到 1300+）条无人写码、仅人审的合并 PR。<sup class="src"><a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents" target="_blank" rel="noopener">〔源〕</a></sup></li>
+        <li><b>Box</b>：组织级推广 Cursor 作核心 IDE/Agent（供应商案例称路线图交付提升、迁移加速——口径来自 Cursor，标待交叉核）。<sup class="src"><a href="https://gravity.fast/data/companies-using-ai-agents/" target="_blank" rel="noopener">〔源〕</a></sup> <span class="tag warn">待交叉核</span></li>
+        <li><b>Shopify</b>：Sidekick 生成近半 Flow、自定义 App 与 Pulse「建议并执行」——电商侧的 L4 代执行。<sup class="src"><a href="https://www.fool.com/earnings/call-transcripts/2026/05/05/shopify-shop-q1-2026-earnings-transcript/" target="_blank" rel="noopener">〔源〕</a></sup></li>
+      </ul>
     </div>
     <div class="skills">技能：权限、工具调用、仓库/后台接入、失败重试。缺：多 Agent 编排与成本账。 <span class="tag">本页判断</span></div>
     <p class="cost">成本：订阅+API 数十–数百美元/月；企业要改 CI、密钥、审计。 <span class="tag">本页判断</span></p>
@@ -273,16 +323,26 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}</style>
     <p class="hid">时间轴：约一年以上 · 极少数人/团队 <span class="tag">本页判断</span></p>
     <div class="seggrid">
       <div class="segbox"><b>个人</b>多 Agent 分工（规划/编码/评审）+ 夜间批任务；归藏观察：Personal Agent vs 专家可插拔 Agent 正在分化。</div>
-      <div class="segbox"><b>企业办公</b>从聊天助手迁到「委托工作」；Travelers AI Claim Assistant 预计首年处理约 10 万次出险报案（OpenAI 案例）<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup>。</div>
-      <div class="segbox"><b>电商</b>选品→素材→投放→客服→复盘闭环；淘天白皮书口径「L4 融合应用」仅 9.84%<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup>；海外卖家用 Catalog/AI 搜索流量（Shopify：AI 搜索订单同比约 3×）<sup class="src"><a href="https://www.fool.com/earnings/call-transcripts/2026/08/12/shopify-shop-q2-2026-earnings-call-transcript/" target="_blank" rel="noopener">〔源〕</a></sup>。</div>
+      <div class="segbox"><b>企业办公</b>从聊天助手迁到「委托工作」并接进核心系统；度量人时/错误率/业务结果，而不只是 token。</div>
+      <div class="segbox"><b>电商</b>选品→素材→投放→客服→复盘闭环；淘天白皮书「L4 融合应用」仅 9.84%<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup>；Shopify：AI 搜索订单同比约 3×（流量侧闭环信号）。<sup class="src"><a href="https://www.fool.com/earnings/call-transcripts/2026/08/12/shopify-shop-q2-2026-earnings-call-transcript/" target="_blank" rel="noopener">〔源〕</a></sup></div>
+    </div>
+    <div class="excos"><b>组织例：</b>
+      <ul style="margin:4px 0 0;padding-left:18px">
+        <li><b>Travelers</b>：AI Claim Assistant 引导出险报案、答保单问题、在内部系统建案；预计首年约 10 万次 FNOL。<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup></li>
+        <li><b>Klarna</b>：OpenAI 客服助手上线首月 230 万会话、约占客服聊天 2/3、约等于 700 名全职；解决时长从约 11 分钟降到不足 2 分钟；后续仍称约占 2/3 聊天并继续啃 L2 支持。<sup class="src"><a href="https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/" target="_blank" rel="noopener">〔源〕</a></sup> <sup class="src"><a href="https://openai.com/index/klarna/" target="_blank" rel="noopener">〔源〕</a></sup></li>
+        <li><b>Salesforce Agentforce / ServiceNow AI Agents</b>：厂商侧多 Agent 编排平台与客户部署叙事多，公开可独立审计的业务结果口径碎——本页作「平台能力」参考，不写成已验证的 L5 结果榜。<span class="tag warn">待核</span></li>
+      </ul>
+      MIT NANDA：任务型企业工具约 60% 评估→20% 试点→5% 称有持续生产力/P&amp;L——真正站稳 L5 的组织极少。<sup class="src"><a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf" target="_blank" rel="noopener">〔源〕</a></sup>
     </div>
     <div class="skills">技能：编排、评测门禁、成本/延迟账本、组织流程再设计。六项技能齐。 <span class="tag">本页判断</span></div>
     <p class="cost">成本：工程周–月级；组织变革是主成本。 <span class="tag">本页判断</span></p>
-    <p class="blocker">卡点：MIT NANDA「GenAI Divide」：任务型企业工具约 60% 评估→20% 试点→5% 成功落地；媒体常简化成「95% 试点失败」<sup class="src"><a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf" target="_blank" rel="noopener">〔源〕</a></sup>——见反证节精确表述。</p>
+    <p class="blocker">卡点：编排、激励与停机条件；媒体常把 NANDA 简化成「95% 试点失败」——见反证节。</p>
     <ol class="checklist"><li>先做一条窄流水线（一个 SKU 类目 / 一个代码子系统），设自动停机条件。</li><li>度量：人时、错误率、毛利，不单看「用了多少 token」。</li><li>把成功路径写成可复制 playbook，再扩面。</li></ol>
   </div>
+</section>
 
-  <h3 id="quiz">自测诊断表（约 2 分钟） <span class="tag">本页判断</span><small>（带〔源〕的句子有出处，其余为本页归纳）</small></h3>
+<section class="card" id="quiz">
+  <h3>自测诊断表（约 2 分钟） <span class="tag">本页判断</span><small>（带〔源〕的句子有出处，其余为本页归纳）</small></h3>
   <p class="note">每题选最像你的一档；多数落在哪档，你大概就在哪。跨档看上一节 checklist。</p>
   <table class="quiz">
     <thead><tr><th>题</th><th>偏 L0–L1</th><th>偏 L2–L3</th><th>偏 L4–L5</th></tr></thead>
@@ -298,8 +358,8 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}</style>
   <p class="note">粗判：≥4 题落左列 → 先攻 L2；中间居多 → 攻评测与权限进 L4；右列居多 → 盯成本和一条可复制流水线。</p>
 </section>
 
-<section class="card" id="axis2">
-  <h2>轴二 · 案例做厚 + 反证</h2>
+<section class="card" id="cases">
+  <h2 id="axis2">厚案例 + 反证</h2>
   <p>每档 2–3 个故事：试了什么 → 翻车 → 何物奏效 → 数字与出处。含个人 / 办公 / 电商（中国+海外）。</p>
 
   <h3>L0–L1 故事</h3>
@@ -314,7 +374,8 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}</style>
   <div class="story">
     <p class="meta-s">电商 · 中国平台分层</p>
     <h4>淘天商家 AI 融合指数层级（官方白皮书）</h4>
-    <p>淘天集团 ×《天下网商》《AI重塑经营：2026中国电商AI应用白皮书》（2026-06 发布，06-10 对外公布）：调研 900 多位商家、有效问卷 846 份，按使用频率、业务覆盖率、工具数、人才储备、价值实现五维打分（满分 100）。L0 尚未应用 6.18%，L1 浅层应用 20.67%，L2 常规应用 38.54%，L3 深度应用 24.77%，L4 融合应用 9.84%；70% 商家在用 AI 工具，约 60% 每天高频使用。<span class="tag warn">口径：受访者 85% 为老板/决策层，样本偏积极</span></p><p>注：淘天的 L0–L4 是他们自己的五档评分，和本页的 L0–L5 不一一对应，只能参照看。</p>
+    <p>淘天集团 ×《天下网商》《AI重塑经营：2026中国电商AI应用白皮书》（2026-06 发布，06-10 对外公布）：调研 900 多位商家、有效问卷 846 份，按使用频率、业务覆盖率、工具数、人才储备、价值实现五维打分（满分 100）。L0 尚未应用 6.18%，L1 浅层应用 20.67%，L2 常规应用 38.54%，L3 深度应用 24.77%，L4 融合应用 9.84%；70% 商家在用 AI 工具，约 60% 每天高频使用。<span class="tag warn">口径：受访者 85% 为老板/决策层，样本偏积极</span></p>
+    <p>注：淘天的 L0–L4 是他们自己的五档评分，和本页的 L0–L5 不一一对应，只能参照看。</p>
     <p class="src-s">来源：<a href="https://top-public.oss-cn-beijing.aliyuncs.com/2026%E4%B8%AD%E5%9B%BD%E7%94%B5%E5%95%86AI%E5%BA%94%E7%94%A8%E7%99%BD%E7%9A%AE%E4%B9%A66.5.pdf">白皮书 PDF 原文</a> · <a href="https://news.qq.com/rain/a/20260610A0AFQ600">腾讯新闻报道 2026-06-10</a></p>
   </div>
 
@@ -336,6 +397,13 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}</style>
     <p class="src-s">来源：YouTube <a href="https://www.youtube.com/watch?v=sal78ACtGTc">sal78ACtGTc</a> 字幕 ≈00:02:46–00:03:18、00:03:48 reflection、00:09:20 multi-agent（本机 yt-dlp 拉取）</p>
   </div>
   <div class="story">
+    <p class="meta-s">产品内容 · Duolingo</p>
+    <h4>人写约束，模型出量，专家守门</h4>
+    <p>试了：用 LLM 按 CEFR/主题/语法/题型 prompt 批量生成练习；Max 订阅用 GPT-4 做 Roleplay / Explain My Answer。</p>
+    <p>奏效：学习设计师填「Mad Lib」式约束，模型一次出多题，专家审改；场景与初始句仍由人写。失败风险：把生成当终稿、不做抽检。</p>
+    <p class="src-s">来源：<a href="https://blog.duolingo.com/large-language-model-duolingo-lessons/">Duolingo《How Duolingo Uses AI to Create Lessons Faster》</a>；<a href="https://blog.duolingo.com/duolingo-max/">Introducing Duolingo Max</a></p>
+  </div>
+  <div class="story">
     <p class="meta-s">电商海外 · Shopify Sidekick</p>
     <h4>从「问一句」到「代执行」</h4>
     <p>试了：主题改写、Flow 自动化、自定义 App、Pulse 主动建议并建页。</p>
@@ -346,10 +414,34 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}</style>
 
   <h3>L4–L5 故事</h3>
   <div class="story">
-    <p class="meta-s">企业工程 · OpenAI B2B Signals 引用</p>
-    <h4>前沿企业把 Agent 当队友</h4>
-    <p class="nums">前沿（约 95 分位）人均智力用量约 3.5× 典型企业（一年前约 2×）；消息量只解释约 36% 差距；Codex 人均消息约 16×。Cisco：构建时间约 −20%，每月省 1500+ 工程小时，缺陷解决吞吐约 10–15×。</p>
-    <p class="src-s">来源：<a href="https://openai.com/index/introducing-b2b-signals/">OpenAI《B2B Signals》</a>(2026-05-06；页面称 Enterprise Signals 后续更新)</p>
+    <p class="meta-s">企业工程 · Cisco × Codex</p>
+    <h4>把 Agent 当队友，而不是补全插件</h4>
+    <p>试了：跨 15+ 仓库读构建日志与依赖图；CodeWatch 用 Codex CLI 在大型 C/C++ 上迭代修缺陷；Splunk 团队用其做 React 18→19 批量迁移。</p>
+    <p class="nums">构建时间约 −20%；每月省 1500+ 工程小时；缺陷解决吞吐约 10–15×；新 AI 功能 95%+ 由 Codex 写出（OpenAI/Cisco 联合披露）。</p>
+    <p>奏效：接入真实多仓、合规与评审流程；把 Codex 当「团队成员」跟计划文档，而不是聊天补丁。</p>
+    <p class="src-s">来源：<a href="https://openai.com/index/cisco/">OpenAI × Cisco 案例</a>（2026-05-27）；亦见 <a href="https://openai.com/index/introducing-b2b-signals/">B2B Signals</a> 转述</p>
+  </div>
+  <div class="story">
+    <p class="meta-s">企业工程 · Stripe Minions</p>
+    <h4>One-shot：Slack 一句 → CI 过的 PR</h4>
+    <p>试了：完全无人值守的 coding agents；任务从 Slack/工单进来，在隔离 devbox 跑完，开出符合模板、过 CI 的 PR，工程师只审。</p>
+    <p class="nums">Stripe 官方：每周超过一千条合并 PR 完全由 Minions 产出、无人写码（后人引述到约 1300+/周）。</p>
+    <p>奏效：隔离环境 + CI/静态分析门禁 + 人审；擅长配置、依赖升级、小重构等边界清楚的任务。</p>
+    <p class="src-s">来源：<a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents">Stripe.dev《Minions》</a></p>
+  </div>
+  <div class="story">
+    <p class="meta-s">客服流水线 · Klarna</p>
+    <h4>会话进系统，人只接高情绪/高复杂度</h4>
+    <p>试了：OpenAI 驱动的全球客服助手处理退款、账单、争议等；明确告知是机器人，可转人工。</p>
+    <p class="nums">首月约 230 万会话、约占客服聊天 2/3、约等于 700 名全职；解决时长约 11→&lt;2 分钟；重复问询约 −25%；公司估 2024 年利润改善约 4000 万美元（公司口径）。</p>
+    <p>后续：CEO 称仍约占 2/3 聊天，并继续吃更复杂的 L2 支持；同时回补有温度的人工坐席——不是「AI 失败」，而是 L5 需要人机分工边界。</p>
+    <p class="src-s">来源：<a href="https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/">Klarna 新闻稿 2024-02-27</a>；<a href="https://openai.com/index/klarna/">OpenAI Klarna 案例</a></p>
+  </div>
+  <div class="story">
+    <p class="meta-s">保险 · Travelers</p>
+    <h4>报案助手接到核心理赔系统</h4>
+    <p>AI Claim Assistant 引导首次出险报案、答保单问题、采集建案信息并在 Travelers 系统内创建案件；OpenAI 披露预计首年处理约 10 万次 FNOL。</p>
+    <p class="src-s">来源：<a href="https://openai.com/index/introducing-b2b-signals/">OpenAI B2B Signals</a>（2026-05-06）——数字为公司预期/报告转述，未独立审计</p>
   </div>
   <div class="story">
     <p class="meta-s">中文圈 · 归藏 @op7418</p>
@@ -376,43 +468,45 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}</style>
   </div>
 </section>
 
-<section class="card insight-deep ocean" id="axis3">
-  <h2>轴三 · 洞察做深</h2>
+<section class="card insight-deep ocean" id="insights">
+  <h2 id="axis3">机制洞察 · 水位漂移 · 搞钱地图</h2>
 
-  <h3>1. 为什么上手容易、用深难（机制） <span class="tag">本页判断</span><small>（带〔源〕的句子有出处，其余为本页归纳）</small></h3>
+  <h3>为什么上手容易、用深难（机制） <span class="tag">本页判断</span><small>（带〔源〕的句子有出处，其余为本页归纳）</small></h3>
   <ol>
-    <li><b>验证成本</b>：生成便宜、确认贵。METR 里人感觉快了 20%、实际慢 19%——没有外部计时/测试，主观会骗你。</li>
-    <li><b>隐性知识</b>：好买家、好代码审、好客服话术里大量「说不清的规矩」；模型缺这些就会流畅地错。</li>
-    <li><b>上下文与数据墙</b>：个人聊得欢；企业真数据、真权限、真审计一接上就停在 L2。</li>
+    <li><b>验证成本</b>：生成便宜、确认贵。METR 里人感觉快了 20%、实际慢 19%——没有外部计时/测试，主观会骗你。Stripe/Cisco 能上 L4，关键之一是 CI/评审把门，把验证成本机构化。</li>
+    <li><b>隐性知识</b>：好买家、好代码审、好客服话术里大量「说不清的规矩」；模型缺这些就会流畅地错。Klarna 后来补「有温度」人工，正是承认边界外的隐性知识。</li>
+    <li><b>上下文与数据墙</b>：个人聊得欢；企业真数据、真权限、真审计一接上就停在 L2。Travelers 的价值不在聊天，而在「能在内部系统建案」。</li>
     <li><b>组织激励</b>：KPI 仍奖人肉产出/工时；试点成功无人拥有规模化。NANDA：外部伙伴落地成功率约 2× 内部自建（报告口径）<sup class="src"><a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf" target="_blank" rel="noopener">〔源〕</a></sup>。</li>
     <li><b>锯齿前沿（jagged frontier）</b>：能力边界不平滑；任务看起来同级，一边加速一边害你。</li>
-    <li><b>能力悬垂（capability overhang）</b>：模型已能做更深的事，多数人/组织仍停在问答；OpenAI：深度差距里消息量只解释约 36%，其余是更复杂委托<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup>。</li>
+    <li><b>能力悬垂（capability overhang）</b>：模型已能做更深的事，多数人/组织仍停在问答；OpenAI：深度差距里消息量只解释约 36%，其余是更复杂委托<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup>。2026-06 Enterprise Signals 更新进一步写：前沿相对典型的人均输出 token 差距扩到约 8.3×（口径从 95 分位改为每月 top 10%，不可与 3.5× 直接横比）。<sup class="src"><a href="https://openai.com/signals/enterprise-data/" target="_blank" rel="noopener">〔源〕</a></sup></li>
   </ol>
 
-  <h3>2. 水位线怎么在挪 <span class="tag">本页判断</span><small>（带〔源〕的句子有出处，其余为本页归纳）</small></h3>
+  <h3>水位线怎么在挪 <span class="tag">本页判断</span><small>（带〔源〕的句子有出处，其余为本页归纳）</small></h3>
   <ul>
     <li><b>L1→L2 悬崖变矮</b>：长上下文、截图、店铺内 Sidekick，使「喂材料」不再是极客技能。</li>
     <li><b>L3 验收仍陡</b>：评测集、对错标准、谁负责——组织债，模型帮不上太多。</li>
-    <li><b>L4 工具链在降坡</b>：Cursor/Codex/Claude Code、Shopify Flow+Sidekick、连接器（如 1Password Agent 连接器<span class="tag warn">待核</span>）降低「接到生产」摩擦。</li>
+    <li><b>L4 工具链在降坡</b>：Cursor/Codex/Claude Code、Shopify Flow+Sidekick、Stripe 式内部 Agent 平台降低「接到生产」摩擦；但密钥、审计、回归仍要人建。</li>
     <li><b>L5 编排仍贵</b>：多 Agent + 闭环指标 + 停机条件，是产品与组织设计，不是再买一个聊天框。</li>
     <li>时间对照：Ng 2024 讲 agentic 时强调「要学会等迭代」<sup class="src"><a href="https://www.youtube.com/watch?v=sal78ACtGTc" target="_blank" rel="noopener">〔源〕</a></sup>；2026 企业信号已把 Codex/Agent 用量当前沿标志——悬崖位置下移，但验收与编排悬崖还在。</li>
   </ul>
 
-  <h3>3. 每道悬崖上的钱与玩家 <span class="tag">本页判断</span><small>（带〔源〕的句子有出处，其余为本页归纳）</small></h3>
+  <h3>每道悬崖上的钱与玩家 <span class="tag">本页判断</span><small>（带〔源〕的句子有出处，其余为本页归纳）</small></h3>
   <div class="money">
     <div class="m"><b>L0→L1 教育/习惯</b>课程、模板、社群；玩家：各家官方学院、中文科普博主、平台商家课堂。</div>
-    <div class="m"><b>L1→L2 模板与知识库</b>提示词包、垂直知识库 SaaS、电商「标题/详情」工具。</div>
+    <div class="m"><b>L1→L2 模板与知识库</b>提示词包、垂直知识库 SaaS、电商「标题/详情」工具；Duolingo 式「约束模板 + 人工审」也可产品化。</div>
     <div class="m"><b>L2→L3 评测与质检</b>红队/评测公司、内容质检、人机抽检代运营；咨询把「试点变流程」。</div>
-    <div class="m"><b>L3→L4 接入与 Agent 工具</b>IDE Agent、RPA+LLM、Shopify Sidekick/Amazon 卖家 AI、连接器；企业 IT 集成。</div>
-    <div class="m"><b>L4→L5 代运营 / 流水线产品</b>托管式 AI 代运营、品类流水线、Agent 编排平台；吃的是组织不愿养团队的差价。</div>
+    <div class="m"><b>L3→L4 接入与 Agent 工具</b>IDE Agent（Cursor/Codex）、RPA+LLM、Shopify Sidekick/Amazon 卖家 AI、连接器；企业 IT 集成。</div>
+    <div class="m"><b>L4→L5 代运营 / 流水线产品</b>托管式 AI 代运营、品类流水线、Agent 编排平台（Salesforce Agentforce / ServiceNow 等厂商叙事）；吃的是组织不愿养团队的差价。</div>
     <div class="m"><b>反模式</b>只卖「席位」不卖深度 → 停在 NANDA 所说「有工具无回报」一侧。</div>
   </div>
+</section>
 
-  <h3>4. 对 Ocean 的具体含义 <span class="tag">本页判断</span><small>（带〔源〕的句子有出处，其余为本页归纳）</small></h3>
+<section class="card ocean" id="ocean">
+  <h2>对 Ocean 的具体含义 <span class="tag">本页判断</span><small>（带〔源〕的句子有出处，其余为本页归纳）</small></h2>
   <ul>
-    <li><b>iOS / 本地 Codex</b>：你已偏 L4 工具链；下一悬崖是 L3 验收自动化（测试门禁、截图回归）和 L5 窄流水线（例如「一条功能：issue→云代理→PR→你只审」），而不是再多开聊天窗口。</li>
+    <li><b>iOS / 本地 Codex</b>：你已偏 L4 工具链；下一悬崖是 L3 验收自动化（测试门禁、截图回归）和 L5 窄流水线（例如「一条功能：issue→云代理→PR→你只审」——对齐 Stripe Minions 形态），而不是再多开聊天窗口。</li>
     <li><b>Digest 情报站</b>：本质是 L2→L3 产品——把信息差做成可验收的「今日可用动作」；加深页本身就是在补「验证成本」。</li>
-    <li><b>CRM / Accio 电商</b>：卖家多数卡在 L1–L2；可卖的是 L2 模板（类目上下文包）+ L3 对照投放评测 + L4 只读连接后台；写操作默认人审，对齐 Shopify「代执行但可撤销」路径。</li>
+    <li><b>CRM / Accio 电商</b>：卖家多数卡在 L1–L2（淘天浅层+常规合计仍大头）；可卖的是 L2 模板（类目上下文包）+ L3 对照投放评测 + L4 只读连接后台；写操作默认人审，对齐 Shopify「代执行但可撤销」与 Klarna「可转人工」路径。</li>
     <li><b>别被 overhang 骗</b>：模型与 Agent 能力涨得快，客户组织债涨得慢——报价按「帮对方跨一档」而不是按 token。</li>
     <li><b>反证自用</b>：自己写代码时用 METR 提醒——感觉快 ≠ 真快；用锯齿前沿提醒——前端文案任务和库存决策任务不要同一套自动化。</li>
   </ul>
@@ -427,15 +521,18 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}</style>
   <h2>全部来源（本页引用）</h2>
   <ol class="src">
     <li>OpenAI — <a href="https://openai.com/index/introducing-b2b-signals/">How frontier firms are pulling ahead (B2B / Enterprise Signals)</a>，2026-05-06：3.5×、36%、16× Codex、Cisco / Travelers 案例。</li>
-    <li>METR — <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">Early-2025 AI × experienced OS developers RCT</a>：+19% 耗时；预期 −24%；事后自评 −20%。论文 PDF 同站。</li>
-    <li>METR — <a href="https://metr.org/blog/2026-02-24-uplift-update/">Uplift update</a>，2026-02：称旧结果过时；新数据因选择偏差不可靠。</li>
-    <li>Dell'Acqua et al. — Navigating the Jagged Technological Frontier，BCG 实验，758 顾问；Organization Science / SSRN。</li>
-    <li>Ethan Mollick — <a href="https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged">Centaurs and Cyborgs on the Jagged Frontier</a>，2023-09-16。</li>
-    <li>Andrew Ng — AI Agentic Workflows 演讲，YouTube <a href="https://www.youtube.com/watch?v=sal78ACtGTc">sal78ACtGTc</a>；本机 yt-dlp 英文字幕，关键数字约 00:02:46–00:03:18。</li>
-    <li>MIT NANDA — State of AI in Business 2025 / GenAI Divide PDF；Fortune 2025-08-18 访谈；NewMR「Myth Number 2」澄清 95% 表述。</li>
-    <li>Shopify — Q1/Q2 2026 earnings：Sidekick 4× 周活、近半 Flow、34M 对话、3.6× 日活、+8% 达 5 单等。</li>
+    <li>OpenAI — <a href="https://openai.com/signals/enterprise-data/">Enterprise Signals</a>（后续更新）：前沿/典型用量口径变化；2026-06 约 8.3× 等。</li>
+    <li>OpenAI — <a href="https://openai.com/index/cisco/">Cisco × Codex</a>，2026-05-27：构建 −20%、1500+ 小时/月、缺陷吞吐 10–15×、95%+ 新 AI 功能。</li>
+    <li>OpenAI — <a href="https://openai.com/index/klarna/">Klarna</a>；Klarna — <a href="https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/">客服助手首月数据</a>。</li>
+    <li>Stripe — <a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents">Minions: one-shot coding agents</a>。</li>
+    <li>Duolingo — <a href="https://blog.duolingo.com/duolingo-max/">Duolingo Max</a>；<a href="https://blog.duolingo.com/large-language-model-duolingo-lessons/">LLM 生成课程练习</a>。</li>
+    <li>METR — <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">Early-2025 AI × experienced OS developers RCT</a>；<a href="https://metr.org/blog/2026-02-24-uplift-update/">Uplift update</a>。</li>
+    <li>Dell'Acqua et al. — Navigating the Jagged Technological Frontier，BCG 实验；Ethan Mollick — <a href="https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged">Centaurs and Cyborgs</a>。</li>
+    <li>Andrew Ng — AI Agentic Workflows，YouTube <a href="https://www.youtube.com/watch?v=sal78ACtGTc">sal78ACtGTc</a>。</li>
+    <li>MIT NANDA — State of AI in Business 2025 / GenAI Divide；Fortune 2025-08-18；NewMR「Myth Number 2」。</li>
+    <li>Shopify — Q1/Q2 2026 earnings：Sidekick 4× 周活、近半 Flow、34M 对话等。</li>
     <li>X @op7418（歸藏）— 2026-10 Agent 分化、插件体系、额度调度等帖（只读）。</li>
-    <li>淘天×《天下网商》《AI重塑经营：2026中国电商AI应用白皮书》— <a href="https://top-public.oss-cn-beijing.aliyuncs.com/2026%E4%B8%AD%E5%9B%BD%E7%94%B5%E5%95%86AI%E5%BA%94%E7%94%A8%E7%99%BD%E7%9A%AE%E4%B9%A66.5.pdf">原文</a> · <a href="https://news.qq.com/rain/a/20260610A0AFQ600">报道</a>（846 份问卷，受访者 85% 为老板/决策层）。</li>
+    <li>淘天×《天下网商》《AI重塑经营：2026中国电商AI应用白皮书》— <a href="https://top-public.oss-cn-beijing.aliyuncs.com/2026%E4%B8%AD%E5%9B%BD%E7%94%B5%E5%95%86AI%E5%BA%94%E7%94%A8%E7%99%BD%E7%9A%AE%E4%B9%A66.5.pdf">原文</a> · <a href="https://news.qq.com/rain/a/20260610A0AFQ600">报道</a>。</li>
   </ol>
 </section>
 
@@ -446,15 +543,38 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}</style>
     <li>宝玉、亿邦、京东/抖音电商 AI 完整报告 PDF：本轮未全文精读，未采新数字。</li>
     <li>Amazon 卖家后台 AI 渗透率：公开口径碎，未给统一百分比。</li>
     <li>METR 2026 后续「可能已加速」：作者自陈弱证据，不写成定论。</li>
-    <li>Mollick / Karpathy / Lenny 播客另几期：本轮字幕仅稳定拿到 Ng 一场（其余 429）；论点用论文与 One Useful Thing 文字版支撑。</li>
-    <li>Cisco 10–15×、Travelers 10 万报案：来自 OpenAI 报告转述，未独立审计。</li>
+    <li>Box × Cursor、Salesforce Agentforce、ServiceNow AI Agents：多为厂商/二级汇总口径，缺可独立审计的统一业务结果——已在正文标「待核 / 不作结果榜」。</li>
+    <li>a16z 播客转述 Stripe Minions「单周 7000 PR / 约 30%」：非 Stripe 官方博文数字，本页正文只用官方「1000+/周」口径。</li>
+    <li>Cisco 10–15×、Travelers 10 万报案：来自 OpenAI/公司披露，未独立审计。</li>
+    <li>Klarna 后续「回补人工」媒体叙事：与「AI 仍处理约 2/3」可并存；勿简化成项目失败。</li>
   </ul>
 </section>
 
 <footer>
-  私人情报站专题 · 加深版 2026-10-28 · 证据优先，不编数字 ·
+  私人情报站专题 · 加深版 2026-10-30 · 证据优先，不编数字 ·
   <a href="../archive.html">归档</a>
 </footer>
 </div>
+<script>
+(function(){
+  var btn=document.getElementById('elevToggle');
+  var nav=document.getElementById('elevator');
+  var bd=document.getElementById('elevBackdrop');
+  function close(){document.body.classList.remove('elev-open');if(btn)btn.setAttribute('aria-expanded','false');if(bd)bd.hidden=true;}
+  function open(){document.body.classList.add('elev-open');if(btn)btn.setAttribute('aria-expanded','true');if(bd)bd.hidden=false;}
+  if(btn){btn.addEventListener('click',function(){document.body.classList.contains('elev-open')?close():open();});}
+  if(bd){bd.addEventListener('click',close);}
+  nav.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){if(window.matchMedia('(max-width:960px)').matches)close();});});
+  var links=[].slice.call(nav.querySelectorAll('a[data-sec]'));
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute('data-sec'));}).filter(Boolean);
+  function sync(){
+    var y=window.scrollY+96, cur=secs[0];
+    for(var i=0;i<secs.length;i++){if(secs[i].offsetTop<=y)cur=secs[i];}
+    links.forEach(function(a){a.classList.toggle('active',cur&&a.getAttribute('data-sec')===cur.id);});
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  sync();
+})();
+</script>
 </body>
 </html>
