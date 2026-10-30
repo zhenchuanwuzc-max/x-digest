@@ -14,7 +14,7 @@
   --accent-soft:rgba(23,107,117,.08);--hot:#b3402a;--ok:#2f7d5c;--amber:#b8873a;
   --font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
   --shadow:0 1px 2px rgba(32,42,48,.04);
-  --rail:168px;
+  --rail:180px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -22,18 +22,35 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font
 a{color:var(--accent-ink);text-decoration:none}
 a:hover{text-decoration:underline}
 a:focus-visible,.elev-toggle:focus-visible,.elevator a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.shell{
+  width:100%;
+  max-width:min(1600px,100%);
+  margin:0 auto;
+  padding:clamp(16px,2.2vw,28px) clamp(16px,3vw,40px) clamp(40px,5vw,72px);
+  display:grid;
+  grid-template-columns:var(--rail) minmax(0,1fr);
+  gap:clamp(16px,2.5vw,36px);
+  align-items:start;
+  box-sizing:border-box;
+}
 .elevator{
-  position:fixed;top:0;left:0;bottom:0;width:var(--rail);padding:18px 12px 24px;
-  background:rgba(250,249,246,.92);border-right:1px solid var(--line);backdrop-filter:blur(8px);
-  overflow-y:auto;z-index:40;font-size:12.5px;
+  position:sticky;top:clamp(12px,2vh,24px);align-self:start;
+  width:auto;max-width:var(--rail);
+  max-height:calc(100vh - 32px);
+  padding:14px 10px 20px 14px;
+  background:rgba(250,249,246,.92);border:1px solid var(--line);border-radius:12px;
+  backdrop-filter:blur(8px);
+  overflow-x:hidden;overflow-y:auto;z-index:40;font-size:12.5px;
+  box-sizing:border-box;
 }
 .elevator .brand{display:block;font-size:12px;color:var(--ink-3);margin:0 0 12px;padding:0 6px}
 .elevator .brand strong{display:block;color:var(--accent-ink);font-size:13px;margin-top:2px}
 .elevator ol{list-style:none;margin:0;padding:0}
 .elevator li{margin:0 0 2px}
 .elevator a{
-  display:block;padding:7px 8px;border-radius:8px;color:var(--ink-3);line-height:1.35;
+  display:block;padding:7px 8px 7px 10px;border-radius:8px;color:var(--ink-3);line-height:1.35;
   border-left:3px solid transparent;text-decoration:none;
+  overflow-wrap:anywhere;
 }
 .elevator a:hover{background:var(--accent-soft);color:var(--accent-ink);text-decoration:none}
 .elevator a.active{background:var(--accent-soft);color:var(--accent-ink);border-left-color:var(--accent);font-weight:600}
@@ -46,7 +63,7 @@ a:focus-visible,.elev-toggle:focus-visible,.elevator a:focus-visible{outline:2px
 }
 .elev-backdrop{display:none;position:fixed;inset:0;background:rgba(32,42,48,.28);z-index:35}
 body.elev-open .elev-backdrop{display:block}
-.wrap{max-width:880px;margin:0 auto;padding:20px 18px 56px;margin-left:calc(var(--rail) + 18px);margin-right:18px}
+.wrap{min-width:0;max-width:none;margin:0;padding:0;width:100%}
 .mast h1{font-size:28px;letter-spacing:-.02em;margin:0 0 6px;line-height:1.25;text-wrap:balance}
 .meta{font-size:13px;color:var(--ink-3);margin:0 0 18px}
 .lead{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);margin:0 0 18px}
@@ -62,11 +79,12 @@ body.elev-open .elev-backdrop{display:block}
 .tag.hot{background:rgba(179,64,42,.1);color:var(--hot)}
 .tag.ok{background:rgba(47,125,92,.12);color:var(--ok)}
 .funnel-card{margin:0 0 16px}
-.funnel-note{font-size:13px;color:var(--ink-3);margin:0 0 14px;max-width:62ch}
-.funnel-board{display:flex;flex-direction:column;gap:10px;margin:4px 0 4px}
+.funnel-note{font-size:13px;color:var(--ink-3);margin:0 0 14px;max-width:min(72ch,100%)}
+.funnel-board{display:flex;flex-direction:column;gap:clamp(8px,1.2vw,14px);margin:4px 0;width:100%;max-width:100%}
 .funnel-row{
-  display:grid;grid-template-columns:minmax(140px,42%) minmax(0,1fr);
-  gap:14px 18px;align-items:center;
+  display:grid;grid-template-columns:minmax(160px,min(46%,520px)) minmax(0,1fr);
+  gap:clamp(10px,1.5vw,18px) clamp(14px,2vw,28px);align-items:center;
+  width:100%;
 }
 .funnel-bar{
   display:flex;align-items:center;justify-content:center;gap:8px;
@@ -115,7 +133,9 @@ body.elev-open .elev-backdrop{display:block}
 .segbox b{display:block;font-size:11px;color:var(--accent-ink);margin-bottom:3px;letter-spacing:.02em}
 .excos{font-size:12.5px;margin:10px 0 0;padding:8px 0 0;border-radius:0;background:transparent;border:0;border-top:1px solid var(--line);color:var(--ink-2)}
 .excos b{color:var(--accent-ink)}
-.checklist{margin:6px 0 0;padding-left:18px;font-size:13px}
+.next-up{margin:14px 0 0;padding:12px 0 0;border-top:1px solid var(--line)}
+.next-up h4{margin:0 0 8px;font-size:13px;font-weight:700;color:var(--accent-ink);letter-spacing:.01em}
+.checklist{margin:0;padding-left:18px;font-size:13px}
 .checklist li{margin:3px 0}
 .skills{font-size:12.5px;color:var(--ink-3);margin:6px 0;padding:6px 0;background:transparent;border-radius:0}
 .blocker{font-size:13px;color:var(--hot);margin:6px 0}
@@ -144,13 +164,19 @@ body.elev-open .elev-backdrop{display:block}
 footer{margin-top:22px;padding-top:12px;border-top:1px solid var(--line-strong);font-size:12.5px;color:var(--ink-4)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.elevator{transition:none!important}}
 @media (max-width:960px){
-  .elevator{transform:translateX(-105%);transition:transform .2s ease}
+  .shell{grid-template-columns:1fr;padding-top:52px;gap:0}
+  .elevator{
+    position:fixed;top:0;left:0;bottom:0;width:min(280px,86vw);max-width:none;max-height:none;
+    border-radius:0;border:0;border-right:1px solid var(--line);
+    transform:translateX(-105%);transition:transform .2s ease;z-index:40;
+    padding:18px 14px 24px 16px;
+  }
   body.elev-open .elevator{transform:translateX(0)}
   .elev-toggle{display:inline-flex;align-items:center;gap:6px}
-  .wrap{margin-left:auto;margin-right:auto;padding-top:52px}
+  .wrap{padding:0}
 }
 @media (max-width:640px){
-  .wrap{padding:52px 12px 40px}
+  .shell{padding:52px clamp(12px,4vw,16px) 40px}
   .mast h1{font-size:24px}
   .seggrid{grid-template-columns:1fr}
   .money{grid-template-columns:1fr}
@@ -162,6 +188,7 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
 <body>
 <button type="button" class="elev-toggle" id="elevToggle" aria-expanded="false" aria-controls="elevator">☰ 目录</button>
 <div class="elev-backdrop" id="elevBackdrop" hidden></div>
+<div class="shell">
 <nav class="elevator" id="elevator" aria-label="章节目录">
   <a class="brand" href="../index.html"><span>← 情报站</span><strong>深度水位</strong></a>
   <ol>
@@ -190,20 +217,20 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
 
 <section class="card funnel-card" id="funnel">
   <h2>深度漏斗 <span class="tag">人越少越深</span></h2>
-  <p class="funnel-note">上宽下窄 = 用得浅的人多、用得深的人少。右侧是经验到达时间（不是承诺）与代表：浅档写<strong>调查队列</strong>（行为分布），深档写<strong>本档实际操作者</strong>（不是报告作者）。</p>
+  <p class="funnel-note">上宽下窄 = 用得浅的人多、用得深的人少。右侧是经验到达时间（不是承诺）与代表：浅档写<strong>报告里常见的普通用户</strong>长什么样，深档写<strong>真正做到这一深度的公司或团队</strong>（不是写报告的人）。</p>
   <div class="funnel-board" role="list" aria-label="AI 使用深度漏斗 L0 到 L5，每行一层：漏斗条、时间、代表">
     <div class="funnel-row l0" role="listitem">
       <div class="funnel-bar"><span class="code">L0</span><span class="label">不用</span></div>
       <div class="funnel-side">
         <span class="when">尚未开始</span>
-        <div class="chips"><span class="chip cohort" title="调查队列，不是报告作者">席位已开未登录（NANDA 调查队列）</span></div>
+        <div class="chips"><span class="chip cohort" title="报告里的普通情况，不是写报告的人">有席位却很少登录（MIT 报告里的多数企业员工）</span></div>
       </div>
     </div>
     <div class="funnel-row l1" role="listitem">
       <div class="funnel-bar"><span class="code">L1</span><span class="label">简单对话</span></div>
       <div class="funnel-side">
         <span class="when">第一天</span>
-        <div class="chips"><span class="chip cohort" title="调查队列，不是报告作者">典型企业问答用户（B2B Signals 中位队列）</span></div>
+        <div class="chips"><span class="chip cohort" title="报告里的普通情况，不是写报告的人">普通企业问答用户（OpenAI 企业报告）</span></div>
       </div>
     </div>
     <div class="funnel-row l2" role="listitem">
@@ -221,7 +248,7 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
       <div class="funnel-side">
         <span class="when">数月</span>
         <div class="chips">
-          <span class="chip op">BCG 顾问（Centaur）</span>
+          <span class="chip op">BCG 顾问（人机分工用法）</span>
           <span class="chip op">Duolingo Max 抽检</span>
         </div>
       </div>
@@ -250,14 +277,14 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
     </div>
   </div>
   <p class="funnel-legend" aria-hidden="true">
-    <span><i class="i-cohort"></i>米色 = 调查队列（浅档）</span>
-    <span><i class="i-op"></i>青色 = 本档实际操作者（深档）</span>
+    <span><i class="i-cohort"></i>米色 = 报告里的普通用户（浅档）</span>
+    <span><i class="i-op"></i>青色 = 真正做到这一档的公司/团队（深档）</span>
   </p>
 </section>
 
 <section class="card" id="levels">
   <h2 id="axis1">每档差在哪：行为 · 技能 · 成本 · 卡点 · 组织例</h2>
-  <p>每一档回答五件事：<b>行为标志</b>、<b>必备技能</b>、<b>成本</b>、<b>卡点</b>、<b>怎么跨到下一档</b>。组织侧写<strong>可核验的队列或本档操作者</strong>（带出处）：浅档用调查队列，深档写真正跑在该深度的团队。三段：个人 · 企业通用办公 · 电商垂直。</p>
+  <p>每一档回答五件事：<b>行为标志</b>、<b>必备技能</b>、<b>成本</b>、<b>卡点</b>、<b>怎么跨到下一档</b>。组织侧举例（带出处）：浅档写报告里常见的普通用户长什么样，深档写真正跑在该深度的团队。三段：个人 · 企业通用办公 · 电商垂直。</p>
 
   <div class="lvdeep l0">
     <h3>L0 · 旁观 / 偶尔问一句</h3>
@@ -267,11 +294,11 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
       <div class="segbox"><b>企业办公</b>公司开了 Copilot / ChatGPT Enterprise 席位但登录率低；IT 发过邮件，业务当「又一个工具」。</div>
       <div class="segbox"><b>电商</b>刷到「AI 写标题」短视频，没注册；或注册了没用过店铺后台 AI。</div>
     </div>
-    <div class="excos"><b>代表（调查队列，非报告作者）：</b>MIT NANDA《GenAI Divide》样本里，ChatGPT/Copilot 类工具探索或试点可超约 80%、部署近 40%，但多数价值停在个人效率、未必进 P&amp;L：大量<strong>受访组织的席位持有者</strong>实质停在 L0–L1 之间（NANDA 是报告方，不是这一档的操作代表）。<sup class="src"><a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf" target="_blank" rel="noopener">〔源〕</a></sup> 淘天白皮书「L0 尚未应用」约 6.18% 的商家队列（样本偏老板/决策层）。<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup></div>
+    <div class="excos"><b>代表（报告里的普通情况，不是写报告的人）：</b>MIT Media Lab 项目 NANDA 的《GenAI Divide》样本里，ChatGPT/Copilot 类工具探索或试点可超约 80%、部署近 40%，但多数价值停在个人效率、未必进损益表：大量<strong>受访企业里「有席位的员工」</strong>实质停在 L0–L1 之间（NANDA 是调研方，不是这一档的使用者代表）。<sup class="src"><a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf" target="_blank" rel="noopener">〔源〕</a></sup> 淘天白皮书「L0 尚未应用」约 6.18% 的商家（样本偏老板/决策层）。<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup></div>
     <div class="skills">技能：几乎无。卡点：不知道「问什么值得问」。</div>
     <p class="cost">成本：0–几分钟；钱 ≈ 免费额度。</p>
     <p class="blocker">卡点：恐惧 / 没空 / 「跟我没关系」。</p>
-    <ol class="checklist"><li>选一个每天都写的短文本（邮件/客服话术），连续 7 天用 AI 起草再改。</li><li>记下「哪次省了时间、哪次更糟」：这就是进 L1 的原料。</li></ol>
+    <div class="next-up"><h4>升档建议：怎么进入 L1</h4><ol class="checklist"><li>选一个每天都写的短文本（邮件/客服话术），连续 7 天用 AI 起草再改。</li><li>记下「哪次省了时间、哪次更糟」：这就是进 L1 的原料。</li></ol></div>
   </div>
 
   <div class="lvdeep l1">
@@ -282,11 +309,11 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
       <div class="segbox"><b>企业办公</b>用 ChatGPT/Copilot 写邮件、会议纪要；OpenAI：典型企业仍偏「问答深度」，前沿企业人均智力用量约 3.5× 典型企业。<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup></div>
       <div class="segbox"><b>电商</b>用免费工具改标题/详情；淘天白皮书：约 70% 商家在用 AI、约 60% 每天高频，但「L1 浅层应用」仍占 20.67%。<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup></div>
     </div>
-    <div class="excos"><b>代表（调查队列 / 普及期行为，非报告作者）：</b>OpenAI B2B Signals 所称「典型企业」中位用量<strong>用户队列</strong>：主要用来回答问题，而不是委托复杂执行（OpenAI 是报告方与模型提供方，不是这一档的操作代表）。<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup> Klarna 全员开通 ChatGPT Enterprise 初期、宣称约 90% 员工日活：这是<strong>席位普及队列</strong>（偏 L1–L2），不等于其后来的客服流水线（见 L5）。<sup class="src"><a href="https://openai.com/index/klarna/" target="_blank" rel="noopener">〔源〕</a></sup></div>
+    <div class="excos"><b>代表（报告里的普通企业用户，不是写报告的人）：</b>OpenAI《企业信号 / B2B Signals》里「典型企业」的中位用量用户：主要用来回答问题，而不是把复杂活交给 AI（OpenAI 是报告方与模型公司，不是这一档的使用者代表）。<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup> Klarna 全员开通 ChatGPT Enterprise 初期、宣称约 90% 员工日活：这是<strong>全员开通后的普及期</strong>（偏 L1–L2），不等于它后来的客服流水线（见 L5）。<sup class="src"><a href="https://openai.com/index/klarna/" target="_blank" rel="noopener">〔源〕</a></sup></div>
     <div class="skills">技能：会写清楚问题；还不会系统贴上下文。缺：验收标准、评测。</div>
     <p class="cost">成本：每天 15–40 分钟；订阅 0–20 美元/月。</p>
     <p class="blocker">卡点：幻觉没被抓住 → 不敢用在客户/老板面前；或「AI 写的一眼假」。</p>
-    <ol class="checklist"><li>固定一个「可贴上下文」模板：目标 + 读者 + 约束 + 坏例子。</li><li>同一任务做 A/B：有上下文 vs 无上下文，比一次交付质量。</li><li>电商：把 10 条爆款标题结构拆出来再让 AI 仿写，人工筛。</li></ol>
+    <div class="next-up"><h4>升档建议：怎么进入 L2</h4><ol class="checklist"><li>固定一个「可贴上下文」模板：目标 + 读者 + 约束 + 坏例子。</li><li>同一任务做 A/B：有上下文 vs 无上下文，比一次交付质量。</li><li>电商：把 10 条爆款标题结构拆出来再让 AI 仿写，人工筛。</li></ol></div>
   </div>
 
   <div class="lvdeep l2">
@@ -297,11 +324,11 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
       <div class="segbox"><b>企业办公</b>知识库/定制 GPT 小范围试点；OpenAI：开通权限已不再是差异点，重点转向使用深度。<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup></div>
       <div class="segbox"><b>电商</b>上传店铺数据截图/CSV 问「哪款该加投」；Shopify Sidekick Q1'26 周活店铺同比约 4×，近半 Flow 由 Sidekick 生成。<sup class="src"><a href="https://www.fool.com/earnings/call-transcripts/2026/05/05/shopify-shop-q1-2026-earnings-transcript/" target="_blank" rel="noopener">〔源〕</a></sup></div>
     </div>
-    <div class="excos"><b>代表（本档操作者）：</b>Shopify（Sidekick：新商户前 30 天约一半对话在装修：典型「喂上下文」深度）<sup class="src"><a href="https://www.fool.com/earnings/call-transcripts/2026/08/12/shopify-shop-q2-2026-earnings-call-transcript/" target="_blank" rel="noopener">〔源〕</a></sup>；Duolingo（GPT-4 生成练习/课程素材，学习设计师填 prompt 约束后人工审改：产品内容侧的 L2→L3 过渡）<sup class="src"><a href="https://blog.duolingo.com/large-language-model-duolingo-lessons/" target="_blank" rel="noopener">〔源〕</a></sup>；淘天白皮书「L2 常规应用」约 38.54%。<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup></div>
+    <div class="excos"><b>代表（真正做到这一档的）：</b>Shopify（Sidekick：新商户前 30 天约一半对话在装修：典型「喂上下文」深度）<sup class="src"><a href="https://www.fool.com/earnings/call-transcripts/2026/08/12/shopify-shop-q2-2026-earnings-call-transcript/" target="_blank" rel="noopener">〔源〕</a></sup>；Duolingo（GPT-4 生成练习/课程素材，学习设计师填 prompt 约束后人工审改：产品内容侧的 L2→L3 过渡）<sup class="src"><a href="https://blog.duolingo.com/large-language-model-duolingo-lessons/" target="_blank" rel="noopener">〔源〕</a></sup>；淘天白皮书「L2 常规应用」约 38.54%。<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup></div>
     <div class="skills">技能：写上下文、拆子任务。缺：可重复验收、权限与数据治理。</div>
     <p class="cost">成本：搭模板 数小时–数天；企业还要合规评审。</p>
     <p class="blocker">卡点：上下文太散、模型「装懂」；企业侧数据进不了模型（权限墙）。</p>
-    <ol class="checklist"><li>建「项目 README」：目标、术语表、禁止事项、成功样例。</li><li>每次交付附 3 条自检（事实 / 语气 / 格式）。</li><li>电商：把「类目词 + 卖点 + 禁词」固化成可复用块。</li></ol>
+    <div class="next-up"><h4>升档建议：怎么进入 L3</h4><ol class="checklist"><li>建「项目 README」：目标、术语表、禁止事项、成功样例。</li><li>每次交付附 3 条自检（事实 / 语气 / 格式）。</li><li>电商：把「类目词 + 卖点 + 禁词」固化成可复用块。</li></ol></div>
   </div>
 
   <div class="lvdeep l3">
@@ -312,11 +339,11 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
       <div class="segbox"><b>企业办公</b>有黄金集/抽检；区分 Centaur（切任务）与 Cyborg（融合工作流）。</div>
       <div class="segbox"><b>电商</b>上线前后比 CTR/转化；淘天白皮书口径「L3 深度应用」占 24.77%。<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup></div>
     </div>
-    <div class="excos"><b>代表（本档操作者）：</b>BCG（758 顾问实验，前沿外任务正确率掉约 19pp：验收/切任务本身就是能力）<sup class="src"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4573321" target="_blank" rel="noopener">〔源〕</a></sup>；Ethan Mollick 总结的 Centaur / Cyborg 用法<sup class="src"><a href="https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged" target="_blank" rel="noopener">〔源〕</a></sup>；Duolingo Max（Roleplay / Explain My Answer：场景与初始句由人写，AI 回复持续抽检）<sup class="src"><a href="https://blog.duolingo.com/duolingo-max/" target="_blank" rel="noopener">〔源〕</a></sup>。反面教材：METR 早期-2025 RCT：资深开发者自我感觉快了 20%，实际慢 19%。<sup class="src"><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank" rel="noopener">〔源〕</a></sup></div>
+    <div class="excos"><b>代表（真正做到这一档的）：</b>BCG（758 顾问实验，前沿外任务正确率掉约 19pp：验收/切任务本身就是能力）<sup class="src"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4573321" target="_blank" rel="noopener">〔源〕</a></sup>；Ethan Mollick 总结的 Centaur / Cyborg 用法<sup class="src"><a href="https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged" target="_blank" rel="noopener">〔源〕</a></sup>；Duolingo Max（Roleplay / Explain My Answer：场景与初始句由人写，AI 回复持续抽检）<sup class="src"><a href="https://blog.duolingo.com/duolingo-max/" target="_blank" rel="noopener">〔源〕</a></sup>。反面教材：METR 早期-2025 RCT：资深开发者自我感觉快了 20%，实际慢 19%。<sup class="src"><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank" rel="noopener">〔源〕</a></sup></div>
     <div class="skills">技能：验收、评测、任务切分（在/出 frontier）。缺：系统权限编排、多 Agent。</div>
     <p class="cost">成本：建评测集 数天–数周；组织要改 OKR/质检岗。</p>
     <p class="blocker">卡点：没有「错了谁负责」；验收不准会自我欺骗（见 METR）。</p>
-    <ol class="checklist"><li>写清「AI 可自动合并」vs「必须人审」边界。</li><li>每周抽 10 条产出打分，盯错误类型分布。</li><li>电商：同一批素材用/不用 AI 做对照投放（小预算）。</li></ol>
+    <div class="next-up"><h4>升档建议：怎么进入 L4</h4><ol class="checklist"><li>写清「AI 可自动合并」vs「必须人审」边界。</li><li>每周抽 10 条产出打分，盯错误类型分布。</li><li>电商：同一批素材用/不用 AI 做对照投放（小预算）。</li></ol></div>
   </div>
 
   <div class="lvdeep l4">
@@ -327,11 +354,11 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
       <div class="segbox"><b>企业办公</b>前沿企业 Codex 消息量可达典型企业约 16×（OpenAI B2B Signals）；Cisco：构建时间约 −20%，每月省 1500+ 工程小时，缺陷吞吐 10–15×。<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup></div>
       <div class="segbox"><b>电商</b>Sidekick 代建页/自动化；Pulse 主动建议并执行；代运营用 Agent 批量出图+上架但仍人审价格库存。</div>
     </div>
-    <div class="excos"><b>代表（本档操作者）：</b>
+    <div class="excos"><b>代表（真正做到这一档的）：</b>
       <ul style="margin:4px 0 0;padding-left:18px">
         <li><b>Cisco</b>：Codex 进生产工程；AI Defense 新功能大量由 Codex 写；跨 15+ 仓优化构建；CodeWatch 缺陷修复吞吐 10–15×。<sup class="src"><a href="https://openai.com/index/cisco/" target="_blank" rel="noopener">〔源〕</a></sup></li>
         <li><b>Stripe</b>：自研 Minions one-shot coding agents；官方称每周 1000+（后公开到 1300+）条无人写码、仅人审的合并 PR。<sup class="src"><a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents" target="_blank" rel="noopener">〔源〕</a></sup></li>
-        <li><b>Cognition（Devin）</b>：对外销售的软件工程 Agent，自身以端到端仓库任务为产品形态：属 L4 代执行档的操作者，不是浅档报告作者。</li>
+        <li><b>Cognition（Devin）</b>：对外销售的软件工程 Agent，自身以端到端仓库任务为产品形态：属于真正做到 L4 代执行的团队，不是浅档报告作者。</li>
         <li><b>Shopify</b>：Sidekick 生成近半 Flow、自定义 App 与 Pulse「建议并执行」：电商侧的 L4 代执行。<sup class="src"><a href="https://www.fool.com/earnings/call-transcripts/2026/05/05/shopify-shop-q1-2026-earnings-transcript/" target="_blank" rel="noopener">〔源〕</a></sup></li>
         <li><b>Box</b>：组织级推广 Cursor 作核心 IDE/Agent（供应商案例口径，待交叉核）。<sup class="src"><a href="https://gravity.fast/data/companies-using-ai-agents/" target="_blank" rel="noopener">〔源〕</a></sup> <span class="tag warn">待交叉核</span></li>
       </ul>
@@ -339,7 +366,7 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
     <div class="skills">技能：权限、工具调用、仓库/后台接入、失败重试。缺：多 Agent 编排与成本账。</div>
     <p class="cost">成本：订阅+API 数十–数百美元/月；企业要改 CI、密钥、审计。</p>
     <p class="blocker">卡点：工具脆、权限窄、改完无人回归；组织激励仍奖「人肉加班」。</p>
-    <ol class="checklist"><li>选一条端到端路径（issue→PR / 工单→回复）跑通自动化。</li><li>日志：每次 Agent 步数、失败原因、人工接管点。</li><li>电商：库存/价格写操作默认只读，写操作要二次确认。</li></ol>
+    <div class="next-up"><h4>升档建议：怎么进入 L5</h4><ol class="checklist"><li>选一条端到端路径（issue→PR / 工单→回复）跑通自动化。</li><li>日志：每次 Agent 步数、失败原因、人工接管点。</li><li>电商：库存/价格写操作默认只读，写操作要二次确认。</li></ol></div>
   </div>
 
   <div class="lvdeep l5">
@@ -350,25 +377,25 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
       <div class="segbox"><b>企业办公</b>从聊天助手迁到「委托工作」并接进核心系统；度量人时/错误率/业务结果，而不只是 token。</div>
       <div class="segbox"><b>电商</b>选品→素材→投放→客服→复盘闭环；淘天白皮书「L4 融合应用」仅 9.84%<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup>；Shopify：AI 搜索订单同比约 3×（流量侧闭环信号）。<sup class="src"><a href="https://www.fool.com/earnings/call-transcripts/2026/08/12/shopify-shop-q2-2026-earnings-call-transcript/" target="_blank" rel="noopener">〔源〕</a></sup></div>
     </div>
-    <div class="excos"><b>代表（本档操作者）：</b>
+    <div class="excos"><b>代表（真正做到这一档的）：</b>
       <ul style="margin:4px 0 0;padding-left:18px">
         <li><b>Travelers</b>：AI Claim Assistant 引导出险报案、答保单问题、在内部系统建案；预计首年约 10 万次 FNOL。<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup></li>
         <li><b>Klarna</b>：客服助手上线首月 230 万会话、约占客服聊天 2/3、约等于 700 名全职；解决时长从约 11 分钟降到不足 2 分钟；后续仍称约占 2/3 聊天并继续啃更复杂支持：这是 Klarna <strong>自身</strong>跑在 L5 的流水线（模型供应商另计）。<sup class="src"><a href="https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/" target="_blank" rel="noopener">〔源〕</a></sup> <sup class="src"><a href="https://openai.com/index/klarna/" target="_blank" rel="noopener">〔源〕</a></sup></li>
-        <li><b>OpenAI / Anthropic 内部</b>： frontier 实验室自身的多 Agent 研发、评测与部署流水线：作为<strong>本档操作者</strong>挂在 L5；勿与其报告里描述的「典型企业问答队列」混为一谈。</li>
+        <li><b>OpenAI / Anthropic 内部</b>： frontier 实验室自身的多 Agent 研发、评测与部署流水线：作为<strong>真正跑在 L5 的团队</strong>挂在这里；勿与它报告里描述的「普通企业问答用户」混为一谈。</li>
         <li><b>Salesforce Agentforce / ServiceNow AI Agents</b>：厂商侧多 Agent 编排平台与客户部署叙事多，公开可独立审计的业务结果口径碎：作「平台能力」参考，不写成已验证的 L5 结果榜。<span class="tag warn">待核</span></li>
       </ul>
-      分布参照（非代表）：MIT NANDA 写任务型企业工具约 60% 评估→20% 试点→5% 称有持续生产力/P&amp;L：真正站稳 L5 的组织极少。<sup class="src"><a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf" target="_blank" rel="noopener">〔源〕</a></sup>
+      分布参照（不是「谁做到了 L5」）：MIT Media Lab 的 NANDA 项目写任务型企业工具约 60% 评估→20% 试点→5% 称有持续生产力/P&amp;L：真正站稳 L5 的组织极少。<sup class="src"><a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf" target="_blank" rel="noopener">〔源〕</a></sup>
     </div>
     <div class="skills">技能：编排、评测门禁、成本/延迟账本、组织流程再设计。六项技能齐。</div>
     <p class="cost">成本：工程周–月级；组织变革是主成本。</p>
-    <p class="blocker">卡点：编排、激励与停机条件；媒体常把 NANDA 简化成「95% 试点失败」：见反证节。</p>
-    <ol class="checklist"><li>先做一条窄流水线（一个 SKU 类目 / 一个代码子系统），设自动停机条件。</li><li>度量：人时、错误率、毛利，不单看「用了多少 token」。</li><li>把成功路径写成可复制 playbook，再扩面。</li></ol>
+    <p class="blocker">卡点：编排、激励与停机条件；媒体常把上述 MIT 报告简化成「95% 试点失败」：见反证节。</p>
+    <div class="next-up"><h4>升档建议：怎么巩固并扩面</h4><ol class="checklist"><li>先做一条窄流水线（一个 SKU 类目 / 一个代码子系统），设自动停机条件。</li><li>度量：人时、错误率、毛利，不单看「用了多少 token」。</li><li>把成功路径写成可复制 playbook，再扩面。</li></ol></div>
   </div>
 </section>
 
 <section class="card" id="quiz">
   <h2>自测诊断表（约 2 分钟）<small>（带〔源〕的句子有出处，其余为归纳）</small></h2>
-  <p class="note">每题选最像你的一档；多数落在哪档，你大概就在哪。跨档看上一节 checklist。</p>
+  <p class="note">每题选最像你的一档；多数落在哪档，你大概就在哪。跨档看上一节「升档建议」。</p>
   <table class="quiz">
     <thead><tr><th>题</th><th>偏 L0–L1</th><th>偏 L2–L3</th><th>偏 L4–L5</th></tr></thead>
     <tbody>
@@ -391,10 +418,10 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
   <div class="story">
     <p class="meta-s">企业办公 · 通用聊天工具普及</p>
     <h4>「席位开了，价值没进 P&amp;L」</h4>
-    <p>MIT NANDA《GenAI Divide》（2025）写：ChatGPT/Copilot 类工具探索或试点超过约 80%，部署近 40%，但主要抬个人效率，未必进损益表；任务型企业方案 60% 评估、20% 试点、5% 称有持续生产力或 P&amp;L 影响。</p>
+    <p>MIT Media Lab 的 NANDA 项目《GenAI Divide》（2025）写：ChatGPT/Copilot 类工具探索或试点超过约 80%，部署近 40%，但主要抬个人效率，未必进损益表；任务型企业方案 60% 评估、20% 试点、5% 称有持续生产力或 P&amp;L 影响。</p>
     <p class="nums">漏斗：60% → 20% → 5%（任务型工具）</p>
     <p class="fail">失败形态：当成「再发一个账号」，无验收、无工作流改写。</p>
-    <p class="src-s">来源：<a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf">MIT NANDA 报告 PDF</a> / <a href="https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/">Fortune 访谈 Challapally（2025-08-18）</a></p>
+    <p class="src-s">来源：<a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf">MIT Media Lab · NANDA 报告 PDF</a> / <a href="https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/">Fortune 访谈 Challapally（2025-08-18）</a></p>
   </div>
   <div class="story">
     <p class="meta-s">电商 · 中国平台分层</p>
@@ -485,7 +512,7 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
   <div class="counter">
     <h4>反证 2 · 「MIT：95% AI 试点失败」：媒体简化</h4>
     <p>报告原意更接近：<b>95% 组织未从 GenAI 拿到可测回报</b>；任务型工具漏斗 60% 评估 / 20% 试点 / 5%「成功落地」（持续生产力或 P&amp;L）。若只看进入试点的，约 75% 没过关<sup class="src"><a href="https://newmr.org/blog/myth-number-2-mit-showed-that-95-of-ai-pilots-fail/" target="_blank" rel="noopener">〔源〕</a></sup>，不是字面「95% 的试点挂了」。样本：访谈/问卷/公开部署分析，作者也写了局限。</p>
-    <p class="src-s"><a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf">NANDA PDF</a>；<a href="https://newmr.org/blog/myth-number-2-mit-showed-that-95-of-ai-pilots-fail/">NewMR「Myth Number 2」澄清</a>；<a href="https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/">Fortune 2025-08-18</a></p>
+    <p class="src-s"><a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf">MIT · NANDA 报告 PDF</a>；<a href="https://newmr.org/blog/myth-number-2-mit-showed-that-95-of-ai-pilots-fail/">NewMR「Myth Number 2」澄清</a>；<a href="https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/">Fortune 2025-08-18</a></p>
   </div>
   <div class="counter">
     <h4>反证 3 · 锯齿前沿本身就是反证</h4>
@@ -501,7 +528,7 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
     <li><b>验证成本</b>：生成便宜、确认贵。METR 里人感觉快了 20%、实际慢 19%：没有外部计时/测试，主观会骗你。Stripe/Cisco 能上 L4，关键之一是 CI/评审把门，把验证成本机构化。</li>
     <li><b>隐性知识</b>：好买家、好代码审、好客服话术里大量「说不清的规矩」；模型缺这些就会流畅地错。Klarna 后来补「有温度」人工，正是承认边界外的隐性知识。</li>
     <li><b>上下文与数据墙</b>：个人聊得欢；企业真数据、真权限、真审计一接上就停在 L2。Travelers 的价值不在聊天，而在「能在内部系统建案」。</li>
-    <li><b>组织激励</b>：KPI 仍奖人肉产出/工时；试点成功无人拥有规模化。NANDA：外部伙伴落地成功率约 2× 内部自建（报告口径）<sup class="src"><a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf" target="_blank" rel="noopener">〔源〕</a></sup>。</li>
+    <li><b>组织激励</b>：KPI 仍奖人肉产出/工时；试点成功无人拥有规模化。该 MIT 报告称：外部伙伴落地成功率约 2× 内部自建（报告口径）<sup class="src"><a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf" target="_blank" rel="noopener">〔源〕</a></sup>。</li>
     <li><b>锯齿前沿（jagged frontier）</b>：能力边界不平滑；任务看起来同级，一边加速一边害你。</li>
     <li><b>能力悬垂（capability overhang）</b>：模型已能做更深的事，多数人/组织仍停在问答；OpenAI：深度差距里消息量只解释约 36%，其余是更复杂委托<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup>。2026-06 Enterprise Signals 更新进一步写：前沿相对典型的人均输出 token 差距扩到约 8.3×（口径从 95 分位改为每月 top 10%，不可与 3.5× 直接横比）。<sup class="src"><a href="https://openai.com/signals/enterprise-data/" target="_blank" rel="noopener">〔源〕</a></sup></li>
   </ol>
@@ -522,7 +549,7 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
     <div class="m"><b>L2→L3 评测与质检</b>红队/评测公司、内容质检、人机抽检代运营；咨询把「试点变流程」。</div>
     <div class="m"><b>L3→L4 接入与 Agent 工具</b>IDE Agent（Cursor/Codex）、RPA+LLM、Shopify Sidekick/Amazon 卖家 AI、连接器；企业 IT 集成。</div>
     <div class="m"><b>L4→L5 代运营 / 流水线产品</b>托管式 AI 代运营、品类流水线、Agent 编排平台（Salesforce Agentforce / ServiceNow 等厂商叙事）；吃的是组织不愿养团队的差价。</div>
-    <div class="m"><b>反模式</b>只卖「席位」不卖深度 → 停在 NANDA 所说「有工具无回报」一侧。</div>
+    <div class="m"><b>反模式</b>只卖「席位」不卖深度 → 停在该 MIT 报告所说「有工具无回报」一侧。</div>
   </div>
 </section>
 
@@ -554,7 +581,7 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
     <li>METR ： <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">Early-2025 AI × experienced OS developers RCT</a>；<a href="https://metr.org/blog/2026-02-24-uplift-update/">Uplift update</a>。</li>
     <li>Dell'Acqua et al. ： Navigating the Jagged Technological Frontier，BCG 实验；Ethan Mollick ： <a href="https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged">Centaurs and Cyborgs</a>。</li>
     <li>Andrew Ng ： AI Agentic Workflows，YouTube <a href="https://www.youtube.com/watch?v=sal78ACtGTc">sal78ACtGTc</a>。</li>
-    <li>MIT NANDA ： State of AI in Business 2025 / GenAI Divide；Fortune 2025-08-18；NewMR「Myth Number 2」。</li>
+    <li>MIT Media Lab · NANDA ： State of AI in Business 2025 / GenAI Divide；Fortune 2025-08-18；NewMR「Myth Number 2」。</li>
     <li>Shopify ： Q1/Q2 2026 earnings：Sidekick 4× 周活、近半 Flow、34M 对话等。</li>
     <li>X @op7418（歸藏）： 2026-10 Agent 分化、插件体系、额度调度等帖（只读）。</li>
     <li>淘天×《天下网商》《AI重塑经营：2026中国电商AI应用白皮书》： <a href="https://top-public.oss-cn-beijing.aliyuncs.com/2026%E4%B8%AD%E5%9B%BD%E7%94%B5%E5%95%86AI%E5%BA%94%E7%94%A8%E7%99%BD%E7%9A%AE%E4%B9%A66.5.pdf">原文</a> · <a href="https://news.qq.com/rain/a/20260610A0AFQ600">报道</a>。</li>
@@ -580,6 +607,7 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
   <a href="../archive.html">归档</a>
 </footer>
 </div>
+</div><!-- /.shell -->
 <script>
 (function(){
   var btn=document.getElementById('elevToggle');
