@@ -476,7 +476,8 @@ const showSub=(root,id)=>{
   const all=[...root.querySelectorAll('.sub')].filter(s=>s.closest('.panel')===root);
   let sid=id;
   if(!sid || !all.find(p=>p.id===sid)){
-    const first=st[0]; sid=first&&first.getAttribute('aria-controls');
+    const pref=st.find(t=>t.getAttribute('aria-selected')==='true')||st.find(t=>t.classList.contains('on'))||st[0];
+    sid=pref&&pref.getAttribute('aria-controls');
   }
   all.forEach(p=>{const on=p.id===sid;p.hidden=!on;p.classList.toggle('on',on)});
   st.forEach(t=>{const on=t.getAttribute('aria-controls')===sid;t.setAttribute('aria-selected',on?'true':'false');t.tabIndex=on?0:-1;t.classList.toggle('on',on)});
