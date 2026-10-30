@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>专题 · AI 使用深度水位（2026-10-30）</title>
+<title>AI 使用深度水位（2026-10-30）</title>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
 <meta name="theme-color" content="#176b75">
@@ -61,8 +61,6 @@ body.elev-open .elev-backdrop{display:block}
 .tag.warn{background:rgba(184,135,58,.12);color:#7c5a24}
 .tag.hot{background:rgba(179,64,42,.1);color:var(--hot)}
 .tag.ok{background:rgba(47,125,92,.12);color:var(--ok)}
-.thin{background:#fff8f0;border:1px solid #ecd9b8}
-.thin ul{margin:6px 0 0;padding-left:20px;font-size:13.5px}
 .funnel-card{margin:0 0 16px}
 .funnel-note{font-size:13px;color:var(--ink-3);margin:0 0 14px;max-width:62ch}
 .funnel-board{display:flex;flex-direction:column;gap:10px;margin:4px 0 4px}
@@ -164,10 +162,9 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
 <body>
 <button type="button" class="elev-toggle" id="elevToggle" aria-expanded="false" aria-controls="elevator">☰ 目录</button>
 <div class="elev-backdrop" id="elevBackdrop" hidden></div>
-<nav class="elevator" id="elevator" aria-label="本页电梯导航">
+<nav class="elevator" id="elevator" aria-label="章节目录">
   <a class="brand" href="../index.html"><span>← 情报站</span><strong>深度水位</strong></a>
   <ol>
-    <li><a href="#thin" data-sec="thin">上一版薄在哪</a></li>
     <li><a href="#funnel" data-sec="funnel">深度漏斗</a></li>
     <li><a href="#levels" data-sec="levels">每档差在哪</a></li>
     <li><a href="#quiz" data-sec="quiz">自测表</a></li>
@@ -187,18 +184,9 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
 </header>
 
 <div class="lead">
-  <p>多数人能打开聊天框，少数人能把 AI 接到验收、工具链和业务闭环。本页按 <b>L0–L5</b> 拆清行为、技能、成本与卡点，并给出可核验的组织例与反证：分块是「每档差在哪」「厚案例与反证」「机制 / 水位漂移 / 搞钱 / 对 Ocean」。</p>
+  <p>多数人能打开聊天框，少数人能把 AI 接到验收、工具链和业务闭环。下面按 <b>L0–L5</b> 拆清行为、技能、成本与卡点，并给出可核验的组织例与反证。</p>
 </div>
 
-<section class="card thin" id="thin">
-  <h2>上一版薄在哪</h2>
-  <ul>
-    <li><b>档位只有一句话</b>：没有「到了这一档你会做什么 / 缺什么技能 / 花多少 / 卡在哪 / 怎么跨」；高层级也缺公司锚点。</li>
-    <li><b>案例是摘要句</b>：没有试了什么、翻了什么车、什么数字才算成。</li>
-    <li><b>洞察是五条口号</b>：缺验证成本、隐性知识、组织激励、锯齿前沿等机制；没有反证（METR 变慢、MIT 试点漏斗）。</li>
-    <li><b>长页难定位</b>：缺稳定侧栏，读者滚到半途找不到「我在哪一档」。</li>
-  </ul>
-</section>
 
 <section class="card funnel-card" id="funnel">
   <h2>深度漏斗 <span class="tag">人越少越深</span></h2>
@@ -273,67 +261,67 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
 
   <div class="lvdeep l0">
     <h3>L0 · 旁观 / 偶尔问一句</h3>
-    <p class="hid">时间轴：随时可进 · 几乎零成本 <span class="tag">本页判断</span></p>
+    <p class="hid">时间轴：随时可进 · 几乎零成本</p>
     <div class="seggrid">
       <div class="segbox"><b>个人</b>听说过 ChatGPT / 豆包，偶发问天气、翻译一句；输出不进工作流，也不存对话。</div>
       <div class="segbox"><b>企业办公</b>公司开了 Copilot / ChatGPT Enterprise 席位但登录率低；IT 发过邮件，业务当「又一个工具」。</div>
       <div class="segbox"><b>电商</b>刷到「AI 写标题」短视频，没注册；或注册了没用过店铺后台 AI。</div>
     </div>
     <div class="excos"><b>代表（调查队列，非报告作者）：</b>MIT NANDA《GenAI Divide》样本里，ChatGPT/Copilot 类工具探索或试点可超约 80%、部署近 40%，但多数价值停在个人效率、未必进 P&amp;L：大量<strong>受访组织的席位持有者</strong>实质停在 L0–L1 之间（NANDA 是报告方，不是这一档的操作代表）。<sup class="src"><a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf" target="_blank" rel="noopener">〔源〕</a></sup> 淘天白皮书「L0 尚未应用」约 6.18% 的商家队列（样本偏老板/决策层）。<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup></div>
-    <div class="skills">技能：几乎无。卡点：不知道「问什么值得问」。 <span class="tag">本页判断</span></div>
-    <p class="cost">成本：0–几分钟；钱 ≈ 免费额度。 <span class="tag">本页判断</span></p>
-    <p class="blocker">卡点：恐惧 / 没空 / 「跟我没关系」。 <span class="tag">本页判断</span></p>
+    <div class="skills">技能：几乎无。卡点：不知道「问什么值得问」。</div>
+    <p class="cost">成本：0–几分钟；钱 ≈ 免费额度。</p>
+    <p class="blocker">卡点：恐惧 / 没空 / 「跟我没关系」。</p>
     <ol class="checklist"><li>选一个每天都写的短文本（邮件/客服话术），连续 7 天用 AI 起草再改。</li><li>记下「哪次省了时间、哪次更糟」：这就是进 L1 的原料。</li></ol>
   </div>
 
   <div class="lvdeep l1">
     <h3>L1 · 会聊：单轮问答进日常</h3>
-    <p class="hid">时间轴：约 1–2 周 <span class="tag">本页判断</span></p>
+    <p class="hid">时间轴：约 1–2 周</p>
     <div class="seggrid">
       <div class="segbox"><b>个人</b>写摘要、润色、解释概念成习惯；仍是「一问一答」，很少贴长文档。</div>
       <div class="segbox"><b>企业办公</b>用 ChatGPT/Copilot 写邮件、会议纪要；OpenAI：典型企业仍偏「问答深度」，前沿企业人均智力用量约 3.5× 典型企业。<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup></div>
       <div class="segbox"><b>电商</b>用免费工具改标题/详情；淘天白皮书：约 70% 商家在用 AI、约 60% 每天高频，但「L1 浅层应用」仍占 20.67%。<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup></div>
     </div>
     <div class="excos"><b>代表（调查队列 / 普及期行为，非报告作者）：</b>OpenAI B2B Signals 所称「典型企业」中位用量<strong>用户队列</strong>：主要用来回答问题，而不是委托复杂执行（OpenAI 是报告方与模型提供方，不是这一档的操作代表）。<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup> Klarna 全员开通 ChatGPT Enterprise 初期、宣称约 90% 员工日活：这是<strong>席位普及队列</strong>（偏 L1–L2），不等于其后来的客服流水线（见 L5）。<sup class="src"><a href="https://openai.com/index/klarna/" target="_blank" rel="noopener">〔源〕</a></sup></div>
-    <div class="skills">技能：会写清楚问题；还不会系统贴上下文。缺：验收标准、评测。 <span class="tag">本页判断</span></div>
-    <p class="cost">成本：每天 15–40 分钟；订阅 0–20 美元/月。 <span class="tag">本页判断</span></p>
-    <p class="blocker">卡点：幻觉没被抓住 → 不敢用在客户/老板面前；或「AI 写的一眼假」。 <span class="tag">本页判断</span></p>
+    <div class="skills">技能：会写清楚问题；还不会系统贴上下文。缺：验收标准、评测。</div>
+    <p class="cost">成本：每天 15–40 分钟；订阅 0–20 美元/月。</p>
+    <p class="blocker">卡点：幻觉没被抓住 → 不敢用在客户/老板面前；或「AI 写的一眼假」。</p>
     <ol class="checklist"><li>固定一个「可贴上下文」模板：目标 + 读者 + 约束 + 坏例子。</li><li>同一任务做 A/B：有上下文 vs 无上下文，比一次交付质量。</li><li>电商：把 10 条爆款标题结构拆出来再让 AI 仿写，人工筛。</li></ol>
   </div>
 
   <div class="lvdeep l2">
     <h3>L2 · 会喂：长上下文 + 多轮改稿</h3>
-    <p class="hid">时间轴：约 1–2 月 <span class="tag">本页判断</span></p>
+    <p class="hid">时间轴：约 1–2 月</p>
     <div class="seggrid">
       <div class="segbox"><b>个人</b>上传 PDF/代码/表格；多轮「按这版改第三节」；开始有自己的 prompt 库。</div>
       <div class="segbox"><b>企业办公</b>知识库/定制 GPT 小范围试点；OpenAI：开通权限已不再是差异点，重点转向使用深度。<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup></div>
       <div class="segbox"><b>电商</b>上传店铺数据截图/CSV 问「哪款该加投」；Shopify Sidekick Q1'26 周活店铺同比约 4×，近半 Flow 由 Sidekick 生成。<sup class="src"><a href="https://www.fool.com/earnings/call-transcripts/2026/05/05/shopify-shop-q1-2026-earnings-transcript/" target="_blank" rel="noopener">〔源〕</a></sup></div>
     </div>
     <div class="excos"><b>代表（本档操作者）：</b>Shopify（Sidekick：新商户前 30 天约一半对话在装修：典型「喂上下文」深度）<sup class="src"><a href="https://www.fool.com/earnings/call-transcripts/2026/08/12/shopify-shop-q2-2026-earnings-call-transcript/" target="_blank" rel="noopener">〔源〕</a></sup>；Duolingo（GPT-4 生成练习/课程素材，学习设计师填 prompt 约束后人工审改：产品内容侧的 L2→L3 过渡）<sup class="src"><a href="https://blog.duolingo.com/large-language-model-duolingo-lessons/" target="_blank" rel="noopener">〔源〕</a></sup>；淘天白皮书「L2 常规应用」约 38.54%。<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup></div>
-    <div class="skills">技能：写上下文、拆子任务。缺：可重复验收、权限与数据治理。 <span class="tag">本页判断</span></div>
-    <p class="cost">成本：搭模板 数小时–数天；企业还要合规评审。 <span class="tag">本页判断</span></p>
-    <p class="blocker">卡点：上下文太散、模型「装懂」；企业侧数据进不了模型（权限墙）。 <span class="tag">本页判断</span></p>
+    <div class="skills">技能：写上下文、拆子任务。缺：可重复验收、权限与数据治理。</div>
+    <p class="cost">成本：搭模板 数小时–数天；企业还要合规评审。</p>
+    <p class="blocker">卡点：上下文太散、模型「装懂」；企业侧数据进不了模型（权限墙）。</p>
     <ol class="checklist"><li>建「项目 README」：目标、术语表、禁止事项、成功样例。</li><li>每次交付附 3 条自检（事实 / 语气 / 格式）。</li><li>电商：把「类目词 + 卖点 + 禁词」固化成可复用块。</li></ol>
   </div>
 
   <div class="lvdeep l3">
     <h3>L3 · 会验：标准、评测、人机分工</h3>
-    <p class="hid">时间轴：约 3–6 月 <span class="tag">本页判断</span></p>
+    <p class="hid">时间轴：约 3–6 月</p>
     <div class="seggrid">
       <div class="segbox"><b>个人</b>对代码跑测试、对文案对照清单；Mollick/BCG：前沿内任务质量↑、前沿外正确率低约 19 个百分点<sup class="src"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4573321" target="_blank" rel="noopener">〔源〕</a></sup>：你会主动判断任务是否在 frontier 内。</div>
       <div class="segbox"><b>企业办公</b>有黄金集/抽检；区分 Centaur（切任务）与 Cyborg（融合工作流）。</div>
       <div class="segbox"><b>电商</b>上线前后比 CTR/转化；淘天白皮书口径「L3 深度应用」占 24.77%。<sup class="src"><a href="https://tech.chinadaily.com.cn/a/202606/09/WS6a27d593a310942cc49b0d9c.html" target="_blank" rel="noopener">〔源〕</a></sup></div>
     </div>
     <div class="excos"><b>代表（本档操作者）：</b>BCG（758 顾问实验，前沿外任务正确率掉约 19pp：验收/切任务本身就是能力）<sup class="src"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4573321" target="_blank" rel="noopener">〔源〕</a></sup>；Ethan Mollick 总结的 Centaur / Cyborg 用法<sup class="src"><a href="https://www.oneusefulthing.org/p/centaurs-and-cyborgs-on-the-jagged" target="_blank" rel="noopener">〔源〕</a></sup>；Duolingo Max（Roleplay / Explain My Answer：场景与初始句由人写，AI 回复持续抽检）<sup class="src"><a href="https://blog.duolingo.com/duolingo-max/" target="_blank" rel="noopener">〔源〕</a></sup>。反面教材：METR 早期-2025 RCT：资深开发者自我感觉快了 20%，实际慢 19%。<sup class="src"><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank" rel="noopener">〔源〕</a></sup></div>
-    <div class="skills">技能：验收、评测、任务切分（在/出 frontier）。缺：系统权限编排、多 Agent。 <span class="tag">本页判断</span></div>
-    <p class="cost">成本：建评测集 数天–数周；组织要改 OKR/质检岗。 <span class="tag">本页判断</span></p>
+    <div class="skills">技能：验收、评测、任务切分（在/出 frontier）。缺：系统权限编排、多 Agent。</div>
+    <p class="cost">成本：建评测集 数天–数周；组织要改 OKR/质检岗。</p>
     <p class="blocker">卡点：没有「错了谁负责」；验收不准会自我欺骗（见 METR）。</p>
     <ol class="checklist"><li>写清「AI 可自动合并」vs「必须人审」边界。</li><li>每周抽 10 条产出打分，盯错误类型分布。</li><li>电商：同一批素材用/不用 AI 做对照投放（小预算）。</li></ol>
   </div>
 
   <div class="lvdeep l4">
     <h3>L4 · 会编：Agent / IDE / 工具链进生产</h3>
-    <p class="hid">时间轴：约 6–12 月 <span class="tag">本页判断</span></p>
+    <p class="hid">时间轴：约 6–12 月</p>
     <div class="seggrid">
       <div class="segbox"><b>个人</b>Cursor/Claude Code/Codex 日常改仓库；Andrew Ng：GPT-3.5 + agentic workflow 可超过 GPT-4 zero-shot（HumanEval：GPT-3.5 约 48%、GPT-4 约 67%）。<sup class="src"><a href="https://www.youtube.com/watch?v=sal78ACtGTc" target="_blank" rel="noopener">〔源〕</a></sup></div>
       <div class="segbox"><b>企业办公</b>前沿企业 Codex 消息量可达典型企业约 16×（OpenAI B2B Signals）；Cisco：构建时间约 −20%，每月省 1500+ 工程小时，缺陷吞吐 10–15×。<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup></div>
@@ -348,15 +336,15 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
         <li><b>Box</b>：组织级推广 Cursor 作核心 IDE/Agent（供应商案例口径，待交叉核）。<sup class="src"><a href="https://gravity.fast/data/companies-using-ai-agents/" target="_blank" rel="noopener">〔源〕</a></sup> <span class="tag warn">待交叉核</span></li>
       </ul>
     </div>
-    <div class="skills">技能：权限、工具调用、仓库/后台接入、失败重试。缺：多 Agent 编排与成本账。 <span class="tag">本页判断</span></div>
-    <p class="cost">成本：订阅+API 数十–数百美元/月；企业要改 CI、密钥、审计。 <span class="tag">本页判断</span></p>
-    <p class="blocker">卡点：工具脆、权限窄、改完无人回归；组织激励仍奖「人肉加班」。 <span class="tag">本页判断</span></p>
+    <div class="skills">技能：权限、工具调用、仓库/后台接入、失败重试。缺：多 Agent 编排与成本账。</div>
+    <p class="cost">成本：订阅+API 数十–数百美元/月；企业要改 CI、密钥、审计。</p>
+    <p class="blocker">卡点：工具脆、权限窄、改完无人回归；组织激励仍奖「人肉加班」。</p>
     <ol class="checklist"><li>选一条端到端路径（issue→PR / 工单→回复）跑通自动化。</li><li>日志：每次 Agent 步数、失败原因、人工接管点。</li><li>电商：库存/价格写操作默认只读，写操作要二次确认。</li></ol>
   </div>
 
   <div class="lvdeep l5">
     <h3>L5 · 流水线：多 Agent + 数据闭环</h3>
-    <p class="hid">时间轴：约一年以上 · 极少数人/团队 <span class="tag">本页判断</span></p>
+    <p class="hid">时间轴：约一年以上 · 极少数人/团队</p>
     <div class="seggrid">
       <div class="segbox"><b>个人</b>多 Agent 分工（规划/编码/评审）+ 夜间批任务；归藏观察：Personal Agent vs 专家可插拔 Agent 正在分化。</div>
       <div class="segbox"><b>企业办公</b>从聊天助手迁到「委托工作」并接进核心系统；度量人时/错误率/业务结果，而不只是 token。</div>
@@ -371,15 +359,15 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
       </ul>
       分布参照（非代表）：MIT NANDA 写任务型企业工具约 60% 评估→20% 试点→5% 称有持续生产力/P&amp;L：真正站稳 L5 的组织极少。<sup class="src"><a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf" target="_blank" rel="noopener">〔源〕</a></sup>
     </div>
-    <div class="skills">技能：编排、评测门禁、成本/延迟账本、组织流程再设计。六项技能齐。 <span class="tag">本页判断</span></div>
-    <p class="cost">成本：工程周–月级；组织变革是主成本。 <span class="tag">本页判断</span></p>
+    <div class="skills">技能：编排、评测门禁、成本/延迟账本、组织流程再设计。六项技能齐。</div>
+    <p class="cost">成本：工程周–月级；组织变革是主成本。</p>
     <p class="blocker">卡点：编排、激励与停机条件；媒体常把 NANDA 简化成「95% 试点失败」：见反证节。</p>
     <ol class="checklist"><li>先做一条窄流水线（一个 SKU 类目 / 一个代码子系统），设自动停机条件。</li><li>度量：人时、错误率、毛利，不单看「用了多少 token」。</li><li>把成功路径写成可复制 playbook，再扩面。</li></ol>
   </div>
 </section>
 
 <section class="card" id="quiz">
-  <h2>自测诊断表（约 2 分钟） <span class="tag">本页判断</span><small>（带〔源〕的句子有出处，其余为本页归纳）</small></h2>
+  <h2>自测诊断表（约 2 分钟）<small>（带〔源〕的句子有出处，其余为归纳）</small></h2>
   <p class="note">每题选最像你的一档；多数落在哪档，你大概就在哪。跨档看上一节 checklist。</p>
   <table class="quiz">
     <thead><tr><th>题</th><th>偏 L0–L1</th><th>偏 L2–L3</th><th>偏 L4–L5</th></tr></thead>
@@ -412,7 +400,7 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
     <p class="meta-s">电商 · 中国平台分层</p>
     <h4>淘天商家 AI 融合指数层级（官方白皮书）</h4>
     <p>淘天集团 ×《天下网商》《AI重塑经营：2026中国电商AI应用白皮书》（2026-06 发布，06-10 对外公布）：调研 900 多位商家、有效问卷 846 份，按使用频率、业务覆盖率、工具数、人才储备、价值实现五维打分（满分 100）。L0 尚未应用 6.18%，L1 浅层应用 20.67%，L2 常规应用 38.54%，L3 深度应用 24.77%，L4 融合应用 9.84%；70% 商家在用 AI 工具，约 60% 每天高频使用。<span class="tag warn">口径：受访者 85% 为老板/决策层，样本偏积极</span></p>
-    <p>注：淘天的 L0–L4 是他们自己的五档评分，和本页的 L0–L5 不一一对应，只能参照看。</p>
+    <p>注：淘天的 L0–L4 是他们自己的五档评分，和这里的 L0–L5 不一一对应，只能参照看。</p>
     <p class="src-s">来源：<a href="https://top-public.oss-cn-beijing.aliyuncs.com/2026%E4%B8%AD%E5%9B%BD%E7%94%B5%E5%95%86AI%E5%BA%94%E7%94%A8%E7%99%BD%E7%9A%AE%E4%B9%A66.5.pdf">白皮书 PDF 原文</a> · <a href="https://news.qq.com/rain/a/20260610A0AFQ600">腾讯新闻报道 2026-06-10</a></p>
   </div>
 
@@ -508,7 +496,7 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
 <section class="card insight-deep ocean" id="insights">
   <h2 id="axis3">机制洞察 · 水位漂移 · 搞钱地图</h2>
 
-  <h3>为什么上手容易、用深难（机制） <span class="tag">本页判断</span><small>（带〔源〕的句子有出处，其余为本页归纳）</small></h3>
+  <h3>为什么上手容易、用深难（机制）<small>（带〔源〕的句子有出处，其余为归纳）</small></h3>
   <ol>
     <li><b>验证成本</b>：生成便宜、确认贵。METR 里人感觉快了 20%、实际慢 19%：没有外部计时/测试，主观会骗你。Stripe/Cisco 能上 L4，关键之一是 CI/评审把门，把验证成本机构化。</li>
     <li><b>隐性知识</b>：好买家、好代码审、好客服话术里大量「说不清的规矩」；模型缺这些就会流畅地错。Klarna 后来补「有温度」人工，正是承认边界外的隐性知识。</li>
@@ -518,7 +506,7 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
     <li><b>能力悬垂（capability overhang）</b>：模型已能做更深的事，多数人/组织仍停在问答；OpenAI：深度差距里消息量只解释约 36%，其余是更复杂委托<sup class="src"><a href="https://openai.com/index/introducing-b2b-signals/" target="_blank" rel="noopener">〔源〕</a></sup>。2026-06 Enterprise Signals 更新进一步写：前沿相对典型的人均输出 token 差距扩到约 8.3×（口径从 95 分位改为每月 top 10%，不可与 3.5× 直接横比）。<sup class="src"><a href="https://openai.com/signals/enterprise-data/" target="_blank" rel="noopener">〔源〕</a></sup></li>
   </ol>
 
-  <h3>水位线怎么在挪 <span class="tag">本页判断</span><small>（带〔源〕的句子有出处，其余为本页归纳）</small></h3>
+  <h3>水位线怎么在挪<small>（带〔源〕的句子有出处，其余为归纳）</small></h3>
   <ul>
     <li><b>L1→L2 悬崖变矮</b>：长上下文、截图、店铺内 Sidekick，使「喂材料」不再是极客技能。</li>
     <li><b>L3 验收仍陡</b>：评测集、对错标准、谁负责：组织债，模型帮不上太多。</li>
@@ -527,7 +515,7 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
     <li>时间对照：Ng 2024 讲 agentic 时强调「要学会等迭代」<sup class="src"><a href="https://www.youtube.com/watch?v=sal78ACtGTc" target="_blank" rel="noopener">〔源〕</a></sup>；2026 企业信号已把 Codex/Agent 用量当前沿标志：悬崖位置下移，但验收与编排悬崖还在。</li>
   </ul>
 
-  <h3>每道悬崖上的钱与玩家 <span class="tag">本页判断</span><small>（带〔源〕的句子有出处，其余为本页归纳）</small></h3>
+  <h3>每道悬崖上的钱与玩家<small>（带〔源〕的句子有出处，其余为归纳）</small></h3>
   <div class="money">
     <div class="m"><b>L0→L1 教育/习惯</b>课程、模板、社群；玩家：各家官方学院、中文科普博主、平台商家课堂。</div>
     <div class="m"><b>L1→L2 模板与知识库</b>提示词包、垂直知识库 SaaS、电商「标题/详情」工具；Duolingo 式「约束模板 + 人工审」也可产品化。</div>
@@ -539,10 +527,10 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
 </section>
 
 <section class="card ocean" id="ocean">
-  <h2>对 Ocean 的具体含义 <span class="tag">本页判断</span><small>（带〔源〕的句子有出处，其余为本页归纳）</small></h2>
+  <h2>对 Ocean 的具体含义<small>（带〔源〕的句子有出处，其余为归纳）</small></h2>
   <ul>
     <li><b>iOS / 本地 Codex</b>：你已偏 L4 工具链；下一悬崖是 L3 验收自动化（测试门禁、截图回归）和 L5 窄流水线（例如「一条功能：issue→云代理→PR→你只审」：对齐 Stripe Minions 形态），而不是再多开聊天窗口。</li>
-    <li><b>Digest 情报站</b>：本质是 L2→L3 产品：把信息差做成可验收的「今日可用动作」；加深页本身就是在补「验证成本」。</li>
+    <li><b>Digest 情报站</b>：本质是 L2→L3 产品：把信息差做成可验收的「今日可用动作」。</li>
     <li><b>CRM / Accio 电商</b>：卖家多数卡在 L1–L2（淘天浅层+常规合计仍大头）；可卖的是 L2 模板（类目上下文包）+ L3 对照投放评测 + L4 只读连接后台；写操作默认人审，对齐 Shopify「代执行但可撤销」与 Klarna「可转人工」路径。</li>
     <li><b>别被 overhang 骗</b>：模型与 Agent 能力涨得快，客户组织债涨得慢：报价按「帮对方跨一档」而不是按 token。</li>
     <li><b>反证自用</b>：自己写代码时用 METR 提醒：感觉快 ≠ 真快；用锯齿前沿提醒：前端文案任务和库存决策任务不要同一套自动化。</li>
@@ -555,7 +543,7 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
 </section>
 
 <section class="card" id="sources">
-  <h2>全部来源（本页引用）</h2>
+  <h2>全部来源</h2>
   <ol class="src">
     <li>OpenAI ： <a href="https://openai.com/index/introducing-b2b-signals/">How frontier firms are pulling ahead (B2B / Enterprise Signals)</a>，2026-05-06：3.5×、36%、16× Codex、Cisco / Travelers 案例。</li>
     <li>OpenAI ： <a href="https://openai.com/signals/enterprise-data/">Enterprise Signals</a>（后续更新）：前沿/典型用量口径变化；2026-06 约 8.3× 等。</li>
@@ -581,14 +569,14 @@ sup.src a{font-size:.7em;text-decoration:none;margin-left:1px}
     <li>Amazon 卖家后台 AI 渗透率：公开口径碎，未给统一百分比。</li>
     <li>METR 2026 后续「可能已加速」：作者自陈弱证据，不写成定论。</li>
     <li>Box × Cursor、Salesforce Agentforce、ServiceNow AI Agents：多为厂商/二级汇总口径，缺可独立审计的统一业务结果：已在正文标「待核 / 不作结果榜」。</li>
-    <li>a16z 播客转述 Stripe Minions「单周 7000 PR / 约 30%」：非 Stripe 官方博文数字，本页正文只用官方「1000+/周」口径。</li>
+    <li>a16z 播客转述 Stripe Minions「单周 7000 PR / 约 30%」：非 Stripe 官方博文数字，正文只用官方「1000+/周」口径。</li>
     <li>Cisco 10–15×、Travelers 10 万报案：来自 OpenAI/公司披露，未独立审计。</li>
     <li>Klarna 后续「回补人工」媒体叙事：与「AI 仍处理约 2/3」可并存；勿简化成项目失败。</li>
   </ul>
 </section>
 
 <footer>
-  私人情报站专题 · 2026-10-30 · 证据优先，不编数字 ·
+  私人情报站 · 2026-10-30 · 证据优先，不编数字 ·
   <a href="../archive.html">归档</a>
 </footer>
 </div>
