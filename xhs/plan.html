@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>这次怎么发 · 小红书方案 · 私密</title>
+<!-- impeccable: fluid + sticky left nav + scroll-behavior:auto; Klein blue Swiss -->
+<style>
+:root{
+  --bg:#f4f5f8; --surface:#ffffff; --ink:#12141a; --ink-2:#3a4050; --mut:#6b7385;
+  --line:#e2e6ef; --accent:#002FA7; --accent-soft:#d5deef; --accent-bright:#5B7BFF;
+  --warn:#8a5a00; --warn-soft:#fff3d6; --ok:#1e6b3a; --ok-soft:#e6f4ea;
+  --shadow:0 1px 2px rgba(18,20,26,.04),0 8px 24px rgba(18,20,26,.06);
+  --r:14px; --nav-w:14rem;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;color-scheme:light}
+body{margin:0;color:var(--ink);background:var(--bg);font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:#c9d4f5;color:var(--ink)}
+.shell{display:grid;grid-template-columns:var(--nav-w) minmax(0,1fr);max-width:78rem;margin:0 auto;min-height:100vh}
+.nav{position:sticky;top:0;align-self:start;height:100vh;overflow:auto;padding:1.4rem 1rem 2rem;border-right:1px solid var(--line);background:linear-gradient(180deg,#f7f8fc,var(--bg))}
+.nav .brand{font-weight:750;font-size:.95rem;margin:0 0 .3rem;letter-spacing:-.02em}
+.nav .meta{font-size:.76rem;color:var(--mut);margin:0 0 1rem;line-height:1.45}
+.nav a{display:block;color:var(--ink-2);text-decoration:none;font-size:.82rem;padding:.34rem .55rem;border-radius:8px;margin:.08rem 0}
+.nav a:hover,.nav a:focus-visible{background:var(--accent-soft);color:var(--accent);outline:none}
+.nav a.active{background:var(--accent);color:#fff;font-weight:650}
+.nav .sec{font-size:.7rem;letter-spacing:.06em;color:var(--mut);margin:.9rem 0 .3rem;padding-left:.55rem;text-transform:uppercase}
+.main{padding:1.6rem 1.5rem 4rem;min-width:0}
+h1{font-size:clamp(1.35rem,2.2vw,1.75rem);letter-spacing:-.025em;margin:0 0 .4rem;font-weight:750;line-height:1.28}
+h2{font-size:1.12rem;margin:2.1rem 0 .6rem;padding-bottom:.4rem;border-bottom:2px solid var(--accent);font-weight:700;scroll-margin-top:.5rem}
+h3{font-size:1rem;margin:1rem 0 .45rem;font-weight:700}
+p,li{color:var(--ink-2)}
+p{margin:.5rem 0}
+.muted{color:var(--mut);font-size:.92rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.1rem;margin:.7rem 0;box-shadow:var(--shadow)}
+.verdict{border-color:#a8b8e8;background:linear-gradient(180deg,#eef2fb,var(--surface))}
+.hero{border-left:4px solid var(--accent)}
+.tag{display:inline-block;font-size:11px;font-weight:650;background:var(--accent-soft);color:var(--accent);padding:.12rem .45rem;border-radius:999px;margin:.1rem .2rem .1rem 0}
+.tag.ok{background:var(--ok-soft);color:var(--ok)}
+.tag.warn{background:var(--warn-soft);color:var(--warn)}
+.warn{font-size:.86rem;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:.55rem .7rem}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+code{font-size:.78rem;background:#eceff6;padding:.05rem .3rem;border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:.86rem;background:var(--surface);margin:.5rem 0}
+th,td{border:1px solid var(--line);padding:.45rem .5rem;text-align:left;vertical-align:top}
+th{background:#eceff6;font-weight:650}
+.btn{display:inline-flex;align-items:center;gap:.35rem;background:var(--accent);color:#fff!important;text-decoration:none;font-weight:650;font-size:.88rem;padding:.45rem .85rem;border-radius:999px}
+.btn.sec{background:var(--accent-soft);color:var(--accent)!important}
+.btn.ghost{background:transparent;color:var(--accent)!important;border:1px solid var(--accent)}
+.row{display:flex;flex-wrap:wrap;gap:.45rem;margin:.55rem 0}
+ol.steps{padding-left:1.25rem;margin:.4rem 0}
+ol.steps li{margin:.35rem 0}
+.check{list-style:none;padding-left:0}
+.check li{position:relative;padding-left:1.55rem;margin:.4rem 0}
+.check li::before{content:"";position:absolute;left:0;top:.35rem;width:.9rem;height:.9rem;border:1.5px solid var(--accent);border-radius:4px;background:#fff}
+.mob{display:none;flex-wrap:wrap;gap:.35rem;margin:0 0 1rem}
+.mob a{font-size:.78rem;background:var(--accent-soft);color:var(--accent);text-decoration:none;padding:.22rem .5rem;border-radius:999px}
+.foot{margin-top:2.5rem;font-size:.86rem;color:var(--mut);border-top:1px solid var(--line);padding-top:1rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.6rem}
+.pick{border:2px solid var(--accent);background:linear-gradient(180deg,#eef2fb,var(--surface))}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .nav{display:none}
+  .mob{display:flex}
+  .main{padding:1.1rem 1rem 3rem}
+  table{font-size:.8rem}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="nav" aria-label="目录">
+  <p class="brand">这次怎么发</p>
+  <p class="meta">私密方案 · 2026-10-31（America/Los_Angeles）<br>手机可读 · 不进公开周报</p>
+  <div class="sec">目录</div>
+  <a href="#launch">① 这次怎么发</a>
+  <a href="#calendar">② 前4周日历</a>
+  <a href="#creators">③ 对标学什么</a>
+  <a href="#hot">④ 热门观察</a>
+  <a href="#daily">⑤ 每日日报</a>
+  <a href="#links">⑥ 相关链接</a>
+  <div class="sec">选题库</div>
+  <a href="./">← 小红书选题库</a>
+  <a href="creators.html">对标完整档案</a>
+  <a href="post/M01.html">M01 发布页</a>
+</aside>
+<main class="main">
+<nav class="mob" aria-label="移动目录">
+  <a href="#launch">这次怎么发</a>
+  <a href="#calendar">4周日历</a>
+  <a href="#creators">对标</a>
+  <a href="#hot">热门</a>
+  <a href="#daily">日报</a>
+  <a href="./">选题库</a>
+  <a href="post/M01.html">M01</a>
+</nav>
+
+<h1>小红书 · 这次怎么发</h1>
+<p class="muted">一页收齐：首发 M01、前 4 周日历、对标、热门观察、日报入口。公开帖不署名外部来源；本页私密可写出处。未核清标 <span class="tag warn">待核</span>。</p>
+
+<div class="card verdict hero">
+  <p style="margin:0 0 .35rem"><strong>一句话：</strong>首发用 M01，发布标题带上「PRD」接住 AI 时代热搜，手机打开发布页存图+复制正文即可发。之后按「周二主线 / 周三–四日常 / 周五 AI」三线并行。</p>
+  <div class="row">
+    <a class="btn" href="post/M01.html">打开 M01 发布页</a>
+    <a class="btn sec" href="./#curriculum">看完整课表</a>
+    <a class="btn ghost" href="creators.html">对标完整档案</a>
+  </div>
+</div>
+
+<!-- ========== 1 LAUNCH ========== -->
+<h2 id="launch">① 这次怎么发（最重要）</h2>
+
+<h3>首发：M01</h3>
+<div class="card pick">
+  <p style="margin:0 0 .4rem"><span class="tag ok">已成稿</span> <span class="tag">10 张图</span> <span class="tag">蓝白瑞士风</span></p>
+  <p style="margin:0 0 .35rem"><strong>课内标题：</strong>为什么功能做完了没人用？</p>
+  <p style="margin:0 0 .35rem"><strong>方法名（白话）：</strong>做事情的三个步骤 —— 写清楚 / 对齐 / 回看</p>
+  <p style="margin:0 0 .35rem"><strong>真实案例钩子：</strong>批量发品（要的是质量）· AI 覆盖率（效果好了覆盖自己上来）</p>
+  <p class="muted" style="margin:0">线上发布页：<a href="post/M01.html">/xhs/post/M01.html</a> · 卡片源：<code>/workspace/money/cards/M01-v6</code>（站内图在 <code>cards/M01/</code>）</p>
+</div>
+
+<h3>推荐发布标题（接 AI×PRD 热度）</h3>
+<p class="muted">热帖里高频带「PRD / AI产品」。旧标题「为什么功能做完了没人用？」场景好，但搜 PRD 搜不到。候选（公开帖仍不写外部来源）：</p>
+<table>
+<thead><tr><th>排序</th><th>标题</th><th>理由</th></tr></thead>
+<tbody>
+<tr><td><strong>首选</strong></td><td>功能做完没人用，我才发现PRD一直写错了</td><td>保留冲突场景 + 可搜词 PRD + 第一人称反差；对上「AI产品经理的prd…」一类热搜</td></tr>
+<tr><td>备选 A</td><td>我以前写PRD靠体感，现在先写清这6件事</td><td>强调半页纸六栏，偏方法</td></tr>
+<tr><td>备选 B</td><td>AI时代写PRD，我现在多问这5个问题</td><td>直接贴 AI×PRD；略偏清单</td></tr>
+<tr><td>备选 C</td><td>产品经理写PRD前，我现在先问这5个问题</td><td>带「产品经理」搜词</td></tr>
+</tbody>
+</table>
+<p class="muted">封面大字仍可用课内标题或「做事情的三个步骤」；发布标题与封面可不完全一致。</p>
+
+<h3>发布时间建议 <span class="tag warn">待核</span></h3>
+<div class="card">
+  <ul>
+    <li><strong>建议窗口（未实测账号数据，标待核）：</strong>工作日晚上 20:00–22:00（中国时间），或中午 12:00–13:00。</li>
+    <li><strong>首发日建议：</strong>按日历 <strong>2026-11-03（周二）</strong> —— 与「周二主线」节奏一致；若你当天没空，改最近一个晚上发也行，别为卡点硬发。</li>
+    <li>真正黄金时段以你账号后台为准；发完看 24 小时再调。</li>
+  </ul>
+</div>
+
+<h3>发布前检查清单</h3>
+<ul class="check">
+  <li>发布标题已选定（首选或备选），含可搜词：PRD / 产品经理 / AI 之一</li>
+  <li>手机能打开 <a href="post/M01.html">M01 发布页</a>，10 张图都能加载</li>
+  <li>图按 01→10 顺序存进相册（封面先）</li>
+  <li>正文已复制；去掉一切外部作者/刊物名（公开帖不写 Lenny）</li>
+  <li>话题 5–8 个就绪（发布页可一键复制）</li>
+  <li>语气自检：没有「必须 / 先别 / 一定要 / 评论区告诉我」</li>
+  <li>案例只留自己的两段（批量发品、AI 覆盖率），不泄公司/客户名</li>
+  <li>用大号发，不是研究用的小号</li>
+</ul>
+
+<h3>手机怎么发（逐步）</h3>
+<ol class="steps">
+  <li>手机浏览器打开：<br><code>https://zhenchuanwuzc-max.github.io/x-digest/xhs/post/M01.html</code></li>
+  <li>点「复制标题」，改成你选中的发布标题（或直接在 App 里改）。</li>
+  <li>长按每张图 → 存储图像；或点每张下的「下载」。按 1→10 顺序。</li>
+  <li>点「复制正文」「复制话题」（发布页按钮）。</li>
+  <li>打开小红书 App → 发布 → 图文 → 按序选图 → 粘贴正文与话题 → 预览封面字是否可读。</li>
+  <li>选地理位置（可选）→ 发布。不要用自动发帖工具。</li>
+</ol>
+<p class="muted">ZIP 备用：选题库成稿区有 <code>cards/M01/M01-cards.zip</code>，电脑下好再 AirDrop 也行；你说不爱带电脑，优先用发布页长按存图。</p>
+
+<h3>发完 24 小时看什么</h3>
+<div class="grid2">
+  <div class="card">
+    <h3 style="margin-top:0">看</h3>
+    <ul class="compact" style="padding-left:1.1rem;margin:0">
+      <li>曝光 / 封面点击（封面是否可读）</li>
+      <li>前 3 条评论在问什么 → 记进下一课标题</li>
+      <li>搜「PRD」「产品经理」自己这条能否被找到（可能有延迟）</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">不做</h3>
+    <ul style="padding-left:1.1rem;margin:0">
+      <li>不刷自己赞、不互相炒</li>
+      <li>不因第一天数据差立刻改定位</li>
+      <li>不在公开评论里贴情报站或 Lenny 链接</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========== 2 CALENDAR ========== -->
+<h2 id="calendar">② 前 4 周发布日历</h2>
+<p class="muted">节奏来自 <code>ai-lines.md</code>：周二主线（PRD/方法）· 周三或周四日常（听记喂）· 周五 AI 专题。产能紧时保「周二 + 周五」，日常降为周日一条周收口。日期为建议，可按你日程挪。</p>
+
+<table>
+<thead><tr><th>周</th><th>日期</th><th>线</th><th>发什么</th><th>状态</th><th>链接</th></tr></thead>
+<tbody>
+<tr><td rowspan="3"><strong>W1</strong></td><td>11-03 周二</td><td>PRD 主线</td><td><strong>M01 首发</strong> · 发布标题用上方首选</td><td><span class="tag ok">成稿</span></td><td><a href="post/M01.html">发布页</a> · <a href="./#cu-M01">课表</a></td></tr>
+<tr><td>11-05 周四</td><td>日常</td><td>听记轻帖：跨团队十五分钟只拉齐 Action（T08→M09）</td><td><span class="tag">素材槽</span></td><td><a href="./#tingji">听记选题</a></td></tr>
+<tr><td>11-07 周五</td><td>AI 专题</td><td>A1：AI 功能的 PRD 多写哪三格（成功标准 / 失败表现 / 人工接管）</td><td><span class="tag warn">待写</span></td><td><a href="./#mod-ai">AI 课表</a></td></tr>
+
+<tr><td rowspan="3"><strong>W2</strong></td><td>11-10 周二</td><td>PRD 主线</td><td>M02 · 我怎么判断自己把活干好了：三问自检</td><td><span class="tag ok">成稿</span></td><td><a href="post/M02.html">发布页</a> · <a href="./#cu-M02">课表</a></td></tr>
+<tr><td>11-12 周四</td><td>日常</td><td>听记轻帖：同一个数两个页面为何对不上（T05）</td><td><span class="tag">素材槽</span></td><td><a href="./#tingji">听记选题</a></td></tr>
+<tr><td>11-14 周五</td><td>AI 专题</td><td>A1：别把覆盖率当北星（接 M01 案例加深）</td><td><span class="tag warn">待写</span></td><td>接 M01 钩子</td></tr>
+
+<tr><td rowspan="3"><strong>W3</strong></td><td>11-17 周二</td><td>PRD 主线</td><td>M07 · 一页纸有人读才算写过（PRD 子系列第 2 课）</td><td><span class="tag warn">待写</span></td><td><a href="./#cu-M07">课表</a></td></tr>
+<tr><td>11-19 周四</td><td>日常</td><td>听记轻帖：验收别只测成功（T09）</td><td><span class="tag">素材槽</span></td><td><a href="./#tingji">听记选题</a></td></tr>
+<tr><td>11-21 周五</td><td>AI 专题</td><td>A1：生成次数 ≠ 有人用（→M20 / T02）</td><td><span class="tag warn">待写</span></td><td><a href="./#cu-M20">M20</a></td></tr>
+
+<tr><td rowspan="3"><strong>W4</strong></td><td>11-24 周二</td><td>PRD 主线</td><td>M03 · 用户急不急：从「谁会非常失望」想需求</td><td><span class="tag ok">成稿</span></td><td><a href="post/M03.html">发布页</a></td></tr>
+<tr><td>11-26 周四</td><td>日常</td><td>听记轻帖：目标和达标门槛是两件事（T07→M04）</td><td><span class="tag">素材槽</span></td><td><a href="./#tingji">听记选题</a></td></tr>
+<tr><td>11-28 周五</td><td>AI 专题</td><td>A3：推广 AI 先交付可复用模板（T03→M17）；或发已成稿 M17</td><td><span class="tag ok">M17 成稿</span></td><td><a href="post/M17.html">M17 发布页</a></td></tr>
+</tbody>
+</table>
+<p class="muted">可选周日：A2 工具周记（L01 已成稿，可插在 W1 或 W2 周日）。笔记系列（宁向东/中层/经济）隔周，不抢本四周档期。旧 <code>publish_plan</code> 日期与此不完全一致——以本页为准时，记得回头改库。</p>
+
+<div class="card">
+  <strong>三线防火墙</strong>
+  <ul style="margin:.4rem 0 0">
+    <li><strong>PRD 主线：</strong>课表 M 系列；公开帖只写你的话 + 现场。</li>
+    <li><strong>AI 专题：</strong>独立系列（A1/A2/A3），不与听记正文搅在一起。</li>
+    <li><strong>日常更新：</strong>只吃听记脱敏短稿；AI 议题提炼进 A 线，日常只发「今天对齐了什么」。</li>
+  </ul>
+</div>
+
+<!-- ========== 3 CREATORS ========== -->
+<h2 id="creators">③ 对标博主学什么</h2>
+<p class="muted">压缩自 <code>creators.md</code> / <a href="creators.html">完整档案</a>。每人按 When / Where / Why / How / What。粉数等会变，引用以当次观测为准。</p>
+
+<div class="card">
+  <h3 style="margin-top:0">张咋啦 · 小红书过程目标</h3>
+  <p><strong>What：</strong>非技术视角讲 AI + 学习成长；小红书近 500 篇（自述）。</p>
+  <p><strong>When：</strong>起号约定「连续日更半年」；某年自述粉约 2万→18万 <span class="tag warn">待核</span>；2026-10 X≈9.4 万粉（API 已核）。</p>
+  <p><strong>Where：</strong>主增长在小红书；X 英文短观点；业余产品 LongCut。</p>
+  <p><strong>Why：</strong>定位是折腾出来的——发几十上百篇靠评论训练；学生语气、Learn in public；自述暂不变现。</p>
+  <p><strong>How：</strong>过程 KPI &gt; 粉丝目标；回忆别人常问的三题→大白话；「讲到自己要吐，观众才刚开始听」。</p>
+  <p><strong>你可抄：</strong>辅线「我学 AI」用过程目标；评论高频问题→标题；去爹味第一人称。<strong>别抄：</strong>真·日更近 500 篇。</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">Lenny · 主线方法骨架</h3>
+  <p><strong>What：</strong>产品 newsletter + 播客；M01 母体是 Three-step framework（公开帖不署名）。</p>
+  <p><strong>When：</strong>2019 Substack → 约 9 个月后付费 → 2023-09 50万订 → 2025-03 100万订（其文）。</p>
+  <p><strong>Where：</strong>Substack 主阵地；X/LinkedIn 摘要；Slack 社区。</p>
+  <p><strong>Why：</strong>结晶大厂经验，JTBD「帮你把工作干得更好」；耐力 &gt; 单篇爆款。</p>
+  <p><strong>How：</strong>质量+一致周更；单篇中位约 10 小时；开场砍 30–50%；公开承诺当 deadline。</p>
+  <p><strong>你可抄：</strong>主线吃框架库存（已映射课表）；先信任与周更耐力。<strong>别抄：</strong>全职产能与付费墙冷启动。</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">卡兹克 · 选题流水线 + 标题判断</h3>
+  <p><strong>What：</strong>中文 AI 自媒体；公众号母体；开源 khazix-skills；虚实传媒（公司口径粉数 <span class="tag warn">待核</span>）。</p>
+  <p><strong>When：</strong>2023-02 回归 → 流浪地球3 预告片破壁 → 2024-03 裸辞 → 公司化；X≈9.9 万（2026-10 API）。</p>
+  <p><strong>Where：</strong>公众号为主；X 实测/工作流；小红书多为长文改装（适配仍偏初级，分析口径 <span class="tag warn">待核</span>）。</p>
+  <p><strong>Why：</strong>可信信息源；写作「有见识的普通人」；拒绝套话。</p>
+  <p><strong>How：</strong>选题工业化、写作人手；强判断标题；人机分工终审必须人。</p>
+  <p><strong>你可抄：</strong>听记/digest→选题雷达；标题强判断但不爹味；把自己的写法收成 skill。<strong>别抄：</strong>追每个模型首发、真日更长文。</p>
+</div>
+
+<table>
+<thead><tr><th>维度</th><th>张咋啦</th><th>Lenny</th><th>卡兹克</th><th>你对位</th></tr></thead>
+<tbody>
+<tr><td>主阵地</td><td>小红书</td><td>Substack</td><td>公众号</td><td>小红书图文</td></tr>
+<tr><td>节奏</td><td>近日更（自述）</td><td>稳周更</td><td>近乎日更长文</td><td>周二+周五深帖，日常轻量</td></tr>
+<tr><td>变现</td><td>暂不接广（自述）</td><td>9 个月后付费</td><td>商单/MCN（金额待核）</td><td>先信任，不谈变现</td></tr>
+</tbody>
+</table>
+
+<!-- ========== 4 HOT ========== -->
+<h2 id="hot">④ 热门观察（真实标题）</h2>
+<p class="muted">来源：登录小号搜「产品经理 / 职场干货 / PRD / 需求文档」，按赞抽样写入 <code>titles.tsv</code>（2026-10-31）。<strong>未逐条打开全文</strong>——深度判断标待核。职场干货最高赞是接话/套话（10万+），方法密度低，不去抢。</p>
+
+<table>
+<thead><tr><th>模式</th><th>真实标题（表内）</th><th>赞</th></tr></thead>
+<tbody>
+<tr><td>AI vs 传统 PRD</td><td>AI产品经理的prd，和传统产品区别太大了</td><td>1.1万</td></tr>
+<tr><td>工具联动</td><td>我的PRD需求文档和原型竟然联动了！</td><td>5413</td></tr>
+<tr><td>vibe 围观</td><td>好奇一下大家的vibecoding工作流</td><td>4801</td></tr>
+<tr><td>求助互动</td><td>请问大家的PRD是怎么写的呀</td><td>4099</td></tr>
+<tr><td>列表体</td><td>Claude产品经理｜AI时代产品工作的4大变化</td><td>2578</td></tr>
+<tr><td>AI 互吵出稿</td><td>让两个AI互相吵架，吵出来的PRD质量炸裂</td><td>2143</td></tr>
+<tr><td>教程声称</td><td>终于把PRD怎么写讲清楚了！</td><td>1914</td></tr>
+<tr><td>速度对比</td><td>PRD写了3小时？PM用AI 20分钟搞定</td><td>608</td></tr>
+</tbody>
+</table>
+
+<div class="card verdict">
+  <strong>他们浅在哪（标题可推，正文待核）</strong>
+  <ol>
+    <li>停在「用 AI 写得快 / 跟原型联动」——少谈题有没有写对、上线后有没有人用。</li>
+    <li>少谈成功标准、失败态、口径、采纳路径。</li>
+    <li>少有「手段做成了、目标没碰到」的复盘结构。</li>
+  </ol>
+  <strong>你更深的切口（可执行）</strong>
+  <ol>
+    <li>问题定义优先于文档生成 —— 正是 M01 双案例。</li>
+    <li>指标与采纳：生成≠使用；覆盖率不是北星。</li>
+    <li>一页纸可读 + 可点原型对齐（M07 / M18）。</li>
+    <li>模板化推广（比「20 分钟出 PRD」更可迁移）。</li>
+  </ol>
+  <p class="muted" style="margin:.5rem 0 0">全文笔记若补齐，放到 <code>/workspace/money/xhs-real/prd/notes.md</code> 再升级本节（当前该文件不存在）。</p>
+</div>
+
+<!-- ========== 5 DAILY ========== -->
+<h2 id="daily">⑤ 每日日报</h2>
+<div class="card">
+  <p style="margin:0 0 .45rem">每天早上约 <strong>台北时间 9:00</strong>（±15 分钟）自动跑：小红书 PM/AI 热帖（小号只看）+ X 情报，产出 2–3 个当日可写选题。</p>
+  <p style="margin:0 0 .45rem">报告地址：<code>/xhs/daily/YYYY-MM-DD.html</code><br>例：<code>https://zhenchuanwuzc-max.github.io/x-digest/xhs/daily/2026-11-01.html</code></p>
+  <p class="muted" style="margin:0">无新料时只在对话里说一句、不出页。入口也会挂在选题库首页。第一次预计明日。</p>
+</div>
+
+<!-- ========== 6 LINKS ========== -->
+<h2 id="links">⑥ 相关链接</h2>
+<ul>
+  <li><a href="./">小红书选题库</a>（课表 / 发布计划 / 成稿）</li>
+  <li><a href="post/M01.html">M01 发布页</a>（手机发帖主入口）</li>
+  <li><a href="creators.html">对标完整档案</a></li>
+  <li><a href="./#curriculum">课表锚点</a> · <a href="./#plan">旧发布计划表</a> · <a href="./#tingji">听记选题</a></li>
+  <li>私库素材（不上公网正文）：<code>ai-lines.md</code> · <code>creators.md</code> · <code>titles.tsv</code> · <code>monitors/xhs_library.json</code></li>
+</ul>
+
+<div class="foot">
+  私密页 · x-digest/xhs/plan.html · 更新 2026-10-31（America/Los_Angeles） · 不编数字 · 公开帖不署名 Lenny/听记路径
+</div>
+</main>
+</div>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.nav a[href^="#"]'));
+  var map=links.map(function(a){var id=a.getAttribute('href').slice(1);return {a:a,el:document.getElementById(id)};}).filter(function(x){return x.el;});
+  function sync(){
+    var y=window.scrollY||0, cur=map[0];
+    for(var i=0;i<map.length;i++){if(map[i].el.offsetTop-24<=y) cur=map[i];}
+    links.forEach(function(a){a.classList.remove('active');});
+    if(cur) cur.a.classList.add('active');
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  sync();
+})();
+</script>
+</body>
+</html>
