@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>创作者对标研究 · 职场/PM/效率/学习/大厂日常/AI</title>
+<!-- impeccable-polish: fluid + sticky left nav; claims linked; 待核 -->
+<style>
+:root{
+  --bg:#f3f1eb; --surface:#fffcf7; --ink:#1a1c1b; --ink-2:#3d433f; --mut:#59656b;
+  --line:#e2ddd2; --accent:#0d6b52; --accent-soft:#e4f3ec; --warn:#8a5a00; --warn-soft:#fff3d6;
+  --ok:#155724; --ok-soft:#d4edda;
+  --shadow:0 1px 2px rgba(26,28,27,.04),0 8px 24px rgba(26,28,27,.06);
+  --r:14px; --nav-w:13.5rem;
+}
+*{box-sizing:border-box}
+html{color-scheme:light; scroll-behavior:auto}
+body{
+  margin:0; color:var(--ink); background:var(--bg);
+  font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+::selection{background:#cfe8de;color:var(--ink)}
+.shell{display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr); gap:0; min-height:100vh; max-width:74rem; margin:0 auto}
+.nav{
+  position:sticky; top:0; align-self:start; height:100vh;
+  padding:1.5rem 1rem 2rem 1.15rem; border-right:1px solid var(--line);
+  background:linear-gradient(180deg,#f7f5ef,var(--bg)); overflow:auto;
+}
+.nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
+.nav .meta{font-size:.78rem; color:var(--mut); margin:0 0 1.1rem; line-height:1.45}
+.nav a{display:block; color:var(--ink-2); text-decoration:none; font-size:.88rem; padding:.38rem .55rem; border-radius:8px; margin:.12rem 0}
+.nav a:hover,.nav a:focus-visible{background:var(--accent-soft); color:var(--accent); outline:none}
+.nav .sec{font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .35rem; padding-left:.55rem}
+.main{padding:1.75rem 1.5rem 4.5rem; max-width:50rem}
+h1{font-size:clamp(1.35rem,2.2vw,1.7rem); line-height:1.28; letter-spacing:-.025em; margin:0 0 .55rem; font-weight:750}
+h2{font-size:1.12rem; line-height:1.35; margin:2.2rem 0 .65rem; padding-bottom:.45rem; border-bottom:2px solid var(--accent); letter-spacing:-.015em; font-weight:700}
+h3{font-size:1.02rem; line-height:1.4; margin:1.05rem 0 .4rem; font-weight:700}
+p,li{color:var(--ink-2)}
+p{margin:.55rem 0}
+.muted{color:var(--mut); font-size:.94rem; line-height:1.6}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:1.05rem 1.15rem; margin:.85rem 0; box-shadow:var(--shadow)}
+.verdict{border-color:#b7d9cb; background:linear-gradient(180deg,#f4faf7,var(--surface))}
+.tag{display:inline-block; font-size:12px; font-weight:650; line-height:1.5; background:var(--accent-soft); color:var(--accent); padding:.15rem .55rem; border-radius:999px; margin-right:.35rem}
+.tag.warn{background:var(--warn-soft); color:var(--warn)}
+.success{border-left:3px solid var(--accent)}
+.inflect{border-left:3px solid var(--warn)}
+.inflect table{font-size:.92rem}
+.inflect th{white-space:nowrap}
+.success h3{margin-top:1rem}.success h3:first-child{margin-top:0}
+.success .cant{color:var(--warn)}
+a{color:var(--accent); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-all}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px}
+ol,ul{padding-left:1.25rem; margin:.4rem 0 .6rem}
+li{margin:.28rem 0}
+.src{font-size:.88rem; color:var(--mut); margin-top:.45rem}
+.foot{margin-top:2.75rem; font-size:.88rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
+table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:.45rem .55rem; text-align:left; vertical-align:top}
+th{background:#efeae0; color:var(--ink); font-weight:650}
+.metrics{font-variant-numeric:tabular-nums; white-space:nowrap}
+.mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.55rem 0; border-bottom:1px solid var(--line)}
+.mob-nav a{font-size:.8rem; color:var(--accent); text-decoration:none; background:var(--accent-soft); padding:.22rem .5rem; border-radius:999px}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .nav{display:none}
+  .mob-nav{display:flex}
+  .main{padding:1.2rem 1rem 3.5rem}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="nav" aria-label="目录">
+  <p class="brand">创作者对标（按类型）</p>
+  <p class="meta">写给 Ocean · 私密 · 2026-10-31（Asia/Taipei；X 快照同日）· X 粉丝 API 快照 · 自述标「待核」· 不编数字</p>
+  <div class="sec">选题库</div>
+  <a href="./">← 小红书选题库</a>
+  <div class="sec">导读</div>
+  <a href="#verdict">结论</a>
+  <a href="#takeaways">小红书可抄</a>
+  <a href="#lip-growth">learn-in-public 怎么涨 &amp; 变现</a>
+  <div class="sec">按类型</div>
+  <a href="#pm">产品经理</a><a href="#career">职场</a><a href="#tools">效率</a><a href="#lip">学习成长</a><a href="#bigco">大厂日常</a><a href="#ai">AI</a>
+  <div class="sec">深描 · 中文</div>
+  <a href="#kazike">卡兹克 ★</a>
+  <a href="#guizang">歸藏</a>
+  <a href="#huashu">花叔</a>
+  <a href="#baoyu">宝玉</a>
+  <a href="#qiaomu">乔木</a>
+  <a href="#zara">张咋啦</a>
+  <a href="#fankai">范凯</a>
+  <div class="sec">深描 · 海外</div>
+  <a href="#lenny">Lenny ★</a>
+  <a href="#shreyas">Shreyas</a>
+  <a href="#ali">Ali Abdaal</a>
+  <a href="#swyx">swyx</a>
+  <a href="#levelsio">levelsio</a>
+  <a href="#justinwelsh">Justin Welsh</a>
+  <a href="#sources">来源</a>
+</aside>
+<main class="main">
+<nav class="mob-nav" aria-label="移动目录">
+  <a href="#verdict">结论</a>
+  <a href="#lip-growth">涨&amp;变现</a>
+  <a href="#pm">PM</a>
+  <a href="#lip">学习</a>
+  <a href="#ai">AI</a>
+  <a href="#kazike">卡兹克</a>
+  <a href="#lenny">Lenny</a>
+  <a href="#levelsio">levelsio</a>
+  <a href="#justinwelsh">Justin</a>
+  <a href="#zara">Zara</a>
+</nav>
+
+<h1>创作者对标研究：职场 / PM / 效率 / 学习 / 大厂日常 / AI</h1>
+<p class="muted">按你的定位「大厂产品经理，讲进门后如何把活干好」扩圈——不只 AI。含国内+海外；平台覆盖 X、小红书、B站、YouTube、newsletter。证据优先；没核过的标 <span class="tag warn">待核</span>。</p>
+
+<div class="card verdict" id="verdict">
+  <strong>一句话结论：</strong>主线仍用 PM / 职场方法号（Lenny、Shreyas、Julie、乔木）定「把活干好」的语气与结构；用 learn-in-public 号（张咋啦、swyx、花叔、Yihui）定<strong>过程公开</strong>的姿态；用效率/独立开发号看工具日记怎么写；AI 资讯号只当选题雷达。辅系列「我学 AI 的过程」专门承载周记/试用/踩坑，不抢主线课表。
+</div>
+
+<h2 id="takeaways">给小红书可直接用的 5 条</h2>
+<ol>
+  <li><strong>主线课表 + 辅系列穿插：</strong>课表讲方法；「我学 AI 的过程」讲这一周我试了啥、错在哪（学生视角）。</li>
+  <li><strong>冷启动只定过程目标：</strong>连续发，不设粉数 KPI（Zara 播客自述日更半年 <span class="tag warn">待核</span>）。</li>
+  <li><strong>定位用评论长出来：</strong>发二三十篇后，把评论高频问题写成下一篇标题。</li>
+  <li><strong>会议素材仅可选：</strong>本周有相关会可附一句现场笔记；不要每集强制槽位。</li>
+  <li><strong>变现后置：</strong>先信任与分发；课程骨架可对标范凯「AI 生产 + 个人 IP」，帖内最多轻带。</li>
+</ol>
+
+<h2 id="lip-growth">learn-in-public 账号：怎么涨、怎么变现</h2>
+<div class="card">
+  <h3>常见增长动作（有公开出处）</h3>
+  <ul>
+    <li><strong>过程目标先于粉丝 KPI：</strong>张咋啦自述起号只定「连续日更半年」，累计近 500 篇、小红书约 2万→18万（播客/虎嗅转载）→ <span class="tag warn">待核</span>。出处：<a href="https://www.huxiu.com/article/4824449.html">虎嗅文字版</a> · <a href="https://www.xiaoyuzhoufm.com/episode/695af1289b7892496e9811cb">小宇宙</a>。</li>
+    <li><strong>公开学习倒逼理解：</strong>国内复盘文归纳 Zara 方法：高质量输入（长视频/builders）+ learn in public + learn by doing。出处：<a href="https://www.woshipm.com/share/6230525.html">人人都是产品经理 · 实践张 Zara 方法</a>。</li>
+    <li><strong>B站「边做边讲」：</strong>花叔路径——先把 AI 拉进具体任务，再把试错拍成教程；开源项目反哺内容（盒饭财经/人人都是产品经理报道）。出处：<a href="https://www.woshipm.com/ai/6423340.html">我在B站和野生UP主学AI</a>。</li>
+    <li><strong>小红书 build in public：</strong>创业者用笔记记录迭代与求助，产品更新本身即内容（Founder Park / 智源转述）。出处：<a href="https://hub.baai.ac.cn/view/38564">智源社区转载</a>。</li>
+  </ul>
+  <h3>常见变现路径（标清来源；自述待核）</h3>
+  <ul>
+    <li><strong>信任 → 人脉/机会（先不做广告）：</strong>Zara 路径偏长期分发；正职在身时更可持续（复盘文观点）。</li>
+    <li><strong>课程/会员库：</strong>范凯站方现读月/季/年会员（约 US$19.90 / 54.90 / 199.90），框架「AI 生产 + 个人 IP」。出处：<a href="https://fankaishuo.ai/">fankaishuo.ai</a>。</li>
+    <li><strong>Newsletter 赞助/付费档：</strong>海外案例采访称 Superpower Daily 年收约 $10–15 万（赞助+beehiiv 广告网）；AI Tool Report 称约 $10 万/月量级——均为受访自述 → <span class="tag warn">待核</span>。出处：<a href="https://www.creatorspotlight.com/p/superpower-daily">Creator Spotlight · Superpower Daily</a> · <a href="https://www.creatorspotlight.com/p/ai-tool-report-martin-crowley">AI Tool Report</a>。</li>
+    <li><strong>产品公开收入：</strong>levelsio / Marc Lou / Tony Dinh 等在 X bio 自报多产品月收——个人展示，非审计 → <span class="tag warn">待核</span>；可学的是「做一件事就公开一件事」的节奏，不是数字本身。</li>
+    <li><strong>内容 → 产品：</strong>花叔等把教程与开源/App 互相导流（访谈叙述）。</li>
+  </ul>
+  <p class="src">对你：辅系列「我学 AI 的过程」先赚信任与素材；主线课表赚「把活干好」的专业标签；变现对齐远期产品课，不急广告。</p>
+</div>
+
+
+<h2 id="pm">产品经理</h2>
+<p class="muted">粉丝数为 X API <code>public_metrics</code> 快照（2026-10-31，America/Los_Angeles）。非完整榜；按与你定位的相关性入选。再列账号表示跨类参考。</p>
+<table>
+<thead><tr><th>账号</th><th>X 粉丝</th><th>为何相关</th><th>主要平台</th></tr></thead>
+<tbody>
+<tr>
+<td><a href="https://x.com/lennysan">@lennysan</a><br><span class="muted">Lenny Rachitsky</span></td>
+<td class="metrics">454.8k</td>
+<td>产品/增长长文与播客；你本地 Lenny 库来源</td>
+<td>X · Newsletter</td>
+</tr><tr>
+<td><a href="https://x.com/shreyas">@shreyas</a><br><span class="muted">Shreyas Doshi</span></td>
+<td class="metrics">405.5k</td>
+<td>前 Stripe 产品；高管教练与产品判断框架</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/joulee">@joulee</a><br><span class="muted">Julie Zhuo</span></td>
+<td class="metrics">379.6k</td>
+<td>《The Making of a Manager》；设计+管理</td>
+<td>X · 书</td>
+</tr><tr>
+<td><a href="https://x.com/scottbelsky">@scottbelsky</a><br><span class="muted">Scott Belsky</span></td>
+<td class="metrics">151.7k</td>
+<td>Behance 创始人；创意执行与产品</td>
+<td>X · 书</td>
+</tr><tr>
+<td><a href="https://x.com/vista8">@vista8</a><br><span class="muted">向阳乔木</span></td>
+<td class="metrics">134.1k</td>
+<td>国内 PM + AI 实操；活动组织</td>
+<td>X · 国内活动</td>
+</tr>
+</tbody></table>
+
+<h2 id="career">职场 / 工作方法</h2>
+<p class="muted">粉丝数为 X API <code>public_metrics</code> 快照（2026-10-31，America/Los_Angeles）。非完整榜；按与你定位的相关性入选。再列账号表示跨类参考。</p>
+<table>
+<thead><tr><th>账号</th><th>X 粉丝</th><th>为何相关</th><th>主要平台</th></tr></thead>
+<tbody>
+<tr>
+<td><a href="https://x.com/hnshah">@hnshah</a><br><span class="muted">Hiten Shah</span></td>
+<td class="metrics">368.3k</td>
+<td>SaaS 创业复盘；增长与人</td>
+<td>X · Newsletter</td>
+</tr><tr>
+<td><a href="https://x.com/jasonlk">@jasonlk</a><br><span class="muted">Jason Lemkin</span></td>
+<td class="metrics">255.1k</td>
+<td>SaaStr；B2B/AI 融资与经营</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/SahilBloom">@SahilBloom</a><br><span class="muted">Sahil Bloom</span></td>
+<td class="metrics">1.19M</td>
+<td>财富类型与职业叙事；畅销书作者</td>
+<td>X · Newsletter · 书</td>
+</tr><tr>
+<td><a href="https://x.com/JamesClear">@JamesClear</a><br><span class="muted">James Clear</span></td>
+<td class="metrics">1.43M</td>
+<td>Atomic Habits；习惯与执行</td>
+<td>X · Newsletter · 书</td>
+</tr><tr>
+<td><a href="https://x.com/AliAbdaal">@AliAbdaal</a><br><span class="muted">Ali Abdaal</span></td>
+<td class="metrics">356.5k</td>
+<td>效率/生产力；YouTube 起家</td>
+<td>YouTube · X · 书</td>
+</tr><tr>
+<td><a href="https://x.com/Fenng">@Fenng</a><br><span class="muted">Fenng</span></td>
+<td class="metrics">219.6k</td>
+<td>国内互联网评论；大厂语境参照</td>
+<td>X</td>
+</tr>
+</tbody></table>
+
+<h2 id="tools">效率 / 工具</h2>
+<p class="muted">粉丝数为 X API <code>public_metrics</code> 快照（2026-10-31，America/Los_Angeles）。非完整榜；按与你定位的相关性入选。再列账号表示跨类参考。</p>
+<table>
+<thead><tr><th>账号</th><th>X 粉丝</th><th>为何相关</th><th>主要平台</th></tr></thead>
+<tbody>
+<tr>
+<td><a href="https://x.com/simonw">@simonw</a><br><span class="muted">Simon Willison</span></td>
+<td class="metrics">247.7k</td>
+<td>工具日记式公开；Datasette</td>
+<td>X · Blog</td>
+</tr><tr>
+<td><a href="https://x.com/tdinh_me">@tdinh_me</a><br><span class="muted">Tony Dinh</span></td>
+<td class="metrics">206.9k</td>
+<td>独立工具 build-in-public；bio 自报多产品收入</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/levelsio">@levelsio</a><br><span class="muted">levelsio</span></td>
+<td class="metrics">984.0k</td>
+<td>独立产品公开收入表</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/marclou">@marclou</a><br><span class="muted">Marc Lou</span></td>
+<td class="metrics">419.2k</td>
+<td>独立 SaaS build-in-public</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/AlchainHust">@AlchainHust</a><br><span class="muted">花叔</span></td>
+<td class="metrics">72.3k</td>
+<td>AI Native 产品；B站/小红书路径；女娲.skill 等</td>
+<td>X · B站 · 小红书</td>
+</tr><tr>
+<td><a href="https://x.com/tibo_maker">@tibo_maker</a><br><span class="muted">Tibo</span></td>
+<td class="metrics">216.5k</td>
+<td>增长工具出品人；PH Maker</td>
+<td>X</td>
+</tr>
+</tbody></table>
+
+<h2 id="lip">学习成长 / learn-in-public</h2>
+<p class="muted">粉丝数为 X API <code>public_metrics</code> 快照（2026-10-31，America/Los_Angeles）。非完整榜；按与你定位的相关性入选。再列账号表示跨类参考。</p>
+<table>
+<thead><tr><th>账号</th><th>X 粉丝</th><th>为何相关</th><th>主要平台</th></tr></thead>
+<tbody>
+<tr>
+<td><a href="https://x.com/zarazhangrui">@zarazhangrui</a><br><span class="muted">张咋啦 Zara Zhang</span></td>
+<td class="metrics">93.9k</td>
+<td>learn in public；小红书起号叙事（播客自述待核）</td>
+<td>小红书 · X · 视频号 · Substack</td>
+</tr><tr>
+<td><a href="https://x.com/swyx">@swyx</a><br><span class="muted">swyx</span></td>
+<td class="metrics">209.1k</td>
+<td>AI eng learn/build in public；播客</td>
+<td>X · Podcast · Newsletter</td>
+</tr><tr>
+<td><a href="https://x.com/yoheinakajima">@yoheinakajima</a><br><span class="muted">Yohei Nakajima</span></td>
+<td class="metrics">127.2k</td>
+<td>babyagi；build-in-public 日志</td>
+<td>X · Blog</td>
+</tr><tr>
+<td><a href="https://x.com/david_perell">@david_perell</a><br><span class="muted">David Perell</span></td>
+<td class="metrics">481.3k</td>
+<td>写作公开课；How I Write</td>
+<td>X · 课程</td>
+</tr><tr>
+<td><a href="https://x.com/ship30for30">@ship30for30</a><br><span class="muted">Ship 30 for 30</span></td>
+<td class="metrics">9.0k</td>
+<td>数字写作习惯营（账号体量小，方法论可借）</td>
+<td>X · 课程</td>
+</tr><tr>
+<td><a href="https://x.com/yihui_indie">@yihui_indie</a><br><span class="muted">Yihui</span></td>
+<td class="metrics">64.1k</td>
+<td>独立开发 + UP；AI 编程课链在 bio</td>
+<td>X · B站/课程</td>
+</tr>
+</tbody></table>
+
+<h2 id="bigco">大厂日常</h2>
+<p class="muted">粉丝数为 X API <code>public_metrics</code> 快照（2026-10-31，America/Los_Angeles）。非完整榜；按与你定位的相关性入选。再列账号表示跨类参考。</p>
+<table>
+<thead><tr><th>账号</th><th>X 粉丝</th><th>为何相关</th><th>主要平台</th></tr></thead>
+<tbody>
+<tr>
+<td><a href="https://x.com/zarazhangrui">@zarazhangrui</a><br><span class="muted">张咋啦（再列）</span></td>
+<td class="metrics">93.9k</td>
+<td>前字节企业 SaaS PMM；现 stealth（About 页）</td>
+<td>小红书 · X</td>
+</tr><tr>
+<td><a href="https://x.com/joulee">@joulee</a><br><span class="muted">Julie Zhuo（再列）</span></td>
+<td class="metrics">379.6k</td>
+<td>FB 设计管理经验写入书与帖</td>
+<td>X · 书</td>
+</tr><tr>
+<td><a href="https://x.com/vista8">@vista8</a><br><span class="muted">向阳乔木（再列）</span></td>
+<td class="metrics">134.1k</td>
+<td>国内 PM 语境的日常与活动</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/Fenng">@Fenng</a><br><span class="muted">Fenng（再列）</span></td>
+<td class="metrics">219.6k</td>
+<td>国内大厂/创业评论语气参照</td>
+<td>X</td>
+</tr>
+</tbody></table>
+
+<h2 id="ai">AI（实操 / 资讯 / 工程）</h2>
+<p class="muted">粉丝数为 X API <code>public_metrics</code> 快照（2026-10-31，America/Los_Angeles）。非完整榜；按与你定位的相关性入选。再列账号表示跨类参考。</p>
+<table>
+<thead><tr><th>账号</th><th>X 粉丝</th><th>为何相关</th><th>主要平台</th></tr></thead>
+<tbody>
+<tr>
+<td><a href="https://x.com/dotey">@dotey</a><br><span class="muted">宝玉</span></td>
+<td class="metrics">263.2k</td>
+<td>AI 工程与翻译长文；密度高</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/op7418">@op7418</a><br><span class="muted">歸藏</span></td>
+<td class="metrics">183.8k</td>
+<td>AIGC 工具周刊</td>
+<td>X · 公众号</td>
+</tr><tr>
+<td><a href="https://x.com/Khazix0918">@Khazix0918</a><br><span class="muted">数字生命卡兹克</span></td>
+<td class="metrics">99.2k</td>
+<td>好奇心叙事；公众号同名</td>
+<td>X · 公众号</td>
+</tr><tr>
+<td><a href="https://x.com/fankaishuoai">@fankaishuoai</a><br><span class="muted">范凯说AI</span></td>
+<td class="metrics">46.0k</td>
+<td>课程库：AI+个人 IP；价目站上现读</td>
+<td>X · YouTube · 站点</td>
+</tr><tr>
+<td><a href="https://x.com/rowancheung">@rowancheung</a><br><span class="muted">Rowan Cheung</span></td>
+<td class="metrics">602.5k</td>
+<td>The Rundown AI 日报</td>
+<td>X · Newsletter</td>
+</tr><tr>
+<td><a href="https://x.com/rasbt">@rasbt</a><br><span class="muted">Sebastian Raschka</span></td>
+<td class="metrics">533.3k</td>
+<td>LLM 书与教程；工程向学习</td>
+<td>X · 书</td>
+</tr><tr>
+<td><a href="https://x.com/svpino">@svpino</a><br><span class="muted">Santiago</span></td>
+<td class="metrics">457.3k</td>
+<td>YouTube 机器学习讲解</td>
+<td>YouTube · X</td>
+</tr><tr>
+<td><a href="https://x.com/mattshumer_">@mattshumer_</a><br><span class="muted">Matt Shumer</span></td>
+<td class="metrics">402.2k</td>
+<td>AI 产品与投资叙事</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/jeremyphoward">@jeremyphoward</a><br><span class="muted">Jeremy Howard</span></td>
+<td class="metrics">332.1k</td>
+<td>fast.ai；公开课学习路径</td>
+<td>X · fast.ai</td>
+</tr><tr>
+<td><a href="https://x.com/chipro">@chipro</a><br><span class="muted">Chip Huyen</span></td>
+<td class="metrics">157.0k</td>
+<td>AI Engineering 书与系统设计</td>
+<td>X · 书</td>
+</tr><tr>
+<td><a href="https://x.com/dannypostma">@dannypostma</a><br><span class="muted">Danny Postma</span></td>
+<td class="metrics">188.7k</td>
+<td>AI 产品（HeadshotPro）公开做</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/nutlope">@nutlope</a><br><span class="muted">Hassan El Mghari</span></td>
+<td class="metrics">104.5k</td>
+<td>开源 AI app 实作分享</td>
+<td>X · GitHub</td>
+</tr><tr>
+<td><a href="https://x.com/skirano">@skirano</a><br><span class="muted">Pietro Schirano</span></td>
+<td class="metrics">119.3k</td>
+<td>Claude 工具/设计向实验</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/eugeneyan">@eugeneyan</a><br><span class="muted">Eugene Yan</span></td>
+<td class="metrics">30.9k</td>
+<td>应用科学长文；信噪比高</td>
+<td>X · Blog</td>
+</tr>
+</tbody></table>
+
+
+
+<h2 id="kazike">深描 · 数字生命卡兹克（重点）</h2>
+<p class="muted">公众号 ID 常写作 Rockhazix · X <a href="https://x.com/Khazix0918">@Khazix0918</a> 本回合 <strong class="metrics">99.2k</strong> · 主阵地微信公众号 + 视频号/社群。自述粉数与榜单位次均 <span class="tag warn">待核</span>。</p>
+
+<div class="card">
+  <h3>一年一页时间线</h3>
+  <table>
+  <thead><tr><th>时段</th><th>关键节点</th><th>出处</th></tr></thead>
+  <tbody>
+  <tr><td>更早</td><td>互金产品/交互设计；创业公司设计总监；做过基金数据分析平台；ChatGPT 上线后第七天把 GPT 接进微信群客服（第三天号被封——自述趣闻）</td><td><a href="https://podcast.latepost.com/109">晚点聊 LateTalk 109</a> · <a href="https://www.10100.com/article/149149135">大数跨境 OPC 演讲转写</a></td></tr>
+  <tr><td>2023-02-26</td><td>公众号「数字生命卡兹克」第一篇 AI 文；此后兼职高频写 AI 实测</td><td>OPC 演讲自述；LateTalk 开场</td></tr>
+  <tr><td>2023 中后</td><td>「破壁」级出圈：用 Midjourney 等拼出《流浪地球3》AI 预告片（自述五晚、粗糙蒙版镜头，因国内少人做 AI 视频内容而火）；被郭帆关注，开启影视侧协作线索</td><td>OPC 演讲 · LateTalk 时间轴 · 得到访谈复述预告片制作</td></tr>
+  <tr><td>2023-12 前后</td><td>Pika 1.0 国内较早上手评测；自述发布后第二天做了大量券商路演（次数为自述）→ <span class="tag warn">待核</span></td><td>LateTalk · 公众号文见下方破壁清单</td></tr>
+  <tr><td>2024-02～03</td><td>Sora 解读（「现实，不存在了」系标题/金句）；与得到合作聊 Sora；2024-03 全职运营账号（公司业务收束后离开）</td><td><a href="https://www.163.com/dy/article/IS6KRJI2055627NS.html">网易转载 · 卡兹克×得到</a> · LateTalk</td></tr>
+  <tr><td>2024-10</td><td>自述加入《流浪地球3》剧组做 AI 相关；同年自述公众号登顶行业榜并连续多月第一 → <span class="tag warn">待核</span></td><td>OPC 演讲</td></tr>
+  <tr><td>2025-03</td><td>晚点聊长访：工作流（早报/内参/外网汇总）、线下 2000 报 200 席用 AI 筛选；自称想做「AI 殿堂的门童」</td><td>LateTalk 109</td></tr>
+  <tr><td>2025～2026</td><td>持续 AI 产品盘点长文、视频号；OPC 现场讲「IP 跳出能力金字塔」；全平台加总粉数自述「一百多万、公众号快破百万」→ <span class="tag warn">待核</span></td><td>OPC · 公众号年度总结类文（笔记站索引）</td></tr>
+  </tbody></table>
+</div>
+
+<div class="card">
+  <h3>命名破壁作品（≥3，可点）</h3>
+  <ol>
+    <li><strong>《我用AI做了一部〈流浪地球3〉的预告片…》</strong> — 中文圈早期 AI 影视预告片叙事；后有重制/番外版本。索引见笔记站文件夹；制作过程在得到访谈与 LateTalk 复盘（无分镜硬拼数百图再图生视频）。</li>
+    <li><strong>《【全网首发】PIKA1.0上手评测 - 你就是传奇》</strong> — <a href="https://mp.weixin.qq.com/s/PwM38eRIS4M8tjergbscYg">微信原文</a>；后续《我用了2周PIKA1.0后，总结了10个宝藏使用技巧》<a href="https://mp.weixin.qq.com/s/J8raD9KkcIjf3LE1VF-yxg">技巧文</a>。</li>
+    <li><strong>《OpenAI全新发布文生视频模型Sora - 现实，不存在了》</strong> + 得到课/文《现实不存在了？…关于Sora的一切》— <a href="https://www.163.com/dy/article/IS6KRJI2055627NS.html">转载可读版</a>。</li>
+    <li>（加分）可灵/豆包视频等「中国 Sora」实测系列；《2025最好用的AI产品大全推荐…》（LateTalk 点名对比 2023 vs 2025 推荐文）。</li>
+    <li>（社区现象）《混迹于公众号的AI喷子「鲜虾包」…》— <a href="https://mp.weixin.qq.com/s/bxNN8Uw4yHcK6A4_xSV2IA">原文</a>：评论区 IP 运营案例。</li>
+  </ol>
+  <p class="src">更多标题索引（非官方）：<a href="https://nieta-zjj.github.io/docs/01-%E5%8D%9A%E5%AE%A2/%E6%95%B0%E5%AD%97%E7%94%9F%E5%91%BD%E5%8D%A1%E5%85%B9%E5%85%8B/">笔记站 · 数字生命卡兹克文件夹</a></p>
+</div>
+
+<div class="card">
+  <h3>节奏 · 体裁 · 分发</h3>
+  <ul>
+    <li><strong>节奏：</strong>兼职阶段已高频长文；全职后「肝」+ 自动化选题（全网资讯打分→早 8 早报 / 晚 8 内参 / 深夜外网汇总，自述干跑实习生后改为 AI 流程）→ LateTalk。</li>
+    <li><strong>体裁：</strong>公众号深度实测/盘点为主；视频号同名；社群分发早报；偶做演讲/播客（LateTalk、OPC）。</li>
+    <li><strong>语气：</strong>第一人称好奇心 + 强烈判断句（「你就是传奇」「现实不存在了」）；敢站队产品，也公开挨喷（Manus 等）。</li>
+  </ul>
+  <h3>变现结构（公开线索；金额待核）</h3>
+  <ul>
+    <li>内容影响力 → 影视/行业协作（《流浪地球》AI 相关工作，自述）。</li>
+    <li>品牌/产品曝光与路演（券商、工具方；次数与酬劳 <span class="tag warn">待核</span>）。</li>
+    <li>社群与线下活动（筛选报名等自述案例）。</li>
+    <li>未在本页声称其广告刊例或课程价目（未见稳定公开价目页）。</li>
+  </ul>
+  <h3>给 Ocean 的可抄动作</h3>
+  <ol>
+    <li><strong>母体长文 + 短平台切片：</strong>主线方法先写成「半页～一页」可核对清单，再拆小红书图文卡（系列页已按此做）。</li>
+    <li><strong>出圈靠「早 + 亲手做」：</strong>卡兹克破壁不是最精美，而是当时少人做的 AI 视频内容；你的差异化是大厂 PM 现场语境，不是追每一个模型首发。</li>
+    <li><strong>用 AI 建选题流水线，不靠灵感：</strong>可借鉴「资讯打分→社群焦点→选题」；辅系列周记就是低配版。</li>
+    <li><strong>IP 叙事可学结构，不必学全职：</strong>OPC「跳出执行层做 IP」适合远期；现阶段正职在身，优先信任与专业标签。</li>
+    <li><strong>评论区经营：</strong>「鲜虾包」说明强互动可成账号记忆点；你可固定「评论区一问」模板（系列成稿已写）。</li>
+  </ol>
+</div>
+
+
+<div class="card">
+  <h3>工作流深挖（LateTalk 时间轴摘要）</h3>
+  <ul>
+    <li><strong>选题：</strong>模型帮打分筛选全网资讯；分析社群讨论焦点反推选题。</li>
+    <li><strong>日报节奏：</strong>早 8 早报 → 晚 8「内参」→ 深夜 12 点再汇总外网；自述用自动化替代两个实习生。</li>
+    <li><strong>写作分工：</strong>ChatGPT 干「大活」、DeepResearch 做调研、Trae/Cursor 写小工具；多模态做海报，视频刻意留「人味」。</li>
+    <li><strong>线下杠杆：</strong>活动 2000 人报名只收 200：用 DeepResearch 约 11 分钟完成去年多人手工筛选/分组（自述对比）。</li>
+    <li><strong>产品观：</strong>多数 Agent「偏玩具」因错误多步叠加；规划/执行/整合能力最重要；23 年多用 Coze/Dify，后被 IDE 类工具承接。</li>
+    <li><strong>定位句：</strong>「AI 殿堂的门童」——先让更多人看见 AI 能做什么有趣的事。</li>
+  </ul>
+  <h3>OPC 演讲里的三个判断（为何做 IP）</h3>
+  <ol>
+    <li>人类处理信息的速度跟不上 AI 产内容的速度 → 优质内容易被淹没。</li>
+    <li>全人类注意力总量近似恒定 → 稀缺的是注意力不是又一个产品。</li>
+    <li>普通人越来越难分辨 AI 真假 → 人们选择<strong>信息源</strong>而非单条信息。</li>
+  </ol>
+  <p class="muted">演讲结论：自媒体本质是做 IP，跳出「执行层」能力金字塔。对你：可吸收「做可信任信息源」；现阶段用系列课表建立源，不必全职自媒体。</p>
+  <h3>格式清单（你可对照发帖）</h3>
+  <table>
+  <thead><tr><th>格式</th><th>他怎么用</th><th>你怎么迁到小红书</th></tr></thead>
+  <tbody>
+  <tr><td>首发实测长文</td><td>Pika/Sora/可灵等，标题强判断</td><td>主线少追模型首发；改「方法首发」（框架第一次讲清）</td></tr>
+  <tr><td>技巧清单复访</td><td>Pika 两周后 10 技巧</td><td>同一方法第二篇：清单卡 / 反例卡</td></tr>
+  <tr><td>作品展示</td><td>流浪地球预告片及重制</td><td>辅系列「做一件小事」贴结果</td></tr>
+  <tr><td>社群日更</td><td>早报/内参</td><td>digest 私域即可；公域不必日更资讯</td></tr>
+  <tr><td>播客/演讲</td><td>LateTalk、OPC</td><td>后期；先把图文系列跑稳</td></tr>
+  <tr><td>评论区人格</td><td>鲜虾包现象</td><td>固定评论引导句 + 认真回前排</td></tr>
+  </tbody></table>
+</div>
+
+
+
+<div class="card inflect" id="kazike-inflect">
+  <h3>拐点</h3>
+  <p class="muted">2–4 个可核拐点：日期 · 事件/作品（链）· 前后状态 · 为何有效。粉/订/收入仅公开来源；自述标 <span class="tag warn">待核</span>。</p>
+  <table>
+  <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
+  <tbody>
+
+  <tr><td>2023-02-26</td><td>公众号首篇 AI 文开号（OPC/LateTalk 自述）</td><td>互金/设计背景 → 兼职 AI 实测账号</td><td>卡在 ChatGPT 热启动窗口；先写再完美</td></tr>
+  <tr><td>2023 中后</td><td>《流浪地球3》AI 预告片叙事出圈（OPC·LateTalk·得到访谈）</td><td>普通 AI 写手 → 影视协作线索（郭帆关注等自述）</td><td>「早+亲手做」；当时少人做 AI 视频内容，非最精美</td></tr>
+  <tr><td>2023-12 前后</td><td><a href="https://mp.weixin.qq.com/s/PwM38eRIS4M8tjergbscYg">PIKA1.0 上手评测</a> → 技巧复访文</td><td>单篇实测 → 自述次日大量券商路演 <span class="tag warn">待核</span></td><td>全网首发感 + 强判断标题；评测后复访沉淀技巧</td></tr>
+  <tr><td>2024-02～03</td><td>Sora「现实不存在了」系文 + <a href="https://www.163.com/dy/article/IS6KRJI2055627NS.html">得到合作</a>；2024-03 全职</td><td>兼职高频 → 全职运营（公司业务收束后离开，LateTalk）</td><td>热点解读绑定个人金句；全职放大产能（你不必抄全职）</td></tr>
+
+  </tbody></table>
+</div>
+
+<div class="card success" id="kazike-success">
+  <h3>成功经验</h3>
+  <h3>① 他们分享的招牌干货</h3>
+  <ul>
+    <li><strong>AI 影视首发叙事：</strong>《我用AI做了一部〈流浪地球3〉的预告片…》— 亲手做 + 强判断标题，不是最精美而是当时少人做。</li>
+    <li><strong>工具首测→技巧复访：</strong><a href="https://mp.weixin.qq.com/s/PwM38eRIS4M8tjergbscYg">PIKA1.0 上手评测</a> → <a href="https://mp.weixin.qq.com/s/J8raD9KkcIjf3LE1VF-yxg">两周后 10 技巧</a>；Sora「现实不存在了」系长文（<a href="https://www.163.com/dy/article/IS6KRJI2055627NS.html">得到访谈转载</a>）。</li>
+    <li><strong>工作流公开：</strong>LateTalk 109 — 资讯打分→早报/内参/外网汇总；OPC「注意力稀缺 → 做可信任信息源」三判断。</li>
+    <li><strong>评论区 IP：</strong><a href="https://mp.weixin.qq.com/s/bxNN8Uw4yHcK6A4_xSV2IA">鲜虾包文</a> — 互动本身成记忆点。</li>
+  </ul>
+  <h3>② Ocean 可借鉴</h3>
+  <ol>
+    <li>主线用「方法首发」代替「模型首发」：第一次讲清一个框架（系列 M01 已对齐）。</li>
+    <li>同一方法第二篇做清单/反例卡（抄他的「评测→技巧复访」节奏）。</li>
+    <li>用 AI 建低配选题流水线（digest→选题），不必雇人。</li>
+    <li>固定「评论区一问」模板；认真回前排。</li>
+  </ol>
+  <h3 class="cant">③ Ocean 做不到 / 暂时别学</h3>
+  <ul>
+    <li><strong>全职肝日更资讯 + 多账号矩阵：</strong>你正职在身；他 2024-03 后全职，自动化替代实习生是全职产能。</li>
+    <li><strong>赌「全网首发」模型评测：</strong>早期 AI 视频窗口、影视协作资源（流浪地球剧组自述）不可复制；粉数/榜一自述 <span class="tag warn">待核</span> 也不当 KPI。</li>
+    <li><strong>线下 2000 筛 200 的活动杠杆：</strong>需存量粉丝与组织成本，后期再说。</li>
+  </ul>
+</div>
+
+<h2 id="guizang">深描 · 歸藏（AIGC 周刊）</h2>
+<div class="card">
+  <p>X <a href="https://x.com/op7418">@op7418</a> · <strong class="metrics">183.8k</strong> · 公众号「歸藏的AI工具箱」· 小报童《AIGC周刊》。</p>
+  <h3>时间线</h3>
+  <ul>
+    <li><strong>2022 年底：</strong>ChatGPT 发布当周开始学习笔记 → 周刊起点（小报童访谈）。</li>
+    <li><strong>约两年免费稳定更新：</strong>热度回落后增长变慢；抗拒收费 → 朋友推动后转型付费。</li>
+    <li><strong>付费后：</strong>访谈时订阅量曾披露「超过 592」、约每 5 天一期；短平台（推特/微博）日更 5 条+ 吆喝；每期放部分免费热点整理引流。出处：<a href="https://xiaobot.beehiiv.com/p/aigc">小报童专访歸藏</a> · 关于页 <a href="https://quaily.com/op7418/about">quaily about</a>（年费约 200 元档，以现页为准）。</li>
+    <li><strong>2025 自述回顾（转载）：</strong>公众号 DeepSeek 后从约 1 万做到约 7.8 万；X 约 11 万；即刻约 2.5 万；社群活动售出约 2000 付费会员量级 → 均为作者复盘 <span class="tag warn">待核</span>。<a href="https://www.163.com/dy/article/KI24JDV30556BM3X.html">网易转载 · 回顾 2025</a></li>
+  </ul>
+  <h3>破壁/代表内容</h3>
+  <ol>
+    <li>持续《AIGC周刊》系列（信息密度 + 从业者筛选）。</li>
+    <li>短平台日更工具/热点，为专栏持续供暖。</li>
+    <li>社群黑五式联名优惠（访谈中 Monica 等案例）——付费群促成合作。</li>
+  </ol>
+  <h3>节奏 / 变现 / 给 Ocean</h3>
+  <ul>
+    <li>节奏：长内容周期更新 + 短内容日更；先免费很久再收费。</li>
+    <li>变现：小报童专栏 + 付费社群 + 产品合作/福利；强调付费读者互动质量。</li>
+    <li>可抄：① 主线先免费把课表跑通再谈付费；② 短平台日更是「吆喝」不是第二套深度课；③ 免费引流选「已过热的系统整理」减少付费用户反感（访谈原话逻辑）。</li>
+  </ul>
+</div>
+
+
+
+<div class="card inflect" id="guizang-inflect">
+  <h3>拐点</h3>
+  <p class="muted">2–4 个可核拐点：日期 · 事件/作品（链）· 前后状态 · 为何有效。粉/订/收入仅公开来源；自述标 <span class="tag warn">待核</span>。</p>
+  <table>
+  <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
+  <tbody>
+
+  <tr><td>2022 年底</td><td>ChatGPT 发布当周开学习笔记 → 《AIGC周刊》起点（<a href="https://xiaobot.beehiiv.com/p/aigc">小报童专访</a>）</td><td>0 → 免费周刊作者</td><td>热启动窗口 + 稳定更新建立筛选者信任</td></tr>
+  <tr><td>约两年免费后</td><td>朋友推动转型付费小报童；访谈时订户曾披露「超过 592」、约每 5 天一期</td><td>免费读者 → 付费专栏（旧披露，现况待核）</td><td>先免费很久；短平台日更吆喝；免费引流用过热系统整理</td></tr>
+  <tr><td>2025 复盘（转载）</td><td>DeepSeek 后公众号自述约 1万→7.8万等（<a href="https://www.163.com/dy/article/KI24JDV30556BM3X.html">网易转载</a>）</td><td>增长平台期 → 又一波订阅涨幅 <span class="tag warn">待核</span></td><td>借模型热潮做系统整理，而非纯标题党</td></tr>
+
+  </tbody></table>
+</div>
+
+<div class="card success" id="guizang-success">
+  <h3>成功经验</h3>
+  <h3>① 他们分享的招牌干货</h3>
+  <ul>
+    <li><strong>《AIGC周刊》持续筛选：</strong>从业者向信息密度；小报童专栏（关于页年费档以现读为准）。</li>
+    <li><strong>短平台日更吆喝：</strong>访谈自述推特/微博日更 5 条+ 为专栏供暖（<a href="https://xiaobot.beehiiv.com/p/aigc">小报童专访</a>）。</li>
+    <li><strong>付费转化纪律：</strong>先免费很久再收费；免费引流用「已过热系统整理」减少付费用户反感（访谈逻辑）。</li>
+  </ul>
+  <h3>② Ocean 可借鉴</h3>
+  <ol>
+    <li>主线课表先免费跑通信任，再谈付费（对齐你现阶段）。</li>
+    <li>短平台（小红书）日更/高频是「吆喝与切片」，不是第二套深度课。</li>
+    <li>免费帖可做「过热话题的系统整理卡」，把深度留在系列母体。</li>
+  </ol>
+  <h3 class="cant">③ Ocean 做不到 / 暂时别学</h3>
+  <ul>
+    <li><strong>两年免费周刊再收费的时间窗口：</strong>他卡在 ChatGPT 爆发当周起号；你不必复制「资讯周刊」赛道。</li>
+    <li><strong>多平台日更 5 条+：</strong>兼职带宽不够；2025 粉数/付费会员复盘数字 <span class="tag warn">待核</span>，不当目标。</li>
+  </ul>
+</div>
+
+<h2 id="huashu">深描 · 花叔（AI Native / 边做边讲）</h2>
+<div class="card">
+  <p>X <a href="https://x.com/AlchainHust">@AlchainHust</a> · <strong class="metrics">72.3k</strong> · 站 <a href="https://www.huasheng.ai/">huasheng.ai</a> · 小红书/B站/YouTube/公众号。</p>
+  <h3>时间线（公开自述）</h3>
+  <ul>
+    <li><strong>2023-03：</strong>放弃大厂年薪 All-in AI（自述）；一年后文称通过咨询/专栏/工具/广告/平台分成「赚了大几十万」但仍未必超过上班 → <span class="tag warn">待核</span>。<a href="https://www.huasheng.ai/insights/wechat-2247484223-1/">放弃大厂…现在怎么样了</a></li>
+    <li><strong>2023～：</strong>半小时级教学视频在 YT/B站累计五十万+ 播放（自述）。</li>
+    <li><strong>2024：</strong>小猫补光灯等产品；小红书单条高阅读自述；媒体报道「手搓」叙事（站页列举）。</li>
+    <li><strong>2025～2026：</strong>《一本书玩转 DeepSeek》；开源 skill/工具矩阵（女娲等，Star 数为站页自报快照）。</li>
+  </ul>
+  <h3>破壁作品</h3>
+  <ol>
+    <li>长教学视频（B站/YT）——「边做边讲」标杆。</li>
+    <li>小猫补光灯 + 小红书传播链路（站页案例）。</li>
+    <li>开源 skill / 工具 + 教程互导；合作页公开综合报价区间 10–20 万/项目（仅感兴趣产品）。<a href="https://www.huasheng.ai/cooperation/">合作页</a></li>
+  </ol>
+  <h3>给 Ocean</h3>
+  <ul>
+    <li>路径：做一件真东西 → 拍/写成教程 → 开源或产品反哺；不是纯资讯搬运。</li>
+    <li>小红书：他站内有「搜索+爆款」方法论调研文可参考结构（平台数据多为二手 → 待核）。<a href="https://huasheng.ai/insights/xiaohongshu-best-practices/">小红书最佳实践文</a></li>
+    <li>你可抄「做一件小事并公开」（辅系列 L05），不必抄报价。</li>
+  </ul>
+</div>
+
+
+
+<div class="card inflect" id="huashu-inflect">
+  <h3>拐点</h3>
+  <p class="muted">2–4 个可核拐点：日期 · 事件/作品（链）· 前后状态 · 为何有效。粉/订/收入仅公开来源；自述标 <span class="tag warn">待核</span>。</p>
+  <table>
+  <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
+  <tbody>
+
+  <tr><td>2023-03</td><td>自述放弃大厂年薪 All-in AI（<a href="https://www.huasheng.ai/insights/wechat-2247484223-1/">站文</a>）</td><td>大厂雇员 → 全职创作者/制作者</td><td>身份切换换来「边做边讲」带宽（你正职在身，别抄裸辞）</td></tr>
+  <tr><td>2023～</td><td>半小时级教学视频（B站/YT），站内自述五十万+ 播放</td><td>文字为主 → 长视频教程矩阵 <span class="tag warn">待核</span> 播放量</td><td>过程可见；真东西做完再拍</td></tr>
+  <tr><td>2024～</td><td>小猫补光灯等产品 + 小红书链路；开源 skill；<a href="https://www.huasheng.ai/cooperation/">合作报价页</a></td><td>纯内容 → 产品/开源/商务三角</td><td>内容主题=产品主题；开源反哺信任</td></tr>
+
+  </tbody></table>
+</div>
+
+<div class="card success" id="huashu-success">
+  <h3>成功经验</h3>
+  <h3>① 他们分享的招牌干货</h3>
+  <ul>
+    <li><strong>边做边讲长教学：</strong>B站/YT 半小时级教程（站内自述播放量 → <span class="tag warn">待核</span>）。</li>
+    <li><strong>产品×内容：</strong>小猫补光灯等「手搓」叙事 + 小红书传播（<a href="https://www.huasheng.ai/">huasheng.ai</a>）。</li>
+    <li><strong>开源反哺：</strong>skill/工具矩阵 + 教程互导；合作页公开综合报价区间（<a href="https://www.huasheng.ai/cooperation/">合作页</a>）。</li>
+    <li><strong>平台方法文：</strong><a href="https://huasheng.ai/insights/xiaohongshu-best-practices/">小红书最佳实践</a>（平台数据多为二手 → 待核）。</li>
+  </ul>
+  <h3>② Ocean 可借鉴</h3>
+  <ol>
+    <li>辅系列「做一件真小事 → 写成教程卡」（L05 已规划），不是纯资讯搬运。</li>
+    <li>参考其小红书文的结构（搜索意图+步骤），主线仍是 PM 方法。</li>
+  </ol>
+  <h3 class="cant">③ Ocean 做不到 / 暂时别学</h3>
+  <ul>
+    <li><strong>All-in 弃大厂年薪：</strong>他 2023-03 自述放弃大厂（<a href="https://www.huasheng.ai/insights/wechat-2247484223-1/">站文</a>）；你正职优先。</li>
+    <li><strong>硬件产品/开源矩阵/十万级项目报价：</strong>需工程深度与全职产能；「大几十万」收入自述 <span class="tag warn">待核</span>。</li>
+  </ul>
+</div>
+
+<h2 id="baoyu">深描 · 宝玉</h2>
+<div class="card">
+  <p>X <a href="https://x.com/dotey">@dotey</a> · <strong class="metrics">263.2k</strong> · 长文翻译/AI 工程解读密度高；AIGCRank 等榜单常列「提示词/科普」类（榜单方法论不透明 → 参考即可）。</p>
+  <h3>可观察模式</h3>
+  <ul>
+    <li>体裁：长帖/线程 + 译文/深度笔记；信噪比优先于日更鸡汤。</li>
+    <li>破壁类型：关键论文/产品发布的「中文第一时间可读版」。</li>
+    <li>给 Ocean：主线 Lenny 转述走「密度+可核对来源」路线，对齐宝玉的信噪比，不对齐其粉丝体量。</li>
+  </ul>
+  <p class="muted">具体单篇爆款 URL 随平台时效变化快；发帖前用 X 搜索作者时间线核对，本页不编造阅读量。</p>
+</div>
+
+
+
+<div class="card inflect" id="baoyu-inflect">
+  <h3>拐点</h3>
+  <p class="muted">2–4 个可核拐点：日期 · 事件/作品（链）· 前后状态 · 为何有效。粉/订/收入仅公开来源；自述标 <span class="tag warn">待核</span>。</p>
+  <table>
+  <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
+  <tbody>
+
+  <tr><td>持续（可观察）</td><td>关键论文/产品发布的「中文第一时间可读版」长帖/线程（X <a href="https://x.com/dotey">@dotey</a>）</td><td>普通转发 → 高信噪中文入口之一（粉丝体量本回合指标见页眉，非某单篇前后对比）</td><td>密度+可读；信噪比优先于鸡汤日更</td></tr>
+  <tr><td>说明</td><td colspan="3">公开「单篇爆款前后粉/收入」节点稀缺；不编造阅读量。拐点形态是<strong>体裁信任</strong>而非单次病毒数字。</td></tr>
+
+  </tbody></table>
+</div>
+
+<div class="card success" id="baoyu-success">
+  <h3>成功经验</h3>
+  <h3>① 他们分享的招牌干货</h3>
+  <ul>
+    <li><strong>高信噪比长帖/线程：</strong>关键论文、产品发布的「中文第一时间可读版」体裁（提示词/科普向）；具体爆款 URL 时效快，发帖前用 X 时间线核对，本页不编阅读量。</li>
+    <li><strong>译文/深度笔记密度：</strong>宁可慢更，不灌鸡汤；榜单标签仅参考（方法论不透明）。</li>
+  </ul>
+  <h3>② Ocean 可借鉴</h3>
+  <ol>
+    <li>Lenny 转述走「密度 + 可核对来源」：每帖带框架名与出处，对齐宝玉的信噪比。</li>
+    <li>主线少追日更热点，一篇讲透一个判断。</li>
+  </ol>
+  <h3 class="cant">③ Ocean 做不到 / 暂时别学</h3>
+  <ul>
+    <li><strong>拼粉丝体量与「第一时间中文解读」速度战：</strong>需近似全职跟外网 + 既有技术读者群；你差异化是大厂 PM 现场语境，不是翻译赛道头部。</li>
+  </ul>
+</div>
+
+<h2 id="qiaomu">深描 · 向阳乔木</h2>
+<div class="card">
+  <p>X <a href="https://x.com/vista8">@vista8</a> · <strong class="metrics">134.1k</strong> · 国内 PM + AI 实操 + 活动组织；与你「大厂 PM 语境」最近的中文账号之一。</p>
+  <h3>可观察模式</h3>
+  <ul>
+    <li>内容：提示词/工具推荐/活动与线下连接；榜单常见「提示词博主」标签（同上，参考）。</li>
+    <li>节奏：短平快实操 + 社群/活动转化。</li>
+    <li>给 Ocean：学「国内读者能立刻用的口吻」；方法骨架仍用 Lenny 本地库，避免做成纯工具清单号。</li>
+  </ul>
+</div>
+
+
+
+<div class="card inflect" id="qiaomu-inflect">
+  <h3>拐点</h3>
+  <p class="muted">2–4 个可核拐点：日期 · 事件/作品（链）· 前后状态 · 为何有效。粉/订/收入仅公开来源；自述标 <span class="tag warn">待核</span>。</p>
+  <table>
+  <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
+  <tbody>
+
+  <tr><td>离开字节后</td><td>前字节商业化 AI PM → 每日用 AI 写成专栏，About 称已坚持三年（<a href="https://www.qiaomu.ai/about/">qiaomu.ai/about</a>）</td><td>大厂 PM → 公开 AI 实践作者</td><td>「先跑通再动笔」降低翻车；国内读者立刻能用</td></tr>
+  <tr><td>持续</td><td>可复用 Prompt 实战（如后台文案重写帖）+ 公众号工具/工作流拆解</td><td>零散技巧 → 可复制模板资产</td><td>Prompt 可粘贴即用，转化门槛低</td></tr>
+  <tr><td>近期</td><td>合著《AI 领导力》《AI 营销：从 SEO 到 GEO》；Next Token 播客；GEO 训练营（About）</td><td>个人专栏 → 书/播客/企业服务</td><td>同一实践母题产品化（你兼职先课表，别抄训练营）</td></tr>
+
+  </tbody></table>
+</div>
+
+<div class="card success" id="qiaomu-success">
+  <h3>成功经验</h3>
+  <h3>① 他们分享的招牌干货</h3>
+  <ul>
+    <li><strong>先跑通再动笔：</strong>About 自述标准 — 工具先用、提示词先验证、方法论能复用再写（<a href="https://www.qiaomu.ai/about/">qiaomu.ai/about</a>）。</li>
+    <li><strong>可复用 Prompt 实战：</strong>如后台文案重写 Prompt（产品经理+苹果文案大师，按《Don't Make Me Think》等原则，输出原文→新文案对照；X <a href="https://x.com/vista8">@vista8</a> 公开帖）。</li>
+    <li><strong>一句话需求→PRD 等实操文：</strong>公众号合集可见「字节 PRD 协作」类长文链接（以微信现读为准）；Prompt 实战分享会（编程/教育/创作场景）。</li>
+    <li><strong>合著与活动：</strong>《AI 领导力》《AI 营销：从 SEO 到 GEO》；Next Token 播客联合主理（About）。</li>
+  </ul>
+  <h3>② Ocean 可借鉴</h3>
+  <ol>
+    <li>学「国内读者立刻能用的口吻」：一张卡给可复制 Prompt/清单，配一句大厂场景。</li>
+    <li>方法骨架仍用 Lenny 本地库；AI 实操辅系列可抄「先自己跑通再发」。</li>
+    <li>避免做成纯工具清单号——每帖绑一个「把活干好」判断。</li>
+  </ol>
+  <h3 class="cant">③ Ocean 做不到 / 暂时别学</h3>
+  <ul>
+    <li><strong>连续创业者 + 合著出书 + GEO 企业训练营：</strong>需离开大厂后的全职带宽与商业服务团队；你兼职先课表。</li>
+    <li><strong>开源 Agent Skills / 多站矩阵：</strong>工程与维护成本高，后期可选一件小事开源，不追矩阵。</li>
+  </ul>
+</div>
+
+<h2 id="zara">深描 · 张咋啦 Zara Zhang</h2>
+<div class="card">
+  <p>X <a href="https://x.com/zarazhangrui">@zarazhangrui</a> · <strong class="metrics">93.9k</strong> · About：哈佛 · GGV · ByteDance ~7 年 · stealth AI。<a href="https://zarazhang.com/about/">zarazhang.com/about</a></p>
+  <h3>时间线（公开叙事）</h3>
+  <ul>
+    <li>大厂 PMM 经历写入人设；小红书起号。</li>
+    <li>播客自述：起号只定「连续日更半年」、累计近 500 篇、粉数约 2万→18万等 → <span class="tag warn">待核</span>。<a href="https://www.huxiu.com/article/4824449.html">虎嗅文字版</a> · <a href="https://www.xiaoyuzhoufm.com/episode/695af1289b7892496e9811cb">小宇宙</a></li>
+    <li>方法论被国内复盘：「高质量输入（长视频/builders）+ learn in public + learn by doing」。<a href="https://www.woshipm.com/share/6230525.html">人人都是产品经理</a></li>
+  </ul>
+  <h3>破壁点</h3>
+  <ol>
+    <li>小红书系统日更本身即作品。</li>
+    <li>「定位是折腾出来的」——评论反推选题。</li>
+    <li>跨平台：视频号/Substack/X 分发同一学习人格。</li>
+  </ol>
+  <h3>变现 / 给 Ocean</h3>
+  <ul>
+    <li>路径偏长期信任与机会，非硬广优先（复盘文观点）。</li>
+    <li>可抄：过程目标、评论定定位、辅系列学生语气；主线仍要方法密度（Lenny）。</li>
+  </ul>
+</div>
+
+
+
+<div class="card inflect" id="zara-inflect">
+  <h3>拐点</h3>
+  <p class="muted">2–4 个可核拐点：日期 · 事件/作品（链）· 前后状态 · 为何有效。粉/订/收入仅公开来源；自述标 <span class="tag warn">待核</span>。</p>
+  <table>
+  <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
+  <tbody>
+
+  <tr><td>起号约定</td><td>播客自述只定「连续日更半年」、累计近 500 篇（<a href="https://www.huxiu.com/article/4824449.html">虎嗅</a>·<a href="https://www.xiaoyuzhoufm.com/episode/695af1289b7892496e9811cb">小宇宙</a>）</td><td>0 / 模糊定位 → 过程目标驱动的系统输出</td><td>过程 KPI 可执行；定位后验于评论</td></tr>
+  <tr><td>增长叙事</td><td>自述粉数约 2万→18万等轨迹</td><td>小账号 → 小红书可见度上台阶 <span class="tag warn">待核</span></td><td>高质量输入 + learn in public + learn by doing（<a href="https://www.woshipm.com/share/6230525.html">人人复盘</a>）</td></tr>
+  <tr><td>跨平台</td><td>视频号/Substack/X 分发同一学习人格（<a href="https://zarazhang.com/about/">About</a>）</td><td>单平台 → 多平台同一人设</td><td>人设一致降低再教育成本</td></tr>
+
+  </tbody></table>
+</div>
+
+<div class="card success" id="zara-success">
+  <h3>成功经验</h3>
+  <h3>① 他们分享的招牌干货</h3>
+  <ul>
+    <li><strong>过程目标本身即作品：</strong>播客自述「连续日更半年」、累计近 500 篇等（<a href="https://www.huxiu.com/article/4824449.html">虎嗅</a> · <a href="https://www.xiaoyuzhoufm.com/episode/695af1289b7892496e9811cb">小宇宙</a>）→ 粉数轨迹 <span class="tag warn">待核</span>。</li>
+    <li><strong>「定位是折腾出来的」：</strong>评论反推选题；高质量输入（长视频/builders）+ learn in public + learn by doing（<a href="https://www.woshipm.com/share/6230525.html">人人都是产品经理复盘</a>）。</li>
+    <li><strong>跨平台同一学习人格：</strong>小红书/视频号/Substack/X（About：<a href="https://zarazhang.com/about/">zarazhang.com</a>）。</li>
+  </ul>
+  <h3>② Ocean 可借鉴</h3>
+  <ol>
+    <li>辅系列用过程目标（「连续发满 N 期」）代替粉丝 KPI。</li>
+    <li>评论高频问题变选题标题（主线也适用）。</li>
+    <li>学生语气放辅系列；主线保持方法密度（Lenny）。</li>
+  </ol>
+  <h3 class="cant">③ Ocean 做不到 / 暂时别学</h3>
+  <ul>
+    <li><strong>真·日更半年近 500 篇：</strong>全职/近全职内容产能；你兼职用周更主线+辅系列节拍即可。</li>
+    <li><strong>哈佛·GGV·字节 PMM 标签冷启动：</strong>履历杠杆不同；你用「大厂 PM 现场」即可，不必硬蹭同类标签。</li>
+  </ul>
+</div>
+
+<h2 id="fankai">深描 · 范凯说 AI</h2>
+<div class="card">
+  <p>X <a href="https://x.com/fankaishuoai">@fankaishuoai</a> · <strong class="metrics">46.0k</strong> · 课程站 <a href="https://fankaishuo.ai/">fankaishuo.ai</a>（会员价目以现读为准，常见月/季/年档）。</p>
+  <h3>模式</h3>
+  <ul>
+    <li>框架：「AI 生产 + 个人 IP」；内容→课程库。</li>
+    <li>多平台分发（X/YouTube/站）。</li>
+    <li>给 Ocean：远期变现骨架可对标；现阶段帖内最多轻带，先把系列课表跑出信任。</li>
+  </ul>
+</div>
+
+
+
+
+<div class="card inflect" id="fankai-inflect">
+  <h3>拐点</h3>
+  <p class="muted">2–4 个可核拐点：日期 · 事件/作品（链）· 前后状态 · 为何有效。粉/订/收入仅公开来源；自述标 <span class="tag warn">待核</span>。</p>
+  <table>
+  <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
+  <tbody>
+
+  <tr><td>定位成型</td><td>公开公式「AI + 个人 IP」（生产/交付 vs 信任/销售）— <a href="https://fankai.me/p/ai-personal-brand-trust">长文</a></td><td>散点 AI 内容 → 可复述的事业框架</td><td>给读者一句能转述的定位；反贩卖焦虑</td></tr>
+  <tr><td>产品化</td><td>课程站 <a href="https://fankaishuo.ai/">fankaishuo.ai</a> 地图（知识库/Grok Bot/编程等，制作中）</td><td>免费内容为主 → 会员课库意向</td><td>内容主题预留=课名；你现阶段先免费系列</td></tr>
+  <tr><td>说明</td><td colspan="3">未见其公布「某日粉数/收入跳变」审计数字；不编造拐点金额。</td></tr>
+
+  </tbody></table>
+</div>
+
+<div class="card success" id="fankai-success">
+  <h3>成功经验</h3>
+  <h3>① 他们分享的招牌干货</h3>
+  <ul>
+    <li><strong>超级个体公式：</strong>「AI + 个人 IP」— AI 管生产/交付，IP 管信任/销售（站与长文 <a href="https://fankai.me/p/ai-personal-brand-trust">什么本事十年后还值钱</a>）。</li>
+    <li><strong>课程地图（制作中）：</strong>AI 个人知识库 / Grok Bot 实战 / 多 Agent 编排 / AI 编程课 / 用 AI 来写作（<a href="https://fankaishuo.ai/courses">课程页</a>；已上线节数以现读为准）。</li>
+    <li><strong>信任观：</strong>个人 IP 经营的是长期判断信任，不是贩卖焦虑（同文）。</li>
+  </ul>
+  <h3>② Ocean 可借鉴</h3>
+  <ol>
+    <li>远期变现骨架可对标：内容主题=课表主题（「如何把活干好」）。</li>
+    <li>现阶段帖内最多轻带；先把系列跑出信任，再谈会员价（站内月/季/年档以现读为准）。</li>
+    <li>公开「自己试过再推荐」的判断姿态，对齐其反焦虑立场。</li>
+  </ol>
+  <h3 class="cant">③ Ocean 做不到 / 暂时别学</h3>
+  <ul>
+    <li><strong>现在就上五门系统课+会员站：</strong>课程仍在制作中；需全职制作与维护带宽。你先免费系列课表。</li>
+    <li><strong>OPC 全栈交付叙事：</strong>他定位「已用 AI 进工作与项目的人」；你兼职先垂直 PM 方法，不扩成泛 AI 创业课。</li>
+  </ul>
+</div>
+
+<h2 id="overseas">深描 · 海外创作者（与定位对齐）</h2>
+<p class="muted">选取标准：大厂 PM「如何把活干好」+ AI 实操 / Lenny 产品方法 / 大厂日常；并覆盖广告·产品·课程变现。结构对齐卡兹克专节。收入只写带链接的公开数字；二手估算与自述标 <span class="tag warn">待核</span>。每人末尾统一「成功经验」三栏。</p>
+
+<h2 id="lenny">深描 · Lenny Rachitsky ★</h2>
+<p class="muted">X <a href="https://x.com/lennysan">@lennysan</a> · 本回合 <strong class="metrics">454.8k</strong> · <a href="https://www.lennysnewsletter.com/">lennysnewsletter.com</a> · 你本地 Lenny 库的源头。</p>
+
+<div class="card">
+  <h3>一年一页时间线</h3>
+  <table>
+  <thead><tr><th>时段</th><th>关键节点</th><th>出处</th></tr></thead>
+  <tbody>
+  <tr><td>～2019 前</td><td>工程/产品十年+；Airbnb 产品（含即时预订等故事常见于其文）</td><td>CNBC Make It 简介 · 其 newsletter 文内自述</td></tr>
+  <tr><td>2019</td><td>离 Airbnb 后先在 Medium 写经验结晶；首帖获正向反馈 → 继续写</td><td><a href="https://www.lennysnewsletter.com/p/1000000">1,000,000 邮袋文</a></td></tr>
+  <tr><td>2019→Substack</td><td>迁 Substack 收集邮箱；每周一篇；嘉宾冷启动（First Round / Andrew Chen）</td><td>同上</td></tr>
+  <tr><td>约 9 个月后 / 2020-04-07</td><td>仍有乐趣与选题库存 → 上付费档（年订承诺）；六周内约 450 付费 / 1.3万免费（复盘文数字，时点旧）</td><td><a href="https://growthinreverse.com/lennys-paid-newsletter/">Growth In Reverse 付费深挖</a>（2023 文，数字可能过时 → 待核现况）</td></tr>
+  <tr><td>2021</td><td>Maven 产品课开过两期后停掉（不够快乐）→ 腾出空间做播客</td><td>1M 文 · CNBC</td></tr>
+  <tr><td>2021～</td><td>Lenny's Podcast；无全职雇员，承包编辑/剪辑/社区等</td><td>1M 文</td></tr>
+  <tr><td>2024-01</td><td>CNBC：newsletter 约 57.4 万订；播客年入「超过 $500k」；newsletter 亦称「超过 $500k/年」（其口述）</td><td><a href="https://www.cnbc.com/make-it/2024/01/11/lenny-rachitsky-podcast-brings-in-more-than-500k-a-year-heres-how.html">CNBC Make It</a></td></tr>
+  <tr><td>2025-03-04</td><td>总订阅破 100 万；自称世界最大产品 newsletter/播客/社区之一；增长主靠口碑 + Substack Recommendations（5000+ 刊推荐）</td><td><a href="https://www.lennysnewsletter.com/p/1000000">1,000,000</a></td></tr>
+  </tbody></table>
+</div>
+
+<div class="card">
+  <h3>命名破壁作品（≥3，可点）</h3>
+  <ol>
+    <li><strong>How Airbnb kicked off and scaled marketplace</strong> 等早期 marketplace 系列 — 1M 文自述为早期大流量拐点之一。</li>
+    <li><strong><a href="https://www.lennysnewsletter.com/p/a-three-step-framework-for-solving-problems">A Three-Step Framework For Solving Problems</a></strong> — 你系列 M01 母体。</li>
+    <li><strong><a href="https://www.lennysnewsletter.com/p/1000000">1,000,000</a></strong> — 里程碑+方法论复盘（WOM、Recommendations、Bundle）。</li>
+    <li>（加分）嘉宾长文机制：多数最火帖已是他花 10+ 小时改的 guest post（1M 文自述）。</li>
+    <li>（加分）播客爆款嘉宾清单见同文（Tobi、Nikita Bier 等）。</li>
+  </ol>
+</div>
+
+<div class="card">
+  <h3>节奏 · 体裁 · 分发</h3>
+  <ul>
+    <li>周更 newsletter（单篇 10–30 小时）+ 每周 1–2 期播客（单集他投入约 3–5 小时）≈「一份全职工时」（自述）。</li>
+    <li>体裁：问答/框架长文、嘉宾帖、播客、Slack 社区（2万+ 成员，自述）、课程/招聘/周边轻带。</li>
+    <li>分发：邮件为主；X/LinkedIn 传播；Substack 推荐网络。</li>
+  </ul>
+  <h3>变现（公开数字）</h3>
+  <ul>
+    <li><strong>播客赞助：</strong>CNBC 2024-01 引述「每年超过 $500,000」。<a href="https://www.cnbc.com/make-it/2024/01/11/lenny-rachitsky-podcast-brings-in-more-than-500k-a-year-heres-how.html">CNBC</a></li>
+    <li><strong>Newsletter 付费：</strong>同文引述 newsletter 亦「超过 $500k/年」；第三方 Growth In Reverse（约 2023）写「付费订户 18k+、年入超 $2M」——为复盘估算/旧数 → <span class="tag warn">待核</span>，且未必等于现况。<a href="https://growthinreverse.com/lennys-paid-newsletter/">GIR</a></li>
+    <li><strong>结构启发：</strong>他自述播客更省时却可能更赚；newsletter 是播客破圈的底座（1M 文）。年订「超级礼包」推付费转化。</li>
+    <li>Maven 课已停；无全职雇员模型。</li>
+  </ul>
+  <h3>给 Ocean 可抄</h3>
+  <ol>
+    <li>主线课表直接吃他的框架库存（你已在做）。</li>
+    <li>「有用 → 被转发」比投广告更贴合；冷启动可用一篇高质量方法帖。</li>
+    <li>嘉宾/转述机制：本地 Lenny → 你的话 + 大厂现场（可选听记）。</li>
+    <li>变现顺序：先信任与周更耐力，再付费/赞助；他停掉不快乐的课。</li>
+  </ol>
+</div>
+
+
+
+<div class="card inflect" id="lenny-inflect">
+  <h3>拐点</h3>
+  <p class="muted">2–4 个可核拐点：日期 · 事件/作品（链）· 前后状态 · 为何有效。粉/订/收入仅公开来源；自述标 <span class="tag warn">待核</span>。</p>
+  <table>
+  <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
+  <tbody>
+
+  <tr><td>2019</td><td>离 Airbnb → Medium 经验帖获正向反馈 → 迁 Substack（<a href="https://www.lennysnewsletter.com/p/1000000">1M 文</a>）</td><td>大厂 PM → 周更 newsletter 实验</td><td>为结晶自己学习而写；邮箱资产优先</td></tr>
+  <tr><td>约 9 个月后 / 2020-04-07</td><td>上付费档；复盘文写六周内约 450 付费 / 1.3万免费（<a href="https://growthinreverse.com/lennys-paid-newsletter/">GIR</a>，旧数 → 待核现况）</td><td>免费实验 → 可全职的付费信号</td><td>先确认「仍有乐趣与选题库存」再收费</td></tr>
+  <tr><td>2021</td><td>停 Maven 课 → 开播客；后 CNBC 引述播客「>$500k/年」（<a href="https://www.cnbc.com/make-it/2024/01/11/lenny-rachitsky-podcast-brings-in-more-than-500k-a-year-heres-how.html">CNBC</a>）</td><td>课 → 播客成为更强变现杠杆（自述播客更省时更赚）</td><td>newsletter 底座喂播客；停不快乐的事</td></tr>
+  <tr><td>Recommendations～2025-03</td><td>Substack 推荐网络（自述 5000+ 刊）+ 破 100 万总订</td><td>线性增长 → 推荐功能后的加速（1M 文图表叙事）</td><td>仍归口碑：值得被别的作者推荐</td></tr>
+
+  </tbody></table>
+</div>
+
+<div class="card success" id="lenny-success">
+  <h3>成功经验</h3>
+  <h3>① 他们分享的招牌干货</h3>
+  <ul>
+    <li><strong>可执行产品框架：</strong><a href="https://www.lennysnewsletter.com/p/a-three-step-framework-for-solving-problems">Three-Step Framework For Solving Problems</a>（你 M01 母体）；早期 marketplace 冷启动系列（1M 文自述拐点）。</li>
+    <li><strong>增长复盘：</strong><a href="https://www.lennysnewsletter.com/p/1000000">1,000,000</a> — WOM、Substack Recommendations、嘉宾帖改 10+ 小时、播客 vs newsletter 工时账。</li>
+    <li><strong>播客+社区：</strong>高规格嘉宾访谈；Slack 社区（自述 2万+）。</li>
+  </ul>
+  <h3>② Ocean 可借鉴</h3>
+  <ol>
+    <li>主线课表直接吃框架库存；本地 Lenny → 你的话 + 大厂现场。</li>
+    <li>「有用→被转发」；冷启动一篇高质量方法帖，不投流。</li>
+    <li>变现顺序：信任与周更耐力 → 再付费/赞助；不快乐的课可以停（他停 Maven）。</li>
+  </ol>
+  <h3 class="cant">③ Ocean 做不到 / 暂时别学</h3>
+  <ul>
+    <li><strong>周更 10–30 小时长文 + 每周 1–2 播客 ≈ 全职工时：</strong>他已离大厂；你兼职做「半页清单卡」切片即可。</li>
+    <li><strong>Substack 推荐网络 / 百万订 / 年入量级：</strong>CNBC「>$500k」与 GIR「~$2M」等为公开引述或旧估算 → 部分 <span class="tag warn">待核</span>；不当近期 KPI。</li>
+    <li><strong>2万+ Slack 与承包团队：</strong>后期杠杆，现在别建。</li>
+  </ul>
+</div>
+
+<h2 id="shreyas">深描 · Shreyas Doshi</h2>
+<p class="muted">X <a href="https://x.com/shreyas">@shreyas</a> · <strong class="metrics">405.5k</strong> · 前 Stripe PM；框架推文+高管教练。</p>
+<div class="card">
+  <h3>时间线</h3>
+  <ul>
+    <li><strong>2016-02～2021-05：</strong>Stripe Product Manager（LinkedIn 公开履历）。</li>
+    <li><strong>2021-05 后：</strong>离开 Stripe，转向教学、顾问、内容；LinkedIn「三年更新」类帖自述下一章。</li>
+    <li><strong>持续：</strong>X 长线程框架；Maven 上 PM career / product sense / taste 等课（档期以站点现读为准）。<a href="https://maven.com/shreyas-doshi">maven.com/shreyas-doshi</a></li>
+  </ul>
+  <h3>破壁作品</h3>
+  <ol>
+    <li><strong>LNO 框架</strong>（Leverage / Neutral / Overhead）— 经典线程，如 <a href="https://threadreaderapp.com/thread/1399042778613485578.html">Thread Reader 存档</a>。</li>
+    <li>产品框架合集线程（含 pre-mortem、策略等，多条病毒线程）。</li>
+    <li>Maven「Managing your PM Career…」「World-class Product Sense」等课页（产品化教学）。</li>
+  </ol>
+  <h3>节奏 / 变现 / 给 Ocean</h3>
+  <ul>
+    <li>节奏：高密度框架短帖/线程，不强求日更资讯。</li>
+    <li>变现：高管教练 + Maven 课；公开刊例/年收入未见稳定审计披露 → 不编数字。<a href="https://maven.com/shreyas-doshi/o/566dd0">Executive Coaching 页</a></li>
+    <li>可抄：一张图说清一个判断框架（LNO 可进你的优先级/复盘帖）；语气像资深同事而非鸡汤。</li>
+  </ul>
+</div>
+
+
+
+<div class="card inflect" id="shreyas-inflect">
+  <h3>拐点</h3>
+  <p class="muted">2–4 个可核拐点：日期 · 事件/作品（链）· 前后状态 · 为何有效。粉/订/收入仅公开来源；自述标 <span class="tag warn">待核</span>。</p>
+  <table>
+  <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
+  <tbody>
+
+  <tr><td>2016-02～2021-05</td><td>Stripe PM（LinkedIn 履历）积累框架素材</td><td>从业者 → 可对外教学的方法库存</td><td>大厂一线问题提炼成可迁移框架</td></tr>
+  <tr><td>～2020 起线程</td><td><strong>LNO</strong> 等病毒框架线程（<a href="https://threadreaderapp.com/thread/1399042778613485578.html">Thread Reader</a>）</td><td>普通推文 → PM Twitter 高引用资产</td><td>一张图/一条线程说清判断；可收藏转发</td></tr>
+  <tr><td>2021-05 后</td><td>离开 Stripe → Maven 课 + 高管教练（<a href="https://maven.com/shreyas-doshi">Maven</a>）</td><td>雇员 → 教学/顾问全职</td><td>内容已证明需求后再产品化；公开年入未见审计</td></tr>
+
+  </tbody></table>
+</div>
+
+<div class="card success" id="shreyas-success">
+  <h3>成功经验</h3>
+  <h3>① 他们分享的招牌干货</h3>
+  <ul>
+    <li><strong>LNO 框架：</strong>Leverage / Neutral / Overhead — <a href="https://threadreaderapp.com/thread/1399042778613485578.html">Thread Reader 存档</a>。</li>
+    <li><strong>病毒框架线程：</strong>pre-mortem、策略、product sense 等长线程（X <a href="https://x.com/shreyas">@shreyas</a>）。</li>
+    <li><strong>Maven 课：</strong>PM Career / World-class Product Sense / taste 等（<a href="https://maven.com/shreyas-doshi">maven.com/shreyas-doshi</a>）+ 高管教练页。</li>
+  </ul>
+  <h3>② Ocean 可借鉴</h3>
+  <ol>
+    <li>一张图说清一个判断框架（LNO → 优先级/复盘帖）；语气像资深同事。</li>
+    <li>高密度、不强求日更资讯 — 与兼职带宽匹配。</li>
+  </ol>
+  <h3 class="cant">③ Ocean 做不到 / 暂时别学</h3>
+  <ul>
+    <li><strong>离开 Stripe 后全职教练/Maven 产品化：</strong>需存量高管人脉与定价权；公开年入未见审计 → 不编、不追。</li>
+    <li><strong>英文圈 PM Twitter 原生粉丝池：</strong>你主战场小红书中文，框架要本地化语境。</li>
+  </ul>
+</div>
+
+<h2 id="ali">深描 · Ali Abdaal</h2>
+<p class="muted">X <a href="https://x.com/AliAbdaal">@AliAbdaal</a> · <strong class="metrics">356.5k</strong> · YouTube 效率/学习 → 课程与团队生意。</p>
+<div class="card">
+  <h3>时间线（公开自述）</h3>
+  <ul>
+    <li>医学生/医生边做 YouTube；效率/学习方法论起家。</li>
+    <li><strong>2020-11：</strong>Part-Time YouTuber Academy 首期；自述关课后截图约 <strong>$259k</strong> 营收（newsletter 回顾）。<a href="https://aliabdaal.com/newsletter/celebrate-every-win-big-or-small/">Celebrate every win</a></li>
+    <li><strong>2022：</strong>媒体引述 PTYA 年入超 <strong>$1.7M</strong>。<a href="https://news.thepublishpress.com/p/ali-abdaals-400k-day">Publish Press</a></li>
+    <li><strong>2023：</strong>自述 PTYA「banked almost 2 million dollars」；全年业务目标约 $4M（LifeNotes）。<a href="https://aliabdaal.com/newsletter/my-biggest-struggles-in-2023/">Biggest struggles 2023</a></li>
+    <li><strong>2023-01：</strong>LinkedIn 公开当月营收 <strong>£195k</strong>（含 YT 广告 £50k + 赞助 £45k 等）。<a href="https://www.linkedin.com/feed/update/urn:li:activity:7040286153714880512">LinkedIn 财务拆解</a></li>
+    <li>团队扩张；PTYA 从直播班转向更多自助/产品化（媒体与访谈叙述）。</li>
+  </ul>
+  <h3>破壁作品</h3>
+  <ol>
+    <li>YouTube 长尾学习/生产力视频（频道为母体流量）。</li>
+    <li><strong>Part-Time YouTuber Academy</strong> — 课程破壁与主现金流。</li>
+    <li>公开财务拆解帖（建立信任的变现内容本身）。</li>
+  </ol>
+  <h3>变现结构</h3>
+  <ul>
+    <li>课程（PTYA 等）+ YouTube AdSense + 赞助；GM Angus 访谈称内容侧赞助+广告约 £1.5–2M/年量级、商业侧课程约 55–65% → 访谈口述 <span class="tag warn">待核</span>。<a href="https://www.passionfroot.me/creators-on-air/how-ali-abdaal-scaled-his-business-to-millions-with-angus-parker">Creators on Air</a></li>
+    <li>对你：学「内容养课、课养团队」；现阶段不必上团队规模，先单人课表。</li>
+  </ul>
+  <h3>给 Ocean</h3>
+  <ol>
+    <li>封面/标题与教学节奏可参考，但主线仍是 PM 方法不是「如何做 YouTube」。</li>
+    <li>公开一笔真实小账（时间节省/工具试用）比假大数字更对齐待核纪律。</li>
+  </ol>
+</div>
+
+
+
+<div class="card inflect" id="ali-inflect">
+  <h3>拐点</h3>
+  <p class="muted">2–4 个可核拐点：日期 · 事件/作品（链）· 前后状态 · 为何有效。粉/订/收入仅公开来源；自述标 <span class="tag warn">待核</span>。</p>
+  <table>
+  <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
+  <tbody>
+
+  <tr><td>医学生/医生期</td><td>YouTube 效率/学习长尾起号</td><td>0 → 可教的观众池</td><td>主业可信度 + 可复用学习方法</td></tr>
+  <tr><td>2020-11</td><td>Part-Time YouTuber Academy 首期；自述结营约 <strong>$259k</strong>（<a href="https://aliabdaal.com/newsletter/celebrate-every-win-big-or-small/">newsletter</a>）</td><td>广告/赞助为主 → 高客单课成为主现金流</td><td>内容主题=课主题；观众已要「如何做」</td></tr>
+  <tr><td>2022～2023</td><td>媒体/自述 PTYA 年入百万级；LinkedIn 公开 2023-01 月入 <strong>£195k</strong> 拆解</td><td>单人课 → 团队化生意 <span class="tag warn">待核</span> 部分口述</td><td>公开账本建立信任；产品化降低直播依赖</td></tr>
+
+  </tbody></table>
+</div>
+
+<div class="card success" id="ali-success">
+  <h3>成功经验</h3>
+  <h3>① 他们分享的招牌干货</h3>
+  <ul>
+    <li><strong>YouTube 学习/生产力长尾：</strong>频道为母体流量。</li>
+    <li><strong>Part-Time YouTuber Academy：</strong>课程破壁；首期自述约 $259k（<a href="https://aliabdaal.com/newsletter/celebrate-every-win-big-or-small/">newsletter</a>）；后续年入媒体/自述百万级 → <span class="tag warn">待核</span>。</li>
+    <li><strong>公开财务拆解：</strong>LinkedIn 2023-01 当月 £195k 结构（YT+赞助等）— 变现内容本身建立信任。</li>
+  </ul>
+  <h3>② Ocean 可借鉴</h3>
+  <ol>
+    <li>教学节奏与封面清晰度可参考；主线主题仍是 PM 方法不是「如何做 YouTube」。</li>
+    <li>公开一笔真实小账（省时/工具试用）对齐待核纪律。</li>
+    <li>学「内容养课」顺序：先课表信任，再产品化。</li>
+  </ol>
+  <h3 class="cant">③ Ocean 做不到 / 暂时别学</h3>
+  <ul>
+    <li><strong>团队扩张到百万课生意：</strong>医生→全职创作者+团队；兼职勿对标 PTYA 营收。</li>
+    <li><strong>主业变成「教人做内容」：</strong>与你「如何把活干好」定位冲突，最多借形式不借赛道。</li>
+  </ul>
+</div>
+
+<h2 id="swyx">深描 · swyx（Shawn Wang）</h2>
+<p class="muted">X <a href="https://x.com/swyx">@swyx</a> · <strong class="metrics">209.1k</strong> · Learn in public 旗帜；Latent Space + AI Engineer。</p>
+<div class="card">
+  <h3>时间线</h3>
+  <ul>
+    <li>DevRel/DX：Netlify、AWS 等（About 页公开）。<a href="https://swyx.io/about">swyx.io/about</a></li>
+    <li>写作帮他走到 Temporal 等机会（公开叙事）。</li>
+    <li><strong>2022：</strong>Latent Space newsletter 起步。</li>
+    <li><strong>2023：</strong>播客 + <strong>The Rise of the AI Engineer</strong> 定名赛道；AI Engineer 大会启动。</li>
+    <li><strong>2025～2026：</strong>AIE 多城扩张；AINews 并入；播客网络化（年终文）。<a href="https://www.latent.space/p/2026">Scaling without Slop</a></li>
+  </ul>
+  <h3>破壁作品</h3>
+  <ol>
+    <li><strong><a href="https://swyx.io/learn-in-public">Learn In Public</a></strong> — 公开学习宪章。</li>
+    <li><strong><a href="https://www.latent.space/p/ai-engineer">The Rise of the AI Engineer</a></strong>（及演讲版）— 定义 AI Engineer。</li>
+    <li>Latent Space 播客高规格嘉宾访谈；AI Engineer Summit/World's Fair 等活动。</li>
+  </ol>
+  <h3>节奏 / 变现</h3>
+  <ul>
+    <li>节奏：技术长文 + 播客 + 日更 AINews（付费档）+ 大会策展。</li>
+    <li>变现：Changelog 访谈称<strong>当前真正赚钱的是大会</strong>（门票+赞助），媒体靠订阅/捐赠撑运营；Substack 标价可见约 $6.90/月、$69/年，付费订户量级第三方目录写「1000+ paid / 202k+ free」→ <span class="tag warn">待核</span>。<a href="https://github.com/thechangelog/transcripts/blob/master/friends/changelog--friends-52.md">Changelog Friends 转录</a> · <a href="https://sidestack.io/directory/substack/swyx">Sidestack 目录</a></li>
+    <li>未见其公布个人年收入审计数 → 不编。</li>
+  </ul>
+  <h3>给 Ocean</h3>
+  <ol>
+    <li>辅系列直接抄 Learn in Public 姿态。</li>
+    <li>用写作定义你的细分（「大厂 PM 如何把活干好」）而不是追每个模型首发。</li>
+    <li>大会/社区是后期杠杆；你先课表。</li>
+  </ol>
+</div>
+
+
+
+<div class="card inflect" id="swyx-inflect">
+  <h3>拐点</h3>
+  <p class="muted">2–4 个可核拐点：日期 · 事件/作品（链）· 前后状态 · 为何有效。粉/订/收入仅公开来源；自述标 <span class="tag warn">待核</span>。</p>
+  <table>
+  <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
+  <tbody>
+
+  <tr><td>早期</td><td><a href="https://swyx.io/learn-in-public">Learn In Public</a> 成个人品牌宪章</td><td>默默学 → 公开学习吸引导师/机会（About 叙事）</td><td>输出倒逼输入；可被检索</td></tr>
+  <tr><td>2023</td><td><a href="https://www.latent.space/p/ai-engineer">The Rise of the AI Engineer</a> + 大会启动</td><td>DevRel/写作者 → 赛道命名者 + 活动主办</td><td>一篇文定义品类；媒体与会务互喂</td></tr>
+  <tr><td>此后</td><td>Changelog：当前真正赚钱的是大会（票+赞助）；媒体靠订阅撑腰</td><td>订阅媒体 → 会务成主利润中心（付费订户量级目录 <span class="tag warn">待核</span>）</td><td>信任社区可变现线下注意力</td></tr>
+
+  </tbody></table>
+</div>
+
+<div class="card success" id="swyx-success">
+  <h3>成功经验</h3>
+  <h3>① 他们分享的招牌干货</h3>
+  <ul>
+    <li><strong><a href="https://swyx.io/learn-in-public">Learn In Public</a>：</strong>公开学习宪章 — 教程/笔记/演讲加速学习并吸引导师。</li>
+    <li><strong><a href="https://www.latent.space/p/ai-engineer">The Rise of the AI Engineer</a>：</strong>用一篇文定义赛道。</li>
+    <li><strong>Latent Space + AI Engineer 大会：</strong>播客/日更 AINews + 门票赞助（Changelog：大会是当前主赚钱）。</li>
+  </ul>
+  <h3>② Ocean 可借鉴</h3>
+  <ol>
+    <li>辅系列直接抄 Learn in Public 姿态。</li>
+    <li>用写作定义细分（「大厂 PM 如何把活干好」），不追每个模型首发。</li>
+  </ol>
+  <h3 class="cant">③ Ocean 做不到 / 暂时别学</h3>
+  <ul>
+    <li><strong>DevRel 履历 + 定义「AI Engineer」的工程深度与社区：</strong>赛道不同。</li>
+    <li><strong>办多城大会/日更付费 AINews：</strong>全职策展与赞助销售；付费订户量级目录 <span class="tag warn">待核</span>。你先课表。</li>
+  </ul>
+</div>
+
+<h2 id="levelsio">深描 · Pieter Levels（levelsio）</h2>
+<p class="muted">X <a href="https://x.com/levelsio">@levelsio</a> · <strong class="metrics">984.0k</strong> · 独立产品 + 公开收入文化鼻祖之一。</p>
+<div class="card">
+  <h3>时间线</h3>
+  <ul>
+    <li><strong>2014：</strong>12 startups in 12 months；Nomad List 从表格到站点。</li>
+    <li><strong>Remote OK</strong> 等工作板产品并行。</li>
+    <li><strong>2018-02：</strong>博文自述刚过 <strong>$52,843/月</strong> 营收。<a href="https://levels.io/passed-52k-monthly-revenue">levels.io</a></li>
+    <li><strong>2019-05：</strong>自述 Nomad List + Remote OK 合计四年到 <strong>$1M ARR</strong> 量级。<a href="https://levels.io/tag/nomad-list">tag 归档</a></li>
+    <li>长期维护 nomadlist.com/open 公开收入页（Stripe「verified」自述）；2022 后页面常显示维护中 → 现读可能不可用。</li>
+    <li><strong>Photo AI：</strong>2023-07 博文写约 <strong>$61,808/月</strong>（原始 PHP 叙事）。<a href="https://levels.io/photoai-14000-lines-raw-php-revenue">Photo AI 文</a></li>
+    <li><strong>MAKE</strong> 书：indie 手册 <a href="https://readmake.com/">readmake.com</a></li>
+    <li>X 上持续晒多产品组合 MRR（截图/帖为自报 → 待核具体时点）。</li>
+  </ul>
+  <h3>破壁作品</h3>
+  <ol>
+    <li>Nomad List / Nomads.com — 公开收入实验 + 社区产品。</li>
+    <li>Remote OK — 工作板现金流。</li>
+    <li>Photo AI — AI 产品公开做与晒收入。</li>
+    <li>MAKE 书 — 方法论产品化。</li>
+  </ol>
+  <h3>变现</h3>
+  <ul>
+    <li>多产品订阅/一次性会员/AI 按量；几乎零雇员叙事。</li>
+    <li>可核历史点：2018 月收 $52k 博文；Photo AI 2023-07 ~$62k/月博文；open 页历史快照（如 2022 滚动年收曾披露含 Rebase 等）→ 以原帖/快照为准，第三方二次汇总标 <span class="tag warn">待核</span>。</li>
+  </ul>
+  <h3>给 Ocean</h3>
+  <ol>
+    <li>学「做一件事就公开一件事」的节奏，不抄其数字当目标。</li>
+    <li>产品公开收入是信任装置；你可用「本周省下的时间/流程」代替 MRR。</li>
+    <li>与主线关系：AI 实操辅系列可 build-in-public，主线仍是 PM 方法。</li>
+  </ol>
+</div>
+
+
+
+<div class="card inflect" id="levelsio-inflect">
+  <h3>拐点</h3>
+  <p class="muted">2–4 个可核拐点：日期 · 事件/作品（链）· 前后状态 · 为何有效。粉/订/收入仅公开来源；自述标 <span class="tag warn">待核</span>。</p>
+  <table>
+  <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
+  <tbody>
+
+  <tr><td>2014</td><td>12 startups in 12 months → Nomad List 等</td><td>实验 → 找到可收费社区/产品</td><td>快发迭代；公开过程</td></tr>
+  <tr><td>2018-02</td><td>博文自述刚过 <strong>$52,843/月</strong>（<a href="https://levels.io/passed-52k-monthly-revenue">levels.io</a>）</td><td>小产品组合 → 验证独立可活</td><td>公开收入本身是获客与信任</td></tr>
+  <tr><td>2019-05 叙事</td><td>Nomad List + Remote OK 四年到约 <strong>$1M ARR</strong> 量级（tag 归档自述）</td><td>月收验证 → 年收阶梯 <span class="tag warn">待核</span> 细节</td><td>多产品现金流叠加</td></tr>
+  <tr><td>2023-07</td><td>Photo AI 博文约 <strong>$61,808/月</strong>（<a href="https://levels.io/photoai-14000-lines-raw-php-revenue">原文</a>）</td><td>目录站/工作板 → AI 产品新曲线</td><td>build in public + 粗糙可卖；跟风窗口快</td></tr>
+
+  </tbody></table>
+</div>
+
+<div class="card success" id="levelsio-success">
+  <h3>成功经验</h3>
+  <h3>① 他们分享的招牌干货</h3>
+  <ul>
+    <li><strong>Build in public + 公开收入：</strong>2018 <a href="https://levels.io/passed-52k-monthly-revenue">月收 $52k 博文</a>；Photo AI <a href="https://levels.io/photoai-14000-lines-raw-php-revenue">~$62k/月</a>（时点博文）；Nomad List open 页历史。</li>
+    <li><strong>12 startups in 12 months → Nomad List / Remote OK：</strong>快发、迭代、多产品组合。</li>
+    <li><strong>MAKE 书：</strong><a href="https://readmake.com/">readmake.com</a> — indie 方法论产品化。</li>
+  </ul>
+  <h3>② Ocean 可借鉴</h3>
+  <ol>
+    <li>「做一件事就公开一件事」；辅系列 AI 实操可 build-in-public。</li>
+    <li>用「本周省下的时间/流程」代替晒 MRR 当信任装置。</li>
+  </ol>
+  <h3 class="cant">③ Ocean 做不到 / 暂时别学</h3>
+  <ul>
+    <li><strong>全职独立黑客 + 多产品订阅生意：</strong>创始人身份与近十年复利；X 现晒 MRR 自报 <span class="tag warn">待核</span>。</li>
+    <li><strong>原始 PHP 单人扛 AI SaaS：</strong>工程全栈深度与客服负荷，与大厂兼职冲突。</li>
+  </ul>
+</div>
+
+<h2 id="justinwelsh">深描 · Justin Welsh</h2>
+<p class="muted">X <a href="https://x.com/thejustinwelsh">@thejustinwelsh</a> · 一人公司内容×产品；公开营收叙事极完整（自述）。</p>
+<div class="card">
+  <h3>时间线</h3>
+  <ul>
+    <li>大厂/销售背景后做独立内容创业（公开叙事）。</li>
+    <li>LinkedIn + X + newsletter「The Saturday Essay」有机增长；自述从不付费投放。</li>
+    <li><strong>2024：</strong>年终帖：营收约 2×、利润率约 86%、两款新产品等（未在该帖写绝对美元）。<a href="https://www.linkedin.com/feed/update/urn:li:activity:7280203109975425025">2024 solopreneur 帖</a></li>
+    <li><strong>2025-06：</strong>作文称业务累计营收过 <strong>$10M</strong>（约 5 年 9 个月）；拆分 Products $6.75M / Consulting $1.17M / Sponsorships $795k / Subscriptions $695k / Community $630k（累计口径，自述）。<a href="https://justinwelsh.me/essays/my-10m-journey">My complete $10M journey</a></li>
+    <li>同文：Creator MBA 2024-01-16 上线六日售 <strong>$1.6M</strong>（自述）；早期课程迭代 15 个月 $75k → 三月 $186k 等。</li>
+    <li><strong>2025 年终：</strong>自述当年营收 <strong>$2.834M+</strong>、利润率约 91%、日落两款顶流产品。<a href="https://www.linkedin.com/posts/justinwelsh_2025-was-about-life-first-business-second-activity-7412474769058643968-SW_c">2025 年终帖</a></li>
+  </ul>
+  <h3>破壁作品</h3>
+  <ol>
+    <li><strong><a href="https://justinwelsh.me/essays/my-10m-journey">My complete $10M journey</a></strong> — 累计收入与产品路线图。</li>
+    <li>LinkedIn 系统内容 → 课程/联盟（自述 3247 affiliates / $600k 等，见同文）。</li>
+    <li>Creator MBA 大启动（六日 $1.6M 自述）。</li>
+  </ol>
+  <h3>节奏 / 变现</h3>
+  <ul>
+    <li>节奏：社交短内容日更感 + 周刊长文；产品与内容严格同题。</li>
+    <li>变现：数字产品/课程、咨询、赞助、订阅、社区；高利润率一人公司模型（数字均为作者公开自述 → <span class="tag warn">待核</span>，非审计）。</li>
+  </ul>
+  <h3>给 Ocean</h3>
+  <ol>
+    <li>最可抄：<strong>内容主题 = 产品主题</strong>（你若远期做课，课名应叫「如何把活干好」而不是泛 AI）。</li>
+    <li>他强调先副业一小时/天，别裸辞 — 与你正职在身一致。</li>
+    <li>公开收入是营销的一部分；你保持「待核」纪律，只晒可核过程指标。</li>
+  </ol>
+</div>
+
+
+
+<div class="card inflect" id="justinwelsh-inflect">
+  <h3>拐点</h3>
+  <p class="muted">2–4 个可核拐点：日期 · 事件/作品（链）· 前后状态 · 为何有效。粉/订/收入仅公开来源；自述标 <span class="tag warn">待核</span>。</p>
+  <table>
+  <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
+  <tbody>
+
+  <tr><td>转型期</td><td>大厂/销售背景 → LinkedIn+X+Saturday Essay 有机增长（自述不投流）</td><td>雇员 → 一人内容公司</td><td>系统短内容日更感 + 主题聚焦</td></tr>
+  <tr><td>2024-01-16</td><td>Creator MBA 上线六日自述售 <strong>$1.6M</strong>（<a href="https://justinwelsh.me/essays/my-10m-journey">$10M 文</a>）</td><td>小课迭代 → 旗舰课大启动</td><td>内容主题=产品主题；启动前已有信任池</td></tr>
+  <tr><td>2025-06</td><td>同文称累计营收过 <strong>$10M</strong>（产品/咨询/赞助等拆分）</td><td>多产品线累计八位数 <span class="tag warn">待核</span></td><td>公开路线图既是复盘也是营销</td></tr>
+  <tr><td>2025 年终</td><td>自述当年 <strong>$2.834M+</strong>、利润率约 91%（LinkedIn）</td><td>持续高利润一人公司叙事 <span class="tag warn">待核</span></td><td>砍低杠杆产品；利润率优先</td></tr>
+
+  </tbody></table>
+</div>
+
+<div class="card success" id="justinwelsh-success">
+  <h3>成功经验</h3>
+  <h3>① 他们分享的招牌干货</h3>
+  <ul>
+    <li><strong><a href="https://justinwelsh.me/essays/my-10m-journey">My complete $10M journey</a>：</strong>累计收入拆分与产品路线图（自述 → <span class="tag warn">待核</span>）。</li>
+    <li><strong>内容=产品同题：</strong>LinkedIn/X 系统短内容 + Saturday Essay → Creator MBA 等课（六日 $1.6M 自述）。</li>
+    <li><strong>一人公司高利润叙事：</strong>2025 年终自述 ~$2.834M+、利润率 ~91%（LinkedIn）→ <span class="tag warn">待核</span>。</li>
+  </ul>
+  <h3>② Ocean 可借鉴</h3>
+  <ol>
+    <li>最可抄：内容主题=产品主题；远期课名应对齐「如何把活干好」。</li>
+    <li>先副业一小时/天、别裸辞 — 与正职一致。</li>
+    <li>只晒可核过程指标，保持待核纪律。</li>
+  </ol>
+  <h3 class="cant">③ Ocean 做不到 / 暂时别学</h3>
+  <ul>
+    <li><strong>五年累积到八位数营收与联盟体系：</strong>全职一人公司 + 英文 LinkedIn 池；数字均为自述。</li>
+    <li><strong>日更感社交短内容机器：</strong>带宽要求高；你用系列节拍，不追其发帖频率。</li>
+  </ul>
+</div>
+
+<h2 id="sources">来源与局限</h2>
+<p class="muted">各深描含「拐点」表与「成功经验」三栏：招牌干货（可点）· Ocean 可借鉴 · 做不到/暂时别学。仍不编造收入与阅读量。</p>
+<ul>
+  <li>X：本回合只读 <code>get_users_by_usernames</code> + <code>public_metrics</code>（2026-10-31）。Justin Welsh 粉丝以 X 现读为准（表内若缺则深描不写死）。</li>
+  <li>卡兹克：晚点聊 109；大数跨境 OPC；Pika/Sora/鲜虾包微信文；得到访谈转载。</li>
+  <li>歸藏 / 花叔 / Zara / 范凯：见各深描内链。</li>
+  <li>Lenny：<a href="https://www.lennysnewsletter.com/p/1000000">1M 文</a>；<a href="https://www.cnbc.com/make-it/2024/01/11/lenny-rachitsky-podcast-brings-in-more-than-500k-a-year-heres-how.html">CNBC</a>；Growth In Reverse 旧复盘（待核现况）。</li>
+  <li>Shreyas：LinkedIn 履历；Maven；LNO Thread Reader。</li>
+  <li>Ali：aliabdaal.com LifeNotes；LinkedIn Jan 财务；Publish Press / Passionfroot 访谈。</li>
+  <li>swyx：swyx.io；latent.space；Changelog Friends 转录；Sidestack 目录。</li>
+  <li>levelsio：levels.io 博文（$52k/月、Photo AI）；open 页历史；MAKE。</li>
+  <li>Justin Welsh：justinwelsh.me $10M 文；LinkedIn 2024/2025 年终帖。</li>
+  <li>未审计任何作者收入；自述与二手估算一律待核；未登录各平台后台。</li>
+</ul>
+<p class="foot">私密 · x-digest/xhs/creators.html · 与选题库同步 · 导航瞬时跳转 · 不进公开展示 · <a href="./">← 返回选题库</a></p>
+</main>
+</div>
+</body>
+</html>

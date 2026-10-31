@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>发布 · M01 · 先别动手｜三步把问题说清楚</title>
+<style>
+:root{--bg:#f3f1eb;--surface:#fffcf7;--ink:#1a1c1b;--ink-2:#3d433f;--mut:#59656b;--line:#e2ddd2;--accent:#0d6b52;--accent-soft:#e4f3ec}
+*{box-sizing:border-box}html{scroll-behavior:auto}
+body{margin:0;color:var(--ink);background:var(--bg);font:16px/1.65 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:28rem;margin:0 auto;padding:1rem 1rem 3.5rem}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;font-size:.82rem}
+.topbar a{color:var(--accent);text-decoration:none}
+h1{font-size:1.25rem;margin:0 0 .6rem;line-height:1.35;font-weight:750}
+.row{display:flex;gap:.4rem;flex-wrap:wrap;margin:.4rem 0 .8rem}
+button,.btn{appearance:none;border:0;border-radius:999px;padding:.45rem .85rem;font-weight:650;font-size:.86rem;cursor:pointer;background:var(--accent);color:#fff}
+button.sec,.btn.sec{background:var(--accent-soft);color:var(--accent)}
+.gallery{display:flex;flex-direction:column;gap:.7rem;margin:1rem 0}
+.gallery figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#efeae0}
+.gallery figcaption{display:flex;justify-content:space-between;padding:.45rem .7rem;font-size:.8rem;color:var(--mut)}
+.gallery a{color:var(--accent)}
+.label{font-size:.78rem;font-weight:700;color:var(--mut);margin:1rem 0 .3rem;letter-spacing:.04em}
+.box{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.85rem .9rem 2.4rem;white-space:pre-wrap;word-break:break-word;font-size:.92rem;color:var(--ink-2)}
+.box .copy{position:absolute;right:.55rem;bottom:.55rem}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:#1a1c1b;color:#fff;padding:.45rem .9rem;border-radius:999px;font-size:.82rem;opacity:0;pointer-events:none;transition:opacity .2s;z-index:9}
+.toast.show{opacity:1}
+.hint{font-size:.8rem;color:var(--mut);margin:.3rem 0 .8rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a href="../">← 选题库</a>
+    <span class="muted">M01 · 发布页</span>
+  </div>
+  <h1 id="title">先别动手｜三步把问题说清楚</h1>
+  <div class="row">
+    <button type="button" onclick="copyText(document.getElementById('title').innerText,this)">复制标题</button>
+    <a class="btn sec" href="../cards/M01/M01-cards.zip">下载全部图片 ZIP</a>
+  </div>
+  <p class="hint">长按图片可保存到相册；或点「下载」。按顺序传到小红书图文。</p>
+  <div class="gallery" id="images"><figure><a href="../cards/M01/01.jpg" target="_blank" rel="noopener"><img src="../cards/M01/01.jpg" alt="图1" loading="lazy"></a><figcaption><span>图1</span><a href="../cards/M01/01.jpg" download="M01-01.jpg">下载</a></figcaption></figure><figure><a href="../cards/M01/02.jpg" target="_blank" rel="noopener"><img src="../cards/M01/02.jpg" alt="图2" loading="lazy"></a><figcaption><span>图2</span><a href="../cards/M01/02.jpg" download="M01-02.jpg">下载</a></figcaption></figure><figure><a href="../cards/M01/03.jpg" target="_blank" rel="noopener"><img src="../cards/M01/03.jpg" alt="图3" loading="lazy"></a><figcaption><span>图3</span><a href="../cards/M01/03.jpg" download="M01-03.jpg">下载</a></figcaption></figure><figure><a href="../cards/M01/04.jpg" target="_blank" rel="noopener"><img src="../cards/M01/04.jpg" alt="图4" loading="lazy"></a><figcaption><span>图4</span><a href="../cards/M01/04.jpg" download="M01-04.jpg">下载</a></figcaption></figure><figure><a href="../cards/M01/05.jpg" target="_blank" rel="noopener"><img src="../cards/M01/05.jpg" alt="图5" loading="lazy"></a><figcaption><span>图5</span><a href="../cards/M01/05.jpg" download="M01-05.jpg">下载</a></figcaption></figure><figure><a href="../cards/M01/06.jpg" target="_blank" rel="noopener"><img src="../cards/M01/06.jpg" alt="图6" loading="lazy"></a><figcaption><span>图6</span><a href="../cards/M01/06.jpg" download="M01-06.jpg">下载</a></figcaption></figure><figure><a href="../cards/M01/07.jpg" target="_blank" rel="noopener"><img src="../cards/M01/07.jpg" alt="图7" loading="lazy"></a><figcaption><span>图7</span><a href="../cards/M01/07.jpg" download="M01-07.jpg">下载</a></figcaption></figure><figure><a href="../cards/M01/08.jpg" target="_blank" rel="noopener"><img src="../cards/M01/08.jpg" alt="图8" loading="lazy"></a><figcaption><span>图8</span><a href="../cards/M01/08.jpg" download="M01-08.jpg">下载</a></figcaption></figure><figure><a href="../cards/M01/09.jpg" target="_blank" rel="noopener"><img src="../cards/M01/09.jpg" alt="图9" loading="lazy"></a><figcaption><span>图9</span><a href="../cards/M01/09.jpg" download="M01-09.jpg">下载</a></figcaption></figure></div>
+
+  <div class="label" id="text">正文</div>
+  <div class="box" id="body">大厂产品经理系列「如何把活干好」第 1 集：理解问题。
+
+我用自己的话记 Lenny 的三步框架：说清问题 → 对齐认知 → 执行中反复回看。核心不是多开会，是别让团队解错题。
+
+方法来自公开 newsletter，我改成进门后能用的清单；不涉及东家内幕。听记素材以后有了再补一句现场。
+
+你现在写需求前，会先强迫自己写半页问题陈述吗？评论区告诉我卡在哪一步。<button class="copy sec" type="button" onclick="copyText(document.getElementById('body').innerText.replace(/复制正文$/,'').trim(),this)">复制正文</button></div>
+
+  <div class="label">话题标签</div>
+  <div class="box" id="tags">#产品经理 #大厂日常 #如何把活干好 #需求评审 #工作方法<button class="copy sec" type="button" onclick="copyText(document.getElementById('tags').innerText.replace(/复制话题$/,'').trim(),this)">复制话题</button></div>
+
+  <div class="label">评论区引导</div>
+  <div class="box" id="cta">评论区提问：你最近一次「做完了但没人用」的功能，回头看是方案问题还是问题说错了？<button class="copy sec" type="button" onclick="copyText(document.getElementById('cta').innerText.replace(/复制引导$/,'').trim(),this)">复制引导</button></div>
+</div>
+<div class="toast" id="toast">已复制</div>
+<script>
+async function copyText(t, btn){
+  t=(t||'').trim();
+  try{ await navigator.clipboard.writeText(t); }
+  catch(e){
+    const a=document.createElement('textarea'); a.value=t; document.body.appendChild(a); a.select();
+    document.execCommand('copy'); a.remove();
+  }
+  const toast=document.getElementById('toast');
+  toast.classList.add('show');
+  if(btn){ const o=btn.textContent; btn.textContent='已复制'; setTimeout(()=>btn.textContent=o,1200); }
+  setTimeout(()=>toast.classList.remove('show'),1200);
+}
+</script>
+</body>
+</html>

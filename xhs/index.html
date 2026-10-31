@@ -36,6 +36,15 @@ ul.feed{margin:0;padding-left:1.2rem}
 .mob{display:none;flex-wrap:wrap;gap:.35rem;margin:0 0 1rem}
 .mob a{font-size:.78rem;background:var(--accent-soft);color:var(--accent);text-decoration:none;padding:.2rem .5rem;border-radius:999px}
 .foot{margin-top:2.5rem;font-size:.86rem;color:var(--mut);border-top:1px solid var(--line);padding-top:1rem}
+.btn{display:inline-flex;align-items:center;gap:.35rem;background:var(--accent);color:#fff!important;text-decoration:none;font-weight:650;font-size:.88rem;padding:.45rem .85rem;border-radius:999px;border:0;cursor:pointer}
+.btn.sec{background:var(--accent-soft);color:var(--accent)!important}
+.btn.ghost{background:transparent;color:var(--accent)!important;border:1px solid var(--accent)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(7.5rem,1fr));gap:.55rem;margin:.6rem 0}
+.gallery a{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#efeae0}
+.gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.draft-head{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:space-between;margin:0 0 .4rem}
+.copybox{position:relative;background:#efeae0;border-radius:10px;padding:.7rem .8rem;font-size:.88rem;white-space:pre-wrap;word-break:break-word;margin:.4rem 0}
+.copybox .copybtn{position:absolute;top:.4rem;right:.4rem}
 @media(max-width:900px){.shell{grid-template-columns:1fr}.nav{display:none}.mob{display:flex}.main{padding:1.1rem 1rem 3rem}}
 </style>
 </head>
@@ -45,10 +54,10 @@ ul.feed{margin:0;padding-left:1.2rem}
   <p class="brand">小红书选题库</p>
   <p class="meta">私密 x-digest · 2026-10-31（America/Los_Angeles）<br>不进入公开周报</p>
   <div class="sec">目录</div>
-  <a href="#pos">定位</a><a href="#main">主线系列 M01–M20</a><a href="#side">辅线「我学 AI」</a><a href="#tingji">听记选题</a><a href="#feed">对标博主动态</a><a href="#profiles">对标博主档案</a><a href="#lenny">Lenny 素材池</a><a href="#growth">起号与变现</a><a href="#log">更新记录</a>
+  <a href="#pos">定位</a><a href="#plan">发布计划</a><a href="#main">主线系列 M01–M20</a><a href="#drafts">已成稿发布页</a><a href="#side">辅线「我学 AI」</a><a href="#tingji">听记选题</a><a href="#feed">对标博主动态</a><a href="#profiles">对标博主档案</a><a href="#lenny">Lenny 素材池</a><a href="#growth">起号与变现</a><a href="#log">更新记录</a><div class="sec">完整页</div><a href="creators.html">对标完整档案 →</a>
 </aside>
 <main class="main">
-<nav class="mob"><a href="#pos">定位</a><a href="#main">主线系列 M01–M20</a><a href="#side">辅线「我学 AI」</a><a href="#tingji">听记选题</a><a href="#feed">对标博主动态</a><a href="#profiles">对标博主档案</a><a href="#lenny">Lenny 素材池</a><a href="#growth">起号与变现</a><a href="#log">更新记录</a></nav>
+<nav class="mob"><a href="#pos">定位</a><a href="#plan">发布计划</a><a href="#main">主线系列 M01–M20</a><a href="#drafts">已成稿发布页</a><a href="#side">辅线「我学 AI」</a><a href="#tingji">听记选题</a><a href="#feed">对标博主动态</a><a href="#profiles">对标博主档案</a><a href="#lenny">Lenny 素材池</a><a href="#growth">起号与变现</a><a href="#log">更新记录</a><a href="creators.html">对标完整档案</a></nav>
 <h1>小红书选题库</h1>
 <p class="muted">大厂产品经理 · 讲进门后如何把活干好 · 更新 2026-10-31（America/Los_Angeles）</p>
 <h2 id="pos">定位</h2>
@@ -58,204 +67,259 @@ ul.feed{margin:0;padding-left:1.2rem}
   <ul style="margin:0"><li>不求职</li><li>不编数字</li><li>不泄东家</li><li>Lenny 只引公开原文</li><li>听记仅脱敏可选</li></ul>
   <p class="warn" style="margin:.8rem 0 0">听记选题仅脱敏抽象；网页不展示公司/产品/客户/同事名、数字或源文件路径。</p>
 </div>
-<h2 id="main">主线系列 M01–M20</h2>
-<p class="muted">理解问题 → 定优先级 → 写文档 → 开会对齐 → 推进落地 → 复盘 → 用 AI 提效。已成稿可直接改图发。</p>
+<h2 id="plan">发布计划</h2>
+<p class="muted">主线每周2篇（周二方法/周五清单）按 M01→M20；辅线每周0–1插在主线之间。routine 可改 <code>publish_plan.items</code> 的日期与状态。</p>
 <table>
-<thead><tr><th>ID</th><th>步骤</th><th>标题</th><th>Lenny</th></tr></thead>
-<tbody><tr><td><code>M01</code></td><td>理解问题</td><td>先别动手：三步把问题说清楚<span class="tag ok">已成稿</span></td><td><a href="https://www.lennysnewsletter.com/p/a-three-step-framework-for-solving-problems" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2019-06-14-a-three-step-framework-for-solving-problems.md</code></td></tr><tr><td><code>M02</code></td><td>理解问题</td><td>我怎么判断自己把活干好了：三问自检<span class="tag ok">已成稿</span></td><td><a href="https://www.lennysnewsletter.com/p/how-to-know-if-youre-doing-a-good-job-as-a-product-manager" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2021-06-29-how-to-know-if-youre-doing-a-good-job-as-a-product-manager.md</code></td></tr><tr><td><code>M03</code></td><td>理解问题</td><td>用户急不急：从「谁会非常失望」想需求<span class="tag ok">已成稿</span></td><td><a href="https://www.lennysnewsletter.com/p/how-to-know-if-youve-got-product-market-fit" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2020-01-28-how-to-know-if-youve-got-product-market-fit.md</code></td></tr><tr><td><code>M04</code></td><td>定优先级</td><td>先有战略，再排优先级<span class="tag ok">已成稿</span></td><td><a href="https://www.lennysnewsletter.com/p/prioritizing" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2021-07-27-prioritizing.md</code></td></tr><tr><td><code>M05</code></td><td>定优先级</td><td>DRICE：怎么少赌错项目<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/introducing-drice-a-modern-prioritization-framework" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2023-11-07-introducing-drice-a-modern-prioritization-framework.md</code></td></tr><tr><td><code>M06</code></td><td>定优先级</td><td>使命到任务：一条链别断<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/mission--vision--strategy--goals--roadmap--task" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2022-10-18-mission--vision--strategy--goals--roadmap--task.md</code></td></tr><tr><td><code>M07</code></td><td>写文档</td><td>一页纸有人读才算写过<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/examples-and-templates-of-1-pagers-and-prds" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2021-08-31-examples-and-templates-of-1-pagers-and-prds.md</code></td></tr><tr><td><code>M08</code></td><td>写文档</td><td>战略怎么写才像「赢的假设」<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/getting-better-at-product-strategy" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2020-09-08-getting-better-at-product-strategy.md</code></td></tr><tr><td><code>M09</code></td><td>开会对齐</td><td>PM 周会：别为开会而开<span class="tag ok">已成稿</span></td><td><a href="https://www.lennysnewsletter.com/p/leading-a-pm-team-meeting---issue-19" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2020-03-24-leading-a-pm-team-meeting---issue-19.md</code></td></tr><tr><td><code>M10</code></td><td>开会对齐</td><td>影响力：先让人感到被听懂<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/a-pms-guide-to-influence" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2024-10-01-a-pms-guide-to-influence.md</code></td></tr><tr><td><code>M11</code></td><td>开会对齐</td><td>跟上级报失败：怎么说才不甩锅<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/this-week-7-effectively-communicating-about-a-failure-to-execs-managing-founder" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2019-10-01-this-week-7-effectively-communicating-about-a-failure-to-execs-managing-founder.md</code></td></tr><tr><td><code>M12</code></td><td>推进落地</td><td>规划翻车：多半是角色没讲清<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/the-secret-to-a-great-planning-process---lessons-from-airbnb-and-eventbrite" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2019-09-26-the-secret-to-a-great-planning-process---lessons-from-airbnb-and-eventbrite.md</code></td></tr><tr><td><code>M13</code></td><td>推进落地</td><td>PM×设计：合伙不是甩锅接力<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/the-pm--design-partnership" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2021-03-23-the-pm--design-partnership.md</code></td></tr><tr><td><code>M14</code></td><td>推进落地</td><td>不公平的岗位，用不对称方式干活<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/product-manager-is-an-unfair-role-so-work-unfairly" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2024-11-12-product-manager-is-an-unfair-role-so-work-unfairly.md</code></td></tr><tr><td><code>M15</code></td><td>复盘</td><td>实验文化：数据知情，别数据盲从<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/fostering-a-culture-of-experimentation" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2020-09-22-fostering-a-culture-of-experimentation.md</code></td></tr><tr><td><code>M16</code></td><td>复盘</td><td>Post-mortem：开完要留下制度，不只情绪<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/ideal-sprint-length-designer-vs-pm-roles-running-pm-team-meetings-running-post-m" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2020-12-11-ideal-sprint-length-designer-vs-pm-roles-running-pm-team-meetings-running-post-m.md</code></td></tr><tr><td><code>M17</code></td><td>用 AI 提效</td><td>顶尖 PM 的 AI 杠杆：别当更差的工程师<span class="tag ok">已成稿</span></td><td><a href="https://www.lennysnewsletter.com/p/how-top-pms-increase-their-leverage" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2026-06-30-how-top-pms-increase-their-leverage.md</code></td></tr><tr><td><code>M18</code></td><td>用 AI 提效</td><td>PM 的 AI 原型：用可点的东西对齐<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/a-guide-to-ai-prototyping-for-product-managers" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2025-01-07-a-guide-to-ai-prototyping-for-product-managers.md</code></td></tr><tr><td><code>M19</code></td><td>用 AI 提效</td><td>个人 AI 副驾驶：从第二脑开始<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/build-your-personal-ai-copilot" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2025-07-22-build-your-personal-ai-copilot.md</code></td></tr><tr><td><code>M20</code></td><td>用 AI 提效</td><td>做 AI 功能的反常识：别照搬旧 SaaS<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/counterintuitive-advice-for-building-ai-products" target="_blank" rel="noopener">Lenny</a><br><code class="tiny">2024-07-02-counterintuitive-advice-for-building-ai-products.md</code></td></tr></tbody></table>
+<thead><tr><th>序号</th><th>计划日期</th><th>集数</th><th>标题</th><th>主线/辅线</th><th>状态</th><th>查看</th></tr></thead>
+<tbody><tr><td>1</td><td>2026-11-03</td><td><code>M01</code></td><td>先别动手：三步把问题说清楚</td><td>主线</td><td><span class="tag ok">成稿</span></td><td><a href="post/M01.html#text">查看文字</a> · <a href="post/M01.html#images">查看图片</a></td></tr><tr><td>2</td><td>2026-11-06</td><td><code>M02</code></td><td>我怎么判断自己把活干好了：三问自检</td><td>主线</td><td><span class="tag ok">成稿</span></td><td><a href="post/M02.html#text">查看文字</a> · <a href="post/M02.html#images">查看图片</a></td></tr><tr><td>3</td><td>2026-11-10</td><td><code>M03</code></td><td>用户急不急：从「谁会非常失望」想需求</td><td>主线</td><td><span class="tag ok">成稿</span></td><td><a href="post/M03.html#text">查看文字</a> · <a href="post/M03.html#images">查看图片</a></td></tr><tr><td>4</td><td>2026-11-12</td><td><code>L01</code></td><td>本周我学 AI 的三张小票</td><td>辅线</td><td><span class="tag ok">成稿</span></td><td><a href="post/L01.html#text">查看文字</a> · <a href="post/L01.html#images">查看图片</a></td></tr><tr><td>5</td><td>2026-11-13</td><td><code>M04</code></td><td>先有战略，再排优先级</td><td>主线</td><td><span class="tag ok">成稿</span></td><td><a href="post/M04.html#text">查看文字</a> · <a href="post/M04.html#images">查看图片</a></td></tr><tr><td>6</td><td>2026-11-17</td><td><code>M05</code></td><td>DRICE：怎么少赌错项目</td><td>主线</td><td><span class="tag">大纲</span></td><td><span class="muted">待写</span></td></tr><tr><td>7</td><td>2026-11-20</td><td><code>M06</code></td><td>使命到任务：一条链别断</td><td>主线</td><td><span class="tag">大纲</span></td><td><span class="muted">待写</span></td></tr><tr><td>8</td><td>2026-11-19</td><td><code>L02</code></td><td>试用一个订阅档：四问就够</td><td>辅线</td><td><span class="tag" style="background:#eee;color:#666">待写</span></td><td><span class="muted">待写</span></td></tr><tr><td>9</td><td>2026-11-24</td><td><code>M07</code></td><td>一页纸有人读才算写过</td><td>主线</td><td><span class="tag">大纲</span></td><td><span class="muted">待写</span></td></tr><tr><td>10</td><td>2026-11-27</td><td><code>M08</code></td><td>战略怎么写才像「赢的假设」</td><td>主线</td><td><span class="tag">大纲</span></td><td><span class="muted">待写</span></td></tr><tr><td>11</td><td>2026-12-01</td><td><code>M09</code></td><td>PM 周会：别为开会而开</td><td>主线</td><td><span class="tag ok">成稿</span></td><td><a href="post/M09.html#text">查看文字</a> · <a href="post/M09.html#images">查看图片</a></td></tr><tr><td>12</td><td>2026-12-03</td><td><code>L03</code></td><td>我踩过的 AI 坑（插件/额度/以为懂了）</td><td>辅线</td><td><span class="tag" style="background:#eee;color:#666">待写</span></td><td><span class="muted">待写</span></td></tr><tr><td>13</td><td>2026-12-04</td><td><code>M10</code></td><td>影响力：先让人感到被听懂</td><td>主线</td><td><span class="tag">大纲</span></td><td><span class="muted">待写</span></td></tr><tr><td>14</td><td>2026-12-08</td><td><code>M11</code></td><td>跟上级报失败：怎么说才不甩锅</td><td>主线</td><td><span class="tag">大纲</span></td><td><span class="muted">待写</span></td></tr><tr><td>15</td><td>2026-12-11</td><td><code>M12</code></td><td>规划翻车：多半是角色没讲清</td><td>主线</td><td><span class="tag">大纲</span></td><td><span class="muted">待写</span></td></tr><tr><td>16</td><td>2026-12-10</td><td><code>L04</code></td><td>跟 builders 学：我这周看完的一节长内容</td><td>辅线</td><td><span class="tag" style="background:#eee;color:#666">待写</span></td><td><span class="muted">待写</span></td></tr><tr><td>17</td><td>2026-12-15</td><td><code>M13</code></td><td>PM×设计：合伙不是甩锅接力</td><td>主线</td><td><span class="tag">大纲</span></td><td><span class="muted">待写</span></td></tr><tr><td>18</td><td>2026-12-18</td><td><code>M14</code></td><td>不公平的岗位，用不对称方式干活</td><td>主线</td><td><span class="tag">大纲</span></td><td><span class="muted">待写</span></td></tr><tr><td>19</td><td>2026-12-22</td><td><code>M15</code></td><td>实验文化：数据知情，别数据盲从</td><td>主线</td><td><span class="tag">大纲</span></td><td><span class="muted">待写</span></td></tr><tr><td>20</td><td>2026-12-24</td><td><code>L05</code></td><td>用 AI 做一件小事并公开</td><td>辅线</td><td><span class="tag" style="background:#eee;color:#666">待写</span></td><td><span class="muted">待写</span></td></tr><tr><td>21</td><td>2026-12-25</td><td><code>M16</code></td><td>Post-mortem：开完要留下制度，不只情绪</td><td>主线</td><td><span class="tag">大纲</span></td><td><span class="muted">待写</span></td></tr><tr><td>22</td><td>2026-12-29</td><td><code>M17</code></td><td>顶尖 PM 的 AI 杠杆：别当更差的工程师</td><td>主线</td><td><span class="tag ok">成稿</span></td><td><a href="post/M17.html#text">查看文字</a> · <a href="post/M17.html#images">查看图片</a></td></tr><tr><td>23</td><td>2027-01-01</td><td><code>M18</code></td><td>PM 的 AI 原型：用可点的东西对齐</td><td>主线</td><td><span class="tag">大纲</span></td><td><span class="muted">待写</span></td></tr><tr><td>24</td><td>2027-01-05</td><td><code>M19</code></td><td>个人 AI 副驾驶：从第二脑开始</td><td>主线</td><td><span class="tag">大纲</span></td><td><span class="muted">待写</span></td></tr><tr><td>25</td><td>2027-01-08</td><td><code>M20</code></td><td>做 AI 功能的反常识：别照搬旧 SaaS</td><td>主线</td><td><span class="tag">大纲</span></td><td><span class="muted">待写</span></td></tr></tbody></table>
+<h2 id="main">主线系列 M01–M20</h2>
+<p class="muted">理解问题 → 定优先级 → 写文档 → 开会对齐 → 推进落地 → 复盘 → 用 AI 提效。Lenny 链接仅挂在大纲/素材列；成稿请走「发布页」。</p>
+<table>
+<thead><tr><th>ID</th><th>步骤</th><th>标题</th><th>素材（Lenny）</th></tr></thead>
+<tbody><tr id="M01"><td><code>M01</code></td><td>理解问题</td><td>先别动手：三步把问题说清楚<span class="tag ok">已成稿</span> · <a href="post/M01.html"><b>发布页</b></a></td><td><a href="https://www.lennysnewsletter.com/p/a-three-step-framework-for-solving-problems" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2019-06-14-a-three-step-framework-for-solving-problems.md</code></td></tr><tr id="M02"><td><code>M02</code></td><td>理解问题</td><td>我怎么判断自己把活干好了：三问自检<span class="tag ok">已成稿</span> · <a href="post/M02.html"><b>发布页</b></a></td><td><a href="https://www.lennysnewsletter.com/p/how-to-know-if-youre-doing-a-good-job-as-a-product-manager" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2021-06-29-how-to-know-if-youre-doing-a-good-job-as-a-product-manager.md</code></td></tr><tr id="M03"><td><code>M03</code></td><td>理解问题</td><td>用户急不急：从「谁会非常失望」想需求<span class="tag ok">已成稿</span> · <a href="post/M03.html"><b>发布页</b></a></td><td><a href="https://www.lennysnewsletter.com/p/how-to-know-if-youve-got-product-market-fit" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2020-01-28-how-to-know-if-youve-got-product-market-fit.md</code></td></tr><tr id="M04"><td><code>M04</code></td><td>定优先级</td><td>先有战略，再排优先级<span class="tag ok">已成稿</span> · <a href="post/M04.html"><b>发布页</b></a></td><td><a href="https://www.lennysnewsletter.com/p/prioritizing" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2021-07-27-prioritizing.md</code></td></tr><tr id="M05"><td><code>M05</code></td><td>定优先级</td><td>DRICE：怎么少赌错项目<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/introducing-drice-a-modern-prioritization-framework" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2023-11-07-introducing-drice-a-modern-prioritization-framework.md</code></td></tr><tr id="M06"><td><code>M06</code></td><td>定优先级</td><td>使命到任务：一条链别断<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/mission--vision--strategy--goals--roadmap--task" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2022-10-18-mission--vision--strategy--goals--roadmap--task.md</code></td></tr><tr id="M07"><td><code>M07</code></td><td>写文档</td><td>一页纸有人读才算写过<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/examples-and-templates-of-1-pagers-and-prds" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2021-08-31-examples-and-templates-of-1-pagers-and-prds.md</code></td></tr><tr id="M08"><td><code>M08</code></td><td>写文档</td><td>战略怎么写才像「赢的假设」<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/getting-better-at-product-strategy" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2020-09-08-getting-better-at-product-strategy.md</code></td></tr><tr id="M09"><td><code>M09</code></td><td>开会对齐</td><td>PM 周会：别为开会而开<span class="tag ok">已成稿</span> · <a href="post/M09.html"><b>发布页</b></a></td><td><a href="https://www.lennysnewsletter.com/p/leading-a-pm-team-meeting---issue-19" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2020-03-24-leading-a-pm-team-meeting---issue-19.md</code></td></tr><tr id="M10"><td><code>M10</code></td><td>开会对齐</td><td>影响力：先让人感到被听懂<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/a-pms-guide-to-influence" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2024-10-01-a-pms-guide-to-influence.md</code></td></tr><tr id="M11"><td><code>M11</code></td><td>开会对齐</td><td>跟上级报失败：怎么说才不甩锅<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/this-week-7-effectively-communicating-about-a-failure-to-execs-managing-founder" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2019-10-01-this-week-7-effectively-communicating-about-a-failure-to-execs-managing-founder.md</code></td></tr><tr id="M12"><td><code>M12</code></td><td>推进落地</td><td>规划翻车：多半是角色没讲清<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/the-secret-to-a-great-planning-process---lessons-from-airbnb-and-eventbrite" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2019-09-26-the-secret-to-a-great-planning-process---lessons-from-airbnb-and-eventbrite.md</code></td></tr><tr id="M13"><td><code>M13</code></td><td>推进落地</td><td>PM×设计：合伙不是甩锅接力<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/the-pm--design-partnership" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2021-03-23-the-pm--design-partnership.md</code></td></tr><tr id="M14"><td><code>M14</code></td><td>推进落地</td><td>不公平的岗位，用不对称方式干活<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/product-manager-is-an-unfair-role-so-work-unfairly" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2024-11-12-product-manager-is-an-unfair-role-so-work-unfairly.md</code></td></tr><tr id="M15"><td><code>M15</code></td><td>复盘</td><td>实验文化：数据知情，别数据盲从<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/fostering-a-culture-of-experimentation" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2020-09-22-fostering-a-culture-of-experimentation.md</code></td></tr><tr id="M16"><td><code>M16</code></td><td>复盘</td><td>Post-mortem：开完要留下制度，不只情绪<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/ideal-sprint-length-designer-vs-pm-roles-running-pm-team-meetings-running-post-m" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2020-12-11-ideal-sprint-length-designer-vs-pm-roles-running-pm-team-meetings-running-post-m.md</code></td></tr><tr id="M17"><td><code>M17</code></td><td>用 AI 提效</td><td>顶尖 PM 的 AI 杠杆：别当更差的工程师<span class="tag ok">已成稿</span> · <a href="post/M17.html"><b>发布页</b></a></td><td><a href="https://www.lennysnewsletter.com/p/how-top-pms-increase-their-leverage" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2026-06-30-how-top-pms-increase-their-leverage.md</code></td></tr><tr id="M18"><td><code>M18</code></td><td>用 AI 提效</td><td>PM 的 AI 原型：用可点的东西对齐<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/a-guide-to-ai-prototyping-for-product-managers" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2025-01-07-a-guide-to-ai-prototyping-for-product-managers.md</code></td></tr><tr id="M19"><td><code>M19</code></td><td>用 AI 提效</td><td>个人 AI 副驾驶：从第二脑开始<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/build-your-personal-ai-copilot" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2025-07-22-build-your-personal-ai-copilot.md</code></td></tr><tr id="M20"><td><code>M20</code></td><td>用 AI 提效</td><td>做 AI 功能的反常识：别照搬旧 SaaS<span class="tag">大纲</span></td><td><a href="https://www.lennysnewsletter.com/p/counterintuitive-advice-for-building-ai-products" target="_blank" rel="noopener">Lenny 原文</a><br><code class="tiny">2024-07-02-counterintuitive-advice-for-building-ai-products.md</code></td></tr></tbody></table>
+<h2 id="drafts">已成稿发布页</h2>
+<p class="muted">每篇有独立发布页（标题/图片/正文/话题/评论引导）。发布页与成稿区<strong>不含</strong> Lenny 原文链接。</p>
+<div class="card" id="draft-M01">
+  <div class="draft-head">
+    <h3 style="margin:0">M01 · 先别动手｜三步把问题说清楚 <span class="tag ok">已成稿</span></h3>
+    <span>
+      <a class="btn" href="post/M01.html">发布页</a>
+      <a class="btn sec" href="cards/M01/M01-cards.zip">下载 ZIP</a>
+    </span>
+  </div>
+  <p class="muted" style="margin:0 0 .4rem">共 9 张图 · 点图放大 · 发布页可一键复制正文/话题</p>
+  <div class="gallery"><a href="cards/M01/01.jpg" target="_blank" rel="noopener" title="图1"><img src="cards/M01/01.jpg" alt="M01 图1" loading="lazy"></a><a href="cards/M01/02.jpg" target="_blank" rel="noopener" title="图2"><img src="cards/M01/02.jpg" alt="M01 图2" loading="lazy"></a><a href="cards/M01/03.jpg" target="_blank" rel="noopener" title="图3"><img src="cards/M01/03.jpg" alt="M01 图3" loading="lazy"></a><a href="cards/M01/04.jpg" target="_blank" rel="noopener" title="图4"><img src="cards/M01/04.jpg" alt="M01 图4" loading="lazy"></a><a href="cards/M01/05.jpg" target="_blank" rel="noopener" title="图5"><img src="cards/M01/05.jpg" alt="M01 图5" loading="lazy"></a><a href="cards/M01/06.jpg" target="_blank" rel="noopener" title="图6"><img src="cards/M01/06.jpg" alt="M01 图6" loading="lazy"></a><a href="cards/M01/07.jpg" target="_blank" rel="noopener" title="图7"><img src="cards/M01/07.jpg" alt="M01 图7" loading="lazy"></a><a href="cards/M01/08.jpg" target="_blank" rel="noopener" title="图8"><img src="cards/M01/08.jpg" alt="M01 图8" loading="lazy"></a><a href="cards/M01/09.jpg" target="_blank" rel="noopener" title="图9"><img src="cards/M01/09.jpg" alt="M01 图9" loading="lazy"></a></div>
+</div><div class="card" id="draft-M02">
+  <div class="draft-head">
+    <h3 style="margin:0">M02 · 干得好不好｜PM 自检三问 <span class="tag ok">已成稿</span></h3>
+    <span>
+      <a class="btn" href="post/M02.html">发布页</a>
+      <a class="btn sec" href="cards/M02/M02-cards.zip">下载 ZIP</a>
+    </span>
+  </div>
+  <p class="muted" style="margin:0 0 .4rem">共 9 张图 · 点图放大 · 发布页可一键复制正文/话题</p>
+  <div class="gallery"><a href="cards/M02/01.jpg" target="_blank" rel="noopener" title="图1"><img src="cards/M02/01.jpg" alt="M02 图1" loading="lazy"></a><a href="cards/M02/02.jpg" target="_blank" rel="noopener" title="图2"><img src="cards/M02/02.jpg" alt="M02 图2" loading="lazy"></a><a href="cards/M02/03.jpg" target="_blank" rel="noopener" title="图3"><img src="cards/M02/03.jpg" alt="M02 图3" loading="lazy"></a><a href="cards/M02/04.jpg" target="_blank" rel="noopener" title="图4"><img src="cards/M02/04.jpg" alt="M02 图4" loading="lazy"></a><a href="cards/M02/05.jpg" target="_blank" rel="noopener" title="图5"><img src="cards/M02/05.jpg" alt="M02 图5" loading="lazy"></a><a href="cards/M02/06.jpg" target="_blank" rel="noopener" title="图6"><img src="cards/M02/06.jpg" alt="M02 图6" loading="lazy"></a><a href="cards/M02/07.jpg" target="_blank" rel="noopener" title="图7"><img src="cards/M02/07.jpg" alt="M02 图7" loading="lazy"></a><a href="cards/M02/08.jpg" target="_blank" rel="noopener" title="图8"><img src="cards/M02/08.jpg" alt="M02 图8" loading="lazy"></a><a href="cards/M02/09.png" target="_blank" rel="noopener" title="图9"><img src="cards/M02/09.png" alt="M02 图9" loading="lazy"></a></div>
+</div><div class="card" id="draft-M03">
+  <div class="draft-head">
+    <h3 style="margin:0">M03 · 谁会非常失望｜需求验证一句话 <span class="tag ok">已成稿</span></h3>
+    <span>
+      <a class="btn" href="post/M03.html">发布页</a>
+      <a class="btn sec" href="cards/M03/M03-cards.zip">下载 ZIP</a>
+    </span>
+  </div>
+  <p class="muted" style="margin:0 0 .4rem">共 9 张图 · 点图放大 · 发布页可一键复制正文/话题</p>
+  <div class="gallery"><a href="cards/M03/01.jpg" target="_blank" rel="noopener" title="图1"><img src="cards/M03/01.jpg" alt="M03 图1" loading="lazy"></a><a href="cards/M03/02.jpg" target="_blank" rel="noopener" title="图2"><img src="cards/M03/02.jpg" alt="M03 图2" loading="lazy"></a><a href="cards/M03/03.jpg" target="_blank" rel="noopener" title="图3"><img src="cards/M03/03.jpg" alt="M03 图3" loading="lazy"></a><a href="cards/M03/04.jpg" target="_blank" rel="noopener" title="图4"><img src="cards/M03/04.jpg" alt="M03 图4" loading="lazy"></a><a href="cards/M03/05.jpg" target="_blank" rel="noopener" title="图5"><img src="cards/M03/05.jpg" alt="M03 图5" loading="lazy"></a><a href="cards/M03/06.jpg" target="_blank" rel="noopener" title="图6"><img src="cards/M03/06.jpg" alt="M03 图6" loading="lazy"></a><a href="cards/M03/07.jpg" target="_blank" rel="noopener" title="图7"><img src="cards/M03/07.jpg" alt="M03 图7" loading="lazy"></a><a href="cards/M03/08.jpg" target="_blank" rel="noopener" title="图8"><img src="cards/M03/08.jpg" alt="M03 图8" loading="lazy"></a><a href="cards/M03/09.jpg" target="_blank" rel="noopener" title="图9"><img src="cards/M03/09.jpg" alt="M03 图9" loading="lazy"></a></div>
+</div><div class="card" id="draft-M04">
+  <div class="draft-head">
+    <h3 style="margin:0">M04 · 先战略后路线图｜别迷信打分 <span class="tag ok">已成稿</span></h3>
+    <span>
+      <a class="btn" href="post/M04.html">发布页</a>
+      <a class="btn sec" href="cards/M04/M04-cards.zip">下载 ZIP</a>
+    </span>
+  </div>
+  <p class="muted" style="margin:0 0 .4rem">共 8 张图 · 点图放大 · 发布页可一键复制正文/话题</p>
+  <div class="gallery"><a href="cards/M04/01.jpg" target="_blank" rel="noopener" title="图1"><img src="cards/M04/01.jpg" alt="M04 图1" loading="lazy"></a><a href="cards/M04/02.jpg" target="_blank" rel="noopener" title="图2"><img src="cards/M04/02.jpg" alt="M04 图2" loading="lazy"></a><a href="cards/M04/03.jpg" target="_blank" rel="noopener" title="图3"><img src="cards/M04/03.jpg" alt="M04 图3" loading="lazy"></a><a href="cards/M04/04.jpg" target="_blank" rel="noopener" title="图4"><img src="cards/M04/04.jpg" alt="M04 图4" loading="lazy"></a><a href="cards/M04/05.jpg" target="_blank" rel="noopener" title="图5"><img src="cards/M04/05.jpg" alt="M04 图5" loading="lazy"></a><a href="cards/M04/06.jpg" target="_blank" rel="noopener" title="图6"><img src="cards/M04/06.jpg" alt="M04 图6" loading="lazy"></a><a href="cards/M04/07.jpg" target="_blank" rel="noopener" title="图7"><img src="cards/M04/07.jpg" alt="M04 图7" loading="lazy"></a><a href="cards/M04/08.jpg" target="_blank" rel="noopener" title="图8"><img src="cards/M04/08.jpg" alt="M04 图8" loading="lazy"></a></div>
+</div><div class="card" id="draft-M09">
+  <div class="draft-head">
+    <h3 style="margin:0">M09 · 别为开会而开｜PM 周会三目标 <span class="tag ok">已成稿</span></h3>
+    <span>
+      <a class="btn" href="post/M09.html">发布页</a>
+      <a class="btn sec" href="cards/M09/M09-cards.zip">下载 ZIP</a>
+    </span>
+  </div>
+  <p class="muted" style="margin:0 0 .4rem">共 8 张图 · 点图放大 · 发布页可一键复制正文/话题</p>
+  <div class="gallery"><a href="cards/M09/01.jpg" target="_blank" rel="noopener" title="图1"><img src="cards/M09/01.jpg" alt="M09 图1" loading="lazy"></a><a href="cards/M09/02.jpg" target="_blank" rel="noopener" title="图2"><img src="cards/M09/02.jpg" alt="M09 图2" loading="lazy"></a><a href="cards/M09/03.jpg" target="_blank" rel="noopener" title="图3"><img src="cards/M09/03.jpg" alt="M09 图3" loading="lazy"></a><a href="cards/M09/04.jpg" target="_blank" rel="noopener" title="图4"><img src="cards/M09/04.jpg" alt="M09 图4" loading="lazy"></a><a href="cards/M09/05.jpg" target="_blank" rel="noopener" title="图5"><img src="cards/M09/05.jpg" alt="M09 图5" loading="lazy"></a><a href="cards/M09/06.jpg" target="_blank" rel="noopener" title="图6"><img src="cards/M09/06.jpg" alt="M09 图6" loading="lazy"></a><a href="cards/M09/07.jpg" target="_blank" rel="noopener" title="图7"><img src="cards/M09/07.jpg" alt="M09 图7" loading="lazy"></a><a href="cards/M09/08.jpg" target="_blank" rel="noopener" title="图8"><img src="cards/M09/08.jpg" alt="M09 图8" loading="lazy"></a></div>
+</div><div class="card" id="draft-M17">
+  <div class="draft-head">
+    <h3 style="margin:0">M17 · 别当更差的工程师｜PM 的 AI 杠杆 <span class="tag ok">已成稿</span></h3>
+    <span>
+      <a class="btn" href="post/M17.html">发布页</a>
+      <a class="btn sec" href="cards/M17/M17-cards.zip">下载 ZIP</a>
+    </span>
+  </div>
+  <p class="muted" style="margin:0 0 .4rem">共 8 张图 · 点图放大 · 发布页可一键复制正文/话题</p>
+  <div class="gallery"><a href="cards/M17/01.jpg" target="_blank" rel="noopener" title="图1"><img src="cards/M17/01.jpg" alt="M17 图1" loading="lazy"></a><a href="cards/M17/02.jpg" target="_blank" rel="noopener" title="图2"><img src="cards/M17/02.jpg" alt="M17 图2" loading="lazy"></a><a href="cards/M17/03.jpg" target="_blank" rel="noopener" title="图3"><img src="cards/M17/03.jpg" alt="M17 图3" loading="lazy"></a><a href="cards/M17/04.jpg" target="_blank" rel="noopener" title="图4"><img src="cards/M17/04.jpg" alt="M17 图4" loading="lazy"></a><a href="cards/M17/05.jpg" target="_blank" rel="noopener" title="图5"><img src="cards/M17/05.jpg" alt="M17 图5" loading="lazy"></a><a href="cards/M17/06.jpg" target="_blank" rel="noopener" title="图6"><img src="cards/M17/06.jpg" alt="M17 图6" loading="lazy"></a><a href="cards/M17/07.jpg" target="_blank" rel="noopener" title="图7"><img src="cards/M17/07.jpg" alt="M17 图7" loading="lazy"></a><a href="cards/M17/08.jpg" target="_blank" rel="noopener" title="图8"><img src="cards/M17/08.jpg" alt="M17 图8" loading="lazy"></a></div>
+</div><div class="card" id="draft-L01">
+  <div class="draft-head">
+    <h3 style="margin:0">L01 · 学 AI 周记｜三张小票 <span class="tag ok">已成稿</span></h3>
+    <span>
+      <a class="btn" href="post/L01.html">发布页</a>
+      <a class="btn sec" href="cards/L01/L01-cards.zip">下载 ZIP</a>
+    </span>
+  </div>
+  <p class="muted" style="margin:0 0 .4rem">共 9 张图 · 点图放大 · 发布页可一键复制正文/话题</p>
+  <div class="gallery"><a href="cards/L01/01.jpg" target="_blank" rel="noopener" title="图1"><img src="cards/L01/01.jpg" alt="L01 图1" loading="lazy"></a><a href="cards/L01/02.jpg" target="_blank" rel="noopener" title="图2"><img src="cards/L01/02.jpg" alt="L01 图2" loading="lazy"></a><a href="cards/L01/03.jpg" target="_blank" rel="noopener" title="图3"><img src="cards/L01/03.jpg" alt="L01 图3" loading="lazy"></a><a href="cards/L01/04.jpg" target="_blank" rel="noopener" title="图4"><img src="cards/L01/04.jpg" alt="L01 图4" loading="lazy"></a><a href="cards/L01/05.jpg" target="_blank" rel="noopener" title="图5"><img src="cards/L01/05.jpg" alt="L01 图5" loading="lazy"></a><a href="cards/L01/06.jpg" target="_blank" rel="noopener" title="图6"><img src="cards/L01/06.jpg" alt="L01 图6" loading="lazy"></a><a href="cards/L01/07.jpg" target="_blank" rel="noopener" title="图7"><img src="cards/L01/07.jpg" alt="L01 图7" loading="lazy"></a><a href="cards/L01/08.jpg" target="_blank" rel="noopener" title="图8"><img src="cards/L01/08.jpg" alt="L01 图8" loading="lazy"></a><a href="cards/L01/09.jpg" target="_blank" rel="noopener" title="图9"><img src="cards/L01/09.jpg" alt="L01 图9" loading="lazy"></a></div>
+</div>
 <h2 id="side">辅线「我学 AI 的过程」</h2>
 <p class="muted">穿插主线之间，服务「把活干好」，不抢主线课表。</p>
-<div class="card"><strong>L01</strong> · 本周我学 AI 的三张小票<span class="tag ok">已成稿</span></div><div class="card"><strong>L02</strong> · 试用一个订阅档：四问就够<span class="tag">待写</span></div><div class="card"><strong>L03</strong> · 我踩过的 AI 坑（插件/额度/以为懂了）<span class="tag">待写</span></div><div class="card"><strong>L04</strong> · 跟 builders 学：我这周看完的一节长内容<span class="tag">待写</span></div><div class="card"><strong>L05</strong> · 用 AI 做一件小事并公开<span class="tag">待写</span></div>
+<div class="card" id="L01"><strong>L01</strong> · 本周我学 AI 的三张小票<span class="tag ok">已成稿</span> <a class="btn" href="post/L01.html" style="margin-left:.4rem">发布页</a></div><div class="card" id="L02"><strong>L02</strong> · 试用一个订阅档：四问就够<span class="tag">待写</span></div><div class="card" id="L03"><strong>L03</strong> · 我踩过的 AI 坑（插件/额度/以为懂了）<span class="tag">待写</span></div><div class="card" id="L04"><strong>L04</strong> · 跟 builders 学：我这周看完的一节长内容<span class="tag">待写</span></div><div class="card" id="L05"><strong>L05</strong> · 用 AI 做一件小事并公开<span class="tag">待写</span></div>
 <h2 id="tingji">听记选题</h2>
 <p class="muted">从真实会议里抽象出的复发工作问题。网页仅脱敏课纲；源文件路径不出现在本页。</p>
 <div class="card">
   <h3>T01 · AI做看板，先把指标口径讲清楚 <span class="tag">用AI</span></h3>
   <p><strong>问题模式（脱敏）：</strong>团队一上来先聊图表和布局，却没先写清分子分母、时间窗、服务谁的决策；页面越漂亮，误读越难被发现。</p>
-  <p class="muted" style="margin:0">映射：<a href="#main"><code>M18</code></a>
-  · 充实 M18（原型对齐）兼 M20 · Lenny
-  <a href="https://www.lennysnewsletter.com/p/counterintuitive-advice-for-building-ai-products" target="_blank" rel="noopener">原文</a>
-  <code class="tiny">2024-07-02-counterintuitive-advice-for-building-ai-products.md</code></p>
+  <p class="muted" style="margin:0">映射：<a href="#M18"><code>M18</code></a> · 充实 M18（原型对齐）兼 M20 · <a href="https://www.lennysnewsletter.com/p/counterintuitive-advice-for-building-ai-products" target="_blank" rel="noopener">Lenny 原文</a> <code class="tiny">2024-07-02-counterintuitive-advice-for-building-ai-products.md</code></p>
 </div><div class="card">
   <h3>T02 · 生成了多少次，不等于真正用起来 <span class="tag">用AI</span></h3>
   <p><strong>问题模式（脱敏）：</strong>只看模型调用量分不清「反复试错」和「一次生成后持续回看」；要把生成→打开→回访→后续动作拆开量。</p>
-  <p class="muted" style="margin:0">映射：<a href="#main"><code>M20</code></a>
-  · 充实 M20 · Lenny
-  <a href="https://www.lennysnewsletter.com/p/counterintuitive-advice-for-building-ai-products" target="_blank" rel="noopener">原文</a>
-  <code class="tiny">2024-07-02-counterintuitive-advice-for-building-ai-products.md</code></p>
+  <p class="muted" style="margin:0">映射：<a href="#M20"><code>M20</code></a> · 充实 M20 · <a href="https://www.lennysnewsletter.com/p/counterintuitive-advice-for-building-ai-products" target="_blank" rel="noopener">Lenny 原文</a> <code class="tiny">2024-07-02-counterintuitive-advice-for-building-ai-products.md</code></p>
 </div><div class="card">
   <h3>T03 · 推广AI工具，可以先交付一套能复用的模板 <span class="tag">用AI</span></h3>
   <p><strong>问题模式（脱敏）：</strong>人人从空白对话起步会重复踩坑；先让熟悉任务的人打磨「场景/输入/检查项」模板，再复制。</p>
-  <p class="muted" style="margin:0">映射：<a href="#main"><code>M17</code></a>
-  · 充实 M17 / M19 · Lenny
-  <a href="https://www.lennysnewsletter.com/p/how-top-pms-increase-their-leverage" target="_blank" rel="noopener">原文</a>
-  <code class="tiny">2026-06-30-how-top-pms-increase-their-leverage.md</code></p>
+  <p class="muted" style="margin:0">映射：<a href="#M17"><code>M17</code></a> · 充实 M17 / M19 · <a href="https://www.lennysnewsletter.com/p/how-top-pms-increase-their-leverage" target="_blank" rel="noopener">Lenny 原文</a> <code class="tiny">2026-06-30-how-top-pms-increase-their-leverage.md</code></p>
 </div><div class="card">
   <h3>T04 · 说好「保持一致」，不等于已经对齐数据 <span class="tag">对齐</span></h3>
   <p><strong>问题模式（脱敏）：</strong>跨系统对接时常把「页面长得一样」当成对齐；名称同、状态集/时间窗不同就会对不上。需要字段对照表。</p>
-  <p class="muted" style="margin:0">映射：<a href="#main"><code>M09</code></a>
-  · 充实 M09 对齐；兼 M07 写文档 · Lenny
-  <a href="https://www.lennysnewsletter.com/p/leading-a-pm-team-meeting---issue-19" target="_blank" rel="noopener">原文</a>
-  <code class="tiny">2020-03-24-leading-a-pm-team-meeting---issue-19.md</code></p>
+  <p class="muted" style="margin:0">映射：<a href="#M09"><code>M09</code></a> · 充实 M09 对齐；兼 M07 写文档 · <a href="https://www.lennysnewsletter.com/p/leading-a-pm-team-meeting---issue-19" target="_blank" rel="noopener">Lenny 原文</a> <code class="tiny">2020-03-24-leading-a-pm-team-meeting---issue-19.md</code></p>
 </div><div class="card">
   <h3>T05 · 同一个数，为什么两个页面总也对不上 <span class="tag">对齐</span></h3>
   <p><strong>问题模式（脱敏）：</strong>底表分子分母说清了，聚合维度、账号口径、历史规则却各页各算；「一致」要落到字段与样例核对。</p>
-  <p class="muted" style="margin:0">映射：<a href="#main"><code>M09</code></a>
-  · 充实 M09；可新开「口径对齐」短篇 · Lenny
-  <a href="https://www.lennysnewsletter.com/p/choosing-your-north-star-metric" target="_blank" rel="noopener">原文</a>
-  <code class="tiny">2021-06-16-choosing-your-north-star-metric.md</code></p>
+  <p class="muted" style="margin:0">映射：<a href="#M09"><code>M09</code></a> · 充实 M09；可新开「口径对齐」短篇 · <a href="https://www.lennysnewsletter.com/p/choosing-your-north-star-metric" target="_blank" rel="noopener">Lenny 原文</a> <code class="tiny">2021-06-16-choosing-your-north-star-metric.md</code></p>
 </div><div class="card">
   <h3>T06 · 一次改太多，复盘就只剩猜测 <span class="tag">复盘</span></h3>
   <p><strong>问题模式（脱敏）：</strong>同一窗口并行改多处，结果变好也说不清哪项起作用；先写主假设、只验一个变化，给复盘留线索。</p>
-  <p class="muted" style="margin:0">映射：<a href="#main"><code>M15</code></a>
-  · 充实 M15；兼 M05 优先级 · Lenny
-  <a href="https://www.lennysnewsletter.com/p/fostering-a-culture-of-experimentation" target="_blank" rel="noopener">原文</a>
-  <code class="tiny">2020-09-22-fostering-a-culture-of-experimentation.md</code></p>
+  <p class="muted" style="margin:0">映射：<a href="#M15"><code>M15</code></a> · 充实 M15；兼 M05 优先级 · <a href="https://www.lennysnewsletter.com/p/fostering-a-culture-of-experimentation" target="_blank" rel="noopener">Lenny 原文</a> <code class="tiny">2020-09-22-fostering-a-culture-of-experimentation.md</code></p>
 </div><div class="card">
   <h3>T07 · 目标和达标门槛，是两件不同的事 <span class="tag">优先级</span></h3>
   <p><strong>问题模式（脱敏）：</strong>门槛决定谁被计入，目标决定距离期待多远；混在一个设置里会改指标含义却装作只改了「目标值」。</p>
-  <p class="muted" style="margin:0">映射：<a href="#main"><code>M04</code></a>
-  · 充实 M04 / M06 · Lenny
-  <a href="https://www.lennysnewsletter.com/p/setting-goals" target="_blank" rel="noopener">原文</a>
-  <code class="tiny">2020-04-28-setting-goals.md</code></p>
+  <p class="muted" style="margin:0">映射：<a href="#M04"><code>M04</code></a> · 充实 M04 / M06 · <a href="https://www.lennysnewsletter.com/p/setting-goals" target="_blank" rel="noopener">Lenny 原文</a> <code class="tiny">2020-04-28-setting-goals.md</code></p>
 </div><div class="card">
   <h3>T08 · 跨团队十五分钟：只拉齐最终 Action <span class="tag">推进</span></h3>
   <p><strong>问题模式（脱敏）：</strong>对齐会容易变成背景复述；限时只写清负责人、截止、完成判据，才把「推进」从聊天里拎出来。</p>
-  <p class="muted" style="margin:0">映射：<a href="#main"><code>M09</code></a>
-  · 充实 M09 / M10 · Lenny
-  <a href="https://www.lennysnewsletter.com/p/a-pms-guide-to-influence" target="_blank" rel="noopener">原文</a>
-  <code class="tiny">2024-10-01-a-pms-guide-to-influence.md</code></p>
+  <p class="muted" style="margin:0">映射：<a href="#M09"><code>M09</code></a> · 充实 M09 / M10 · <a href="https://www.lennysnewsletter.com/p/a-pms-guide-to-influence" target="_blank" rel="noopener">Lenny 原文</a> <code class="tiny">2024-10-01-a-pms-guide-to-influence.md</code></p>
 </div><div class="card">
   <h3>T09 · 验收别只测成功，还要测条件变了以后 <span class="tag">推进</span></h3>
   <p><strong>问题模式（脱敏）：</strong>只沿「happy path」验收，改条件后提示/计费/文案残留测不到；验收清单要覆盖切换与回退。</p>
-  <p class="muted" style="margin:0">映射：<a href="#main"><code>M12</code></a>
-  · 充实 M12；兼 M16 · Lenny
-  <a href="https://www.lennysnewsletter.com/p/the-secret-to-a-great-planning-process---lessons-from-airbnb-and-eventbrite" target="_blank" rel="noopener">原文</a>
-  <code class="tiny">2019-09-26-the-secret-to-a-great-planning-process---lessons-from-airbnb-and-eventbrite.md</code></p>
+  <p class="muted" style="margin:0">映射：<a href="#M12"><code>M12</code></a> · 充实 M12；兼 M16 · <a href="https://www.lennysnewsletter.com/p/the-secret-to-a-great-planning-process---lessons-from-airbnb-and-eventbrite" target="_blank" rel="noopener">Lenny 原文</a> <code class="tiny">2019-09-26-the-secret-to-a-great-planning-process---lessons-from-airbnb-and-eventbrite.md</code></p>
 </div><div class="card">
   <h3>T10 · 把专家经验做成AI能力，先交付判断过程 <span class="tag">用AI</span></h3>
   <p><strong>问题模式（脱敏）：</strong>只交提示词或成品报告，接手者看不到「看什么→怎么解读→何时推翻」；先交付最小判断链和反例。</p>
-  <p class="muted" style="margin:0">映射：<a href="#main"><code>M17</code></a>
-  · 充实 M17 / M20 · Lenny
-  <a href="https://www.lennysnewsletter.com/p/how-top-pms-increase-their-leverage" target="_blank" rel="noopener">原文</a>
-  <code class="tiny">2026-06-30-how-top-pms-increase-their-leverage.md</code></p>
+  <p class="muted" style="margin:0">映射：<a href="#M17"><code>M17</code></a> · 充实 M17 / M20 · <a href="https://www.lennysnewsletter.com/p/how-top-pms-increase-their-leverage" target="_blank" rel="noopener">Lenny 原文</a> <code class="tiny">2026-06-30-how-top-pms-increase-their-leverage.md</code></p>
 </div><div class="card">
   <h3>T11 · 让AI写数据报告，先划清事实和解释的边界 <span class="tag">用AI</span></h3>
   <p><strong>问题模式（脱敏）：</strong>模型爱「发挥」解读；要先规定哪些只能按原始结果呈现、哪些必须由人写结论，缺证据就留空。</p>
-  <p class="muted" style="margin:0">映射：<a href="#main"><code>M20</code></a>
-  · 充实 M20 · Lenny
-  <a href="https://www.lennysnewsletter.com/p/counterintuitive-advice-for-building-ai-products" target="_blank" rel="noopener">原文</a>
-  <code class="tiny">2024-07-02-counterintuitive-advice-for-building-ai-products.md</code></p>
+  <p class="muted" style="margin:0">映射：<a href="#M20"><code>M20</code></a> · 充实 M20 · <a href="https://www.lennysnewsletter.com/p/counterintuitive-advice-for-building-ai-products" target="_blank" rel="noopener">Lenny 原文</a> <code class="tiny">2024-07-02-counterintuitive-advice-for-building-ai-products.md</code></p>
 </div><div class="card">
   <h3>T12 · AI给建议前，先问这个功能能不能用 <span class="tag">用AI</span></h3>
   <p><strong>问题模式（脱敏）：</strong>建议听起来专业，但接收方根本没有该能力/入口；生成前先校验可执行前提，否则是专业幻觉。</p>
-  <p class="muted" style="margin:0">映射：<a href="#main"><code>M20</code></a>
-  · 充实 M20 · Lenny
-  <a href="https://www.lennysnewsletter.com/p/counterintuitive-advice-for-building-ai-products" target="_blank" rel="noopener">原文</a>
-  <code class="tiny">2024-07-02-counterintuitive-advice-for-building-ai-products.md</code></p>
+  <p class="muted" style="margin:0">映射：<a href="#M20"><code>M20</code></a> · 充实 M20 · <a href="https://www.lennysnewsletter.com/p/counterintuitive-advice-for-building-ai-products" target="_blank" rel="noopener">Lenny 原文</a> <code class="tiny">2024-07-02-counterintuitive-advice-for-building-ai-products.md</code></p>
 </div><div class="card">
   <h3>T13 · 自动化任务，需要一个「已通知」的中间态 <span class="tag">推进</span></h3>
   <p><strong>问题模式（脱敏）：</strong>系统发出消息≠对方已处理；把「已通知」和「已跟进/已解决」拆开，才不会把触达当成完成。</p>
-  <p class="muted" style="margin:0">映射：<a href="#main"><code>M12</code></a>
-  · 充实 M12 推进 · Lenny
-  <a href="https://www.lennysnewsletter.com/p/product-manager-is-an-unfair-role-so-work-unfairly" target="_blank" rel="noopener">原文</a>
-  <code class="tiny">2024-11-12-product-manager-is-an-unfair-role-so-work-unfairly.md</code></p>
+  <p class="muted" style="margin:0">映射：<a href="#M12"><code>M12</code></a> · 充实 M12 推进 · <a href="https://www.lennysnewsletter.com/p/product-manager-is-an-unfair-role-so-work-unfairly" target="_blank" rel="noopener">Lenny 原文</a> <code class="tiny">2024-11-12-product-manager-is-an-unfair-role-so-work-unfairly.md</code></p>
 </div><div class="card">
   <h3>T14 · 功能上线了，收益为什么还没出现 <span class="tag">复盘</span></h3>
   <p><strong>问题模式（脱敏）：</strong>上线只是链路一环：启用、解前置阻塞、习惯养成都可能滞后；复盘要沿使用链找断点，别笼统说没效果。</p>
-  <p class="muted" style="margin:0">映射：<a href="#main"><code>M15</code></a>
-  · 充实 M15 / M16 · Lenny
-  <a href="https://www.lennysnewsletter.com/p/fostering-a-culture-of-experimentation" target="_blank" rel="noopener">原文</a>
-  <code class="tiny">2020-09-22-fostering-a-culture-of-experimentation.md</code></p>
+  <p class="muted" style="margin:0">映射：<a href="#M15"><code>M15</code></a> · 充实 M15 / M16 · <a href="https://www.lennysnewsletter.com/p/fostering-a-culture-of-experimentation" target="_blank" rel="noopener">Lenny 原文</a> <code class="tiny">2020-09-22-fostering-a-culture-of-experimentation.md</code></p>
 </div><div class="card">
   <h3>T15 · 知识库有没有用，别只看收录了多少条 <span class="tag">复盘</span></h3>
   <p><strong>问题模式（脱敏）：</strong>篇数只说明整理量；要拆覆盖率、调用后解决率，以及服务对象是否真的回访。</p>
-  <p class="muted" style="margin:0">映射：<a href="#main"><code>M02</code></a>
-  · 充实 M02 自检；兼 M15 · Lenny
-  <a href="https://www.lennysnewsletter.com/p/how-to-know-if-youre-doing-a-good-job-as-a-product-manager" target="_blank" rel="noopener">原文</a>
-  <code class="tiny">2021-06-29-how-to-know-if-youre-doing-a-good-job-as-a-product-manager.md</code></p>
+  <p class="muted" style="margin:0">映射：<a href="#M02"><code>M02</code></a> · 充实 M02 自检；兼 M15 · <a href="https://www.lennysnewsletter.com/p/how-to-know-if-youre-doing-a-good-job-as-a-product-manager" target="_blank" rel="noopener">Lenny 原文</a> <code class="tiny">2021-06-29-how-to-know-if-youre-doing-a-good-job-as-a-product-manager.md</code></p>
 </div>
 <h2 id="feed">对标博主动态</h2><div class="card muted">对标博主动态：占位，待 routine 自动追加。</div>
 <h2 id="profiles">对标博主档案</h2>
-<p class="muted">摘要来自私密研究页；粉数/收入仅公开来源，自述标待核。学节奏不学全职矩阵。</p>
+<p class="muted">下方为摘要。完整时间线 / 拐点表 / 成功经验三列 / 收入与来源见
+<a href="creators.html"><b>对标博主完整档案</b></a>（与本地研究页同步，已去本地路径）。</p>
+<div class="card verdict" style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between">
+  <span>13 位深描 + 分类对照，内容比本页摘要完整得多。</span>
+  <a class="btn" href="creators.html">打开完整档案 →</a>
+</div>
 <div class="card">
-  <h3>数字生命卡兹克</h3>
+  <h3><a href="creators.html#kazike">数字生命卡兹克</a></h3>
   <p class="muted" style="margin:0 0 .4rem">AI 实测+工作流公开；方法首发节奏可抄</p>
   <p style="margin:0 0 .2rem"><strong>拐点</strong></p><ul style="margin:.2rem 0 .6rem"><li>2023 开号卡在热启动窗口</li><li>影视/工具首测出圈</li><li>2024 全职放大产能（你不必抄）</li></ul>
-  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 0"><li>方法首发代替模型首发</li><li>评测→技巧复访</li><li>评论区固定一问</li></ul>
+  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 .6rem"><li>方法首发代替模型首发</li><li>评测→技巧复访</li><li>评论区固定一问</li></ul>
+  <a class="btn sec" href="creators.html#kazike">完整档案</a>
 </div><div class="card">
-  <h3>歸藏</h3>
+  <h3><a href="creators.html#guizang">歸藏</a></h3>
   <p class="muted" style="margin:0 0 .4rem">周刊稳定+短平台吆喝</p>
   <p style="margin:0 0 .2rem"><strong>拐点</strong></p><ul style="margin:.2rem 0 .6rem"><li>ChatGPT 当周开笔记</li><li>两年免费后转付费</li><li>短平台日更引流</li></ul>
-  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 0"><li>主线稳定更新</li><li>免费样章引流</li><li>短内容吆喝长内容</li></ul>
+  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 .6rem"><li>主线稳定更新</li><li>免费样章引流</li><li>短内容吆喝长内容</li></ul>
+  <a class="btn sec" href="creators.html#guizang">完整档案</a>
 </div><div class="card">
-  <h3>花叔</h3>
+  <h3><a href="creators.html#huashu">花叔</a></h3>
   <p class="muted" style="margin:0 0 .4rem">边做边讲 AI Native</p>
   <p style="margin:0 0 .2rem"><strong>拐点</strong></p><ul style="margin:.2rem 0 .6rem"><li>公开做产品过程</li><li>工具+观点绑定</li></ul>
-  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 0"><li>过程帖穿插方法帖</li><li>可复现步骤</li></ul>
+  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 .6rem"><li>过程帖穿插方法帖</li><li>可复现步骤</li></ul>
+  <a class="btn sec" href="creators.html#huashu">完整档案</a>
 </div><div class="card">
-  <h3>宝玉</h3>
+  <h3><a href="creators.html#baoyu">宝玉</a></h3>
   <p class="muted" style="margin:0 0 .4rem">工程向 AI 实操</p>
   <p style="margin:0 0 .2rem"><strong>拐点</strong></p><ul style="margin:.2rem 0 .6rem"><li>长文拆解工具链</li></ul>
-  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 0"><li>深度单点讲透</li></ul>
+  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 .6rem"><li>深度单点讲透</li></ul>
+  <a class="btn sec" href="creators.html#baoyu">完整档案</a>
 </div><div class="card">
-  <h3>向阳乔木</h3>
+  <h3><a href="creators.html#qiaomu">向阳乔木</a></h3>
   <p class="muted" style="margin:0 0 .4rem">认知+AI 应用</p>
   <p style="margin:0 0 .2rem"><strong>拐点</strong></p><ul style="margin:.2rem 0 .6rem"><li>系列化认知框架</li></ul>
-  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 0"><li>框架可编号成课表</li></ul>
+  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 .6rem"><li>框架可编号成课表</li></ul>
+  <a class="btn sec" href="creators.html#qiaomu">完整档案</a>
 </div><div class="card">
-  <h3>张咋啦</h3>
+  <h3><a href="creators.html#zara">张咋啦</a></h3>
   <p class="muted" style="margin:0 0 .4rem">learn-in-public 职场向</p>
   <p style="margin:0 0 .2rem"><strong>拐点</strong></p><ul style="margin:.2rem 0 .6rem"><li>公开学习过程涨粉</li></ul>
-  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 0"><li>辅系列学 AI 过程</li><li>真诚踩坑</li></ul>
+  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 .6rem"><li>辅系列学 AI 过程</li><li>真诚踩坑</li></ul>
+  <a class="btn sec" href="creators.html#zara">完整档案</a>
 </div><div class="card">
-  <h3>范凯说 AI</h3>
+  <h3><a href="creators.html#fankai">范凯说 AI</a></h3>
   <p class="muted" style="margin:0 0 .4rem">大厂视角讲 AI</p>
   <p style="margin:0 0 .2rem"><strong>拐点</strong></p><ul style="margin:.2rem 0 .6rem"><li>职场场景落地</li></ul>
-  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 0"><li>大厂日常切口</li></ul>
+  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 .6rem"><li>大厂日常切口</li></ul>
+  <a class="btn sec" href="creators.html#fankai">完整档案</a>
 </div><div class="card">
-  <h3>Lenny Rachitsky</h3>
+  <h3><a href="creators.html#lenny">Lenny Rachitsky</a></h3>
   <p class="muted" style="margin:0 0 .4rem">主线课表母本</p>
   <p style="margin:0 0 .2rem"><strong>拐点</strong></p><ul style="margin:.2rem 0 .6rem"><li>Newsletter→课程→社区</li></ul>
-  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 0"><li>一题一框架</li><li>模板可抄</li></ul>
+  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 .6rem"><li>一题一框架</li><li>模板可抄</li></ul>
+  <a class="btn sec" href="creators.html#lenny">完整档案</a>
 </div><div class="card">
-  <h3>Shreyas Doshi</h3>
+  <h3><a href="creators.html#shreyas">Shreyas Doshi</a></h3>
   <p class="muted" style="margin:0 0 .4rem">优先级/影响力原教旨</p>
   <p style="margin:0 0 .2rem"><strong>拐点</strong></p><ul style="margin:.2rem 0 .6rem"><li>推文框架出圈</li></ul>
-  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 0"><li>LNO/影响力话术</li></ul>
+  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 .6rem"><li>LNO/影响力话术</li></ul>
+  <a class="btn sec" href="creators.html#shreyas">完整档案</a>
 </div><div class="card">
-  <h3>Ali Abdaal</h3>
+  <h3><a href="creators.html#ali">Ali Abdaal</a></h3>
   <p class="muted" style="margin:0 0 .4rem">生产力内容变现</p>
   <p style="margin:0 0 .2rem"><strong>拐点</strong></p><ul style="margin:.2rem 0 .6rem"><li>YouTube→产品矩阵</li></ul>
-  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 0"><li>系列化+产品化（后期）</li></ul>
+  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 .6rem"><li>系列化+产品化（后期）</li></ul>
+  <a class="btn sec" href="creators.html#ali">完整档案</a>
 </div><div class="card">
-  <h3>swyx</h3>
+  <h3><a href="creators.html#swyx">swyx</a></h3>
   <p class="muted" style="margin:0 0 .4rem">学习公开+AI 工程</p>
   <p style="margin:0 0 .2rem"><strong>拐点</strong></p><ul style="margin:.2rem 0 .6rem"><li>Learn in public 成标签</li></ul>
-  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 0"><li>公开笔记即资产</li></ul>
+  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 .6rem"><li>公开笔记即资产</li></ul>
+  <a class="btn sec" href="creators.html#swyx">完整档案</a>
 </div><div class="card">
-  <h3>levelsio</h3>
+  <h3><a href="creators.html#levelsio">levelsio</a></h3>
   <p class="muted" style="margin:0 0 .4rem">造船公开收入</p>
   <p style="margin:0 0 .2rem"><strong>拐点</strong></p><ul style="margin:.2rem 0 .6rem"><li>独立开发透明收入</li></ul>
-  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 0"><li>小船快跑（别照抄收入秀）</li></ul>
+  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 .6rem"><li>小船快跑（别照抄收入秀）</li></ul>
+  <a class="btn sec" href="creators.html#levelsio">完整档案</a>
 </div><div class="card">
-  <h3>Justin Welsh</h3>
+  <h3><a href="creators.html#justin">Justin Welsh</a></h3>
   <p class="muted" style="margin:0 0 .4rem">个人品牌一人公司</p>
   <p style="margin:0 0 .2rem"><strong>拐点</strong></p><ul style="margin:.2rem 0 .6rem"><li>内容→数字产品</li></ul>
-  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 0"><li>定位窄而深</li></ul>
+  <p style="margin:0 0 .2rem"><strong>可借鉴</strong></p><ul style="margin:.2rem 0 .6rem"><li>定位窄而深</li></ul>
+  <a class="btn sec" href="creators.html#justin">完整档案</a>
 </div>
 <h2 id="lenny">Lenny 素材池</h2>
-<p class="muted">本地库约 424 篇。used = monitors/xhs_lenny_used.json 已写入选题；curriculum_mapped = 主线课表已挂载。</p>
+<p class="muted">本地库约 424 篇 ·
+<a href="https://www.lennysnewsletter.com/" target="_blank" rel="noopener">lennysnewsletter.com</a>
+· used = monitors/xhs_lenny_used.json</p>
 <div class="grid2">
-  <div class="card"><h3>已 used（选题写入）</h3><ul class="compact"><li><code>2020-01-28-how-to-know-if-youve-got-product-market-fit.md</code></li><li><code>2020-03-24-leading-a-pm-team-meeting---issue-19.md</code></li><li><code>2026-06-30-how-top-pms-increase-their-leverage.md</code></li></ul></div>
+  <div class="card"><h3>已 used（选题写入）</h3><ul class="compact"><li><code>2020-01-28-how-to-know-if-youve-got-product-market-fit.md</code> · <a href="https://www.lennysnewsletter.com/p/how-to-know-if-youve-got-product-market-fit" target="_blank" rel="noopener">原文</a></li><li><code>2020-03-24-leading-a-pm-team-meeting---issue-19.md</code> · <a href="https://www.lennysnewsletter.com/p/leading-a-pm-team-meeting---issue-19" target="_blank" rel="noopener">原文</a></li><li><code>2026-06-30-how-top-pms-increase-their-leverage.md</code> · <a href="https://www.lennysnewsletter.com/p/how-top-pms-increase-their-leverage" target="_blank" rel="noopener">原文</a></li></ul></div>
   <div class="card"><h3>next_candidates</h3><ul class="compact"><li><code>2019-06-14-where-great-product-roadmap-ideas-come-from.md</code></li><li><code>2020-08-25-how-to-increase-your-products-retention.md</code></li><li><code>2021-06-15-my-favorite-pm-interview-questions.md</code></li><li><code>2020-09-08-getting-better-at-product-strategy.md</code></li><li><code>2020-06-02-what-to-ask-your-users-about-product-market-fit.md</code></li></ul></div>
   <div class="card"><h3>课表已映射（节选）</h3><ul class="compact"><li><code>2019-06-14-a-three-step-framework-for-solving-problems.md</code></li><li><code>2019-09-26-the-secret-to-a-great-planning-process---lessons-from-airbnb-and-eventbrite.md</code></li><li><code>2019-10-01-this-week-7-effectively-communicating-about-a-failure-to-execs-managing-founder.md</code></li><li><code>2020-01-28-how-to-know-if-youve-got-product-market-fit.md</code></li><li><code>2020-03-24-leading-a-pm-team-meeting---issue-19.md</code></li><li><code>2020-09-08-getting-better-at-product-strategy.md</code></li><li><code>2020-09-22-fostering-a-culture-of-experimentation.md</code></li><li><code>2020-12-11-ideal-sprint-length-designer-vs-pm-roles-running-pm-team-meetings-running-post-m.md</code></li><li><code>2021-03-23-the-pm--design-partnership.md</code></li><li><code>2021-06-29-how-to-know-if-youre-doing-a-good-job-as-a-product-manager.md</code></li><li><code>2021-07-27-prioritizing.md</code></li><li><code>2021-08-31-examples-and-templates-of-1-pagers-and-prds.md</code></li><li><code>2022-10-18-mission--vision--strategy--goals--roadmap--task.md</code></li><li><code>2023-11-07-introducing-drice-a-modern-prioritization-framework.md</code></li><li><code>2024-07-02-counterintuitive-advice-for-building-ai-products.md</code></li><li><code>2024-10-01-a-pms-guide-to-influence.md</code></li><li><code>2024-11-12-product-manager-is-an-unfair-role-so-work-unfairly.md</code></li><li><code>2025-01-07-a-guide-to-ai-prototyping-for-product-managers.md</code></li><li><code>2025-07-22-build-your-personal-ai-copilot.md</code></li><li><code>2026-06-30-how-top-pms-increase-their-leverage.md</code></li></ul></div>
   <div class="card"><h3>未 used 样例</h3><ul class="compact"><li><code>2019-06-14-a-three-step-framework-for-solving-problems.md</code></li><li><code>2019-06-14-how-to-get-into-product-management.md</code></li><li><code>2019-06-14-what-buddhism-taught-me-about-product-management.md</code></li><li><code>2019-06-14-what-seven-years-at-airbnb-taught-me-about-building-a-business.md</code></li><li><code>2019-06-14-where-great-product-roadmap-ideas-come-from.md</code></li><li><code>2019-06-26-28-ways-to-grow-supply-in-a-marketplace.md</code></li><li><code>2019-07-18-the-power-of-performance-reviews-use-this-system-to-become-a-better-manager.md</code></li><li><code>2019-09-12-this-week-0-advice-on-growth-product-and-leadership.md</code></li><li><code>2019-09-17-this-week-1-must-reads-on-growth-what-pms-should-focus-on-when-joining-a-new-tea.md</code></li><li><code>2019-09-24-this-week-2-tackling-the-chicken-and-egg-problem-building-a-growth-team-from-scr.md</code></li><li><code>2019-09-26-the-secret-to-a-great-planning-process---lessons-from-airbnb-and-eventbrite.md</code></li><li><code>2019-10-01-this-week-3-finding-productmarket-fit-interviewing-for-a-director-of-pm-role-and.md</code></li><li><code>2019-10-08-this-week-4-motivating-engineers-to-hit-deadlines-pm-career-ladders-and-aligning.md</code></li><li><code>2019-10-15-this-week-5-overcoming-impostor-syndrome-introducing-growth-to-an-org-and-how-to.md</code></li><li><code>2019-10-22-this-week-6-cultivating-good-relationships-with-distributed-co-workers-building.md</code></li></ul></div>
 </div>
 <h2 id="growth">起号与变现</h2>
-<div class="card"><h3>起号与变现（私密备忘）</h3><ul><li>定位固定：大厂产品经理，讲进门后如何把活干好；不做求职。</li><li>主线每周 2 篇按 M01→M20；辅系列「我学 AI 的过程」0–1 篇穿插。</li><li>对标学节奏不学全职矩阵；公开收入/粉数仅作参考并标待核。</li><li>变现后置：先完成课表信任；数字产品/咨询等排在系列站稳后。</li><li>会议素材仅脱敏后可选嵌入，不阻塞开写。</li></ul></div>
+<div class="card"><h3>起号与变现（私密备忘）</h3><ul><li>定位固定：大厂产品经理，讲进门后如何把活干好；不做求职。</li><li>主线每周 2 篇按 M01→M20；辅系列「我学 AI 的过程」0–1 篇穿插。</li><li>对标学节奏不学全职矩阵；公开收入/粉数仅作参考并标待核。</li><li>变现后置：先完成课表信任；数字产品/咨询等排在系列站稳后。</li><li>会议素材仅脱敏后可选嵌入，不阻塞开写。</li></ul>
+<p class="muted" style="margin:.6rem 0 0">完整 learn-in-public 涨粉/变现见
+<a href="creators.html#lip-growth">对标档案 · 怎么涨 &amp; 变现</a></p></div>
 <h2 id="log">更新记录</h2>
 <p class="muted">按日期倒序。routine 追加请改 monitors/xhs_library.json 或运行 <code>python3 xhs_library.py --append-note "…"</code>。</p>
-<div class="card"><h3>2026-10-31 · 今日新增 · 今日新增 15 条</h3><ul><li>新建小红书选题库页（定位/主线/辅线/听记选题/对标/Lenny/起号/更新记录）</li><li>听记选题 15 条：对齐·优先级·推进·复盘·用AI，全部脱敏，映射 M01–M20</li><li>主线标注已成稿：M01–M04、M09、M17；辅线 L01 已成稿</li></ul></div>
+<div class="card"><h3>2026-10-31 · 今日新增 · 今日新增 22 条</h3><ul><li>新建小红书选题库页（定位/主线/辅线/听记选题/对标/Lenny/起号/更新记录）</li><li>听记选题 15 条：对齐·优先级·推进·复盘·用AI，全部脱敏，映射 M01–M20</li><li>主线标注已成稿：M01–M04、M09、M17；辅线 L01 已成稿</li><li>成稿 7 篇渲染真实 3:4 卡片图 + 独立发布页（标题/图/正文/话题/评论引导，无 Lenny 链接）</li><li>新增发布计划表（Tue/Fri 主线 + Wed 辅线）</li><li>对标完整档案页 xhs/creators.html</li></ul></div>
 <p class="foot">私密页 · 仅 x-digest · 由 <code>xhs_library.py</code> ← <code>monitors/xhs_library.json</code> 生成 · 公开 sanitize 不得收录本目录</p>
 </main>
 </div>
