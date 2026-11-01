@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>张咋啦拆解 · X + 小红书 · 给「AI具身牛马」的参考</title>
+<!-- impeccable: fluid full-width · sticky left elevator · scroll-behavior:auto · cream + black + one highlighter yellow -->
+<style>
+:root{
+  --bg:#f7f4ec; --surface:#fffcf7; --ink:#1a1a18; --ink-2:#3a3a36; --mut:#6a6a62;
+  --line:#e6e0d4; --hi:#ffe566; --hi-soft:#fff6c8;
+  --shadow:0 1px 2px rgba(26,26,24,.04),0 8px 24px rgba(26,26,24,.05);
+  --r:14px; --nav-w:14rem;
+}
+*{box-sizing:border-box}
+html{color-scheme:light; scroll-behavior:auto}
+body{
+  margin:0; color:var(--ink); background:var(--bg);
+  font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+::selection{background:var(--hi); color:var(--ink)}
+mark{background:var(--hi); color:var(--ink); padding:.05em .18em; border-radius:3px; font-style:normal}
+.shell{
+  display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr);
+  gap:0; min-height:100vh; width:100%; max-width:none; margin:0;
+}
+.nav{
+  position:sticky; top:0; align-self:start; height:100vh;
+  padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line);
+  background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto;
+}
+.nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
+.nav .meta{font-size:.76rem; color:var(--mut); margin:0 0 1rem; line-height:1.45}
+.nav a{
+  display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem;
+  padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent;
+}
+.nav a:hover,.nav a:focus-visible{background:var(--hi-soft); outline:none}
+.nav a.active{background:var(--hi); color:var(--ink); font-weight:650; border-left-color:#c9b020}
+.nav .sec{font-size:.7rem; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .3rem; padding-left:.55rem; text-transform:uppercase}
+.main{padding:1.6rem clamp(1rem,3vw,2.4rem) 4.5rem; width:100%; max-width:none}
+h1{font-size:clamp(1.4rem,2.4vw,1.85rem); line-height:1.25; letter-spacing:-.025em; margin:0 0 .5rem; font-weight:750}
+h2{font-size:1.14rem; line-height:1.35; margin:2.1rem 0 .6rem; padding-bottom:.4rem; border-bottom:3px solid var(--hi); letter-spacing:-.015em; font-weight:700}
+h3{font-size:1.02rem; margin:1rem 0 .35rem; font-weight:700}
+p,li{color:var(--ink-2)}
+p{margin:.5rem 0}
+.muted{color:var(--mut); font-size:.92rem; line-height:1.55}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:1rem 1.15rem; margin:.8rem 0; box-shadow:var(--shadow)}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr)); gap:.75rem}
+.stat strong{display:block; font-size:1.35rem; letter-spacing:-.02em; margin:.15rem 0}
+.tag{display:inline-block; font-size:12px; font-weight:650; background:var(--hi-soft); color:#6a5a00; padding:.12rem .5rem; border-radius:999px; margin-right:.3rem}
+.tag.warn{background:#fff0d6; color:#8a5a00}
+a{color:var(--ink); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-word}
+a:hover{background:linear-gradient(180deg,transparent 60%, var(--hi) 60%)}
+a:focus-visible{outline:2px solid #c9b020; outline-offset:2px; border-radius:3px}
+table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:.42rem .5rem; text-align:left; vertical-align:top}
+th{background:#efeae0; font-weight:650}
+.metrics{font-variant-numeric:tabular-nums; white-space:nowrap}
+.num{font-variant-numeric:tabular-nums; width:2.2rem}
+.sub{font-size:.78rem; color:var(--mut); margin-top:.2rem}
+.foot{margin-top:2.5rem; font-size:.86rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
+.mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.5rem 0; border-bottom:1px solid var(--line)}
+.mob-nav a{font-size:.8rem; color:var(--ink); text-decoration:none; background:var(--hi-soft); padding:.2rem .5rem; border-radius:999px}
+ul.plain{margin:.35rem 0; padding-left:1.2rem}
+ul.plain li{margin:.28rem 0}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .nav{display:none}
+  .mob-nav{display:flex}
+  .main{padding:1.1rem 1rem 3.5rem}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="nav" aria-label="目录">
+  <p class="brand">张咋啦拆解</p>
+  <p class="meta">私密 · 写给 Ocean<br>采集 2026-11-01（America/Los_Angeles）<br>不编数字 · 缺数标待核</p>
+  <div class="sec">选题库</div>
+  <a href="./">← 小红书选题库</a>
+  <a href="creators.html#zara">对标档案 · 张咋啦</a>
+  <div class="sec">本页</div>
+  <a href="#overview">账号概况</a>
+  <a href="#xhs-top">小红书 Top8</a>
+  <a href="#x-top">X Top10</a>
+  <a href="#patterns">选题规律</a>
+  <a href="#for-ocean">给 Ocean 的借鉴</a>
+  <a href="#appendix">附录 · 60 篇列表</a>
+  <a href="#sources">来源</a>
+</aside>
+<main class="main">
+<nav class="mob-nav" aria-label="移动目录">
+  <a href="#overview">概况</a>
+  <a href="#xhs-top">小红书Top8</a>
+  <a href="#x-top">X Top10</a>
+  <a href="#patterns">规律</a>
+  <a href="#for-ocean">借鉴</a>
+  <a href="#appendix">附录</a>
+</nav>
+
+<h1>张咋啦（Zara Zhang）内容拆解</h1>
+<p class="muted">给「AI具身牛马」参考：大厂产品经理 · 开启 FDE · vibe coding · 图文帖。两边同人已核实（小红书简介列了 X: zarazhangrui）。数据只来自本次采集文件；X 粉丝数未写入采集文件 → <span class="tag warn">待核</span>。</p>
+
+<h2 id="overview">1. 账号概况</h2>
+<div class="grid2">
+  <div class="card stat">
+    <span class="tag">小红书</span>
+    <strong>37.8 万粉丝</strong>
+    <p style="margin:.35rem 0 0">获赞与收藏 182.3 万 · 笔记约 589 · 关注 820 · 小红书号 260679956 · IP 美国</p>
+    <p class="muted" style="margin:.4rem 0 0">简介：Builder. 在英文平台更活跃：X: zarazhangrui / Instagram: zara.tinkers / GitHub: zarazhangrui / YouTube: @zarazhangg；标签：互联网从业者、哈佛大学</p>
+    <p class="sub"><a href="https://www.xiaohongshu.com/user/profile/59757acd50c4b45e6e9a90df?xsec_token=ABhSjy7kfB8CQrcwVQ8ISLTADnVqGJt8LPmx3IG6C6tFw%3D&amp;xsec_source=pc_search" target="_blank" rel="noopener">打开主页</a></p>
+  </div>
+  <div class="card stat">
+    <span class="tag">X</span>
+    <strong>粉丝数 <span class="tag warn">待核</span></strong>
+    <p style="margin:.35rem 0 0">@zarazhangrui · 本次拉了 294 条帖（不含纯转推）· 时间跨度 2026-06-18 ~ 2026-10-31 PT</p>
+    <p class="muted" style="margin:.4rem 0 0">简介未写入本次 x_posts.md。帖文自述：2026-07-20「Just reached 80k followers」。</p>
+    <p class="sub"><a href="https://x.com/zarazhangrui" target="_blank" rel="noopener">打开 X 主页</a></p>
+  </div>
+</div>
+<p class="muted">主页截图：采集目录 profile_top.png（本次未嵌入站内，避免大图）。</p>
+
+<h2 id="xhs-top">2. 小红书爆款 Top8</h2>
+<p class="muted">按点赞；赞/藏/评与话题来自详情页。链接带 xsec_token（采集日有效，过期需重开主页）。</p>
+<div class="card" style="padding:.6rem; overflow:auto">
+<table>
+<thead><tr><th>#</th><th>标题</th><th>赞 / 藏 / 评</th><th>话题</th><th>链</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>如何用AI做出超级好看的HTML Slides<div class="sub">05-09(发布05-08)</div></td><td class="metrics">4.3万/6.2万/301</td><td>#vibecoding #独立开发 #claudecode #ppt模板 #ppt设计</td><td><a href="https://www.xiaohongshu.com/explore/69fe6f3a000000001a036be4?xsec_token=ABdee01Gr5r1zV2-5uGrdsl0aT1_wOrZRP4SqcdTvPqII=&amp;xsec_source=pc_user" target="_blank" rel="noopener">打开</a></td></tr><tr><td class="num">2</td><td>我在GitHub上有超过3万星（虽然并不会写代码<div class="sub">编辑于06-16</div></td><td class="metrics">2.8万/2.9万/206</td><td>#vibecoding #skill</td><td><a href="https://www.xiaohongshu.com/explore/6a2761520000000008032277?xsec_token=ABMFQaZkxWwFdBmX0KTvieK_vzZZ2AColhglJCoeWY6WY=&amp;xsec_source=pc_user" target="_blank" rel="noopener">打开</a></td></tr><tr><td class="num">3</td><td>把Claude Code接入飞书，太爽了！教程+演示<div class="sub">05-22</div></td><td class="metrics">1.5万/2.1万/429</td><td>#个人开发者 #vibecoding #claudecode #飞书 #代码</td><td><a href="https://www.xiaohongshu.com/explore/6a1018060000000007027155?xsec_token=AB-QSO3EIltr0KEwJqPLsYnuD1Ptzjx8K3plXk1eA5-dA=&amp;xsec_source=pc_user" target="_blank" rel="noopener">打开</a></td></tr><tr><td class="num">4</td><td>如何一年在Twitter涨粉7万：我做内容的方法<div class="sub">编辑于06-16</div></td><td class="metrics">1万/8877/313</td><td>#Twitter #内容创作</td><td><a href="https://www.xiaohongshu.com/explore/6a31edc300000000200387f4?xsec_token=ABOCIAmnVG4B4QgiyFBfD2Pw2oZIqmEShb-6p7kUXJiU0=&amp;xsec_source=pc_user" target="_blank" rel="noopener">打开</a></td></tr><tr><td class="num">5</td><td>在AI-native团队里，HTML正在取代PPT<div class="sub">08-10</div></td><td class="metrics">1.1万/9148/367</td><td>—</td><td><a href="https://www.xiaohongshu.com/explore/6a7993e60000000028032339?xsec_token=ABMBQGh8_o0VP83IM9sGRTdCdWnFi7rn7Xxo79r2jQjz8=&amp;xsec_source=pc_user" target="_blank" rel="noopener">打开</a></td></tr><tr><td class="num">6</td><td>30分钟完整版：4个可以落地的AI原生工作方式<div class="sub">07-16</div></td><td class="metrics">7414/8344/153</td><td>—</td><td><a href="https://www.xiaohongshu.com/explore/6a588bf5000000001d00f5f9?xsec_token=ABWmcklgMOEwMY87meR6e1CwPcq9xJz-Hx9z340_RNoR8=&amp;xsec_source=pc_user" target="_blank" rel="noopener">打开</a></td></tr><tr><td class="num">7</td><td>任川分享：我如何用5个agent管理一人公司<div class="sub">05-18</div></td><td class="metrics">5963/7567/184</td><td>#独立开发 #vibecoding #agent #创业者 #OPC</td><td><a href="https://www.xiaohongshu.com/explore/6a0b6eae000000003601db31?xsec_token=AB13948kRgNJb3URUIIk7jq05vqCr0yIDGJVwrVSbPbYc=&amp;xsec_source=pc_user" target="_blank" rel="noopener">打开</a></td></tr><tr><td class="num">8</td><td>Codex app太好用了，尤其是对于非程序员<div class="sub">05-28</div></td><td class="metrics">4808/4852/154</td><td>#codex #vibecoding #效率神器 #飞书 #ppt</td><td><a href="https://www.xiaohongshu.com/explore/6a18d4e700000000070136ab?xsec_token=ABCA65qzQ5S3UAno-0wugwy3rC9-7f9DxdBwfHljfqBTw=&amp;xsec_source=pc_user" target="_blank" rel="noopener">打开</a></td></tr>
+</tbody>
+</table>
+</div>
+<div class="card">
+  <h3>正文怎么写（Top8 观察）</h3>
+  <ul class="plain">
+    <li>HTML Slides：正文仅 2 句——标题 +「把我的审美变成了 30 多个模板，可以直接复用」。</li>
+    <li>GitHub 3 万星：观点句为主；项目当证据（front-end-slides、follow-builders、tab-out 等）。</li>
+    <li>Claude Code 接飞书：一句讲清开源项目能干什么 +「教程+演示」。</li>
+    <li>共性：<mark>视频笔记、文案 1–3 句、3–5 个话题</mark>；教程/模板类 <mark>收藏常高于点赞</mark>。</li>
+  </ul>
+</div>
+
+<h2 id="x-top">3. X 爆款 Top10</h2>
+<p class="muted">按点赞；正文截断 280 字（API）。时间 PT。</p>
+<div class="card" style="padding:.6rem; overflow:auto">
+<table>
+<thead><tr><th>#</th><th>赞</th><th>转 / 回 / 藏</th><th>正文（截断）</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td class="metrics">12,329</td><td class="metrics">3201 / 328 / 4970</td><td><a href="https://x.com/zarazhangrui/status/2086111492018221523" target="_blank" rel="noopener">This paper gives a fancy name to a problem you can already feel in your bones  &quot;The Tragedy of the Cognitive Commons.&quot; Checking AI output requires deep exper…</a><div class="sub">2026-08-08 08:25 PT · 原创</div></td></tr><tr><td class="num">2</td><td class="metrics">5,374</td><td class="metrics">623 / 778 / 7671</td><td><a href="https://x.com/zarazhangrui/status/2113148949842534482" target="_blank" rel="noopener">Your personal website is the new resume</a><div class="sub">2026-10-21 23:02 PT · 原创</div></td></tr><tr><td class="num">3</td><td class="metrics">4,921</td><td class="metrics">190 / 281 / 2750</td><td><a href="https://x.com/zarazhangrui/status/2070982013822333007" target="_blank" rel="noopener">Last year I barely knew how GitHub worked. Now I have 10k followers on GitHub (and still can&#x27;t write code by hand). What a year. https://t.co/sl3tjtySh5</a><div class="sub">2026-06-27 14:26 PT · 原创</div></td></tr><tr><td class="num">4</td><td class="metrics">3,142</td><td class="metrics">202 / 254 / 231</td><td><a href="https://x.com/zarazhangrui/status/2091338374447763481" target="_blank" rel="noopener">Everyone who’s ahead in using AI thinks they’re behind</a><div class="sub">2026-08-22 18:34 PT · 原创</div></td></tr><tr><td class="num">5</td><td class="metrics">3,036</td><td class="metrics">145 / 71 / 1600</td><td><a href="https://x.com/zarazhangrui/status/2115336629770707254" target="_blank" rel="noopener">this is too cute https://t.co/dtttFifGe7</a><div class="sub">2026-10-27 23:55 PT · 原创</div></td></tr><tr><td class="num">6</td><td class="metrics">3,005</td><td class="metrics">50 / 85 / 114</td><td><a href="https://x.com/zarazhangrui/status/2106876921082712250" target="_blank" rel="noopener">The way Opus 5.5 just silently goes off to make something for 20+ minutes and comes back with a complete masterpiece https://t.co/KhPLgeSl7q</a><div class="sub">2026-10-04 15:39 PT · 原创</div></td></tr><tr><td class="num">7</td><td class="metrics">2,984</td><td class="metrics">294 / 227 / 464</td><td><a href="https://x.com/zarazhangrui/status/2089940315268645373" target="_blank" rel="noopener">I don’t know why anyone would learn Claude Code by reading a book, but apparently it’s a thing in Japan https://t.co/NlOttUCdD4</a><div class="sub">2026-08-18 21:59 PT · 原创</div></td></tr><tr><td class="num">8</td><td class="metrics">2,718</td><td class="metrics">342 / 601 / 5921</td><td><a href="https://x.com/zarazhangrui/status/2108047745936466373" target="_blank" rel="noopener">Who has the coolest personal website?</a><div class="sub">2026-10-07 21:12 PT · 原创</div></td></tr><tr><td class="num">9</td><td class="metrics">2,427</td><td class="metrics">87 / 379 / 144</td><td><a href="https://x.com/zarazhangrui/status/2100278750776824115" target="_blank" rel="noopener">I find myself using Claude less these days because the way it speaks has just become insufferable   Like it’s constantly trying to showcase how smart/sophist…</a><div class="sub">2026-09-16 10:40 PT · 原创</div></td></tr><tr><td class="num">10</td><td class="metrics">1,899</td><td class="metrics">190 / 18 / 1833</td><td><a href="https://x.com/zarazhangrui/status/2108584212660129820" target="_blank" rel="noopener">This thread is GOLD Never underestimate people’s creativity https://t.co/jYeBPExlMV</a><div class="sub">2026-10-09 08:43 PT · 引用</div></td></tr>
+</tbody>
+</table>
+</div>
+<div class="card">
+  <h3>X 侧一句话规律</h3>
+  <ul class="plain">
+    <li>最火的是 <mark>反常识判断</mark>（认知公地悲剧、领先的人反而觉得自己落后）和 <mark>成长对比</mark>（去年不懂 GitHub → 现在 1 万关注仍不会手写代码）。</li>
+    <li>短句金句型好传播；工具/作品演示也有收藏。</li>
+    <li>跟小红书一样：能拿走的东西 + 个人反差，比空讲概念更吃香。</li>
+  </ul>
+</div>
+
+<h2 id="patterns">4. 主题分布与选题规律</h2>
+<div class="card">
+  <ul class="plain">
+    <li><strong>什么最容易爆：</strong>工具 / 教程 + 可复用模板（HTML Slides 4.3 万赞 / 6.2 万藏）；可落地方法 + demo（Claude Code 接飞书 1.5 万赞）。</li>
+    <li><strong>成长反差：</strong>「不会写代码却有 3 万 GitHub 星」类叙事，小红书与 X 都靠前。</li>
+    <li><strong>标题写法：</strong>平铺直叙说清给你什么——「如何…」「教程+演示」「完整版」「太爽了」。数字结果（3 万星、涨粉 7 万）当钩子。</li>
+    <li><strong>形式：</strong>主页前 60 篇绝大多数是视频（V）；图文（I）多为预告/活动。封面常真人出镜 + 大字条，或白底大字卡。</li>
+    <li><strong>正文极短：</strong>1–3 句 + 话题标签；价值在视频/模板里，不在长文。</li>
+    <li><strong>量级：</strong>列表页点赞中位数约 1.5 千（采集观察）；真正爆的集中在模板、开源接入、成长对比。</li>
+    <li><strong>话题圈：</strong>AI-native 工作方式、怎么学 AI、做内容的方法、taste、vibe coding、agent。</li>
+  </ul>
+  <p class="muted" style="margin:.6rem 0 0">咱们发的是图文，视频那套没法照搬；能借的是选题钩子、标题直说、以及「每篇附一个能拿走的东西」。</p>
+</div>
+
+<h2 id="for-ocean">5. 给 Ocean 的借鉴</h2>
+<p class="muted">语气按你号的规矩：第一人称、平实、不说教。下面只当选题备忘，不是 checklist。</p>
+<div class="card">
+  <h3>项目帖怎么写（待办 / 金句 / 网络代理）</h3>
+  <p>别停在「我做了个啥」。她爆款的共性是读者能直接拿走模板或步骤。三篇可以各自挂一件东西：</p>
+  <ul class="plain">
+    <li><strong>待办：</strong>讲你怎么用 AI 把待办拆成可执行项；附一页提示词模板或 skill 片段（复制就能用）。</li>
+    <li><strong>金句：</strong>讲收集 / 回看 / 引用的闭环；附分类表或导出格式，别人能套到自己的笔记库。</li>
+    <li><strong>网络代理：</strong>讲你踩过的配置坑和最终工作流；附一份脱敏配置清单或检查步骤（不写密钥、不写公司内网细节）。</li>
+  </ul>
+  <p>标题可以学她的直给：「我用 AI 做了个待办助手（附模板）」「PM 的金句库怎么搭」「网络代理我是这么配的（检查清单）」——陈述句，不喊口号。</p>
+</div>
+<div class="card">
+  <h3>再写一篇成长对比</h3>
+  <p>对标她「不会写代码也有 GitHub 星」那条。你的版本可以是：<mark>我是大厂产品经理，不会手写代码，用 AI 做了几个小工具</mark>——待办、金句、网络代理当证据摆上去。重点写前后对比和现在每天怎么用，少写鸡汤。</p>
+  <p class="muted">形式上咱们继续图文：封面一句话结果 + 内页步骤/模板；正文三短段 + 话题。视频不是必须。</p>
+</div>
+<div class="card">
+  <h3>从她那儿少借什么</h3>
+  <ul class="plain">
+    <li>真人出镜口播长视频——你现在的生产线是图文卡，硬切成本高。</li>
+    <li>「完整版 30 分钟」这类时长钩子——图文改成「一页清单 / 七张卡」更合适。</li>
+    <li>湾区线下 / Demo Day 节奏——你有大厂现场，用脱敏项目故事替代即可（比如跨部门履约项目讲 GAIN）。</li>
+  </ul>
+</div>
+
+<h2 id="appendix">6. 附录：主页前 60 篇笔记</h2>
+<p class="muted">按主页顺序（含 2 条置顶）；点赞为列表页数；类型 V=视频 / I=图文。收藏与评论未逐篇取（仅 Top8 有）。</p>
+<div class="card" style="padding:.6rem; overflow:auto; max-height:32rem">
+<table>
+<thead><tr><th>#</th><th>标题</th><th>类型</th><th>赞</th></tr></thead>
+<tbody>
+<tr><td class="num">0</td><td><a href="https://www.xiaohongshu.com/explore/6a31edc300000000200387f4?xsec_token=ABOCIAmnVG4B4QgiyFBfD2Pw2oZIqmEShb-6p7kUXJiU0=&amp;xsec_source=pc_user" target="_blank" rel="noopener">如何一年在Twitter涨粉7万：我做内容的方法</a></td><td>V</td><td class="metrics">1万</td></tr><tr><td class="num">1</td><td><a href="https://www.xiaohongshu.com/explore/6a2761520000000008032277?xsec_token=ABMFQaZkxWwFdBmX0KTvieK_vzZZ2AColhglJCoeWY6WY=&amp;xsec_source=pc_user" target="_blank" rel="noopener">我在GitHub上有超过3万星（虽然并不会写代码</a></td><td>V</td><td class="metrics">2.8万</td></tr><tr><td class="num">2</td><td><a href="https://www.xiaohongshu.com/explore/6a9e3fe9000000000b001ccb?xsec_token=AB-3CwX5-J3WBINp3HMxvvunlLYVLTdjyI4BzYZQqF0KE=&amp;xsec_source=pc_user" target="_blank" rel="noopener">直播预告：跟3位FDE朋友聊聊企业内部AI落地</a></td><td>I</td><td class="metrics">207</td></tr><tr><td class="num">3</td><td><a href="https://www.xiaohongshu.com/explore/6a94a49a0000000021025a15?xsec_token=ABqejChCxGYwC6HgV0Nyf1-lQ4BITFLjeytKeprgL8evo=&amp;xsec_source=pc_user" target="_blank" rel="noopener">如何在X上找到值得关注的AI builders</a></td><td>V</td><td class="metrics">1163</td></tr><tr><td class="num">4</td><td><a href="https://www.xiaohongshu.com/explore/6a8d49d6000000002500424e?xsec_token=ABVAqNoUddWnDwuWJU8dFYKunFt3iOCO72HIp5HNvcRig=&amp;xsec_source=pc_user" target="_blank" rel="noopener">营销和沟通的一个重要原则：重复重复再重复</a></td><td>V</td><td class="metrics">1979</td></tr><tr><td class="num">5</td><td><a href="https://www.xiaohongshu.com/explore/6a8bd1f000000000280237e6?xsec_token=ABh8_Xp6zbpaOOGm8jxDLzdgA479AClLgEdRzqk2Eaolk=&amp;xsec_source=pc_user" target="_blank" rel="noopener">什么样的公司是真正意义上的AI-native？</a></td><td>V</td><td class="metrics">1061</td></tr><tr><td class="num">6</td><td><a href="https://www.xiaohongshu.com/explore/6a881584000000002a0135a5?xsec_token=ABR9x7l92Fe23n4tPCB7ihEIgyDlcNX4P6wRWXhKUzahw=&amp;xsec_source=pc_user" target="_blank" rel="noopener">我们应该如何学习AI？（9分钟完整讲解+演示）</a></td><td>V</td><td class="metrics">4424</td></tr><tr><td class="num">7</td><td><a href="https://www.xiaohongshu.com/explore/6a7addc900000000280064dd?xsec_token=ABSjLkdPzMKxDVuvFBMIFQJhCduIJmPErAQcMLqFIUVgY=&amp;xsec_source=pc_user" target="_blank" rel="noopener">开源一个插件，帮你从YouTube长视频中学习</a></td><td>V</td><td class="metrics">4404</td></tr><tr><td class="num">8</td><td><a href="https://www.xiaohongshu.com/explore/6a7993e60000000028032339?xsec_token=ABMBQGh8_o0VP83IM9sGRTdCdWnFi7rn7Xxo79r2jQjz8=&amp;xsec_source=pc_user" target="_blank" rel="noopener">在AI-native团队里，HTML正在取代PPT</a></td><td>V</td><td class="metrics">1.1万</td></tr><tr><td class="num">9</td><td><a href="https://www.xiaohongshu.com/explore/6a731ec2000000003301cf98?xsec_token=ABvpSt6faH0o0vQBxMRtszuOkNNaiFvGlaHQrXLor2D1A=&amp;xsec_source=pc_user" target="_blank" rel="noopener">28分钟完整版：如何打造AI-native组织</a></td><td>V</td><td class="metrics">2575</td></tr><tr><td class="num">10</td><td><a href="https://www.xiaohongshu.com/explore/6a716cf80000000028006ff8?xsec_token=ABV6_TP8gSIp12kiujUjecU0r3BnpmFpx7xf9ByZCnT4o=&amp;xsec_source=pc_user" target="_blank" rel="noopener">从Claude Tag聊聊agent交互界面的变化</a></td><td>V</td><td class="metrics">1576</td></tr><tr><td class="num">11</td><td><a href="https://www.xiaohongshu.com/explore/6a6d396a000000002701fa62?xsec_token=AB-5ftJZmKhmF90iO-2BHJJghCNpqYfiu2D9nZI46LyAI=&amp;xsec_source=pc_user" target="_blank" rel="noopener">如何在团队里打造学习AI的氛围？3个建议</a></td><td>V</td><td class="metrics">756</td></tr><tr><td class="num">12</td><td><a href="https://www.xiaohongshu.com/explore/6a694c980000000009035ab9?xsec_token=ABkpJ1wgJcYKzxpCFn9bU81a_dVrz-G2PDKTqnYTDdv_Y=&amp;xsec_source=pc_user" target="_blank" rel="noopener">线下见到了很多粉丝！内容和社区的联动关系</a></td><td>V</td><td class="metrics">1015</td></tr><tr><td class="num">13</td><td><a href="https://www.xiaohongshu.com/explore/6a6815b2000000001002477b?xsec_token=AB01_LehDpRGWaSkofvldBqiNobh9UskjGNUdZSg541Jc=&amp;xsec_source=pc_user" target="_blank" rel="noopener">录视频的时候，如何让自己表达更流畅？</a></td><td>V</td><td class="metrics">4525</td></tr><tr><td class="num">14</td><td><a href="https://www.xiaohongshu.com/explore/6a66b57e000000001302c44a?xsec_token=ABl_ZAM_a9wrMoXaGNdDFCjA1x75pT-7diNKy0lnc3slY=&amp;xsec_source=pc_user" target="_blank" rel="noopener">用coding agent辅助内容创作的几个实践</a></td><td>V</td><td class="metrics">747</td></tr><tr><td class="num">15</td><td><a href="https://www.xiaohongshu.com/explore/6a637e9e0000000010024e81?xsec_token=ABY_30JHIL_01q1OYlj8L7x8MGEThyZziF_fep2-dpkHs=&amp;xsec_source=pc_user" target="_blank" rel="noopener">这个时代的builder 最重要的素质是什么？</a></td><td>V</td><td class="metrics">740</td></tr><tr><td class="num">16</td><td><a href="https://www.xiaohongshu.com/explore/6a5c3aa6000000000a038e0f?xsec_token=ABUXcyWUKd3jyuwL-Qq7s8cO8tutnXrkKXeBoioxzcI78=&amp;xsec_source=pc_user" target="_blank" rel="noopener">给builders的几个做内容的建议</a></td><td>V</td><td class="metrics">1002</td></tr><tr><td class="num">17</td><td><a href="https://www.xiaohongshu.com/explore/6a588bf5000000001d00f5f9?xsec_token=ABWmcklgMOEwMY87meR6e1CwPcq9xJz-Hx9z340_RNoR8=&amp;xsec_source=pc_user" target="_blank" rel="noopener">30分钟完整版：4个可以落地的AI原生工作方式</a></td><td>V</td><td class="metrics">7414</td></tr><tr><td class="num">18</td><td><a href="https://www.xiaohongshu.com/explore/6a5608be0000000020038184?xsec_token=AB0lOydYivtGtyL6QOZ67XPBawBJHs94I3xrG0kS1cPzk=&amp;xsec_source=pc_user" target="_blank" rel="noopener">跟OpenAI的Codex团队学习build in public</a></td><td>V</td><td class="metrics">1412</td></tr><tr><td class="num">19</td><td><a href="https://www.xiaohongshu.com/explore/6a55b2ce000000000702e49f?xsec_token=ABQ7194XkovdlV4va20tRAge_rGYEAi8YHXkTm8gph1MQ=&amp;xsec_source=pc_user" target="_blank" rel="noopener">Taste越来越重要，如何提升自己的 taste？</a></td><td>V</td><td class="metrics">929</td></tr><tr><td class="num">20</td><td><a href="https://www.xiaohongshu.com/explore/6a53a3be0000000021019b97?xsec_token=ABs-D9PyHUol0-5e8YxbuTJf-RqshLtDdrpwwafxQY2H4=&amp;xsec_source=pc_user" target="_blank" rel="noopener">AI时代 内容创作和产品营销的5个趋势</a></td><td>V</td><td class="metrics">1943</td></tr><tr><td class="num">21</td><td><a href="https://www.xiaohongshu.com/explore/6a505705000000002100a5e5?xsec_token=ABhnWEq2YRFcMiFqtxBeIJ7desJJ81GFxZXL77Fr5xcw0=&amp;xsec_source=pc_user" target="_blank" rel="noopener">AI时代，我们应该如何学习？</a></td><td>V</td><td class="metrics">3562</td></tr><tr><td class="num">22</td><td><a href="https://www.xiaohongshu.com/explore/6a4f8523000000000702596c?xsec_token=AB0HoBOYZldiLGchvtxqinU2soNTmYMEAoG8Fbn0Cbucc=&amp;xsec_source=pc_user" target="_blank" rel="noopener">强烈推荐逐帧学习这三个AI大会的回放视频</a></td><td>V</td><td class="metrics">4568</td></tr><tr><td class="num">23</td><td><a href="https://www.xiaohongshu.com/explore/6a47083200000000210236a2?xsec_token=ABVknIcylZ8D1S6Cxf8mM9IH5TojsANSm-4sA68rw_XO8=&amp;xsec_source=pc_user" target="_blank" rel="noopener">为什么我做内容特别快？因为功夫在诗外</a></td><td>V</td><td class="metrics">2812</td></tr><tr><td class="num">24</td><td><a href="https://www.xiaohongshu.com/explore/6a455a080000000021016e35?xsec_token=ABeTKidQ_R2--oplbj8vRn6EPGlHI4MFRanaIfzKeTUNw=&amp;xsec_source=pc_user" target="_blank" rel="noopener">做skill是你工作流的最后一步，不是第一步</a></td><td>V</td><td class="metrics">970</td></tr><tr><td class="num">25</td><td><a href="https://www.xiaohongshu.com/explore/6a434fd3000000002100b6af?xsec_token=ABT5JjCHyDseGVuMNfd3HOqa2IJejeB7jHSaqH1k2eh8c=&amp;xsec_source=pc_user" target="_blank" rel="noopener">如何让收藏夹不再落灰：把它跟日历打通</a></td><td>V</td><td class="metrics">2241</td></tr><tr><td class="num">26</td><td><a href="https://www.xiaohongshu.com/explore/6a3ff150000000002101a7a1?xsec_token=ABkq4uEOIY-GiYNm38kVrk8GcoH_r62emHO6lvprGs_a8=&amp;xsec_source=pc_user" target="_blank" rel="noopener">为什么企业用了AI，效率还是没有提升？</a></td><td>V</td><td class="metrics">756</td></tr><tr><td class="num">27</td><td><a href="https://www.xiaohongshu.com/explore/6a3f44b500000000210167f6?xsec_token=ABkq4uEOIY-GiYNm38kVrk8PI86gSqO_yQPqo-UP7lbVA=&amp;xsec_source=pc_user" target="_blank" rel="noopener">AI时代，IC要更像管理者，管理者要更像IC</a></td><td>V</td><td class="metrics">630</td></tr><tr><td class="num">28</td><td><a href="https://www.xiaohongshu.com/explore/6a3ca9e20000000007022113?xsec_token=AB55aEzPOezfy-0_iShJEjx8BBr9NbbDiDPYpx2b3RkuI=&amp;xsec_source=pc_user" target="_blank" rel="noopener">如何做出好看的HTML slides：0基础教程演示</a></td><td>V</td><td class="metrics">3018</td></tr><tr><td class="num">29</td><td><a href="https://www.xiaohongshu.com/explore/6a34bd300000000007011adf?xsec_token=ABkZkn_lV1Fo8y2QM25M4YizSwwTtErwX6iaZg1S8fY50=&amp;xsec_source=pc_user" target="_blank" rel="noopener">如何用HTML做视频：幕后全制作流程demo</a></td><td>V</td><td class="metrics">1692</td></tr><tr><td class="num">30</td><td><a href="https://www.xiaohongshu.com/explore/6a2e345e000000002003b49c?xsec_token=ABofTOJEpciU0b7CYc8jHDpbmZVVmsjyfta_tgEn7e_VE=&amp;xsec_source=pc_user" target="_blank" rel="noopener">50分钟完整版：我vibe coding的思路和方法</a></td><td>V</td><td class="metrics">2806</td></tr><tr><td class="num">31</td><td><a href="https://www.xiaohongshu.com/explore/6a1f5d2800000000200397aa?xsec_token=ABe1aFL39TfZqhL29zEf2oVfOl3BQ6kTDAaW9i4tg8cEQ=&amp;xsec_source=pc_user" target="_blank" rel="noopener">发现了AI设计的新大陆：SVG！（可编辑）</a></td><td>I</td><td class="metrics">966</td></tr><tr><td class="num">32</td><td><a href="https://www.xiaohongshu.com/explore/6a1e30000000000007020149?xsec_token=ABDfy35ydwU0DEz30Aa91PdFSdpi1shMFvXnDE6Rz8AKM=&amp;xsec_source=pc_user" target="_blank" rel="noopener">如何用AI做出超级好看的矢量图（可编辑）</a></td><td>V</td><td class="metrics">1306</td></tr><tr><td class="num">33</td><td><a href="https://www.xiaohongshu.com/explore/6a1ceb8a00000000080306aa?xsec_token=ABJhIw2C2KsrRKSsaRxlyr1ktQ67ITr0KFgF_AetQJw-w=&amp;xsec_source=pc_user" target="_blank" rel="noopener">分享我如何从0到1做一个skill</a></td><td>V</td><td class="metrics">2219</td></tr><tr><td class="num">34</td><td><a href="https://www.xiaohongshu.com/explore/6a1b99de0000000007029f4f?xsec_token=AB7dJgJjQBfDl1OsBOcL21RazgRlxBiAHh4J9jWSVAk0s=&amp;xsec_source=pc_user" target="_blank" rel="noopener">30万粉丝啦 欢迎大家分享你的故事</a></td><td>I</td><td class="metrics">599</td></tr><tr><td class="num">35</td><td><a href="https://www.xiaohongshu.com/explore/6a18d4e700000000070136ab?xsec_token=ABCA65qzQ5S3UAno-0wugwy3rC9-7f9DxdBwfHljfqBTw=&amp;xsec_source=pc_user" target="_blank" rel="noopener">Codex app太好用了，尤其是对于非程序员</a></td><td>V</td><td class="metrics">4808</td></tr><tr><td class="num">36</td><td><a href="https://www.xiaohongshu.com/explore/6a13ef8800000000080323e2?xsec_token=ABqXKkc_cjK4lUsruUBr2fJOJVsMtlh93oLKARh7V3gGo=&amp;xsec_source=pc_user" target="_blank" rel="noopener">Coding在从一个职业变成一个技能</a></td><td>V</td><td class="metrics">838</td></tr><tr><td class="num">37</td><td><a href="https://www.xiaohongshu.com/explore/6a1018060000000007027155?xsec_token=AB-QSO3EIltr0KEwJqPLsYnuD1Ptzjx8K3plXk1eA5-dA=&amp;xsec_source=pc_user" target="_blank" rel="noopener">把Claude Code接入飞书，太爽了！教程+演示</a></td><td>V</td><td class="metrics">1.5万</td></tr><tr><td class="num">38</td><td><a href="https://www.xiaohongshu.com/explore/6a0b6eae000000003601db31?xsec_token=AB13948kRgNJb3URUIIk7jq05vqCr0yIDGJVwrVSbPbYc=&amp;xsec_source=pc_user" target="_blank" rel="noopener">任川分享：我如何用5个agent管理一人公司</a></td><td>?</td><td class="metrics">5963</td></tr><tr><td class="num">39</td><td><a href="https://www.xiaohongshu.com/explore/6a05780c0000000006020d23?xsec_token=ABMlOc0sDPZmk4TfQm-BfbPMEQdk9_CBxQQ97WI5ewUpA=&amp;xsec_source=pc_user" target="_blank" rel="noopener">教程：如何做出好看的HTML slides（0代码）</a></td><td>V</td><td class="metrics">3253</td></tr><tr><td class="num">40</td><td><a href="https://www.xiaohongshu.com/explore/6a02a261000000000702ccfa?xsec_token=ABRTRrf1yEWGA-_L12iOaReLYYP2PDp2E519WeXtOPkA8=&amp;xsec_source=pc_user" target="_blank" rel="noopener">OpenAI实时语音+飞书CLI，实现口喷式写文档</a></td><td>V</td><td class="metrics">1512</td></tr><tr><td class="num">41</td><td><a href="https://www.xiaohongshu.com/explore/69fe6f3a000000001a036be4?xsec_token=ABdee01Gr5r1zV2-5uGrdsl0aT1_wOrZRP4SqcdTvPqII=&amp;xsec_source=pc_user" target="_blank" rel="noopener">如何用AI做出超级好看的HTML Slides</a></td><td>V</td><td class="metrics">4.3万</td></tr><tr><td class="num">42</td><td><a href="https://www.xiaohongshu.com/explore/69fa1dd900000000230067dc?xsec_token=ABS46SpONWSAVPr_sRSWaZuMbF7QNZlpKlQJMOm7nh2Ck=&amp;xsec_source=pc_user" target="_blank" rel="noopener">湾区线下活动（2）：如何打造AI native组织</a></td><td>I</td><td class="metrics">171</td></tr><tr><td class="num">43</td><td><a href="https://www.xiaohongshu.com/explore/69f68d3e000000001f006814?xsec_token=ABHSLe1XSMrCbciTlP7wqvcPukbN1T6DAWSCucC9koQ_I=&amp;xsec_source=pc_user" target="_blank" rel="noopener">我的12分钟分享：如何从0到1做一个小产品</a></td><td>V</td><td class="metrics">3140</td></tr><tr><td class="num">44</td><td><a href="https://www.xiaohongshu.com/explore/69f302a500000000220243fc?xsec_token=ABbf3ASel8BLe1khB-5XZ_SMw39XJh58ga_Jt6nnBx0f4=&amp;xsec_source=pc_user" target="_blank" rel="noopener">学AI最好的方式：每天动手玩一小时</a></td><td>V</td><td class="metrics">1384</td></tr><tr><td class="num">45</td><td><a href="https://www.xiaohongshu.com/explore/69f1a54500000000360023e7?xsec_token=ABNaB0B2M7i4oxpe23V-syeK6YvtcJAagQwwAqwtBjn7c=&amp;xsec_source=pc_user" target="_blank" rel="noopener">全程回放（3）Demo Day：我如何与agent共事</a></td><td>V</td><td class="metrics">317</td></tr><tr><td class="num">46</td><td><a href="https://www.xiaohongshu.com/explore/69efb709000000003703436a?xsec_token=AB3pAvo0Q9oTIn8sfzq7tHFXzygyrweQkMHxAPAAPu-lc=&amp;xsec_source=pc_user" target="_blank" rel="noopener">全程回放（2）Demo Day：我如何与agent协作</a></td><td>V</td><td class="metrics">833</td></tr><tr><td class="num">47</td><td><a href="https://www.xiaohongshu.com/explore/69eefa6d000000003700eade?xsec_token=ABEUUhFVLplwBTFde8WdtR2yL2g3moEVYzjsLwYFnm7Xk=&amp;xsec_source=pc_user" target="_blank" rel="noopener">全程回放（1）Demo Day：我如何与agent共事</a></td><td>V</td><td class="metrics">829</td></tr><tr><td class="num">48</td><td><a href="https://www.xiaohongshu.com/explore/69eac78d000000002202b86e?xsec_token=AB_eNkvOp9_yY_30F5Pz2LouaPDKpIKC8PSe0CQFlo-aw=&amp;xsec_source=pc_user" target="_blank" rel="noopener">Tab out的想法是怎么来的？我跟AI的聊天方式</a></td><td>V</td><td class="metrics">1408</td></tr><tr><td class="num">49</td><td><a href="https://www.xiaohongshu.com/explore/69e97f1a00000000230175f1?xsec_token=ABMYt4pi7czzKVkkXWIXB-uZfa93LoePpxtomUsW8XZJA=&amp;xsec_source=pc_user" target="_blank" rel="noopener">AI 能写诗，但是功夫在诗外</a></td><td>I</td><td class="metrics">581</td></tr><tr><td class="num">50</td><td><a href="https://www.xiaohongshu.com/explore/69e8618a000000002301475b?xsec_token=ABfzCmD5PVKC8eNdIwo9p7VmBJekmxxst7Iw3JZPEIZEA=&amp;xsec_source=pc_user" target="_blank" rel="noopener">我的粉丝可能是小红书上最好学的26万人</a></td><td>V</td><td class="metrics">520</td></tr><tr><td class="num">51</td><td><a href="https://www.xiaohongshu.com/explore/69e72660000000001f0055b6?xsec_token=AB_AP85ZvblqdgImfkU9BzWtgvXMgQ62sxtJhhx5OBG6k=&amp;xsec_source=pc_user" target="_blank" rel="noopener">活动干货总结：如何打造AI native的组织</a></td><td>I</td><td class="metrics">873</td></tr><tr><td class="num">52</td><td><a href="https://www.xiaohongshu.com/explore/69e17ae8000000002003ba1f?xsec_token=ABgbtwwn3mcJ2edBYosq21bjqiHzF-6lVujAt4yTHOMQA=&amp;xsec_source=pc_user" target="_blank" rel="noopener">线上Demo Day：来演示你与agents的协作方式</a></td><td>I</td><td class="metrics">793</td></tr><tr><td class="num">53</td><td><a href="https://www.xiaohongshu.com/explore/69e04b91000000001a02e03f?xsec_token=ABaraj0El1UdYEx1T48BxvAKds9cC2vHb5AUX7XtZm3XY=&amp;xsec_source=pc_user" target="_blank" rel="noopener">Frontend slides的小白友好版已上线</a></td><td>V</td><td class="metrics">4015</td></tr><tr><td class="num">54</td><td><a href="https://www.xiaohongshu.com/explore/69ded448000000001a02f276?xsec_token=ABHuo-UwXZQsKWj2y_PvUJ66rXMKgJd23x08OhHn3ElHk=&amp;xsec_source=pc_user" target="_blank" rel="noopener">做了个插件，让关浏览器tabs变得上瘾</a></td><td>V</td><td class="metrics">3734</td></tr><tr><td class="num">55</td><td><a href="https://www.xiaohongshu.com/explore/69db48b4000000002202aeaf?xsec_token=ABCqSvkGuRoH9AfChR1HodvC_qb6qIFHrqRf9Gc5Oixfk=&amp;xsec_source=pc_user" target="_blank" rel="noopener">推荐一本非常老的书</a></td><td>I</td><td class="metrics">1671</td></tr><tr><td class="num">56</td><td><a href="https://www.xiaohongshu.com/explore/69d73389000000002202bd0a?xsec_token=ABAGv2ucJGohUvpzrk33oNVLHoFwUXsNdoK9m3XKbZrYQ=&amp;xsec_source=pc_user" target="_blank" rel="noopener">我的产品灵感都是怎么来的？</a></td><td>V</td><td class="metrics">2738</td></tr><tr><td class="num">57</td><td><a href="https://www.xiaohongshu.com/explore/69d33c53000000001e00f5a3?xsec_token=ABxVeMPwqBs5tk88vjcas_PhyiXd44oOAmkxYput-nad4=&amp;xsec_source=pc_user" target="_blank" rel="noopener">当我决定不再用“文科生”的标签定义自己</a></td><td>V</td><td class="metrics">523</td></tr><tr><td class="num">58</td><td><a href="https://www.xiaohongshu.com/explore/69d151680000000023007bb9?xsec_token=ABgCQ3L45kc-lLLi5vLLLu5q-eCBfuuRMPy4q1IaK-9AM=&amp;xsec_source=pc_user" target="_blank" rel="noopener">带着“玩”的心态学AI ，有松弛感才可持续</a></td><td>V</td><td class="metrics">709</td></tr><tr><td class="num">59</td><td><a href="https://www.xiaohongshu.com/explore/69cef878000000001e00c6bc?xsec_token=AB4CFsGqb7GJLNJvhOfGzegHBdU4d_fYt86jShUTFmWTA=&amp;xsec_source=pc_user" target="_blank" rel="noopener">用AI实现视频长剪短！自动提取高光片段</a></td><td>V</td><td class="metrics">1696</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="sources">来源与边界</h2>
+<div class="card">
+  <ul class="plain">
+    <li>小红书：<code>/workspace/money/xhs-real/zhangzala/xhs_notes.md</code>（只读浏览，未点赞/收藏/关注/评论/私信）· profile_top.png</li>
+    <li>X：<code>x_posts.md</code>（294 条，API，正文截断 280）</li>
+    <li>同人核实：小红书简介含 X: zarazhangrui</li>
+    <li>未做：589 篇全量；Top8 以外的藏/评/日期；X 粉丝与 bio 快照</li>
+    <li>本页仅私有站 x-digest，不进公开版 ai-weekly-digest</li>
+  </ul>
+</div>
+
+<p class="foot">私密 · x-digest/xhs/zhangzala.html · 导航瞬时跳转（scroll-behavior:auto）· 采集日 2026-11-01 America/Los_Angeles</p>
+</main>
+</div>
+<script>
+(function(){
+  const links=[...document.querySelectorAll('.nav a[href^="#"]')];
+  const map=new Map();
+  links.forEach(a=>{
+    const id=a.getAttribute('href').slice(1);
+    const el=document.getElementById(id);
+    if(el) map.set(el,a);
+  });
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting) return;
+      links.forEach(a=>a.classList.remove('active'));
+      const a=map.get(en.target); if(a) a.classList.add('active');
+    });
+  },{rootMargin:'-20% 0px -65% 0px', threshold:0});
+  map.forEach((_,el)=>io.observe(el));
+  links.forEach(a=>a.addEventListener('click',()=>{
+    links.forEach(x=>x.classList.remove('active')); a.classList.add('active');
+  }));
+})();
+</script>
+</body>
+</html>
