@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>卡兹克拆解 · X + 公众号 + 小红书 · 给「AI具身牛马」的参考</title>
+<!-- impeccable: fluid full-width · sticky left elevator · scroll-behavior:auto · cream + black + one highlighter yellow -->
+<style>
+:root{
+  --bg:#f7f4ec; --surface:#fffcf7; --ink:#1a1a18; --ink-2:#3a3a36; --mut:#6a6a62;
+  --line:#e6e0d4; --hi:#ffe566; --hi-soft:#fff6c8;
+  --shadow:0 1px 2px rgba(26,26,24,.04),0 8px 24px rgba(26,26,24,.05);
+  --r:14px; --nav-w:14rem;
+}
+*{box-sizing:border-box}
+html{color-scheme:light; scroll-behavior:auto}
+body{
+  margin:0; color:var(--ink); background:var(--bg);
+  font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+::selection{background:var(--hi); color:var(--ink)}
+mark{background:var(--hi); color:var(--ink); padding:.05em .18em; border-radius:3px; font-style:normal}
+.shell{
+  display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr);
+  gap:0; min-height:100vh; width:100%; max-width:none; margin:0;
+}
+.nav{
+  position:sticky; top:0; align-self:start; height:100vh;
+  padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line);
+  background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto;
+}
+.nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
+.nav .meta{font-size:.76rem; color:var(--mut); margin:0 0 1rem; line-height:1.45}
+.nav a{
+  display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem;
+  padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent;
+}
+.nav a:hover,.nav a:focus-visible{background:var(--hi-soft); outline:none}
+.nav a.active{background:var(--hi); color:var(--ink); font-weight:650; border-left-color:#c9b020}
+.nav .sec{font-size:.7rem; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .3rem; padding-left:.55rem; text-transform:uppercase}
+.main{padding:1.6rem clamp(1rem,3vw,2.4rem) 4.5rem; width:100%; max-width:none}
+h1{font-size:clamp(1.4rem,2.4vw,1.85rem); line-height:1.25; letter-spacing:-.025em; margin:0 0 .5rem; font-weight:750}
+h2{font-size:1.14rem; line-height:1.35; margin:2.1rem 0 .6rem; padding-bottom:.4rem; border-bottom:3px solid var(--hi); letter-spacing:-.015em; font-weight:700}
+h3{font-size:1.02rem; margin:1rem 0 .35rem; font-weight:700}
+p,li{color:var(--ink-2)}
+p{margin:.5rem 0}
+.muted{color:var(--mut); font-size:.92rem; line-height:1.55}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:1rem 1.15rem; margin:.8rem 0; box-shadow:var(--shadow)}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr)); gap:.75rem}
+.stat strong{display:block; font-size:1.35rem; letter-spacing:-.02em; margin:.15rem 0}
+.tag{display:inline-block; font-size:12px; font-weight:650; background:var(--hi-soft); color:#6a5a00; padding:.12rem .5rem; border-radius:999px; margin-right:.3rem}
+.tag.warn{background:#fff0d6; color:#8a5a00}
+a{color:var(--ink); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-word}
+a:hover{background:linear-gradient(180deg,transparent 60%, var(--hi) 60%)}
+a:focus-visible{outline:2px solid #c9b020; outline-offset:2px; border-radius:3px}
+table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:.42rem .5rem; text-align:left; vertical-align:top}
+th{background:#efeae0; font-weight:650}
+.metrics{font-variant-numeric:tabular-nums; white-space:nowrap}
+.num{font-variant-numeric:tabular-nums; width:2.2rem}
+.sub{font-size:.78rem; color:var(--mut); margin-top:.2rem}
+.foot{margin-top:2.5rem; font-size:.86rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
+.mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.5rem 0; border-bottom:1px solid var(--line)}
+.mob-nav a{font-size:.8rem; color:var(--ink); text-decoration:none; background:var(--hi-soft); padding:.2rem .5rem; border-radius:999px}
+ul.plain{margin:.35rem 0; padding-left:1.2rem}
+ul.plain li{margin:.28rem 0}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .nav{display:none}
+  .mob-nav{display:flex}
+  .main{padding:1.1rem 1rem 3.5rem}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="nav" aria-label="目录">
+  <p class="brand">卡兹克拆解</p>
+  <p class="meta">私密 · 写给 Ocean<br>采集 2026-11-04（America/Los_Angeles）<br>不编数字 · 缺数标待核</p>
+  <div class="sec">选题库</div>
+  <a href="./">← 小红书选题库</a>
+  <div class="sec">本页</div>
+  <a href="#overview">账号概况</a>
+  <a href="#x-top">X 爆款 Top10</a>
+  <a href="#timeline">起号时间线</a>
+  <a href="#patterns">选题规律</a>
+  <a href="#for-ocean">给 Ocean 的借鉴</a>
+  <a href="#xhs-todo">小红书待实看</a>
+  <a href="#sources">来源</a>
+</aside>
+<main class="main">
+<nav class="mob-nav" aria-label="移动目录">
+  <a href="#overview">概况</a><a href="#x-top">X Top10</a><a href="#timeline">时间线</a><a href="#patterns">规律</a><a href="#for-ocean">借鉴</a><a href="#xhs-todo">小红书</a>
+</nav>
+
+<h1>数字生命卡兹克 内容拆解</h1>
+<p class="muted">给「AI具身牛马」参考。X 数据为 2026-11-04 通过 X API 只读拉取（近两周原创帖）；公众号/小红书数据多为第三方或自述 → <span class="tag warn">待核</span>。小红书主页本次未实看。</p>
+
+<h2 id="overview">1. 账号概况</h2>
+<div class="grid2">
+  <div class="card stat"><span class="tag">X</span><strong>104,408 粉丝</strong>
+    <p style="margin:.35rem 0 0">@Khazix0918 · 发帖 844 · 关注 200 · 简介「愿我们永远对世界保持好奇。公众号：数字生命卡兹克」</p>
+    <p class="muted">自述 2026-01-12 → 11-02，294 天 0 到 10 万粉（<a href="https://x.com/Khazix0918/status/2117187358760354067" target="_blank" rel="noopener">原帖</a>）。10-31 时为 99,195。</p></div>
+  <div class="card stat"><span class="tag">公众号（母体）</span><strong>粉丝 <span class="tag warn">待核</span></strong>
+    <p style="margin:.35rem 0 0">第三方估约 322 万（viyi 社媒分析）；第三方统计约 746 篇长文、近乎日更。</p></div>
+  <div class="card stat"><span class="tag">小红书</span><strong>粉丝 <span class="tag warn">待核</span></strong>
+    <p style="margin:.35rem 0 0">第三方估约 12 万；分析称多为长文改图分发，适配偏初级（待实看）。</p></div>
+  <div class="card stat"><span class="tag">公司 / 开源</span><strong>虚实传媒 · khazix-skills</strong>
+    <p style="margin:.35rem 0 0">杭州虚实传媒（AI 垂类 MCN，官网口径签约 300+ 创作者，待核）；GitHub <a href="https://github.com/KKKKhazix/khazix-skills" target="_blank" rel="noopener">KKKKhazix/khazix-skills</a>。</p></div>
+</div>
+
+<h2 id="x-top">2. X 爆款 Top10（近两周原创，按赞）</h2>
+<div class="card"><table>
+<tr><th>日期</th><th>内容</th><th>赞</th><th>收藏</th><th>曝光</th></tr>
+<tr><td>10-29</td><td><a href="https://x.com/Khazix0918/status/2115691027860443268">Claude 和 Codex 的性格差异，用「每周合并 20 个 Excel」举例</a></td><td>4874</td><td>1093</td><td>56.4 万</td></tr>
+<tr><td>11-02</td><td><a href="https://x.com/Khazix0918/status/2117054043868860521">长文：折腾了整整 1 年，毫无保留分享我这套 Agent 自动化系统</a></td><td>4853</td><td><mark>9152</mark></td><td>75.0 万</td></tr>
+<tr><td>10-25</td><td><a href="https://x.com/Khazix0918/status/2114343004471460341">花 5 天做完 Agent 自动化流水线</a></td><td>910</td><td>554</td><td>13.6 万</td></tr>
+<tr><td>11-04</td><td><a href="https://x.com/Khazix0918/status/2117776745688646139">长文：开源我折腾 1 年的「Agent 自动化系统」</a></td><td>902</td><td>1662</td><td>18.0 万</td></tr>
+<tr><td>10-23</td><td><a href="https://x.com/Khazix0918/status/2113466426216583632">长文：我好像陷入了某种 AI 时代的虚无主义</a></td><td>710</td><td>322</td><td>11.7 万</td></tr>
+<tr><td>10-28</td><td><a href="https://x.com/Khazix0918/status/2115349867329708277">让 Claude 指挥 Codex 操控浏览器，规则写在 CLAUDE.md</a></td><td>527</td><td>598</td><td>6.9 万</td></tr>
+<tr><td>11-02</td><td><a href="https://x.com/Khazix0918/status/2117054331849720246">一年前不懂开发的设计师，一年后……（长文导语）</a></td><td>493</td><td>448</td><td>6.7 万</td></tr>
+<tr><td>10-21</td><td><a href="https://x.com/Khazix0918/status/2112838884510048647">给几十个自动化任务做了流水线可视化</a></td><td>487</td><td>291</td><td>5.0 万</td></tr>
+<tr><td>11-04</td><td><a href="https://x.com/Khazix0918/status/2117861191305609408">开源后续：发之前战战兢兢，没想到反响这么好</a></td><td>465</td><td>511</td><td>3.9 万</td></tr>
+<tr><td>11-02</td><td><a href="https://x.com/Khazix0918/status/2117187358760354067">294 天 X 破 10 万粉纪念</a></td><td>423</td><td>189</td><td>5.5 万</td></tr>
+</table>
+<p class="muted">数字为 2026-11-04 拉取时读数，还在涨。11-04 那篇开源长文早前记录为 759 赞 / 1288 收藏，现为 902 / 1662。</p>
+<h3>X 侧一句话规律</h3>
+<p><mark>同一个主题（自己的 Agent 自动化系统）连打两周</mark>：先短帖预热（10-21 可视化 → 10-25 流水线）→ 11-02 长文总结 → 11-04 开源 → 当天发感谢续帖。长文收藏/赞≈1.9，是「存着以后照做」型内容。</p>
+</div>
+
+<h2 id="timeline">3. 起号时间线（多源，冲突标待核）</h2>
+<div class="card"><ul>
+<li>2023-02 回归公众号写 ChatGPT/AI 绘图教程，蹭热点快跟（第三方统计）。</li>
+<li>2023-08《我用 AI 做了一部〈流浪地球3〉的预告片》，被郭帆转发，身份从「教人」变「创作者」（播放量自述，待核）。</li>
+<li>2024-02 Sora 解析刷屏（自述单篇 300 万+ 阅读，待核）；2024-03 裸辞全职。</li>
+<li>2024 下半年招实习生扛不住 → 自建「抓源 → 模型打分 → 早报/内参」选题流水线（口述）。</li>
+<li>2025-02 虚实传媒成立；2026-01 起认真经营 X，294 天到 10 万粉（自述）；2026-04 开源 khazix-skills。</li>
+</ul></div>
+
+<h2 id="patterns">4. 主题分布与选题规律</h2>
+<div class="grid2">
+<div class="card"><h3>近两周 X 25 条原创大致分布</h3><ul>
+<li>自己的 Agent 系统/工作流：约 9 条，<mark>拿走了大部分互动</mark></li>
+<li>模型对比/评测（Claude vs Codex、Qwen 换模型、AIHOT 榜）：约 6 条</li>
+<li>热点玩法教程（养鱼、AI 逆向现实）：约 3 条</li>
+<li>情绪/自省（AI 虚无主义、口头禅被 AI 夺走）：约 2 条</li>
+<li>里程碑/感谢：约 2 条；其余为纯链接</li></ul>
+<p class="muted">分类为人工粗分，条数是近似。</p></div>
+<div class="card"><h3>标题与写法</h3><ul>
+<li>第一人称 + 时间成本：「折腾了整整 1 年」「花了 5 天」</li>
+<li>强判断/情绪词：「毫无保留」「虚无主义」「居然」</li>
+<li>具体日常场景开头：「每周从后台下载 20 个 Excel……」</li>
+<li>开头常引一个外部权威观点（DeepSeek 文章）再接历史类比，最后落到自己</li>
+<li>写作规则公开在 khazix-writer：拒绝「赋能/抓手/闭环」等套话，强调「活人感」</li></ul></div>
+</div>
+
+<h2 id="for-ocean">5. 给 Ocean 的借鉴</h2>
+<div class="card"><ul>
+<li><b>系列化一个「自己的系统」</b>：把你在大厂做 AI 功能/自己提效的那套东西拆成预热 → 总结 → 模板开源三步，比单篇散点更容易爆收藏。</li>
+<li><b>用具体日常场景做对比</b>：他的头号帖是「合并 Excel」看两个模型性格。你可以写「同一个 PRD 需求，交给 A 和 B 两个 Agent」。</li>
+<li><b>收藏型 &gt; 点赞型</b>：长文收藏是赞的 1.9 倍，小红书图卡做成「可照做清单」。</li>
+<li><b>偶尔写情绪自省</b>：「AI 虚无主义」710 赞，打工人 AI 焦虑和你的号很契合。</li>
+</ul>
+<h3>别硬抄</h3><ul>
+<li>日更长文 + MCN 公司化，你是在职 PM，节奏不对等。</li>
+<li>追每个模型首发；你的差异化是大厂 PM 现场。</li>
+<li>公众号长文腔直接搬小红书。</li></ul></div>
+
+<h2 id="xhs-todo">6. 小红书待实看（本次未开浏览器）</h2>
+<div class="card"><ul>
+<li>小红书搜「数字生命卡兹克」找到主页：<a href="https://www.xiaohongshu.com/search_result?keyword=%E6%95%B0%E5%AD%97%E7%94%9F%E5%91%BD%E5%8D%A1%E5%85%B9%E5%85%8B">搜索页</a>，记粉丝、获赞收藏、笔记数</li>
+<li>主页前 60 篇：标题、赞/藏/评、图文还是视频，找 Top8</li>
+<li>看 Agent 自动化那篇有没有小红书版、互动如何，对比 X/公众号</li>
+<li>核实「长文改图、适配偏初级」的说法</li></ul></div>
+
+<h2 id="sources">来源与边界</h2>
+<div class="card"><ul class="plain">
+<li>X API 只读：用户资料 + 近两周原创帖 public_metrics + 长文标题（2026-11-04）</li>
+<li>本地：<code>/workspace/money/creators.md</code>（10-31 汇总，含 SegmentFault 统计、viyi 分析、virxact.com/about、腾讯新闻开源报道）</li>
+<li>公众号粉丝、阅读量、商单价、小红书数据均未核实</li>
+<li>本页只放私有站，未发布</li></ul></div>
+<p class="foot">私密 · 草稿 /workspace/digests/teardown/kazike.html · 采集日 2026-11-04 America/Los_Angeles</p>
+</main>
+</div>
+<script>
+(function(){
+  const links=[...document.querySelectorAll('.nav a[href^="#"]')];
+  const map=new Map();
+  links.forEach(a=>{
+    const id=a.getAttribute('href').slice(1);
+    const el=document.getElementById(id);
+    if(el) map.set(el,a);
+  });
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting) return;
+      links.forEach(a=>a.classList.remove('active'));
+      const a=map.get(en.target); if(a) a.classList.add('active');
+    });
+  },{rootMargin:'-20% 0px -65% 0px', threshold:0});
+  map.forEach((_,el)=>io.observe(el));
+  links.forEach(a=>a.addEventListener('click',()=>{
+    links.forEach(x=>x.classList.remove('active')); a.classList.add('active');
+  }));
+})();
+</script>
+</body>
+</html>
