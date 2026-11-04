@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>小红书推荐流侦察 2026-11-04 · 私密</title><style>
+:root{--bg:#f3f1eb;--surface:#fffcf7;--ink:#1a1c1b;--ink-2:#3d433f;--mut:#59656b;--line:#e2ddd2;--accent:#0d6b52;--accent-soft:#e4f3ec;--warn:#8a5a00;--warn-soft:#fff3d6;--ok:#1e6b3a;--ok-soft:#e6f4ea;--shadow:0 1px 2px rgba(26,28,27,.04),0 8px 24px rgba(26,28,27,.06);--r:14px;--nav-w:14rem}
+*{box-sizing:border-box}html{scroll-behavior:auto}
+body{margin:0;color:var(--ink);background:var(--bg);font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.shell{display:grid;grid-template-columns:var(--nav-w) minmax(0,1fr);max-width:78rem;margin:0 auto;min-height:100vh}
+.nav{position:sticky;top:0;align-self:start;height:100vh;overflow:auto;padding:1.4rem 1rem 2rem;border-right:1px solid var(--line);background:linear-gradient(180deg,#f7f5ef,var(--bg))}
+.nav .brand{font-weight:750;font-size:.95rem;margin:0 0 .3rem}.nav .meta{font-size:.76rem;color:var(--mut);margin:0 0 1rem;line-height:1.45}
+.nav a{display:block;color:var(--ink-2);text-decoration:none;font-size:.82rem;padding:.32rem .5rem;border-radius:8px;margin:.08rem 0}
+.nav a:hover,.nav a:focus{background:var(--accent-soft);color:var(--accent)}
+.nav .sec{font-size:.7rem;letter-spacing:.06em;color:var(--mut);margin:.9rem 0 .3rem;padding-left:.5rem}
+.main{padding:1.6rem 1.5rem 4rem;min-width:0}
+h1{font-size:clamp(1.35rem,2.2vw,1.75rem);letter-spacing:-.025em;margin:0 0 .4rem;font-weight:750;line-height:1.28}
+h2{font-size:1.12rem;margin:2.1rem 0 .6rem;padding-bottom:.4rem;border-bottom:2px solid var(--accent);font-weight:700;scroll-margin-top:0}
+h3{font-size:1rem;margin:.15rem 0 .45rem;font-weight:700}
+p,li{color:var(--ink-2)}.muted{color:var(--mut);font-size:.92rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.1rem;margin:.7rem 0;box-shadow:var(--shadow)}
+.verdict{border-color:#b7d9cb;background:linear-gradient(180deg,#f4faf7,var(--surface))}
+.tag{display:inline-block;font-size:11px;font-weight:650;background:var(--accent-soft);color:var(--accent);padding:.1rem .45rem;border-radius:999px;margin-left:.3rem}
+.tag.ok{background:var(--ok-soft);color:var(--ok)}
+.warn{font-size:.86rem;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:.55rem .7rem}
+a{color:var(--accent);text-underline-offset:3px}
+code{font-size:.78rem;background:#efeae0;padding:.05rem .3rem;border-radius:4px}
+code.tiny{font-size:.7rem;word-break:break-all}
+table{width:100%;border-collapse:collapse;font-size:.86rem;background:var(--surface);margin:.5rem 0}
+th,td{border:1px solid var(--line);padding:.4rem .5rem;text-align:left;vertical-align:top}th{background:#efeae0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));gap:.6rem}
+ul.compact{margin:.2rem 0 0;padding-left:1.1rem;font-size:.84rem}
+ul.feed{margin:0;padding-left:1.2rem}
+.mob{display:none;flex-wrap:wrap;gap:.35rem;margin:0 0 1rem}
+.mob a{font-size:.78rem;background:var(--accent-soft);color:var(--accent);text-decoration:none;padding:.2rem .5rem;border-radius:999px}
+.foot{margin-top:2.5rem;font-size:.86rem;color:var(--mut);border-top:1px solid var(--line);padding-top:1rem}
+.btn{display:inline-flex;align-items:center;gap:.35rem;background:var(--accent);color:#fff!important;text-decoration:none;font-weight:650;font-size:.88rem;padding:.45rem .85rem;border-radius:999px;border:0;cursor:pointer}
+.btn.sec{background:var(--accent-soft);color:var(--accent)!important}
+.btn.ghost{background:transparent;color:var(--accent)!important;border:1px solid var(--accent)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(7.5rem,1fr));gap:.55rem;margin:.6rem 0}
+.gallery a{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#efeae0}
+.gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.draft-head{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:space-between;margin:0 0 .4rem}
+.copybox{position:relative;background:#efeae0;border-radius:10px;padding:.7rem .8rem;font-size:.88rem;white-space:pre-wrap;word-break:break-word;margin:.4rem 0}
+.copybox .copybtn{position:absolute;top:.4rem;right:.4rem}
+@media(max-width:900px){.shell{grid-template-columns:1fr}.nav{display:none}.mob{display:flex}.main{padding:1.1rem 1rem 3rem}}
+
+.shell{max-width:none}
+.main{padding:1.6rem clamp(1rem,3vw,3rem) 4rem}
+.nav a.on{background:var(--accent-soft);color:var(--accent);font-weight:650}
+.mob{position:sticky;top:0;z-index:5;background:var(--bg);padding:.5rem 0;margin:0 0 .8rem;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.mob a{white-space:nowrap}.mob a.on{background:var(--accent);color:#fff}
+h2{scroll-margin-top:.5rem}
+.lead{font-size:1.02rem;max-width:none}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:.8rem}
+.cols .card{margin:0}
+.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(22rem,1fr));gap:.9rem;align-items:start}
+.topic{margin:0}.topic h3{font-size:1.05rem}
+.topic .line{margin:.1rem 0 .5rem}.topic .line .tag{margin-left:0}
+.sub{font-size:.8rem;font-weight:700;color:var(--mut);margin:.8rem 0 .2rem}
+ol.titles{margin:0;padding-left:1.3rem}ol.titles li{font-weight:650;color:var(--ink)}
+.tw{overflow-x:auto;margin:.4rem 0 1rem}
+.tw table{margin:0;min-width:36rem}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+td.nowrap{white-space:nowrap}
+a.nid code{font-size:.72rem}
+ul.x li{margin:.55rem 0}
+.big{font-weight:700;color:var(--ink)}
+@media(max-width:900px){h2,h1{scroll-margin-top:3.6rem}.topics,.cols{grid-template-columns:1fr}.mob{margin:0 -1rem .8rem;padding:.5rem 1rem}}
+</style></head><body><div class="shell">
+<aside class="nav"><p class="brand">推荐流侦察 · 2026-11-04</p><p class="meta">私密 x-digest</p><div class="sec">本页</div><a href="#sum" data-s="sum">结论</a><a href="#cat" data-s="cat">分类占比</a><a href="#hot" data-s="hot">爆款拆解</a><a href="#topics" data-s="topics">选题</a><a href="#raw" data-s="raw">原始 40 条</a><div class="sec">其他页</div><a href="../">← 小红书选题库</a><a href="../daily/2026-11-04.html">当天日报</a></aside>
+<main class="main"><nav class="mob"><a href="#sum" data-s="sum">结论</a><a href="#cat" data-s="cat">分类占比</a><a href="#hot" data-s="hot">爆款拆解</a><a href="#topics" data-s="topics">选题</a><a href="#raw" data-s="raw">原始 40 条</a><a href="../">选题库</a></nav>
+<h1 id="sum">小红书推荐流侦察 · 2026-11-04</h1>
+<p class="muted">研究小号只读浏览首页推荐流，记 40 条、深读 8 篇；没点赞、收藏、评论、关注。数字照页面抄，深读时的数可能比列表时略高（如「擦屁股」列表 6551、详情 6687）。</p>
+<div class="card verdict"><ul>
+<li>推荐流里 AI 相关最多（15/40，37.5%），但互动很低：中位数 27 赞，最高 338（阿里 Agent 面经）。</li>
+<li>真正爆的是情绪和八卦：「为什么很少看到拼多多员工」2.8 万赞、6110 评论，「姐一天 妹一天」1.2 万，「擦屁股」6551——正文几乎只有标签，火在评论区。</li>
+<li>和 Ocean 定位最近的高赞是「如何推进一件事情发生（大厂高压版）」2209 赞、1547 收藏，收藏接近赞，说明大厂做事方法有人存；评论也在吵「太 aggressive」。</li>
+<li>AI PM 干货帖（评测、新人指南、插件）收藏≥赞但量小，且普遍在评论区引流，这正是能做出差异的地方：第一人称、无引流。</li>
+</ul></div>
+<h2 id="cat">推荐内容分类占比（40 条）</h2>
+<div class="tw"><table><thead><tr><th>类别</th><th>条数</th><th>占比</th><th>赞中位数</th><th>本类最高</th></tr></thead><tbody><tr><td>AI / AI 产品 / PM</td><td class="num">15</td><td class="num">37.5%</td><td class="num">27</td><td><a href="https://www.xiaohongshu.com/explore/6ad5d2d4000000001e034307" target="_blank" rel="noopener">阿里巴巴大模型Agent一面10.19</a>（338）</td></tr><tr><td>情感 / 娱乐 / 搞笑 / 猎奇</td><td class="num">11</td><td class="num">27.5%</td><td class="num">1838</td><td><a href="https://www.xiaohongshu.com/explore/6aeaaab0000000001b01fb66" target="_blank" rel="noopener">我还以为是每个人都会擦屁股…</a>（6551）</td></tr><tr><td>穿搭 / 身材</td><td class="num">5</td><td class="num">12.5%</td><td class="num">148</td><td><a href="https://www.xiaohongshu.com/explore/6ae9d9dc000000000f027b40" target="_blank" rel="noopener">姐一天 妹一天</a>（1.2万）</td></tr><tr><td>职场 / 行业八卦（非 AI）</td><td class="num">4</td><td class="num">10.0%</td><td class="num">109.5</td><td><a href="https://www.xiaohongshu.com/explore/6ac64a55000000001b031059" target="_blank" rel="noopener">为什么很少看到拼多多员工</a>（2.8万）</td></tr><tr><td>其他（设计、工具、育儿、时政、社群）</td><td class="num">5</td><td class="num">12.5%</td><td class="num">166</td><td><a href="https://www.xiaohongshu.com/explore/6aea8bf5000000000e02fcb4" target="_blank" rel="noopener">老川两院尽丢，所有摇摆州+德州翻蓝</a>（3232）</td></tr></tbody></table></div>
+<p class="muted">分类按标题和封面说明人工归的，边界帖（如「amazon也没钱了」算职场八卦，「新野兽派 UI」算设计）有主观成分。</p>
+<h2 id="hot">高赞帖为什么火</h2>
+<div class="cols">
+<div class="card"><h3><a href="https://www.xiaohongshu.com/explore/6ac64a55000000001b031059" target="_blank" rel="noopener">为什么很少看到拼多多员工</a></h3><p>2.8 万赞 / 4313 收藏 / 6110 评论，单图、正文只有标签。钩子是「大家都用拼多多却没见过员工」的好奇缺口，标题是一句提问，留白让评论区自己讲故事：热评是仅退款经历（4.1 万、4 万赞）和「朋友在 PDD 上班都偷偷的」。评论比赞高到 22%，靠吵和讲经历出量。</p></div>
+<div class="card"><h3><a href="https://www.xiaohongshu.com/explore/6ae9d9dc000000000f027b40" target="_blank" rel="noopener">姐一天 妹一天</a></h3><p>1.3 万赞（列表显示 1.2 万）、18 张 ootd，正文只有标签。靠封面和大量图撑停留；评论在争「借品牌方衣服不还」，有争议就有回复。</p></div>
+<div class="card"><h3><a href="https://www.xiaohongshu.com/explore/6aeaaab0000000001b01fb66" target="_blank" rel="noopener">我还以为是每个人都会擦屁股…</a></h3><p>6687 赞、4163 评论，猎奇卫生话题，标题用「我还以为…」制造「原来不是人人都这样」的落差，评论区人人都能表态。</p></div>
+<div class="card"><h3>赛文的守规矩文学，后劲太大（一风老师脱口秀，链接待补）</h3><p>7136 赞、831 收藏，14 张脱口秀金句截图。情绪价值是「守规矩吃亏」的共鸣，结尾提问加引流入群；评论跑题到租房中介。</p></div>
+<div class="card"><h3>如何推进一件事情发生：（大厂高压版）（西蓝发，链接待补）</h3><p>2209 赞、1547 收藏、81 评论。封面是日落工位照，10 条短句清单（攻克关键人物、拉会刷存在感、课题分离…），收藏/赞≈0.7，典型「存起来用」。评论两派：「这是真在大厂干过」vs「太 aggressive 消耗心力」（155 赞）。</p></div>
+<div class="card"><h3>AI PM 干货帖：<a href="https://www.xiaohongshu.com/explore/6ae85686000000002b02b4de" target="_blank" rel="noopener">AI产品里的评测，到底在测什么？</a> / <a href="https://www.xiaohongshu.com/explore/6aeaa39f000000001e015aa2" target="_blank" rel="noopener">github｜产品经理大幅提高生产率的插件</a> / 终于明白为啥大家都不爱带AI产品新人了</h3><p>评测帖 32 赞 50 收藏、插件帖 29 赞 30 收藏：收藏≥赞，内容有用但没有情绪钩子，标题像教材。三条的作者都在评论区引流（知识库、「留11」带学），读者会防备。</p></div>
+</div>
+<h2 id="topics">今天可写的 3 条选题</h2>
+<div class="cols">
+<div class="card"><h3>① 我在大厂推进一件事，最后靠的不是拉会</h3>
+<p><b>对标：</b>「如何推进一件事情发生（大厂高压版）」2209 赞 / 1547 收藏（西蓝发；推荐流补充记录里没存帖子 ID，链接待补）；同主题有 ID 的参照：<a href="https://www.xiaohongshu.com/explore/6adc9d50000000002c015d5e" target="_blank" rel="noopener">一个打工人悄悄心碎的周末</a>。</p>
+<p><b>手里的素材：</b>自己做过的一次跨团队推进，讲真实卡点和怎么解的。</p>
+<p><b>不一样在哪：</b>对标是 10 条口号式清单、评论嫌太 aggressive；这篇讲一个具体例子、不教人刷存在感，正好接住那条 155 赞的反对评论。</p></div>
+<div class="card"><h3>② 我们组上线一个 AI 功能前，评测到底看哪几个数</h3>
+<p><b>对标：</b><a href="https://www.xiaohongshu.com/explore/6ae85686000000002b02b4de" target="_blank" rel="noopener">AI产品里的评测，到底在测什么？</a>（32 赞 / 50 收藏，收藏比高）。</p>
+<p><b>手里的素材：</b>自己团队做评测的实际流程和踩过的坑（具体数字以 Ocean 提供为准，待核）。</p>
+<p><b>不一样在哪：</b>对标是教材式三层指标 + 评论引流；这篇第一人称讲「我们原来只看正确率，后来发现…」，不卖课不引流。</p></div>
+<div class="card"><h3>③ 面 AI 产品经理时，我最怕听到「精通 Agent」</h3>
+<p><b>对标：</b><a href="https://www.xiaohongshu.com/explore/6aeac8280000000015016230" target="_blank" rel="noopener">面了个空窗期的Agent候选人，太惊艳了</a>（4 赞）、<a href="https://www.xiaohongshu.com/explore/6ad5d2d4000000001e034307" target="_blank" rel="noopener">阿里巴巴大模型Agent一面10.19</a>（338 赞，推荐流里 AI 类最高）；另有「终于明白为啥大家都不爱带AI产品新人了」（badada，链接待补）。</p>
+<p><b>手里的素材：</b>自己作为面试官问过什么、什么回答让人加分。</p>
+<p><b>不一样在哪：</b>对标要么是面经题目清单、要么借吐槽新人引流；这篇站面试官视角讲判断标准，不贬低新人。</p></div>
+</div>
+<p class="muted">不适合的：拼多多员工、擦屁股、穿搭这类爆款靠的是好奇和争议，和账号定位不搭，硬蹭会显得说教或标题党。</p>
+<h2 id="raw">原始 40 条（按赞排序）</h2>
+<div class="tw"><table><thead><tr><th>赞</th><th>标题（点开看原帖）</th><th>作者</th><th>形式</th></tr></thead><tbody><tr><td class="num">2.8万</td><td><a href="https://www.xiaohongshu.com/explore/6ac64a55000000001b031059" target="_blank" rel="noopener">为什么很少看到拼多多员工</a></td><td>薏米（努力版）</td><td class="nowrap">图文(单图)</td></tr><tr><td class="num">1.2万</td><td><a href="https://www.xiaohongshu.com/explore/6ae9d9dc000000000f027b40" target="_blank" rel="noopener">姐一天 妹一天</a></td><td>木子卓儿</td><td class="nowrap">图文(18图)</td></tr><tr><td class="num">6551</td><td><a href="https://www.xiaohongshu.com/explore/6aeaaab0000000001b01fb66" target="_blank" rel="noopener">我还以为是每个人都会擦屁股…</a></td><td>---</td><td class="nowrap">图文</td></tr><tr><td class="num">5532</td><td><a href="https://www.xiaohongshu.com/explore/6adda71a000000003101fd78" target="_blank" rel="noopener">捡起一片落叶，发现里面住着童话🍁</a></td><td>这姐有点东西</td><td class="nowrap">图文</td></tr><tr><td class="num">5504</td><td><a href="https://www.xiaohongshu.com/explore/6ae5aae80000000027015be6" target="_blank" rel="noopener">纵然物是人非，往事可堪回首。</a></td><td>望川</td><td class="nowrap">图文</td></tr><tr><td class="num">3232</td><td><a href="https://www.xiaohongshu.com/explore/6aea8bf5000000000e02fcb4" target="_blank" rel="noopener">老川两院尽丢，所有摇摆州+德州翻蓝</a></td><td>thomas托马斯</td><td class="nowrap">图文</td></tr><tr><td class="num">1930</td><td><a href="https://www.xiaohongshu.com/explore/6ae892430000000033018fa3" target="_blank" rel="noopener">如图</a></td><td>Ciabatta</td><td class="nowrap">图文</td></tr><tr><td class="num">1872</td><td><a href="https://www.xiaohongshu.com/explore/6add5332000000002c03580a" target="_blank" rel="noopener">脱口秀里杀疯了的爆款金句（39句）</a></td><td>一风老师脱口秀</td><td class="nowrap">图文</td></tr><tr><td class="num">1838</td><td><a href="https://www.xiaohongshu.com/explore/6acdacc6000000001c01ee85" target="_blank" rel="noopener">李诞的金钱观，很适合现在的我</a></td><td>Eva</td><td class="nowrap">图文</td></tr><tr><td class="num">1168</td><td><a href="https://www.xiaohongshu.com/explore/6ae3f504000000002600136d" target="_blank" rel="noopener">见crush选哪个呀</a></td><td>悲伤蓝莓挞</td><td class="nowrap">图文</td></tr><tr><td class="num">883</td><td><a href="https://www.xiaohongshu.com/explore/6ad73f5a000000002601f834" target="_blank" rel="noopener">我们追星女就是这样！🎊</a></td><td>地球online体验官</td><td class="nowrap">图文</td></tr><tr><td class="num">872</td><td><a href="https://www.xiaohongshu.com/explore/6ac60ee600000000020294cb" target="_blank" rel="noopener">她好胖哦 但是她穿的好漂亮啊</a></td><td>高冷冷-微胖</td><td class="nowrap">视频</td></tr><tr><td class="num">551</td><td><a href="https://www.xiaohongshu.com/explore/6aea1391000000001501772a" target="_blank" rel="noopener">看海！🌊</a></td><td>桃桃粘豆包</td><td class="nowrap">图文</td></tr><tr><td class="num">338</td><td><a href="https://www.xiaohongshu.com/explore/6ad5d2d4000000001e034307" target="_blank" rel="noopener">阿里巴巴大模型Agent一面10.19</a></td><td>知识分享官01p</td><td class="nowrap">图文</td></tr><tr><td class="num">257</td><td><a href="https://www.xiaohongshu.com/explore/6ae2d668000000002a00d615" target="_blank" rel="noopener">AI再卷下去都得配赛博脑机</a></td><td>人伪是我</td><td class="nowrap">图文</td></tr><tr><td class="num">226</td><td><a href="https://www.xiaohongshu.com/explore/6ae439930000000006020644" target="_blank" rel="noopener">色盲测试｜色弱的人都懂这种尴尬</a></td><td>YC工具小屋</td><td class="nowrap">图文</td></tr><tr><td class="num">217</td><td><a href="https://www.xiaohongshu.com/explore/6adc5427000000002d00568a" target="_blank" rel="noopener">你愿意么</a></td><td>向善若水</td><td class="nowrap">图文</td></tr><tr><td class="num">200</td><td><a href="https://www.xiaohongshu.com/explore/6adc9d50000000002c015d5e" target="_blank" rel="noopener">一个打工人悄悄心碎的周末</a></td><td>立湫</td><td class="nowrap">图文</td></tr><tr><td class="num">166</td><td><a href="https://www.xiaohongshu.com/explore/6ac85b9e000000001303df96" target="_blank" rel="noopener">新野兽派&amp;新粗野主义|6种超抓眼UI交互</a></td><td>能工智人永不为奴</td><td class="nowrap">视频</td></tr><tr><td class="num">148</td><td><a href="https://www.xiaohongshu.com/explore/6adefc4f000000000200af65" target="_blank" rel="noopener">178 ｜ 高个子穿搭</a></td><td>早睡晚起</td><td class="nowrap">图文</td></tr><tr><td class="num">144</td><td><a href="https://www.xiaohongshu.com/explore/6aeab7f8000000001500bdde" target="_blank" rel="noopener">177｜ 姐姐是一种感觉～</a></td><td>林昕桐</td><td class="nowrap">图文</td></tr><tr><td class="num">67</td><td><a href="https://www.xiaohongshu.com/explore/6ae1606a000000001903032e" target="_blank" rel="noopener">工程师身份危机？Anthropic平台负责人：真…</a></td><td>道可道，非常道</td><td class="nowrap">图文</td></tr><tr><td class="num">57</td><td><a href="https://www.xiaohongshu.com/explore/6ae88985000000002c015130" target="_blank" rel="noopener">从找选题到做图📚小红书 AI Skill 全家桶</a></td><td>老李AI实战</td><td class="nowrap">图文</td></tr><tr><td class="num">47</td><td><a href="https://www.xiaohongshu.com/explore/6ae99120000000001100caf1" target="_blank" rel="noopener">170cm 53kg | 健身20个月，好身材是我应得的</a></td><td>Penny</td><td class="nowrap">图文</td></tr><tr><td class="num">37</td><td><a href="https://www.xiaohongshu.com/explore/6aeac637000000000502c116" target="_blank" rel="noopener">哈哈哈哈神金，笑不活了…</a></td><td>期待</td><td class="nowrap">图文</td></tr><tr><td class="num">36</td><td><a href="https://www.xiaohongshu.com/explore/6ac74281000000000d020bdf" target="_blank" rel="noopener">出海AI App初创团队寻找核心创业合伙伙伴</a></td><td>Neil</td><td class="nowrap">图文</td></tr><tr><td class="num">32</td><td><a href="https://www.xiaohongshu.com/explore/6ae85686000000002b02b4de" target="_blank" rel="noopener">AI产品里的评测，到底在测什么？</a></td><td>Mima小圆（实习打怪版）</td><td class="nowrap">图文(5图)</td></tr><tr><td class="num">29</td><td><a href="https://www.xiaohongshu.com/explore/6ae7190a000000000e027fa4" target="_blank" rel="noopener">在新小区，三天就拉满了两个500人的社群</a></td><td>糖炒栗子isg</td><td class="nowrap">图文</td></tr><tr><td class="num">29</td><td><a href="https://www.xiaohongshu.com/explore/6aeaa39f000000001e015aa2" target="_blank" rel="noopener">github｜产品经理大幅提高生产率的插件</a></td><td>两口一个大包子</td><td class="nowrap">图文(2图)</td></tr><tr><td class="num">27</td><td><a href="https://www.xiaohongshu.com/explore/6ad9a0b6000000002b00df3b" target="_blank" rel="noopener">语义基建告别手工，AI 造企业本体</a></td><td>希超AI</td><td class="nowrap">图文</td></tr><tr><td class="num">26</td><td><a href="https://www.xiaohongshu.com/explore/6aeab7a4000000001a0214bc" target="_blank" rel="noopener">字节AI数据与安全技术负责人常晓龙即将离职</a></td><td>互联网行业信息家</td><td class="nowrap">图文</td></tr><tr><td class="num">26</td><td><a href="https://www.xiaohongshu.com/explore/6ae9aceb0000000015004def" target="_blank" rel="noopener">求助宝宝湿疹救治方法</a></td><td>汪舒雅 👠</td><td class="nowrap">图文</td></tr><tr><td class="num">26</td><td><a href="https://www.xiaohongshu.com/explore/6acde3490000000018017c64" target="_blank" rel="noopener">远程兼职｜招聘资深AI产品经理主讲</a></td><td>淡淡猫</td><td class="nowrap">图文</td></tr><tr><td class="num">19</td><td><a href="https://www.xiaohongshu.com/explore/6ae3b1d6000000000e037712" target="_blank" rel="noopener">amazon也没钱了</a></td><td>TJmaximize</td><td class="nowrap">图文</td></tr><tr><td class="num">13</td><td><a href="https://www.xiaohongshu.com/explore/6ae85002000000001803aa6b" target="_blank" rel="noopener">现在离职，在杭州容易找到工作嘛</a></td><td>福布斯</td><td class="nowrap">图文</td></tr><tr><td class="num">11</td><td><a href="https://www.xiaohongshu.com/explore/6aea41b10000000014010c00" target="_blank" rel="noopener">GPT跟Claude谁能留到最后</a></td><td>neo</td><td class="nowrap">图文</td></tr><tr><td class="num">10</td><td><a href="https://www.xiaohongshu.com/explore/6aeac759000000000e00ea15" target="_blank" rel="noopener">Claude 的审美还是太超前了</a></td><td>HELIOS</td><td class="nowrap">图文</td></tr><tr><td class="num">5</td><td><a href="https://www.xiaohongshu.com/explore/6aea772f00000000040394ce" target="_blank" rel="noopener">令人沮丧，所以重置呢?</a></td><td>虾球不懂 AI</td><td class="nowrap">图文</td></tr><tr><td class="num">4</td><td><a href="https://www.xiaohongshu.com/explore/6aeac8280000000015016230" target="_blank" rel="noopener">面了个空窗期的Agent候选人，太惊艳了</a></td><td>Ai大模型-丁哥</td><td class="nowrap">图文</td></tr><tr><td class="num">3</td><td><a href="https://www.xiaohongshu.com/explore/6aea9e75000000001503dc31" target="_blank" rel="noopener">gtp</a></td><td>你今天学习了？</td><td class="nowrap">图文</td></tr></tbody></table></div>
+<p class="muted">数据：/workspace/money/xhs-feed/2026-11-04/feed.tsv、deep.md。小红书链接不带访问令牌，可能要登录才能打开。</p>
+</main></div><script>
+(function(){
+  var ids=["top", "xhs", "deep", "xonly", "deeper", "topics", "data", "notes"], links=document.querySelectorAll('[data-s]');
+  function cur(){
+    var y=window.scrollY+80, c=ids[0];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]); if(el&&el.offsetTop<=y) c=ids[i];}
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-2) c=ids[ids.length-1];
+    links.forEach(function(a){var on=a.getAttribute('data-s')===c; a.classList.toggle('on',on);
+      if(on&&a.parentNode.classList.contains('mob')){var p=a.parentNode; p.scrollLeft=a.offsetLeft-p.clientWidth/2+a.clientWidth/2;}});
+  }
+  window.addEventListener('scroll',cur,{passive:true}); window.addEventListener('hashchange',cur); cur();
+})();
+</script></body></html>
