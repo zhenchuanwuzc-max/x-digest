@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>成长记录 · 专属入口</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml"/>
+<style>
+:root{
+  --bg:#f3f1eb; --surface:#fffcf7; --ink:#1a1c1b; --ink-2:#3d433f; --mut:#59656b;
+  --line:#e2ddd2; --accent:#1f4f63; --accent-soft:#e5f0f4; --teal:#0d6b52; --teal-soft:#e4f3ec;
+  --shadow:0 1px 2px rgba(26,28,27,.04),0 8px 24px rgba(26,28,27,.06);
+  --r:14px; --nav-w:13rem;
+}
+*{box-sizing:border-box}
+html{color-scheme:light;scroll-behavior:auto}
+body{
+  margin:0;color:var(--ink);background:var(--bg);
+  font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+::selection{background:#cfe0e8;color:var(--ink)}
+.shell{display:grid;grid-template-columns:var(--nav-w) minmax(0,1fr);gap:0;min-height:100vh;max-width:74rem;margin:0 auto}
+.nav{
+  position:sticky;top:0;align-self:start;height:100vh;
+  padding:1.5rem 1rem 2rem 1.15rem;border-right:1px solid var(--line);
+  background:linear-gradient(180deg,#f0f4f6,var(--bg));overflow:auto;
+}
+.brand-row{display:flex;align-items:center;gap:.55rem;margin:0 0 .35rem}
+.brand-row img{width:28px;height:28px;border-radius:7px;flex:0 0 auto}
+.nav .brand{font-weight:750;font-size:.95rem;letter-spacing:-.02em;margin:0;line-height:1.35}
+.nav .meta{font-size:.78rem;color:var(--mut);margin:0 0 1.1rem;line-height:1.45}
+.nav a{display:block;color:var(--ink-2);text-decoration:none;font-size:.88rem;padding:.38rem .55rem;border-radius:8px;margin:.12rem 0}
+.nav a:hover,.nav a:focus-visible{background:var(--accent-soft);color:var(--accent);outline:none}
+.nav .sec{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:1rem 0 .35rem;padding-left:.55rem}
+.main{padding:1.75rem 1.5rem 4.5rem;max-width:52rem}
+h1{font-size:clamp(1.4rem,2.3vw,1.8rem);line-height:1.28;letter-spacing:-.025em;margin:0 0 .55rem;font-weight:750}
+h2{font-size:1.12rem;line-height:1.35;margin:2rem 0 .75rem;padding-bottom:.45rem;border-bottom:2px solid var(--accent);letter-spacing:-.015em;font-weight:700}
+.muted{color:var(--mut);font-size:.94rem;line-height:1.6;margin:.4rem 0 1.2rem}
+.lead{
+  background:linear-gradient(180deg,#eef5f8,var(--surface));
+  border:1px solid #c5d8e0;border-radius:var(--r);padding:1.05rem 1.15rem;margin:0 0 1.4rem;
+  box-shadow:var(--shadow);font-size:.98rem;color:var(--ink-2);
+}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+@media(max-width:820px){
+  .shell{grid-template-columns:1fr}
+  .nav{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line)}
+  .grid{grid-template-columns:1fr}
+}
+.card{
+  display:flex;flex-direction:column;gap:.55rem;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  padding:1.15rem 1.2rem;box-shadow:var(--shadow);text-decoration:none;color:inherit;
+  transition:border-color .15s,box-shadow .15s,transform .15s;
+}
+a.card:hover,a.card:focus-visible{
+  border-color:#9bb8c4;box-shadow:0 4px 18px rgba(31,79,99,.12);transform:translateY(-1px);outline:none;
+}
+.card .ico{
+  width:40px;height:40px;border-radius:10px;display:grid;place-items:center;
+  background:var(--accent-soft);color:var(--accent);font-size:1.15rem;font-weight:750;
+}
+.card h3{margin:0;font-size:1.08rem;line-height:1.35;letter-spacing:-.015em;color:var(--ink)}
+.card p{margin:0;font-size:.92rem;line-height:1.55;color:var(--ink-2)}
+.card .meta{margin:0;font-size:.78rem;color:var(--mut)}
+.card .go{margin-top:auto;padding-top:.35rem;font-size:.86rem;font-weight:650;color:var(--accent)}
+.tag{
+  display:inline-block;font-size:11.5px;font-weight:650;line-height:1.4;
+  background:var(--teal-soft);color:var(--teal);padding:.12rem .45rem;border-radius:999px;margin-right:.25rem;
+}
+.foot{margin-top:2.2rem;font-size:.82rem;color:var(--mut)}
+.foot a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="nav">
+  <div class="brand-row">
+    <img src="icon.svg" width="28" height="28" alt=""/>
+    <p class="brand">成长记录</p>
+  </div>
+  <p class="meta">专属入口 · 私密<br>与小红书全入口分开</p>
+  <div class="sec">目录</div>
+  <a href="#people">每个人</a>
+  <a href="hector.html">Hector Serrano</a>
+  <a href="../zhangzala.html">张咋啦</a>
+  <a href="../kazike.html">卡兹克</a>
+  <a href="../creators.html">对标完整档案</a>
+  <div class="sec">相关</div>
+  <a href="../">← 小红书全入口</a>
+  <a href="https://zhenchuanwuzc-max.github.io/x-digest/">情报站首页</a>
+</aside>
+<main class="main">
+  <h1>成长记录 · 专属入口</h1>
+  <p class="muted">每人一页独立 URL。这里只做目录，不塞进小红书全入口正文。</p>
+  <div class="lead">看谁涨粉、怎么起号、长文怎么写、付费 UGC 怎么跑——按人进，别和每日选题混在一页。</div>
+
+  <h2 id="people">每个人</h2>
+  <div class="grid">
+    <a class="card" href="hector.html">
+      <div class="ico" aria-hidden="true">H</div>
+      <h3>Hector Serrano</h3>
+      <p><span class="tag">海外</span><span class="tag">付费 UGC</span> Wispr Flow 内容增长：从自然 UGC 到 retainer、招募与素材组合。</p>
+      <p class="meta">播客全文对照 · 2026-11-01</p>
+      <span class="go">打开个案 →</span>
+    </a>
+    <a class="card" href="../zhangzala.html">
+      <div class="ico" aria-hidden="true">张</div>
+      <h3>张咋啦（Zara Zhang）</h3>
+      <p><span class="tag">X</span><span class="tag">小红书</span> 两边同人拆解：learn-in-public、日更起号、长期分发。</p>
+      <p class="meta">给「AI具身牛马」参考</p>
+      <span class="go">打开拆解 →</span>
+    </a>
+    <a class="card" href="../kazike.html">
+      <div class="ico" aria-hidden="true">卡</div>
+      <h3>卡兹克</h3>
+      <p><span class="tag">公众号</span><span class="tag">长文</span> 起号复盘 + ≥27 篇长文写法；数字有出处。</p>
+      <p class="meta">数字生命卡兹克 / Rockhazix</p>
+      <span class="go">打开深拆 →</span>
+    </a>
+    <a class="card" href="../creators.html">
+      <div class="ico" aria-hidden="true">档</div>
+      <h3>对标完整档案</h3>
+      <p><span class="tag">国内+海外</span> 职场 / PM / 效率 / 学习 / 大厂日常 / AI 创作者档案合集。</p>
+      <p class="meta">与选题库同步 · 证据优先</p>
+      <span class="go">打开档案 →</span>
+    </a>
+  </div>
+
+  <p class="foot">私密 · <a href="./">x-digest/xhs/growth/</a> · 主站侧栏「成长记录」进这里 · 不进公开周报</p>
+</main>
+</div>
+</body>
+</html>
