@@ -6,59 +6,113 @@
 <meta name="robots" content="noindex,nofollow"/>
 <title>每日选题 · 往期</title>
 <style>
-:root{--bg:#f3f1eb;--surface:#fffcf7;--ink:#1a1c1b;--ink-2:#3d433f;--mut:#59656b;--line:#e2ddd2;--accent:#0d6b52;--accent-soft:#e4f3ec;--warn:#8a5a00;--warn-soft:#fff3d6;--ok:#1e6b3a;--ok-soft:#e6f4ea;--shadow:0 1px 2px rgba(26,28,27,.04),0 8px 24px rgba(26,28,27,.06);--r:14px}
+:root{--bg:#f3f1eb;--surface:#fffcf7;--ink:#1a1c1b;--ink-2:#3d433f;--mut:#59656b;--line:#e2ddd2;--accent:#0d6b52;--accent-soft:#e4f3ec;--warn:#8a5a00;--warn-soft:#fff3d6;--ok:#1e6b3a;--ok-soft:#e6f4ea;--shadow:0 1px 2px rgba(26,28,27,.04),0 8px 24px rgba(26,28,27,.06);--r:14px;--nav-w:14rem}
 *{box-sizing:border-box}html{scroll-behavior:auto}
 body{margin:0;color:var(--ink);background:var(--bg);font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-.wrap{max-width:42rem;margin:0 auto;padding:1.2rem 1.15rem 4rem}
-.top{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:baseline;margin:0 0 1.1rem;padding-bottom:.7rem;border-bottom:1px solid var(--line)}
-.top .brand{font-weight:750;font-size:.95rem}
-.top a{color:var(--ink-2);text-decoration:none;font-size:.82rem}
-.top a:hover{color:var(--accent)}
-.top .meta{margin-left:auto;font-size:.76rem;color:var(--mut)}
-h1{font-size:clamp(1.35rem,2.4vw,1.7rem);letter-spacing:-.025em;margin:0 0 .35rem;font-weight:750;line-height:1.28}
-.lede{color:var(--ink-2);margin:0 0 1.2rem;font-size:.98rem}
-.one{font-size:.9rem;color:var(--ok);background:var(--ok-soft);border-radius:10px;padding:.55rem .75rem;margin:0 0 1.3rem}
-h2{font-size:1.05rem;margin:2rem 0 .55rem;padding-bottom:.35rem;border-bottom:2px solid var(--accent);font-weight:700;scroll-margin-top:.5rem}
-.pick{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.05rem 1.05rem;margin:.85rem 0;box-shadow:var(--shadow);position:relative}
-.pick .n{position:absolute;top:.85rem;right:.95rem;font-size:.72rem;font-weight:700;color:var(--mut);letter-spacing:.04em}
-.pick h3{font-size:1.05rem;margin:0 1.8rem .55rem 0;font-weight:750;line-height:1.35}
+.shell{display:grid;grid-template-columns:var(--nav-w) minmax(0,1fr);max-width:none;margin:0 auto;min-height:100vh}
+.nav{position:sticky;top:0;align-self:start;height:100vh;overflow:auto;padding:1.4rem 1rem 2rem;border-right:1px solid var(--line);background:linear-gradient(180deg,#f7f5ef,var(--bg))}
+.nav .brand{font-weight:750;font-size:.95rem;margin:0 0 .3rem}
+.nav .meta{font-size:.76rem;color:var(--mut);margin:0 0 1rem;line-height:1.45}
+.nav a{display:block;color:var(--ink-2);text-decoration:none;font-size:.82rem;padding:.32rem .5rem;border-radius:8px;margin:.08rem 0}
+.nav a:hover,.nav a:focus,.nav a.on{background:var(--accent-soft);color:var(--accent)}
+.nav a.on{font-weight:650}
+.nav .sec{font-size:.7rem;letter-spacing:.06em;color:var(--mut);margin:.9rem 0 .3rem;padding-left:.5rem}
+.main{padding:1.6rem clamp(1rem,3vw,3rem) 4rem;min-width:0;max-width:78rem}
+h1{font-size:clamp(1.35rem,2.2vw,1.75rem);letter-spacing:-.025em;margin:0 0 .55rem;font-weight:750;line-height:1.28}
+h2{font-size:1.2rem;margin:2.4rem 0 1rem;padding-bottom:.4rem;border-bottom:2px solid var(--accent);font-weight:700;scroll-margin-top:.5rem;letter-spacing:-.01em}
+h3{font-size:1rem;margin:.15rem 0 .45rem;font-weight:700}
+p,li{color:var(--ink-2)}.muted{color:var(--mut);font-size:.92rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.1rem;margin:.7rem 0;box-shadow:var(--shadow)}
+.verdict{border-color:#b7d9cb;border-left:4px solid var(--accent);background:linear-gradient(180deg,#fff,#fffcf7);padding:1.15rem 1.25rem 1.2rem}
+.verdict .lead{margin:0 0 .85rem;color:var(--ink);font-weight:650;font-size:1.05rem;max-width:46rem;line-height:1.75}
+.verdict ul{margin:.2rem 0 .7rem;padding-left:1.15rem}
+.verdict li{margin:.35rem 0}
+.one{font-size:.95rem;color:var(--ok);background:var(--ok-soft);border-radius:10px;padding:.65rem .85rem;margin:.85rem 0 0;font-weight:650}
 .tag{display:inline-block;font-size:11px;font-weight:650;background:var(--ok-soft);color:var(--ok);padding:.1rem .45rem;border-radius:999px;margin-left:.35rem;vertical-align:middle}
-.row{margin:.4rem 0;font-size:.92rem;line-height:1.55}
+.tag.accent{background:var(--accent-soft);color:var(--accent)}
+.warn{font-size:.86rem;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:.55rem .7rem;margin:.7rem 0}
+a{color:var(--accent);text-underline-offset:3px}
+code{font-size:.78rem;background:#efeae0;padding:.05rem .3rem;border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:.86rem;background:var(--surface);margin:.5rem 0}
+th,td{border:1px solid var(--line);padding:.4rem .5rem;text-align:left;vertical-align:top}th{background:#efeae0}
+.tw{overflow-x:auto;margin:.5rem 0 1.2rem;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.tw table{margin:0;min-width:36rem}
+.tw th{background:#f7f5ef;font-size:.78rem;color:var(--mut)}
+.tw td,.tw th{padding:.55rem .7rem}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right;font-weight:650;color:var(--accent)}
+td.nowrap{white-space:nowrap}
+ul.compact{margin:.2rem 0 0;padding-left:1.1rem;font-size:.84rem}
+.kwgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(17.5rem,1fr));gap:1rem;align-items:stretch}
+.kwcard{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.05rem 1.05rem;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:100%}
+.kwh{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin:0 0 .55rem;padding-bottom:.55rem;border-bottom:1px solid var(--line)}
+.kwh h3{margin:0;font-size:1.02rem;font-weight:750;letter-spacing:-.01em}
+.kwbadge{flex:0 0 auto;font-size:.72rem;font-weight:650;color:var(--accent);background:var(--accent-soft);padding:.18rem .5rem;border-radius:999px;white-space:nowrap}
+.kwnote{margin:0 0 .7rem;font-size:.88rem;color:var(--mut);line-height:1.55}
+ol.posts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem;flex:1}
+ol.posts li{margin:0;padding:.55rem .6rem;border-radius:10px;background:#f7f5ef;border:1px solid transparent}
+ol.posts li:hover{border-color:var(--line);background:#fff}
+ol.posts a{display:block;color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;font-weight:650;font-size:.92rem;line-height:1.4}
+.pmeta{display:block;margin-top:.28rem;font-size:.75rem;color:var(--mut);font-weight:500;line-height:1.4}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:1rem}
+.cols .card{margin:0;padding:1.05rem 1.15rem}
+.cols .card h3{margin:0 0 .55rem;font-size:1.02rem;line-height:1.35}
+.cols .card p{margin:.45rem 0;font-size:.92rem}
+.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(22rem,1fr));gap:1rem;align-items:start}
+.pick{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.1rem 1.15rem 1.2rem;margin:0;box-shadow:var(--shadow);position:relative}
+.pick .n{position:absolute;top:.95rem;right:1rem;font-size:.72rem;font-weight:700;color:var(--mut);letter-spacing:.04em}
+.pick h3{font-size:1.08rem;margin:0 1.8rem .55rem 0;font-weight:750;line-height:1.35}
+.row{margin:.45rem 0;font-size:.92rem;line-height:1.55}
 .row b{display:block;font-size:.72rem;color:var(--mut);font-weight:650;letter-spacing:.03em;margin-bottom:.08rem}
-.row a{color:var(--accent);text-underline-offset:3px}
-.muted{color:var(--mut);font-size:.86rem}
-.signals{margin:.3rem 0 0;padding-left:1.15rem}
-.signals li{margin:.28rem 0;color:var(--ink-2);font-size:.92rem}
-.insp{list-style:none;margin:0;padding:0}
-.insp li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.7rem .85rem;margin:.45rem 0}
+.insp{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:.75rem}
+.insp li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem;margin:0;box-shadow:var(--shadow)}
 .insp .t{font-weight:650;font-size:.95rem}
 .insp .m{font-size:.8rem;color:var(--mut);margin-top:.15rem}
 .insp .a{font-size:.86rem;color:var(--ink-2);margin-top:.25rem}
-.foot{margin-top:2.4rem;padding-top:.8rem;border-top:1px solid var(--line);font-size:.78rem;color:var(--mut)}
-.toc a{display:inline-block;margin:0 .55rem .35rem 0;font-size:.88rem;color:var(--accent);text-decoration:none;background:var(--accent-soft);padding:.28rem .6rem;border-radius:999px}
-.toc a:hover{text-decoration:underline}
+ul.x{margin:.4rem 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.65rem}
+ul.x li{margin:0;padding:.85rem 1rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+ul.x li b{display:block;margin-bottom:.25rem;color:var(--ink)}
+.signals{margin:.3rem 0 0;padding-left:1.15rem}
+.signals li{margin:.28rem 0;color:var(--ink-2);font-size:.92rem}
+.foot{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--mut);font-size:.85rem}
+.mob{display:none;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:.35rem;margin:0 0 1rem;position:sticky;top:0;z-index:5;background:var(--bg);padding:.55rem 0}
+.mob a{font-size:.78rem;background:var(--accent-soft);color:var(--accent);text-decoration:none;padding:.2rem .5rem;border-radius:999px;white-space:nowrap}
+.mob a.on{background:var(--accent);color:#fff}
+details.rawfold{margin:1rem 0;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:.4rem .9rem .9rem}
+details.rawfold > summary{cursor:pointer;font-weight:700;padding:.55rem 0;color:var(--ink)}
 .hub-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.05rem;margin:.6rem 0;box-shadow:var(--shadow)}
 .hub-card a{color:var(--ink);text-decoration:none;font-weight:700;font-size:1.02rem}
 .hub-card a:hover{color:var(--accent)}
 .hub-card p{margin:.35rem 0 0;color:var(--ink-2);font-size:.9rem}
-.warn{font-size:.84rem;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:.55rem .7rem;margin:0 0 1rem}
+.toc a{display:inline-block;margin:0 .55rem .35rem 0;font-size:.88rem;color:var(--accent);text-decoration:none;background:var(--accent-soft);padding:.28rem .6rem;border-radius:999px}
+.partial{font-size:.86rem;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:.55rem .7rem;margin:0 0 1rem}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}.nav{display:none}.mob{display:flex}
+  .main{padding:1.1rem 1rem 3rem}
+  h2,h1{scroll-margin-top:3.6rem}
+  .topics,.cols,.kwgrid,.insp{grid-template-columns:1fr}
+  .mob{margin:0 -1rem .8rem;padding:.5rem 1rem}
+  .kwh{flex-wrap:wrap}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="top">
-    <span class="brand">每日选题</span>
-    <a href="../">选题库</a>
-    <span class="meta">私密 · 往期</span>
-  </div>
+<div class="shell">
+<aside class="nav">
+  <p class="brand">每日选题</p>
+  <p class="meta">私密 · PC 宽屏合并阅读</p>
+  <div class="sec">导航</div>
+  <a href="../">选题库</a>
+  <div class="sec">日期</div>
+  <a href="2026-11-05.html">11-05</a><a href="2026-11-04.html">11-04</a><a href="2026-11-03.html">11-03</a><a href="2026-11-02.html">11-02</a><a href="2026-11-01.html">11-01</a>
+</aside>
+<main class="main">
   <h1>每天打开这一页</h1>
-  <p class="lede">把「今天写啥」合成一页：去重后的选题 + 信号 + 进选题的灵感。旧日报与推荐流仍留档，不在导航里。</p>
+  <p class="muted">PC 宽屏把日报关键词/细看/X 缺口、推荐流分类与爆款拆解、去重选题、灵感要点合在一页。旧 daily/、feed/ 留档，不在导航里。</p>
   <p class="warn">约 07:00（台北时区）出当日页。</p>
-  <div class="toc">
-    <a href="2026-11-05.html">11-05</a><a href="2026-11-04.html">11-04</a><a href="2026-11-03.html">11-03</a><a href="2026-11-02.html">11-02</a><a href="2026-11-01.html">11-01</a>
-  </div>
-  <div class="hub-card"><a href="2026-11-05.html">11/05 · 2026-11-05</a><p>先写情报站；权限放权借 Cat Wu 热点但不追八卦；评测讲先翻记录。</p></div><div class="hub-card"><a href="2026-11-04.html">11/04 · 2026-11-04</a><p>推进落地优先；效果差先分清改哪边；汇报先丢决策点。</p></div><div class="hub-card"><a href="2026-11-03.html">11/03 · 2026-11-03</a><p>Skill 真用法优先；demo 到上线补四块；给 AI 划边界。</p></div><div class="hub-card"><a href="2026-11-02.html">11/02 · 2026-11-02</a><p>带 AI 团队的卡点；做网页先给规矩；派活写清三样。</p></div><div class="hub-card"><a href="2026-11-01.html">11/01 · 2026-11-01</a><p>AI 写 PRD 的人机分界；AI 功能 PRD 多写块；对齐只留 Action。</p></div>
-  <div class="foot">私密页，勿外传。</div>
+  <div class="toc"><a href="2026-11-05.html">11-05</a><a href="2026-11-04.html">11-04</a><a href="2026-11-03.html">11-03</a><a href="2026-11-02.html">11-02</a><a href="2026-11-01.html">11-01</a></div>
+  <div class="hub-card"><a href="2026-11-05.html">11/05 · 2026-11-05</a><p>先写情报站；权限放权借 Cat Wu 热点但不追八卦；评测讲先翻记录。</p></div><div class="hub-card"><a href="2026-11-04.html">11/04 · 2026-11-04</a><p>推进落地优先；效果差先分清改哪边；汇报先丢决策点。</p></div><div class="hub-card"><a href="2026-11-03.html">11/03 · 2026-11-03</a><p>Skill 真用法优先；demo 到上线补四块；给 AI 划边界。 · 无推荐流合并</p></div><div class="hub-card"><a href="2026-11-02.html">11/02 · 2026-11-02</a><p>带 AI 团队的卡点；做网页先给规矩；派活写清三样。 · 无推荐流合并</p></div><div class="hub-card"><a href="2026-11-01.html">11/01 · 2026-11-01</a><p>AI 写 PRD 的人机分界；AI 功能 PRD 多写块；对齐只留 Action。 · 无推荐流合并</p></div>
+  <p class="foot">私密页，勿外传。</p>
+</main>
 </div>
 </body>
 </html>
