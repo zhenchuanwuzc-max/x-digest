@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>歸藏成长页 · AIGC周刊 · 给 Ocean</title>
+<style>
+:root{
+  --bg:#f7f4ec; --surface:#fffcf7; --ink:#1a1a18; --ink-2:#3a3a36; --mut:#6a6a62;
+  --line:#e6e0d4; --hi:#ffe566; --hi-soft:#fff6c8;
+  --shadow:0 1px 2px rgba(26,26,24,.04),0 8px 24px rgba(26,26,24,.05);
+  --r:14px; --nav-w:14rem;
+}
+*{box-sizing:border-box}
+html{color-scheme:light; scroll-behavior:auto}
+body{
+  margin:0; color:var(--ink); background:var(--bg);
+  font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+::selection{background:var(--hi); color:var(--ink)}
+mark{background:var(--hi); color:var(--ink); padding:.05em .18em; border-radius:3px; font-style:normal}
+.shell{display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr); gap:0; min-height:100vh; width:100%; max-width:none; margin:0}
+.nav{position:sticky; top:0; align-self:start; height:100vh; padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line); background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto}
+.nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
+.nav .meta{font-size:.76rem; color:var(--mut); margin:0 0 1rem; line-height:1.45}
+.nav a{display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem; padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent}
+.nav a:hover,.nav a:focus-visible{background:var(--hi-soft); outline:none}
+.nav a.active{background:var(--hi); color:var(--ink); font-weight:650; border-left-color:#c9b020}
+.nav .sec{font-size:.7rem; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .3rem; padding-left:.55rem; text-transform:uppercase}
+.main{padding:1.6rem clamp(1rem,3vw,2.4rem) 4.5rem; width:100%; max-width:none}
+h1{font-size:clamp(1.4rem,2.4vw,1.85rem); line-height:1.25; letter-spacing:-.025em; margin:0 0 .5rem; font-weight:750}
+h2{font-size:1.14rem; line-height:1.35; margin:2.1rem 0 .6rem; padding-bottom:.4rem; border-bottom:3px solid var(--hi); letter-spacing:-.015em; font-weight:700}
+h3{font-size:1.02rem; margin:1.2rem 0 .4rem; font-weight:700}
+p,li{color:var(--ink-2)}
+p{margin:.5rem 0}
+.muted{color:var(--mut); font-size:.92rem; line-height:1.55}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:1rem 1.15rem; margin:.8rem 0; box-shadow:var(--shadow)}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr)); gap:.75rem}
+.stat strong{display:block; font-size:1.35rem; letter-spacing:-.02em; margin:.15rem 0}
+.tag{display:inline-block; font-size:12px; font-weight:650; background:var(--hi-soft); color:#6a5a00; padding:.12rem .5rem; border-radius:999px; margin-right:.3rem}
+.tag.warn{background:#fff0d6; color:#8a5a00}
+a{color:var(--ink); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-word}
+a:hover{background:linear-gradient(180deg,transparent 60%, var(--hi) 60%)}
+table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:.42rem .5rem; text-align:left; vertical-align:top}
+th{background:#efeae0; font-weight:650}
+.quote{border-left:3px solid var(--hi); padding:.35rem .9rem; margin:.55rem 0; background:var(--hi-soft); border-radius:0 8px 8px 0; font-size:.95rem}
+.foot{margin-top:2.5rem; font-size:.86rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
+.mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.5rem 0; border-bottom:1px solid var(--line)}
+.mob-nav a{font-size:.8rem; color:var(--ink); text-decoration:none; background:var(--hi-soft); padding:.2rem .5rem; border-radius:999px}
+ul.plain{margin:.35rem 0; padding-left:1.2rem}
+ul.plain li{margin:.28rem 0}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .nav{display:none}
+  .mob-nav{display:flex}
+  .main{padding:1.1rem 1rem 3.5rem}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="nav" aria-label="目录">
+  <p class="brand">歸藏深拆</p>
+  <p class="meta">私密 · 写给 Ocean<br>从 creators 抽出 · 2026-11-05</p>
+  <div class="sec">选题库</div>
+  <a href="growth/">← 成长记录</a>
+  <a href="./">小红书全入口</a>
+  <a href="creators.html">对标档案</a>
+  <div class="sec">本页</div>
+  <a href="#overview">账号概况</a>
+  <a href="#timeline">时间线</a>
+  <a href="#breakout">破壁 / 代表</a>
+  <a href="#inflect">拐点</a>
+  <a href="#success">成功经验</a>
+  <a href="#for-ocean">给 Ocean</a>
+  <a href="#sources">来源与待核</a>
+</aside>
+<main class="main">
+<nav class="mob-nav" aria-label="移动目录">
+  <a href="#overview">概况</a>
+  <a href="#timeline">时间线</a>
+  <a href="#inflect">拐点</a>
+  <a href="#for-ocean">借鉴</a>
+</nav>
+
+<header>
+  <h1>歸藏成长页 · AIGC 周刊路径</h1>
+  <p class="muted">从 creators 深描抽出的独立页。对象：X <a href="https://x.com/op7418">@op7418</a> · 公众号「歸藏的AI工具箱」· 小报童《AIGC周刊》。缺精确审计数字标待核。</p>
+</header>
+<section id="overview">
+  <h2>账号概况</h2>
+  <div class="grid2">
+    <div class="card stat"><span class="tag">X</span><strong>~183.8k</strong><span class="muted">@op7418 · creators public_metrics</span></div>
+    <div class="card stat"><span class="tag">专栏</span><strong>小报童《AIGC周刊》</strong><span class="muted">关于页年费约 200 元档 · 以现读为准 · <a href="https://quaily.com/op7418/about">quaily about</a></span></div>
+    <div class="card stat"><span class="tag">节奏</span><strong>长内容周期 + 短平台日更</strong><span class="muted">访谈：推特/微博日更 5 条+ 吆喝</span></div>
+    <div class="card stat"><span class="tag">变现</span><strong>专栏 + 社群 + 合作</strong><span class="muted">先免费很久再收费</span></div>
+  </div>
+</section>
+<section id="timeline">
+  <h2>时间线</h2>
+  <table>
+    <thead><tr><th>时间</th><th>事件</th><th>出处</th></tr></thead>
+    <tbody>
+      <tr><td>2022 年底</td><td>ChatGPT 发布当周开学习笔记 → 《AIGC周刊》起点</td><td><a href="https://xiaobot.beehiiv.com/p/aigc">小报童专访</a></td></tr>
+      <tr><td>约两年免费</td><td>稳定更新；热度回落后增长变慢；抗拒收费 → 朋友推动转型付费</td><td>同上</td></tr>
+      <tr><td>付费后</td><td>访谈时订户曾披露「超过 592」、约每 5 天一期；短平台日更吆喝；免费引流用过热系统整理</td><td>专访（旧披露，现况待核）</td></tr>
+      <tr><td>2025 复盘（转载）</td><td>DeepSeek 后公众号自述约 1万→7.8万；X 约 11万；即刻约 2.5万；社群约 2000 付费会员量级</td><td><a href="https://www.163.com/dy/article/KI24JDV30556BM3X.html">网易转载</a> → <span class="tag warn">待核</span></td></tr>
+    </tbody>
+  </table>
+</section>
+<section id="breakout">
+  <h2>破壁 / 代表内容</h2>
+  <ol class="plain">
+    <li>持续《AIGC周刊》系列——从业者向信息密度 + 筛选者信任。</li>
+    <li>短平台日更工具/热点，为专栏持续供暖。</li>
+    <li>社群黑五式联名优惠（访谈 Monica 等案例）——付费群促成合作。</li>
+  </ol>
+</section>
+<section id="inflect">
+  <h2>拐点</h2>
+  <table>
+    <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
+    <tbody>
+      <tr><td>2022 年底</td><td>ChatGPT 当周起号周刊</td><td>0 → 免费周刊作者</td><td>热启动窗口 + 稳定更新</td></tr>
+      <tr><td>约两年后</td><td>转型付费小报童</td><td>免费读者 → 付费专栏</td><td>先免费很久；短平台吆喝；引流用过热整理</td></tr>
+      <tr><td>2025 复盘</td><td>DeepSeek 后公众号自述再涨一波</td><td>平台期 → 订阅涨幅 <span class="tag warn">待核</span></td><td>借模型热潮做系统整理</td></tr>
+    </tbody>
+  </table>
+</section>
+<section id="success">
+  <h2>成功经验</h2>
+  <div class="card">
+    <ul class="plain">
+      <li><strong>周刊筛选：</strong>从业者向密度，不是标题党资讯站。</li>
+      <li><strong>短平台日更是吆喝：</strong>不为第二套深度课。</li>
+      <li><strong>付费纪律：</strong>先免费很久；免费引流选「已过热系统整理」减少付费用户反感。</li>
+    </ul>
+  </div>
+</section>
+<section id="for-ocean">
+  <h2>给 Ocean</h2>
+  <div class="card">
+    <h3>可抄</h3>
+    <ol>
+      <li>主线课表先免费跑通信任，再谈付费。</li>
+      <li>小红书高频是「吆喝与切片」，不是第二套深度课。</li>
+      <li>免费帖可做「过热话题的系统整理卡」，深度留在系列母体。</li>
+    </ol>
+    <h3>暂时别学</h3>
+    <ul class="plain">
+      <li>两年免费周刊再收费的时间窗口（他卡在 ChatGPT 爆发当周）。</li>
+      <li>多平台日更 5 条+；2025 粉数/会员复盘数字不当 KPI。</li>
+      <li>不必复制「资讯周刊」赛道——你差异化是大厂 PM 现场。</li>
+    </ul>
+  </div>
+</section>
+<section id="sources">
+  <h2>来源与待核</h2>
+  <p>小报童专访 · quaily about · 网易转载 2025 回顾 · creators 深描 X metrics。待核：现订户数、2025 自述粉数/会员、公众号实时粉。</p>
+</section>
+
+<div class="foot"><p>私密 · x-digest · 从 creators 深描抽成独立成长页 · 2026-11-05 · 不编数字</p></div>
+</main>
+</div>
+<script>
+(function(){
+  const links=[...document.querySelectorAll('.nav a[href^="#"]')];
+  const map=links.map(a=>({a,el:document.querySelector(a.getAttribute('href'))})).filter(x=>x.el);
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting) return;
+      const id=en.target.id;
+      links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+id));
+    });
+  },{rootMargin:'-20% 0px -70% 0px', threshold:0});
+  map.forEach(({el})=>io.observe(el));
+})();
+</script>
+</body>
+</html>
