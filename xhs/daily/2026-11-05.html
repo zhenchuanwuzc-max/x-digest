@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>小红书日报 2026-11-05 · 私密</title>
+<style>
+:root{--bg:#f3f1eb;--surface:#fffcf7;--ink:#1a1c1b;--ink-2:#3d433f;--mut:#59656b;--line:#e2ddd2;--accent:#0d6b52;--accent-soft:#e4f3ec;--warn:#8a5a00;--warn-soft:#fff3d6;--ok:#1e6b3a;--ok-soft:#e6f4ea;--shadow:0 1px 2px rgba(26,28,27,.04),0 8px 24px rgba(26,28,27,.06);--r:14px;--nav-w:14rem}
+*{box-sizing:border-box}html{scroll-behavior:auto}
+body{margin:0;color:var(--ink);background:var(--bg);font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.shell{display:grid;grid-template-columns:var(--nav-w) minmax(0,1fr);max-width:78rem;margin:0 auto;min-height:100vh}
+.nav{position:sticky;top:0;align-self:start;height:100vh;overflow:auto;padding:1.4rem 1rem 2rem;border-right:1px solid var(--line);background:linear-gradient(180deg,#f7f5ef,var(--bg))}
+.nav .brand{font-weight:750;font-size:.95rem;margin:0 0 .3rem}.nav .meta{font-size:.76rem;color:var(--mut);margin:0 0 1rem;line-height:1.45}
+.nav a{display:block;color:var(--ink-2);text-decoration:none;font-size:.82rem;padding:.32rem .5rem;border-radius:8px;margin:.08rem 0}
+.nav a:hover,.nav a:focus{background:var(--accent-soft);color:var(--accent)}
+.nav .sec{font-size:.7rem;letter-spacing:.06em;color:var(--mut);margin:.9rem 0 .3rem;padding-left:.5rem}
+.main{padding:1.6rem 1.5rem 4rem;min-width:0}
+h1{font-size:clamp(1.35rem,2.2vw,1.75rem);letter-spacing:-.025em;margin:0 0 .4rem;font-weight:750;line-height:1.28}
+h2{font-size:1.12rem;margin:2.1rem 0 .6rem;padding-bottom:.4rem;border-bottom:2px solid var(--accent);font-weight:700;scroll-margin-top:0}
+h3{font-size:1rem;margin:.15rem 0 .45rem;font-weight:700}
+p,li{color:var(--ink-2)}.muted{color:var(--mut);font-size:.92rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.1rem;margin:.7rem 0;box-shadow:var(--shadow)}
+.verdict{border-color:#b7d9cb;background:linear-gradient(180deg,#f4faf7,var(--surface))}
+.tag{display:inline-block;font-size:11px;font-weight:650;background:var(--accent-soft);color:var(--accent);padding:.1rem .45rem;border-radius:999px;margin-left:.3rem}
+.tag.ok{background:var(--ok-soft);color:var(--ok)}
+.warn{font-size:.86rem;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:.55rem .7rem}
+a{color:var(--accent);text-underline-offset:3px}
+code{font-size:.78rem;background:#efeae0;padding:.05rem .3rem;border-radius:4px}
+code.tiny{font-size:.7rem;word-break:break-all}
+table{width:100%;border-collapse:collapse;font-size:.86rem;background:var(--surface);margin:.5rem 0}
+th,td{border:1px solid var(--line);padding:.4rem .5rem;text-align:left;vertical-align:top}th{background:#efeae0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));gap:.6rem}
+ul.compact{margin:.2rem 0 0;padding-left:1.1rem;font-size:.84rem}
+ul.feed{margin:0;padding-left:1.2rem}
+.fcard{position:relative;border-top:1px solid var(--line);padding:.7rem 0 .6rem}
+.fcard time{position:absolute;top:.7rem;right:0;font-size:.72rem;color:var(--mut)}
+.fr{margin:.15rem 0;font-size:.92rem;line-height:1.55}
+.fr b{display:block;font-size:.74rem;color:var(--mut);font-weight:650;letter-spacing:.03em}
+.fcard .fr:first-of-type{padding-right:5.5rem}
+.fbtn{margin-top:.4rem;font-size:.8rem;padding:.3rem .7rem}
+.mob{display:none;flex-wrap:wrap;gap:.35rem;margin:0 0 1rem}
+.mob a{font-size:.78rem;background:var(--accent-soft);color:var(--accent);text-decoration:none;padding:.2rem .5rem;border-radius:999px}
+.foot{margin-top:2.5rem;font-size:.86rem;color:var(--mut);border-top:1px solid var(--line);padding-top:1rem}
+.btn{display:inline-flex;align-items:center;gap:.35rem;background:var(--accent);color:#fff!important;text-decoration:none;font-weight:650;font-size:.88rem;padding:.45rem .85rem;border-radius:999px;border:0;cursor:pointer}
+.btn.sec{background:var(--accent-soft);color:var(--accent)!important}
+.btn.ghost{background:transparent;color:var(--accent)!important;border:1px solid var(--accent)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(7.5rem,1fr));gap:.55rem;margin:.6rem 0}
+.gallery a{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#efeae0}
+.gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.draft-head{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:space-between;margin:0 0 .4rem}
+.copybox{position:relative;background:#efeae0;border-radius:10px;padding:.7rem .8rem;font-size:.88rem;white-space:pre-wrap;word-break:break-word;margin:.4rem 0}
+.copybox .copybtn{position:absolute;top:.4rem;right:.4rem}
+@media(max-width:900px){.shell{grid-template-columns:1fr}.nav{display:none}.mob{display:flex}.main{padding:1.1rem 1rem 3rem}}
+
+.shell{max-width:none}
+.main{padding:1.6rem clamp(1rem,3vw,3rem) 4rem}
+.nav a.on{background:var(--accent-soft);color:var(--accent);font-weight:650}
+.mob{position:sticky;top:0;z-index:5;background:var(--bg);padding:.5rem 0;margin:0 0 .8rem;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.mob a{white-space:nowrap}.mob a.on{background:var(--accent);color:#fff}
+h2{scroll-margin-top:.5rem}
+.lead{font-size:1.02rem;max-width:none}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:.8rem}
+.cols .card{margin:0}
+.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(22rem,1fr));gap:.9rem;align-items:start}
+.topic{margin:0}.topic h3{font-size:1.05rem}
+.topic .line{margin:.1rem 0 .5rem}.topic .line .tag{margin-left:0}
+.sub{font-size:.8rem;font-weight:700;color:var(--mut);margin:.8rem 0 .2rem}
+ol.titles{margin:0;padding-left:1.3rem}ol.titles li{font-weight:650;color:var(--ink)}
+.tw{overflow-x:auto;margin:.4rem 0 1rem}
+.tw table{margin:0;min-width:36rem}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+td.nowrap{white-space:nowrap}
+a.nid code{font-size:.72rem}
+ul.x li{margin:.55rem 0}
+.big{font-weight:700;color:var(--ink)}
+@media(max-width:900px){h2,h1{scroll-margin-top:3.6rem}.topics,.cols{grid-template-columns:1fr}.mob{margin:0 -1rem .8rem;padding:.5rem 1rem}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="nav">
+  <p class="brand">小红书日报 · 2026-11-05</p>
+  <p class="meta">私密 x-digest<br>采集文件落盘：台北时间 11/05 09:07</p>
+  <div class="sec">本页</div>
+  <a href="#top" data-s="top">今天一句话</a><a href="#xhs" data-s="xhs">小红书在聊什么</a><a href="#deep" data-s="deep">细看三条</a><a href="#xonly" data-s="xonly">X 有、小红书还没有</a><a href="#deeper" data-s="deeper">Ocean 能讲得更深</a><a href="#topics" data-s="topics">今天可写的选题</a><a href="#data" data-s="data">原始数据</a><a href="#notes" data-s="notes">来源与说明</a>
+  <div class="sec">其他页</div>
+  <a href="../">← 小红书选题库</a><a href="../curriculum.html">课表</a><a href="./">全部日报</a>
+</aside>
+<main class="main">
+<nav class="mob"><a href="#top" data-s="top">今天一句话</a><a href="#xhs" data-s="xhs">小红书在聊什么</a><a href="#deep" data-s="deep">细看三条</a><a href="#xonly" data-s="xonly">X 有、小红书还没有</a><a href="#deeper" data-s="deeper">Ocean 能讲得更深</a><a href="#topics" data-s="topics">今天可写的选题</a><a href="#data" data-s="data">原始数据</a><a href="#notes" data-s="notes">来源与说明</a><a href="../">选题库</a><a href="./">全部日报</a></nav>
+<h1 id="top">小红书 PM + AI 日报 · 2026-11-05</h1>
+<p class="muted">搜索词：产品经理 / PRD / AI产品经理 / AI工具 / AI，筛选「最多点赞 + 一天内」。表里的「昨天 / N 小时前」是采集页面原样显示的相对时间；采集在台北时间 11/05 早上，「昨天」= 11/04。小红书链接都带访问令牌，当天点开有效，过几天可能失效。没核实的写「待核」。</p>
+<div class="card verdict">
+<p class="lead big">今天小红书 PM 圈几乎被 Cat Wu 离职刷屏（Rayn 那条 7027 赞、3554 评论），其次是 AI 产品岗面经和「skill 清单」。最值得写的是「我让 AI 干活，权限是一步步放出去的」：大家都在聊她的履历和去向，没人讲她告别帖里「从每步手动批准到默认自动批准」这段，而这正是他每天带机器人干活的真实做法。</p>
+<ul>
+<li>产品经理词：第一是 Cat Wu 离职（7027），第二是卡兹克「你品，你细品……」（986，内容待核），后面是竞品调研视频 200、播客推荐 98、字节 AI 产品 OC 90、蚂蚁 AI 产品经理面经 57。</li>
+<li>PRD 词：依旧冷，最高「产品经理大幅提高生产率的插件」49 赞，「必装的十大 skill」30 赞，真讲 PRD 的只有个位数。</li>
+<li>AI 工具 / AI 大词：热的是提示词写法（1471）、WorkBuddy 配置（983）、用 skill 剪视频（431）；AI 大词前排是「AI 拍黄片」1921、写论文教程 835，和 PM 关系不大。</li>
+<li>Cat Wu 台北时间今早 08:25 已在 X 宣布加入 OpenAI；他号上已经发了这条新闻（19 赞），不用再追新闻。</li>
+</ul>
+<p style="margin:.4rem 0 0">→ 三个选题见 <a href="#topics">今天可写的选题</a>：①AI 权限一步步放（AI 专题，最推荐）②AI 功能上线没人用先查断点（AI 专题）③PM 的 skill 先只装一个（轻帖）。</p>
+</div>
+
+<h2 id="xhs">小红书今天在聊什么</h2>
+<div class="cols">
+<div class="card"><h3>产品经理</h3><p>第一是 <a href="https://www.xiaohongshu.com/explore/6aeaa127000000001b01dcac?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81PE_nMDIuzOs0-xs-INwrFY=&amp;xsec_source=pc_search" target="_blank" rel="noopener">「卧槽，ClaudeCode产品负责人CatWu离职了」</a> 7027 赞（收藏 1853、评论 3554），一枝独秀。第二 <a href="https://www.xiaohongshu.com/explore/6aeaf81d0000000010010c7b?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81LEPE2PygLupt_hL35xfpe8=&amp;xsec_source=pc_search" target="_blank" rel="noopener">卡兹克「你品，你细品……」</a> 986（没点开，内容待核）。往下是 <a href="https://www.xiaohongshu.com/explore/6aeb015d000000001503ed34?xsec_token=AByo2H7IRLHthZA8_bI83mITqDGS0wY1nLHm5KUyrCxpI=&amp;xsec_source=pc_search" target="_blank" rel="noopener">「一个视频教会你竞品调研」</a> 200、播客推荐 98、<a href="https://www.xiaohongshu.com/explore/6aeb3b5a000000000e02e66c?xsec_token=AByo2H7IRLHthZA8_bI83mIdx1XI9Qy152ZAEPpRikWfs=&amp;xsec_source=pc_search" target="_blank" rel="noopener">「字节 ai 产品已 oc」</a> 90、<a href="https://www.xiaohongshu.com/explore/6aeac25e0000000002036044?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81N-dU76_ottFCq6aYIga-_0=&amp;xsec_source=pc_search" target="_blank" rel="noopener">蚂蚁 AI 产品经理面经</a> 57、「为什么有些产品经理越来越值钱」55、<a href="https://www.xiaohongshu.com/explore/6ae9ee24000000001600522b?xsec_token=ABGxX8_NNMJyxErZtOdU7StTo5tuDPQ6JTMhdvr7CDU64=&amp;xsec_source=pc_search" target="_blank" rel="noopener">「AI 产品经理面试 Agent 项目深度三标准」</a> 51。混着一条粉饼测评 199，和 PM 无关。</p></div>
+<div class="card"><h3>PRD</h3><p>很冷。最高 <a href="https://www.xiaohongshu.com/explore/6aeaa39f000000001e015aa2?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81CQw5ReRqIrYCQN-F8MjfFI=&amp;xsec_source=pc_search" target="_blank" rel="noopener">「github｜产品经理大幅提高生产率的插件」</a> 49，<a href="https://www.xiaohongshu.com/explore/6aeae925000000000602f5c8?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81MiqOvY3Lig2b2SWHFOcego=&amp;xsec_source=pc_search" target="_blank" rel="noopener">「产品经理必装的十大 skill」</a> 30，「这就是 AI 产品经理的现状」29，「AI 改简历开源」26。真讲 PRD 的「用 AI 输出 PRD 提效 100 倍」只有 6 赞。</p></div>
+<div class="card"><h3>AI 产品经理</h3><p>卡兹克 986 和 <a href="https://www.xiaohongshu.com/explore/6aeaa1c600000000150221f0?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81MPx0JUVI347r-4yr8NvUbY=&amp;xsec_source=pc_search" target="_blank" rel="noopener">智东西「Anthropic产品负责人Cat Wu离职了」</a> 130 在前；其后全是求职：校招岗 72、<a href="https://www.xiaohongshu.com/explore/6aeafd1a000000001501704a?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81GcQi452UHa8Lt41RWEVKeU=&amp;xsec_source=pc_search" target="_blank" rel="noopener">蚂蚁评测方向实习面经</a> 66、「AI 新型岗 FDE」59、学习路线 40、<a href="https://www.xiaohongshu.com/explore/6aeb25790000000003005706?xsec_token=AByo2H7IRLHthZA8_bI83mITZig0-jt8tAq3ySS5-svvA=&amp;xsec_source=pc_search" target="_blank" rel="noopener">「ai 产品如何量化你的实习成果」</a> 36。</p></div>
+<div class="card"><h3>AI 工具</h3><p><a href="https://www.xiaohongshu.com/explore/6aeb03d10000000003003530?xsec_token=AByo2H7IRLHthZA8_bI83mIc6vH5p9u6Aojpj2u0Z8k-0=&amp;xsec_source=pc_search" target="_blank" rel="noopener">「别再对 AI 这样说了！教你一套惊艳提示词写法」</a> 1471、<a href="https://www.xiaohongshu.com/explore/6aeae5bf000000000f027818?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81O1ZC1wfNbDB8iMsu4G9OXg=&amp;xsec_source=pc_search" target="_blank" rel="noopener">「安装 WorkBuddy 后，需要做的 8 个配置」</a> 983、直播回放批量剪辑 437、<a href="https://www.xiaohongshu.com/explore/6aea8567000000001503dbb5?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81MWXyqGSahgUiiZR3qLlupI=&amp;xsec_source=pc_search" target="_blank" rel="noopener">「用 skill 帮你剪辑成片」</a> 431、Vibe Coding 组件库 333、GitHub 小白速通 145。还是「拿来就能用的配置和清单」最吃香。</p></div>
+<div class="card"><h3>AI（大词）</h3><p>「AI 连黄片都自己拍了」1921、<a href="https://www.xiaohongshu.com/explore/6aeac554000000001903918b?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81BV5PQlxZ7sTebjo8BDPxfg=&amp;xsec_source=pc_search" target="_blank" rel="noopener">「让 AI 写你的 ICML 论文」</a> 835、「博士生别再让 AI 给 idea 打新颖度分」547、中石油 AI 面 411、苹果 AI 识别翻车 371。和 PM 关系不大，不当对标。</p></div>
+</div>
+
+<h2 id="deep">细看三条</h2>
+<div class="cols">
+<div class="card"><h3>Rayn · 卧槽，ClaudeCode产品负责人CatWu离职了</h3>
+<p>7027 赞、1853 收藏、3554 评论；3 张推文截图。讲 Cat Wu 发推说上周五是最后一天；补了她和 Boris Cherny 的分工（他定 3–6 个月愿景，她管落地路径和跨团队协调）；编号列履历（Scale AI → Dagster → Index Ventures → Anthropic）；引了她说「两年前要花几十小时引导，现在能自主做大型代码迁移」。结尾「蹲个后续」。</p>
+<p>开头第一句：「今天打开 Twitter 首页第一条就是 Cat Wu 的推文」，配震惊语气。评论区热评：「履历好漂亮，才刚 30 岁」549、「拯救一下 codex，claude 封号太严重了」244、「她去 OpenAI 了」232；另有大量 @ 别的账号订阅 AI 资讯的刷屏评论（498 赞吐槽），作者已禁止 @。</p>
+<p class="muted">看点：爆的是「人 + 公司 + 震惊」，内容只到履历。产品怎么从「每步批准」走到「自动批准」没人展开，就是选题①的空位。</p>
+<p><a href="https://www.xiaohongshu.com/explore/6aeaa127000000001b01dcac?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81PE_nMDIuzOs0-xs-INwrFY=&amp;xsec_source=pc_search" target="_blank" rel="noopener">打开原帖</a></p></div>
+<div class="card"><h3>洛洛可可 · 蚂蚁集团AI产品经理面经（已offer）</h3>
+<p>57 赞、75 收藏、1 评论。三轮：一面业务负责人（项目定位、LLM 效果指标、聊天机器人全链路设计、转岗动机）；二面产品和算法交叉压力面（模型路由、风控、微调方式、什么时候引入 RAG）；终面 HRG 和高管（压力处理、怎么判断项目成功、对 AI 的信念、Vibe Coding 实践）。四条建议：AI 客服岗隐含考点是转人工、拒答、合规兜底；LLM 指标准备到「三层 + 行为锚定」；二面靠心理素质；电话说来就来。</p>
+<p>开头直接按轮次讲，没有寒暄；标题带「已 offer」做背书。唯一评论在问「社招还是校招」。</p>
+<p class="muted">看点：「怎么判断项目成功」「兜底怎么设计」已经是面试题，选题②可以顺带服务求职读者。</p>
+<p><a href="https://www.xiaohongshu.com/explore/6aeac25e0000000002036044?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81N-dU76_ottFCq6aYIga-_0=&amp;xsec_source=pc_search" target="_blank" rel="noopener">打开原帖</a></p></div>
+<div class="card"><h3>老A的AI研究所 · 【自用收藏】产品经理必装的十大skill</h3>
+<p>30 赞、47 收藏、4 评论；11 张图。纯清单：brainstorming、write-a-prd、idea-refine、ab-test-setup、analytics-tracking、onboarding-cro、竞品分析、用户研究、思维导图、产品框架，每个配一句中文用途。</p>
+<p>标题就是钩子，正文直接 1 到 10 编号。评论区：两人问「这些在哪能找到」；一条长评建议「先挑一个每周必做的活（比如写 PRD）让 skill 出初稿再改」；一条「有几个我也在用」。</p>
+<p class="muted">看点：收藏 &gt; 点赞，说明大家想存；但「在哪找、先装哪个」没人答。选题③就补这一块。</p>
+<p><a href="https://www.xiaohongshu.com/explore/6aeae925000000000602f5c8?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81MiqOvY3Lig2b2SWHFOcego=&amp;xsec_source=pc_search" target="_blank" rel="noopener">打开原帖</a></p></div>
+</div>
+
+<h2 id="xonly">X 上有、小红书还没人讲的</h2>
+<p class="muted">「还没人讲」= 今天 5 个搜索词「一天内 + 最多点赞」前排里没看到，没有全站搜，<b>待核</b>。X 内容来自 11/05 X 情报日报，外加台北时间 11/05 约 09:10 用 X 只读接口补查的 Cat Wu 去向和对标博主近两天的公开帖。</p>
+<ul class="x"><li><b>Cat Wu 正式宣布加入 OpenAI，带 Core Products 的产品管理</b><br>台北时间 11/05 08:25 她自己发帖，抓取时约 3280 赞；Greg Brockman 发帖欢迎。小红书前排还停在「离职了」，Rayn 那条评论区有人说「她去 OpenAI 了」（232 赞）；他自己的号已经发了「反手加入了 OpenAI」（19 赞）。新闻他已经占了，后面写深度就行。 · <a href="https://x.com/_catwu/status/2118137612577968402" target="_blank" rel="noopener">X 原帖</a></li><li><b>她的告别帖：从「每一步手动批准」到「默认信任 AI 自动批准」</b><br>两年前这个编程工具还是内部小工具，她指挥它几十个小时、一行代码没手写；刚上线时大多数人每个权限请求都手动批，现在默认自动批准、让它做大规模迁移。小红书前排只引了「能自主做大型代码迁移」一句，没人讲权限是怎么一步步放的。→ 选题① · <a href="https://x.com/_catwu/status/2117731934340337676" target="_blank" rel="noopener">X 原帖</a></li><li><b>Uber：上季度几乎没人用 AI agent 叫车</b><br>TechCrunch 11/04 报道，财报里说上季度通过 AI agent 完成的打车只有 4 单（标题原意，细节待核）。小红书前排没人讲「AI 入口做了没人用」。→ 选题② · <a href="https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says/" target="_blank" rel="noopener">X 原帖</a></li><li><b>企业 AI 报告：一年支出涨约 5.4 倍</b><br>博主整理 Menlo 的报告：企业 API 支出里 Anthropic 份额从 40% 升到 55%，两大编程工具合计约占编程市场七成。博主整理，数字以报告原文为准，待核。→ 选题②的背景：钱在投，不等于有人用。 · <a href="https://x.com/X1149561415/status/2117875444833997153" target="_blank" rel="noopener">X 原帖</a></li><li><b>编程 agent 的「基础设施」在被大厂收购</b><br>Meta 收购同时跑多个编程 agent 的平台 Conductor（据 Hacker News 转的报道）；OpenAI 收购做代码协作组件的 Pierre，Codex 负责人发帖欢迎。小红书前排没看到（待核）。对他来说只是背景，暂不单写。 · <a href="https://x.com/vista8/status/2118007123590434850" target="_blank" rel="noopener">X 原帖</a></li><li><b>卡兹克：开源 Agent 自动化系统后，又花两天重新打磨</b><br>台北时间 11/04 14:07 发帖，抓取时约 749 赞、887 收藏；前一篇开源长文约 1354 赞、2569 收藏。他在小红书同时段的「你品，你细品……」986 赞，内容没点开看（待核）。 · <a href="https://x.com/Khazix0918/status/2117861191305609408" target="_blank" rel="noopener">X 原帖</a></li><li><b>Lenny：Newsletter 出纸质杂志 + 免费薪酬基准</b><br>杂志是 8 篇精选印成书、封面印你的名字（约 174 赞）；薪酬基准按岗位和城市查底薪和股权（约 596 赞、926 收藏，11/04 日报已记）。对他的选题用处不大。 · <a href="https://x.com/lennysan/status/2118057419079340489" target="_blank" rel="noopener">X 原帖</a></li></ul>
+
+<h2 id="deeper">Ocean 能讲得更深的地方</h2>
+<div class="cols">
+<div class="card"><h3>AI 的权限怎么放</h3><p>小红书只讲到「她走了、她去哪」。他每天带几个机器人干活，有检查表、有自检脚本拦着、现在只在合并时看一眼，是现成的「放权节奏」案例。→ 选题①</p></div>
+<div class="card"><h3>上线了没人用</h3><p>X 上有「AI 叫车一个季度个位数」这种反差（待核），小红书 AI PM 帖都在讲面试和学习路线。他手里有「生成次数不等于在用」「上线不等于有收益」两条听记，可以讲怎么沿使用链找断点。→ 选题②</p></div>
+<div class="card"><h3>skill 去哪找、先装哪个</h3><p>清单帖收藏高，评论区问「在哪找」没人回。他自己真在用 skill，能讲第一个装什么、装完怎么用。→ 选题③</p></div>
+<div class="card"><h3>面经里冒出的新考点（先记着）</h3><p>蚂蚁面经里的「AI 客服兜底：转人工 / 拒答 / 合规」「LLM 指标三层」，评测方向实习面经，「Agent 项目深度三标准」：评测和兜底在变成 AI PM 的门槛题。今天不单写，以后可以写「AI 客服的兜底我会先想哪几件事」。</p></div>
+</div>
+
+<h2 id="topics">今天可写的选题</h2>
+<p class="muted">标题都是第一人称的平铺陈述，不用反转、不用命令口吻；正文要短。素材优先用他的听记和真实工作，去掉公司名、人名、内部数字。公开笔记里不写来源，来源只留在这个私密页。</p>
+<div class="topics"><article class="card topic" id="t1">
+<h3>我让 AI 干活，权限是一步步放出去的</h3>
+<p class="line"><span class="tag">AI 专题 · AI 工具工作流（今天最推荐）</span></p>
+<p><b>为什么今天能写：</b>Cat Wu 离职是今天小红书 PM 词下第一（7027 赞、3554 评论），同题还有卡兹克 986、智东西 130；台北时间 11/05 08:25 她又在 X 上宣布加入 OpenAI 带核心产品的产品管理。但小红书前排讲的全是履历、去向和八卦，没人讲她告别帖里最有料的一段：这个编程工具刚上线时，大多数人每个权限请求都手动点批准；现在默认信任它的判断自动批准，让它做大规模迁移。「AI 的权限怎么一步步放」正是他每天带几个机器人干活在做的事。</p>
+<p class="muted">接 11/05 已备的「Skill 和 Prompt 我这样分」：那篇讲怎么给机器人立规矩，这篇讲规矩立好之后，什么时候敢少管一步。他号上已经发过两篇 Cat Wu 人事新闻，这篇不再讲新闻。</p>
+<div class="sub">标题候选</div><ol class="titles"><li>「我给AI放权，是一步步放的」</li><li>「AI干活，我从每步都批到只看合并」</li><li>「敢让AI自己干之前，我先做了这张表」</li></ol>
+<div class="sub">用什么素材</div><ul><li>他自己的真实做法（最核心，第一人称讲）：每个开发任务先写检查表（做了 / 跳过 / 不适用 + 原因），开工前和提 PR 前各跑一次自检脚本，不过就停；以前每一步都要他点头，现在只在合并时看一眼，下一步想连合并也交出去。</li><li>听记 T13：系统发出消息不等于对方处理了，要有「已通知」这个中间态。放到 AI 身上：AI 说「做完了」不等于真做完，要有自检这一步。</li><li>Lenny 2025-08-19「AI 产品需要不同的开发生命周期」：给 AI 越多自主权，就越少控制权；先从高控制、低自主做起，跑稳了再放。只借思路，用自己的话讲。</li><li>开头钩子：「一个头部 AI 编程工具的负责人离职时回忆，产品刚上线时用户每一步都手动批准，现在默认让 AI 自己批」，公开帖不写人名和来源。</li><li>请他补 1 个例子：哪一步是他最先放手的、哪一步至今还卡着（比如合并）。没有就只写检查表那部分。</li></ul>
+<p class="warn">不写人事新闻、不猜去向；不写公司内部系统名；检查表可以截图，但要去掉项目名和路径。</p>
+</article><article class="card topic" id="t2">
+<h3>AI 功能上线了没人用，我先查断在哪一步</h3>
+<p class="line"><span class="tag">AI 专题 · 大厂 AI 落地（方法级）</span></p>
+<p><b>为什么今天能写：</b>X 上今天有一条小红书前排完全没人讲的：TechCrunch 报道，Uber 在财报里说上季度通过 AI agent 叫到的车只有 4 单（细节以原文为准，待核）。同一天另一份企业 AI 报告（博主整理，待核）说企业一年在 AI 上的花费涨了好几倍。钱在猛投，用户不一定来。小红书 AI 产品经理词下在讲面经、学习路线、「怎么量化实习成果」（36 赞），蚂蚁终面也问「怎么判断项目成功」，但没人讲上线后没人用怎么办。</p>
+<p class="muted">接 11/04 选题①「改模型还是改产品」：那篇是效果不好时动哪边，这篇是效果没问题、但没人用。和 11/03「demo 到上线还差哪几块」也不重复。</p>
+<div class="sub">标题候选</div><ol class="titles"><li>「AI功能上线没人用，我先查这几处」</li><li>「生成了很多次，不等于有人在用」</li><li>「AI入口做好了，用户为什么不来」</li></ol>
+<div class="sub">用什么素材</div><ul><li>听记 T02：只看调用量分不清「反复试错」和「真在用」，要把生成 → 打开 → 回访 → 后续动作拆开量。这是正文骨架。</li><li>听记 T14：上线只是一环，启用、前置阻塞、习惯养成都可能滞后，复盘要沿使用链找断点，别笼统说「没效果」。</li><li>听记 T15：知识库有没有用，别只看收录了多少条，要看覆盖率、调用后解决率、有没有人回访。可以当第二个例子。</li><li>Lenny 2025-08-05「加速公司内部 AI 采用的 25 个战术」：最大的障碍不是技术，是组织习惯。只借这一句的意思。</li><li>开头可以用「有家大平台财报里说，用 AI 助手叫车的一个季度只有个位数」，具体数字核实前不写。</li></ul>
+<p class="warn">不写平台名和内部指标；外部数字没核实前公开帖不写；不讲成面试答题模板。</p>
+</article><article class="card topic" id="t3">
+<h3>PM 的 skill 别囤十个，我先只装写 PRD 这一个</h3>
+<p class="line"><span class="tag">主线 · 求职 / 入门向（轻帖）</span></p>
+<p><b>为什么今天能写：</b>「产品经理必装的十大 skill」30 赞 47 收藏，收藏比点赞多；4 条评论里 2 条在问「这些在哪能找到」，作者没回链接。同类还有「产品经理大幅提高生产率的插件」49 赞、「安装 WorkBuddy 后要做的 8 个配置」983 赞、「用 skill 帮你剪辑成片」431 赞：大家想要清单，但清单帖都不讲去哪找、从哪一个开始。评论区有一条长评正好说「先挑一个每周必做的活（比如写 PRD）让 skill 出初稿再改」，这就是他的做法。</p>
+<p class="muted">是「Skill 和 Prompt 我这样分」的实操续篇：那篇讲概念，这篇讲第一个装什么、去哪找、装完怎么用。和 11/01 的 AI 写 PRD 两篇是一条线。</p>
+<div class="sub">标题候选</div><ol class="titles"><li>「PM的skill别囤，我只先装一个」</li><li>「我装的第一个PM skill：写PRD」</li><li>「skill在哪找？我是这样装的」</li></ol>
+<div class="sub">用什么素材</div><ul><li>他自己的真实做法：每次开工先加载 skill，再写这一次的要求，收工填检查表（和 11/05 已备稿口径一致）。</li><li>去哪找：只写他自己真装过、能打开的来源和安装步骤；具体用的是哪个工具、怎么装，请他确认后再写（待核）。</li><li>一个真实前后对比：用 skill 出 PRD 初稿 vs 从空白对话开始，差在哪（去掉业务名）。</li><li>听记 T03：推广 AI 工具先交付一套能复用的模板，别让每个人从空白对话起步。可以收尾一句。</li></ul>
+<p class="warn">不贴十个八个的长清单；不推荐自己没用过的 skill；不写「必装」「建议收藏」这种口吻。</p>
+</article></div>
+
+<h2 id="data">原始数据</h2>
+<p class="muted">每个标题都链到原帖（带访问令牌）。链接已统一成 /explore/&lt;id&gt;?xsec_token=…&amp;xsec_source=pc_search。抽查一条（Cat Wu 那条）：返回 302，跳到带令牌的笔记页，跟过去是 200、页面标题就是原帖标题，不是 404。</p>
+<h3 id="kw-0">产品经理</h3><div class="tw"><table><thead><tr><th>赞</th><th>标题（点开看原帖）</th><th>作者</th><th>发布</th></tr></thead><tbody><tr><td class="num">7027</td><td><a href="https://www.xiaohongshu.com/explore/6aeaa127000000001b01dcac?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81PE_nMDIuzOs0-xs-INwrFY=&amp;xsec_source=pc_search" target="_blank" rel="noopener">卧槽，ClaudeCode产品负责人CatWu离职了</a></td><td>Rayn</td><td class="nowrap">昨天 17:51</td></tr><tr><td class="num">986</td><td><a href="https://www.xiaohongshu.com/explore/6aeaf81d0000000010010c7b?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81LEPE2PygLupt_hL35xfpe8=&amp;xsec_source=pc_search" target="_blank" rel="noopener">你品，你细品……</a></td><td>数字生命卡兹克</td><td class="nowrap">昨天 17:17</td></tr><tr><td class="num">200</td><td><a href="https://www.xiaohongshu.com/explore/6aeb015d000000001503ed34?xsec_token=AByo2H7IRLHthZA8_bI83mITqDGS0wY1nLHm5KUyrCxpI=&amp;xsec_source=pc_search" target="_blank" rel="noopener">一个视频教会你竞品调研</a></td><td>momo（大厂裸辞版）</td><td class="nowrap">昨天 17:56</td></tr><tr><td class="num">199</td><td><a href="https://www.xiaohongshu.com/explore/6ae9c5ff0000000003007032?xsec_token=ABGxX8_NNMJyxErZtOdU7SteCMw9qmPC4C-XTIRpFk4pk=&amp;xsec_source=pc_search" target="_blank" rel="noopener">8年产品经理自费测评planner粉饼….</a></td><td>美貌进修班</td><td class="nowrap">昨天 09:49</td></tr><tr><td class="num">98</td><td><a href="https://www.xiaohongshu.com/explore/6aeaf929000000001a0335ad?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81B5tFJpcIAUjau2qK-BrGCU=&amp;xsec_source=pc_search" target="_blank" rel="noopener">个人觉得小宇宙最顶的产品经理播客</a></td><td>AI产品经理-Leo</td><td class="nowrap">昨天 17:21</td></tr><tr><td class="num">90</td><td><a href="https://www.xiaohongshu.com/explore/6aeb3b5a000000000e02e66c?xsec_token=AByo2H7IRLHthZA8_bI83mIdx1XI9Qy152ZAEPpRikWfs=&amp;xsec_source=pc_search" target="_blank" rel="noopener">字节ai产品已oc（突如其来）</a></td><td>茴香泥</td><td class="nowrap">昨天 22:04</td></tr><tr><td class="num">57</td><td><a href="https://www.xiaohongshu.com/explore/6aeac25e0000000002036044?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81N-dU76_ottFCq6aYIga-_0=&amp;xsec_source=pc_search" target="_blank" rel="noopener">蚂蚁集团AI产品经理面经（已offer）</a></td><td>洛洛可可</td><td class="nowrap">昨天 13:27（详情页21:27）</td></tr><tr><td class="num">55</td><td><a href="https://www.xiaohongshu.com/explore/6aeab2af000000000e02d3e7?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81JlBvNqURnWbUHdHti84fx0=&amp;xsec_source=pc_search" target="_blank" rel="noopener">为什么有些产品经理越来越值钱</a></td><td>支点招</td><td class="nowrap">昨天 12:21</td></tr><tr><td class="num">51</td><td><a href="https://www.xiaohongshu.com/explore/6ae9ee24000000001600522b?xsec_token=ABGxX8_NNMJyxErZtOdU7StTo5tuDPQ6JTMhdvr7CDU64=&amp;xsec_source=pc_search" target="_blank" rel="noopener">AI产品经理面试Agent项目深度三标准</a></td><td>亚慧是个宝藏AI产品经理</td><td class="nowrap">昨天 12:01</td></tr></tbody></table></div><h3 id="kw-1">PRD</h3><div class="tw"><table><thead><tr><th>赞</th><th>标题（点开看原帖）</th><th>作者</th><th>发布</th></tr></thead><tbody><tr><td class="num">49</td><td><a href="https://www.xiaohongshu.com/explore/6aeaa39f000000001e015aa2?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81CQw5ReRqIrYCQN-F8MjfFI=&amp;xsec_source=pc_search" target="_blank" rel="noopener">github｜产品经理大幅提高生产率的插件</a></td><td>两口一个大包子</td><td class="nowrap">昨天 11:57</td></tr><tr><td class="num">30</td><td><a href="https://www.xiaohongshu.com/explore/6aeae925000000000602f5c8?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81MiqOvY3Lig2b2SWHFOcego=&amp;xsec_source=pc_search" target="_blank" rel="noopener">【自用收藏】产品经理必装的十大skill</a></td><td>老A的AI研究所</td><td class="nowrap">昨天 16:13</td></tr><tr><td class="num">29</td><td><a href="https://www.xiaohongshu.com/explore/6aeae3e90000000010010431?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81Jufzq4jNkE8TbtdSkbdb6U=&amp;xsec_source=pc_search" target="_blank" rel="noopener">说实话很难听，但这就是AI产品经理的现状</a></td><td>小倩不要香菜</td><td class="nowrap">昨天 18:21</td></tr><tr><td class="num">26</td><td><a href="https://www.xiaohongshu.com/explore/6aea20800000000015007ff5?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81Mr5WewDAFz2QVGlBZpAlPM=&amp;xsec_source=pc_search" target="_blank" rel="noopener">AI改简历开源！3个JD批量生成专属岗位简历</a></td><td>林旬的AI笔记</td><td class="nowrap">昨天 11:20</td></tr><tr><td class="num">8</td><td><a href="https://www.xiaohongshu.com/explore/6aeaf9250000000016012eed?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81D2UFVclG26zZC0G0O6zJZc=&amp;xsec_source=pc_search" target="_blank" rel="noopener">新人转产品3步做出产品原型图（入门教程）</a></td><td>懂产品的新壹</td><td class="nowrap">昨天 17:21</td></tr><tr><td class="num">6</td><td><a href="https://www.xiaohongshu.com/explore/6aeb6da300000000160135c9?xsec_token=AByo2H7IRLHthZA8_bI83mIZzTs6mE8Yu_JaqHkSJljJg=&amp;xsec_source=pc_search" target="_blank" rel="noopener">谁懂啊 产品用Ai 输出PRD 提效 100 倍</a></td><td>大胡产品学习</td><td class="nowrap">1小时前</td></tr><tr><td class="num">6</td><td><a href="https://www.xiaohongshu.com/explore/6aebc91a0000000003023ac7?xsec_token=AByo2H7IRLHthZA8_bI83mIblcM46A3CM5NQ1dw1N6TCA=&amp;xsec_source=pc_search" target="_blank" rel="noopener">产品经理英语磨耳朵-讲解prd</a></td><td>产品不产品</td><td class="nowrap">56分钟前</td></tr></tbody></table></div><h3 id="kw-2">AI产品经理</h3><div class="tw"><table><thead><tr><th>赞</th><th>标题（点开看原帖）</th><th>作者</th><th>发布</th></tr></thead><tbody><tr><td class="num">986</td><td><a href="https://www.xiaohongshu.com/explore/6aeaf81d0000000010010c7b?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81LEPE2PygLupt_hL35xfpe8=&amp;xsec_source=pc_search" target="_blank" rel="noopener">你品，你细品……</a></td><td>数字生命卡兹克</td><td class="nowrap">昨天 17:17</td></tr><tr><td class="num">130</td><td><a href="https://www.xiaohongshu.com/explore/6aeaa1c600000000150221f0?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81MPx0JUVI347r-4yr8NvUbY=&amp;xsec_source=pc_search" target="_blank" rel="noopener">Anthropic产品负责人Cat Wu离职了</a></td><td>智东西</td><td class="nowrap">昨天 11:08</td></tr><tr><td class="num">72</td><td><a href="https://www.xiaohongshu.com/explore/6aeb507f000000001a025510?xsec_token=AByo2H7IRLHthZA8_bI83mIVbtLm8cp1o9_iKHlzMhG0o=&amp;xsec_source=pc_search" target="_blank" rel="noopener">今天投这5个产品经理校招岗：</a></td><td>Phoebi奇遇未来</td><td class="nowrap">昨天 23:34</td></tr><tr><td class="num">66</td><td><a href="https://www.xiaohongshu.com/explore/6aeafd1a000000001501704a?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81GcQi452UHa8Lt41RWEVKeU=&amp;xsec_source=pc_search" target="_blank" rel="noopener">🐜评测方向AI产品日常实习面经</a></td><td>鱼开</td><td class="nowrap">昨天 17:38</td></tr><tr><td class="num">59</td><td><a href="https://www.xiaohongshu.com/explore/6aeab88900000000150225cd?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81CSXnX0PHmpPzu6OKQY10Yk=&amp;xsec_source=pc_search" target="_blank" rel="noopener">未来五年大厂都会抢的人才，AI新型岗—FDE</a></td><td>AI产品经理日记</td><td class="nowrap">昨天 12:46</td></tr><tr><td class="num">40</td><td><a href="https://www.xiaohongshu.com/explore/6aeae9a1000000000b0214dc?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81BFJzitwzdyaimgdnmSfA4Q=&amp;xsec_source=pc_search" target="_blank" rel="noopener">被AI产品大佬的最快学习路线震撼到了</a></td><td>胡萝卜胡了</td><td class="nowrap">昨天 16:15</td></tr><tr><td class="num">36</td><td><a href="https://www.xiaohongshu.com/explore/6aeb25790000000003005706?xsec_token=AByo2H7IRLHthZA8_bI83mITZig0-jt8tAq3ySS5-svvA=&amp;xsec_source=pc_search" target="_blank" rel="noopener">ai产品如何量化你的实习成果</a></td><td>京道昏</td><td class="nowrap">昨天 20:30</td></tr></tbody></table></div><h3 id="kw-3">AI工具</h3><div class="tw"><table><thead><tr><th>赞</th><th>标题（点开看原帖）</th><th>作者</th><th>发布</th></tr></thead><tbody><tr><td class="num">1471</td><td><a href="https://www.xiaohongshu.com/explore/6aeb03d10000000003003530?xsec_token=AByo2H7IRLHthZA8_bI83mIc6vH5p9u6Aojpj2u0Z8k-0=&amp;xsec_source=pc_search" target="_blank" rel="noopener">别再对AI这样说了！教你一套惊艳提示词写法</a></td><td>王百能</td><td class="nowrap">昨天 18:07</td></tr><tr><td class="num">983</td><td><a href="https://www.xiaohongshu.com/explore/6aeae5bf000000000f027818?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81O1ZC1wfNbDB8iMsu4G9OXg=&amp;xsec_source=pc_search" target="_blank" rel="noopener">安装WorkBuddy后，需要做的8个配置！</a></td><td>花姐重启人生</td><td class="nowrap">昨天 15:58</td></tr><tr><td class="num">437</td><td><a href="https://www.xiaohongshu.com/explore/6aeaad31000000000f024dab?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81KWEPGydNZhz1w2Ep6GYIB4=&amp;xsec_source=pc_search" target="_blank" rel="noopener">直播回放批量剪辑，省时省心</a></td><td>铭仔的AI日记</td><td class="nowrap">昨天 11:57</td></tr><tr><td class="num">431</td><td><a href="https://www.xiaohongshu.com/explore/6aea8567000000001503dbb5?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81MWXyqGSahgUiiZR3qLlupI=&amp;xsec_source=pc_search" target="_blank" rel="noopener">🔥用skill 帮你剪辑成片，快来学</a></td><td>小胖猫AI</td><td class="nowrap">昨天 09:07</td></tr><tr><td class="num">333</td><td><a href="https://www.xiaohongshu.com/explore/6aeb08d0000000000f01c452?xsec_token=AByo2H7IRLHthZA8_bI83mIbV21yoEvWpkBSzXHy9Pxes=&amp;xsec_source=pc_search" target="_blank" rel="noopener">VibeCoding审美参考🔥6个高颜值组件库</a></td><td>Z派大鑫</td><td class="nowrap">昨天 19:26</td></tr><tr><td class="num">145</td><td><a href="https://www.xiaohongshu.com/explore/6aeaee08000000000e035795?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81G0NX5wT4PQ_9FE9Sa84Cr4=&amp;xsec_source=pc_search" target="_blank" rel="noopener">💡GitHub看不懂？0基础小白速通指南！</a></td><td>裙裙Stella</td><td class="nowrap">昨天 16:34</td></tr></tbody></table></div><h3 id="kw-4">AI</h3><div class="tw"><table><thead><tr><th>赞</th><th>标题（点开看原帖）</th><th>作者</th><th>发布</th></tr></thead><tbody><tr><td class="num">1921</td><td><a href="https://www.xiaohongshu.com/explore/6aea8ff7000000001100c334?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81P-KG5ddowNockZMbZHDkA0=&amp;xsec_source=pc_search" target="_blank" rel="noopener">AI连黄片都自己拍了，真人演员失业，</a></td><td>E说财经</td><td class="nowrap">昨天 09:52</td></tr><tr><td class="num">835</td><td><a href="https://www.xiaohongshu.com/explore/6aeac554000000001903918b?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81BV5PQlxZ7sTebjo8BDPxfg=&amp;xsec_source=pc_search" target="_blank" rel="noopener">让AI写你的ICML论文：手把手教程</a></td><td>Vuk 武克</td><td class="nowrap">昨天 13:40</td></tr><tr><td class="num">547</td><td><a href="https://www.xiaohongshu.com/explore/6aeaa4bb000000001b0322d1?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81BWwvIRaWtJZGpjhCj7HfrQ=&amp;xsec_source=pc_search" target="_blank" rel="noopener">博士生别再让 AI 给 idea 打新颖度分了</a></td><td>二甲基亚砜</td><td class="nowrap">昨天 11:21</td></tr><tr><td class="num">371</td><td><a href="https://www.xiaohongshu.com/explore/6aeab37f000000001402a203?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81FKgLl2L2MSEqirNREOVEcU=&amp;xsec_source=pc_search" target="_blank" rel="noopener">苹果AI翻车，把iPhone Duo识别成了华为</a></td><td>科技散步</td><td class="nowrap">昨天 12:24</td></tr><tr><td class="num">411</td><td><a href="https://www.xiaohongshu.com/explore/6aeaa139000000000602f9aa?xsec_token=ABW5l9Fe_2Z1FVJXdMfEx81HxY0tPJq76X1BP7Xva89xM=&amp;xsec_source=pc_search" target="_blank" rel="noopener">中石油AI面记录</a></td><td>freudovské</td><td class="nowrap">昨天 11:06</td></tr></tbody></table></div>
+
+<h2 id="notes">来源与说明</h2>
+<div class="card"><ul>
+<li>小红书：用 Ocean 大号只看不互动（不点赞、收藏、关注、评论），筛选「最多点赞 + 一天内」，5 个搜索词共 34 条（有 1 条重复），细看 3 条。采集文件落盘时间是台北时间 11/05 09:07，表里「昨天」= 11/04。跑题帖按原样保留在原始数据里。</li>
+<li>链接：采集时卡片链接是 /search_result/&lt;id&gt;?xsec_token=…&amp;xsec_source=（来源参数为空），已统一改成 /explore/&lt;id&gt;?xsec_token=…&amp;xsec_source=pc_search。令牌当天有效，过几天可能失效。</li>
+<li>X：11/05 X 情报日报里的 AI 和产品动态；台北时间 11/05 约 09:10 用 X 只读接口补查了 Cat Wu 去向，以及 Lenny、卡兹克近两天的帖子。张咋啦这次没查到新帖（X 账号名待核），本地也没有他的新素材。</li>
+<li>Lenny 原文：2025-08-19「AI 产品需要不同的开发生命周期」、2025-08-05「加速公司内部 AI 采用的 25 个战术」，只借观点。</li>
+<li>听记是他私用、已脱敏的选题记录（T02 / T03 / T13 / T14 / T15），原始逐字稿不公开。</li>
+<li>没核实的：「小红书还没人讲」只在今天 5 个搜索词里看过；Uber 4 单、企业 AI 支出 5.4 倍和份额都以原文为准；卡兹克小红书那条内容没看；X 赞数是抓取时的数。</li>
+</ul></div>
+<p class="foot">私密页 · x-digest · 不进入公开周报 · <a href="./">全部日报</a> · <a href="../">小红书选题库</a></p>
+</main>
+</div>
+<script>
+(function(){
+  var ids=["top", "xhs", "deep", "xonly", "deeper", "topics", "data", "notes"], links=document.querySelectorAll('[data-s]');
+  function cur(){
+    var y=window.scrollY+80, c=ids[0];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]); if(el&&el.offsetTop<=y) c=ids[i];}
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-2) c=ids[ids.length-1];
+    links.forEach(function(a){var on=a.getAttribute('data-s')===c; a.classList.toggle('on',on);
+      if(on&&a.parentNode.classList.contains('mob')){var p=a.parentNode; p.scrollLeft=a.offsetLeft-p.clientWidth/2+a.clientWidth/2;}});
+  }
+  window.addEventListener('scroll',cur,{passive:true}); window.addEventListener('hashchange',cur); cur();
+})();
+</script>
+</body>
+</html>
