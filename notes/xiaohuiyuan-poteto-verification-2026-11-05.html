@@ -1,0 +1,72 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>读书笔记：让 Agent 值得信任（晓辉博士 × poteto）</title><link rel="icon" href="../favicon.svg">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f6f8f7;color:#26332f;font:16px/1.7 -apple-system,"PingFang SC","Noto Sans CJK SC",sans-serif;overflow-wrap:anywhere}
+.w{max-width:760px;margin:0 auto;padding:20px 16px 60px}a{color:#145f68}
+nav.top{font-size:13px;margin-bottom:12px}h1{font-size:24px;line-height:1.35;margin:4px 0 8px;color:#1f3d33}
+h2{font-size:18px;margin:28px 0 10px;color:#1f3d33;border-left:4px solid #2f8f83;padding-left:8px}
+.meta{font-size:13px;color:#6b7a74}.card{background:#fff;border:1px solid #e3e8e6;border-radius:12px;padding:14px 16px;margin:0 0 12px}
+.tldr{background:#eaf5f2;border-color:#bfe0d8;font-weight:600}
+blockquote{margin:8px 0 0;padding:8px 12px;background:#f3f5f4;border-left:3px solid #c8d3cf;font-size:14px;color:#4a5753}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:#e6efec;color:#145f68;margin-right:6px}
+.dk{color:#a0522d;font-weight:600}ol,ul{padding-left:20px;margin:6px 0}li{margin:4px 0}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{border:1px solid #e3e8e6;padding:6px 8px;text-align:left;vertical-align:top}
+</style></head><body><div class="w">
+<nav class="top"><a href="../index.html">← 情报站首页</a> · <span class="tag">读书笔记</span><span class="tag">私有</span></nav>
+<h1>读书笔记：让 Agent 值得信任，先把"验证"和"代码库"做好</h1>
+<p class="meta">原帖：<a href="https://x.com/xiaohuiyuan/status/2117877987714752594" target="_blank" rel="noopener">@xiaohuiyuan 2026-11-04 15:13（台北）</a>（你点赞的那条）｜它读的是：<a href="https://x.com/poteto/status/2102050467505430555" target="_blank" rel="noopener">@poteto 视频《here's how i shipped 2,500 PRs last month》</a>，2026-09-21 23:01（台北），约 38 分钟。<br>我做的事：读完晓辉的长帖，再把 poteto 原视频整段转成英文文字稿逐段读（机器转写，个别段落有缺字，下面引文是我按转写翻成中文的大意）。笔记整理于 2026-11-05。</p>
+
+<div class="card tldr">一句话结论：想同时让很多 Agent 干活，卡点不是模型，是你"敢不敢信它交的活"。信任靠两样东西换来——让 Agent 能自己跑起来检查结果的"验证技能"，以及一个干净到让 Agent 照抄也不会出错的代码库；纠错时优先改代码库和 lint，别只靠写规则。</div>
+
+<h2>作者是谁</h2>
+<div class="card"><b>晓辉博士（@xiaohuiyuan）</b>：X 简介写"新可能实验室发起人｜腾讯研究院高级顾问｜百万粉丝科技博主（多平台合计）"，X 粉丝 36,185（11-05 读数）。这条帖子数据：赞 348、收藏 461、转发 45、浏览 28,636——收藏比赞多，是典型「收藏型」。<br>
+<b>poteto（Lauren）</b>：X 简介写"grok bot at SpaceX AI，React Compiler 核心组成员，曾在 Cursor、Meta、Netflix"。视频开头自述在做 Grok Bot。原视频帖：赞 21,475、收藏 36,750、浏览约 454 万。<br>
+<span class="meta">以上均来自 X 账号公开资料与帖子数据，其他背景未核。</span></div>
+
+<h2>核心观点（逐条 + 原文依据）</h2>
+<div class="card"><b>1. 一切都是"信任"问题。</b>你只能盯 1–5 个 Agent，是因为还不信它；不信任就硬开 100 个，只会收到一堆烂 PR 和回归 bug。
+<blockquote>晓辉："要让更多Agent帮你干活，本质还是构建信任trust"<br>poteto [5:13–6:36]：卡在"一个个聊天盯着纠正"的阶段最难走出来，原因就是不信任 Agent 的产出。</blockquote></div>
+
+<div class="card"><b>2. 验证技能 = CLI + Feature Map（特征地图）。</b>CLI 让 Agent 能可重复地把应用跑起来、采集性能轨迹等证据；Feature Map 像"网站地图"，写清产品每块怎么运作、用户怎么用，Agent 收到一张模糊截图也知道去哪找。Feature Map 放在 skill 目录里，还有自动化定期维护它。
+<blockquote>poteto [9:12–11:37]：第一个技能是通过 Chrome DevTools 协议跑应用、抓 trace；后来发现用户在 Slack 贴一小块截图加三个问号，Agent 只能瞎猜，于是做了 Feature Map，"一种具体化的记忆"。<br>晓辉："一个跟产品特征有关，一个跟可复用的代码和能力有关"</blockquote>
+<p class="meta">关于晓辉说"CLI 本质还不清楚"：按视频的说法，CLI 就是一个封装好的命令行工具，Agent 每次用同一套命令启动应用、收证据，不用每次现写脚本——晓辉的理解基本对。</p></div>
+
+<div class="card"><b>3. 验证解决"对不对"，还要另一类技能解决"好不好"。</b>验证能证明结账按钮能结账，但看不出性能和代码质量；所以她把资深工程师的做法（调试、开发、原型等）写成一套技能包 pstack。
+<blockquote>poteto [12:33–14:13]</blockquote></div>
+
+<div class="card"><b>4. 纠正 Agent 的五个层次，越靠前越管用：</b>
+<table><tr><th>层</th><th>是什么</th><th>强制力</th></tr>
+<tr><td>① 代码库</td><td>最好的记忆，Agent 爱照抄现有模式</td><td>最强</td></tr>
+<tr><td>② 静态检查</td><td>lint / 编译器 / CI，让错误"根本不可能发生"</td><td>强</td></tr>
+<tr><td>③ 规则 / Bugbot / 技能</td><td>指导，Agent 可能漏读，用户也可能无视</td><td>中</td></tr>
+<tr><td>④ 风格指南</td><td>只能靠人 review，PR 一多就看不过来</td><td>弱</td></tr></table>
+<p class="meta">注：晓辉帖里把 rules/bug bot 和 skill 拆成两层，共 5 层；视频里 [15:38] 说"五个点"，口述时把规则、Bugbot、技能放在同一层讲。两种数法意思一致。</p>
+<blockquote>poteto [15:45–18:41]、[36:09]："如果你只记住一张幻灯片，就是这张。"</blockquote></div>
+
+<div class="card"><b>5. 坏模式会像病毒一样传播，团队需要"园丁"。</b>一个小 workaround 或解释它的注释，几天到几周就被 Agent 抄遍全库。她举的例子：Agent 拿代码注释当理由"贴创可贴"不去真修，所以 Dune 框架里干脆限制注释（转写这句有缺字，具体规则<span class="dk">待核</span>）。原则三条：删已有技术债；每件事只留一条"官方正路"；看到坏模式第一反应是写 lint 规则先止血。
+<blockquote>poteto [20:43–26:38]</blockquote></div>
+
+<div class="card"><b>6. 代码库要对"没背景的人"也友好。</b>以后进代码库提交功能的可能是设计师、产品经理、CEO，Agent 被这些很忙、背景少的人驾驶时也要默认做对。
+<blockquote>poteto [20:01–20:29]</blockquote></div>
+
+<div class="card"><b>7. 外环 + 内环：个人版"米其林厨房"。</b>她不喜欢"软件工厂"这个词，更喜欢米其林厨房：你不再亲手切菜，但对出品负责，要设计好厨房。Grok Bot 接上 Slack、告警等做"外环"，用 routine 订阅事件自动拉起云端 Agent，自动复现 bug、自动开 PR。
+<blockquote>poteto [0:55–1:58]、[32:33–34:58]</blockquote></div>
+
+<h2>你能怎么用</h2>
+<div class="card"><b>工作（大厂 AI 产品经理）</b><ol>
+<li><b>给你的 CRM 需求写一份 Feature Map。</b>每个模块：干什么、入口在哪、典型用户怎么用、常见报错长什么样。以后丢给 Agent 一张截图它能定位，也是 PRD 的好副产品。</li>
+<li><b>把"验收"写成 Agent 能跑的清单。</b>评审 AI 需求时多问一句"Agent 怎么证明自己做对了"——要有可跑的命令和证据（截图、数据、日志），而不是"自测通过"。</li>
+<li><b>复盘纠错时按五层归类。</b>同一类错误出现第二次，就推动落到"代码/校验规则"层，而不是再加一条提示词。这个框架也适合拿去跟研发对齐 AI 编码规范。</li></ol></div>
+<div class="card"><b>小红书「AI具身牛马」选题</b><ol>
+<li>《一个人一个月合 2,500 个 PR，她靠的不是更强的模型》——讲信任 + 验证，配五层表格做图卡（收藏型）。</li>
+<li>《我给自己的 AI 情报站写了"验收清单"》——用你自己 x-digest 的真实例子：Agent 发布前自己截图、自检溢出，接你的「我用AI给自己搭了个情报站」主线。</li>
+<li>《产品经理也能写的 Feature Map 模板》——给一页可抄的模板，收藏向。</li></ol></div>
+
+<h2>我的疑问 / 待核</h2>
+<div class="card"><ul>
+<li>PR 数：帖子标题写 2,500，我的转写里她口述像是 "2,000"（机器转写可能听错）——<span class="dk">待核</span>，引用时用帖子标题的 2,500 并注明来源。</li>
+<li>转写在 [9:40–10:02]、[11:05–11:27]、[19:28–19:58] 等几处有缺段，那几段讲 CLI 细节和 Dune 核心原则，可能漏了要点——<span class="dk">待核</span>（可以再用大模型版转写补一遍）。</li>
+<li>Dune 里"限制注释"的具体做法（全禁还是部分禁）——<span class="dk">待核</span>。</li>
+<li>晓辉说"也开始写我常用工作流的验证了"，后续有没有分享成果——未查到，<span class="dk">待核</span>。</li>
+<li>适用边界：这套主要针对代码；PM 的文档、需求类工作怎么"categorically impossible"，视频没讲，需要自己摸索。</li></ul></div>
+</div></body></html>
