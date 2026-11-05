@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>花叔成长页 · 边做边讲 · 给 Ocean</title>
+<style>
+:root{
+  --bg:#f7f4ec; --surface:#fffcf7; --ink:#1a1a18; --ink-2:#3a3a36; --mut:#6a6a62;
+  --line:#e6e0d4; --hi:#ffe566; --hi-soft:#fff6c8;
+  --shadow:0 1px 2px rgba(26,26,24,.04),0 8px 24px rgba(26,26,24,.05);
+  --r:14px; --nav-w:14rem;
+}
+*{box-sizing:border-box}
+html{color-scheme:light; scroll-behavior:auto}
+body{
+  margin:0; color:var(--ink); background:var(--bg);
+  font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+::selection{background:var(--hi); color:var(--ink)}
+mark{background:var(--hi); color:var(--ink); padding:.05em .18em; border-radius:3px; font-style:normal}
+.shell{display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr); gap:0; min-height:100vh; width:100%; max-width:none; margin:0}
+.nav{position:sticky; top:0; align-self:start; height:100vh; padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line); background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto}
+.nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
+.nav .meta{font-size:.76rem; color:var(--mut); margin:0 0 1rem; line-height:1.45}
+.nav a{display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem; padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent}
+.nav a:hover,.nav a:focus-visible{background:var(--hi-soft); outline:none}
+.nav a.active{background:var(--hi); color:var(--ink); font-weight:650; border-left-color:#c9b020}
+.nav .sec{font-size:.7rem; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .3rem; padding-left:.55rem; text-transform:uppercase}
+.main{padding:1.6rem clamp(1rem,3vw,2.4rem) 4.5rem; width:100%; max-width:none}
+h1{font-size:clamp(1.4rem,2.4vw,1.85rem); line-height:1.25; letter-spacing:-.025em; margin:0 0 .5rem; font-weight:750}
+h2{font-size:1.14rem; line-height:1.35; margin:2.1rem 0 .6rem; padding-bottom:.4rem; border-bottom:3px solid var(--hi); letter-spacing:-.015em; font-weight:700}
+h3{font-size:1.02rem; margin:1.2rem 0 .4rem; font-weight:700}
+p,li{color:var(--ink-2)}
+p{margin:.5rem 0}
+.muted{color:var(--mut); font-size:.92rem; line-height:1.55}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:1rem 1.15rem; margin:.8rem 0; box-shadow:var(--shadow)}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr)); gap:.75rem}
+.stat strong{display:block; font-size:1.35rem; letter-spacing:-.02em; margin:.15rem 0}
+.tag{display:inline-block; font-size:12px; font-weight:650; background:var(--hi-soft); color:#6a5a00; padding:.12rem .5rem; border-radius:999px; margin-right:.3rem}
+.tag.warn{background:#fff0d6; color:#8a5a00}
+a{color:var(--ink); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-word}
+a:hover{background:linear-gradient(180deg,transparent 60%, var(--hi) 60%)}
+table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:.42rem .5rem; text-align:left; vertical-align:top}
+th{background:#efeae0; font-weight:650}
+.quote{border-left:3px solid var(--hi); padding:.35rem .9rem; margin:.55rem 0; background:var(--hi-soft); border-radius:0 8px 8px 0; font-size:.95rem}
+.foot{margin-top:2.5rem; font-size:.86rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
+.mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.5rem 0; border-bottom:1px solid var(--line)}
+.mob-nav a{font-size:.8rem; color:var(--ink); text-decoration:none; background:var(--hi-soft); padding:.2rem .5rem; border-radius:999px}
+ul.plain{margin:.35rem 0; padding-left:1.2rem}
+ul.plain li{margin:.28rem 0}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .nav{display:none}
+  .mob-nav{display:flex}
+  .main{padding:1.1rem 1rem 3.5rem}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="nav" aria-label="目录">
+  <p class="brand">花叔深拆</p>
+  <p class="meta">私密 · 写给 Ocean<br>从 creators 抽出 · 2026-11-05</p>
+  <div class="sec">选题库</div>
+  <a href="growth/">← 成长记录</a>
+  <a href="./">小红书全入口</a>
+  <a href="creators.html">对标档案</a>
+  <div class="sec">本页</div>
+  <a href="#overview">账号概况</a>
+  <a href="#timeline">时间线</a>
+  <a href="#breakout">破壁 / 代表</a>
+  <a href="#inflect">拐点</a>
+  <a href="#success">成功经验</a>
+  <a href="#for-ocean">给 Ocean</a>
+  <a href="#sources">来源与待核</a>
+</aside>
+<main class="main">
+<nav class="mob-nav" aria-label="移动目录">
+  <a href="#overview">概况</a>
+  <a href="#timeline">时间线</a>
+  <a href="#inflect">拐点</a>
+  <a href="#for-ocean">借鉴</a>
+</nav>
+
+<header>
+  <h1>花叔成长页 · 边做边讲</h1>
+  <p class="muted">X <a href="https://x.com/AlchainHust">@AlchainHust</a> · 站 <a href="https://www.huasheng.ai/">huasheng.ai</a>。路径：做真东西 → 教程 → 开源/产品反哺。</p>
+</header>
+<section id="overview">
+  <h2>账号概况</h2>
+  <div class="grid2">
+    <div class="card stat"><span class="tag">X</span><strong>~72.3k</strong><span class="muted">@AlchainHust · creators metrics</span></div>
+    <div class="card stat"><span class="tag">站</span><strong>huasheng.ai</strong><span class="muted">小红书/B站/YouTube/公众号矩阵</span></div>
+    <div class="card stat"><span class="tag">模式</span><strong>边做边讲</strong><span class="muted">半小时级教学视频（站内自述播放量待核）</span></div>
+    <div class="card stat"><span class="tag">商务</span><strong>合作报价页</strong><span class="muted">综合 10–20 万/项目区间（感兴趣产品）· <a href="https://www.huasheng.ai/cooperation/">合作页</a></span></div>
+  </div>
+</section>
+<section id="timeline">
+  <h2>时间线</h2>
+  <table>
+    <thead><tr><th>时间</th><th>事件</th><th>出处</th></tr></thead>
+    <tbody>
+      <tr><td>2023-03</td><td>自述放弃大厂年薪 All-in AI；一年后文称咨询/专栏/工具/广告/分成「赚了大几十万」但仍未必超过上班</td><td><a href="https://www.huasheng.ai/insights/wechat-2247484223-1/">站文</a> → <span class="tag warn">待核</span></td></tr>
+      <tr><td>2023～</td><td>半小时级教学视频在 YT/B站累计五十万+ 播放（自述）</td><td>站内 → <span class="tag warn">待核</span></td></tr>
+      <tr><td>2024</td><td>小猫补光灯等产品；小红书单条高阅读自述；「手搓」叙事</td><td>huasheng.ai</td></tr>
+      <tr><td>2025～2026</td><td>《一本书玩转 DeepSeek》；开源 skill/工具矩阵（女娲等，Star 为站页快照）</td><td>站页</td></tr>
+    </tbody>
+  </table>
+</section>
+<section id="breakout">
+  <h2>破壁作品</h2>
+  <ol class="plain">
+    <li>长教学视频（B站/YT）——「边做边讲」标杆。</li>
+    <li>小猫补光灯 + 小红书传播链路（站页案例）。</li>
+    <li>开源 skill / 工具 + 教程互导。</li>
+    <li>平台方法文：<a href="https://huasheng.ai/insights/xiaohongshu-best-practices/">小红书最佳实践</a>（平台数据多为二手 → 待核）。</li>
+  </ol>
+</section>
+<section id="inflect">
+  <h2>拐点</h2>
+  <table>
+    <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
+    <tbody>
+      <tr><td>2023-03</td><td>弃大厂 All-in</td><td>雇员 → 全职创作者/制作者</td><td>身份切换换来带宽（你正职在身，别抄裸辞）</td></tr>
+      <tr><td>2023～</td><td>长教学视频矩阵</td><td>文字为主 → 过程可见教程</td><td>真东西做完再拍</td></tr>
+      <tr><td>2024～</td><td>产品×开源×商务三角</td><td>纯内容 → 多腿变现</td><td>内容主题=产品主题</td></tr>
+    </tbody>
+  </table>
+</section>
+<section id="success">
+  <h2>成功经验</h2>
+  <div class="card">
+    <ul class="plain">
+      <li>边做边讲长教学；产品×内容「手搓」叙事；开源反哺信任；合作页公开报价区间。</li>
+    </ul>
+  </div>
+</section>
+<section id="for-ocean">
+  <h2>给 Ocean</h2>
+  <div class="card">
+    <h3>可抄</h3>
+    <ol>
+      <li>辅系列「做一件真小事 → 写成教程卡」，不是纯资讯搬运。</li>
+      <li>参考其小红书文结构（搜索意图+步骤）；主线仍是 PM 方法。</li>
+    </ol>
+    <h3>暂时别学</h3>
+    <ul class="plain">
+      <li>All-in 弃大厂年薪。</li>
+      <li>硬件产品 / 开源矩阵 / 十万级项目报价；「大几十万」收入自述不当目标。</li>
+    </ul>
+  </div>
+</section>
+<section id="sources">
+  <h2>来源与待核</h2>
+  <p>huasheng.ai 站文与合作页 · creators 深描。待核：播放量、收入自述、小红书精确粉与单条阅读。</p>
+</section>
+
+<div class="foot"><p>私密 · x-digest · 从 creators 深描抽成独立成长页 · 2026-11-05 · 不编数字</p></div>
+</main>
+</div>
+<script>
+(function(){
+  const links=[...document.querySelectorAll('.nav a[href^="#"]')];
+  const map=links.map(a=>({a,el:document.querySelector(a.getAttribute('href'))})).filter(x=>x.el);
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting) return;
+      const id=en.target.id;
+      links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+id));
+    });
+  },{rootMargin:'-20% 0px -70% 0px', threshold:0});
+  map.forEach(({el})=>io.observe(el));
+})();
+</script>
+</body>
+</html>

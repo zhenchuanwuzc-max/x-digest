@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>向阳乔木成长页 · 给 Ocean</title>
+<style>
+:root{
+  --bg:#f7f4ec; --surface:#fffcf7; --ink:#1a1a18; --ink-2:#3a3a36; --mut:#6a6a62;
+  --line:#e6e0d4; --hi:#ffe566; --hi-soft:#fff6c8;
+  --shadow:0 1px 2px rgba(26,26,24,.04),0 8px 24px rgba(26,26,24,.05);
+  --r:14px; --nav-w:14rem;
+}
+*{box-sizing:border-box}
+html{color-scheme:light; scroll-behavior:auto}
+body{
+  margin:0; color:var(--ink); background:var(--bg);
+  font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+::selection{background:var(--hi); color:var(--ink)}
+mark{background:var(--hi); color:var(--ink); padding:.05em .18em; border-radius:3px; font-style:normal}
+.shell{display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr); gap:0; min-height:100vh; width:100%; max-width:none; margin:0}
+.nav{position:sticky; top:0; align-self:start; height:100vh; padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line); background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto}
+.nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
+.nav .meta{font-size:.76rem; color:var(--mut); margin:0 0 1rem; line-height:1.45}
+.nav a{display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem; padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent}
+.nav a:hover,.nav a:focus-visible{background:var(--hi-soft); outline:none}
+.nav a.active{background:var(--hi); color:var(--ink); font-weight:650; border-left-color:#c9b020}
+.nav .sec{font-size:.7rem; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .3rem; padding-left:.55rem; text-transform:uppercase}
+.main{padding:1.6rem clamp(1rem,3vw,2.4rem) 4.5rem; width:100%; max-width:none}
+h1{font-size:clamp(1.4rem,2.4vw,1.85rem); line-height:1.25; letter-spacing:-.025em; margin:0 0 .5rem; font-weight:750}
+h2{font-size:1.14rem; line-height:1.35; margin:2.1rem 0 .6rem; padding-bottom:.4rem; border-bottom:3px solid var(--hi); letter-spacing:-.015em; font-weight:700}
+h3{font-size:1.02rem; margin:1.2rem 0 .4rem; font-weight:700}
+p,li{color:var(--ink-2)}
+p{margin:.5rem 0}
+.muted{color:var(--mut); font-size:.92rem; line-height:1.55}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:1rem 1.15rem; margin:.8rem 0; box-shadow:var(--shadow)}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr)); gap:.75rem}
+.stat strong{display:block; font-size:1.35rem; letter-spacing:-.02em; margin:.15rem 0}
+.tag{display:inline-block; font-size:12px; font-weight:650; background:var(--hi-soft); color:#6a5a00; padding:.12rem .5rem; border-radius:999px; margin-right:.3rem}
+.tag.warn{background:#fff0d6; color:#8a5a00}
+a{color:var(--ink); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-word}
+a:hover{background:linear-gradient(180deg,transparent 60%, var(--hi) 60%)}
+table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:.42rem .5rem; text-align:left; vertical-align:top}
+th{background:#efeae0; font-weight:650}
+.quote{border-left:3px solid var(--hi); padding:.35rem .9rem; margin:.55rem 0; background:var(--hi-soft); border-radius:0 8px 8px 0; font-size:.95rem}
+.foot{margin-top:2.5rem; font-size:.86rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
+.mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.5rem 0; border-bottom:1px solid var(--line)}
+.mob-nav a{font-size:.8rem; color:var(--ink); text-decoration:none; background:var(--hi-soft); padding:.2rem .5rem; border-radius:999px}
+ul.plain{margin:.35rem 0; padding-left:1.2rem}
+ul.plain li{margin:.28rem 0}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .nav{display:none}
+  .mob-nav{display:flex}
+  .main{padding:1.1rem 1rem 3.5rem}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="nav" aria-label="目录">
+  <p class="brand">乔木深拆</p>
+  <p class="meta">私密 · 写给 Ocean<br>从 creators 抽出 · 2026-11-05</p>
+  <div class="sec">选题库</div>
+  <a href="growth/">← 成长记录</a>
+  <a href="./">小红书全入口</a>
+  <a href="creators.html">对标档案</a>
+  <div class="sec">本页</div>
+  <a href="#overview">账号概况</a>
+  <a href="#timeline">时间线</a>
+  <a href="#breakout">破壁 / 代表</a>
+  <a href="#inflect">拐点</a>
+  <a href="#success">成功经验</a>
+  <a href="#for-ocean">给 Ocean</a>
+  <a href="#sources">来源与待核</a>
+</aside>
+<main class="main">
+<nav class="mob-nav" aria-label="移动目录">
+  <a href="#overview">概况</a>
+  <a href="#timeline">时间线</a>
+  <a href="#inflect">拐点</a>
+  <a href="#for-ocean">借鉴</a>
+</nav>
+
+<header>
+  <h1>向阳乔木成长页 · 国内 PM + AI 实操</h1>
+  <p class="muted">X <a href="https://x.com/vista8">@vista8</a> · ~134.1k · <a href="https://www.qiaomu.ai/about/">qiaomu.ai/about</a>。与「大厂 PM 语境」最近的中文账号之一。</p>
+</header>
+<section id="overview">
+  <h2>账号概况</h2>
+  <div class="grid2">
+    <div class="card stat"><span class="tag">X</span><strong>~134.1k</strong><span class="muted">@vista8</span></div>
+    <div class="card stat"><span class="tag">背景</span><strong>前字节商业化 AI PM</strong><span class="muted">About：每日用 AI 写成专栏，已坚持三年（自述）</span></div>
+    <div class="card stat"><span class="tag">内容</span><strong>Prompt / 工具 / 活动</strong><span class="muted">短平快实操 + 社群转化</span></div>
+    <div class="card stat"><span class="tag">产品化</span><strong>书 / 播客 / 训练营</strong><span class="muted">《AI 领导力》《AI 营销：从 SEO 到 GEO》等</span></div>
+  </div>
+</section>
+<section id="timeline">
+  <h2>时间线</h2>
+  <table>
+    <thead><tr><th>阶段</th><th>事件</th><th>出处</th></tr></thead>
+    <tbody>
+      <tr><td>离开字节后</td><td>每日用 AI 写成专栏，About 称已坚持三年</td><td>qiaomu.ai/about</td></tr>
+      <tr><td>持续</td><td>可复用 Prompt 实战（如后台文案重写）+ 公众号工作流拆解</td><td>X / 公众号</td></tr>
+      <tr><td>近期</td><td>合著出书；Next Token 播客；GEO 训练营</td><td>About</td></tr>
+    </tbody>
+  </table>
+</section>
+<section id="breakout">
+  <h2>招牌干货</h2>
+  <ul class="plain">
+    <li><strong>先跑通再动笔：</strong>工具先用、提示词先验证、方法论能复用再写。</li>
+    <li><strong>可复用 Prompt：</strong>粘贴即用，转化门槛低。</li>
+    <li><strong>一句话需求→PRD</strong> 等实操文（公众号合集以现读为准）。</li>
+  </ul>
+</section>
+<section id="inflect">
+  <h2>拐点</h2>
+  <table>
+    <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
+    <tbody>
+      <tr><td>离开字节后</td><td>公开 AI 实践专栏</td><td>大厂 PM → 公开作者</td><td>先跑通再动笔</td></tr>
+      <tr><td>持续</td><td>Prompt 模板资产化</td><td>零散技巧 → 可复制模板</td><td>粘贴即用</td></tr>
+      <tr><td>近期</td><td>书/播客/企业服务</td><td>个人专栏 → 产品化</td><td>同一母题产品化（你兼职先课表）</td></tr>
+    </tbody>
+  </table>
+</section>
+<section id="success">
+  <h2>成功经验</h2>
+  <p>国内读者立刻能用的口吻 + 可复制 Prompt；避免纯工具清单——每帖绑一个「把活干好」判断。</p>
+</section>
+<section id="for-ocean">
+  <h2>给 Ocean</h2>
+  <div class="card">
+    <ol>
+      <li>一张卡给可复制 Prompt/清单，配一句大厂场景。</li>
+      <li>方法骨架仍用 Lenny 本地库；AI 实操辅系列抄「先自己跑通再发」。</li>
+      <li>避免做成纯工具清单号。</li>
+    </ol>
+    <h3>暂时别学</h3>
+    <ul class="plain">
+      <li>连续创业者 + 合著出书 + GEO 企业训练营（全职带宽）。</li>
+      <li>开源 Agent Skills / 多站矩阵——后期可选一件小事开源。</li>
+    </ul>
+  </div>
+</section>
+<section id="sources">
+  <h2>来源</h2>
+  <p>qiaomu.ai/about · creators 深描 · X @vista8。起号精确粉里程碑公开少 → 以 About 自述与模式观察为主。</p>
+</section>
+
+<div class="foot"><p>私密 · x-digest · 从 creators 深描抽成独立成长页 · 2026-11-05 · 不编数字</p></div>
+</main>
+</div>
+<script>
+(function(){
+  const links=[...document.querySelectorAll('.nav a[href^="#"]')];
+  const map=links.map(a=>({a,el:document.querySelector(a.getAttribute('href'))})).filter(x=>x.el);
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting) return;
+      const id=en.target.id;
+      links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+id));
+    });
+  },{rootMargin:'-20% 0px -70% 0px', threshold:0});
+  map.forEach(({el})=>io.observe(el));
+})();
+</script>
+</body>
+</html>
