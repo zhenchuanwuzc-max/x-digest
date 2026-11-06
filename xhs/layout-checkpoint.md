@@ -39,15 +39,9 @@ Ocean 要主栏在导航旁边的空白里居中，并把左侧二十多项收�
 
 ## 重生成
 
-页脚写这些 HTML 由 `xhs_library.py` 和 `xhs_day_build.py` 生成。这两个文件不在本仓库，这台机器上也没有。GitHub 代码搜索没有定位到它们。所以生成器源码这次没改，下一次外部生成会不会盖掉链接，没有验证。
+页脚写这些 HTML 由 `xhs_library.py` 和 `xhs_day_build.py` 生成。两个脚本含私有路径，不放进这个仓库。公开侧只增加 `group_hub_links` 和 `shell_link`。生成器补丁在仓库外，由本地脚本在 `render` 里直接写出样式链接和分组导航，日更不必再手工盖章。
 
-本仓库里的补法是跑：
-
-```
-python3 xhs/apply_xhs_shell.py
-```
-
-脚本把样式链接放回 `</head>` 末尾。全入口如果还是旧的平铺导航，会换成分组。再跑一次输出 `unchanged`。`python3 xhs/test_xhs_shell.py` 会拿 `main` 上的旧全入口再盖一次，确认结果稳定，并且正文还在。
+`python3 xhs/apply_xhs_shell.py` 仍可把已经写好的页面盖回同一套壳。全入口若已经是分组导航，它不再改导航。`python3 xhs/test_xhs_shell.py` 锁住已发布的 21 个链接，也锁住新出现的栏目 id 会留在「今天」里。
 
 ## 检查点
 
@@ -70,10 +64,11 @@ python3 xhs/apply_xhs_shell.py
 | deslop | 跳过 | 本环境没有 cursor-team-kit 的 deslop |
 | no-comments | 做了 | 删了两个模块说明字符串。检查点正文保留，因为这次要求把检查点和复盘写进项目文档 |
 | 现有 `validate_tiers.py` | 不适用 | 它依赖不在本仓库的 `lb_section`，报 `ModuleNotFoundError`。和这次布局无关 |
+| 生成器补丁 | 做了 | 脚本不入库。最小 fixture 重跑 `render`、`render_day`、`render_index` 后链接和分组还在。真实日更 JSON 不在这台机器上，未验证 |
 | 合并和部署 | 不做 | 只开 PR，等 Ocean 确认 |
 
 ## 复盘
 
 主栏宽度选 68rem，是为了 1440 上还留得下三张选题卡，同时左右空隙相等。1920 上主栏停在 1088px，不再跟着变宽。
 
-外部生成脚本不在这台机器上。PR 合并之后，如果下一次日更把样式链接冲掉，需要在那次生成后面补跑 `python3 xhs/apply_xhs_shell.py`，或者把 `xhs-shell.css` 和分组导航写进那两个脚本。这一步还没做。
+日更要自己留下这套壳，所以分组和样式链接写在生成结果里，而不是每天跑一遍盖章。真实选题 JSON 没有拿来重跑。补丁应用到本地脚本之后，下一次日更才会走到这条路径。

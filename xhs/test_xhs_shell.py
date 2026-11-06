@@ -139,6 +139,22 @@ class ShellContract(unittest.TestCase):
         self.assertIn("小红书 · 全入口", once)
         self.assertGreater(len(once), 150_000)
 
+    def test_group_hub_links_matches_shipped_nav_and_keeps_new_ids(self):
+        shipped = apply_xhs_shell.group_hub_links(apply_xhs_shell._shipped_entries())
+        self.assertEqual(shipped + apply_xhs_shell.HUB_TAIL, apply_xhs_shell.HUB_NAV)
+        extra = apply_xhs_shell._shipped_entries() + [
+            ("fresh", "新信号", "#fresh"),
+        ]
+        html = apply_xhs_shell.group_hub_links(extra)
+        today = re.search(r"<summary>今天</summary>(.*?)</details>", html).group(1)
+        self.assertIn('href="#fresh"', today)
+        self.assertIn('data-s="fresh"', today)
+        self.assertNotIn('href="#fresh"', html.split("</details>", 1)[1])
+        self.assertEqual(
+            apply_xhs_shell.shell_link("../xhs-shell.css"),
+            '<link rel="stylesheet" href="../xhs-shell.css" data-xhs-shell>',
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
