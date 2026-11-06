@@ -1,0 +1,327 @@
+{
+  "date": "2026-11-06",
+  "boards": [
+    "jm-ghw",
+    "jm-ph",
+    "jm-phd"
+  ],
+  "items": [
+    {
+      "product": "impeccable",
+      "match_href": "https://github.com/pbakaus/impeccable",
+      "panel": "jm-ghw",
+      "status": "ready",
+      "verified_on": "2026-11-06",
+      "report": "impeccable.html",
+      "summary": [
+        "国内已有中文设计技能 huashu-design，2026-11-06 的 GitHub API 抽样为 28,818 星，自述覆盖网页、PPTX 和 84 个风格，机会不是再做一个英文命令合集。",
+        "最小可做的是一套中文页面禁令，只查紫渐变、假数据和过小字号，再配三张改前改后图给 Cursor 用。",
+        "对比图适合做成短视频，但 Apache-2.0 仓库的本周新增星不能当成安装人数，模型变强后固定规则会失效。"
+      ],
+      "meta": "快照 2026-11-06 06:18 北京时间 · 显示序 1 · 本周 +10,921 星 · 未实测 · 星不是用户数",
+      "sources": [
+        "https://github.com/pbakaus/impeccable",
+        "https://impeccable.style/docs/",
+        "https://api.github.com/repos/pbakaus/impeccable",
+        "https://github.com/alchaincyf/huashu-design",
+        "https://aiku123.com/articles/ai-design-skills-compare",
+        "https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html"
+      ]
+    },
+    {
+      "product": "claude-mem",
+      "match_href": "https://github.com/thedotmack/claude-mem",
+      "panel": "jm-ghw",
+      "status": "ready",
+      "verified_on": "2026-11-06",
+      "report": "claude-mem.html",
+      "summary": [
+        "可对照的本地方案是 PyPI 上的 silo-memory 0.3.5，它写明记忆留在本机的 SQLite，不把原文送到外部服务，因此没必要先做另一个托管记忆云。",
+        "最小验证是一个仓库在会话结束时写一份 markdown，下次会话先读它，看隔天是否少解释一遍项目。",
+        "「Agent 失忆」适合做内容，但官方安装会引导浏览器登录，cmem.ai 写试用后 CMEM Pro 每月 30 美元，密钥进记忆库才是付费前要过的关。"
+      ],
+      "meta": "快照 2026-11-06 06:18 北京时间 · 显示序 2 · 本周 +8,822 星 · 未实测 · 星不是用户数",
+      "sources": [
+        "https://github.com/thedotmack/claude-mem",
+        "https://api.github.com/repos/thedotmack/claude-mem",
+        "https://cmem.ai/",
+        "https://docs.claude-mem.ai/introduction",
+        "https://pypi.org/project/silo-memory/",
+        "https://github.com/flynn-eye/silo-memory",
+        "https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html"
+      ]
+    },
+    {
+      "product": "hallmark",
+      "match_href": "https://github.com/Nutlope/hallmark",
+      "panel": "jm-ghw",
+      "status": "ready",
+      "verified_on": "2026-11-06",
+      "report": "hallmark.html",
+      "summary": [
+        "它和 impeccable 同在设计技能赛道，但 Hallmark 先发 50 个主题再过 Floor、Reflex、Finish 三道门，impeccable 是 24 个命令加 62 条确定性规则。",
+        "最小可做的是中文交易页禁令，只拦紫渐变和编造的数据，并给出一张 lint 前后图，而不是翻译它的英文主题。",
+        "官网用同一提示词的左右对比做演示，这种素材容易带来播放，MIT 星数仍然不是付费，主题同质化也已经发生。"
+      ],
+      "meta": "快照 2026-11-06 06:18 北京时间 · 显示序 3 · 本周 +7,622 星 · 未实测 · 星不是用户数",
+      "sources": [
+        "https://github.com/Nutlope/hallmark",
+        "https://api.github.com/repos/Nutlope/hallmark",
+        "https://www.usehallmark.com",
+        "https://github.com/alchaincyf/huashu-design",
+        "https://aiku123.com/articles/ai-design-skills-compare",
+        "https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html"
+      ]
+    },
+    {
+      "product": "security-audit-skill",
+      "match_href": "https://github.com/cloudflare/security-audit-skill",
+      "panel": "jm-ghw",
+      "status": "ready",
+      "verified_on": "2026-11-06",
+      "report": "security-audit-skill.html",
+      "summary": [
+        "这是 Cloudflare 给编程 Agent 的六阶段审计技能，结论只有 confirmed、needs_validation、rejected，适合要审自己代码的团队，不是面向消费者的 App。",
+        "最小可做的是把自己的鉴权和租户隔离写成狩猎清单，对一个玩具仓库跑通 findings.json 能否被它自带的校验脚本读过。",
+        "安全选题能带来阅读，但星数不是发现率，误报和把攻击细节写进工单才是能不能拿去卖服务的关。"
+      ],
+      "meta": "快照 2026-11-06 06:18 北京时间 · 显示序 4 · 本周 +7,528 星 · 未实测 · 星不是漏洞数",
+      "sources": [
+        "https://github.com/cloudflare/security-audit-skill",
+        "https://api.github.com/repos/cloudflare/security-audit-skill",
+        "https://blog.cloudflare.com/build-your-own-vulnerability-harness",
+        "https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html"
+      ]
+    },
+    {
+      "product": "dsh-purge",
+      "match_href": "https://github.com/HunYiSage/dsh-purge",
+      "panel": "jm-ghw",
+      "status": "ready",
+      "verified_on": "2026-11-06",
+      "report": "dsh-purge.html",
+      "summary": [
+        "仓库自述是可换模型的破甲提示词包，这类产品和绕过模型安全策略绑在一起，不适合做成要卖给国内用户的同类工具。",
+        "若只取相邻的合法需求，最小版本是书面授权下、只针对自有模型的回归评测集，里面不放绕过文本。",
+        "星数说明有人点了 Star，不能当成越狱成功或付费，传播绕过内容还有平台封禁和违法风险，本页不提供做法。"
+      ],
+      "meta": "快照 2026-11-06 06:18 北京时间 · 显示序 5 · 本周 +6,079 星 · 未执行 · 星不是使用成功次数",
+      "sources": [
+        "https://api.github.com/repos/HunYiSage/dsh-purge",
+        "https://github.com/HunYiSage/dsh-purge",
+        "https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html"
+      ]
+    },
+    {
+      "product": "glasshand",
+      "match_href": "https://www.producthunt.com/products/glasshand",
+      "panel": "jm-phd",
+      "status": "ready",
+      "verified_on": "2026-11-06",
+      "report": "glasshand.html",
+      "summary": [
+        "官网卖的是独占的真机 iPhone 或 Mac，国内扣子文档卖的是按 CU·天计费的云电脑和云手机，UBox 卖的是按时长调度的 Android、iOS、HarmonyOS 真机池，都不是同一件账单。",
+        "最小可做的不是自建机房，而是用一台自己的闲置安卓加现成投屏，先证明有人愿意为「Agent 能点真机」付钱。",
+        "真机录屏很容易带来播放，但账号、短信和释放后是否真的擦除都没有被我们验证，293 票也不是续租人数。"
+      ],
+      "meta": "快照 2026-11-06 06:18 北京时间 · 日榜显示序 1 · 293 票 · 未租用 · 票不是续租人数",
+      "sources": [
+        "https://glasshand.com",
+        "https://glasshand.com/pricing/",
+        "https://docs.coze.cn/coze_pro_cloud_device_fee",
+        "https://utest.21kunpeng.com/home/ubox",
+        "https://www.devicebase.cn/",
+        "https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html"
+      ]
+    },
+    {
+      "product": "pushary",
+      "match_href": "https://www.producthunt.com/products/pushary",
+      "panel": "jm-phd",
+      "status": "ready",
+      "verified_on": "2026-11-06",
+      "report": "pushary.html",
+      "summary": [
+        "官网把编码 Agent 的提问送到手机或 Mac，并留下谁点了同意，这次没有打开飞书或企微的审批文档，所以不能把它们写成已经核实的同类账本。",
+        "最小可做的是一个只拦截 git push 和对外发信的机器人，把同意记进一张表，先给一个五人小组用。",
+        "团队页写 5 人每月 59 美元、多一人每月 12 美元，演示短、好讲，但国内能否用人民币结账仍待核，158 票也不是席位数。"
+      ],
+      "meta": "快照 2026-11-06 06:18 北京时间 · 日榜显示序 2 · 158 票 · 未开通 · 票不是付费席位",
+      "sources": [
+        "https://pushary.com/teams",
+        "https://pushary.com/pricing",
+        "https://pushary.com/docs/agents/team",
+        "https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html"
+      ]
+    },
+    {
+      "product": "maritime",
+      "match_href": "https://www.producthunt.com/products/maritime",
+      "panel": "jm-phd",
+      "status": "ready",
+      "verified_on": "2026-11-06",
+      "report": "maritime.html",
+      "summary": [
+        "官网按秒卖沙箱和云桌面，扣子按 CU·天卖云电脑和云手机，两边都能跑 Agent，但账单单位和能不能拿到 Windows 桌面并不一样。",
+        "个人最小动作是用一家现成云的一次性沙箱跑完一个生成脚本，而不是自建机房或转售 Maritime。",
+        "云电脑演示能做视频，156 票不是用量，滥用、许可和毛利会先于播放变成成本。"
+      ],
+      "meta": "快照 2026-11-06 06:18 北京时间 · 日榜显示序 3 · 156 票 · 未开机器 · 票不是并发用量",
+      "sources": [
+        "https://maritime.sh",
+        "https://maritime.sh/pricing",
+        "https://docs.coze.cn/coze_pro_cloud_device_fee",
+        "https://utest.21kunpeng.com/home/ubox",
+        "https://www.devicebase.cn/",
+        "https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html"
+      ]
+    },
+    {
+      "product": "clocknext",
+      "match_href": "https://www.producthunt.com/products/clocknext",
+      "panel": "jm-phd",
+      "status": "ready",
+      "verified_on": "2026-11-06",
+      "report": "clocknext.html",
+      "summary": [
+        "定价页按你向外开出的账单收入分档，国内支付和发票这次没有逐家打开，所以不能写国内没有计费工具。",
+        "最小版本是给自己的一个 Agent 产品做每周一张表，左边模型成本，右边客户套餐，先不要做发票和钱包。",
+        "创业者内容能带来阅读，成交却要接进别人的账单系统，134 票不能当成年经常性收入。"
+      ],
+      "meta": "快照 2026-11-06 06:18 北京时间 · 日榜显示序 4 · 134 票 · 未接入 · 票不是计费收入",
+      "sources": [
+        "https://www.clocknext.com/",
+        "https://www.clocknext.com/pricing",
+        "https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html"
+      ]
+    },
+    {
+      "product": "rerun",
+      "match_href": "https://www.producthunt.com/products/rerun-2",
+      "panel": "jm-phd",
+      "status": "ready",
+      "verified_on": "2026-11-06",
+      "report": "rerun.html",
+      "summary": [
+        "它把已有的 ChatGPT 或 Claude 订阅排成步骤可见、敏感操作要人点头的同事，扣子则是在扣子里另建 Agent 和按 CU 计费的云设备。",
+        "最小可做的是一条定时任务加一次人工确认，例如每天整理邮箱草稿，用现成的自动化工具而不是自研一整套同事平台。",
+        "官网写 2,000 多用户，190 票却因分组显示在第 5，这次定价页还带 price1:29 实验 cookie，都不能当成已核实的付费留存。"
+      ],
+      "meta": "快照 2026-11-06 06:18 北京时间 · 日榜显示序 5 · 190 票 · 分组显示序 · 未部署 · 票不是留存",
+      "sources": [
+        "https://rerun.build",
+        "https://rerun.build/pricing",
+        "https://docs.coze.cn/coze_pro_cloud_device_fee",
+        "https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html"
+      ]
+    },
+    {
+      "product": "beacon",
+      "match_href": "https://www.producthunt.com/products/asymptotelabs",
+      "panel": "jm-ph",
+      "status": "ready",
+      "verified_on": "2026-11-06",
+      "report": "beacon.html",
+      "summary": [
+        "它跨 Claude Code、Cursor、Codex 等工具收会话并收成可复用技能，和只留在本机 SQLite 的 silo-memory 不是同一条安装路径。",
+        "最小可做的是一个仓库在会话结束时写 markdown，下一次换工具先读这份文件，先不做云端技能市场。",
+        "定价页写可以 0 美元开始，失忆对比容易做成演示，周榜 429 票和 GitHub 上 3,314 星都不是付费人数。"
+      ],
+      "meta": "快照 2026-11-06 06:18 北京时间 · 周榜显示序 1 · 本周票 429 · 未实测 · 票不是付费席位",
+      "sources": [
+        "https://beacon.sh/",
+        "https://beacon.sh/pricing",
+        "https://github.com/Asymptote-Labs/agent-beacon",
+        "https://api.github.com/repos/Asymptote-Labs/agent-beacon",
+        "https://pypi.org/project/silo-memory/",
+        "https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html"
+      ]
+    },
+    {
+      "product": "wanaka",
+      "match_href": "https://www.producthunt.com/products/wanaka-studio",
+      "panel": "jm-ph",
+      "status": "ready",
+      "verified_on": "2026-11-06",
+      "report": "wanaka.html",
+      "summary": [
+        "扣子编程文档写可以用对话做网页应用，例子里包括网页版互动游戏并按访问的算力和流量收费，Wanaka 首页写的则是浏览器里可玩的 3D，并一键给出链接。",
+        "最小可做的是用现成网页模板改一个玩法再发出链接，不自研 3D 引擎，也不承诺自动绑骨。",
+        "游戏演示很容易带来播放，定价页只写了可以免费开始和年付送两个月，具体月费这次没有读到，421 票也不是留存。"
+      ],
+      "meta": "快照 2026-11-06 06:18 北京时间 · 周榜显示序 2 · 本周票 421 · 未实测 · 票不是玩家数",
+      "sources": [
+        "https://wanaka.app/",
+        "https://wanaka.app/pricing",
+        "https://eval.wanaka.app/",
+        "https://docs.coze.cn/guides_vibe_coding_web_app",
+        "https://docs.coze.cn/coze_pro_service_hosting_fee",
+        "https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html"
+      ]
+    },
+    {
+      "product": "floot",
+      "match_href": "https://www.producthunt.com/products/floot",
+      "panel": "jm-ph",
+      "status": "ready",
+      "verified_on": "2026-11-06",
+      "report": "floot.html",
+      "summary": [
+        "支付文档写在 ChatGPT 或 Claude 里做应用，预览用测试卡，真正收款要 Pro 或 Power 且 Pro 对每笔抽 1%，扣子编程则是在自己的网页里做应用再按 CU·秒托管。",
+        "最小可做的是给一个自己的页面接一笔测试收款并记到表里，先不要做整套应用托管。",
+        "不离开聊天就发布，演示很短，319 票不是流水，月费这次没在定价页正文里读到，不能把 1% 说成订阅价。"
+      ],
+      "meta": "快照 2026-11-06 06:18 北京时间 · 周榜显示序 3 · 本周票 319 · 未开通 · 票不是成交额",
+      "sources": [
+        "https://floot.com/",
+        "https://floot.com/docs/integrations/payments",
+        "https://floot.com/docs/integrations/build-from-claude-and-chatgpt",
+        "https://docs.coze.cn/guides_vibe_coding_web_app",
+        "https://docs.coze.cn/coze_pro_service_hosting_fee",
+        "https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html"
+      ]
+    },
+    {
+      "product": "glasshand",
+      "match_href": "https://www.producthunt.com/products/glasshand",
+      "panel": "jm-ph",
+      "status": "ready",
+      "verified_on": "2026-11-06",
+      "report": "glasshand.html",
+      "summary": [
+        "周榜这张仍是独占 iPhone 或 Mac 的月租，和扣子按 CU·天的云手机、UBox 按时长调度的真机池不是同一张账单。",
+        "最小可做的还是一台自己的闲置安卓加投屏，不因为周榜更靠前就去采购苹果库存。",
+        "这里的显示序是 4，本周票 293，和日榜第 1 名的 293 是同一笔最高日票，录屏仍容易带来播放，擦除是否彻底没有验证。"
+      ],
+      "meta": "快照 2026-11-06 06:18 北京时间 · 周榜显示序 4 · 本周票 293 · 与日榜同一笔最高日票 · 未租用 · 票不是续租人数",
+      "sources": [
+        "https://glasshand.com",
+        "https://glasshand.com/pricing/",
+        "https://docs.coze.cn/coze_pro_cloud_device_fee",
+        "https://utest.21kunpeng.com/home/ubox",
+        "https://www.devicebase.cn/",
+        "https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html"
+      ]
+    },
+    {
+      "product": "pushary",
+      "match_href": "https://www.producthunt.com/products/pushary",
+      "panel": "jm-ph",
+      "status": "ready",
+      "verified_on": "2026-11-06",
+      "report": "pushary.html",
+      "summary": [
+        "周榜这张仍是把编码 Agent 的提问送到手机或 Mac 并留下谁点了同意，飞书和企微的审批文档这次依然没打开，不能写成已经核实的同类账本。",
+        "最小可做的仍是只拦截 git push 和对外发信，把同意写进一张表，给一个五人小组用两周。",
+        "显示序是 5，本周票 158，和日榜第 2 名是同一笔最高日票，官网团队价仍是 5 人每月 59 美元，演示短，人民币结账待核。"
+      ],
+      "meta": "快照 2026-11-06 06:18 北京时间 · 周榜显示序 5 · 本周票 158 · 与日榜同一笔最高日票 · 未开通 · 票不是付费席位",
+      "sources": [
+        "https://pushary.com/teams",
+        "https://pushary.com/pricing",
+        "https://pushary.com/docs/agents/team",
+        "https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html"
+      ]
+    }
+  ]
+}
