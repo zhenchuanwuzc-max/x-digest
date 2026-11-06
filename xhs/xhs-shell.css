@@ -1,0 +1,67 @@
+.shell {
+  width: 100%;
+  margin: 0;
+}
+.main {
+  box-sizing: border-box;
+  justify-self: center;
+  width: min(68rem, calc(100% - 3rem));
+  max-width: 68rem;
+  min-width: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.nav details.navg {
+  margin: .15rem 0 .35rem;
+}
+.nav details.navg > summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: .72rem;
+  letter-spacing: .06em;
+  color: var(--mut);
+  padding: .4rem .5rem;
+  border-radius: 8px;
+}
+.nav details.navg > summary::-webkit-details-marker {
+  display: none;
+}
+.nav details.navg > summary::marker {
+  content: "";
+}
+.nav details.navg > summary::before {
+  content: "▸";
+  display: inline-block;
+  width: 1em;
+  color: var(--accent);
+}
+.nav details.navg[open] > summary::before {
+  content: "▾";
+}
+.nav details.navg > summary:hover,
+.nav details.navg > summary:focus {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.nav details.navg > a {
+  margin-left: .35rem;
+}
+@media (max-width: 900px) {
+  .nav:has(> details.navg) {
+    display: block;
+    position: static;
+    height: auto;
+    overflow: visible;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .shell:has(details.navg) .mob {
+    display: none;
+  }
+  .main {
+    justify-self: stretch;
+    width: 100%;
+    max-width: none;
+    padding: 1.1rem 1rem 3rem;
+  }
+}

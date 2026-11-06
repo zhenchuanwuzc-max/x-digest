@@ -1,11 +1,9 @@
-"""Observable contract for the Xiaohongshu shell.
-
-The hub keeps one full entry. Its nav groups the old links and leaves the
-growth record as its own page. Day pages keep the same centered column.
-"""
 import re
+import subprocess
 import unittest
 from pathlib import Path
+
+import apply_xhs_shell
 
 ROOT = Path(__file__).resolve().parent
 REPO = ROOT.parent
@@ -57,10 +55,10 @@ class ShellContract(unittest.TestCase):
         css = SHELL.read_text(encoding="utf-8")
         compact = re.sub(r"\s+", "", css)
         self.assertIn("justify-self:center", compact)
-        self.assertIn("width:min(68rem,calc(100% - 3rem))", compact)
+        self.assertIn("width:min(68rem,calc(100%-3rem))", compact)
         self.assertIn("max-width:68rem", compact)
         self.assertIn(".nav:has(>details.navg)", compact)
-        self.assertIn(".shell:has(details.navg).mob{display:none}", compact)
+        self.assertIn(".shell:has(details.navg).mob{display:none;}", compact)
 
     def test_pages_load_shell_last_in_head(self):
         for page in [HUB, *DAY_PAGES]:
@@ -76,7 +74,30 @@ class ShellContract(unittest.TestCase):
         self.assertEqual(nav.count('<details class="navg" open>'), 2)
         self.assertEqual(nav.count("<details"), 4)
         hrefs = re.findall(r'href="([^"]+)"', nav)
-        self.assertEqual(hrefs, HUB_HREFS)
+        self.assertEqual(sorted(hrefs), sorted(HUB_HREFS))
+        grouped = re.findall(
+            r'<details class="navg"(?: open)?><summary>(.*?)</summary>(.*?)</details>',
+            nav,
+        )
+        by_group = {name: re.findall(r'href="([^"]+)"', body) for name, body in grouped}
+        self.assertEqual(
+            by_group,
+            {
+                "今天": ["#top", "#xhs", "#feed"],
+                "选题": ["#picks", "#insp", "#xdiff", "#tingji"],
+                "素材与对标": ["#lenny", "#deep", "#raw", "#bench", "#profiles", "#growth"],
+                "库与计划": [
+                    "#tools",
+                    "curriculum.html",
+                    "#drafts",
+                    "#pos",
+                    "#plan",
+                    "#main",
+                    "#side",
+                    "#log",
+                ],
+            },
+        )
         tail = nav.rsplit("</details>", 1)[-1]
         self.assertIn('href="growth/"', tail)
         self.assertIn("成长记录专属入口", tail)
@@ -101,6 +122,22 @@ class ShellContract(unittest.TestCase):
         self.assertIn("id=\"p1\"", html)
         self.assertNotIn('http-equiv="refresh"', html)
         self.assertGreater(len(html), 150_000)
+
+    def test_restamp_old_hub_keeps_groups_and_is_stable(self):
+        old = subprocess.check_output(
+            ["git", "show", "main:xhs/index.html"], text=True
+        )
+        once = apply_xhs_shell.stamp_hub_nav(
+            apply_xhs_shell.stamp_link(old, "xhs-shell.css")
+        )
+        twice = apply_xhs_shell.stamp_hub_nav(
+            apply_xhs_shell.stamp_link(once, "xhs-shell.css")
+        )
+        self.assertEqual(once, twice)
+        self.assertIn("<summary>今天</summary>", once)
+        self.assertIn('href="growth/"', once)
+        self.assertIn("小红书 · 全入口", once)
+        self.assertGreater(len(once), 150_000)
 
 
 if __name__ == "__main__":
