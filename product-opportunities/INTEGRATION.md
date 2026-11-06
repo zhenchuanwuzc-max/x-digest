@@ -10,7 +10,7 @@
 python3 product-opportunities/apply_opportunities.py
 ```
 
-脚本会重写 `product-opportunities/reports/` 下的 10 个页面，并只修改同时满足两点的 HTML。
+脚本会重写 `product-opportunities/reports/` 下的报告，并只修改同时满足两点的 HTML。同一份快照同时覆盖 GitHub 热榜本周前五、AI 产品日榜显示序前五，以及 AI 产品默认周榜显示序前五。月榜不写。
 
 - 正文含有 `更新于 2026-11-06 06:18（北京时间）`
 - 指定面板里，显示序和原链接同时对上

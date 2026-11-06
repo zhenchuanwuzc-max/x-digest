@@ -6,7 +6,7 @@
 
 GitHub 热榜默认打开的是「本周涨星」`#jm-ghw`。前五名与任务列出的仓库一致。
 
-AI 产品榜单默认选中的是「周」，不是「日」。日榜在 `#jm-phd`，页面带 `hidden`。任务点名的 Glasshand、Pushary for Teams、Maritime、Clocknext、Rerun 按这个日榜的显示序排列。Rerun 的票是 190，卡片序号是 05，因为它前面有分组。分析写在日榜卡片上，不改默认选中的周榜。回链使用 `#jm-ghw` 和 `#jm-phd`，现有脚本会按 hash 打开对应子栏。
+AI 产品榜单默认选中的是「周」。日榜在 `#jm-phd`。周榜显示序前五是 beacon.sh、Wanaka Studio、Floot Payments、Glasshand、Pushary for Teams。日榜前五仍是 Glasshand、Pushary for Teams、Maritime、Clocknext、Rerun。重叠的两份报告同时给出周榜和日榜入口。月榜不写。默认选中的周榜没有改。
 
 ## 形状
 

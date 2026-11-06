@@ -328,7 +328,7 @@ entry(
     summary=[
         {"angle": "cn", "text": "仓库自述是可换模型的破甲提示词包，这类产品和绕过模型安全策略绑在一起，不适合做成要卖给国内用户的同类工具。"},
         {"angle": "min", "text": "若只取相邻的合法需求，最小版本是书面授权下、只针对自有模型的回归评测集，里面不放绕过文本。"},
-        {"angle": "go", "text": "星数说明有人点了 Star，不能当成越狱成功或付费。传播绕过内容还有平台封禁和违法风险，本页不提供做法。"},
+        {"angle": "go", "text": "星数说明有人点了 Star，不能当成越狱成功或付费，传播绕过内容还有平台封禁和违法风险，本页不提供做法。"},
     ],
     sections=blocks({
         "what": [
@@ -452,7 +452,7 @@ entry(
     meta="快照 2026-11-06 06:18 北京时间 · 日榜显示序 2 · 158 票 · 未开通 · 票不是付费席位",
     backs=backs("jm-phd", "AI 产品榜单 · 日"),
     summary=[
-        {"angle": "cn", "text": "官网把编码 Agent 的提问送到手机或 Mac，并留下谁点了同意。这次没有打开飞书或企微的审批文档，所以不能把它们写成已经核实的同类账本。"},
+        {"angle": "cn", "text": "官网把编码 Agent 的提问送到手机或 Mac，并留下谁点了同意，这次没有打开飞书或企微的审批文档，所以不能把它们写成已经核实的同类账本。"},
         {"angle": "min", "text": "最小可做的是一个只拦截 git push 和对外发信的机器人，把同意记进一张表，先给一个五人小组用。"},
         {"angle": "go", "text": "团队页写 5 人每月 59 美元、多一人每月 12 美元，演示短、好讲，但国内能否用人民币结账仍待核，158 票也不是席位数。"},
     ],
@@ -517,7 +517,7 @@ entry(
     summary=[
         {"angle": "cn", "text": "官网按秒卖沙箱和云桌面，扣子按 CU·天卖云电脑和云手机，两边都能跑 Agent，但账单单位和能不能拿到 Windows 桌面并不一样。"},
         {"angle": "min", "text": "个人最小动作是用一家现成云的一次性沙箱跑完一个生成脚本，而不是自建机房或转售 Maritime。"},
-        {"angle": "go", "text": "云电脑演示能做视频，156 票不是用量。滥用、许可和毛利会先于播放变成成本。"},
+        {"angle": "go", "text": "云电脑演示能做视频，156 票不是用量，滥用、许可和毛利会先于播放变成成本。"},
     ],
     sections=blocks({
         "what": [
@@ -690,4 +690,236 @@ entry(
             ("事实", "2026-11-06 HTTP 200。[[rerun.build|https://rerun.build]]，[[定价页|https://rerun.build/pricing]]，[[扣子云设备|https://docs.coze.cn/coze_pro_cloud_device_fee]]，" + BOARD + "。Product Hunt 403，不采用。价格实验只记录了这一次响应的 cookie。"),
         ],
     }),
+)
+
+entry(
+    slug="beacon",
+    panel="jm-ph",
+    rank="01",
+    href="https://www.producthunt.com/products/asymptotelabs",
+    name="beacon.sh",
+    board_line="AI 产品榜单 · 周 · 显示序 1 · 快照本周票 429 · 范围 2026-11-02～2026-11-05 · 这是周榜合并后的显示序，不是日榜名次",
+    banner="我们没有安装 Beacon，也没有登录 beacon.sh。下面的免费档和月费是 2026-11-06 定价页静态文本里的句子。",
+    meta="快照 2026-11-06 06:18 北京时间 · 周榜显示序 1 · 本周票 429 · 未实测 · 票不是付费席位",
+    backs=[
+        ("../../index.html#jm-ph", "返回 AI 产品周榜"),
+        ("../../2026-11-06.html#jm-ph", "返回 2026-11-06 快照的周榜"),
+    ],
+    summary=[
+        {"angle": "cn", "text": "它跨 Claude Code、Cursor、Codex 等工具收会话并收成可复用技能，和只留在本机 SQLite 的 silo-memory 不是同一条安装路径。"},
+        {"angle": "min", "text": "最小可做的是一个仓库在会话结束时写 markdown，下一次换工具先读这份文件，先不做云端技能市场。"},
+        {"angle": "go", "text": "定价页写可以 0 美元开始，失忆对比容易做成演示，周榜 429 票和 GitHub 上 3,314 星都不是付费人数。"},
+    ],
+    sections=blocks({
+        "what": [
+            ("官方自述", "[[beacon.sh|https://beacon.sh/]] 写把 Claude Code、Cursor、Codex、OpenCode 等 20 多种工具的会话变成可累积的知识，让下一个 Agent 不用从头学。"),
+            ("事实", "情报站周榜显示序 1，本周票 429。原链是 Product Hunt 的 asymptotelabs。该页本次不作为正文来源。仓库是 [[Asymptote-Labs/agent-beacon|https://github.com/Asymptote-Labs/agent-beacon]]。"),
+        ],
+        "who": [
+            ("官方自述", "给同时用多款编程 Agent、希望纠正和调试路径能跨工具留下的人。README 写一个 Agent 解决过的问题不必让另一个从头再学。"),
+        ],
+        "flow": [
+            ("官方自述", "首页把流程写成三步。先留下提示、工具调用、修改和结果。再从成功会话里抽出可复用技能。人看过之后，以后的 Agent 用 MCP 或 Agent Skills 取回。"),
+            ("事实", "2026-11-06 的 [[GitHub API|https://api.github.com/repos/Asymptote-Labs/agent-beacon]] 返回 MIT，公开星 3,314，fork 292，语言 Go。星不是安装数。"),
+        ],
+        "price": [
+            ("官方自述", "[[定价页|https://beacon.sh/pricing]] 的静态文本写开始是 0 美元。Beacon Cloud Pro 按年计费写着每月 20 美元，并写省 25%。团队档写着每席每月 30 美元，同样注明按年计费。页面上还有 Loading 字样，结账时数字可能不同。我们没有下单。"),
+            ("待核", "本地安装是否完全不要账号，以 README 的安装段为准。这次没有逐步点完安装器。"),
+        ],
+        "signal": [
+            ("事实", "周榜 429 票来自情报站，范围是 2026-11-02 到 2026-11-05 的最高日榜票，不是我们数出来的一周用户。API 星数是同日抽样。"),
+        ],
+        "cn": [
+            ("事实", "[[silo-memory|https://pypi.org/project/silo-memory/]] 写记忆留在本机，用 SQLite 做检索，不把原文送到外部服务。它没有 Beacon 这种跨工具抽技能再放回 MCP 的描述。"),
+            ("事实", "claude-mem 的安装说明会引导浏览器登录，并有 30 天试用。Beacon 的差异写在跨工具会话和技能复用。我们没有并排安装。"),
+        ],
+        "wedge": [
+            ("建议", "只做中文项目的一份会话结束摘要，文件留在仓库里。下一次无论用 Cursor 还是 Claude Code，都先读这份文件。"),
+        ],
+        "mvp": [
+            ("建议", "一个仓库，五天，每天一份 markdown。内容只保留决定和踩坑，不上传。"),
+            ("不做", "不做托管技能市场，不宣称比 Beacon 更懂全部工具，不把 429 票写成用户数。"),
+        ],
+        "check": [
+            ("建议", "成功是换了一款编程工具之后，仍能靠那份 markdown 少解释一遍目录约定，并且文件里没有密钥。"),
+            ("建议", "停止条件是每天都要手改摘要，或者一次把令牌写进了文件。"),
+        ],
+        "money": [
+            ("事实", "页面写 0 美元可以开始。Pro 的 20 美元是年付价目上的静态文本。429 票不是席位。"),
+            ("建议", "可以做一条「两个工具共享一份项目记忆」的演示。收费要等有人连续五天留下文件。"),
+        ],
+        "risk": [
+            ("风险", "会话里有命令和密钥。云档把记录交给对方。定价页的 Loading 说明标价可能还没定死。和 claude-mem、Silo 挤在同一类需求里。"),
+        ],
+        "sources": [
+            ("事实", "2026-11-06 HTTP 200。[[beacon.sh|https://beacon.sh/]]，[[定价页|https://beacon.sh/pricing]]，[[仓库|https://github.com/Asymptote-Labs/agent-beacon]]，[[API|https://api.github.com/repos/Asymptote-Labs/agent-beacon]]，[[silo-memory|https://pypi.org/project/silo-memory/]]，" + BOARD + "。"),
+        ],
+    }),
+)
+
+entry(
+    slug="wanaka",
+    panel="jm-ph",
+    rank="02",
+    href="https://www.producthunt.com/products/wanaka-studio",
+    name="Wanaka Studio",
+    board_line="AI 产品榜单 · 周 · 显示序 2 · 快照本周票 421 · 范围 2026-11-02～2026-11-05",
+    banner="我们没有打开 Wanaka 的工作室，也没有发布游戏。定价页能打开，但这次读到的 HTML 里没有具体月费数字。",
+    meta="快照 2026-11-06 06:18 北京时间 · 周榜显示序 2 · 本周票 421 · 未实测 · 票不是玩家数",
+    backs=[
+        ("../../index.html#jm-ph", "返回 AI 产品周榜"),
+        ("../../2026-11-06.html#jm-ph", "返回 2026-11-06 快照的周榜"),
+    ],
+    summary=[
+        {"angle": "cn", "text": "扣子编程文档写可以用对话做网页应用，例子里包括网页版互动游戏并按访问的算力和流量收费，Wanaka 首页写的则是浏览器里可玩的 3D，并一键给出链接。"},
+        {"angle": "min", "text": "最小可做的是用现成网页模板改一个玩法再发出链接，不自研 3D 引擎，也不承诺自动绑骨。"},
+        {"angle": "go", "text": "游戏演示很容易带来播放，定价页只写了可以免费开始和年付送两个月，具体月费这次没有读到，421 票也不是留存。"},
+    ],
+    sections=blocks({
+        "what": [
+            ("官方自述", "[[wanaka.app|https://wanaka.app/]] 写用一句话做可玩的 3D 游戏，在浏览器里打开链接就能玩，不要求会写代码。FAQ 写描述需求后由创作 Agent 一起做，也可以自己改。"),
+            ("事实", "情报站周榜显示序 2，本周票 421。卡片原链是 Product Hunt。情报站简介还写了可视化编辑器、自动绑骨、多人联机和一键发布。这些句子在情报站卡片上，Wanaka 首页这次读到的是角色、动画、界面和分享链接，自动绑骨没有在首页摘录里再次出现，所以绑骨能力待核。"),
+        ],
+        "who": [
+            ("官方自述", "给想做赛车、射击、平台、塔防、多人竞技或城市建造，但不写代码的人。作品在现代浏览器里玩。"),
+        ],
+        "flow": [
+            ("官方自述", "描述想法，Agent 分步做出可玩版本，然后用链接分享。[[eval.wanaka.app|https://eval.wanaka.app/]] 把角色分成三块。人定风格和手感，Agent 拆步骤并改逻辑，引擎负责实时预览、物理和发布。我们没有走完一条创作。"),
+        ],
+        "price": [
+            ("官方自述", "[[定价页|https://wanaka.app/pricing]] 2026-11-06 返回 200。读到的文字是可以免费开始做游戏，月付和年付切换，年付写着送两个月。具体每一档多少钱没有出现在这次抓到的 HTML 里。"),
+            ("待核", "不把缺失的数字补成价格。结账页没有打开。"),
+        ],
+        "signal": [
+            ("事实", "421 票是情报站周榜上的最高日榜票，范围 2026-11-02 到 2026-11-05。没有公开的付费创作者数或次日仍在玩的人数。"),
+        ],
+        "cn": [
+            ("事实", "[[扣子编程的网页应用文档|https://docs.coze.cn/guides_vibe_coding_web_app]] 写在网页里对话完成应用，例子包含网页版互动游戏，然后部署成线上地址。费用是编程对话积分，加上 [[托管费|https://docs.coze.cn/coze_pro_service_hosting_fee]]。托管按算力秒数和流量计，算力写着 0.0072 积分每 CU 每秒，或 0.00018 元每 CU 每秒。没人访问不计托管费。"),
+            ("假设", "差别在 3D 引擎和浏览器即玩，而不在「国内没有人用 AI 做游戏」。这个判断还没被玩家验证。"),
+        ],
+        "wedge": [
+            ("建议", "只做一个浏览器里能点的小玩法，用现成网页托管发出链接。第一屏写清楚这不是 3D 引擎。"),
+        ],
+        "mvp": [
+            ("建议", "一个周末做完的网页小游戏，加一段 30 秒屏幕录像。"),
+            ("不做", "不自研物理和多人同步。不引用我们没在首页读到的「省 80% token」一类对比。"),
+        ],
+        "check": [
+            ("建议", "成功是 10 个朋友能打开链接玩完一局，并且其中 3 人第二天还打开。"),
+            ("建议", "停止条件是链接打不开，或大家只看录像、不玩。"),
+        ],
+        "money": [
+            ("事实", "能确认的只有免费开始和年付送两个月。421 票不是收入。"),
+            ("建议", "录像可以发。收费要等有人玩到第二天，再决定要不要做素材包。"),
+        ],
+        "risk": [
+            ("风险", "3D 和多人是重资产。生成内容有版权和适龄问题。价格没读到就不能对外报价。扣子的网页游戏和它不是同一套引擎，不能说成已经覆盖。"),
+        ],
+        "sources": [
+            ("事实", "2026-11-06 HTTP 200。[[wanaka.app|https://wanaka.app/]]，[[定价页|https://wanaka.app/pricing]]，[[eval.wanaka.app|https://eval.wanaka.app/]]，[[扣子网页应用|https://docs.coze.cn/guides_vibe_coding_web_app]]，[[扣子托管费|https://docs.coze.cn/coze_pro_service_hosting_fee]]，" + BOARD + "。"),
+        ],
+    }),
+)
+
+entry(
+    slug="floot",
+    panel="jm-ph",
+    rank="03",
+    href="https://www.producthunt.com/products/floot",
+    name="Floot Payments",
+    board_line="AI 产品榜单 · 周 · 显示序 3 · 快照本周票 319 · 范围 2026-11-02～2026-11-05 · 卡片简介写的是不离开 ChatGPT 就能做并发布应用",
+    banner="我们没有连接 Floot，也没有用测试卡付款。抽成来自 2026-11-06 能打开的支付文档。月费数字没有读到。",
+    meta="快照 2026-11-06 06:18 北京时间 · 周榜显示序 3 · 本周票 319 · 未开通 · 票不是成交额",
+    backs=[
+        ("../../index.html#jm-ph", "返回 AI 产品周榜"),
+        ("../../2026-11-06.html#jm-ph", "返回 2026-11-06 快照的周榜"),
+    ],
+    summary=[
+        {"angle": "cn", "text": "支付文档写在 ChatGPT 或 Claude 里做应用，预览用测试卡，真正收款要 Pro 或 Power 且 Pro 对每笔抽 1%，扣子编程则是在自己的网页里做应用再按 CU·秒托管。"},
+        {"angle": "min", "text": "最小可做的是给一个自己的页面接一笔测试收款并记到表里，先不要做整套应用托管。"},
+        {"angle": "go", "text": "不离开聊天就发布，演示很短，319 票不是流水，月费这次没在定价页正文里读到，不能把 1% 说成订阅价。"},
+    ],
+    sections=blocks({
+        "what": [
+            ("官方自述", "[[floot.com|https://floot.com/]] 写把 Floot 加到 Claude、ChatGPT 或 Cursor，用对话做出带后端、数据库和托管的应用，然后发布。情报站卡片的名字是 Floot Payments，简介是不离开 ChatGPT 就能做并发布真实 App。"),
+            ("事实", "周榜显示序 3，本周票 319。原链是 Product Hunt 的 floot。"),
+        ],
+        "who": [
+            ("官方自述", "给已经在用 Claude 或 ChatGPT、想让聊天结果变成一个带登录和收款的线上应用的人。文档写构建跑在 Floot 的服务器上，本机没有 CLI，也没有要克隆的仓库。"),
+        ],
+        "flow": [
+            ("官方自述", "[[支付文档|https://floot.com/docs/integrations/payments]] 写让助手加上结账。预览用 Stripe 测试卡 4242，不发生真钱，任何档包括 Free 都可以试。发布后的真收款进入你自己的 Stripe。只有项目所有者能接 Stripe。"),
+            ("官方自述", "[[从聊天构建的文档|https://floot.com/docs/integrations/build-from-claude-and-chatgpt]] 写 ChatGPT 默认每次动作都要批准，构建会因此频繁停下，可以改成允许全部动作。这是权限选择，我们没有打开那个开关。"),
+        ],
+        "price": [
+            ("官方自述", "支付文档的表写 Free 只能测试、不能真收款，抽成没有。Pro 可以真收款，Floot 抽每笔 1%。Power 可以真收款，Floot 抽成 0%。Stripe 自己的手续费另计。抽成在订阅开始时定下。"),
+            ("待核", "https://floot.com/pricing 这次打开后几乎没有正文，月费没有读到。不把 1% 写成月费。首页写 Backed by Y Combinator 的字样在抓取里被截成 Y Combi，批次待核。"),
+        ],
+        "signal": [
+            ("事实", "319 票是情报站周榜数字。没有公开的 Pro 订阅数或支付流水。"),
+        ],
+        "cn": [
+            ("事实", "[[扣子编程网页应用|https://docs.coze.cn/guides_vibe_coding_web_app]] 写在扣子网页里对话完成应用并部署。[[托管费|https://docs.coze.cn/coze_pro_service_hosting_fee]] 按访问时长的算力和流量结算，算力 0.0072 积分每 CU 每秒。它不写停在 ChatGPT 里、用你的 Claude 订阅来构建，也不写对 Stripe 每笔抽 1%。"),
+            ("假设", "若要做国内切口，更像给已有页面加一笔国内支付的测试单，而不是再做一个聊天里的全栈托管。"),
+        ],
+        "wedge": [
+            ("建议", "只服务一个自己的报名页。测试环境记下一笔收款，字段是谁、金额、时间。"),
+        ],
+        "mvp": [
+            ("建议", "一张表加一个测试支付。不发布到应用商店。"),
+            ("不做", "不代接别人的 Stripe 密钥。不承诺和 Floot 一样能在聊天里生成数据库。不做支付牌照范围内的资金池。"),
+        ],
+        "check": [
+            ("建议", "成功是测试支付能在表里对上，并且有第二个自己的页面愿意用同一条路。"),
+            ("建议", "停止条件是对账对不上，或需求变成代收别人的钱。"),
+        ],
+        "money": [
+            ("事实", "能确认的价格是真收款时 Pro 抽 1%、Power 抽 0%，外加 Stripe 手续费。319 票不是流水。月费待核。"),
+            ("建议", "演示可以是一次从聊天到测试卡的录屏。收费要等第二张自己的页面接上。"),
+        ],
+        "risk": [
+            ("风险", "真收款涉及主体、结算和退款。文档写允许全部动作会让聊天里的工具少一次确认。国内支付和微信、支付宝这次没有在 Floot 文档里读到，不能写成已经支持。"),
+        ],
+        "sources": [
+            ("事实", "2026-11-06 用浏览器标头打开为 HTTP 200。[[floot.com|https://floot.com/]]，[[支付文档|https://floot.com/docs/integrations/payments]]，[[从聊天构建|https://floot.com/docs/integrations/build-from-claude-and-chatgpt]]，[[扣子网页应用|https://docs.coze.cn/guides_vibe_coding_web_app]]，[[扣子托管费|https://docs.coze.cn/coze_pro_service_hosting_fee]]，" + BOARD + "。"),
+        ],
+    }),
+)
+
+entry(
+    slug="glasshand",
+    panel="jm-ph",
+    rank="04",
+    href="https://www.producthunt.com/products/glasshand",
+    name="Glasshand",
+    board_line="AI 产品榜单 · 周 · 显示序 4 · 快照本周票 293 · 范围 2026-11-02～2026-11-05 · 与日榜 293 是同一笔最高日票，不是另一套计数",
+    meta="快照 2026-11-06 06:18 北京时间 · 周榜显示序 4 · 本周票 293 · 与日榜同一笔最高日票 · 未租用 · 票不是续租人数",
+    backs=[
+        ("../../index.html#jm-ph", "返回 AI 产品周榜"),
+        ("../../2026-11-06.html#jm-ph", "返回 2026-11-06 快照的周榜"),
+    ],
+    summary=[
+        {"angle": "cn", "text": "周榜这张仍是独占 iPhone 或 Mac 的月租，和扣子按 CU·天的云手机、UBox 按时长调度的真机池不是同一张账单。"},
+        {"angle": "min", "text": "最小可做的还是一台自己的闲置安卓加投屏，不因为周榜更靠前就去采购苹果库存。"},
+        {"angle": "go", "text": "这里的显示序是 4，本周票 293，和日榜第 1 名的 293 是同一笔最高日票，录屏仍容易带来播放，擦除是否彻底没有验证。"},
+    ],
+)
+
+entry(
+    slug="pushary",
+    panel="jm-ph",
+    rank="05",
+    href="https://www.producthunt.com/products/pushary",
+    name="Pushary for Teams",
+    board_line="AI 产品榜单 · 周 · 显示序 5 · 快照本周票 158 · 范围 2026-11-02～2026-11-05 · 与日榜 158 是同一笔最高日票。同页第 6 名 AgentKit 票数更高，因为周榜按类别分组",
+    meta="快照 2026-11-06 06:18 北京时间 · 周榜显示序 5 · 本周票 158 · 与日榜同一笔最高日票 · 未开通 · 票不是付费席位",
+    backs=[
+        ("../../index.html#jm-ph", "返回 AI 产品周榜"),
+        ("../../2026-11-06.html#jm-ph", "返回 2026-11-06 快照的周榜"),
+    ],
+    summary=[
+        {"angle": "cn", "text": "周榜这张仍是把编码 Agent 的提问送到手机或 Mac 并留下谁点了同意，飞书和企微的审批文档这次依然没打开，不能写成已经核实的同类账本。"},
+        {"angle": "min", "text": "最小可做的仍是只拦截 git push 和对外发信，把同意写进一张表，给一个五人小组用两周。"},
+        {"angle": "go", "text": "显示序是 5，本周票 158，和日榜第 2 名是同一笔最高日票，官网团队价仍是 5 人每月 59 美元，演示短，人民币结账待核。"},
+    ],
 )

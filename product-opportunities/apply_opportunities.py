@@ -105,30 +105,50 @@ def kind_class(kind: str) -> str:
     return "kind"
 
 
+def groups(entries):
+    grouped = {}
+    for entry in entries:
+        grouped.setdefault(entry["slug"], []).append(entry)
+    return grouped
+
+
 def validate(data: dict) -> None:
-    slugs = [item["slug"] for item in data["entries"]]
-    if len(slugs) != 10 or len(set(slugs)) != 10:
-        raise SystemExit("snapshot must contain 10 unique products")
     ids = [item[0] for item in REQUIRED]
+    grouped = groups(data["entries"])
+    seen = set()
     for entry in data["entries"]:
+        key = (entry["panel"], entry["rank"], entry["href"])
+        if key in seen:
+            raise SystemExit(f"duplicate card {key}")
+        seen.add(key)
         sentences = entry["summary"]
         if not 2 <= len(sentences) <= 4:
             raise SystemExit(f"{entry['slug']} summary must be 2 to 4 sentences")
         angles = {item["angle"] for item in sentences}
-        if angles != {"cn", "min", "go"} and not {"cn", "min", "go"} <= angles:
+        if not {"cn", "min", "go"} <= angles:
             raise SystemExit(f"{entry['slug']} summary is missing an angle")
         for sentence in sentences:
-            if not sentence["text"].endswith("。"):
-                raise SystemExit(f"{entry['slug']} sentence does not end with a full stop")
-        got = [block["id"] for block in entry["sections"]]
+            if sentence["text"].count("。") != 1 or not sentence["text"].endswith("。"):
+                raise SystemExit(f"{entry['slug']} sentence must be exactly one sentence")
+    for slug, group in grouped.items():
+        bodies = [entry for entry in group if entry.get("sections")]
+        if len(bodies) != 1:
+            raise SystemExit(f"{slug} needs exactly one report body")
+        got = [block["id"] for block in bodies[0]["sections"]]
         if got != ids:
-            raise SystemExit(f"{entry['slug']} sections are {got}")
-        for block in entry["sections"]:
+            raise SystemExit(f"{slug} sections are {got}")
+        for block in bodies[0]["sections"]:
             if not block["paragraphs"]:
-                raise SystemExit(f"{entry['slug']} {block['id']} is empty")
+                raise SystemExit(f"{slug} {block['id']} is empty")
 
 
-def report_html(entry: dict) -> str:
+def ordered_group(group):
+    priority = {"jm-ph": 0, "jm-ghw": 1, "jm-phd": 2}
+    return sorted(group, key=lambda entry: priority.get(entry["panel"], 9))
+
+
+def report_html(entry: dict, group=None) -> str:
+    group = ordered_group(group or [entry])
     toc = "\n".join(
         f'<a href="#{section_id}">{html.escape(title)}</a>' for section_id, title in REQUIRED
     )
@@ -143,8 +163,14 @@ def report_html(entry: dict) -> str:
         body.append("".join(chunks))
     banner = entry["banner"] if "未实测" in entry["banner"] else "未实测。" + entry["banner"]
     backs = []
-    for href, label in entry["backs"]:
-        backs.append(f'<a class="back" href="{html.escape(href, quote=True)}">{html.escape(label)}</a>')
+    seen_hrefs = set()
+    for item in group:
+        for href, label in item["backs"]:
+            if href in seen_hrefs:
+                continue
+            seen_hrefs.add(href)
+            backs.append(f'<a class="back" href="{html.escape(href, quote=True)}">{html.escape(label)}</a>')
+    board_line = " ".join(item["board_line"] for item in group)
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -158,7 +184,7 @@ def report_html(entry: dict) -> str:
 <p class="kicker">X 情报 · 产品榜单机会报告 · 快照 2026-11-06 06:18 北京时间</p>
 {''.join(backs)}
 <h1>{html.escape(entry["name"])}</h1>
-<p class="kicker">{html.escape(entry["board_line"])}</p>
+<p class="kicker">{html.escape(board_line)}</p>
 <div class="banner">{html.escape(banner)}</div>
 <div class="shell">
 <nav class="toc" aria-label="目录"><strong>目录</strong>{toc}</nav>
@@ -237,9 +263,10 @@ def inject_card(page: str, entry: dict) -> str:
 def write_reports() -> list[Path]:
     REPORT_DIR.mkdir(parents=True, exist_ok=True)
     written = []
-    for entry in DATA["entries"]:
-        path = REPORT_DIR / f'{entry["slug"]}.html'
-        text = report_html(entry)
+    for slug, group in groups(DATA["entries"]).items():
+        primary = next(entry for entry in group if entry.get("sections"))
+        path = REPORT_DIR / f"{slug}.html"
+        text = report_html(primary, group)
         if not path.exists() or path.read_text(encoding="utf-8") != text:
             path.write_text(text, encoding="utf-8")
         written.append(path)

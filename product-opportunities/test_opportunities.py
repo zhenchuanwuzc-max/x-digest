@@ -31,9 +31,10 @@ class OpportunityTests(unittest.TestCase):
             self.assertGreaterEqual(blob.count("。"), 2)
             self.assertLessEqual(blob.count("。"), 4)
             texts.append(blob)
-            source = " ".join(paragraph["text"] for paragraph in entry["sections"][-1]["paragraphs"])
-            self.assertIn("https://", source)
-        self.assertEqual(len(set(texts)), 10)
+            if entry.get("sections"):
+                source = " ".join(paragraph["text"] for paragraph in entry["sections"][-1]["paragraphs"])
+                self.assertIn("https://", source)
+        self.assertEqual(len(set(texts)), len(app.DATA["entries"]))
 
     def test_second_apply_matches_and_keeps_original_heat(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -78,7 +79,7 @@ class OpportunityTests(unittest.TestCase):
             app.REPORT_DIR = Path(tmp)
             try:
                 written = app.write_reports()
-                self.assertEqual(len(written), 10)
+                self.assertEqual(len(written), len({item["slug"] for item in app.DATA["entries"]}))
                 by_slug = {path.stem: path.read_text(encoding="utf-8") for path in written}
             finally:
                 app.REPORT_DIR = Path(__file__).resolve().parent / "reports"
@@ -88,6 +89,12 @@ class OpportunityTests(unittest.TestCase):
         self.assertIn("显示序 5", by_slug["rerun"])
         self.assertIn("price1:29", by_slug["rerun"])
         self.assertIn("不引用提示词", by_slug["dsh-purge"])
+        self.assertIn("../../index.html#jm-ph", by_slug["glasshand"])
+        self.assertIn("../../index.html#jm-phd", by_slug["glasshand"])
+        self.assertIn("../../index.html#jm-ph", by_slug["pushary"])
+        self.assertIn("../../index.html#jm-ph", by_slug["beacon"])
+        self.assertNotIn("#jm-phd", by_slug["beacon"])
+        self.assertNotIn("#jm-phm", by_slug["beacon"])
         for text in by_slug.values():
             self.assertIn('id="what"', text)
             self.assertIn('id="sources"', text)
