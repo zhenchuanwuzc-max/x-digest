@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nutlope/hallmark · 机会报告 · 2026-11-06</title>
+<style>
+:root{
+  --bg:#faf9f6;--surface:#fff;--ink:#202a30;--ink-2:#303c42;--ink-3:#59656b;--ink-4:#657176;
+  --line:#dfe4e1;--accent:#176b75;--accent-ink:#145f68;--accent-soft:rgba(23,107,117,.08);
+  --amber:#7c5a24;--amber-soft:rgba(184,135,58,.12);--hot:#b3402a;
+  --font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.7}
+body{overflow-x:hidden}
+a{color:var(--accent-ink)}
+.page{max-width:1120px;margin:0 auto;padding:20px 16px 72px}
+.back{display:inline-block;margin:0 16px 8px 0;font-weight:650;text-decoration:none}
+.back:hover{text-decoration:underline}
+.kicker{color:var(--ink-3);font-size:13px;margin:8px 0}
+h1{font-size:28px;line-height:1.3;margin:8px 0 8px}
+.banner{background:var(--amber-soft);border:1px solid #e4d3ae;border-radius:12px;padding:10px 14px;margin:12px 0 18px}
+.shell{display:block}
+.toc{margin:0 0 18px;padding:0}
+.toc strong{display:block;font-size:13px;letter-spacing:.04em;color:var(--ink-4);margin-bottom:6px}
+.toc a{display:block;padding:3px 0;text-decoration:none;overflow-wrap:anywhere}
+.toc a:hover{text-decoration:underline}
+main{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px 18px 28px}
+section{scroll-margin-top:16px;padding-top:8px;border-top:1px solid var(--line)}
+section:first-child{border-top:0}
+h2{font-size:18px;margin:16px 0 8px}
+p{margin:0 0 10px;overflow-wrap:anywhere;word-break:break-word}
+.kind{display:inline-block;font-size:12px;font-weight:700;color:var(--accent-ink);background:var(--accent-soft);border-radius:999px;padding:0 8px;margin-right:6px;vertical-align:1px}
+.kind.warn{color:var(--amber);background:var(--amber-soft)}
+.kind.stop{color:var(--hot);background:rgba(179,64,42,.08)}
+@media (min-width:960px){
+  .shell{display:grid;grid-template-columns:220px minmax(0,720px);gap:28px;align-items:start;justify-content:center}
+  .toc{position:sticky;top:16px}
+  main{padding:8px 28px 36px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<p class="kicker">X 情报 · 产品榜单机会报告 · 快照 2026-11-06 06:18 北京时间</p>
+<a class="back" href="../../index.html#jm-ghw">返回 GitHub 热榜 · 本周涨星</a><a class="back" href="../../2026-11-06.html#jm-ghw">返回 2026-11-06 快照同一栏</a>
+<h1>Nutlope/hallmark</h1>
+<p class="kicker">GitHub 热榜 · 本周涨星 · 显示序 3 · 快照写本周 +7,622 星，总星 48,695</p>
+<div class="banner">未实测。我们没有安装 Hallmark，也没有跑它的浏览器 lint。主题数和门禁名称来自 README。</div>
+<div class="shell">
+<nav class="toc" aria-label="目录"><strong>目录</strong><a href="#what">产品是什么</a>
+<a href="#who">给谁</a>
+<a href="#flow">工作流程与场景</a>
+<a href="#price">价格、开放与权限</a>
+<a href="#signal">真实使用信号</a>
+<a href="#cn">国内替代</a>
+<a href="#wedge">可做的窄切口</a>
+<a href="#mvp">最小版与不做的范围</a>
+<a href="#check">验证办法与建议的成功和停止条件</a>
+<a href="#money">流量和付费</a>
+<a href="#risk">风险</a>
+<a href="#sources">来源</a></nav>
+<main>
+<section id="what"><h2>产品是什么</h2><p><span class="kind">官方自述</span><a href="https://github.com/Nutlope/hallmark" target="_blank" rel="noopener">README</a> 写它由 Together AI 制作，是 Claude Code、Codex、Cursor、OpenCode 的设计技能。目录有 50 个主题。每个主题是材质，不是页面提纲。</p><p><span class="kind">事实</span>2026-11-06 <a href="https://api.github.com/repos/Nutlope/hallmark" target="_blank" rel="noopener">API</a> 返回 MIT，公开星 48,903，fork 2,591。情报站快照是本周 +7,622、总星 48,695。</p></section><section id="who"><h2>给谁</h2><p><span class="kind">官方自述</span>给要 Agent 出页面、又不想要模板腔的人。redesign 保留内容和接线，audit 只出报告。</p></section><section id="flow"><h2>工作流程与场景</h2><p><span class="kind">官方自述</span>预检读字体、色板和是否已有锁住的 design.md，并要求照片、截图和真实数字，声明不编造。theme.mjs 先给三个主题。英雄区单独做完并冷审，再做页面其余部分。sloplint --render 在八个宽度检查，然后换一个新上下文的评审收尾。</p><p><span class="kind">官方自述</span>Floor 不过就不发布，例子包括对比度、焦点、减少动效、编造事实、手机布局坏掉。Reflex 是模型的默认习惯，有理由可以记录后推翻。Finish 不挡发布。</p><p><span class="kind">事实</span>浏览器检查需要 puppeteer-core 和 Chrome。没有它们时 README 说静态检查仍能跑。我们两种都没跑。</p></section><section id="price"><h2>价格、开放与权限</h2><p><span class="kind">事实</span>许可 MIT。README 写 custom on request，没有标出定制价格。这次打开的 <a href="https://www.usehallmark.com" target="_blank" rel="noopener">usehallmark.com</a> 也是安装命令和演示，没有价目表。</p></section><section id="signal"><h2>真实使用信号</h2><p><span class="kind">事实</span>榜单热度加上 API 星数。官网演示写 Without 26 issues、With Hallmark 0 issues，并注明数字来自它自己的 linter。那是官网自述，不是独立复测。</p><p><span class="kind warn">待核</span>50 个主题是否都可用、定制是否收费，没有逐个打开主题文件。</p></section><section id="cn"><h2>国内替代</h2><p><span class="kind">事实</span>README 的参照列表里已经写了 <a href="https://github.com/alchaincyf/huashu-design" target="_blank" rel="noopener">huashu-design</a> 和 impeccable。中文对比文见 <a href="https://aiku123.com/articles/ai-design-skills-compare" target="_blank" rel="noopener">aiku123</a>。huashu 的差异是中文流程、PPTX 和 84 个风格。Hallmark 的差异是主题抽取加浏览器门禁。</p><p><span class="kind warn">假设</span>把英文主题译成中文不会形成差别。差别只会出现在中文交易页特有的失败模式。</p></section><section id="wedge"><h2>可做的窄切口</h2><p><span class="kind warn">建议</span>做「禁止编造销量和倒计时」这一类中文活动页规则。输出是失败清单，不是新的视觉主题。</p></section><section id="mvp"><h2>最小版与不做的范围</h2><p><span class="kind warn">建议</span>五条规则，一张活动页，改前改后各一张图。规则文件放进 Cursor skill。</p><p><span class="kind stop">不做</span>不克隆 50 个主题。不使用 README 点名的图库许可问题去再分发照片。照片库条款以仓库为准，我们没有逐张核对。</p></section><section id="check"><h2>验证办法与建议的成功和停止条件</h2><p><span class="kind warn">建议</span>拿 6 个真实中文活动页跑规则。成功是每个页面至少一条规则被作者接受，且没有把真实价格判成假数据。</p><p><span class="kind warn">建议</span>停止条件是规则只会报 Inter 字体和紫渐变，作者改完仍觉得没有用。</p></section><section id="money"><h2>流量和付费</h2><p><span class="kind">事实</span>没有官价。播放可以来自对比图。</p><p><span class="kind warn">建议</span>先发对比，不设付费。有人把规则要进自己的仓库，再谈按站定制。</p></section><section id="risk"><h2>风险</h2><p><span class="kind stop">风险</span>和 impeccable、huashu-design 挤在同一周的关注里。浏览器 lint 依赖本机 Chrome。主题文件若直接再分发，要单独看 MIT 以外的照片许可。</p></section><section id="sources"><h2>来源</h2><p><span class="kind">事实</span>2026-11-06 HTTP 200。<a href="https://github.com/Nutlope/hallmark" target="_blank" rel="noopener">README</a>，<a href="https://api.github.com/repos/Nutlope/hallmark" target="_blank" rel="noopener">API</a>，<a href="https://www.usehallmark.com" target="_blank" rel="noopener">usehallmark.com</a>，<a href="https://github.com/alchaincyf/huashu-design" target="_blank" rel="noopener">huashu-design</a>，<a href="https://aiku123.com/articles/ai-design-skills-compare" target="_blank" rel="noopener">aiku123</a>，<a href="https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html" target="_blank" rel="noopener">2026-11-06 情报站</a>。</p></section>
+</main>
+</div>
+</div>
+</body>
+</html>
