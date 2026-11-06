@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pbakaus/impeccable · 机会报告 · 2026-11-06</title>
+<style>
+:root{
+  --bg:#faf9f6;--surface:#fff;--ink:#202a30;--ink-2:#303c42;--ink-3:#59656b;--ink-4:#657176;
+  --line:#dfe4e1;--accent:#176b75;--accent-ink:#145f68;--accent-soft:rgba(23,107,117,.08);
+  --amber:#7c5a24;--amber-soft:rgba(184,135,58,.12);--hot:#b3402a;
+  --font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.7}
+body{overflow-x:hidden}
+a{color:var(--accent-ink)}
+.page{max-width:1120px;margin:0 auto;padding:20px 16px 72px}
+.back{display:inline-block;margin:0 16px 8px 0;font-weight:650;text-decoration:none}
+.back:hover{text-decoration:underline}
+.kicker{color:var(--ink-3);font-size:13px;margin:8px 0}
+h1{font-size:28px;line-height:1.3;margin:8px 0 8px}
+.banner{background:var(--amber-soft);border:1px solid #e4d3ae;border-radius:12px;padding:10px 14px;margin:12px 0 18px}
+.shell{display:block}
+.toc{margin:0 0 18px;padding:0}
+.toc strong{display:block;font-size:13px;letter-spacing:.04em;color:var(--ink-4);margin-bottom:6px}
+.toc a{display:block;padding:3px 0;text-decoration:none;overflow-wrap:anywhere}
+.toc a:hover{text-decoration:underline}
+main{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px 18px 28px}
+section{scroll-margin-top:16px;padding-top:8px;border-top:1px solid var(--line)}
+section:first-child{border-top:0}
+h2{font-size:18px;margin:16px 0 8px}
+p{margin:0 0 10px;overflow-wrap:anywhere;word-break:break-word}
+.kind{display:inline-block;font-size:12px;font-weight:700;color:var(--accent-ink);background:var(--accent-soft);border-radius:999px;padding:0 8px;margin-right:6px;vertical-align:1px}
+.kind.warn{color:var(--amber);background:var(--amber-soft)}
+.kind.stop{color:var(--hot);background:rgba(179,64,42,.08)}
+@media (min-width:960px){
+  .shell{display:grid;grid-template-columns:220px minmax(0,720px);gap:28px;align-items:start;justify-content:center}
+  .toc{position:sticky;top:16px}
+  main{padding:8px 28px 36px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<p class="kicker">X 情报 · 产品榜单机会报告 · 快照 2026-11-06 06:18 北京时间</p>
+<a class="back" href="../../index.html#jm-ghw">返回 GitHub 热榜 · 本周涨星</a><a class="back" href="../../2026-11-06.html#jm-ghw">返回 2026-11-06 快照同一栏</a>
+<h1>pbakaus/impeccable</h1>
+<p class="kicker">GitHub 热榜 · 本周涨星 · 显示序 1 · 快照写本周 +10,921 星，总星 103,844</p>
+<div class="banner">未实测。我们没有安装这个技能，也没有跑检测。下面的命令和规则数来自官方 README。星数是关注度，不是安装人数或付费人数。</div>
+<div class="shell">
+<nav class="toc" aria-label="目录"><strong>目录</strong><a href="#what">产品是什么</a>
+<a href="#who">给谁</a>
+<a href="#flow">工作流程与场景</a>
+<a href="#price">价格、开放与权限</a>
+<a href="#signal">真实使用信号</a>
+<a href="#cn">国内替代</a>
+<a href="#wedge">可做的窄切口</a>
+<a href="#mvp">最小版与不做的范围</a>
+<a href="#check">验证办法与建议的成功和停止条件</a>
+<a href="#money">流量和付费</a>
+<a href="#risk">风险</a>
+<a href="#sources">来源</a></nav>
+<main>
+<section id="what"><h2>产品是什么</h2><p><span class="kind">官方自述</span><a href="https://github.com/pbakaus/impeccable" target="_blank" rel="noopener">README</a> 称它是编程 Agent 的设计词汇。用 polish、bolder 改已有界面，用 critique、audit 做评审，并用 62 条确定性规则抓模板化设计。这些规则不调用模型，也不要 API key。</p><p><span class="kind">事实</span>GitHub API 在 2026-11-06 返回许可 Apache-2.0，语言栏为 Rust，主页指向 <a href="https://impeccable.style/docs/" target="_blank" rel="noopener">impeccable.style</a>。情报站快照把它放在本周涨星第 1，本周 +10,921，总星 103,844。同日 API 的公开星是 104,087。两个数字都不是安装人数。</p></section><section id="who"><h2>给谁</h2><p><span class="kind">官方自述</span>README 列出 Claude Code、Cursor、Codex、Copilot、Devin、Gemini CLI、OpenCode、DeepSeek Harness 等。对象是已经在用这些工具改界面的人。</p><p><span class="kind">官方自述</span>README 写它最强的地方是改已经存在的界面。从零做新站也可以，但作者把那叫更难的模式。</p></section><section id="flow"><h2>工作流程与场景</h2><p><span class="kind">官方自述</span>在项目根执行 npx impeccable install，然后在 Agent 里跑 init。init 追问它推断不出的受众和约束，写出 PRODUCT.md。之后的命令读这个文件。document 会另写 DESIGN.md。</p><p><span class="kind">官方自述</span>命令分成改调性、评审、收尾、浏览器里挑选变体、以及规划。live 模式在本地开发服务器上选中元素并换变体。README 写明 live 只改本地仓库，并警告不要为了它去放宽线上站点的 CSP。</p><p><span class="kind">事实</span>检测可以在 Agent 钩子、命令行或 Chrome 扩展里跑。扫源码只有模式规则。对比度和过小字号要扫渲染后的 URL。我们没有跑其中任何一种。</p></section><section id="price"><h2>价格、开放与权限</h2><p><span class="kind">事实</span>API 与 README 都是 Apache-2.0。README 没有 SaaS 价目。</p><p><span class="kind">官方自述</span>新设计开始时会向 impeccable.style 拉一组视觉方向。关掉遥测后，项目名、文件和 PRODUCT.md 仍按 README 所说不会上传，但拉目录的请求还在。隐私页我们这次没有逐项复读，遥测字段以 <a href="https://impeccable.style/docs/" target="_blank" rel="noopener">隐私页</a> 同站文档为准，细节待核。</p><p><span class="kind">官方自述</span>live 的 Apply 在没有聊天会话轮询时，可能调用本机 codex 或 claude，并带上绕过审批的参数。这是 README 写明的权限行为。不熟悉的仓库里要先看它。</p></section><section id="signal"><h2>真实使用信号</h2><p><span class="kind">事实</span><a href="https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html" target="_blank" rel="noopener">2026-11-06 情报站</a> 的本周涨星序和第 1 名热度是这次报告的榜单位置。API 公开星、6167 个 fork、65 个 open issue、219 个 watcher 是 2026-11-06 的仓库元数据，<a href="https://api.github.com/repos/pbakaus/impeccable" target="_blank" rel="noopener">API</a>。watcher 不是日活。</p><p><span class="kind warn">待核</span>第三方站点上的「实测」我们没有复现，不采信。留存、付费和检测误报率都没有。</p></section><section id="cn"><h2>国内替代</h2><p><span class="kind">事实</span><a href="https://github.com/alchaincyf/huashu-design" target="_blank" rel="noopener">huashu-design</a> 的 API 描述写的是在 Agent 里一句话拿到网页、App 原型、可编辑 PPTX、动画和信息图，六个候选里挑三个方向，84 个带样张的风格，外加外观账本和设计体检。许可 MIT。2026-11-06 抽样星数 28,818。</p><p><span class="kind">事实</span><a href="https://aiku123.com/articles/ai-design-skills-compare" target="_blank" rel="noopener">aiku123 的 2026-10-28 对比</a> 把 hallmark、impeccable、ai-design-skills、huashu-design 放在一起。那篇文章自己的星数是 10 月 28 日口径，不能拿来当今天的星数。它能证明的是中文盘点已经存在。</p><p><span class="kind warn">假设</span>空隙更像中文交易页的检测规则，而不是再翻译 24 个英文命令。这个判断还没被用户验证。</p></section><section id="wedge"><h2>可做的窄切口</h2><p><span class="kind warn">建议</span>只做电商详情和活动页。规则写成中文例子。检测结果输出改哪一段，而不是再提供一套视觉主题。</p></section><section id="mvp"><h2>最小版与不做的范围</h2><p><span class="kind warn">建议</span>十条约定加三张对比图，装成一个 Cursor skill。约定只覆盖渐变、假数字、英文占位和过小字号。</p><p><span class="kind stop">不做</span>不宣称全面超过 impeccable。不把 Apache-2.0 仓库整份搬进闭源包。不在没跑过的情况下展示「62 条全通过」。</p></section><section id="check"><h2>验证办法与建议的成功和停止条件</h2><p><span class="kind warn">建议</span>找 8 个正在用 Cursor 改中文活动页的人。成功是其中 5 人愿意把检测留在仓库里超过 7 天，并且能指出一条规则改了他们的页面。</p><p><span class="kind warn">建议</span>停止条件是 7 天里没人留下 skill，或对比图播放高但没人要规则文件。流量不能代替留下。</p></section><section id="money"><h2>流量和付费</h2><p><span class="kind">事实</span>官方没有标出的 SaaS 价格。仓库是开源技能。</p><p><span class="kind warn">假设</span>收入更可能来自定制规则或录屏课，而不是星本身。这是猜测。</p><p><span class="kind warn">建议</span>先用同一提示词的两张截图做一条短视频。付费实验要等有人留下 skill 再做。</p></section><section id="risk"><h2>风险</h2><p><span class="kind stop">风险</span>同题仓库已经很多。hallmark 的 README 也把 impeccable 列为参照。规则会过时。live 模式的绕过审批参数是安装者自己的权限风险。</p></section><section id="sources"><h2>来源</h2><p><span class="kind">事实</span>页面均在 2026-11-06 打开且 HTTP 200。<a href="https://github.com/pbakaus/impeccable" target="_blank" rel="noopener">仓库 README</a>，<a href="https://impeccable.style/docs/" target="_blank" rel="noopener">文档</a>，<a href="https://api.github.com/repos/pbakaus/impeccable" target="_blank" rel="noopener">GitHub API</a>，<a href="https://github.com/alchaincyf/huashu-design" target="_blank" rel="noopener">huashu-design</a>，<a href="https://aiku123.com/articles/ai-design-skills-compare" target="_blank" rel="noopener">aiku123 对比</a>，<a href="https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html" target="_blank" rel="noopener">2026-11-06 情报站</a>。Product Hunt 页面这次返回 403，不作为来源。</p></section>
+</main>
+</div>
+</div>
+</body>
+</html>

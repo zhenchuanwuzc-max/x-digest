@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Floot Payments · 机会报告 · 2026-11-06</title>
+<style>
+:root{
+  --bg:#faf9f6;--surface:#fff;--ink:#202a30;--ink-2:#303c42;--ink-3:#59656b;--ink-4:#657176;
+  --line:#dfe4e1;--accent:#176b75;--accent-ink:#145f68;--accent-soft:rgba(23,107,117,.08);
+  --amber:#7c5a24;--amber-soft:rgba(184,135,58,.12);--hot:#b3402a;
+  --font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.7}
+body{overflow-x:hidden}
+a{color:var(--accent-ink)}
+.page{max-width:1120px;margin:0 auto;padding:20px 16px 72px}
+.back{display:inline-block;margin:0 16px 8px 0;font-weight:650;text-decoration:none}
+.back:hover{text-decoration:underline}
+.kicker{color:var(--ink-3);font-size:13px;margin:8px 0}
+h1{font-size:28px;line-height:1.3;margin:8px 0 8px}
+.banner{background:var(--amber-soft);border:1px solid #e4d3ae;border-radius:12px;padding:10px 14px;margin:12px 0 18px}
+.shell{display:block}
+.toc{margin:0 0 18px;padding:0}
+.toc strong{display:block;font-size:13px;letter-spacing:.04em;color:var(--ink-4);margin-bottom:6px}
+.toc a{display:block;padding:3px 0;text-decoration:none;overflow-wrap:anywhere}
+.toc a:hover{text-decoration:underline}
+main{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px 18px 28px}
+section{scroll-margin-top:16px;padding-top:8px;border-top:1px solid var(--line)}
+section:first-child{border-top:0}
+h2{font-size:18px;margin:16px 0 8px}
+p{margin:0 0 10px;overflow-wrap:anywhere;word-break:break-word}
+.kind{display:inline-block;font-size:12px;font-weight:700;color:var(--accent-ink);background:var(--accent-soft);border-radius:999px;padding:0 8px;margin-right:6px;vertical-align:1px}
+.kind.warn{color:var(--amber);background:var(--amber-soft)}
+.kind.stop{color:var(--hot);background:rgba(179,64,42,.08)}
+@media (min-width:960px){
+  .shell{display:grid;grid-template-columns:220px minmax(0,720px);gap:28px;align-items:start;justify-content:center}
+  .toc{position:sticky;top:16px}
+  main{padding:8px 28px 36px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<p class="kicker">X 情报 · 产品榜单机会报告 · 快照 2026-11-06 06:18 北京时间</p>
+<a class="back" href="../../index.html#jm-ph">返回 AI 产品周榜</a><a class="back" href="../../2026-11-06.html#jm-ph">返回 2026-11-06 快照的周榜</a>
+<h1>Floot Payments</h1>
+<p class="kicker">AI 产品榜单 · 周 · 显示序 3 · 快照本周票 319 · 范围 2026-11-02～2026-11-05 · 卡片简介写的是不离开 ChatGPT 就能做并发布应用</p>
+<div class="banner">未实测。我们没有连接 Floot，也没有用测试卡付款。抽成来自 2026-11-06 能打开的支付文档。月费数字没有读到。</div>
+<div class="shell">
+<nav class="toc" aria-label="目录"><strong>目录</strong><a href="#what">产品是什么</a>
+<a href="#who">给谁</a>
+<a href="#flow">工作流程与场景</a>
+<a href="#price">价格、开放与权限</a>
+<a href="#signal">真实使用信号</a>
+<a href="#cn">国内替代</a>
+<a href="#wedge">可做的窄切口</a>
+<a href="#mvp">最小版与不做的范围</a>
+<a href="#check">验证办法与建议的成功和停止条件</a>
+<a href="#money">流量和付费</a>
+<a href="#risk">风险</a>
+<a href="#sources">来源</a></nav>
+<main>
+<section id="what"><h2>产品是什么</h2><p><span class="kind">官方自述</span><a href="https://floot.com/" target="_blank" rel="noopener">floot.com</a> 写把 Floot 加到 Claude、ChatGPT 或 Cursor，用对话做出带后端、数据库和托管的应用，然后发布。情报站卡片的名字是 Floot Payments，简介是不离开 ChatGPT 就能做并发布真实 App。</p><p><span class="kind">事实</span>周榜显示序 3，本周票 319。原链是 Product Hunt 的 floot。</p></section><section id="who"><h2>给谁</h2><p><span class="kind">官方自述</span>给已经在用 Claude 或 ChatGPT、想让聊天结果变成一个带登录和收款的线上应用的人。文档写构建跑在 Floot 的服务器上，本机没有 CLI，也没有要克隆的仓库。</p></section><section id="flow"><h2>工作流程与场景</h2><p><span class="kind">官方自述</span><a href="https://floot.com/docs/integrations/payments" target="_blank" rel="noopener">支付文档</a> 写让助手加上结账。预览用 Stripe 测试卡 4242，不发生真钱，任何档包括 Free 都可以试。发布后的真收款进入你自己的 Stripe。只有项目所有者能接 Stripe。</p><p><span class="kind">官方自述</span><a href="https://floot.com/docs/integrations/build-from-claude-and-chatgpt" target="_blank" rel="noopener">从聊天构建的文档</a> 写 ChatGPT 默认每次动作都要批准，构建会因此频繁停下，可以改成允许全部动作。这是权限选择，我们没有打开那个开关。</p></section><section id="price"><h2>价格、开放与权限</h2><p><span class="kind">官方自述</span>支付文档的表写 Free 只能测试、不能真收款，抽成没有。Pro 可以真收款，Floot 抽每笔 1%。Power 可以真收款，Floot 抽成 0%。Stripe 自己的手续费另计。抽成在订阅开始时定下。</p><p><span class="kind warn">待核</span>https://floot.com/pricing 这次打开后几乎没有正文，月费没有读到。不把 1% 写成月费。首页写 Backed by Y Combinator 的字样在抓取里被截成 Y Combi，批次待核。</p></section><section id="signal"><h2>真实使用信号</h2><p><span class="kind">事实</span>319 票是情报站周榜数字。没有公开的 Pro 订阅数或支付流水。</p></section><section id="cn"><h2>国内替代</h2><p><span class="kind">事实</span><a href="https://docs.coze.cn/guides_vibe_coding_web_app" target="_blank" rel="noopener">扣子编程网页应用</a> 写在扣子网页里对话完成应用并部署。<a href="https://docs.coze.cn/coze_pro_service_hosting_fee" target="_blank" rel="noopener">托管费</a> 按访问时长的算力和流量结算，算力 0.0072 积分每 CU 每秒。它不写停在 ChatGPT 里、用你的 Claude 订阅来构建，也不写对 Stripe 每笔抽 1%。</p><p><span class="kind warn">假设</span>若要做国内切口，更像给已有页面加一笔国内支付的测试单，而不是再做一个聊天里的全栈托管。</p></section><section id="wedge"><h2>可做的窄切口</h2><p><span class="kind warn">建议</span>只服务一个自己的报名页。测试环境记下一笔收款，字段是谁、金额、时间。</p></section><section id="mvp"><h2>最小版与不做的范围</h2><p><span class="kind warn">建议</span>一张表加一个测试支付。不发布到应用商店。</p><p><span class="kind stop">不做</span>不代接别人的 Stripe 密钥。不承诺和 Floot 一样能在聊天里生成数据库。不做支付牌照范围内的资金池。</p></section><section id="check"><h2>验证办法与建议的成功和停止条件</h2><p><span class="kind warn">建议</span>成功是测试支付能在表里对上，并且有第二个自己的页面愿意用同一条路。</p><p><span class="kind warn">建议</span>停止条件是对账对不上，或需求变成代收别人的钱。</p></section><section id="money"><h2>流量和付费</h2><p><span class="kind">事实</span>能确认的价格是真收款时 Pro 抽 1%、Power 抽 0%，外加 Stripe 手续费。319 票不是流水。月费待核。</p><p><span class="kind warn">建议</span>演示可以是一次从聊天到测试卡的录屏。收费要等第二张自己的页面接上。</p></section><section id="risk"><h2>风险</h2><p><span class="kind stop">风险</span>真收款涉及主体、结算和退款。文档写允许全部动作会让聊天里的工具少一次确认。国内支付和微信、支付宝这次没有在 Floot 文档里读到，不能写成已经支持。</p></section><section id="sources"><h2>来源</h2><p><span class="kind">事实</span>2026-11-06 用浏览器标头打开为 HTTP 200。<a href="https://floot.com/" target="_blank" rel="noopener">floot.com</a>，<a href="https://floot.com/docs/integrations/payments" target="_blank" rel="noopener">支付文档</a>，<a href="https://floot.com/docs/integrations/build-from-claude-and-chatgpt" target="_blank" rel="noopener">从聊天构建</a>，<a href="https://docs.coze.cn/guides_vibe_coding_web_app" target="_blank" rel="noopener">扣子网页应用</a>，<a href="https://docs.coze.cn/coze_pro_service_hosting_fee" target="_blank" rel="noopener">扣子托管费</a>，<a href="https://zhenchuanwuzc-max.github.io/x-digest/2026-11-06.html" target="_blank" rel="noopener">2026-11-06 情报站</a>。</p></section>
+</main>
+</div>
+</div>
+</body>
+</html>
