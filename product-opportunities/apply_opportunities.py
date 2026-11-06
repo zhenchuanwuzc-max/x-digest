@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import html
+import json
 import re
 import sys
 from pathlib import Path
@@ -21,6 +22,9 @@ from snapshot_2026_11_06 import DATA  # noqa: E402
 
 ROOT = HERE.parents[0]
 REPORT_DIR = HERE / "reports"
+RESEARCH_DIR = HERE / "research"
+DATE_RE = re.compile(r"更新于 (\d{4}-\d{2}-\d{2})")
+TOP_RANKS = {"01", "02", "03", "04", "05", "1", "2", "3", "4", "5"}
 CSS_START = "/* product-opportunities:start */"
 CSS_END = "/* product-opportunities:end */"
 LINK_RE = re.compile(r"\[\[([^\]|]+)\|([^\]]+)\]\]")
@@ -198,15 +202,35 @@ def report_html(entry: dict, group=None) -> str:
 """
 
 
-def card_block(entry: dict) -> str:
-    sentences = "".join(html.escape(item["text"]) for item in entry["summary"])
-    href = f"product-opportunities/reports/{entry['slug']}.html"
+def card_block(item: dict, page_date: str) -> str:
+    summary = "".join(html.escape(sentence) for sentence in item["summary"])
+    meta = item.get("meta") or ""
+    verified = item.get("verified_on") or ""
+    if item["status"] == "reuse" and verified and verified != page_date and verified not in meta:
+        meta = f"核验于 {verified}，不是 {page_date} 的新核验。{meta}"
+    link = ""
+    report_name = item.get("report") or ""
+    report_ok = report_name.endswith(".html") and "/" not in report_name and (REPORT_DIR / report_name).is_file()
+    if item["status"] in {"ready", "reuse"} and report_ok:
+        link = f'<a class="opp-more" href="product-opportunities/reports/{html.escape(report_name, quote=True)}">详细报告</a>'
+    elif item["status"] in {"ready", "reuse"}:
+        if "报告未挂上" not in meta:
+            meta = (meta + " 报告文件不在这次发布里，没有链接。").strip()
     return (
-        f'<div class="opp" data-opp="{html.escape(entry["slug"], quote=True)}" '
-        f'data-snapshot="{html.escape(DATA["snapshot_id"], quote=True)}">'
-        f"<p>{sentences}</p>"
-        f'<p class="opp-meta">{html.escape(entry["meta"])}</p>'
-        f'<a class="opp-more" href="{href}">详细报告</a>'
+        f'<div class="opp" data-opp="{html.escape(item["product"], quote=True)}" '
+        f'data-snapshot="{html.escape(page_date, quote=True)}">'
+        f"<p>{summary}</p>"
+        f'<p class="opp-meta">{html.escape(meta)}</p>'
+        f"{link}"
+        f"</div>"
+    )
+
+
+def pending_block(page_date: str) -> str:
+    return (
+        f'<div class="opp" data-opp="pending" data-snapshot="{html.escape(page_date, quote=True)}">'
+        f"<p>这张卡片在 {html.escape(page_date)} 的研究里还没有核验。待研究。</p>"
+        f'<p class="opp-meta">未核验 · 没有详细报告</p>'
         f"</div>"
     )
 
@@ -233,31 +257,141 @@ def panel_window(page: str, panel: str) -> tuple[int, int]:
     return start, end
 
 
-def inject_card(page: str, entry: dict) -> str:
-    start, end = panel_window(page, entry["panel"])
-    window = page[start:end]
-    needle = "<li class=\"mc\">"
-    pieces = window.split(needle)
-    found = None
+def split_cards(page: str, panel: str):
+    start, end = panel_window(page, panel)
+    needle = '<li class="mc">'
+    pieces = page[start:end].split(needle)
+    cards = []
     for index, piece in enumerate(pieces[1:], start=1):
         card, sep, rest = piece.partition("</li>")
         if sep != "</li>":
             continue
-        rank_ok = f'<span class="hk">{entry["rank"]}</span>' in card
-        href_ok = f'href="{entry["href"]}"' in card
-        if rank_ok and href_ok:
-            found = (index, card, rest)
-            break
-        if rank_ok or (href_ok and f'<span class="hk">{entry["rank"]}</span>' in card):
-            raise ValueError(f'{entry["slug"]} matched only part of rank {entry["rank"]}')
-    if found is None:
-        raise ValueError(
-            f'{entry["slug"]} not found in {entry["panel"]} at rank {entry["rank"]} with {entry["href"]}'
+        href_match = re.search(r'<h3><a href="([^"]+)"', card)
+        rank_match = re.search(r'<span class="hk">(\d+)', card)
+        cards.append(
+            {
+                "index": index,
+                "card": card,
+                "rest": rest,
+                "href": href_match.group(1) if href_match else "",
+                "rank": rank_match.group(1) if rank_match else "",
+            }
         )
-    index, card, rest = found
-    card = re.sub(r'<div class="opp" data-opp="[^"]*" data-snapshot="[^"]*">.*?</div>', "", card, flags=re.S)
-    pieces[index] = card + card_block(entry) + "</li>" + rest
-    return page[:start] + needle.join(pieces) + page[end:]
+    return start, end, needle, pieces, cards
+
+
+def join_cards(pieces, cards) -> str:
+    needle = '<li class="mc">'
+    by_index = {card["index"]: card for card in cards}
+    rebuilt = [pieces[0]]
+    for index, piece in enumerate(pieces[1:], start=1):
+        card = by_index.get(index)
+        if card is None:
+            rebuilt.append(piece)
+            continue
+        rebuilt.append(card["card"] + "</li>" + card["rest"])
+    return needle.join(rebuilt)
+
+
+def strip_opp(card: str) -> str:
+    return re.sub(r'<div class="opp" data-opp="[^"]*" data-snapshot="[^"]*">.*?</div>', "", card, flags=re.S)
+
+
+def apply_research(page: str, research: dict) -> tuple[str, list[str]]:
+    page_date = research["date"]
+    notes = []
+    covered = {panel: set() for panel in research["boards"]}
+    updated = page
+    for item in research["items"]:
+        panel = item["panel"]
+        if f'id="{panel}"' not in updated:
+            notes.append(f"skip missing-panel {item['product']} {panel}")
+            continue
+        start, end, needle, pieces, cards = split_cards(updated, panel)
+        matched = [card for card in cards if card["href"] == item["match_href"]]
+        if not matched:
+            notes.append(f"skip missing-link {item['product']} {panel}")
+            continue
+        for card in matched:
+            card["card"] = strip_opp(card["card"]) + card_block(item, page_date)
+            covered.setdefault(panel, set()).add(card["href"])
+        updated = updated[:start] + join_cards(pieces, cards) + updated[end:]
+    for panel in research["boards"]:
+        if f'id="{panel}"' not in updated:
+            continue
+        start, end, needle, pieces, cards = split_cards(updated, panel)
+        known = covered.get(panel, set())
+        for card in cards:
+            if card["rank"] not in TOP_RANKS or card["href"] in known or not card["href"]:
+                continue
+            if 'class="opp"' in card["card"]:
+                continue
+            card["card"] = card["card"] + pending_block(page_date)
+            notes.append(f"pending {panel} {card['href']}")
+        updated = updated[:start] + join_cards(pieces, cards) + updated[end:]
+    return updated, notes
+
+
+def page_date(path: Path, text: str) -> str | None:
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", path.stem):
+        return path.stem
+    start = text.find('id="jm-ghw"')
+    if start < 0:
+        return None
+    end = text.find('id="', start + 10)
+    found = DATE_RE.search(text[start:end if end > start else None])
+    return found.group(1) if found else None
+
+
+def load_research(date: str) -> dict | None:
+    path = RESEARCH_DIR / f"{date}.json"
+    if not path.is_file():
+        return None
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if data.get("date") != date:
+        raise ValueError(f"{path} date field is {data.get('date')}")
+    validate_research(data)
+    return data
+
+
+def validate_research(data: dict) -> None:
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", data.get("date", "")):
+        raise ValueError("research date is missing")
+    boards = data.get("boards") or []
+    if not boards or any(board not in {"jm-ghw", "jm-ph", "jm-phd"} for board in boards):
+        raise ValueError("research boards must be GitHub weekly, AI weekly, or AI daily")
+    seen = set()
+    for item in data.get("items") or []:
+        key = (item.get("panel"), item.get("match_href"))
+        if key in seen:
+            raise ValueError(f"duplicate research item {key}")
+        seen.add(key)
+        if item.get("panel") not in boards:
+            raise ValueError(f"{item.get('product')} panel is outside boards")
+        if not str(item.get("match_href", "")).startswith("https://"):
+            raise ValueError(f"{item.get('product')} link is not https")
+        status = item.get("status")
+        summary = item.get("summary") or []
+        if status == "pending":
+            if item.get("report"):
+                raise ValueError(f"{item.get('product')} pending item cannot name a report")
+            continue
+        if status not in {"ready", "reuse"}:
+            raise ValueError(f"{item.get('product')} status {status}")
+        if not 2 <= len(summary) <= 4 or any(sentence.count("。") != 1 or not sentence.endswith("。") for sentence in summary):
+            raise ValueError(f"{item.get('product')} summary must be 2 to 4 sentences")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", item.get("verified_on", "")):
+            raise ValueError(f"{item.get('product')} verified_on is missing")
+        report = item.get("report") or ""
+        if not re.fullmatch(r"[a-z0-9-]+\.html", report):
+            raise ValueError(f"{item.get('product')} report name is not a local html file")
+        if status == "ready" and not item.get("sources"):
+            raise ValueError(f"{item.get('product')} ready item needs sources")
+        for source in item.get("sources") or []:
+            if not source.startswith("https://") or " " in source:
+                raise ValueError(f"{item.get('product')} source is not https")
+        if status == "reuse" and item["verified_on"] > data["date"]:
+            raise ValueError(f"{item.get('product')} reuse date is after the page date")
 
 
 def write_reports() -> list[Path]:
@@ -275,11 +409,17 @@ def write_reports() -> list[Path]:
 
 def apply_page(path: Path) -> str:
     original = path.read_text(encoding="utf-8")
-    if DATA["marker"] not in original:
+    date = page_date(path, original)
+    if not date:
         return "skip"
-    updated = upsert_css(original)
-    for entry in DATA["entries"]:
-        updated = inject_card(updated, entry)
+    research = load_research(date)
+    if research is None:
+        print(f"skip no-research {date} {path}", file=sys.stderr)
+        return "skip"
+    updated, notes = apply_research(original, research)
+    for note in notes:
+        print(note, file=sys.stderr)
+    updated = upsert_css(updated)
     if updated != original:
         path.write_text(updated, encoding="utf-8")
         return "write"
@@ -291,14 +431,22 @@ def default_pages() -> list[Path]:
 
 
 def main(argv: list[str]) -> int:
-    parser = argparse.ArgumentParser(description="Apply the 2026-11-06 product opportunity snapshot.")
+    parser = argparse.ArgumentParser(description="Mount dated product research onto digest HTML.")
     parser.add_argument("pages", nargs="*", type=Path)
     parser.add_argument("--reports-only", action="store_true")
+    parser.add_argument("--check-research", metavar="DATE")
     args = parser.parse_args(argv)
-    validate(DATA)
-    write_reports()
+    if args.check_research:
+        research = load_research(args.check_research)
+        if research is None:
+            print(f"missing {args.check_research}", file=sys.stderr)
+            return 1
+        print(f"ok {args.check_research} items={len(research['items'])}")
+        return 0
     if args.reports_only:
-        print(f"reports {len(DATA['entries'])}")
+        validate(DATA)
+        written = write_reports()
+        print(f"reports {len(written)}")
         return 0
     pages = args.pages or default_pages()
     wrote = skipped = same = 0

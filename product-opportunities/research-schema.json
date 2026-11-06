@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dated product-board research",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["date", "boards", "items"],
+  "properties": {
+    "date": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "boards": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"enum": ["jm-ghw", "jm-ph", "jm-phd"]}
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["product", "match_href", "panel", "status", "summary"],
+        "properties": {
+          "product": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+          "match_href": {"type": "string", "pattern": "^https://"},
+          "panel": {"enum": ["jm-ghw", "jm-ph", "jm-phd"]},
+          "status": {"enum": ["ready", "reuse", "pending"]},
+          "verified_on": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+          "report": {"type": "string", "pattern": "^[a-z0-9-]+\\.html$"},
+          "summary": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 4,
+            "items": {"type": "string"}
+          },
+          "meta": {"type": "string"},
+          "sources": {
+            "type": "array",
+            "items": {"type": "string", "pattern": "^https://"}
+          }
+        }
+      }
+    }
+  }
+}
