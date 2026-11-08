@@ -1,0 +1,22 @@
+# hector 证据台账（采集 2026-11-08 UTC+8）
+原始 JSON：/workspace/creator-growth-20261108/hector/（不入库）。
+| 编号 | 来源 | URL | 时间（UTC+8） | 查看范围 | 原文摘录 | 等级 |
+|---|---|---|---|---|---|---|
+| X1 | X 帖 | https://x.com/hectorserrranoo/status/2104378428317204605 | 2026-09-28 09:11 | 全文（API） | i was going to play professionally after college  but at 19 my dad lost his job and his father in the same year, then fell into chronic stress and depression. this was after 25 years at the same company  he left spain at 21 with no english, found work in irela | 事实（文本）/自述 |
+| X2 | X 帖 | https://x.com/hectorserrranoo/status/2105126617043681676 | 2026-09-30 10:44 | 全文（API） | a lot of our new hires at wispr have brought up our yt channel and how hyped they were to join   one of the best ways to attract top talent and implement culture at scale https://t.co/C1xsCFXRUJ | 事实（文本）/自述 |
+| X3 | X 帖 | https://x.com/hectorserrranoo/status/2105128803291046107 | 2026-09-30 10:53 | 全文（API） | the hardest part of building a founder led brand is getting the founder bought in   ours went as far as letting me fly our videographer out with him to india   all in since day 1 and it’s the only reason we’re at 14k subs on yt in 1 month https://t.co/NiA6qKs2 | 事实（文本）/自述 |
+| X4 | X 帖 | https://x.com/hectorserrranoo/status/2105386008850448418 | 2026-10-01 03:55 | 全文（API） | give value + build trust + entertain = a channel people actually watch https://t.co/bmfIbyTZ6L | 事实（文本）/自述 |
+| X5 | X 帖 | https://x.com/hectorserrranoo/status/2116933059945873449 | 2026-11-02 00:39 | 全文（API） | 见原始 JSON | 事实（文本）/自述 |
+| X6 | X 帖 | https://x.com/hectorserrranoo/status/2117351027930542178 | 2026-11-03 04:19 | 全文（API） | i'm hiring a youtube host  huge opportunity to build one of the best youtube channels in the world with me  - must be great on camera - obsessed with content - willing to relocate/ travel often  - must have an american passport - think like an entrepreneur - l | 事实（文本）/自述 |
+| X7 | X 帖 | https://x.com/hectorserrranoo/status/2118120968396906559 | 2026-11-05 07:19 | 全文（API） | content will be challenges and behind the scenes content not a podcast  we already have a world class team:  -editing -videographer -creative director | 事实（文本）/自述 |
+| X8 | X 帖 | https://x.com/hectorserrranoo/status/2118131021644431735 | 2026-11-05 07:59 | 全文（API） | @0xDipo i said not podcast  you failed step 1 bro 🙏😂 | 事实（文本）/自述 |
+| X9 | X 帖 | https://x.com/hectorserrranoo/status/2118162134647570494 | 2026-11-05 10:03 | 全文（API） | people only watch content for selfish reasons  &gt; motivation &gt; entertainment &gt; education  stop making it about yourself | 事实（文本）/自述 |
+| X10 | X 帖 | https://x.com/hectorserrranoo/status/2118193953866731873 | 2026-11-05 12:09 | 全文（API） | my skin instantly improved in the last 12 months as soon as i started drinking better water  i’ve struggled with severe acne since i was 13 and no amount of antibiotics, accutane or topicals fixed anything  as soon as i started dialing in the small things that | 事实（文本）/自述 |
+| X11 | X 帖 | https://x.com/hectorserrranoo/status/2118416311261053255 | 2026-11-06 02:53 | 全文（API） | @aminegrows if your delivery/packaging is good then you win | 事实（文本）/自述 |
+| X12 | X 帖 | https://x.com/hectorserrranoo/status/2118423005818958154 | 2026-11-06 03:19 | 全文（API） | @realmustafamoon @isaac_akrouche bro isn’t talking about me (at least  don’t think so lol)  i do paid ads and founder led content not ai ugc/organic ugc | 事实（文本）/自述 |
+| I1 | 身份 | https://x.com/lennysan/status/2116927042759635132 | 2026-11-02 00:15 | 全文 | “Hector Serrano (@hectorserrranoo)… He joined @WisprFlow at 19” | 事实 |
+| I2 | 简介 | https://x.com/hectorserrranoo | 2024-01-12 建号 | API | “marketing hire #2 @wisprflow”；20,377 关注者 | 事实 |
+| I3 | Lenny 要点帖 | https://x.com/lennysan/status/2117277733273366891 | 2026-11-02 23:28 | 全文 | “@hectorserrranoo, Head of Content at @WisprFlow” | 事实 |
+| T1 | 播客全文对照 | xhs/growth/hector.html | 2026-11-01 | Ocean 提供文字稿，音频未核 | “I had just quit Division I soccer three days before…I applied to 200 positions”；“making every single ad for a year and a half”；“500 million views…didn't necessarily lead to a lot of conversions”；“25 videos…$1,500” | 自述 |
+| C1 | 回复 | conversation 2116933059945873449 | 2026-11-02/04 | 18 条（含 Lenny 1 条） | “Wish I had your hustle at 19.”；“yo you do any consulting?”；“Running so ugc myself for 3 years” | 评论者自述 |
+| P1 | 账号资料 | https://x.com/hectorserrranoo | 建号 2024-01-12；读于 2026-11-08 | API get_users_by_usernames（batch3-profiles.json） | 关注者 20,377；简介：marketing hire #2 @wisprflow | 事实 |

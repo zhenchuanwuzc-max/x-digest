@@ -11,9 +11,9 @@
 | 2 | 宝玉 | xhs/baoyu.html | 薄页 | X @dotey、博客 baoyu.io 可读 | 完成（X 一手资料深化；小红书未核） |
 | 2 | 歸藏 | xhs/guizang.html | 薄页 | X @op7418、周刊站可读 | 完成（X 一手资料深化；小红书未核） |
 | 2 | 向阳乔木 | xhs/qiaomu.html | 薄页 | X @vista8、qiaomu.ai 可读 | 完成（X 一手资料深化；小红书未核） |
-| 3（下一批） | 花叔 | xhs/huashu.html | 薄页 | X @AlchainHust、huasheng.ai | 待做 |
-| 3（下一批） | 范凯说 AI | xhs/fankai.html | 薄页 | X @fankaishuoai；小红书是主平台，受限 | 待做（小红书缺口大） |
-| 3（下一批） | Hector Serrano | xhs/growth/hector.html | 播客全文对照，内容很多 | 播客原文已有；X 账号待确认 | 待做 |
+| 3 | 花叔 | xhs/huashu.html | 薄页 | X @AlchainHust、huasheng.ai | 待做 |
+| 3 | 范凯说 AI | xhs/fankai.html | 薄页 | X @fankaishuoai；小红书是主平台，受限 | 待做（小红书缺口大） |
+| 3 | Hector Serrano | xhs/growth/hector.html | 播客全文对照，内容很多 | 播客原文已有；X 账号待确认 | 待做 |
 | 4 | Lenny | creators.html#lenny | 档案专节 | X、Newsletter 可读 | 待做；页面在生成器管理的档案里，需先定放在哪 |
 | 4 | Shreyas / Ali / swyx / levelsio / Justin Welsh | creators.html 各专节 | 档案深描 | X 和各自网站可读；多数没有小红书账号（待确认） | 待做；同上 |
 
@@ -27,3 +27,11 @@
 ## 剩余 9 人下一批顺序
 1. 第 3 批：花叔 → 范凯说 AI（X 为主，小红书未核即可）→ Hector Serrano（先确认 X 账号；播客原文已有）。三页都是独立页，可直接改。
 2. 第 4 批：Lenny → Shreyas Doshi → swyx → levelsio → Justin Welsh → Ali Abdaal。都在生成器管理的 creators.html 里，开工前要 Ocean 定：改生成源 /workspace/money/ai-creators-growth.html，还是给每人建独立页。
+
+
+## 第三批状态（2026-11-08 UTC+8）
+- 花叔 xhs/huashu.html、范凯 xhs/fankai.html、Hector xhs/hector.html（新深拆页；播客对照保留 xhs/growth/hector.html）：完成，X 一手资料深化，小红书未核。
+- Codex 只读审查 14 条（高 3、中 11）全部已改，摘要见 codex-review-batch3.md。
+
+## 第四批（下一批，等父 bot 合并部署后再开工）
+Lenny、Shreyas、Ali Abdaal、swyx、levelsio、Justin Welsh：改生成源 /workspace/money/ai-creators-growth.html 对应段落，再重建 xhs/creators.html，保持锚点。

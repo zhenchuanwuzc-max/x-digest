@@ -6,7 +6,10 @@ REPO = Path(__file__).resolve().parents[2]
 PAGES = {"kazike": dict(banned=["爆款","746","万赞","中位数","4855","9158","4874","300 万","13 场","160 位","六位数"], ledger="kazike-ledger.md"),
  "baoyu": dict(banned=["263.2k","偏薄专页","爆款","115.5万"], ledger="baoyu-ledger.md"),
  "guizang": dict(banned=["183.8k","7.8万","2.5万","2000 付费","11万","爆款"], ledger="guizang-ledger.md"),
- "qiaomu": dict(banned=["134.1k","六万多","3 万","爆款"], ledger="qiaomu-ledger.md")}
+ "qiaomu": dict(banned=["134.1k","六万多","3 万","爆款"], ledger="qiaomu-ledger.md"),
+ "huashu": dict(banned=["72.3k","10–20 万/项目","爆款"], ledger="huashu-ledger.md"),
+ "fankai": dict(banned=["46.0k","会员价目","爆款"], ledger="fankai-ledger.md"),
+ "hector": dict(banned=["爆款"], ledger="hector-ledger.md")}
 ORDER = ["overview","timeline","works","audience","compare","voice","limits","for-ocean","sources"]
 class P(HTMLParser):
     def __init__(s): super().__init__(); s.ids=[]; s.hrefs=[]; s.top=[]; s.d=0

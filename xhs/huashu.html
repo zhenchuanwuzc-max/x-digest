@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>花叔成长页 · 边做边讲 · 给 Ocean</title>
+<title>花叔（@AlchainHust）成长深拆 · 时间线 + 代表作品 + 受众深度 · 给 Ocean</title>
+<!-- impeccable: fluid full-width · sticky left elevator · scroll-behavior:auto · cream + black + one highlighter yellow -->
 <style>
 :root{
   --bg:#f7f4ec; --surface:#fffcf7; --ink:#1a1a18; --ink-2:#3a3a36; --mut:#6a6a62;
@@ -20,11 +21,21 @@ body{
 }
 ::selection{background:var(--hi); color:var(--ink)}
 mark{background:var(--hi); color:var(--ink); padding:.05em .18em; border-radius:3px; font-style:normal}
-.shell{display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr); gap:0; min-height:100vh; width:100%; max-width:none; margin:0}
-.nav{position:sticky; top:0; align-self:start; height:100vh; padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line); background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto}
+.shell{
+  display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr);
+  gap:0; min-height:100vh; width:100%; max-width:none; margin:0;
+}
+.nav{
+  position:sticky; top:0; align-self:start; height:100vh;
+  padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line);
+  background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto;
+}
 .nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
 .nav .meta{font-size:.76rem; color:var(--mut); margin:0 0 1rem; line-height:1.45}
-.nav a{display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem; padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent}
+.nav a{
+  display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem;
+  padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent;
+}
 .nav a:hover,.nav a:focus-visible{background:var(--hi-soft); outline:none}
 .nav a.active{background:var(--hi); color:var(--ink); font-weight:650; border-left-color:#c9b020}
 .nav .sec{font-size:.7rem; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .3rem; padding-left:.55rem; text-transform:uppercase}
@@ -40,17 +51,25 @@ p{margin:.5rem 0}
 .stat strong{display:block; font-size:1.35rem; letter-spacing:-.02em; margin:.15rem 0}
 .tag{display:inline-block; font-size:12px; font-weight:650; background:var(--hi-soft); color:#6a5a00; padding:.12rem .5rem; border-radius:999px; margin-right:.3rem}
 .tag.warn{background:#fff0d6; color:#8a5a00}
+.tag.ok{background:#e8f5e4; color:#2a5a20}
 a{color:var(--ink); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-word}
 a:hover{background:linear-gradient(180deg,transparent 60%, var(--hi) 60%)}
+a:focus-visible{outline:2px solid #c9b020; outline-offset:2px; border-radius:3px}
 table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
 th,td{border:1px solid var(--line); padding:.42rem .5rem; text-align:left; vertical-align:top}
 th{background:#efeae0; font-weight:650}
+.metrics{font-variant-numeric:tabular-nums; white-space:nowrap}
 .quote{border-left:3px solid var(--hi); padding:.35rem .9rem; margin:.55rem 0; background:var(--hi-soft); border-radius:0 8px 8px 0; font-size:.95rem}
+.tpl{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.84rem; white-space:pre-wrap; background:#1a1a18; color:#f7f4ec; padding:1rem 1.1rem; border-radius:10px; overflow:auto}
 .foot{margin-top:2.5rem; font-size:.86rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
 .mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.5rem 0; border-bottom:1px solid var(--line)}
 .mob-nav a{font-size:.8rem; color:var(--ink); text-decoration:none; background:var(--hi-soft); padding:.2rem .5rem; border-radius:999px}
 ul.plain{margin:.35rem 0; padding-left:1.2rem}
 ul.plain li{margin:.28rem 0}
+.piece{border-top:1px dashed var(--line); padding-top:.9rem; margin-top:1.1rem}
+.piece:first-of-type{border-top:none; padding-top:0; margin-top:0}
+.num{font-variant-numeric:tabular-nums; width:2.2rem}
+.sub{font-size:.78rem; color:var(--mut); margin-top:.2rem}
 @media(max-width:900px){
   .shell{grid-template-columns:1fr}
   .nav{display:none}
@@ -58,122 +77,46 @@ ul.plain li{margin:.28rem 0}
   .main{padding:1.1rem 1rem 3.5rem}
 }
 </style>
-<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid></head>
+<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid><style>
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.15rem;margin:0 0 1.2rem;box-shadow:var(--shadow)}
+.stage h3{margin:.1rem 0 .3rem}.stage .q{margin:.2rem 0 .7rem;color:var(--ink-2)}
+.tw{overflow-x:auto;max-width:100%}
+.tw table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:44rem}
+.tw th,.tw td{border-top:1px solid var(--line);padding:.45rem .5rem;vertical-align:top;text-align:left}
+.tw th{font-size:.74rem;color:var(--mut);font-weight:650;background:var(--hi-soft)}
+.lv{display:inline-block;font-size:.7rem;font-weight:650;padding:.05rem .4rem;border-radius:999px;border:1px solid var(--line);margin-right:.25rem}
+.lv.f{background:#e8f3ec}.lv.s{background:var(--hi-soft)}.lv.a{background:#eef0f4}.lv.b{background:#fbe9e7}
+.lv.h{background:#f1e8fb}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:.8rem}
+.work{margin:0;overflow-wrap:anywhere}.work h3{margin:.1rem 0 .4rem}.work p{margin:.35rem 0}.work .take{border-top:1px dashed var(--line);padding-top:.45rem}
+#compare .tw table{min-width:36rem}#audience .tw table{min-width:52rem}.depth{margin:.5rem 0}
+@media(max-width:700px){#compare .tw,#audience .tw{overflow:visible}#compare .tw table,#compare .tw tbody,#compare .tw tr,#compare .tw td,#audience .tw table,#audience .tw tbody,#audience .tw tr,#audience .tw td{display:block;width:100%;min-width:0}#compare .tw thead,#audience .tw thead{display:none}#compare .tw tr,#audience .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}#compare .tw td,#audience .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}#compare .tw td::before,#audience .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}}
+@media(max-width:900px) and (min-width:701px){.tw table{min-width:36rem}}
+@media(max-width:700px){
+.stage .tw{overflow:visible}
+.stage .tw table,.stage .tw tbody,.stage .tw tr,.stage .tw td{display:block;width:100%;min-width:0}
+.stage .tw thead{display:none}
+.stage .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}
+.stage .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}
+.stage .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}
+.stage .tw td[data-l="#"]{font-weight:700}
+}
+</style>
+</head>
 <body>
-<div class="shell">
-<aside class="nav" aria-label="目录">
-  <p class="brand">花叔深拆</p>
-  <p class="meta">私密 · 写给 Ocean<br>从 creators 抽出 · 2026-11-05</p>
-  <div class="sec">选题库</div>
-  <a href="growth/">← 成长记录</a>
-  <a href="./">小红书全入口</a>
-  <a href="creators.html">对标档案</a>
-  <div class="sec">本页</div>
-  <a href="#overview">账号概况</a>
-  <a href="#timeline">时间线</a>
-  <a href="#breakout">破壁 / 代表</a>
-  <a href="#inflect">拐点</a>
-  <a href="#success">成功经验</a>
-  <a href="#for-ocean">给 Ocean</a>
-  <a href="#sources">来源与待核</a>
-</aside>
-<main class="main">
-<nav class="mob-nav" aria-label="移动目录">
-  <a href="#overview">概况</a>
-  <a href="#timeline">时间线</a>
-  <a href="#inflect">拐点</a>
-  <a href="#for-ocean">借鉴</a>
-</nav>
-
-<header>
-  <h1>花叔成长页 · 边做边讲</h1>
-  <p class="muted">X <a href="https://x.com/AlchainHust">@AlchainHust</a> · 站 <a href="https://www.huasheng.ai/">huasheng.ai</a>。路径：做真东西 → 教程 → 开源/产品反哺。</p>
-</header>
-<section id="overview">
-  <h2>账号概况</h2>
-  <div class="grid2">
-    <div class="card stat"><span class="tag">X</span><strong>~72.3k</strong><span class="muted">@AlchainHust · creators metrics</span></div>
-    <div class="card stat"><span class="tag">站</span><strong>huasheng.ai</strong><span class="muted">小红书/B站/YouTube/公众号矩阵</span></div>
-    <div class="card stat"><span class="tag">模式</span><strong>边做边讲</strong><span class="muted">半小时级教学视频（站内自述播放量待核）</span></div>
-    <div class="card stat"><span class="tag">商务</span><strong>合作报价页</strong><span class="muted">综合 10–20 万/项目区间（感兴趣产品）· <a href="https://www.huasheng.ai/cooperation/">合作页</a></span></div>
-  </div>
-</section>
-<section id="timeline">
-  <h2>时间线</h2>
-  <table>
-    <thead><tr><th>时间</th><th>事件</th><th>出处</th></tr></thead>
-    <tbody>
-      <tr><td>2023-03</td><td>自述放弃大厂年薪 All-in AI；一年后文称咨询/专栏/工具/广告/分成「赚了大几十万」但仍未必超过上班</td><td><a href="https://www.huasheng.ai/insights/wechat-2247484223-1/">站文</a> → <span class="tag warn">待核</span></td></tr>
-      <tr><td>2023～</td><td>半小时级教学视频在 YT/B站累计五十万+ 播放（自述）</td><td>站内 → <span class="tag warn">待核</span></td></tr>
-      <tr><td>2024</td><td>小猫补光灯等产品；小红书单条高阅读自述；「手搓」叙事</td><td>huasheng.ai</td></tr>
-      <tr><td>2025～2026</td><td>《一本书玩转 DeepSeek》；开源 skill/工具矩阵（女娲等，Star 为站页快照）</td><td>站页</td></tr>
-    </tbody>
-  </table>
-</section>
-<section id="breakout">
-  <h2>破壁作品</h2>
-  <ol class="plain">
-    <li>长教学视频（B站/YT）——「边做边讲」标杆。</li>
-    <li>小猫补光灯 + 小红书传播链路（站页案例）。</li>
-    <li>开源 skill / 工具 + 教程互导。</li>
-    <li>平台方法文：<a href="https://huasheng.ai/insights/xiaohongshu-best-practices/">小红书最佳实践</a>（平台数据多为二手 → 待核）。</li>
-  </ol>
-</section>
-<section id="inflect">
-  <h2>拐点</h2>
-  <table>
-    <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
-    <tbody>
-      <tr><td>2023-03</td><td>弃大厂 All-in</td><td>雇员 → 全职创作者/制作者</td><td>身份切换换来带宽（你正职在身，别抄裸辞）</td></tr>
-      <tr><td>2023～</td><td>长教学视频矩阵</td><td>文字为主 → 过程可见教程</td><td>真东西做完再拍</td></tr>
-      <tr><td>2024～</td><td>产品×开源×商务三角</td><td>纯内容 → 多腿变现</td><td>内容主题=产品主题</td></tr>
-    </tbody>
-  </table>
-</section>
-<section id="success">
-  <h2>成功经验</h2>
-  <div class="card">
-    <ul class="plain">
-      <li>边做边讲长教学；产品×内容「手搓」叙事；开源反哺信任；合作页公开报价区间。</li>
-    </ul>
-  </div>
-</section>
-<section id="for-ocean">
-  <h2>给 Ocean</h2>
-  <div class="card">
-    <h3>可抄</h3>
-    <ol>
-      <li>辅系列「做一件真小事 → 写成教程卡」，不是纯资讯搬运。</li>
-      <li>参考其小红书文结构（搜索意图+步骤）；主线仍是 PM 方法。</li>
-    </ol>
-    <h3>暂时别学</h3>
-    <ul class="plain">
-      <li>All-in 弃大厂年薪。</li>
-      <li>硬件产品 / 开源矩阵 / 十万级项目报价；「大几十万」收入自述不当目标。</li>
-    </ul>
-  </div>
-</section>
-<section id="sources">
-  <h2>来源与待核</h2>
-  <p>huasheng.ai 站文与合作页 · creators 深描。待核：播放量、收入自述、小红书精确粉与单条阅读。</p>
-</section>
-
-<div class="foot"><p>私密 · x-digest · 从 creators 深描抽成独立成长页 · 2026-11-05 · 不编数字</p></div>
-</main>
-</div>
-<script>
-(function(){
-  const links=[...document.querySelectorAll('.nav a[href^="#"]')];
-  const map=links.map(a=>({a,el:document.querySelector(a.getAttribute('href'))})).filter(x=>x.el);
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(en=>{
-      if(!en.isIntersecting) return;
-      const id=en.target.id;
-      links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+id));
-    });
-  },{rootMargin:'-20% 0px -70% 0px', threshold:0});
-  map.forEach(({el})=>io.observe(el));
-})();
-</script>
+<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">花叔深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>X 一手资料深化 · 小红书未核</p><div class="sec">选题库</div><a href="growth/">← 成长记录</a><a href="./">小红书全入口</a><a href="creators.html#huashu">对标档案 · 花叔</a><div class="sec">本页</div><a href="#overview">账号概况</a><a href="#timeline">5阶段时间线</a><a href="#s1">1 · 大厂用户研究</a><a href="#s2">2 · 离职学 AI</a><a href="#s3">3 · 小猫补光灯</a><a href="#s4">4 · 开源 Skill</a><a href="#s5">5 · 多平台兑现</a><a href="#works">代表作品拆解</a><a href="#audience">谁在看</a><a href="#compare">写法对照</a><a href="#voice">语气与节奏</a><a href="#limits">失败与边界</a><a href="#for-ocean">给 Ocean</a><a href="#sources">来源与待核</a></aside><main class="main"><nav class="mob-nav" aria-label="移动目录"><a href="#overview">概况</a><a href="#timeline">时间线</a><a href="#works">作品</a><a href="#audience">受众</a><a href="#compare">对照</a><a href="#voice">语气</a><a href="#limits">边界</a><a href="#for-ocean">借鉴</a><a href="#sources">来源</a></nav><header><h1>花叔（@AlchainHust） 成长深拆</h1><p class="muted">按“阶段 → 当时的问题 → 动作 → 作品”排，每条附原始链接。<span class="lv f">事实</span>可从原文核到；<span class="lv s">自述</span>是本人说法；<span class="lv a">分析</span>/<span class="lv a">观察</span>是研究者归纳；<span class="lv h">假设</span>未验证；<span class="lv b">边界</span>写不能怎么用。时间统一 UTC+8，查不到写未知。</p></header>
+<section id="overview"><h2>账号概况</h2><div class="grid2"><div class="card"><h3>平台</h3><p>X：<a href="https://x.com/AlchainHust" target="_blank" rel="noopener">@AlchainHust</a>，2010-12 建号，2026-11-08 API 读到 73,971 关注者；简介“不会写代码的AI Native Coder，所有产品都是AI写的”。网站：<a href="https://huasheng.ai/" target="_blank" rel="noopener">huasheng.ai</a>（作品、Skill、公众号文章镜像）。另有 B站、YouTube、抖音、公众号；小红书本轮未读。</p></div><div class="card"><h3>定位</h3><p><span class="lv s">自述</span>“这是我用AI做东西的记录，也把路上的方法留给你。”（huasheng.ai 首页）<span class="lv a">观察</span>内容几乎都围绕“自己做出来的东西”：App、开源 Skill、网站，再配教程和复盘。</p></div></div></section>
+<section id="timeline"><h2>5阶段时间线</h2><section id="s1" class="stage"><h3>阶段 1 · 2023-03 前：阿里、美团做用户研究和增长</h3><p class="q"><b>当时的问题：</b>AI 来之前，手上有哪些能力。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">1</td><td data-l="日期">2022-12（访谈自述）</td><td data-l="动作与作品">在工作中第一次用 ChatGPT → <a href="https://www.huasheng.ai/insights/wechat-2247484247-1/" target="_blank" rel="noopener">腾讯研究院访谈文稿（2024-04-05，本人站）</a></td><td data-l="事实">搜索返回的原文摘录</td><td data-l="自述">“一直在阿里、美团等互联网大厂做用户研究和用户增长的工作。跟AI和技术其实都没什么关系”；“2022年12月接触 ChatGPT”</td><td data-l="分析">用户研究背景后来变成他说的“需求洞察”</td><td data-l="边界">—</td></tr></tbody></table></div></section><section id="s2" class="stage"><h3>阶段 2 · 2023-03～2024：离职，一年里试各种路</h3><p class="q"><b>当时的问题：</b>离开大厂后，AI 能变成什么收入。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">2</td><td data-l="日期">2023-03-08（本人复盘）</td><td data-l="动作与作品">从美团离职 → <a href="https://www.huasheng.ai/insights/wechat-2247484501-1/" target="_blank" rel="noopener">《我的2024》年终复盘（2024-12-31，本人站）</a></td><td data-l="事实">搜索返回的原文摘录</td><td data-l="自述">“做好了自己未来1年内没有任何收入的准备”；分享文写“辞职首月，赚了3000”</td><td data-l="分析">把预期压低，是他自己说的能坚持下去的原因</td><td data-l="边界">—</td></tr><tr><td data-l="#">3</td><td data-l="日期">2024-03-04</td><td data-l="动作与作品">一年复盘 → <a href="https://www.huasheng.ai/insights/wechat-2247484223-1/" target="_blank" rel="noopener">《放弃大厂百万年薪，入局AI一年》（2024-03-04，本人站公众号原文）</a></td><td data-l="事实">搜索返回的原文摘录</td><td data-l="自述">“通过AI赚了大几十万…比不上继续上班的收入”；提到一期教学视频“50多万播放”</td><td data-l="分析">收入来源分散，内容只是其中一条</td><td data-l="边界">数字是本人说法；视频没看</td></tr><tr><td data-l="#">4</td><td data-l="日期">2024-04-05</td><td data-l="动作与作品">腾讯研究院访谈 → <a href="https://www.huasheng.ai/insights/wechat-2247484247-1/" target="_blank" rel="noopener">腾讯研究院访谈文稿（2024-04-05，本人站）</a></td><td data-l="事实">搜索返回的原文摘录</td><td data-l="自述">做了“AI阅读助手”等插件，“完全没从这个项目上赚到钱”</td><td data-l="分析">第一款产品是练手和验证需求</td><td data-l="边界">—</td></tr></tbody></table></div></section><section id="s3" class="stage"><h3>阶段 3 · 2024-11：小猫补光灯</h3><p class="q"><b>当时的问题：</b>会不会写代码不重要，能不能找到别人要的东西。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">5</td><td data-l="日期">事件时间未核（复盘发布于 2024-12-31）</td><td data-l="动作与作品">小猫补光灯付费版登 App Store 付费榜 → <a href="https://www.huasheng.ai/insights/wechat-2247484501-1/" target="_blank" rel="noopener">《我的2024》年终复盘（2024-12-31，本人站）</a></td><td data-l="事实">搜索返回的原文摘录</td><td data-l="自述">“在付费应用榜当了两周的榜一大哥”</td><td data-l="分析">第一个被大量讨论的作品（X 帖里他自己提到被山寨复刻）</td><td data-l="边界">榜单是本人说法；小红书表现未核</td></tr><tr><td data-l="#">6</td><td data-l="日期">2026-10-12 15:05</td><td data-l="动作与作品"><a href="https://x.com/AlchainHust/status/2109540830172332248" target="_blank" rel="noopener">X：被几十个山寨复刻</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“他们只是获得了一个补光灯app，拿下AppStore付费榜第一头衔、上人民日报、被央视采访的，却只有我一个”</td><td data-l="分析">—</td><td data-l="边界">答案（“你们猜是为啥？”）帖内没给</td></tr><tr><td data-l="#">7</td><td data-l="日期">日期未知（分享文）</td><td data-l="动作与作品">给美团程序员讲 AI 编程 → <a href="https://www.huasheng.ai/insights/wechat-2247484524-1/" target="_blank" rel="noopener">给美团程序员的 AI 编程分享（本人站）</a></td><td data-l="事实">搜索返回的原文摘录</td><td data-l="自述">“做独立开发其实主要是在做自媒体”；建议“不要裸辞”</td><td data-l="分析">从“讲 AI”变成给程序员讲 AI 编程</td><td data-l="边界">—</td></tr></tbody></table></div></section><section id="s4" class="stage"><h3>阶段 4 · 2025–2026：开源 Skill</h3><p class="q"><b>当时的问题：</b>AI 编程变强后，做什么能被大量开发者用。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">8</td><td data-l="日期">2025-11-25 22:21</td><td data-l="动作与作品"><a href="https://x.com/AlchainHust/status/1993324209682948102" target="_blank" rel="noopener">X：小票笔记</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“在小红书发布10小时后，获得了2600+点赞收藏”；“花了半天开发”</td><td data-l="分析">本人在 X 自述了小红书发布结果</td><td data-l="边界">小红书未核，不据此判断效果</td></tr><tr><td data-l="#">9</td><td data-l="日期">2025-12-29 10:34</td><td data-l="动作与作品"><a href="https://x.com/AlchainHust/status/2005467462570238342" target="_blank" rel="noopener">X：82 页 Skills 白皮书</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“我在Claude Code里写了几十个Skills”</td><td data-l="分析">教程资产化</td><td data-l="边界">白皮书没读</td></tr><tr><td data-l="#">10</td><td data-l="日期">2026-10-10 12:07</td><td data-l="动作与作品"><a href="https://x.com/AlchainHust/status/2108771483363475529" target="_blank" rel="noopener">X：GitHub 星标破 10 万</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“在GitHub发布开源项目，基本上都是在今年才开始的”；“过半来自女娲skill和Huashu Design”</td><td data-l="分析">开源成了新的主阵地</td><td data-l="边界">星标是本人说法</td></tr></tbody></table></div></section><section id="s5" class="stage"><h3>阶段 5 · 2026-10 起：把积累兑现到抖音和 X</h3><p class="q"><b>当时的问题：</b>作品攒够了，换个平台能不能把粉丝“兑现”。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">11</td><td data-l="日期">2026-10-20 15:48</td><td data-l="动作与作品"><a href="https://x.com/AlchainHust/status/2112450926393139666" target="_blank" rel="noopener">X：一条视频抖音涨粉</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“这条视频做之前就是完全奔着涨粉去的…之前一年都涨不了这么多”</td><td data-l="分析">—</td><td data-l="边界">视频没看；涨粉数是本人说法</td></tr><tr><td data-l="#">12</td><td data-l="日期">2026-10-21 20:59</td><td data-l="动作与作品"><a href="https://x.com/AlchainHust/status/2112891498748649637" target="_blank" rel="noopener">X：补充说明</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“涨粉的原因显然是我已经积累的足够的有大众认可度的项目，这条视频的核心价值有点像是帮我把我该有的粉丝数兑现了”</td><td data-l="分析">本人也说这条经验不好复制</td><td data-l="边界">—</td></tr><tr><td data-l="#">13</td><td data-l="日期">2026-11-03 13:04</td><td data-l="动作与作品"><a href="https://x.com/AlchainHust/status/2117483016843133110" target="_blank" rel="noopener">X：发布 BirdAlbum 观鸟站</a></td><td data-l="事实">帖子全文已读；回复 9 条</td><td data-l="自述">“可以通过颜色、体积等方式查找自己见到的鸟种”</td><td data-l="分析">—</td><td data-l="边界">—</td></tr><tr><td data-l="#">14</td><td data-l="日期">2026-11-02 14:21</td><td data-l="动作与作品"><a href="https://x.com/AlchainHust/status/2117140067106144731" target="_blank" rel="noopener">X：鸟类贴纸被画师批评</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“开源全球鸟类贴纸的内容在小红书和公众号都被一群画师冲了”</td><td data-l="分析">AI 生成作品在部分圈子会遭反对</td><td data-l="边界">小红书、公众号原帖没读</td></tr></tbody></table></div></section></section>
+<section id="works"><h2>代表作品拆解</h2><p class="muted">只选原文读过、写法各不相同的作品，不是热门榜；不展示互动数。</p><div class="works"><article class="work card" id="w1"><h3>代表作品 1 · 一年复盘：把收入来源和不如上班都写出来</h3><p class="links"><a href="https://www.huasheng.ai/insights/wechat-2247484223-1/" target="_blank" rel="noopener">《放弃大厂百万年薪，入局AI一年》（2024-03-04，本人站公众号原文）</a></p><p class="muted">时间线位置：<a href="#s2">阶段 2 · 节点 3</a></p><p><span class="lv f">事实</span>本人站镜像的公众号原文（搜索返回的全文摘录）。说“通过AI赚了大几十万”，同时承认“综合来说还是比不上继续上班的收入”。</p><p><span class="lv a">观察</span>不藏不足：收入数字和“不如上班”写在一起。</p><p><span class="lv h">假设</span>对想离职的大厂人，这种不报喜的复盘更可信；没有数据。</p><p><span class="lv b">边界</span>收入是自述；全文只读到搜索返回的版本。</p><p class="take"><b>可借鉴写法：</b>写转型复盘时，把不如以前的地方也写进去。</p></article><article class="work card" id="w2"><h3>代表作品 2 · 小产品发布：半天做完、在哪发、发了多久有什么反应</h3><p class="links"><a href="https://x.com/AlchainHust/status/1993324209682948102" target="_blank" rel="noopener">X：小票笔记</a></p><p class="muted">时间线位置：<a href="#s4">阶段 4 · 节点 8</a></p><p><span class="lv f">事实</span>帖子全文已读：说明灵感来源、开发工具、耗时，以及“唯一关键因素是我真的把它做出来了”。</p><p><span class="lv a">观察</span>一条帖讲完需求从哪来、用什么做、花多久。</p><p><span class="lv h">假设</span>“半天就能做”降低了读者的心理门槛；未验证。</p><p><span class="lv b">边界</span>小红书原帖和数据没核。</p><p class="take"><b>可借鉴写法：</b>发布作品时写清灵感来源、工具和耗时。</p></article><article class="work card" id="w3"><h3>代表作品 3 · 里程碑帖：用数字讲开源成果，再点名几个作品</h3><p class="links"><a href="https://x.com/AlchainHust/status/2108771483363475529" target="_blank" rel="noopener">X：GitHub 星标破 10 万</a></p><p class="muted">时间线位置：<a href="#s4">阶段 4 · 节点 10</a></p><p><span class="lv f">事实</span>帖子全文已读。先说里程碑，再说哪两个项目贡献过半，然后一句话介绍其余几个，结尾问读者用过哪个。</p><p><span class="lv a">观察</span>里程碑是由头，正文其实是作品目录。</p><p><span class="lv h">假设</span>里程碑帖适合给新关注的人一个作品清单；没有数据。</p><p><span class="lv b">边界</span>星标数没独立核；评论没读。</p><p class="take"><b>可借鉴写法：</b>借一个里程碑，把作品整理成一张清单。</p></article><article class="work card" id="w4"><h3>代表作品 4 · 自我拆解：这条涨粉视频不太能抄</h3><p class="links"><a href="https://x.com/AlchainHust/status/2112450926393139666" target="_blank" rel="noopener">X：涨粉</a> · <a href="https://x.com/AlchainHust/status/2112891498748649637" target="_blank" rel="noopener">X：补充说明</a></p><p class="muted">时间线位置：<a href="#s5">阶段 5 · 节点 11–12</a></p><p><span class="lv f">事实</span>两帖全文已读。第一帖说涨粉，第二帖马上说原因是之前积累的项目，“能给大多数人借鉴的经验可能不多”。</p><p><span class="lv a">观察</span>主动拆掉“这条视频能复制”的印象。</p><p><span class="lv h">假设</span>这种诚实可能让同行更愿意相信他别的经验；未验证。</p><p><span class="lv b">边界</span>视频没看。</p><p class="take"><b>可借鉴写法：</b>分享好结果时，顺手说清哪些条件别人没有。</p></article><article class="work card" id="w5"><h3>代表作品 5 · 作品发布：一句话讲清对外行的好处</h3><p class="links"><a href="https://x.com/AlchainHust/status/2117483016843133110" target="_blank" rel="noopener">X：BirdAlbum</a></p><p class="muted">时间线位置：<a href="#s5">阶段 5 · 节点 13</a></p><p><span class="lv f">事实</span>帖子全文已读：“可以通过颜色、体积等方式查找自己见到的鸟种”。</p><p><span class="lv a">观察</span>卖点不是技术，而是外行能用的入口。</p><p><span class="lv h">假设</span>回复里多人复述了这个卖点；但只有 9 条。</p><p><span class="lv b">边界</span>回复只读 9 条，其中有攻击性内容；网站没打开。</p><p class="take"><b>可借鉴写法：</b>作品介绍写外行能用上的那一个入口。</p></article></div></section>
+<section id="audience"><h2>谁在看，为什么愿意看</h2><p class="muted"><b>没有真实的粉丝画像数据</b>。人群和动机根据作者自述、X 评论和作品内容推断，不代表全体读者。</p><div class="tw"><table><thead><tr><th>可能的读者类型（推断）</th><th>AI 使用深度</th><th>可能想要什么</th><th>能拿走什么</th><th>对应作品</th><th>证据</th></tr></thead><tbody><tr><td data-l="读者类型">不会写代码、想用 AI 做东西的人</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：L2–L4（从照着用 Skill 到自己让 AI 写产品）</td><td data-l="想要什么">有人示范“不会写代码也能做出来”</td><td data-l="能拿走什么">教程、Skill、产品案例</td><td data-l="对应作品"><a href="#w2">卡 2</a>、<a href="#w3">卡 3</a></td><td data-l="证据"><span class="lv s">自述</span>X 简介“不会写代码的AI Native Coder”</td></tr><tr><td data-l="读者类型">想离开大厂、考虑一人公司的人</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：职业选择，层级不适用</td><td data-l="想要什么">真实的收入和代价</td><td data-l="能拿走什么">复盘和建议</td><td data-l="对应作品"><a href="#w1">卡 1</a>；<a href="#s3">阶段 3</a> 节点 7</td><td data-l="证据"><span class="lv s">自述</span>他给程序员的建议是“不要裸辞”</td></tr><tr><td data-l="读者类型">普通兴趣用户（观鸟、拍猫等）</td><td data-l="AI 使用深度">读者现在：评论者在说使用场景，未知<br>内容指向：直接用成品，AI 使用层级不适用</td><td data-l="想要什么">好用好玩的工具</td><td data-l="能拿走什么">App 和网站本身</td><td data-l="对应作品"><a href="#w5">卡 5</a></td><td data-l="证据"><span class="lv s">评论者自述</span>“按颜色找鸟这个太懂人了，我这种只记得“一只黄肚子的小鸟”的终于有救了”</td></tr><tr><td data-l="读者类型">用 Agent 和 Skill 的开发者</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：L3–L4</td><td data-l="想要什么">可装可改的开源 Skill</td><td data-l="能拿走什么">GitHub 仓库</td><td data-l="对应作品"><a href="#w3">卡 3</a></td><td data-l="证据"><span class="lv s">评论者自述</span>有人回复说用他的贴纸做了抽卡游戏网站</td></tr></tbody></table></div><p class="depth"><b>深度怎么标：</b>沿用 <a href="../research/ai-depth-levels-2026-10-28.html#levels">AI 使用深度水位</a> 的 L0–L5（定义见<a href="zhangzala.html#audience">张咋啦页</a>）；分开写读者现在和内容指向，层级不是职业类别。</p><h3>可能为什么能火、能传开（未验证）</h3><div class="card"><ul class="plain"><li><span class="lv s">自述</span>他说涨粉是在“兑现”已有作品（<a href="#w4">卡 4</a>）。<span class="lv a">观察</span>本轮读到的增长节点都跟着一个具体作品：补光灯、Skill、观鸟站。</li><li><span class="lv s">自述</span>他认为“做独立开发其实主要是在做自媒体”（<a href="#s3">阶段 3</a>）。<span class="lv h">假设</span>产品本身就是内容，发布帖就是作品介绍。</li><li><span class="lv s">自述</span>用户研究背景让他会找需求（<a href="https://www.huasheng.ai/insights/wechat-2247484247-1/" target="_blank" rel="noopener">腾讯研究院访谈文稿（2024-04-05，本人站）</a>）。<span class="lv a">观察</span>代表作品的卖点都写成用户能用的入口。</li><li><span class="lv s">评论者自述</span>BirdAlbum 帖回复里既有夸卖点的，也有人身攻击。<span class="lv b">边界</span>只读 9 条。</li></ul></div></section>
+<section id="compare"><h2>普通内容与代表作品：写法差在哪</h2><p class="muted"><span class="lv a">观察</span>只比较写法，不是因果；不展示互动数。普通内容一列来自同期 X 帖原文：<a href="https://x.com/AlchainHust/status/2117740070312853671" target="_blank" rel="noopener">Waikiki 海滩</a> · <a href="https://x.com/AlchainHust/status/2117849696479891639" target="_blank" rel="noopener">贪婪与嫉妒</a> · <a href="https://x.com/AlchainHust/status/2118228924996165856" target="_blank" rel="noopener">《白莲花度假村》</a>（2026-11-04～11-05，全文已读）。</p><div class="tw"><table><thead><tr><th>维度</th><th>代表作品</th><th>普通内容</th></tr></thead><tbody><tr><td data-l="维度">开头</td><td data-l="代表作品">一个作品或一个里程碑（<a href="#w3">卡 3</a>、<a href="#w5">卡 5</a>）</td><td data-l="普通内容">一张旅行照片或一句感想</td></tr><tr><td data-l="维度">个人经历</td><td data-l="代表作品">收入、耗时、涨粉的具体数字和代价（<a href="#w1">卡 1</a>）</td><td data-l="普通内容">度假见闻</td></tr><tr><td data-l="维度">读者能拿走什么</td><td data-l="代表作品">能用的产品、能装的 Skill</td><td data-l="普通内容">一个观点</td></tr><tr><td data-l="维度">形式</td><td data-l="代表作品">作品帖带链接和演示</td><td data-l="普通内容">一两句加图</td></tr></tbody></table></div></section>
+<section id="voice"><h2>语气、节奏与可借鉴写法</h2><div class="card"><ul class="plain"><li><span class="lv f">事实</span>口语、情绪直接：“毫无道理！”“卧槽，这玩意儿都能火？”，也会在争议里骂人。</li><li><span class="lv f">事实</span>作品帖常带具体数字（耗时、星标、涨粉），并说明来源是自己。</li><li><span class="lv a">观察</span>同期大量旅行和生活帖，和作品帖穿插。</li><li><span class="lv a">观察</span>会在好结果后马上补一帖讲限制（<a href="#w4">卡 4</a>）。</li></ul></div><pre class="tpl">【第一句】我做了什么 + 它对外行有什么用
+【怎么做的】灵感来源 + 工具 + 花了多久
+【结果】一个具体反馈（自己说的数字要写是自己说的）
+【限制】这次能成，靠的是什么别人没有的条件</pre><p class="muted">模板是分析产物，不是作者原话。</p></section>
+<section id="limits"><h2>失败与边界</h2><div class="card"><ul><li><b>数字</b>：收入、播放、榜单、星标、各平台粉丝都是本人说法，没独立核。</li><li><b>原文</b>：本人站文章只读到搜索返回的全文摘录，没逐篇打开核对。</li><li><b>平台</b>：小红书、抖音、B站、公众号原帖都没读；他自己说小红书发布效果好，本页不据此判断。</li><li><b>争议</b>：AI 鸟类贴纸被画师批评，评论区有冲突；本页不评价对错。</li><li><b>评论</b>：只读了一条帖的 9 条回复。</li></ul></div></section>
+<section id="for-ocean"><h2>给 Ocean（「AI具身牛马」）的借鉴</h2><p class="muted"><span class="lv a">分析</span>研究者建议，不是成功公式。</p><div class="grid2"><div class="card"><h3>可借鉴</h3><ol><li>做一个能马上用的小东西，发布帖写清灵感、工具、耗时。</li><li>复盘写清不如以前的地方。</li><li>好结果后补一句哪些条件别人没有。</li><li>作品卖点写成外行能用的入口。</li></ol></div><div class="card"><h3>不适用</h3><ul><li>裸辞全职、全球旅居的路径——他自己也建议别人不要裸辞。</li><li>几十个开源项目的积累和多平台运营。</li><li>在争议里对骂的语气。</li></ul></div></div></section>
+<section id="sources"><h2>来源与待核</h2><p><b>状态：X 一手资料深化；小红书未核</b>。X 帖和本人站原文已补一手资料；本人站文章经搜索读取，未逐篇打开。小红书没核：不据此判断他在小红书的效果，也不标双发。</p><div class="tw"><table><thead><tr><th>来源</th><th>读到了</th><th>没读到</th></tr></thead><tbody><tr><td data-l="来源">X</td><td data-l="读到了">资料（API）+ 2026-10-31～11-06 帖 25 条 + 2025-10～12 帖 25 条 + 关键词搜索 15 条</td><td data-l="没读到">2023–2025-09 的大部分帖子</td></tr><tr><td data-l="来源">小红书</td><td data-l="读到了">无</td><td data-l="没读到">主页、笔记、评论都没读：300013 安全限制。他自述的小红书数据只记作自述</td></tr><tr><td data-l="来源">评论</td><td data-l="读到了">BirdAlbum 帖回复 9 条（API 返回范围）</td><td data-l="没读到">其他帖、B站、YouTube 评论</td></tr><tr><td data-l="来源">作品原文</td><td data-l="读到了">本人站 4 篇公众号原文（搜索返回的全文摘录）；huasheng.ai 首页；X 帖全文</td><td data-l="没读到">教学视频；橙皮书；白皮书；各 App 和网站本身</td></tr></tbody></table></div><ul class="plain"><li>证据台账：<code>review/creator-growth-20261108/huashu-ledger.md</code>（采集 2026-11-08，UTC+8）。</li><li>旧页的商务报价区间本轮没复核，已删除。</li></ul><p><span class="tag warn">待核</span>：小红书账号与数据；教学视频原片；各平台当前粉丝；GitHub 星标；橙皮书和白皮书内容。</p></section>
+</main></div>
 </body>
 </html>

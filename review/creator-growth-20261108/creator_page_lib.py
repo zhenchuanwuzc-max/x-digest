@@ -1,5 +1,5 @@
 """第 2 批人物页共用渲染（结构与 build_kazike.py 相同；卡兹克页不走这里，保持原样）。"""
-import re
+import re, datetime as _D
 from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 def a(u, t): return f'<a href="{u.replace("&","&amp;")}" target="_blank" rel="noopener">{t}</a>'
@@ -13,14 +13,17 @@ LV = [("f","事实","f"),("s","自述","s"),("o","观察","a"),("h","假设","h"
 def card(w):
     sid,pos=w["where"]; rows="".join(f'<p><span class="lv {c}">{n}</span>{w[k]}</p>' for k,n,c in LV if w.get(k))
     return f'<article class="work card" id="{w["id"]}"><h3>代表作品 {w["id"][1]} · {w["t"]}</h3><p class="links">{" · ".join(w["links"])}</p><p class="muted">时间线位置：<a href="#{sid}">{pos}</a></p>{rows}<p class="take"><b>可借鉴写法：</b>{w["k"]}</p></article>'
+def ts(i):
+    """X 帖 id → UTC+8 时间（雪花 id 自带毫秒时间戳）。"""
+    return (_D.datetime.fromtimestamp((((int(i)>>22)+1288834974657)/1000),_D.timezone.utc)+_D.timedelta(hours=8)).strftime("%Y-%m-%d %H:%M")
 def ul(items): return '<ul class="plain">'+"".join(f"<li>{i}</li>" for i in items)+'</ul>'
 def render(c):
     zz=(REPO/"xhs/zhangzala.html").read_text(encoding="utf-8")
     head=zz[:zz.index("</head>")+len("</head>")]
     head=re.sub(r"<title>.*?</title>",f"<title>{c['name']}成长深拆 · 时间线 + 代表作品 + 受众深度 · 给 Ocean</title>",head,flags=re.S)
     nst=len(c["stages"])
-    nav=(f'<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">{c["short"]}深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>X 一手资料深化 · 小红书未核</p>'
-     f'<div class="sec">选题库</div><a href="growth/">← 成长记录</a><a href="./">小红书全入口</a><a href="creators.html#{c["slug"]}">对标档案 · {c["short"]}</a>'
+    nav=(f'<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">{c["short"]}深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>X 一手资料深化 · 小红书未核</p>'+
+     '<div class="sec">选题库</div><a href="growth/">← 成长记录</a><a href="./">小红书全入口</a>'+c.get("archive",f'<a href="creators.html#{c["slug"]}">对标档案 · {c["short"]}</a>')+
      f'<div class="sec">本页</div><a href="#overview">账号概况</a><a href="#timeline">{nst}阶段时间线</a>'+"".join(f'<a href="#s{i+1}">{i+1} · {t}</a>' for i,t in enumerate(c["stage_nav"]))+
      '<a href="#works">代表作品拆解</a><a href="#audience">谁在看</a><a href="#compare">写法对照</a><a href="#voice">语气与节奏</a><a href="#limits">失败与边界</a><a href="#for-ocean">给 Ocean</a><a href="#sources">来源与待核</a></aside>'
      '<main class="main"><nav class="mob-nav" aria-label="移动目录"><a href="#overview">概况</a><a href="#timeline">时间线</a><a href="#works">作品</a><a href="#audience">受众</a><a href="#compare">对照</a><a href="#voice">语气</a><a href="#limits">边界</a><a href="#for-ocean">借鉴</a><a href="#sources">来源</a></nav>'
