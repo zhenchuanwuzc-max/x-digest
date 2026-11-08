@@ -34,12 +34,20 @@ def _sources(p):
 def render():
     data = json.loads((D / 'people.json').read_text())
     P, T, pos = data['people'], data['topics'], data['positioning']
+    by = {p['id']: p for p in P}
+
+    def bench(x):
+        p = by[x['pid']]
+        return (f'<div class="bm"><p class="bn"><a href="{e(p["href"])}">{e(p["name"])}</a></p>'
+                f'<p class="bw">做了什么：<a href="{e(p["href"])}#{e(x["work"])}">{e(x["title"])}</a> —— {e(x["did"])}'
+                f'（<a href="{e(x["src"])}">一手来源</a>）</p>'
+                f'<p class="bl"><b>学这一步</b>{e(x["learn"])}</p><p class="bs"><b>别照搬</b>{e(x["skip"])}</p></div>')
     rows = ''.join(
         f'''    <div class="pr">
-      <h3>{e(r["who"])}</h3>
-      <p class="lv">{e(r["level"])}</p>
-      <dl><dt>痛点</dt><dd>{e(r["pain"])}</dd><dt>别人怎么解（证据）</dt><dd>{e(r["evidence"])}</dd>
-      <dt>Ocean 可以做</dt><dd>{e(r["ocean"])}</dd><dt>交付样例</dt><dd>{e(r["deliver"])}</dd><dt>怎么验证</dt><dd>{e(r["check"])}</dd></dl>
+      <h3>{e(r["topic"])}</h3>
+      <div class="bms">{''.join(bench(x) for x in r["bench"])}</div>
+      <dl><dt>面向谁</dt><dd>{e(r["who"])}<span class="lv">{e(r["level"])}</span></dd><dt>痛点</dt><dd>{e(r["pain"])}</dd>
+      <dt>Ocean 借鉴</dt><dd>{e(r["ocean"])}</dd><dt>怎么验证</dt><dd>{e(r["check"])}</dd></dl>
     </div>
 ''' for r in data['practice'])
     steps = ''.join(f'<li>{e(s)}</li>' for s in data['steps'])
@@ -75,8 +83,8 @@ def render():
 </aside>
 <main class="main">
   <h1>人物成长研究</h1>
-  <h2 id="total">实操结论：面向谁 → 痛点 → 怎么解 → Ocean 可以做</h2>
-  <p class="muted">按 Ocean 的定位（<a href="{e(pos["src"])}">{e(pos["src_label"])}</a>：{e(pos["text"])}）从 14 人证据里挑出三类人群。{e(data["total_source"])}</p>
+  <h2 id="total">总判断：对标谁 → 他做了什么 → Ocean 借鉴哪一步</h2>
+  <p class="muted">按 Ocean 的定位（<a href="{e(pos["src"])}">{e(pos["src_label"])}</a>：{e(pos["text"])}）选三个方向，每个方向先看对标的人和他的具体作品，再看面向谁、痛点和可借鉴的一步。{e(data["total_source"])}</p>
   <div class="prs">
 {rows}  </div>
   <h2 id="steps">先做什么（建议的小实验顺序）</h2>

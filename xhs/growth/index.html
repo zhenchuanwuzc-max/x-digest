@@ -75,7 +75,7 @@ a.card:hover,a.card:focus-visible{border-color:#9bb8c4;outline:none}
 .card{padding:.8rem 1rem;gap:.3rem}.card p{font-size:.86rem}
 .total{margin:0;padding-left:1.1rem}.total li{margin:.35rem 0}
 .prs{display:grid;gap:.8rem}.pr{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:.85rem 1rem}
-.pr h3{margin:0 0 .2rem;font-size:1rem}.pr .lv{margin:0 0 .5rem;font-size:.8rem;color:var(--mut)}
+.bms{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:.6rem;margin:.2rem 0 .7rem}.bm{border-left:3px solid var(--accent);background:#f6faf8;border-radius:8px;padding:.5rem .7rem}.bm p{margin:.15rem 0;font-size:.87rem}.bn a{font-weight:750;font-size:1.02rem;color:var(--accent)}.bl b,.bs b{display:inline-block;font-size:.72rem;border-radius:999px;padding:0 .4rem;margin-right:.35rem}.bl b{background:#e4f3ec;color:#0d6b52}.bs b{background:#fff0d6;color:#8a5a00}.pr .lv{display:block;font-size:.78rem;color:var(--mut)}.pr h3{margin:0 0 .2rem;font-size:1rem}.pr .lv{margin:0 0 .5rem;font-size:.8rem;color:var(--mut)}
 .pr dl,.pc dl{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:.25rem .6rem;margin:0;font-size:.88rem}
 .pr dt,.pc dt{color:var(--mut);font-weight:600}.pr dd,.pc dd{margin:0}
 .steps li,.obs li{margin:.3rem 0}.obs{color:var(--ink-2);font-size:.9rem}
@@ -100,30 +100,30 @@ a.card:hover,a.card:focus-visible{border-color:#9bb8c4;outline:none}
 </aside>
 <main class="main">
   <h1>人物成长研究</h1>
-  <h2 id="total">实操结论：面向谁 → 痛点 → 怎么解 → Ocean 可以做</h2>
-  <p class="muted">按 Ocean 的定位（<a href="../#pos" target="_blank" rel="noopener noreferrer">小红书创作中心 · 定位</a>：大厂产品经理，讲进门后如何把活干好；三支柱：AI 实操 · Lenny 产品方法 · 大厂日常；不求职、不编数字、不泄东家。）从 14 人证据里挑出三类人群。人群与证据出自 14 位人物页；Ocean 一栏是建议，不是已做的事，也不预测效果。</p>
+  <h2 id="total">总判断：对标谁 → 他做了什么 → Ocean 借鉴哪一步</h2>
+  <p class="muted">按 Ocean 的定位（<a href="../#pos" target="_blank" rel="noopener noreferrer">小红书创作中心 · 定位</a>：大厂产品经理，讲进门后如何把活干好；三支柱：AI 实操 · Lenny 产品方法 · 大厂日常；不求职、不编数字、不泄东家。）选三个方向，每个方向先看对标的人和他的具体作品，再看面向谁、痛点和可借鉴的一步。对标人与做法出自 14 位人物页的代表作品拆解（均附一手来源）；Ocean 一栏是建议，不是已做的事，也不预测效果；不排名。</p>
   <div class="prs">
     <div class="pr">
-      <h3>大厂里想把 AI 用进日常工作的非技术职场人（PM、运营等，推断）</h3>
-      <p class="lv">读者现在：多在 L1 会聊（推断）；内容指向：L2 会喂 → L3 会验</p>
-      <dl><dt>痛点</dt><dd>会问 AI 问题，但不知道怎么放进写周报、拆需求、做复盘这类真实工作；不确定结果能不能信</dd><dt>别人怎么解（证据）</dt><dd>乔木说出圈靠一份自己整理的飞书知识库被同行转发（第三方人物稿里的本人说法）；卡兹克说工具上手教程是最早被看见的内容；宝玉把带人经验写成给 Agent 的规则（本人说法）</dd>
-      <dt>Ocean 可以做</dt><dd>建议：挑 3 个自己真做过的工作环节，各写一篇“原来怎么做 → 用 AI 怎么做 → 哪一步必须人来核”</dd><dt>交付样例</dt><dd>一篇 6–9 张图卡 + 一份可复制的提示词 / 检查清单（全部脱敏）</dd><dt>怎么验证</dt><dd>看收藏和评论里“求模板 / 我也试了”的具体留言，而不是粉丝数</dd></dl>
+      <h3>把 AI 用进真实工作，一帖一个操作</h3>
+      <div class="bms"><div class="bm"><p class="bn"><a href="../qiaomu.html" target="_blank" rel="noopener noreferrer">向阳乔木</a></p><p class="bw">做了什么：<a href="../qiaomu.html#w2" target="_blank" rel="noopener noreferrer">三步操作帖：用 AI 读超长的书</a> —— 把一个具体操作拆成三步写（<a href="https://x.com/vista8/status/1740720440178532610" target="_blank" rel="noopener noreferrer">一手来源</a>）</p><p class="bl"><b>学这一步</b>一帖只讲一个操作，步骤编号</p><p class="bs"><b>别照搬</b>他“靠知识库出圈”出自第三方人物稿，没有转发数据，不当成规律</p></div><div class="bm"><p class="bn"><a href="../baoyu.html" target="_blank" rel="noopener noreferrer">宝玉</a></p><p class="bw">做了什么：<a href="../baoyu.html#w2" target="_blank" rel="noopener noreferrer">管理经验迁移：Agent 交 PR 必须带截图</a> —— 把带人时的规矩原样定给 Agent（<a href="https://x.com/dotey/status/2118569598379229219" target="_blank" rel="noopener noreferrer">一手来源</a>）</p><p class="bl"><b>学这一步</b>把职场里已有的规矩迁移给 AI，规矩本身就是内容</p><p class="bs"><b>别照搬</b>场景是代码 PR，非技术读者要换成自己的工作环节</p></div></div>
+      <dl><dt>面向谁</dt><dd>大厂里想把 AI 用进日常工作的非技术职场人（推断）<span class="lv">读者现在：多在 L1 会聊（推断）；内容指向：L2 会喂 → L3 会验</span></dd><dt>痛点</dt><dd>会问 AI，但不知道怎么放进周报、需求、复盘；不确定结果能不能信</dd>
+      <dt>Ocean 借鉴</dt><dd>建议：学乔木的“三步写法”——挑 3 个自己真做过的环节，各写“原来怎么做 → 用 AI 怎么做 → 哪一步必须人来核”（全部脱敏）</dd><dt>怎么验证</dt><dd>看收藏和“求模板 / 我也试了”的具体留言，不看粉丝数</dd></dl>
     </div>
     <div class="pr">
-      <h3>想把活干好的 PM 和职场新人（推断）</h3>
-      <p class="lv">层级不适用（方法类）</p>
-      <dl><dt>痛点</dt><dd>知道很多框架，但到了具体会议、需求、复盘还是拿不准</dd><dt>别人怎么解（证据）</dt><dd>Lenny 用深度调研的框架文起步再做播客；Shreyas 一条短帖只讲一个判断（本人说法与原帖）</dd>
-      <dt>Ocean 可以做</dt><dd>建议：从 Lenny 素材池选一篇，配一个大厂日常里的脱敏场景，写成“情境 → 判断 → 反例”</dd><dt>交付样例</dt><dd>一篇单主题方法帖，标明 Lenny 原文出处</dd><dt>怎么验证</dt><dd>评论里是否出现“我们团队也这样”的具体场景；没有就换场景再试</dd></dl>
+      <h3>把活干好的产品方法，一篇一个判断</h3>
+      <div class="bms"><div class="bm"><p class="bn"><a href="../lenny.html" target="_blank" rel="noopener noreferrer">Lenny Rachitsky</a></p><p class="bw">做了什么：<a href="../lenny.html#lenny-w1" target="_blank" rel="noopener noreferrer">里程碑问答《1,000,000》</a> —— 用读者提问组织复盘，每题给具体工时数字（<a href="https://www.lennysnewsletter.com/p/1000000" target="_blank" rel="noopener noreferrer">一手来源</a>）</p><p class="bl"><b>学这一步</b>用读者的真实问题组织复盘，每题给具体数字</p><p class="bs"><b>别照搬</b>他的订阅规模和团队配置</p></div><div class="bm"><p class="bn"><a href="../shreyas.html" target="_blank" rel="noopener noreferrer">Shreyas Doshi</a></p><p class="bw">做了什么：<a href="../shreyas.html#shreyas-w2" target="_blank" rel="noopener noreferrer">一句话判断：两种 PM</a> —— 用两句原话对照两种自我定位（<a href="https://x.com/shreyas/status/2108301324102279535" target="_blank" rel="noopener noreferrer">一手来源</a>）</p><p class="bl"><b>学这一步</b>两句原话对照，让读者自己对号入座</p><p class="bs"><b>别照搬</b>“更难被录用”这类结论是他的观察，没有数据</p></div></div>
+      <dl><dt>面向谁</dt><dd>想把活干好的 PM 和职场新人（推断）<span class="lv">层级不适用（方法类）</span></dd><dt>痛点</dt><dd>知道很多框架，到了具体会议、需求、复盘还是拿不准</dd>
+      <dt>Ocean 借鉴</dt><dd>建议：从 Lenny 素材池选一篇，按 Shreyas 的对照写法配一个大厂日常的脱敏场景：情境 → 两种做法 → 判断</dd><dt>怎么验证</dt><dd>评论里是否出现“我们团队也这样”的具体场景；没有就换场景</dd></dl>
     </div>
     <div class="pr">
-      <h3>想开始自己动手用 AI 做点东西的同路人（推断）</h3>
-      <p class="lv">读者现在：L1–L2（推断）；内容指向：L2 会喂，个别工具例子到 L4 会编</p>
-      <dl><dt>痛点</dt><dd>不知道从哪开始，怕被说外行</dd><dt>别人怎么解（证据）</dt><dd>张咋啦以学生身份连续更新、用读者“照做了”当反馈；花叔把收入、耗时和“不如上班”都写出来（本人说法）</dd>
-      <dt>Ocean 可以做</dt><dd>建议：辅系列「我学 AI 的过程」每周一篇，写这周试了什么、错在哪</dd><dt>交付样例</dt><dd>每周一篇周记卡，固定三段：试了什么 / 卡在哪 / 下周试什么</dd><dt>怎么验证</dt><dd>先定连续 N 期的过程目标；看评论里有没有读者说“照着做了”</dd></dl>
+      <h3>公开学 AI 的过程，作品比感想多</h3>
+      <div class="bms"><div class="bm"><p class="bn"><a href="../zhangzala.html" target="_blank" rel="noopener noreferrer">张咋啦（Zara Zhang）</a></p><p class="bw">做了什么：<a href="../zhangzala.html#w2" target="_blank" rel="noopener noreferrer">工具接入帖</a> —— 标题一句讲清把 Claude Code 接进飞书，正文给教程 + 演示（<a href="https://www.xiaohongshu.com/explore/6a1018060000000007027155" target="_blank" rel="noopener noreferrer">一手来源</a>）</p><p class="bl"><b>学这一步</b>标题一句讲清“接进哪里”，正文给可照做的步骤</p><p class="bs"><b>别照搬</b>她的粉丝数字和身份反差标题</p></div><div class="bm"><p class="bn"><a href="../huashu.html" target="_blank" rel="noopener noreferrer">花叔</a></p><p class="bw">做了什么：<a href="../huashu.html#w1" target="_blank" rel="noopener noreferrer">一年复盘</a> —— 把收入来源和“不如上班”一起写出来（<a href="https://www.huasheng.ai/insights/wechat-2247484223-1/" target="_blank" rel="noopener noreferrer">一手来源</a>）</p><p class="bl"><b>学这一步</b>复盘里把代价和没做成的部分一起写</p><p class="bs"><b>别照搬</b>离职背景和收入对比；不涉及职业去留</p></div></div>
+      <dl><dt>面向谁</dt><dd>想开始自己动手用 AI 做点东西的同路人（推断）<span class="lv">读者现在：L1–L2（推断）；内容指向：L2 会喂，个别工具例子到 L4 会编</span></dd><dt>痛点</dt><dd>不知道从哪开始，怕被说外行</dd>
+      <dt>Ocean 借鉴</dt><dd>建议：辅系列「我学 AI 的过程」每周一篇，固定三段：试了什么 / 卡在哪 / 下周试什么</dd><dt>怎么验证</dt><dd>先定连续 N 期的过程目标；看有没有读者说“照着做了”</dd></dl>
     </div>
   </div>
   <h2 id="steps">先做什么（建议的小实验顺序）</h2>
-  <ol class="steps"><li>建议 · 第 1–2 周：先发人群 1 的 3 篇流程卡（同一结构），对比哪类环节的留言最具体。</li><li>建议 · 第 3 周：选留言最多的环节，追加一篇更细的检查清单；同时发人群 2 的 1 篇 Lenny 方法帖。</li><li>建议 · 第 4 周起：辅系列周记开始固定周更；主线按留言里的真实问题定下一篇标题。</li><li>建议 · 每两周回看一次：只看评论里的具体问题和“照做了”的留言，决定继续、换场景或停。</li></ol>
+  <ol class="steps"><li>建议 · 第 1–2 周：先发方向 1 的 3 篇三步流程卡（同一结构），对比哪类环节的留言最具体。</li><li>建议 · 第 3 周：选留言最多的环节，追加一篇更细的检查清单；同时发方向 2 的 1 篇对照写法方法帖。</li><li>建议 · 第 4 周起：辅系列周记开始固定周更；主线按留言里的真实问题定下一篇标题。</li><li>建议 · 每两周回看一次：只看评论里的具体问题和“照做了”的留言，决定继续、换场景或停。</li></ol>
   <ul class="obs"><li>观察：14 人里能查到的增长节点，多数对应一个能打开的作品（教程、开源、周刊、课程、产品），而不是单条帖子。</li><li>观察：收入数字全部是本人说法，口径各不相同（月营收、年营收、累计营收、个人收入），本页不排名、不相加。</li></ul>
 
   <h2 id="people">人物（14）</h2>
