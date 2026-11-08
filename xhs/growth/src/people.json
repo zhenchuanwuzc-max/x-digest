@@ -25,7 +25,8 @@
      "kind": "自述",
      "src": "https://www.huxiu.com/article/4859145.html",
      "date": "2026-05-18 内部分享（虎嗅转载）",
-     "note": "原话“小红书也才马上才摸到10万粉”"
+     "note": "原话“小红书也才马上才摸到10万粉”",
+     "asof": "2026-05"
     },
     "wx": {
      "text": "未找到公开数值",
@@ -70,7 +71,8 @@
      "kind": "自述",
      "src": "https://www.xiaohongshu.com/explore/68ccbc56000000000e022358",
      "date": "2025-09-18 笔记标题",
-     "note": "标题《2年400篇笔记，12万粉丝》"
+     "note": "标题《2年400篇笔记，12万粉丝》",
+     "asof": "2025-09"
     },
     "wx": {
      "text": "未找到公开数值",
@@ -245,7 +247,8 @@
      "kind": "自述",
      "src": "https://www.huasheng.ai/insights/wechat-2247484223-1/",
      "date": "2024-03-04 发表",
-     "note": "离职后约一年、个人收入、币种未写明；同文说“比不上继续上班的收入”"
+     "note": "离职后约一年、个人收入、币种未写明；同文说“比不上继续上班的收入”",
+     "asof": "2024-03"
     }
    },
    "brief": {
@@ -284,7 +287,8 @@
      "kind": "自述",
      "src": "https://x.com/fankaishuoai/status/2118250800539725943",
      "date": "2026-11-05",
-     "note": "同帖：视频号 6.5 万、YouTube 9400、Substack 800"
+     "note": "同帖：视频号 6.5 万、YouTube 9400、Substack 800",
+     "asof": "2026-11"
     },
     "income": {
      "text": "未找到公开数值",
@@ -332,7 +336,7 @@
     "income": {
      "text": "未找到公开数值",
      "kind": "未找到",
-     "note": "受雇员工，个人收入不适用对比"
+     "note": "受雇员工，未找到公开个人收入数值"
     }
    },
    "brief": {
@@ -466,7 +470,8 @@
      "kind": "自述",
      "src": "https://aliabdaal.com/about/",
      "date": "About 页（2026-11-08 读取）",
-     "note": "公司营收，不是个人收入"
+     "note": "公司营收，不是个人收入",
+     "asof": "2020"
     }
    },
    "brief": {
@@ -549,7 +554,8 @@
      "kind": "自述",
      "src": "https://levels.io/photoai-14000-lines-raw-php-revenue",
      "date": "2023-07",
-     "note": "单产品月营收；2026-11-08 X 简介另列各产品月收入（如 $68K/m），口径不同不相加"
+     "note": "单产品月营收；2026-11-08 X 简介另列各产品月收入（如 $68K/m），口径不同不相加",
+     "asof": "2023-07"
     }
    },
    "brief": {
@@ -592,7 +598,8 @@
      "kind": "自述",
      "src": "https://justinwelsh.me/essays/my-10m-journey",
      "date": "2025-06-07 发表",
-     "note": "上线后 5 年 9 个月的业务营收；X 导流帖另说 $15M profit，口径不同不合并"
+     "note": "上线后 5 年 9 个月的业务营收；X 导流帖另说 $15M profit，口径不同不合并",
+     "asof": "2025-06"
     }
    },
    "brief": {

@@ -12,7 +12,9 @@ LABELS = (('x', 'X 关注者'), ('xhs', '小红书粉丝'), ('wx', '公众号关
 
 
 def _metric(v):
-    tag = {'事实': '<span class="k f">公开读取</span>', '自述': '<span class="k s">自述</span>', '未找到': ''}[v['kind']]  # 未找到：文字本身即标注
+    # 自述数字带短年月；早于 2026 的再标「历史」，免得被当成当前数
+    lab = '自述' + (f' · {v["asof"]}' if v.get('asof') else '') + (' · 历史' if v.get('asof', '2026') < '2026' else '')
+    tag = {'事实': '<span class="k f">公开读取</span>', '自述': f'<span class="k s">{e(lab)}</span>', '未找到': ''}[v['kind']]  # 未找到：文字本身即标注
     cls = ' class="nf"' if v['kind'] == '未找到' else ''
     return f'<span{cls}>{e(v["text"])}</span>{tag}'
 

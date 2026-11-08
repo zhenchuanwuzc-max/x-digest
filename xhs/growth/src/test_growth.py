@@ -61,7 +61,9 @@ class Practice(unittest.TestCase):
             for k in ('主要做什么', '主要用户', 'X 关注者', '小红书粉丝', '公众号关注', '收入'): s.assertIn(f'<dt>{k}</dt>', c, (p['id'], k))
             s.assertIn('<details><summary>数据口径与来源</summary>', c)
             for k, v in p['metrics'].items():  # 卡片上看得到口径：公开读取 / 自述 / 未找到公开数值
-                vis = {'事实': '<span class="k f">公开读取</span>', '自述': '<span class="k s">自述</span>', '未找到': f'<span class="nf">{NF}</span>'}[v['kind']]
+                s.assertTrue(v['kind'] != '自述' or v.get('asof'), (p['id'], k))  # 自述必须带时点
+                lab = '自述' + (f' · {v.get("asof")}' if v.get('asof') else '') + (' · 历史' if v.get('asof', '2026') < '2026' else '')
+                vis = {'事实': '<span class="k f">公开读取</span>', '自述': f'<span class="k s">{lab}</span>', '未找到': f'<span class="nf">{NF}</span>'}[v['kind']]
                 s.assertIn(vis, c, (p['id'], k))
             s.assertTrue('推断' in p['users'] or '自述' in p['users'], p['id'])
             s.assertIn(f'href="{p["href"]}" target="_blank" rel="noopener noreferrer"', c)
@@ -76,6 +78,8 @@ class Practice(unittest.TestCase):
                     s.assertTrue(v.get('note') or '营收' in v['text'], p['id'])
                     s.assertTrue(re.search(r'营收|收入|赚', v['text'] + v.get('note', '')), p['id'])
             x = p['metrics']['x']; s.assertEqual(x['kind'], '事实'); s.assertIn('2026-11-08', x['date']); s.assertRegex(x['text'], r'^[\d,]+$')
+        for p in P: s.assertNotIn('不适用', p['metrics']['income']['text'] + p['metrics']['income'].get('note', ''))
+        s.assertIn('自述 · 2025-09 · 历史', H); s.assertIn('自述 · 2023-07 · 历史', H)
         cnt = lambda k: sum(p['metrics'][k]['kind'] != '未找到' for p in P)
         s.assertEqual((cnt('x'), cnt('xhs'), cnt('wx'), cnt('income')), (14, 2, 1, 4))
     def test_brief_on_every_person_page(s):
