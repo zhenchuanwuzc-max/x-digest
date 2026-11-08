@@ -12,12 +12,28 @@ class T(unittest.TestCase):
         nav = H[H.index('<aside'):H.index('</aside>')]
         s.assertEqual(re.findall(r'href="([^"]+)"', nav), ['#p-'+p['id'] for p in P])
         for w in ['其他','相关','加深档','独立页','全入口','情报站']: s.assertNotIn(w, nav)
-    def test_one_card_each(s):
-        for p in P: s.assertEqual(H.count(f'id="p-{p["id"]}"'), 1); s.assertEqual(H.count(f'href="{p["href"]}"'), 1)
-    def test_old_links_and_anchor(s):
+    def test_one_primary_link_each(s):
+        cards = re.findall(r'<div class="card" id="p-([^"]+)">(.*?)\n    </div>', H, re.S)
+        s.assertEqual([c[0] for c in cards], [p['id'] for p in P])
+        for (pid, body), p in zip(cards, P):
+            s.assertEqual(re.findall(r'<a class="go" href="([^"]+)"', body), [p['href']])
+            s.assertNotIn('档案内', body)
+    def test_old_links_resolve_and_anchor(s):
         s.assertIn('id="people"', H)
-        for h in BEFORE_HREFS: s.assertIn(f'href="{h}"', H)
-        s.assertTrue((G/'hector.html').exists())
+        for h in BEFORE_HREFS:
+            if h.startswith('http'): continue
+            f, _, a = (G/h).as_posix().partition('#'); f = Path(f); f = f/'index.html' if f.is_dir() else f
+            s.assertTrue(f.exists(), h)
+            if a: s.assertIn(f'id="{a}"', f.read_text())
+    def test_hector_podcast_and_lenny_material_reachable(s):
+        s.assertIn('href="growth/hector.html"', (X/'hector.html').read_text())
+        s.assertIn('href="hector.html"', H); s.assertTrue((G/'hector.html').exists())
+        s.assertIn('href="../#lenny"', H); s.assertIn('id="lenny"', (X/'index.html').read_text())
+    def test_collection_is_secondary(s):
+        main = H[H.index('<main'):]
+        s.assertEqual(main.count('href="../creators.html"'), 1)
+        s.assertLess(main.index('id="people"'), main.index('附属合集'))
+        for w in ['加深档','独立页','其他','相关','合集与海外']: s.assertNotIn(f'<h2>{w}', main)
     def test_targets_exist(s):
         ids = set(re.findall(r'id="([^"]+)"', (X/'creators.html').read_text()))
         for p in P:

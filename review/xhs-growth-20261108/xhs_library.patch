@@ -1,0 +1,13 @@
+345a346,353
+> def _growth_count():
+>     """人数取自成长页唯一名单 xhs/growth/src/people.json；缺文件时不写数字。"""
+>     try:
+>         return f" · {len(json.loads((SITE / 'growth' / 'src' / 'people.json').read_text())['people'])} 人"
+>     except (OSError, ValueError, KeyError):
+>         return ""
+> 
+> 
+353c361
+<         '<li><a href="growth/"><b>成长记录专属入口</b></a> — Hector / 张咋啦 / 卡兹克 / 对标档案</li>'
+---
+>         f'<li><a href="growth/"><b>人物成长分析{_growth_count()}</b></a> — 按人名进，唯一入口</li>'
