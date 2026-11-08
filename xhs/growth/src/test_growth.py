@@ -194,6 +194,8 @@ class OceanPositioning(unittest.TestCase):
         pos = json.loads((G/'src/people.json').read_text())['positioning']['text']
         s.assertIn('账号方向仍在探索', pos); s.assertIn(pos, H)
         for bad in ('大厂产品经理，讲进门后', '不求职', '按 Ocean 的定位'): s.assertNotIn(bad, pos + H)
+        d = json.loads((G/'src/people.json').read_text()); n = len({b['pid'] for r in d['practice'] for b in r['bench']})
+        s.assertIn(f'出自 {n} 位人物页', H); s.assertNotIn('创作中心 · 定位', H)
 
 class FollowBatch1(unittest.TestCase):
     """小红书关注首批 3 人：覆盖度来自 follow_b1_cards.COV；公开页不泄露关注关系与带 token 链接。"""
