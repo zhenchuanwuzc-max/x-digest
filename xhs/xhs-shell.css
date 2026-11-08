@@ -1,16 +1,20 @@
 .shell {
   width: 100%;
+  max-width: none;
   margin: 0;
 }
 .main {
   box-sizing: border-box;
-  justify-self: center;
-  width: min(68rem, calc(100% - 3rem));
-  max-width: 68rem;
+  justify-self: stretch;
+  width: 100%;
+  max-width: none;
   min-width: 0;
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: clamp(1rem, 2.5vw, 2.75rem);
+  padding-right: clamp(1rem, 2.5vw, 2.75rem);
 }
+.main img, .main video, .main iframe { max-width: 100%; height: auto; }
+.main pre { max-width: 100%; overflow-x: auto; }
+.main a, .main code, .main td { overflow-wrap: anywhere; }
 .nav details.navg {
   margin: .15rem 0 .35rem;
 }
@@ -64,4 +68,5 @@
     max-width: none;
     padding: 1.1rem 1rem 3rem;
   }
+  .main table { display: block; max-width: 100%; overflow-x: auto; }
 }

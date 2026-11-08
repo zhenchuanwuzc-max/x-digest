@@ -51,12 +51,14 @@ def attr_ids(html):
 
 
 class ShellContract(unittest.TestCase):
-    def test_shell_css_centers_main_in_the_nav_remainder(self):
+    def test_shell_css_fills_the_nav_remainder(self):
+        # Ocean 2026-11-08: 小红书站内宽屏铺满，主区占满侧栏外宽度，不再窄栏居中。
         css = SHELL.read_text(encoding="utf-8")
         compact = re.sub(r"\s+", "", css)
-        self.assertIn("justify-self:center", compact)
-        self.assertIn("width:min(68rem,calc(100%-3rem))", compact)
-        self.assertIn("max-width:68rem", compact)
+        main_rule = re.search(r"(?<![\w-])\.main\{([^}]*)\}", compact).group(1)
+        self.assertIn("justify-self:stretch", main_rule)
+        self.assertIn("max-width:none", main_rule)
+        self.assertNotIn("68rem", compact)
         self.assertIn(".nav:has(>details.navg)", compact)
         self.assertIn(".shell:has(details.navg).mob{display:none;}", compact)
 

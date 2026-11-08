@@ -1,0 +1,12 @@
+/* 小红书站内静态页统一宽屏：主区铺满侧栏外剩余宽度；手机单列、表格自身横滚。只被 xhs/ 下静态页引用。 */
+.shell { max-width: none !important; width: 100%; margin: 0 !important; }
+main, .main { box-sizing: border-box; max-width: none !important; width: auto !important; min-width: 0; justify-self: stretch !important; margin-left: 0 !important; margin-right: 0 !important; }
+@media (min-width: 901px) {
+  main, .main { padding-left: clamp(1rem, 2.5vw, 2.75rem) !important; padding-right: clamp(1rem, 2.5vw, 2.75rem) !important; }
+}
+main img, main video, main iframe, .main img, .main video, .main iframe { max-width: 100%; height: auto; }
+main pre, .main pre { max-width: 100%; overflow-x: auto; }
+main a, main code, main td, .main a, .main code, .main td { overflow-wrap: anywhere; }
+@media (max-width: 900px) {
+  main table, .main table { display: block; max-width: 100%; overflow-x: auto; }
+}

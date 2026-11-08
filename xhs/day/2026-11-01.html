@@ -79,6 +79,20 @@ details.rawfold > summary{cursor:pointer;font-weight:700;padding:.55rem 0;color:
 .toc a{display:inline-block;margin:0 .55rem .35rem 0;font-size:.88rem;color:var(--accent);text-decoration:none;background:var(--accent-soft);padding:.28rem .6rem;border-radius:999px}
 .partial{font-size:.86rem;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:.55rem .7rem;margin:0 0 1rem}
 .sec-ico{display:inline-block;margin-right:.35rem;font-style:normal;font-weight:700;opacity:.9}.brand-row{display:flex;align-items:center;gap:.55rem;margin:0 0 .3rem}.brand-row img{width:28px;height:28px;border-radius:7px;flex:0 0 auto}.rawfold{margin:.6rem 0 1.2rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:.4rem .9rem .7rem}.rawfold summary{cursor:pointer;font-weight:650;color:var(--accent);padding:.35rem 0}
+.topics{grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}
+.topics .pick{background:#fffcf7;border:1px solid var(--line);border-radius:16px;padding:1rem 1.1rem 1.05rem}
+.topics .pk-top{display:flex;align-items:center;justify-content:space-between;min-height:1.3rem;margin-bottom:.35rem}
+.topics .pick .n{position:static}
+.topics .pick h3{color:var(--accent);margin:0 0 .5rem;font-size:1.05rem}
+.topics .pill{display:inline-block;font-size:.72rem;font-weight:650;background:var(--accent-soft);color:var(--accent);padding:.12rem .6rem;border-radius:999px}
+.topics .who,.topics .why1{margin:.3rem 0;font-size:.92rem;line-height:1.55}
+.topics .who b{font-size:.72rem;color:var(--mut);margin-right:.4rem}
+.topics .refs{margin:.45rem 0 .2rem;padding-left:1.1rem;font-size:.86rem}
+.topics .refs li{margin:.15rem 0}
+.topics details.more{margin-top:.5rem;font-size:.88rem}
+.topics details.more>summary{cursor:pointer;color:var(--accent);font-weight:650}
+details.verdict-fold{margin:1rem 0 0}
+details.verdict-fold>summary{cursor:pointer;font-weight:650;color:var(--mut);padding:.35rem 0}
 @media(max-width:900px){
   .shell{grid-template-columns:1fr}.nav{display:none}.mob{display:flex}
   .main{padding:1.1rem 1rem 3rem}
@@ -87,34 +101,25 @@ details.rawfold > summary{cursor:pointer;font-weight:700;padding:.55rem 0;color:
   .mob{margin:0 -1rem .8rem;padding:.5rem 1rem}
   .kwh{flex-wrap:wrap}
 }
-</style><link rel="stylesheet" href="../xhs-shell.css" data-xhs-shell></head><body><div class="shell"><aside class="nav"><div class="brand-row"><img src="../icon.svg" alt=""/><p class="brand" style="margin:0">每日选题 · 11/01</p></div><p class="meta">私密 x-digest 数据采集于台北时间 11/01 约 09:05</p><div class="sec">本页</div><a href="#top" data-s="top">今天一句话</a><a href="#picks" data-s="picks">汇总建议选题</a><a href="#xhs" data-s="xhs">热词最高赞</a><a href="#xdiff" data-s="xdiff">X 热帖差异化</a><a href="#deep" data-s="deep">细看</a><a href="#raw" data-s="raw">原始数据</a><a href="#notes" data-s="notes">来源说明</a><a href="#day-foot" data-s="day-foot">页脚</a><div class="sec">其他</div><a href="index.html">往期日页</a><a href="../">小红书全入口</a><a href="2026-11-02.html">11-02 →</a></aside><main class="main"><nav class="mob"><a href="#top" data-s="top">今天一句话</a><a href="#picks" data-s="picks">汇总建议选题</a><a href="#xhs" data-s="xhs">热词最高赞</a><a href="#xdiff" data-s="xdiff">X 热帖差异化</a><a href="#deep" data-s="deep">细看</a><a href="#raw" data-s="raw">原始数据</a><a href="#notes" data-s="notes">来源说明</a><a href="#day-foot" data-s="day-foot">页脚</a><a href="../">小红书</a></nav><h1 id='top'>今天写啥 · 2026-11-01</h1><p class='muted'>搜索词：产品经理 / PRD / AI产品经理 / AI工具 / AI，筛选「最多点赞 + 一周内」。表里的「昨天」「N天前」都是相对台北时间 11/01 早上 9 点。没核实的写「待核」。</p><div class='card verdict'><p class='lead'>今天最值得写的是「用 AI 写 PRD」：一条讲这个的笔记一天拿到 2961 赞、2122 收藏，大家是当教程存的；评论区在吵「PRD 只占产品经理很小一块」，但没人讲剩下那一大块是什么。</p><ul class='signals'><li>产品经理词被小鹏发布会新闻刷屏；方法笔记只有几十赞。</li><li>AI 工具词 Codex/Skill 帖到四千赞级，火到非程序员圈。</li><li>「靠 AI 写 PRD」2961 赞 2122 藏。</li></ul><p class='one'>AI 写 PRD 的人机分界；AI 功能 PRD 多写块；对齐只留 Action。</p></div><p class='partial'>当日无推荐流侦察合并进本页（推荐流自 11-04 起有档）。日报关键词/细看/X 缺口仍在下方。</p><h2 id='picks'><span class='sec-ico' aria-hidden='true'>✎</span> 汇总建议选题</h2><p class='muted'>每条含：对谁管用 / 同类最高赞 / 最近最高赞，以及为什么是今天、怎么动手。重复选题不另列。</p><div class="topics">
+</style><link rel="stylesheet" href="../xhs-shell.css" data-xhs-shell></head><body><div class="shell"><aside class="nav"><div class="brand-row"><img src="../icon.svg" alt=""/><p class="brand" style="margin:0">每日选题 · 11/01</p></div><p class="meta">私密 x-digest 数据采集于台北时间 11/01 约 09:05</p><div class="sec">本页</div><a href="#top" data-s="top">今天写啥</a><a href="#picks" data-s="picks">汇总建议选题</a><a href="#xhs" data-s="xhs">热词最高赞</a><a href="#xdiff" data-s="xdiff">X 热帖差异化</a><a href="#deep" data-s="deep">细看</a><a href="#raw" data-s="raw">原始数据</a><a href="#notes" data-s="notes">来源说明</a><a href="#day-foot" data-s="day-foot">页脚</a><div class="sec">其他</div><a href="index.html">往期日页</a><a href="../">小红书全入口</a><a href="2026-11-02.html">11-02 →</a></aside><main class="main"><nav class="mob"><a href="#top" data-s="top">今天写啥</a><a href="#picks" data-s="picks">汇总建议选题</a><a href="#xhs" data-s="xhs">热词最高赞</a><a href="#xdiff" data-s="xdiff">X 热帖差异化</a><a href="#deep" data-s="deep">细看</a><a href="#raw" data-s="raw">原始数据</a><a href="#notes" data-s="notes">来源说明</a><a href="#day-foot" data-s="day-foot">页脚</a><a href="../">小红书</a></nav><h1 id='top'>今天写啥 · 2026-11-01</h1><h2 id='picks'><span class='sec-ico' aria-hidden='true'>✎</span> 汇总建议选题</h2><div class="topics">
 <article class="pick" id="p1">
-  <span class="n">#01</span>
-  <h3>用AI写PRD，哪几步自己来<span class="tag">先写</span></h3>
-  <div class="row"><b>对谁管用</b>想用 AI 写 PRD、又怕整份都交给它的产品经理</div>
-  <div class="row"><b>同类最高赞</b>靠AI写PRD赚钱（教程向）<span class="muted"> · 待核 · 2961 赞 / 2122 藏</span><div class="muted" style="margin-top:.15rem">PRD 词下爆帖</div></div>
-  <div class="row"><b>最近最高赞</b>靠AI写PRD赚钱（教程向）<span class="muted"> · 待核 · 2961 赞 / 2122 藏</span></div>
-  <div class="row"><b>为什么是今天</b>评论吵 PRD 只占很小一块，没人讲剩下那块；这篇讲哪几步自己来。</div>
-  <div class="row"><b>动手</b>自己的写 PRD 流程拆步。</div>
+  <div class="pk-top"><span class="pill">先写</span><span class="n">#01</span></div>
+  <h3>用AI写PRD，哪几步自己来</h3>
+  <p class="who"><b>适合谁</b>想用 AI 写 PRD、又怕整份都交给它的产品经理</p><p class="why1">评论吵 PRD 只占很小一块，没人讲剩下那块；</p><ul class="refs"><li>靠AI写PRD赚钱（教程向）<span class="muted"> · 2961 赞 / 2122 藏</span></li><li>靠AI写PRD赚钱（教程向）<span class="muted"> · 2961 赞 / 2122 藏</span></li></ul>
+  <details class="more"><summary>展开全文与动手</summary><div class="row"><b>同类最高赞</b>靠AI写PRD赚钱（教程向）<span class="muted"> · 待核 · 2961 赞 / 2122 藏</span><div class="muted" style="margin-top:.15rem">PRD 词下爆帖</div></div><div class="row"><b>最近最高赞</b>靠AI写PRD赚钱（教程向）<span class="muted"> · 待核 · 2961 赞 / 2122 藏</span></div><div class="row"><b>为什么是今天</b>评论吵 PRD 只占很小一块，没人讲剩下那块；这篇讲哪几步自己来。</div><div class="row"><b>动手</b>自己的写 PRD 流程拆步。</div></details>
 </article>
 <article class="pick" id="p2">
-  <span class="n">#02</span>
+  <div class="pk-top"><span class="n">#02</span></div>
   <h3>AI功能的PRD，我多写哪几块</h3>
-  <div class="row"><b>对谁管用</b>第一次写 AI 功能需求、对照普通 PRD 不知多写什么的人</div>
-  <div class="row"><b>同类最高赞</b>AI功能的PRD有什么不同<span class="muted"> · 待核 · 34 赞</span><div class="muted" style="margin-top:.15rem">内容扎实、写法像概念表</div></div>
-  <div class="row"><b>最近最高赞</b>AI功能的PRD有什么不同<span class="muted"> · 待核 · 34 赞</span><div class="muted" style="margin-top:.15rem">同题可见帖</div></div>
-  <div class="row"><b>为什么是今天</b>题对、互动低；改成短故事更好收藏。可当课表 M20。</div>
-  <div class="row"><b>动手</b>真实场景，不写空表。</div>
+  <p class="who"><b>适合谁</b>第一次写 AI 功能需求、对照普通 PRD 不知多写什么的人</p><p class="why1">题对、互动低；</p><ul class="refs"><li>AI功能的PRD有什么不同<span class="muted"> · 34 赞</span></li><li>AI功能的PRD有什么不同<span class="muted"> · 34 赞</span></li></ul>
+  <details class="more"><summary>展开全文与动手</summary><div class="row"><b>同类最高赞</b>AI功能的PRD有什么不同<span class="muted"> · 待核 · 34 赞</span><div class="muted" style="margin-top:.15rem">内容扎实、写法像概念表</div></div><div class="row"><b>最近最高赞</b>AI功能的PRD有什么不同<span class="muted"> · 待核 · 34 赞</span><div class="muted" style="margin-top:.15rem">同题可见帖</div></div><div class="row"><b>为什么是今天</b>题对、互动低；改成短故事更好收藏。可当课表 M20。</div><div class="row"><b>动手</b>真实场景，不写空表。</div></details>
 </article>
 <article class="pick" id="p3">
-  <span class="n">#03</span>
+  <div class="pk-top"><span class="n">#03</span></div>
   <h3>跨团队对齐，我只拉齐Action</h3>
-  <div class="row"><b>对谁管用</b>会开很多、落地少的产品经理</div>
-  <div class="row"><b>同类最高赞</b>产品经理做汇报，老板到底想听什么<span class="muted"> · 待核 · 477 赞</span><div class="muted" style="margin-top:.15rem">汇报向热帖</div></div>
-  <div class="row"><b>最近最高赞</b>产品经理做汇报，老板到底想听什么<span class="muted"> · 待核 · 477 赞</span></div>
-  <div class="row"><b>为什么是今天</b>热的是汇报话术；缺「会开完怎么落地」。</div>
-  <div class="row"><b>动手</b>对齐会最后只留 Action 的做法。</div>
-</article></div><h2 id='xhs'><span class='sec-ico' aria-hidden='true'>🔥</span> 热词最高赞 · 小红书今天在聊什么</h2><p class='muted'>按热词分组，每组列出该词下最高赞帖；写选题前先扫这里。</p><div class="cols">
+  <p class="who"><b>适合谁</b>会开很多、落地少的产品经理</p><p class="why1">热的是汇报话术；</p><ul class="refs"><li>产品经理做汇报，老板到底想听什么<span class="muted"> · 477 赞</span></li><li>产品经理做汇报，老板到底想听什么<span class="muted"> · 477 赞</span></li></ul>
+  <details class="more"><summary>展开全文与动手</summary><div class="row"><b>同类最高赞</b>产品经理做汇报，老板到底想听什么<span class="muted"> · 待核 · 477 赞</span><div class="muted" style="margin-top:.15rem">汇报向热帖</div></div><div class="row"><b>最近最高赞</b>产品经理做汇报，老板到底想听什么<span class="muted"> · 待核 · 477 赞</span></div><div class="row"><b>为什么是今天</b>热的是汇报话术；缺「会开完怎么落地」。</div><div class="row"><b>动手</b>对齐会最后只留 Action 的做法。</div></details>
+</article></div><details class='verdict-fold'><summary>今日判断与采集口径（默认折叠）</summary><div class='card verdict'><p class='muted'>搜索词：产品经理 / PRD / AI产品经理 / AI工具 / AI，筛选「最多点赞 + 一周内」。表里的「昨天」「N天前」都是相对台北时间 11/01 早上 9 点。没核实的写「待核」。</p><p class='lead'>今天最值得写的是「用 AI 写 PRD」：一条讲这个的笔记一天拿到 2961 赞、2122 收藏，大家是当教程存的；评论区在吵「PRD 只占产品经理很小一块」，但没人讲剩下那一大块是什么。</p><ul class='signals'><li>产品经理词被小鹏发布会新闻刷屏；方法笔记只有几十赞。</li><li>AI 工具词 Codex/Skill 帖到四千赞级，火到非程序员圈。</li><li>「靠 AI 写 PRD」2961 赞 2122 藏。</li></ul><p class='one'>AI 写 PRD 的人机分界；AI 功能 PRD 多写块；对齐只留 Action。</p><p class='partial'>当日无推荐流侦察合并进本页（推荐流自 11-04 起有档）。日报关键词/细看/X 缺口仍在下方。</p></div></details><h2 id='xhs'><span class='sec-ico' aria-hidden='true'>🔥</span> 热词最高赞 · 小红书今天在聊什么</h2><p class='muted'>按热词分组，每组列出该词下最高赞帖；写选题前先扫这里。</p><div class="cols">
 <div class="card"><h3>产品经理</h3><p>前排几乎都是小鹏发布会的「产品经理」话题：颜值、上台、道歉视频被指 AI 生成，每条一千赞上下。这是新闻热度，蹭不了，也不适合他的定位。剩下的是求职向：面试加分项（867）、汇报老板想听什么（477）、美团 AI 产品经理招聘（1486）。</p></div>
 <div class="card"><h3>PRD</h3><p>只有一条爆了：「没有团队，我靠 AI 写产品 PRD 创业赚了几十个 W」，2961 赞、2122 收藏。其余讲 PRD 方法的都在 16–58 赞之间。说明吸量的是「AI + 一个人搞定 + 结果」，纯方法没量。</p></div>
 <div class="card"><h3>AI 产品经理</h3><p>招聘号和求职复盘为主（腾讯 IEG 实习面试复盘 220、校招岗 124）。Agent 相关的学习帖一两百赞（吴恩达 AI Agent 198、「英伟达挖来的 PM」Agent 逻辑 142）。</p></div>
