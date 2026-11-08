@@ -4,7 +4,6 @@ X=lambda i,t: a(f"https://x.com/hectorserrranoo/status/{i}",t)
 L=lambda i,t: a(f"https://x.com/lennysan/status/{i}",t)
 TR='<a href="growth/hector.html">播客全文对照（站内）</a>'
 c=dict(slug="hector",name="Hector Serrano（@hectorserrranoo）",short="Hector",
-archive='<a href="growth/hector.html">播客全文对照 · Hector</a>',
 stage_nav=["足球与业余内容","加入 Wispr Flow","一个人做所有广告","付费 UGC 体系","公司频道与个人号"],
 overview=[("平台与身份",'X：'+a("https://x.com/hectorserrranoo","@hectorserrranoo")+'，2024-01 建号，2026-11-08 API 读到 20,377 关注者，简介 “marketing hire #2 @wisprflow”。<b>身份已核</b>：Lenny 官方帖写 “Hector Serrano (@hectorserrranoo)… joined @WisprFlow at 19”（'+L("2116927042759635132","Lenny 帖")+'），本人引用该节目（'+X("2116933059945873449","本人帖")+'），三方一致。小红书未核。'),
  ("定位",A+'他首先是公司内容负责人，不是独立博主：本轮主要核到“替公司做内容 → 搭创作者体系”；个人号增长原因未知。'+S+'“i do paid ads and founder led content not ai ugc/organic ugc”（'+X("2118423005818958154","X")+'）。')],

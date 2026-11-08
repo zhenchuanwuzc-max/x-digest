@@ -23,10 +23,10 @@ def render(c):
     head=re.sub(r"<title>.*?</title>",f"<title>{c['name']}成长深拆 · 时间线 + 代表作品 + 受众深度 · 给 Ocean</title>",head,flags=re.S)
     nst=len(c["stages"])
     nav=(f'<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">{c["short"]}深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>X 一手资料深化 · 小红书未核</p>'+
-     '<div class="sec">选题库</div><a href="growth/">← 成长记录</a><a href="./">小红书全入口</a>'+c.get("archive",f'<a href="creators.html#{c["slug"]}">对标档案 · {c["short"]}</a>')+
+     '<a href="growth/">← 人物成长研究</a>'+
      f'<div class="sec">本页</div><a href="#overview">账号概况</a><a href="#timeline">{nst}阶段时间线</a>'+"".join(f'<a href="#s{i+1}">{i+1} · {t}</a>' for i,t in enumerate(c["stage_nav"]))+
      '<a href="#works">代表作品拆解</a><a href="#audience">谁在看</a><a href="#compare">写法对照</a><a href="#voice">语气与节奏</a><a href="#limits">失败与边界</a><a href="#for-ocean">给 Ocean</a><a href="#sources">来源与待核</a></aside>'
-     '<main class="main"><nav class="mob-nav" aria-label="移动目录"><a href="#overview">概况</a><a href="#timeline">时间线</a><a href="#works">作品</a><a href="#audience">受众</a><a href="#compare">对照</a><a href="#voice">语气</a><a href="#limits">边界</a><a href="#for-ocean">借鉴</a><a href="#sources">来源</a></nav>'
+     '<main class="main"><nav class="mob-nav" aria-label="移动目录"><a href="growth/">← 人物成长研究</a><a href="#overview">概况</a><a href="#timeline">时间线</a><a href="#works">作品</a><a href="#audience">受众</a><a href="#compare">对照</a><a href="#voice">语气</a><a href="#limits">边界</a><a href="#for-ocean">借鉴</a><a href="#sources">来源</a></nav>'
      f'<header><h1>{c["name"]} 成长深拆</h1><p class="muted">按“阶段 → 当时的问题 → 动作 → 作品”排，每条附原始链接。<span class="lv f">事实</span>可从原文核到；<span class="lv s">自述</span>是本人说法；<span class="lv a">分析</span>/<span class="lv a">观察</span>是研究者归纳；<span class="lv h">假设</span>未验证；<span class="lv b">边界</span>写不能怎么用。时间统一 UTC+8，查不到写未知。</p></header>')
     overview='<section id="overview"><h2>账号概况</h2><div class="grid2">'+"".join(f'<div class="card"><h3>{h}</h3><p>{p}</p></div>' for h,p in c["overview"])+'</div></section>'
     timeline=f'<section id="timeline"><h2>{nst}阶段时间线</h2>'+"".join(c["stages"])+'</section>'

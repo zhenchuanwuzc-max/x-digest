@@ -1,9 +1,4 @@
 {
- "collection": {
-  "href": "../creators.html",
-  "name": "对标完整档案",
-  "note": "六位海外创作者的专节都在这份合集里；合集里还有未单独列卡的人。"
- },
  "people": [
   {
    "id": "kazike",
@@ -100,29 +95,24 @@
     "X"
    ],
    "desc": "身份已核（@hectorserrranoo）。五阶段：足球 → 海投进 Wispr → 自己做所有广告 → 付费 UGC 体系 → 公司频道。",
-   "go": "打开成长页",
-   "extra": [
-    {
-     "href": "hector.html",
-     "label": "原播客全文对照"
-    }
-   ]
+   "go": "打开成长页"
   },
   {
    "id": "lenny",
    "name": "Lenny Rachitsky",
    "ico": "L",
-   "href": "../creators.html#lenny",
+   "href": "../lenny.html",
    "handle": "@lennysan",
    "tags": [
     "X"
    ],
    "desc": "前 Airbnb，开写是为了整理自己的思考；X 上主要做 newsletter / 播客分发：嘉宾金句、要点帖、产品发布，很少写长观点。2026-11-08 X 一手资料深拆，小红书未核。",
-   "go": "打开档案专节",
+   "go": "打开成长页",
    "extra": [
     {
      "href": "../#lenny",
-     "label": "小红书入口里的 Lenny 素材库"
+     "page_href": "./#lenny",
+     "label": "小红书创作中心里的 Lenny 中文素材池"
     }
    ]
   },
@@ -130,61 +120,106 @@
    "id": "shreyas",
    "name": "Shreyas Doshi",
    "ico": "S",
-   "href": "../creators.html#shreyas",
+   "href": "../shreyas.html",
    "handle": "@shreyas",
    "tags": [
     "X"
    ],
    "desc": "前 Stripe PM；X 上几乎只写一个主题：产品人的判断力，再接教练和 Maven 课。2026-11-08 X 一手资料深拆，小红书未核。",
-   "go": "打开档案专节"
+   "go": "打开成长页"
   },
   {
    "id": "ali",
    "name": "Ali Abdaal",
    "ico": "A",
-   "href": "../creators.html#ali",
+   "href": "../ali.html",
    "handle": "@AliAbdaal",
    "tags": [
     "X"
    ],
    "desc": "医生 → YouTube 效率内容 → 课程、书、App；频道起点是给自己的医学申请辅导生意引流，X 不是主战场。2026-11-08 X 一手资料深拆，小红书未核。",
-   "go": "打开档案专节"
+   "go": "打开成长页"
   },
   {
    "id": "swyx",
    "name": "swyx",
    "ico": "x",
-   "href": "../creators.html#swyx",
+   "href": "../swyx.html",
    "handle": "@swyx",
    "tags": [
     "X"
    ],
    "desc": "Learn in Public → Latent Space → AI Engineer 大会；用一篇文给一类人命名，同时开大会。2026-11-08 X 一手资料深拆，小红书未核。",
-   "go": "打开档案专节"
+   "go": "打开成长页"
   },
   {
    "id": "levelsio",
    "name": "levelsio（Pieter Levels）",
    "ico": "P",
-   "href": "../creators.html#levelsio",
+   "href": "../levelsio.html",
    "handle": "@levelsio",
    "tags": [
     "X"
    ],
    "desc": "独立做产品、公开收入；用“12 个月 12 个产品”的公开承诺逼自己发布，公开收入后来成了固定内容。2026-11-08 X 一手资料深拆，小红书未核。",
-   "go": "打开档案专节"
+   "go": "打开成长页"
   },
   {
    "id": "justinwelsh",
    "name": "Justin Welsh",
    "ico": "J",
-   "href": "../creators.html#justinwelsh",
+   "href": "../justinwelsh.html",
    "handle": "@thejustinwelsh",
    "tags": [
     "X"
    ],
    "desc": "LinkedIn 起家的一人公司：先用老本行积累关注，先做服务再做产品；X 上几乎全是一句话格言，夹着固定导流帖。2026-11-08 X 一手资料深拆，小红书未核。",
-   "go": "打开档案专节"
+   "go": "打开成长页"
   }
- ]
+ ],
+ "topics": [
+  {
+   "id": "topic-types",
+   "name": "按类型对标与小红书可抄",
+   "href": "../topic-types.html",
+   "desc": "职场 / PM / 效率 / 学习成长 / 大厂日常 / AI 六类账号对照，给小红书可直接用的 5 条，来源与局限。"
+  },
+  {
+   "id": "topic-lip-growth",
+   "name": "learn-in-public 怎么涨、怎么变现",
+   "href": "../topic-lip-growth.html",
+   "desc": "有公开出处的增长动作与变现路径。"
+  },
+  {
+   "id": "podcast-hector",
+   "name": "Lenny × Hector 播客全文对照",
+   "href": "hector.html",
+   "desc": "Wispr Flow 付费 UGC 访谈全文，522 个文本单元按原顺序整理。"
+  },
+  {
+   "id": "ai-depth",
+   "name": "AI 深度分级框架（L0–L5）",
+   "href": "../../research/ai-depth-levels-2026-10-28.html#levels",
+   "desc": "人物页「谁在看」里 L0–L5 的定义出处。"
+  }
+ ],
+ "total": [
+  {
+   "tag": "观察",
+   "text": "PM / 职场方法号（Lenny、Shreyas、乔木）适合定「把活干好」的语气与结构；learn-in-public 号（张咋啦、swyx、花叔）适合定「过程公开」的姿态。"
+  },
+  {
+   "tag": "观察",
+   "text": "AI 资讯号只当选题雷达，不当主线。"
+  },
+  {
+   "tag": "建议",
+   "text": "冷启动只定过程目标（连续发），不设粉数 KPI；变现后置，先建立信任与分发。"
+  },
+  {
+   "tag": "建议",
+   "text": "主线课表讲方法；辅系列「我学 AI 的过程」承载周记、试用和踩坑，不抢主线。"
+  }
+ ],
+ "total_source": "提炼自旧「对标完整档案」的一句话结论（原文在共享源与 git 历史）和「小红书可抄 5 条」（现存于专题「按类型对标与小红书可抄」）。"
 }

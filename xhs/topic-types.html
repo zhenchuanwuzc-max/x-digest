@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>按类型对标与小红书可抄 · 人物成长研究</title>
+<!-- impeccable-polish: fluid + sticky left nav; claims linked; 待核 -->
+<style>
+:root{
+  --bg:#f3f1eb; --surface:#fffcf7; --ink:#1a1c1b; --ink-2:#3d433f; --mut:#59656b;
+  --line:#e2ddd2; --accent:#0d6b52; --accent-soft:#e4f3ec; --warn:#8a5a00; --warn-soft:#fff3d6;
+  --ok:#155724; --ok-soft:#d4edda;
+  --shadow:0 1px 2px rgba(26,28,27,.04),0 8px 24px rgba(26,28,27,.06);
+  --r:14px; --nav-w:13.5rem;
+}
+*{box-sizing:border-box}
+html{color-scheme:light; scroll-behavior:auto}
+body{
+  margin:0; color:var(--ink); background:var(--bg);
+  font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+::selection{background:#cfe8de;color:var(--ink)}
+.shell{display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr); gap:0; min-height:100vh; max-width:74rem; margin:0 auto}
+.nav{
+  position:sticky; top:0; align-self:start; height:100vh;
+  padding:1.5rem 1rem 2rem 1.15rem; border-right:1px solid var(--line);
+  background:linear-gradient(180deg,#f7f5ef,var(--bg)); overflow:auto;
+}
+.nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
+.nav .meta{font-size:.78rem; color:var(--mut); margin:0 0 1.1rem; line-height:1.45}
+.nav a{display:block; color:var(--ink-2); text-decoration:none; font-size:.88rem; padding:.38rem .55rem; border-radius:8px; margin:.12rem 0}
+.nav a:hover,.nav a:focus-visible{background:var(--accent-soft); color:var(--accent); outline:none}
+.nav .sec{font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .35rem; padding-left:.55rem}
+.main{padding:1.75rem 1.5rem 4.5rem; max-width:50rem}
+h1{font-size:clamp(1.35rem,2.2vw,1.7rem); line-height:1.28; letter-spacing:-.025em; margin:0 0 .55rem; font-weight:750}
+h2{font-size:1.12rem; line-height:1.35; margin:2.2rem 0 .65rem; padding-bottom:.45rem; border-bottom:2px solid var(--accent); letter-spacing:-.015em; font-weight:700}
+h3{font-size:1.02rem; line-height:1.4; margin:1.05rem 0 .4rem; font-weight:700}
+p,li{color:var(--ink-2)}
+p{margin:.55rem 0}
+.muted{color:var(--mut); font-size:.94rem; line-height:1.6}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:1.05rem 1.15rem; margin:.85rem 0; box-shadow:var(--shadow)}
+.verdict{border-color:#b7d9cb; background:linear-gradient(180deg,#f4faf7,var(--surface))}
+.tag{display:inline-block; font-size:12px; font-weight:650; line-height:1.5; background:var(--accent-soft); color:var(--accent); padding:.15rem .55rem; border-radius:999px; margin-right:.35rem}
+.tag.warn{background:var(--warn-soft); color:var(--warn)}
+.success{border-left:3px solid var(--accent)}
+.inflect{border-left:3px solid var(--warn)}
+.inflect table{font-size:.92rem}
+.inflect th{white-space:nowrap}
+.success h3{margin-top:1rem}.success h3:first-child{margin-top:0}
+.success .cant{color:var(--warn)}
+a{color:var(--accent); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-all}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px}
+ol,ul{padding-left:1.25rem; margin:.4rem 0 .6rem}
+li{margin:.28rem 0}
+.src{font-size:.88rem; color:var(--mut); margin-top:.45rem}
+.foot{margin-top:2.75rem; font-size:.88rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
+table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:.45rem .55rem; text-align:left; vertical-align:top}
+th{background:#efeae0; color:var(--ink); font-weight:650}
+.metrics{font-variant-numeric:tabular-nums; white-space:nowrap}
+.mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.55rem 0; border-bottom:1px solid var(--line)}
+.mob-nav a{font-size:.8rem; color:var(--accent); text-decoration:none; background:var(--accent-soft); padding:.22rem .5rem; border-radius:999px}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .nav{display:none}
+  .mob-nav{display:flex}
+  .main{padding:1.2rem 1rem 3.5rem}
+}
+.tw{overflow-x:auto;max-width:100%}.tw table{min-width:40rem}
+</style>
+<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid><style>.nav .sub{padding-left:1.2rem;font-size:.82rem}</style></head>
+<body>
+<div class="shell">
+<aside class="nav" aria-label="本页目录">
+  <p class="brand">按类型对标与小红书可抄</p>
+  <a href="growth/">← 人物成长研究</a>
+  <div class="sec">本页</div>
+  <a href="#takeaways">给小红书可直接用的 5 条</a>
+  <a href="#pm">产品经理</a>
+  <a href="#career">职场 / 工作方法</a>
+  <a href="#tools">效率 / 工具</a>
+  <a href="#lip">学习成长 / learn-in-public</a>
+  <a href="#bigco">大厂日常</a>
+  <a href="#ai">AI（实操 / 资讯 / 工程）</a>
+  <a href="#sources">来源与局限</a>
+</aside>
+<main class="main">
+<nav class="mob-nav" aria-label="返回"><a href="growth/">← 人物成长研究</a></nav>
+<h2 id="takeaways">给小红书可直接用的 5 条</h2>
+<ol>
+  <li><strong>主线课表 + 辅系列穿插：</strong>课表讲方法；「我学 AI 的过程」讲这一周我试了啥、错在哪（学生视角）。</li>
+  <li><strong>冷启动只定过程目标：</strong>连续发，不设粉数 KPI（Zara 播客自述日更半年 <span class="tag warn">待核</span>）。</li>
+  <li><strong>定位用评论长出来：</strong>发二三十篇后，把评论高频问题写成下一篇标题。</li>
+  <li><strong>会议素材仅可选：</strong>本周有相关会可附一句现场笔记；不要每集强制槽位。</li>
+  <li><strong>变现后置：</strong>先信任与分发；课程骨架可对标范凯「AI 生产 + 个人 IP」，帖内最多轻带。</li>
+</ol>
+
+<h2 id="pm">产品经理</h2>
+<p class="muted">粉丝数为 X API <code>public_metrics</code> 快照（2026-10-31，America/Los_Angeles）。非完整榜；按与你定位的相关性入选。再列账号表示跨类参考。</p>
+<table>
+<thead><tr><th>账号</th><th>X 粉丝</th><th>为何相关</th><th>主要平台</th></tr></thead>
+<tbody>
+<tr>
+<td><a href="https://x.com/lennysan">@lennysan</a><br><span class="muted">Lenny Rachitsky</span></td>
+<td class="metrics">454.8k</td>
+<td>产品/增长长文与播客；你本地 Lenny 库来源</td>
+<td>X · Newsletter</td>
+</tr><tr>
+<td><a href="https://x.com/shreyas">@shreyas</a><br><span class="muted">Shreyas Doshi</span></td>
+<td class="metrics">405.5k</td>
+<td>前 Stripe 产品；高管教练与产品判断框架</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/joulee">@joulee</a><br><span class="muted">Julie Zhuo</span></td>
+<td class="metrics">379.6k</td>
+<td>《The Making of a Manager》；设计+管理</td>
+<td>X · 书</td>
+</tr><tr>
+<td><a href="https://x.com/scottbelsky">@scottbelsky</a><br><span class="muted">Scott Belsky</span></td>
+<td class="metrics">151.7k</td>
+<td>Behance 创始人；创意执行与产品</td>
+<td>X · 书</td>
+</tr><tr>
+<td><a href="https://x.com/vista8">@vista8</a><br><span class="muted">向阳乔木</span></td>
+<td class="metrics">134.1k</td>
+<td>国内 PM + AI 实操；活动组织</td>
+<td>X · 国内活动</td>
+</tr>
+</tbody></table>
+
+<h2 id="career">职场 / 工作方法</h2>
+<p class="muted">粉丝数为 X API <code>public_metrics</code> 快照（2026-10-31，America/Los_Angeles）。非完整榜；按与你定位的相关性入选。再列账号表示跨类参考。</p>
+<table>
+<thead><tr><th>账号</th><th>X 粉丝</th><th>为何相关</th><th>主要平台</th></tr></thead>
+<tbody>
+<tr>
+<td><a href="https://x.com/hnshah">@hnshah</a><br><span class="muted">Hiten Shah</span></td>
+<td class="metrics">368.3k</td>
+<td>SaaS 创业复盘；增长与人</td>
+<td>X · Newsletter</td>
+</tr><tr>
+<td><a href="https://x.com/jasonlk">@jasonlk</a><br><span class="muted">Jason Lemkin</span></td>
+<td class="metrics">255.1k</td>
+<td>SaaStr；B2B/AI 融资与经营</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/SahilBloom">@SahilBloom</a><br><span class="muted">Sahil Bloom</span></td>
+<td class="metrics">1.19M</td>
+<td>财富类型与职业叙事；畅销书作者</td>
+<td>X · Newsletter · 书</td>
+</tr><tr>
+<td><a href="https://x.com/JamesClear">@JamesClear</a><br><span class="muted">James Clear</span></td>
+<td class="metrics">1.43M</td>
+<td>Atomic Habits；习惯与执行</td>
+<td>X · Newsletter · 书</td>
+</tr><tr>
+<td><a href="https://x.com/AliAbdaal">@AliAbdaal</a><br><span class="muted">Ali Abdaal</span></td>
+<td class="metrics">356.5k</td>
+<td>效率/生产力；YouTube 起家</td>
+<td>YouTube · X · 书</td>
+</tr><tr>
+<td><a href="https://x.com/Fenng">@Fenng</a><br><span class="muted">Fenng</span></td>
+<td class="metrics">219.6k</td>
+<td>国内互联网评论；大厂语境参照</td>
+<td>X</td>
+</tr>
+</tbody></table>
+
+<h2 id="tools">效率 / 工具</h2>
+<p class="muted">粉丝数为 X API <code>public_metrics</code> 快照（2026-10-31，America/Los_Angeles）。非完整榜；按与你定位的相关性入选。再列账号表示跨类参考。</p>
+<table>
+<thead><tr><th>账号</th><th>X 粉丝</th><th>为何相关</th><th>主要平台</th></tr></thead>
+<tbody>
+<tr>
+<td><a href="https://x.com/simonw">@simonw</a><br><span class="muted">Simon Willison</span></td>
+<td class="metrics">247.7k</td>
+<td>工具日记式公开；Datasette</td>
+<td>X · Blog</td>
+</tr><tr>
+<td><a href="https://x.com/tdinh_me">@tdinh_me</a><br><span class="muted">Tony Dinh</span></td>
+<td class="metrics">206.9k</td>
+<td>独立工具 build-in-public；bio 自报多产品收入</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/levelsio">@levelsio</a><br><span class="muted">levelsio</span></td>
+<td class="metrics">984.0k</td>
+<td>独立产品公开收入表</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/marclou">@marclou</a><br><span class="muted">Marc Lou</span></td>
+<td class="metrics">419.2k</td>
+<td>独立 SaaS build-in-public</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/AlchainHust">@AlchainHust</a><br><span class="muted">花叔</span></td>
+<td class="metrics">72.3k</td>
+<td>AI Native 产品；B站/小红书路径；女娲.skill 等</td>
+<td>X · B站 · 小红书</td>
+</tr><tr>
+<td><a href="https://x.com/tibo_maker">@tibo_maker</a><br><span class="muted">Tibo</span></td>
+<td class="metrics">216.5k</td>
+<td>增长工具出品人；PH Maker</td>
+<td>X</td>
+</tr>
+</tbody></table>
+
+<h2 id="lip">学习成长 / learn-in-public</h2>
+<p class="muted">粉丝数为 X API <code>public_metrics</code> 快照（2026-10-31，America/Los_Angeles）。非完整榜；按与你定位的相关性入选。再列账号表示跨类参考。</p>
+<table>
+<thead><tr><th>账号</th><th>X 粉丝</th><th>为何相关</th><th>主要平台</th></tr></thead>
+<tbody>
+<tr>
+<td><a href="https://x.com/zarazhangrui">@zarazhangrui</a><br><span class="muted">张咋啦 Zara Zhang</span></td>
+<td class="metrics">93.9k</td>
+<td>learn in public；小红书起号叙事（播客自述待核）</td>
+<td>小红书 · X · 视频号 · Substack</td>
+</tr><tr>
+<td><a href="https://x.com/swyx">@swyx</a><br><span class="muted">swyx</span></td>
+<td class="metrics">209.1k</td>
+<td>AI eng learn/build in public；播客</td>
+<td>X · Podcast · Newsletter</td>
+</tr><tr>
+<td><a href="https://x.com/yoheinakajima">@yoheinakajima</a><br><span class="muted">Yohei Nakajima</span></td>
+<td class="metrics">127.2k</td>
+<td>babyagi；build-in-public 日志</td>
+<td>X · Blog</td>
+</tr><tr>
+<td><a href="https://x.com/david_perell">@david_perell</a><br><span class="muted">David Perell</span></td>
+<td class="metrics">481.3k</td>
+<td>写作公开课；How I Write</td>
+<td>X · 课程</td>
+</tr><tr>
+<td><a href="https://x.com/ship30for30">@ship30for30</a><br><span class="muted">Ship 30 for 30</span></td>
+<td class="metrics">9.0k</td>
+<td>数字写作习惯营（账号体量小，方法论可借）</td>
+<td>X · 课程</td>
+</tr><tr>
+<td><a href="https://x.com/yihui_indie">@yihui_indie</a><br><span class="muted">Yihui</span></td>
+<td class="metrics">64.1k</td>
+<td>独立开发 + UP；AI 编程课链在 bio</td>
+<td>X · B站/课程</td>
+</tr>
+</tbody></table>
+
+<h2 id="bigco">大厂日常</h2>
+<p class="muted">粉丝数为 X API <code>public_metrics</code> 快照（2026-10-31，America/Los_Angeles）。非完整榜；按与你定位的相关性入选。再列账号表示跨类参考。</p>
+<table>
+<thead><tr><th>账号</th><th>X 粉丝</th><th>为何相关</th><th>主要平台</th></tr></thead>
+<tbody>
+<tr>
+<td><a href="https://x.com/zarazhangrui">@zarazhangrui</a><br><span class="muted">张咋啦（再列）</span></td>
+<td class="metrics">93.9k</td>
+<td>前字节企业 SaaS PMM；现 stealth（About 页）</td>
+<td>小红书 · X</td>
+</tr><tr>
+<td><a href="https://x.com/joulee">@joulee</a><br><span class="muted">Julie Zhuo（再列）</span></td>
+<td class="metrics">379.6k</td>
+<td>FB 设计管理经验写入书与帖</td>
+<td>X · 书</td>
+</tr><tr>
+<td><a href="https://x.com/vista8">@vista8</a><br><span class="muted">向阳乔木（再列）</span></td>
+<td class="metrics">134.1k</td>
+<td>国内 PM 语境的日常与活动</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/Fenng">@Fenng</a><br><span class="muted">Fenng（再列）</span></td>
+<td class="metrics">219.6k</td>
+<td>国内大厂/创业评论语气参照</td>
+<td>X</td>
+</tr>
+</tbody></table>
+
+<h2 id="ai">AI（实操 / 资讯 / 工程）</h2>
+<p class="muted">粉丝数为 X API <code>public_metrics</code> 快照（2026-10-31，America/Los_Angeles）。非完整榜；按与你定位的相关性入选。再列账号表示跨类参考。</p>
+<table>
+<thead><tr><th>账号</th><th>X 粉丝</th><th>为何相关</th><th>主要平台</th></tr></thead>
+<tbody>
+<tr>
+<td><a href="https://x.com/dotey">@dotey</a><br><span class="muted">宝玉</span></td>
+<td class="metrics">263.2k</td>
+<td>AI 工程与翻译长文；密度高</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/op7418">@op7418</a><br><span class="muted">歸藏</span></td>
+<td class="metrics">183.8k</td>
+<td>AIGC 工具周刊</td>
+<td>X · 公众号</td>
+</tr><tr>
+<td><a href="https://x.com/Khazix0918">@Khazix0918</a><br><span class="muted">数字生命卡兹克</span></td>
+<td class="metrics">99.2k</td>
+<td>好奇心叙事；公众号同名</td>
+<td>X · 公众号</td>
+</tr><tr>
+<td><a href="https://x.com/fankaishuoai">@fankaishuoai</a><br><span class="muted">范凯说AI</span></td>
+<td class="metrics">46.0k</td>
+<td>课程库：AI+个人 IP；价目站上现读</td>
+<td>X · YouTube · 站点</td>
+</tr><tr>
+<td><a href="https://x.com/rowancheung">@rowancheung</a><br><span class="muted">Rowan Cheung</span></td>
+<td class="metrics">602.5k</td>
+<td>The Rundown AI 日报</td>
+<td>X · Newsletter</td>
+</tr><tr>
+<td><a href="https://x.com/rasbt">@rasbt</a><br><span class="muted">Sebastian Raschka</span></td>
+<td class="metrics">533.3k</td>
+<td>LLM 书与教程；工程向学习</td>
+<td>X · 书</td>
+</tr><tr>
+<td><a href="https://x.com/svpino">@svpino</a><br><span class="muted">Santiago</span></td>
+<td class="metrics">457.3k</td>
+<td>YouTube 机器学习讲解</td>
+<td>YouTube · X</td>
+</tr><tr>
+<td><a href="https://x.com/mattshumer_">@mattshumer_</a><br><span class="muted">Matt Shumer</span></td>
+<td class="metrics">402.2k</td>
+<td>AI 产品与投资叙事</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/jeremyphoward">@jeremyphoward</a><br><span class="muted">Jeremy Howard</span></td>
+<td class="metrics">332.1k</td>
+<td>fast.ai；公开课学习路径</td>
+<td>X · fast.ai</td>
+</tr><tr>
+<td><a href="https://x.com/chipro">@chipro</a><br><span class="muted">Chip Huyen</span></td>
+<td class="metrics">157.0k</td>
+<td>AI Engineering 书与系统设计</td>
+<td>X · 书</td>
+</tr><tr>
+<td><a href="https://x.com/dannypostma">@dannypostma</a><br><span class="muted">Danny Postma</span></td>
+<td class="metrics">188.7k</td>
+<td>AI 产品（HeadshotPro）公开做</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/nutlope">@nutlope</a><br><span class="muted">Hassan El Mghari</span></td>
+<td class="metrics">104.5k</td>
+<td>开源 AI app 实作分享</td>
+<td>X · GitHub</td>
+</tr><tr>
+<td><a href="https://x.com/skirano">@skirano</a><br><span class="muted">Pietro Schirano</span></td>
+<td class="metrics">119.3k</td>
+<td>Claude 工具/设计向实验</td>
+<td>X</td>
+</tr><tr>
+<td><a href="https://x.com/eugeneyan">@eugeneyan</a><br><span class="muted">Eugene Yan</span></td>
+<td class="metrics">30.9k</td>
+<td>应用科学长文；信噪比高</td>
+<td>X · Blog</td>
+</tr>
+</tbody></table>
+
+
+
+<h2 id="sources">来源与局限</h2>
+<p class="muted">各深描含「拐点」表与「成功经验」三栏：招牌干货（可点）· Ocean 可借鉴 · 做不到/暂时别学。仍不编造收入与阅读量。</p>
+<ul>
+  <li>X：本回合只读 <code>get_users_by_usernames</code> + <code>public_metrics</code>（2026-10-31）。海外六人深描已于 2026-11-08 用 X 原帖和本人网站重写，关注者数为 2026-11-08 读数。</li>
+  <li>卡兹克：晚点聊 109；大数跨境 OPC；Pika/Sora/鲜虾包微信文；得到访谈转载。</li>
+  <li>歸藏 / 花叔 / Zara / 范凯：见各深描内链。</li>
+  <li>Lenny：<a href="https://www.lennysnewsletter.com/p/1000000">1M 文</a>；X 原帖。</li>
+  <li>Shreyas：X 原帖；Maven 讲师页。</li>
+  <li>Ali：aliabdaal.com About 与 LifeNotes；X 原帖。</li>
+  <li>swyx：swyx.io；latent.space；X 原帖。</li>
+  <li>levelsio：levels.io（12 startups、Photo AI、归档标题）；X 原帖。</li>
+  <li>Justin Welsh：justinwelsh.me $10M 文；X 原帖。</li>
+  <li>未审计任何作者收入；自述与二手估算一律待核；未登录各平台后台。</li>
+</ul>
+<p class="foot">私密 · 人物成长研究 · <a href="growth/">← 返回首页</a></p>
+</main>
+</div>
+</body>
+</html>
