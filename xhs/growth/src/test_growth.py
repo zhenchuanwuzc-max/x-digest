@@ -430,4 +430,10 @@ class FollowBatch3Claire(unittest.TestCase):
         priv = [l.strip() for l in pf.read_text().splitlines() if l.strip()] if pf.exists() else []
         for t in (s.h, s.L):
             for bad in ['xsec', 'following', 'inventory', '/workspace/', '登录态', 'channel_type', 't老师', '吟游诗人'] + priv: s.assertNotIn(bad, t)
+class FollowBatch3NoHeatCompare(unittest.TestCase):
+    """第三批四页：不把两篇互动数放在一起比（各条目自己的底栏数可留）。"""
+    def test_no_cross_post_engagement(s):
+        for slug in ('keruiji', 'will', 'huguagua', 'claire'):
+            h = (X/f'{slug}.html').read_text(); cmp = h[h.index('id="compare"'):h.index('id="voice"')]
+            s.assertNotIn('底栏数差很多', h); s.assertNotIn('底栏', cmp)
 unittest.main()
