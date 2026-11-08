@@ -10,3 +10,5 @@ main a, main code, main td, .main a, .main code, .main td { overflow-wrap: anywh
 @media (max-width: 900px) {
   main table, .main table { display: block; max-width: 100%; overflow-x: auto; }
 }
+/* 全站媒体不溢出。post/ 成稿页的 .wrap 28rem 手机卡面是有意设计，保留不铺满（例外）。 */
+img, video, iframe { max-width: 100%; }
