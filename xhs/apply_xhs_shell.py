@@ -6,7 +6,7 @@ import sys
 ROOT = Path(__file__).resolve().parent
 HUB_GROUPS = (
     ("今天", True, ("top", "xhs", "feed")),
-    ("选题", True, ("picks", "insp", "xdiff", "tingji")),
+    ("选题", True, ("newsmall", "picks", "insp", "xdiff", "tingji")),
     ("素材与对标", False, ("lenny", "deep", "raw", "bench", "profiles", "growth")),
     ("库与计划", False, ("tools", "curriculum", "drafts", "pos", "plan", "main", "side", "log")),
 )

@@ -1,0 +1,70 @@
+{
+ "scope": "日常选题用：关键词“AI工具”最新排序前 12 张卡轻扫（便利样本，非榜单），打开 4 篇：图文 3 篇共读 15 张卡，视频 1 篇只看标题描述；曝光不可见；不称爆款、不称全平台最热",
+ "rules": [
+  "先核是否真正新发布：看发布标识、有无“编辑于”、最早评论时间；旧帖近期编辑退出新帖主池",
+  "新帖里优先看粉丝较少的作者（研究对象，粉丝须在主页核过；未核不叫小号）；不设固定粉丝门槛",
+  "只在同类、发布时间相近的窗口里比较互动；不按历史累计赞或粉赞比判爆款",
+  "绝对发布时间/年份未核、同期基线不足时明写，不称已验证低粉爆款",
+  "粉丝 >1万 的关注对象研究是另一任务，不受此影响"
+ ],
+ "tiers": {
+  "small_priority": "近期新帖·小号候选（研究对象粉丝较少且已核，无固定门槛）优先",
+  "followers_unverified": "近期新帖·作者粉丝未核（次列，不叫小号）",
+  "edited_old": "旧帖近期编辑（独列历史，不进新帖主池、不做同期比较）"
+ },
+ "gaps": "其余 8 张卡未打开；全部样本的绝对发布日期与年未核；同类同龄窗口的基线不足，代表性与爆款效应未证实；sample1/sample2 作者粉丝未核",
+ "candidates": [
+  {
+   "tier": "small_priority",
+   "url": "https://www.xiaohongshu.com/explore/6aeea270000000000e025ebd",
+   "title": "5个免费ai工具 帮我40分钟做出mbb级别deck",
+   "author": "烦死了这破deck",
+   "followers_verified": 9639,
+   "published_raw": "详情“1天前 美国”，无编辑标识；唯一评论“1天前”；绝对日期与年未显示",
+   "likes": 103,
+   "collects": 112,
+   "comments": 1,
+   "skeleton": "开头痛点（付费工具贵）→ 结果承诺（40分钟、5个免费工具）→ 5 个工具逐个讲用途与操作 → 一句话串起流程",
+   "author_claims": "“40分钟做完”“5个完全免费”为作者自述未核；未展示成品 deck，无来源链接；唯一评论质疑 NotebookLM 已能直接出 PPT"
+  },
+  {
+   "tier": "small_priority",
+   "url": "https://www.xiaohongshu.com/explore/6aef3f870000000015010e24",
+   "title": "自存收藏｜产品经理公认好用的十大skill",
+   "author": "Charles的AI产品进阶-途灵灵",
+   "followers_verified": 4346,
+   "published_raw": "详情“昨天 16:11 江苏”，无编辑标识；评论均晚于发布、时间线一致；年未显示；卡内页脚 2026.11.06 不等于发布日",
+   "likes": 24,
+   "collects": 28,
+   "comments": 5,
+   "skeleton": "封面“10个 skill，按流程装” → 四象限总览（理解/定义/规格/验证） → 每个 skill 一页统一模板：三条职责 + 关键产出 + 上下游 + 人负责检查 → 末页总表",
+   "author_claims": "“公认好用”为标题自述；各 skill 功能为卡内描述，未实测，无仓库链接；十个 skill 名单与老A研究所同主题帖相同，正文与该帖一条评论近乎同句，只记相似，不推断抄袭或 AI 生成"
+  },
+  {
+   "tier": "followers_unverified",
+   "url": "https://www.xiaohongshu.com/explore/6aeeec9d0000000015011aa0",
+   "title": "双11囤算力，一条看清AI视频创作工具优惠",
+   "author": "阿Win破局思维",
+   "followers_verified": null,
+   "published_raw": "卡上“1天前”；详情“昨天 01:17”",
+   "likes": 173,
+   "collects": 62,
+   "comments": 4,
+   "skeleton": "未读视频内容，只有标题“节点+一条看清”",
+   "author_claims": "优惠明细未读"
+  },
+  {
+   "tier": "edited_old",
+   "url": "https://www.xiaohongshu.com/explore/6ac5fa7a000000001203fb99",
+   "title": "聊了 40 多个用 Claude的大佬，发现目前",
+   "author": "童话。",
+   "followers_verified": null,
+   "published_raw": "卡上“1天前”；详情“编辑于 昨天 03:56”；评论最早 10-07",
+   "likes": 423,
+   "collects": 288,
+   "comments": 452,
+   "skeleton": "一句反差判断做封面 → 结论式正文 → 评论区收集经验",
+   "author_claims": "“聊了40多个”为作者自述，无对象无来源"
+  }
+ ]
+}

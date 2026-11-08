@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lulu的AI野路子成长深拆 · 时间线 + 代表作品 + 受众深度 · 给 Ocean</title>
+<!-- impeccable: fluid full-width · sticky left elevator · scroll-behavior:auto · cream + black + one highlighter yellow -->
+<style>
+:root{
+  --bg:#f7f4ec; --surface:#fffcf7; --ink:#1a1a18; --ink-2:#3a3a36; --mut:#6a6a62;
+  --line:#e6e0d4; --hi:#ffe566; --hi-soft:#fff6c8;
+  --shadow:0 1px 2px rgba(26,26,24,.04),0 8px 24px rgba(26,26,24,.05);
+  --r:14px; --nav-w:14rem;
+}
+*{box-sizing:border-box}
+html{color-scheme:light; scroll-behavior:auto}
+body{
+  margin:0; color:var(--ink); background:var(--bg);
+  font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+::selection{background:var(--hi); color:var(--ink)}
+mark{background:var(--hi); color:var(--ink); padding:.05em .18em; border-radius:3px; font-style:normal}
+.shell{
+  display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr);
+  gap:0; min-height:100vh; width:100%; max-width:none; margin:0;
+}
+.nav{
+  position:sticky; top:0; align-self:start; height:100vh;
+  padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line);
+  background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto;
+}
+.nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
+.nav .meta{font-size:.76rem; color:var(--mut); margin:0 0 1rem; line-height:1.45}
+.nav a{
+  display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem;
+  padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent;
+}
+.nav a:hover,.nav a:focus-visible{background:var(--hi-soft); outline:none}
+.nav a.active{background:var(--hi); color:var(--ink); font-weight:650; border-left-color:#c9b020}
+.nav .sec{font-size:.7rem; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .3rem; padding-left:.55rem; text-transform:uppercase}
+.main{padding:1.6rem clamp(1rem,3vw,2.4rem) 4.5rem; width:100%; max-width:none}
+h1{font-size:clamp(1.4rem,2.4vw,1.85rem); line-height:1.25; letter-spacing:-.025em; margin:0 0 .5rem; font-weight:750}
+h2{font-size:1.14rem; line-height:1.35; margin:2.1rem 0 .6rem; padding-bottom:.4rem; border-bottom:3px solid var(--hi); letter-spacing:-.015em; font-weight:700}
+h3{font-size:1.02rem; margin:1.2rem 0 .4rem; font-weight:700}
+p,li{color:var(--ink-2)}
+p{margin:.5rem 0}
+.muted{color:var(--mut); font-size:.92rem; line-height:1.55}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:1rem 1.15rem; margin:.8rem 0; box-shadow:var(--shadow)}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr)); gap:.75rem}
+.stat strong{display:block; font-size:1.35rem; letter-spacing:-.02em; margin:.15rem 0}
+.tag{display:inline-block; font-size:12px; font-weight:650; background:var(--hi-soft); color:#6a5a00; padding:.12rem .5rem; border-radius:999px; margin-right:.3rem}
+.tag.warn{background:#fff0d6; color:#8a5a00}
+.tag.ok{background:#e8f5e4; color:#2a5a20}
+a{color:var(--ink); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-word}
+a:hover{background:linear-gradient(180deg,transparent 60%, var(--hi) 60%)}
+a:focus-visible{outline:2px solid #c9b020; outline-offset:2px; border-radius:3px}
+table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:.42rem .5rem; text-align:left; vertical-align:top}
+th{background:#efeae0; font-weight:650}
+.metrics{font-variant-numeric:tabular-nums; white-space:nowrap}
+.quote{border-left:3px solid var(--hi); padding:.35rem .9rem; margin:.55rem 0; background:var(--hi-soft); border-radius:0 8px 8px 0; font-size:.95rem}
+.tpl{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.84rem; white-space:pre-wrap; background:#1a1a18; color:#f7f4ec; padding:1rem 1.1rem; border-radius:10px; overflow:auto}
+.foot{margin-top:2.5rem; font-size:.86rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
+.mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.5rem 0; border-bottom:1px solid var(--line)}
+.mob-nav a{font-size:.8rem; color:var(--ink); text-decoration:none; background:var(--hi-soft); padding:.2rem .5rem; border-radius:999px}
+ul.plain{margin:.35rem 0; padding-left:1.2rem}
+ul.plain li{margin:.28rem 0}
+.piece{border-top:1px dashed var(--line); padding-top:.9rem; margin-top:1.1rem}
+.piece:first-of-type{border-top:none; padding-top:0; margin-top:0}
+.num{font-variant-numeric:tabular-nums; width:2.2rem}
+.sub{font-size:.78rem; color:var(--mut); margin-top:.2rem}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .nav{display:none}
+  .mob-nav{display:flex}
+  .main{padding:1.1rem 1rem 3.5rem}
+}
+</style>
+<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid><style>
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.15rem;margin:0 0 1.2rem;box-shadow:var(--shadow)}
+.stage h3{margin:.1rem 0 .3rem}.stage .q{margin:.2rem 0 .7rem;color:var(--ink-2)}
+.tw{overflow-x:auto;max-width:100%}
+.tw table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:44rem}
+.tw th,.tw td{border-top:1px solid var(--line);padding:.45rem .5rem;vertical-align:top;text-align:left}
+.tw th{font-size:.74rem;color:var(--mut);font-weight:650;background:var(--hi-soft)}
+.lv{display:inline-block;font-size:.7rem;font-weight:650;padding:.05rem .4rem;border-radius:999px;border:1px solid var(--line);margin-right:.25rem}
+.lv.f{background:#e8f3ec}.lv.s{background:var(--hi-soft)}.lv.a{background:#eef0f4}.lv.b{background:#fbe9e7}
+.lv.h{background:#f1e8fb}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:.8rem}
+.work{margin:0;overflow-wrap:anywhere}.work h3{margin:.1rem 0 .4rem}.work p{margin:.35rem 0}.work .take{border-top:1px dashed var(--line);padding-top:.45rem}
+#compare .tw table{min-width:36rem}#audience .tw table{min-width:52rem}.depth{margin:.5rem 0}
+@media(max-width:700px){#compare .tw,#audience .tw{overflow:visible}#compare .tw table,#compare .tw tbody,#compare .tw tr,#compare .tw td,#audience .tw table,#audience .tw tbody,#audience .tw tr,#audience .tw td{display:block;width:100%;min-width:0}#compare .tw thead,#audience .tw thead{display:none}#compare .tw tr,#audience .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}#compare .tw td,#audience .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}#compare .tw td::before,#audience .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}}
+@media(max-width:900px) and (min-width:701px){.tw table{min-width:36rem}}
+@media(max-width:700px){
+.stage .tw{overflow:visible}
+.stage .tw table,.stage .tw tbody,.stage .tw tr,.stage .tw td{display:block;width:100%;min-width:0}
+.stage .tw thead{display:none}
+.stage .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}
+.stage .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}
+.stage .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}
+.stage .tw td[data-l="#"]{font-weight:700}
+}
+</style>
+<style>.brief{border:1px solid #c5d8e0;background:#f3f8fa;border-radius:12px;padding:.8rem 1rem;margin:0 0 1.2rem}.brief h2{margin:0 0 .5rem;font-size:1.02rem;border:0;padding:0}.brief dl{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:.3rem .7rem;margin:0}.brief dt{font-weight:650;color:#1f4f63}.brief dd{margin:0}.brief .hw{margin:.3rem 0 0;padding-left:1.2rem}.brief .hw li{margin:.25rem 0}.brief .eg{display:block;font-size:.8rem;color:#6b7378}.brief .gap{font-size:.8rem;color:#6b7378;margin:.2rem 0 0}@media(max-width:560px){.brief dl{grid-template-columns:1fr}.brief dt{margin-top:.3rem}}</style></head>
+<body>
+<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">Lulu深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>小红书只读采集 · 3 篇视频笔记（只看标题与描述）</p><a href="growth/" target="_blank" rel="noopener noreferrer">← 人物成长研究</a><div class="sec">本页</div><a href="#brief">实操摘要</a><a href="#overview">账号概况</a><a href="#timeline">3阶段时间线</a><a href="#s1">1 · 置顶：GitHub 入门</a><a href="#s2">2 · 工具清单：自媒体 Skill</a><a href="#s3">3 · 学习记录：RAG</a><a href="#works">代表作品拆解</a><a href="#audience">谁在看</a><a href="#compare">写法对照</a><a href="#voice">语气与节奏</a><a href="#limits">失败与边界</a><a href="#for-ocean">给 Ocean</a><a href="#sources">来源与待核</a></aside><main class="main"><nav class="mob-nav" aria-label="移动目录"><a href="growth/" target="_blank" rel="noopener noreferrer">← 人物成长研究</a><a href="#brief">摘要</a><a href="#overview">概况</a><a href="#timeline">时间线</a><a href="#works">作品</a><a href="#audience">受众</a><a href="#compare">对照</a><a href="#voice">语气</a><a href="#limits">边界</a><a href="#for-ocean">借鉴</a><a href="#sources">来源</a></nav><header><h1>Lulu的AI野路子 成长深拆</h1><p class="muted">按“阶段 → 当时的问题 → 动作 → 作品”排，每条附原始链接。<span class="lv f">事实</span>可从原文核到；<span class="lv s">自述</span>是本人说法；<span class="lv a">分析</span>/<span class="lv a">观察</span>是研究者归纳；<span class="lv h">假设</span>未验证；<span class="lv b">边界</span>写不能怎么用。时间统一 UTC+8，查不到写未知。</p></header><section class="brief" id="brief" aria-label="实操摘要"><h2>实操摘要</h2><dl><dt>面向谁</dt><dd>想入门 AI 编程、Vibe Coding 的非技术人（推断）</dd><dt>具体痛点</dt><dd>GitHub、Skill、RAG 这些词听过，不知道从哪下手</dd><dt>他咋做</dt><dd>以“我也在学”的身份做真人出镜视频，把一个工具或概念压成零基础入口（只看标题与描述）<ol class="hw"><li><a href="#w1">置顶：零基础学 GitHub</a>：核心动作：有想法先上 GitHub 搜类似项目，存下来二创；另建议刷 Explore 追新工具<span class="eg">边界：视频未播放；评论问 GitHub 打不开，作者回复未给办法；视频笔记：按 Ocean 要求只看标题和描述，视频未播放</span></li><li><a href="#w2">工具清单：自媒体全链路 5 个 Skill</a>：按选题到发布的流程排 5 个 Skill，其中一项写明“卡兹克开源”<span class="eg">边界：“70% 交给 AI”是自述未核；视频笔记：按 Ocean 要求只看标题和描述，视频未播放</span></li><li><a href="#w3">学习记录：RAG</a>：把“找不到适合小白的资料 → 用 Claude Code 追问梳理”写成内容<span class="eg">边界：学习过程是自述；没给参考资料来源；视频笔记：按 Ocean 要求只看标题和描述，视频未播放</span></li></ol><p class="gap">没列入：只看 3 篇视频的标题与描述（按 Ocean 要求不看视频）；其余笔记未读；日期无年份。</p></dd><dt>Ocean 可以做</dt><dd>建议：学她“先给一个核心动作”的入门写法和清单写出处；Ocean 写自己真做过的一步，不写没做过的效果</dd></dl></section>
+
+<section id="overview"><h2>账号概况</h2><div class="grid2"><div class="card"><h3>平台与身份</h3><p>小红书：<a href="https://www.xiaohongshu.com/user/profile/65340940000000000301e006" target="_blank" rel="noopener noreferrer">小红书主页</a>，小红书号 8748271280，IP 属地上海。<span class="lv f">事实</span>2026-11-08 主页截图：213 关注、1.1 万粉丝、9.7 万获赞与收藏（赞藏合计）。<span class="lv s">自述</span>简介：“ENFJ文科生All in AI”“每天学一点AI，一年后会不会不一样”“Vibe Coding从零到实战更新中”。<span class="lv b">边界</span>文科背景等是自述，未核；X、公众号、其它平台、收入均未核。</p></div><div class="card"><h3>内容样本里在做什么</h3><p><span class="lv a">观察</span>3 篇都是真人出镜的视频笔记，以“我也在学”的身份，把一个工具或概念压成零基础入口。<span class="lv b">边界</span>视频按要求未播放，本页只分析标题、描述、封面和可见评论；样本 3 篇。</p></div></div></section>
+<section id="timeline"><h2>3阶段时间线</h2><section id="s1" class="stage"><h3>置顶：零基础学 GitHub</h3><p class="q"><b>当时的问题：</b>置顶帖给读者的第一个动作是什么。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">1</td><td data-l="日期">页面显示 07-04（未显示年份，不推定）</td><td data-l="动作与作品">入门教学 → <a href="https://www.xiaohongshu.com/explore/6a490dc200000000070247cc" target="_blank" rel="noopener noreferrer">《howto｜零基础学github免费AI工具库！》</a></td><td data-l="事实">视频笔记：按 Ocean 要求只看标题和描述，视频未播放；平台底栏赞 9617、藏 1.5 万、评 123（2026-11-08 截图）</td><td data-l="自述">“当你有一个想法时，可以上github找找看有没有类似的，有的话可以直接存下来自己二创”</td><td data-l="分析">封面大字“纯小白6分钟搞懂 GitHub”+ 核心动作（先搜类似项目再二创）+ 刷 Explore 追新工具</td><td data-l="边界">视频内演示未看；评论里作者答所用 AI 是“codex”，属作者回复</td></tr></tbody></table></div></section><section id="s2" class="stage"><h3>工具清单：自媒体全链路 5 个 Skill</h3><p class="q"><b>当时的问题：</b>她怎么介绍自己在用的工具。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">2</td><td data-l="日期">页面显示 09-10（未显示年份）</td><td data-l="动作与作品">工具清单 → <a href="https://www.xiaohongshu.com/explore/6aa29e290000000026032c73" target="_blank" rel="noopener noreferrer">《5个神级skill，帮你搞定自媒体全链路！》</a></td><td data-l="事实">视频笔记：按 Ocean 要求只看标题和描述，视频未播放；平台底栏赞 246、藏 411、评 15</td><td data-l="自述">“比起半年前，整体的工作流居然70%可以交给AI了！”</td><td data-l="分析">列 agent-reach、khazix-writer（注明“卡兹克开源”）、VidMuse、guizang-social-card、write-then-publish，并说自己也手搓了一些 Skill</td><td data-l="边界">“70%”是自述未核；除 khazix-writer 外无来源链接</td></tr></tbody></table></div></section><section id="s3" class="stage"><h3>学习记录：RAG</h3><p class="q"><b>当时的问题：</b>学习过程怎么变成内容。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">3</td><td data-l="日期">页面显示 07-02（未显示年份）</td><td data-l="动作与作品">学习记录 → <a href="https://www.xiaohongshu.com/explore/6a4666a00000000006033756" target="_blank" rel="noopener noreferrer">《AI基础知识｜终于把RAG理清楚了！》</a></td><td data-l="事实">视频笔记：按 Ocean 要求只看标题和描述，视频未播放；平台底栏赞 497、藏 496、评 35</td><td data-l="自述">“翻了一圈视频，没找到适合小白且比较系统的视频”</td><td data-l="分析">自述先看视频、再用 Claude Code 梳理流程图、追问，“来回聊了一个多钟”</td><td data-l="边界">学习过程是自述；评论称动画工具是“我自己手搓的小工具”，未核</td></tr></tbody></table></div></section></section>
+<section id="works"><h2>代表作品拆解</h2><p class="muted">只选原文读过、写法各不相同的作品，不是热门榜；不展示互动数。</p><div class="works"><article class="work card" id="w1"><h3>代表作品 1 · 置顶：零基础学 GitHub</h3><p class="links"><a href="https://www.xiaohongshu.com/explore/6a490dc200000000070247cc" target="_blank" rel="noopener noreferrer">《howto｜零基础学github免费AI工具库！》</a></p><p class="muted">时间线位置：<a href="#s1">置顶</a></p><p><span class="lv f">事实</span>标题、描述、封面已读（视频笔记：按 Ocean 要求只看标题和描述，视频未播放）。封面：真人 + 大字“入门指南 纯小白6分钟搞懂! GitHub / 从零开始，轻松上手”。</p><p><span class="lv s">自述</span>“程序员们会把做好的工具/项目放在github……这样效率更高～”；建议刷 GitHub Explore，并说初学 Vibe Coding 不必掌握全部复杂功能。</p><p><span class="lv a">观察</span>描述以一个能马上做的核心动作开头，再补刷 Explore 等建议；用“纯小白”“6分钟”降低门槛。</p><p><span class="lv h">假设</span>底栏收藏（1.5 万）多于点赞（9617）；只记录，置顶曝光不同，不归因。</p><p><span class="lv b">边界</span>评论里有人问“怎么让 github 网站稳定打开”，作者答“这就得靠巴啦啦能量啦”，回复里没给办法；视频未看，不判断视频是否讲到。</p><p class="take"><b>可借鉴写法：</b>入门帖先给一个核心动作，并写清这个动作能帮读者省什么。</p></article><article class="work card" id="w2"><h3>代表作品 2 · 工具清单：自媒体全链路 5 个 Skill</h3><p class="links"><a href="https://www.xiaohongshu.com/explore/6aa29e290000000026032c73" target="_blank" rel="noopener noreferrer">《5个神级skill，帮你搞定自媒体全链路！》</a></p><p class="muted">时间线位置：<a href="#s2">工具清单</a></p><p><span class="lv f">事实</span>标题、描述、封面已读。封面“从选题到发布……的5个Skill”。</p><p><span class="lv s">自述</span>“比起半年前，整体的工作流居然70%可以交给AI了！”（自述）</p><p><span class="lv a">观察</span>按自媒体流程（查热点 → 写稿 → 视频 → 卡片 → 发布）排 5 个 Skill；其中一项点名出处（卡兹克开源）。</p><p><span class="lv h">假设</span>按流程排清单比平铺名单好用；未验证。</p><p><span class="lv b">边界</span>评论有读者质疑 agent-reach 抓小红书/公众号的能力，作者答“可以但不能太多”；效果未核。</p><p class="take"><b>可借鉴写法：</b>清单按自己的工作流程排序，并给每项写出处。</p></article><article class="work card" id="w3"><h3>代表作品 3 · 学习记录：终于把 RAG 理清楚了</h3><p class="links"><a href="https://www.xiaohongshu.com/explore/6a4666a00000000006033756" target="_blank" rel="noopener noreferrer">《AI基础知识｜终于把RAG理清楚了！》</a></p><p class="muted">时间线位置：<a href="#s3">学习记录</a></p><p><span class="lv f">事实</span>标题、描述已读；封面为白底画面与作者头像。</p><p><span class="lv s">自述</span>“这两天看rag的内容……没找到适合小白且比较系统的视频”；用 Claude Code 梳理流程图（自述）。</p><p><span class="lv a">观察</span>把“我也没找到好资料”作为开头，用自己的学习过程当内容。</p><p><span class="lv h">假设</span>学习者视角可能让初学者觉得“我也能学会”；未验证。</p><p><span class="lv b">边界</span>没给她参考的视频或资料来源；评论有读者问内部知识会不会传到网上，本页不替作者补安全结论。</p><p class="take"><b>可借鉴写法：</b>学一个概念时记下“我卡在哪、怎么问 AI 解开的”，就是一篇内容。</p></article></div></section>
+<section id="audience"><h2>谁在看，为什么愿意看</h2><p class="muted"><b>没有真实的粉丝画像数据</b>。人群和动机根据作者简介、小红书评论和作品标题描述推断，不代表全体读者。</p><div class="tw"><table><thead><tr><th>可能的读者类型（推断）</th><th>AI 使用深度</th><th>可能想要什么</th><th>能拿走什么</th><th>对应作品</th><th>证据</th></tr></thead><tbody><tr><td data-l="读者类型">想入门 AI 编程 / Vibe Coding 的非技术人</td><td data-l="AI 使用深度">读者现在：部分读者在很初级的位置（评论推断）<br>内容指向：L1 会聊（推断）</td><td data-l="想要什么">名词听过但不知道从哪下手</td><td data-l="能拿走什么">一个马上能做的动作</td><td data-l="对应作品"><a href="#w1">卡 1</a></td><td data-l="证据"><span class="lv s">评论者自述</span>“问题是怎么让github网站稳定打开”“这个ai是什么呀”</td></tr><tr><td data-l="读者类型">做自媒体、想用 AI 提效的人</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：Skill 工具使用，接近 L4 会编（推断）</td><td data-l="想要什么">流程各环节工具太多</td><td data-l="能拿走什么">按流程排好的 5 个工具</td><td data-l="对应作品"><a href="#w2">卡 2</a></td><td data-l="证据"><span class="lv s">评论者自述</span>读者追问 agent-reach 能力、VidMuse 是不是 Skill</td></tr><tr><td data-l="读者类型">想系统学 AI 概念的小白</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：概念理解，层级不强派</td><td data-l="想要什么">找不到适合小白的系统资料</td><td data-l="能拿走什么">一份学习记录</td><td data-l="对应作品"><a href="#w3">卡 3</a></td><td data-l="证据"><span class="lv s">评论者自述</span>读者问动画软件、问内部知识安全</td></tr></tbody></table></div><p class="depth"><b>深度怎么标：</b>沿用 <a href="../research/ai-depth-levels-2026-10-28.html#levels" target="_blank" rel="noopener noreferrer">AI 使用深度水位</a> 的 L0–L5（定义见<a href="zhangzala.html#audience" target="_blank" rel="noopener noreferrer">张咋啦页</a>）；分开写读者现在和内容指向，层级不是职业类别。</p><h3>可能为什么能火、能传开（未验证）</h3><div class="card"><ul class="plain"><li><span class="lv a">观察</span>样本取自主页置顶与近期，不是按最新排序的热门；各篇底栏数见时间线。<span class="lv b">边界</span>置顶曝光不同、发布时间不同（年份未显示），不比较优劣、不归因。</li><li><span class="lv s">自述</span>简介“每天学一点AI”“Vibe Coding从零到实战更新中”，与 3 篇的学习者口吻一致。<span class="lv b">边界</span>只是口吻一致，不证明更新频率。</li></ul></div></section>
+<section id="compare"><h2>普通内容与代表作品：写法差在哪</h2><p class="muted"><span class="lv a">观察</span>只比较写法，不是因果；不展示互动数。样本取自主页置顶与近期，不是“最新最热”筛选；左列为置顶 1 篇，右列为 2 篇非置顶；只记录看到的数，不比较效果。</p><div class="tw"><table><thead><tr><th>维度</th><th>代表作品</th><th>普通内容</th></tr></thead><tbody><tr><td data-l="维度">标题</td><td data-l="代表作品">“零基础学…”“纯小白6分钟”</td><td data-l="普通内容">“5个神级skill”“终于把RAG理清楚了”</td></tr><tr><td data-l="维度">读者拿走什么</td><td data-l="代表作品">一个动作</td><td data-l="普通内容">一份工具清单 / 一次学习过程</td></tr><tr><td data-l="维度">平台底栏数（2026-11-08）</td><td data-l="代表作品">赞 9617、藏 1.5 万</td><td data-l="普通内容">赞 246 / 497，藏 411 / 496</td></tr><tr><td data-l="维度">置顶</td><td data-l="代表作品">是</td><td data-l="普通内容">否</td></tr></tbody></table></div></section>
+<section id="voice"><h2>语气、节奏与可借鉴写法</h2><div class="card"><ul class="plain"><li><span class="lv f">事实</span>标题常带“howto｜”“AI基础知识｜”等栏目前缀和感叹号。</li><li><span class="lv f">事实</span>描述口语化，多用“～”“哦”。</li><li><span class="lv a">观察</span>多用“我”讲自己怎么学、怎么用。</li></ul></div><pre class="tpl">【开头】我想做 ___，卡在 ___
+【一个动作】先 ___（只给一步）
+【我怎么用的】工具 / 问 AI 的那句话（写出处）
+【边界】哪些情况这招不管用</pre><p class="muted">模板是分析产物，不是作者原话。</p></section>
+<section id="limits"><h2>失败与边界</h2><div class="card"><ul><li><b>样本入口</b>：主页的置顶与近期笔记，不是按“最新”排序筛出的热门；不代表近期热门趋势，历史高赞与近期低赞不比优劣、不归因。</li><li><b>样本</b>：正式样本 3 篇；另有 3 篇在挑样本时被打开过，未纳入分析。</li><li><b>视频</b>：按 Ocean 要求只看标题和描述，视频未播放；不写视频里的步骤或效果。</li><li><b>时间</b>：3 篇页面日期都没显示年份，不推定；采集日期 2026-11-08。</li><li><b>其它平台与收入</b>：未核。</li><li><b>成长</b>：没有可核的涨粉时间点，不写增长轨迹。</li></ul></div></section>
+<section id="for-ocean"><h2>可借鉴的做法</h2><p class="muted"><span class="lv a">分析</span>研究者建议，不是成功公式。</p><div class="grid2"><div class="card"><h3>可借鉴</h3><ol><li>入门内容先给一个核心动作，写清能帮读者省什么。</li><li>工具清单按自己的真实流程排序，每项给出处。</li><li>学习记录写“卡在哪、问了 AI 什么”，不写没做过的效果。</li></ol></div><div class="card"><h3>不适用</h3><ul><li>“70% 交给 AI”这类没有拆解的比例。</li><li>不给参考资料来源的学习记录。</li></ul></div></div></section>
+<section id="sources"><h2>来源与待核</h2><p><b>状态：小红书只读一手资料；3 篇视频只看标题与描述</b>。主页与 3 篇笔记由只读浏览打开、截图；本页只用截图与台账里的原文。</p><div class="tw"><table><thead><tr><th>来源</th><th>读到了</th><th>没读到</th></tr></thead><tbody><tr><td data-l="来源">小红书主页</td><td data-l="读到了">主页截图（粉丝、获赞与收藏、关注、简介）</td><td data-l="没读到">其余笔记</td></tr><tr><td data-l="来源">小红书笔记</td><td data-l="读到了">3 篇视频的标题、描述、封面</td><td data-l="没读到">视频内容（按要求不看）</td></tr><tr><td data-l="来源">评论</td><td data-l="读到了">3 篇的部分评论与作者回复</td><td data-l="没读到">全部评论</td></tr><tr><td data-l="来源">X / 公众号 / 其它平台 / 收入</td><td data-l="读到了">无</td><td data-l="没读到">未核；不另找同名账号</td></tr></tbody></table></div><ul class="plain"><li>证据台账：<code>review/creator-growth-20261108/lulu-ai-ledger.md</code>（采集 2026-11-08，UTC+8）。</li><li>证据台账与截图在仓库外，不公开。</li></ul><p><span class="tag warn">待核</span>：更多笔记做对照；评论展开。</p></section>
+</main></div>
+</body>
+</html>

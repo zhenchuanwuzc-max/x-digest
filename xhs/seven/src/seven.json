@@ -1,0 +1,460 @@
+{
+ "source": {
+  "url": "https://x.com/Eejoylove/status/2074028317498601870",
+  "author": "文子 @Eejoylove（性别未核）",
+  "title": "别不信！ WorkBuddy 就可以把你的小红书从0粉干到1000",
+  "read": "X公共接口article.plain_text全文，文内截图未见"
+ },
+ "analysis_note": "作者说法与我们的建议分开写；“养号 3–5 天、iOS 流量更稳、AI 味会被限流、出来至少 70 分、超过 90% 新手”等是作者说法，未核实，不照搬。",
+ "steps": [
+  {
+   "id": "s1",
+   "n": 1,
+   "name": "变现候选",
+   "out": "3 个内容方向候选 + 3 个变现假设（各写验证条件）",
+   "state": "均未选定",
+   "gap": "要发几篇后看收藏与评论提问再收敛；不采购、不启动服务"
+  },
+  {
+   "id": "s2",
+   "n": 2,
+   "name": "找同期对标",
+   "out": "新帖主池 3 条（小号候选优先 2、粉丝未核次列 1）；旧帖编辑独列 1；历史池 4 个人物页",
+   "state": "先核新发布，再优先小号同龄比较；爆款未证实",
+   "gap": "其余 8 张卡未打开；全部样本的绝对发布日期与年未核；同类同龄窗口的基线不足，代表性与爆款效应未证实；sample1/sample2 作者粉丝未核"
+  },
+  {
+   "id": "s3",
+   "n": 3,
+   "name": "探索版账号档案",
+   "out": "已知 2 条 · 边界 4 条 · 假设 2 条",
+   "state": "探索中",
+   "gap": "留空：人设关键词、最终定位"
+  },
+  {
+   "id": "s4",
+   "n": 4,
+   "name": "七类选题库",
+   "out": "7 类识别标准 + 7 个建议题（4 个可写，其余待找源）",
+   "state": "建议候选，不是真实爆款",
+   "gap": "痛点/数字/资源 已挂最新样本骨架，其余 4 类待采；分类可交叉"
+  },
+  {
+   "id": "s5",
+   "n": 5,
+   "name": "挑题候选稿",
+   "out": "1 篇候选稿《综合与最新排序对比》",
+   "state": "草稿，未发布",
+   "gap": "等 Ocean 审核"
+  },
+  {
+   "id": "s6",
+   "n": 6,
+   "name": "人工检查",
+   "out": "程序自查：7 个标题，超 20 字 0 个，稿内禁词命中 0 处",
+   "state": "程序检查过；人工检查未做",
+   "gap": "Ocean 读稿、去 AI 味、核对来源"
+  },
+  {
+   "id": "s7",
+   "n": 7,
+   "name": "排期复盘",
+   "out": "9 个状态的流转 + 复盘字段表",
+   "state": "排期只是草案；0 篇已发布",
+   "gap": "无复盘数据；不改 routine、不自动发帖"
+  }
+ ],
+ "step1": {
+  "article": "作者建议先定变现方式再倒推定位（作者自述）。",
+  "content_directions": [
+   {
+    "name": "AI外文观点解读",
+    "basis": "Ocean原话：这些观点AI，我更容易做",
+    "validate": "发若干篇后看收藏、评论提问；曝光不可见时只记绝对数"
+   },
+   {
+    "name": "AI工具/资源整理",
+    "basis": "推测",
+    "validate": "同上"
+   },
+   {
+    "name": "开发与自动化学习记录",
+    "basis": "推测",
+    "validate": "同上，且只写真实发生的过程"
+   }
+  ],
+  "monetization_hypotheses": [
+   {
+    "name": "咨询或陪跑",
+    "condition": "出现反复的同类求助"
+   },
+   {
+    "name": "商单",
+    "condition": "有品牌接触且内容方向匹配"
+   },
+   {
+    "name": "数字资料",
+    "condition": "资源类收藏高且来源可授权"
+   }
+  ],
+  "decision": "均未确定；不推荐采购，不启动任何服务"
+ },
+ "step2": {
+  "article": "搜关键词，切最新，挑同期数据明显高的5–10篇，拆标题/开头/结构/标签（作者建议）。",
+  "historical": [
+   {
+    "name": "知新的AI笔记",
+    "href": "../zhixin.html",
+    "note": "主页置顶 + 近期 4 篇"
+   },
+   {
+    "name": "Lulu的AI野路子",
+    "href": "../lulu-ai.html",
+    "note": "主页置顶 + 近期 3 篇（视频只看标题描述）"
+   },
+   {
+    "name": "老A的AI进阶实操",
+    "href": "../laoa-jinjie.html",
+    "note": "主页置顶 + 近期 3 篇"
+   },
+   {
+    "name": "Karl的AIGC产品丨光之年",
+    "href": "../karl-aigc.html",
+    "note": "主页置顶 + 近期 3 篇"
+   }
+  ],
+  "latest": [
+   {
+    "source_id": "6aeea270000000000e025ebd",
+    "url": "https://www.xiaohongshu.com/explore/6aeea270000000000e025ebd",
+    "author": "烦死了这破deck",
+    "tier": "small_priority",
+    "followers_verified": 9639,
+    "format": "图文",
+    "cards_read": 1,
+    "title": "5个免费ai工具 帮我40分钟做出mbb级别deck",
+    "pool": "latest_sample",
+    "search": {
+     "keyword": "AI工具",
+     "sort_actually_used": "最新"
+    },
+    "published_raw": "详情“1天前 美国”，无编辑标识；唯一评论“1天前”；绝对日期与年未显示",
+    "comparable_same_period": true,
+    "why_not": null,
+    "counts_2026_11_08": {
+     "likes": 103,
+     "collects": 112,
+     "comments": 1
+    },
+    "coverage": "图文 1/1 张（配图与正文无关）+ 长正文全读",
+    "categories": [
+     "痛点",
+     "数字",
+     "资源"
+    ],
+    "categories_note": "分类为研究者归纳，可交叉",
+    "skeleton": "开头痛点（付费工具贵）→ 结果承诺（40分钟、5个免费工具）→ 5 个工具逐个讲用途与操作 → 一句话串起流程",
+    "author_claims": "“40分钟做完”“5个完全免费”为作者自述未核；未展示成品 deck，无来源链接；唯一评论质疑 NotebookLM 已能直接出 PPT",
+    "borrowable_action": "痛点开头接一个可核对的结果承诺，正文按工具逐个给用途，最后一句串成流程",
+    "limits": "不能当工具实测；作者粉丝 9639 已核，曝光不可见，同期基线不足，不能称低粉爆款"
+   },
+   {
+    "source_id": "6aef3f870000000015010e24",
+    "url": "https://www.xiaohongshu.com/explore/6aef3f870000000015010e24",
+    "author": "Charles的AI产品进阶-途灵灵",
+    "tier": "small_priority",
+    "followers_verified": 4346,
+    "format": "图文",
+    "cards_read": 13,
+    "title": "自存收藏｜产品经理公认好用的十大skill",
+    "pool": "latest_sample",
+    "search": {
+     "keyword": "AI工具",
+     "sort_actually_used": "最新"
+    },
+    "published_raw": "详情“昨天 16:11 江苏”，无编辑标识；评论均晚于发布、时间线一致；年未显示；卡内页脚 2026.11.06 不等于发布日",
+    "comparable_same_period": true,
+    "why_not": null,
+    "counts_2026_11_08": {
+     "likes": 24,
+     "collects": 28,
+     "comments": 5
+    },
+    "coverage": "图文 13/13 张全读（3 张空白卡重试后读到）",
+    "categories": [
+     "数字",
+     "资源"
+    ],
+    "categories_note": "分类为研究者归纳，可交叉",
+    "skeleton": "封面“10个 skill，按流程装” → 四象限总览（理解/定义/规格/验证） → 每个 skill 一页统一模板：三条职责 + 关键产出 + 上下游 + 人负责检查 → 末页总表",
+    "author_claims": "“公认好用”为标题自述；各 skill 功能为卡内描述，未实测，无仓库链接；十个 skill 名单与老A研究所同主题帖相同，正文与该帖一条评论近乎同句，只记相似，不推断抄袭或 AI 生成",
+    "borrowable_action": "清单类先给总览分组，再一项一页用同一模板，末页给总表",
+    "limits": "作者粉丝 4346 已核；24 赞为绝对值，曝光不可见，不称低粉爆款，不与其他样本排名"
+   },
+   {
+    "source_id": "6aeeec9d0000000015011aa0",
+    "url": "https://www.xiaohongshu.com/explore/6aeeec9d0000000015011aa0",
+    "author": "阿Win破局思维",
+    "tier": "followers_unverified",
+    "followers_verified": null,
+    "format": "视频",
+    "cards_read": null,
+    "skeleton": "未读视频内容，只有标题“节点+一条看清”",
+    "author_claims": "优惠明细未读",
+    "title": "双11囤算力，一条看清AI视频创作工具优惠",
+    "pool": "latest_sample",
+    "search": {
+     "keyword": "AI工具",
+     "sort_actually_used": "最新"
+    },
+    "published_raw": "卡上“1天前”；详情“昨天 01:17”",
+    "comparable_same_period": true,
+    "why_not": null,
+    "counts_2026_11_08": {
+     "likes": 173,
+     "collects": 62,
+     "comments": 4
+    },
+    "coverage": "视频：只看标题、描述与标签",
+    "categories": [
+     "资源",
+     "稀缺"
+    ],
+    "categories_note": "分类为研究者归纳",
+    "borrowable_action": "借节点（双11）做“一条看清”的汇总标题",
+    "limits": "视频内容与优惠明细未读，不写优惠信息"
+   },
+   {
+    "source_id": "6ac5fa7a000000001203fb99",
+    "url": "https://www.xiaohongshu.com/explore/6ac5fa7a000000001203fb99",
+    "author": "童话。",
+    "tier": "edited_old",
+    "followers_verified": null,
+    "format": "图文",
+    "cards_read": 1,
+    "skeleton": "一句反差判断做封面 → 结论式正文 → 评论区收集经验",
+    "author_claims": "“聊了40多个”为作者自述，无对象无来源",
+    "title": "聊了 40 多个用 Claude的大佬，发现目前",
+    "pool": "latest_sample",
+    "search": {
+     "keyword": "AI工具",
+     "sort_actually_used": "最新"
+    },
+    "published_raw": "卡上“1天前”；详情“编辑于 昨天 03:56”；评论最早 10-07",
+    "comparable_same_period": false,
+    "why_not": "旧帖近期编辑，与 1 天内新发笔记不同期，不能直接比",
+    "counts_2026_11_08": {
+     "likes": 423,
+     "collects": 288,
+     "comments": 452
+    },
+    "coverage": "图文 1/1 张",
+    "categories": [
+     "共鸣"
+    ],
+    "categories_note": "分类为研究者归纳",
+    "borrowable_action": "一句反差判断做封面大字，评论区让读者讲各自经验",
+    "limits": "“聊了40多个”是作者自述，无对象无来源；评论含作者引流群口令"
+   }
+  ],
+  "latest_scan": "关键词“AI工具”最新排序前 12 张卡轻扫（便利样本，非榜单），打开 4 篇：图文 3 篇共读 15 张卡，视频 1 篇只看标题描述；曝光不可见；不称爆款、不称全平台最热",
+  "pending": "其余 8 张卡未打开；全部样本的绝对发布日期与年未核；同类同龄窗口的基线不足，代表性与爆款效应未证实；sample1/sample2 作者粉丝未核",
+  "counts": {
+   "scanned_cards": 12,
+   "opened": 4,
+   "image_posts": 3,
+   "image_cards_read": 15,
+   "videos_title_only": 1,
+   "comparable": 3,
+   "main_pool": 3,
+   "small_priority": 2,
+   "followers_unverified": 1,
+   "edited_old": 1
+  },
+  "tiers": {
+   "small_priority": "近期新帖·小号候选（研究对象粉丝较少且已核，无固定门槛）优先",
+   "followers_unverified": "近期新帖·作者粉丝未核（次列，不叫小号）",
+   "edited_old": "旧帖近期编辑（独列历史，不进新帖主池、不做同期比较）"
+  },
+  "selection_logic": [
+   "先核是否真正新发布：看发布标识、有无“编辑于”、最早评论时间；旧帖近期编辑退出新帖主池",
+   "新帖里优先看粉丝较少的作者（研究对象，粉丝须在主页核过；未核不叫小号）；不设固定粉丝门槛",
+   "只在同类、发布时间相近的窗口里比较互动；不按历史累计赞或粉赞比判爆款",
+   "绝对发布时间/年份未核、同期基线不足时明写，不称已验证低粉爆款",
+   "粉丝 >1万 的关注对象研究是另一任务，不受此影响"
+  ]
+ },
+ "step3": {
+  "facts": [
+   "偏好观点/外文解读（原话：这些观点AI，我更容易做）",
+   "账号身份在摸索（原话：账号身份这些，我们还在摸索）"
+  ],
+  "boundaries": [
+   "不编实操和经历",
+   "第一人称只用Ocean原话",
+   "无可靠来源不写收益数字",
+   "标题<=20字"
+  ],
+  "hypotheses": [
+   "观点解读比教程更易持续",
+   "三个内容方向都待验证"
+  ],
+  "left_blank": [
+   "人设关键词",
+   "最终定位"
+  ]
+ },
+ "step4": [
+  {
+   "cat": "痛点",
+   "identify": "标题点名一个具体卡点",
+   "need": "想解决",
+   "promise": "开头复述卡点，正文给可核对的原因或办法",
+   "suggested_title": "AI工作流越用越累",
+   "source_status": "待找源",
+   "source_note": "线索：知新转述 Katie Parrott（Every）文章，原文未读",
+   "latest_refs": [
+    {
+     "title": "5个免费ai工具 帮我40分钟做出mbb级别deck",
+     "skeleton": "开头痛点（付费工具贵）→ 结果承诺（40分钟、5个免费工具）→ 5 个工具逐个讲用途与操作 → 一句话串起流程"
+    }
+   ]
+  },
+  {
+   "cat": "数字",
+   "identify": "标题含条数",
+   "need": "可预估篇幅",
+   "promise": "条数与标题一致，每条有内容",
+   "suggested_title": "冷启动七步逐条拆",
+   "source_status": "可写",
+   "source_note": "https://x.com/Eejoylove/status/2074028317498601870",
+   "latest_refs": [
+    {
+     "title": "5个免费ai工具 帮我40分钟做出mbb级别deck",
+     "skeleton": "开头痛点（付费工具贵）→ 结果承诺（40分钟、5个免费工具）→ 5 个工具逐个讲用途与操作 → 一句话串起流程"
+    },
+    {
+     "title": "自存收藏｜产品经理公认好用的十大skill",
+     "skeleton": "封面“10个 skill，按流程装” → 四象限总览（理解/定义/规格/验证） → 每个 skill 一页统一模板：三条职责 + 关键产出 + 上下游 + 人负责检查 → 末页总表"
+    }
+   ]
+  },
+  {
+   "cat": "对比",
+   "identify": "两个对象并列",
+   "need": "想知道差别",
+   "promise": "给出比较维度和边界",
+   "suggested_title": "综合与最新排序对比",
+   "source_status": "可写",
+   "source_note": "https://x.com/Eejoylove/status/2074028317498601870（即第5步稿）",
+   "latest_refs": []
+  },
+  {
+   "cat": "稀缺",
+   "identify": "信息新或来源少",
+   "need": "想先知道",
+   "promise": "写明出处并确认是新的",
+   "suggested_title": "马斯克谈AI的底线",
+   "source_status": "待找源",
+   "source_note": "线索：知新整理访谈，访谈原始出处未核",
+   "latest_refs": []
+  },
+  {
+   "cat": "共鸣",
+   "identify": "说出读者的处境或感受",
+   "need": "被理解",
+   "promise": "具体场景，结尾落到一个判断",
+   "suggested_title": "工作流停掉会想念吗",
+   "source_status": "待找源",
+   "source_note": "同痛点类线索",
+   "latest_refs": []
+  },
+  {
+   "cat": "资源",
+   "identify": "可拿走的清单或工具",
+   "need": "省时间",
+   "promise": "资源可用，署名来源",
+   "suggested_title": "Skills按场景分三层",
+   "source_status": "可写（需署名老A，并核对卡内引用的他人材料）",
+   "source_note": "老A的AI进阶实操 Skills 帖，图卡 10/10 已读（见人物页）",
+   "latest_refs": [
+    {
+     "title": "5个免费ai工具 帮我40分钟做出mbb级别deck",
+     "skeleton": "开头痛点（付费工具贵）→ 结果承诺（40分钟、5个免费工具）→ 5 个工具逐个讲用途与操作 → 一句话串起流程"
+    },
+    {
+     "title": "自存收藏｜产品经理公认好用的十大skill",
+     "skeleton": "封面“10个 skill，按流程装” → 四象限总览（理解/定义/规格/验证） → 每个 skill 一页统一模板：三条职责 + 关键产出 + 上下游 + 人负责检查 → 末页总表"
+    }
+   ]
+  },
+  {
+   "cat": "反常识",
+   "identify": "推翻一个默认看法",
+   "need": "更新认知",
+   "promise": "给出证据或推理，标明是谁的经验",
+   "suggested_title": "AI写的标题更像广告",
+   "source_status": "可写（作为作者经验解读，不当平台规律）",
+   "source_note": "https://x.com/Eejoylove/status/2074028317498601870，原文：别让 AI 自由发挥写标题",
+   "latest_refs": []
+  }
+ ],
+ "step4_note": "7类是作者框架，不是已验证规律；建议题都是我们的建议，不是真实爆款；痛点/数字/资源三类已挂最新样本骨架，其余类最新样本待采。",
+ "step5": {
+  "title": "综合与最新排序对比",
+  "source": "https://x.com/Eejoylove/status/2074028317498601870",
+  "body": [
+   "文子在X发布的小红书冷启动长文里，找对标时先搜关键词，再切到“最新”排序。原文称默认的综合排序里“全是老爆款”。这是作者的判断，没有给出平台数据。",
+   "按作者的做法，在最新排序里挑刚发布不久、数据明显高于同期的笔记。比较范围限定在发布时间接近的笔记之间，可以减少“发得早所以数据多”的干扰。",
+   "这个口径也有边界。同期相对高互动只说明这条笔记在这批里表现突出，不能证明是内容本身带来了传播，也不能保证同样的写法下次还有效。",
+   "作者接着建议拆标题、开头和结构，借骨架，不照搬原话。"
+  ],
+  "tags": [
+   "#小红书运营",
+   "#AI工具"
+  ]
+ },
+ "step6": {
+  "titles": {
+   "AI工作流越用越累": 9,
+   "冷启动七步逐条拆": 8,
+   "综合与最新排序对比": 9,
+   "马斯克谈AI的底线": 9,
+   "工作流停掉会想念吗": 9,
+   "Skills按场景分三层": 12,
+   "AI写的标题更像广告": 10
+  },
+  "title_over_20": [],
+  "draft_banned_hits": {}
+ },
+ "step7": {
+  "workflow": [
+   "待取样",
+   "已入库",
+   "已拆解",
+   "选题候选",
+   "草稿",
+   "Ocean审核",
+   "可发布（Ocean手动发）",
+   "已发布",
+   "已复盘"
+  ],
+  "rolling_order": "每次从选题候选里取一条“可写”，写完草稿进入审核；审核通过前不排期、不发布；发布后满7天复盘一次",
+  "review_fields": {
+   "date": null,
+   "title": null,
+   "category": null,
+   "source_url": null,
+   "views": null,
+   "likes": null,
+   "collects": null,
+   "comments": null,
+   "follows_gained": null,
+   "reader_questions": null,
+   "next_change": null
+  },
+  "window": "发布后第7天读数；views不可见即null，不计算收藏率等比率；不设通用阈值，攒够自身样本后再看中位数",
+  "rules": "不改现有routine，不自动发布"
+ },
+ "asof": "2026-11-08"
+}

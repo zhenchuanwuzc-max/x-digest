@@ -43,7 +43,7 @@ def render(c):
      '<div class="tw"><table><thead><tr><th>维度</th><th>代表作品</th><th>普通内容</th></tr></thead><tbody>'+crow+'</tbody></table></div></section>')
     voice=('<section id="voice"><h2>语气、节奏与可借鉴写法</h2><div class="card">'+ul(c["voice"])+f'</div><pre class="tpl">{c["tpl"]}</pre><p class="muted">模板是分析产物，不是作者原话。</p></section>')
     limits='<section id="limits"><h2>失败与边界</h2><div class="card"><ul>'+"".join(f"<li>{x}</li>" for x in c["limits"])+'</ul></div></section>'
-    forocean=('<section id="for-ocean"><h2>给 Ocean（「AI具身牛马」）的借鉴</h2><p class="muted"><span class="lv a">分析</span>研究者建议，不是成功公式。</p><div class="grid2">'
+    forocean=('<section id="for-ocean"><h2>'+c.get("ocean_head","给 Ocean（「AI具身牛马」）的借鉴")+'</h2><p class="muted"><span class="lv a">分析</span>研究者建议，不是成功公式。</p><div class="grid2">'
      '<div class="card"><h3>可借鉴</h3><ol>'+"".join(f"<li>{x}</li>" for x in c["take"])+'</ol></div>'
      '<div class="card"><h3>不适用</h3><ul>'+"".join(f"<li>{x}</li>" for x in c["skip"])+'</ul></div></div></section>')
     cov="".join(f'<tr><td data-l="来源">{p}</td><td data-l="读到了">{r}</td><td data-l="没读到">{n}</td></tr>' for p,r,n in c["cov"])

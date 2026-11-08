@@ -128,7 +128,7 @@ class Practice(unittest.TestCase):
         for p in P: s.assertNotIn('不适用', p['metrics']['income']['text'] + p['metrics']['income'].get('note', ''))
         s.assertIn('自述 · 2025-09 · 历史', H); s.assertIn('自述 · 2023-07 · 历史', H)
         cnt = lambda k: sum(p['metrics'][k]['kind'] != '未找到' for p in P)
-        s.assertEqual((cnt('x'), cnt('xhs'), cnt('wx'), cnt('income')), (14, 3, 1, 4))
+        s.assertEqual((cnt('x'), cnt('xhs'), cnt('wx'), cnt('income')), (14, 6, 1, 4))  # 小红书：知新 + 首批关注 3 人
     def test_brief_on_every_person_page(s):
         seen = {k: set() for k in ('who', 'pain', 'solve', 'ocean')}
         for p in P:
@@ -187,6 +187,55 @@ class Zhixin(unittest.TestCase):
         z = next(p for p in P if p['id'] == 'zhixin')
         s.assertEqual(z['metrics']['xhs']['kind'], '事实'); s.assertEqual(z['metrics']['xhs']['date'], '2026-11-08 主页截图')
         s.assertIn('『这些观点AI，我更容易做；hah』', z['brief']['ocean']); s.assertTrue(z['brief']['ocean'].startswith('建议：'))
+
+class OceanPositioning(unittest.TestCase):
+    """t241：账号身份仍在摸索——首页与源都不得把定位写死。"""
+    def test_home_matches_source_and_not_fixed(s):
+        pos = json.loads((G/'src/people.json').read_text())['positioning']['text']
+        s.assertIn('账号方向仍在探索', pos); s.assertIn(pos, H)
+        for bad in ('大厂产品经理，讲进门后', '不求职', '按 Ocean 的定位'): s.assertNotIn(bad, pos + H)
+        d = json.loads((G/'src/people.json').read_text()); n = len({b['pid'] for r in d['practice'] for b in r['bench']})
+        s.assertIn(f'出自 {n} 位人物页', H); s.assertNotIn('创作中心 · 定位', H)
+
+class FollowBatch1(unittest.TestCase):
+    """小红书关注首批 3 人：覆盖度来自 follow_b1_cards.COV；公开页不泄露关注关系与带 token 链接。"""
+    IDS = ('lulu-ai', 'laoa-jinjie', 'karl-aigc')
+    def setUp(s):
+        import sys; sys.path.insert(0, str(Path(__file__).resolve().parents[3]/'review/creator-growth-20261108'))
+        import follow_b1_cards as f; s.f = f
+        s.h = {i: (X/f'{i}.html').read_text() for i in s.IDS}
+    def test_coverage_complete_and_counted_from_pages(s):
+        for i in s.IDS:
+            s.assertEqual(s.f.gaps(i), {}, i)
+            for w, c in s.f.COV[i].items():
+                if c != s.f.VIDEO: s.assertEqual(sorted(c['read']), list(range(1, c['total'] + 1)), (i, w))
+        s.assertEqual(len(s.f.COV['karl-aigc']['w3']['read']), 14)
+        for h in s.h.values():
+            for bad in ('待补', '部分可读', '待重试'): s.assertNotIn(bad, h)
+    def test_video_scope(s):
+        s.assertIn('只看标题和描述', s.h['lulu-ai']); s.assertNotIn('视频未看待补', s.h['lulu-ai'])
+    def test_privacy(s):
+        for h in s.h.values():
+            for bad in ('xsec', 'following', '关注名单', '5098143774'): s.assertNotIn(bad, h)
+        for i in s.IDS:
+            L = (Path(__file__).resolve().parents[3]/f'review/creator-growth-20261108/{i}-ledger.md').read_text()
+            for bad in ('xsec', 'AI具身牛马', '已关注', 'following'): s.assertNotIn(bad, L)
+    def test_neutral_heading_entry_and_no_fixed_positioning(s):
+        for h in s.h.values():
+            s.assertNotIn('AI具身牛马', h); s.assertIn('<h2>可借鉴的做法</h2>', h)
+            s.assertIn('不是按“最新”排序筛出的热门', h)  # t239：实际入口是主页置顶/近期
+            for bad in ('定位里', '定位内', '不求职', '远高于', '互动最高'): s.assertNotIn(bad, h)
+        for p in P:
+            if p['id'] in s.IDS: s.assertNotIn('定位', p['brief']['ocean'])
+    def test_boundaries(s):
+        s.assertIn('不合并', s.h['laoa-jinjie']); s.assertIn('老A的AI研究所', s.h['laoa-jinjie'])
+        for i in ('laoa-jinjie', 'karl-aigc'):
+            s.assertIn('不判断归属或抄袭', s.h[i]); s.assertIn('不当交付或收入', s.h[i])
+        s.assertIn('标题与主体不一致', s.h['karl-aigc'])
+        for p in P:
+            if p['id'] in s.IDS:
+                s.assertEqual(p['metrics']['income']['kind'], '未找到'); s.assertEqual(p['metrics']['x']['kind'], '未找到')
+                s.assertEqual(p['metrics']['xhs']['date'], '2026-11-08 主页截图')
 
 class Subpages(unittest.TestCase):
     def pages(s):
