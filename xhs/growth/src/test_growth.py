@@ -211,6 +211,13 @@ class FollowBatch1(unittest.TestCase):
         for i in s.IDS:
             L = (Path(__file__).resolve().parents[3]/f'review/creator-growth-20261108/{i}-ledger.md').read_text()
             for bad in ('xsec', 'AI具身牛马', '已关注', 'following'): s.assertNotIn(bad, L)
+    def test_neutral_heading_entry_and_no_fixed_positioning(s):
+        for h in s.h.values():
+            s.assertNotIn('AI具身牛马', h); s.assertIn('<h2>可借鉴的做法</h2>', h)
+            s.assertIn('不是按“最新”排序筛出的热门', h)  # t239：实际入口是主页置顶/近期
+            for bad in ('定位里', '定位内', '不求职', '远高于', '互动最高'): s.assertNotIn(bad, h)
+        for p in P:
+            if p['id'] in s.IDS: s.assertNotIn('定位', p['brief']['ocean'])
     def test_boundaries(s):
         s.assertIn('不合并', s.h['laoa-jinjie']); s.assertIn('老A的AI研究所', s.h['laoa-jinjie'])
         for i in ('laoa-jinjie', 'karl-aigc'):
