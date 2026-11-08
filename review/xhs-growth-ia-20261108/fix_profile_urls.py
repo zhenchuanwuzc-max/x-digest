@@ -1,7 +1,7 @@
 """合并后一次性修正共享数据 /workspace/digests/monitors/xhs_library.json 里 benchmark_profiles[].profile_url：
 creators.html#x（兼容页）→ 规范人物页。只改这一字段；先备份；已是新值则跳过（可重复运行）。
 用法：python3 fix_profile_urls.py [--dry-run] [数据文件]"""
-import json, os, shutil, sys, tempfile
+import json, os, shutil, sys, tempfile, time
 MAP = {f'creators.html#{k}': f'{k}.html' for k in ('kazike', 'guizang', 'huashu', 'baoyu', 'qiaomu', 'fankai', 'lenny', 'shreyas', 'ali', 'swyx', 'levelsio')}
 MAP['creators.html#justin'] = 'justinwelsh.html'
 MAP['creators.html#zara'] = 'zhangzala.html'
@@ -19,7 +19,12 @@ if __name__ == '__main__':
     print('changed', n, 'left', left)
     if left: sys.exit('unexpected creators.html links remain')
     if '--dry-run' in sys.argv or n == 0: sys.exit(0)
-    shutil.copy2(path, path + '.bak-before-profile-urls')
-    fd, tmp = tempfile.mkstemp(dir=os.path.dirname(path)); os.close(fd)
-    with open(tmp, 'w') as f: f.write(json.dumps(d, ensure_ascii=False, indent=2) + '\n')
-    os.replace(tmp, path)
+    fdb, bak = tempfile.mkstemp(dir=os.path.dirname(path), prefix=os.path.basename(path) + f".bak-{time.strftime('%Y%m%d-%H%M%S')}-", suffix='-profile-urls')
+    os.close(fdb); shutil.copy2(path, bak); print('backup', bak)  # mkstemp 保证新文件名，不覆盖旧备份
+    fd, tmp = tempfile.mkstemp(dir=os.path.dirname(path))
+    try:
+        with os.fdopen(fd, 'w') as f: f.write(json.dumps(d, ensure_ascii=False, indent=2) + '\n')
+        shutil.copymode(path, tmp)
+        os.replace(tmp, path)
+    finally:
+        if os.path.exists(tmp): os.unlink(tmp)
