@@ -379,14 +379,22 @@ def _daily_new_small():
         return ""
 
 
-_NS_SAMPLE_FIELDS = (("followers", "作者粉丝"), ("entry", "入口与排序"), ("date", "日期原文"), ("counts", "赞藏评"),
-                     ("same_period", "同期对照"), ("coverage", "读了多少"), ("structure", "标题承诺 → 首图 → 正文顺序 → 可带走"),
-                     ("disclosure", "页面声明"), ("comments", "读者评论"), ("borrow", "可借鉴"), ("claims", "作者自述（未核）"), ("limits", "缺口与边界"), ("batch", "批次"))
+_NS_DETAIL_FIELDS = (("entry", "从哪搜到"), ("same_period", "同期对照"), ("structure", "标题承诺 → 首图 → 正文顺序 → 可带走"),
+                     ("comments", "读者评论"), ("borrow", "可借鉴"), ("claims", "作者自述（未核）"), ("limits", "缺口与边界"), ("batch", "批次"))
+
+
+def _ns_date_label(s):
+    """发布时间可信度：只有核到绝对日期证据才升级；冲突原样并列。"""
+    if s['date_status'] == 'absolute_verified':
+        return f'绝对日期已核：{s["date_evidence"]}'
+    if s['date_status'] == 'conflict':
+        return '搜索卡与详情日期不一致，原样并列，不推年份或初发日'
+    return '只有相对时间、无年份，不换算绝对日期'
 
 
 def _new_small_v2(D):
-    """t248 结构化渲染：先给建议选题（问题 / 切口 / 能带走 / 提纲），样本证据折叠在后；关键词覆盖按主题列真实搜索状态，未搜不写 0。
-    全块只有外层一个 div，内部用 section / article / details。"""
+    """t249 阅读顺序：先“这轮能确认什么”，再逐帖 数据与发布时间 → 可能受欢迎的原因（事实 / 待验证解释 / 缺证），
+    然后建议怎么做，最后关键词覆盖、待核候选与旧样本池。发布时间、数据、结论不折叠；全块只有外层一个 div。"""
     a = lambda u, t: f'<a href="{E(u)}" target="_blank" rel="noopener noreferrer">{E(t)}</a>'
     S = {s['id']: s for s in D['samples']}
     G = {g['id']: g for g in D['keywords_coverage']['groups']}
@@ -394,28 +402,46 @@ def _new_small_v2(D):
     for p in D['proposals']:
         for i in p['support_ids']:
             used.setdefault(i, []).append(p['id'])
-    c = D['counts']
-    head = (f'<p class="muted">关键词计划 {c["planned"]} 个 · 本轮优先 {c["this_round"]} 个 · 已完成扫描 {c["searched"]} 个'
-            f'（截至 {E(D["asof"])}，UTC+8；扫描完成不等于全词搜完）。建议选题是草案；样本证据可展开。</p>')
-    props = '<h3>建议选题（按主题）</h3>'
+    new = [s for s in D['samples'] if not s['batch'].startswith('旧池')]
+    old = [s for s in D['samples'] if s['batch'].startswith('旧池')]
+    c, cf = D['counts'], D['confirm']
+    detail = lambda s: ('<details><summary>更多细项</summary><dl>' + "".join(f'<dt>{E(l)}</dt><dd>{E(s[f])}</dd>' for f, l in _NS_DETAIL_FIELDS if s.get(f)) + '</dl></details>')
+    conf = ('<section id="ns-confirm"><h3>这轮能确认什么</h3><ul>'
+            + ('<li><b>暂未确认热帖。</b>' if not cf['hot_confirmed'] else '<li><b>有证据支持的热帖见下。</b>')
+            + f'这轮核过的 {cf["checked"]} 条新帖都没有曝光数，也没有同期、同龄的帖子做对照。</li>'
+            + '<li>下面直接列出每条帖子核到的真实数据和发布时间原文；不算点赞率、赞粉比，粉丝少不等于火。</li>'
+            + f'<li>关键词计划 {c["planned"]} 个 · 本轮优先 {c["this_round"]} 个 · 已完成扫描 {c["searched"]} 个（截至 {E(D["asof"])}，UTC+8；扫描完成不等于全词搜完）。</li>'
+            + f'<li>另有 {cf["legacy"]} 条旧“AI工具”样本放在最后的历史与日期待核池，不和新帖混排。</li></ul></section>')
+    posts = '<section id="ns-posts"><h3>1. 帖子、数据，以及可能受欢迎的原因</h3>'
+    for s in new:
+        ap = s['appeal']
+        back = "、".join(f'<a href="#ns-{E(i)}">{E(i)}</a>' for i in used.get(s['id'], []))
+        posts += (f'<article id="ns-s-{E(s["id"])}" class="ns-post"><h4>{a(s["url"], s["title"])}</h4>'
+                  f'<dl class="ns-data"><dt>作者</dt><dd>{E(s["author"])} · 粉丝 {E(s["followers"])}</dd>'
+                  f'<dt>发布时间</dt><dd>{E(s["date"])}<br><span class="muted">{E(_ns_date_label(s))}</span></dd>'
+                  f'<dt>数据</dt><dd>{E(s["counts"])}</dd><dt>读了多少</dt><dd>{E(s["format"])} · {E(s["coverage"])}</dd>'
+                  + (f'<dt>页面声明</dt><dd>{E(s["disclosure"])}</dd>' if s.get('disclosure') else '') + '</dl>'
+                  f'<p><b>可能受欢迎的原因</b></p><ul class="ns-why"><li>看到的事实：{E(ap["fact"])}</li>'
+                  f'<li>待验证的解释：{E(ap["hypothesis"])}</li><li>缺的证据：{E(ap["missing"])}</li>'
+                  f'<li>表现结论：' + ('有证据：' if s['classification'] == 'evidenced' else '未证实：') + f'{E(s["classification_evidence"])}</li></ul>'
+                  + (f'<p class="muted">对应建议：{back}</p>' if back else '') + detail(s) + '</article>')
+    posts += '</section>'
+    props = '<section id="ns-advice"><h3>2. 建议怎么做</h3>'
     for gid in G:
-        ps = [p for p in D['proposals'] if p['group'] == gid]
-        if not ps:
-            continue
-        props += f'<section><h4>{E(gid)} · {E(G[gid]["name"])}</h4>'
-        for p in ps:
-            props += (f'<article id="ns-{E(p["id"])}"><p><b>{E(" / ".join(p["titles"]))}</b> <span class="muted">（{E(p["status"])}）</span></p>'
-                      f'<p>受众问题：{E(p["audience_problem"])}</p><p>切口：{E(p["angle"])}</p><p>能带走：{E(p["takeaway"])}</p>'
-                      f'<p class="muted">证据缺口：{E(p["evidence_gap"])}</p>'
-                      f'<p>提纲：</p><ol>' + "".join(f'<li>{E(o)}</li>' for o in p['outline']) + '</ol>'
-                      f'<details><summary>依据、差异与待补</summary><p>与已发区别：{E(p["differs_from"])}</p>'
-                      f'<p>真实样本：' + "、".join(f'<a href="#ns-s-{E(i)}">{E(S[i]["title"])}</a>' for i in p['support_ids']) + f'；{E(p["sample_use"])}</p>'
-                      f'<p>Ocean 自有案例：{E(p["ocean_case"])}</p><p>下一步：{E(p["next"])}</p></details></article>')
-        props += '</section>'
-    L = D['keywords_coverage']['status_labels']
+        for p in [p for p in D['proposals'] if p['group'] == gid]:
+            props += (f'<article id="ns-{E(p["id"])}"><h4>{E(p["id"])} · {E(" / ".join(p["titles"]))}</h4>'
+                      f'<p class="muted">{E(G[gid]["name"])} · {E(p["status"])}</p>'
+                      f'<p>依据的帖子：' + "、".join(f'<a href="#ns-s-{E(i)}">{E(S[i]["title"])}</a>' for i in p['support_ids']) + '</p>'
+                      f'<p>受众问题：{E(p["audience_problem"])}</p><p>切口：{E(p["angle"])}</p>'
+                      f'<p>图卡顺序：</p><ol>' + "".join(f'<li>{E(o)}</li>' for o in p['outline']) + '</ol>'
+                      f'<p>能带走：{E(p["takeaway"])}</p><p class="muted">证据缺口：{E(p["evidence_gap"])}</p>'
+                      f'<details><summary>借了什么、与已发区别、案例与下一步</summary><p>借了什么：{E(p["sample_use"])}</p>'
+                      f'<p>与已发区别：{E(p["differs_from"])}</p><p>Ocean 自有案例：{E(p["ocean_case"])}</p><p>下一步：{E(p["next"])}</p></details></article>')
     if D.get('not_proposed'):
         props += '<p class="muted">本轮没出建议的词：</p><ul>' + "".join(f'<li class="muted">{E(x)}</li>' for x in D['not_proposed']) + '</ul>'
-    cov = '<h3>关键词覆盖</h3>' + (f'<p class="muted">{E(D["keywords_coverage"]["round_note"])}</p>' if D['keywords_coverage'].get('round_note') else '') + '<ul>'
+    props += '</section>'
+    L = D['keywords_coverage']['status_labels']
+    cov = '<section id="ns-coverage"><h3>3. 关键词覆盖与待核候选</h3>' + (f'<p class="muted">{E(D["keywords_coverage"]["round_note"])}</p>' if D['keywords_coverage'].get('round_note') else '') + '<ul>'
     for g in G.values():
         items = ""
         for k in g['keywords']:
@@ -425,30 +451,34 @@ def _new_small_v2(D):
             r = k['searches'][-1]
             nums = f'扫 {r["scanned_count"]} 张、开 {r["opened_count"]} 篇' + (f'、入精读库 {len(r["sample_ids"])} 条' if r['sample_ids'] else '') \
                 + (f'、待核候选 {r["pending_candidates"]} 条' if r['pending_candidates'] else '')
+            pend = ('<details><summary>待核候选（未打开，不判合格与否）</summary><ul>' + "".join(
+                f'<li>{a(x["url"], x["title"])} <span class="muted">卡上时间“{E(x["time_raw"])}”</span></li>' for x in r.get('pending_list', [])) + '</ul></details>') if r.get('pending_list') else ''
             items += (f'<li><b>{E(k["query"])}：{E(L[r["status"]])}</b>（{E(r["captured"])}，{E(r["sort"])}排序；{nums}）'
                       + (f'<br><span class="muted">依据：{E(r["no_qualified_basis"])}</span>' if r['status'] == 'checked_none' else '')
-                      + (f'<br><span class="muted">限制：{E(r["limits"])}</span>' if r.get('limits') else '') + '</li>')
+                      + (f'<br><span class="muted">限制：{E(r["limits"])}</span>' if r.get('limits') else '') + pend + '</li>')
         cov += f'<li><b>{E(g["id"])} {E(g["name"])}</b><ul>{items}</ul></li>'
+    cov += '</ul></section>'
+    hist = '<section id="ns-history"><h3>4. 历史与日期待核池（旧“AI工具”样本）</h3>'
     for l in D['keywords_coverage']['legacy']:
-        cov += f'<li><b>旧池</b>：{E(l["query"])}（{E(l["captured"])} {E(l["sort"])}；{E(l["scan"])}；{E(l["note"])}）</li>'
-    cov += '</ul>'
-    smp = '<h3>真实样本</h3><ol>' + "".join(f'<li>{E(r)}</li>' for r in D['rules']) + '</ol>'
+        hist += f'<p class="muted">{E(l["query"])}（{E(l["captured"])} {E(l["sort"])}；{E(l["scan"])}；{E(l["note"])}）</p>'
+    hist += '<p>选帖规则：</p><ol>' + "".join(f'<li>{E(r)}</li>' for r in D['rules']) + '</ol>'
     for k, lab in D['tiers'].items():
-        rs = [s for s in D['samples'] if s['tier'] == k]
+        rs = [s for s in old if s['tier'] == k]
         if not rs:
             continue
-        smp += f'<h4>{E(lab)}（{len(rs)} 条）</h4>'
+        hist += f'<h4>{E(lab)}（{len(rs)} 条）</h4>'
         for s in rs:
             back = "、".join(f'<a href="#ns-{E(i)}">{E(i)}</a>' for i in used.get(s['id'], []))
-            smp += (f'<details id="ns-s-{E(s["id"])}"><summary>{a(s["url"], s["title"])} · {E(s["author"])} · {E(s["format"])}</summary><dl>'
-                    + "".join(f'<dt>{E(lab2)}</dt><dd>{E(s[f])}</dd>' for f, lab2 in _NS_SAMPLE_FIELDS if s.get(f))
-                    + f'<dt>日期可信度</dt><dd>' + (f'绝对日期已核：{E(s["date_evidence"])}' if s['date_status'] == 'absolute_verified' else '搜索卡与详情日期不一致，原样并列，不推年份或初发日' if s['date_status'] == 'conflict' else '只有相对时间、无年份，新帖身份待核') + '</dd>'
-                    + f'<dt>表现结论</dt><dd>' + ('有证据：' if s['classification'] == 'evidenced' else '未证实：') + f'{E(s["classification_evidence"])}</dd>'
-                    + (f'<dt>支撑的建议</dt><dd>{back}</dd>' if back else '') + '</dl></details>')
+            hist += (f'<article id="ns-s-{E(s["id"])}" class="ns-post"><p>{a(s["url"], s["title"])} · {E(s["author"])} · 粉丝 {E(s["followers"])}</p>'
+                     f'<p class="muted">发布时间：{E(s["date"])}（{E(_ns_date_label(s))}）· 数据：{E(s["counts"])} · '
+                     + ('有证据：' if s['classification'] == 'evidenced' else '表现未证实：') + f'{E(s["classification_evidence"])}'
+                     + (f' · 对应建议：{back}' if back else '') + '</p>' + detail(s) + '</article>')
+    hist += '</section>'
     return (f'<h2 id="newsmall"><span class="sec-ico" aria-hidden="true">◆</span> 选题热帖：新帖、小号优先</h2>'
-            f'<div class="card ns2"><style>.ns2 article,.ns2 details{{border-top:1px solid var(--line,#e6e0d4);padding:.5rem 0}}.ns2 summary{{cursor:pointer}}'
-            f'.ns2 dl{{display:grid;grid-template-columns:9em minmax(0,1fr);gap:.2rem .8rem;margin:.4rem 0;font-size:.92rem}}.ns2 dt{{color:var(--mut,#6a6a62)}}.ns2 dd{{margin:0}}'
-            f'@media(max-width:600px){{.ns2 dl{{grid-template-columns:1fr}}.ns2 dd{{margin-bottom:.3rem}}}}</style>{head}{props}{cov}{smp}'
+            f'<div class="card ns2"><style>.ns2 article{{border-top:1px solid var(--line,#e6e0d4);padding:.6rem 0}}.ns2 details{{margin:.3rem 0}}.ns2 summary{{cursor:pointer;color:var(--mut,#6a6a62)}}'
+            f'.ns2 dl{{display:grid;grid-template-columns:7em minmax(0,1fr);gap:.2rem .8rem;margin:.4rem 0;font-size:.92rem}}.ns2 dt{{color:var(--mut,#6a6a62)}}.ns2 dd{{margin:0}}'
+            f'.ns2 h4{{margin:.2rem 0}}.ns2 .ns-why{{margin:.2rem 0 .4rem}}'
+            f'@media(max-width:600px){{.ns2 dl{{grid-template-columns:1fr}}.ns2 dd{{margin-bottom:.3rem}}}}</style>{conf}{posts}{props}{cov}{hist}'
             f'<p class="muted">{E(D["gaps"])} · 七步拆法见 <a href="seven/#s2">七步工作台</a></p></div>')
 
 

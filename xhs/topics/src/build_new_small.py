@@ -47,10 +47,13 @@ for k in allkw:
 for s_ in samples:
     assert s_['date_status'] in ('relative', 'conflict', 'absolute_verified') and (s_['date_status'] != 'absolute_verified' or s_['date_evidence']), s_['id']
     assert s_['classification'] in ('unproven', 'evidenced') and s_['classification_evidence'], s_['id']
+    assert s_['batch'].startswith('旧池') or set(s_.get('appeal', {})) == {'fact', 'hypothesis', 'missing'}, s_['id']  # 新帖必须有 事实/待验证解释/缺证
 for p in PR['proposals']:
     assert all(len(t) <= 20 for t in p['titles']), p['id']
     assert p['support_ids'] and set(p['support_ids']) <= ids and p['evidence_gap'] and p['group'] in {g['id'] for g in groups}, p['id']
-out = dict(asof=max([KW['plan_date']] + [f['captured'] for f in EXTRA]), rules=OLD['rules'], tiers=OLD['tiers'], gaps=OLD['gaps'],
+confirm = dict(hot_confirmed=any(x['classification'] == 'evidenced' for x in samples if not x['batch'].startswith('旧池')),
+               checked=sum(not x['batch'].startswith('旧池') for x in samples), legacy=sum(x['batch'].startswith('旧池') for x in samples))
+out = dict(confirm=confirm, asof=max([KW['plan_date']] + [f['captured'] for f in EXTRA]), rules=OLD['rules'], tiers=OLD['tiers'], gaps=OLD['gaps'],
     counts=dict(planned=len(allkw), this_round=sum(k['this_round'] for k in allkw), searched=len(searched)),
     keywords_coverage=dict(groups=groups, legacy=KW['legacy'], status_labels=ST, round_note=KW.get('round_note', '')), not_proposed=PR.get('not_proposed', []), samples=samples, proposals=PR['proposals'])
 (S / 'new-small-v2.json').write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n")

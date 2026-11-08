@@ -26,15 +26,30 @@ class NewSmall(unittest.TestCase):
         old = [x for x in D['samples'] if x['batch'].startswith('旧池')]
         s.assertEqual(len(old), 4)
         for x in old: s.assertEqual(x['date_status'], 'relative')  # 无年份、无绝对时间证据，不升级
-    def test_proposals_first_then_evidence(s):
-        s.assertLess(B.index('<h3>建议选题'), B.index('<h3>关键词覆盖')); s.assertLess(B.index('<h3>关键词覆盖'), B.index('<h3>真实样本'))
+    def test_reading_order_evidence_reasons_then_advice(s):
+        # t249：能确认什么 → 帖子与数据 → 原因 → 建议 → 关键词覆盖 → 旧样本池
+        idx = [B.index(f'id="{x}"') for x in ('ns-confirm', 'ns-posts', 'ns-advice', 'ns-coverage', 'ns-history')]
+        s.assertEqual(idx, sorted(idx))
         ids = set(re.findall(r'id="([^"]+)"', B))
         for h in re.findall(r'href="#(ns-[^"]+)"', B): s.assertIn(h, ids)
+        for x in [y for y in D['samples'] if not y['batch'].startswith('旧池')]:
+            art = re.search(rf'<article id="ns-s-{x["id"]}"[^>]*>.*?</article>', B, re.S).group(0)
+            s.assertLess(B.index(f'id="ns-s-{x["id"]}"'), B.index('id="ns-advice"'))
+            head = art.split('<details>')[0]  # 发布时间、数据、原因与结论都在折叠之前
+            for v in (x['date'], x['counts'], x['appeal']['fact'], x['appeal']['hypothesis'], x['appeal']['missing']): s.assertIn(html.escape(v), head)
+            s.assertLess(head.index('发布时间'), head.index('可能受欢迎的原因'))
+        for x in [y for y in D['samples'] if y['batch'].startswith('旧池')]:
+            s.assertGreater(B.index(f'id="ns-s-{x["id"]}"'), B.index('id="ns-history"'))
         for p in D['proposals']:
             for t in p['titles']: s.assertLessEqual(len(t), 20)
-            s.assertTrue(p['ocean_case'] and p['evidence_gap'] and p['next'])
-            for f in ('audience_problem', 'angle', 'takeaway'): s.assertIn(html.escape(p[f]), B)
-        s.assertEqual(B.count('<details'), len(D['proposals']) + len(D['samples']))
+            art = re.search(rf'<article id="ns-{p["id"]}">.*?<details>', B, re.S).group(0)
+            for f in ('audience_problem', 'angle', 'takeaway', 'evidence_gap'): s.assertIn(html.escape(p[f]), art)
+            for i in p['support_ids']: s.assertIn(f'href="#ns-s-{i}"', art)
+    def test_honest_heat_summary(s):
+        conf = re.search(r'<section id="ns-confirm">.*?</section>', B, re.S).group(0)
+        if not D['confirm']['hot_confirmed']: s.assertIn('暂未确认热帖', conf)
+        s.assertIn('粉丝少不等于火', conf)
+        for bad in ('热门帖', '爆了', '已火', '赞粉比为'): s.assertNotIn(bad, B)
     def test_tier_order_and_rules(s):
         L = list(D['tiers'].values())
         s.assertLess(B.index(L[0]), B.index(L[1])); s.assertLess(B.index(L[1]), B.index(L[2]))
@@ -45,14 +60,11 @@ class NewSmall(unittest.TestCase):
             if x['id'] in src: s.assertEqual(x['title'], src[x['id']])  # 原标题完整保留，≤20 字只约束建议标题
             if x['date_status'] != 'absolute_verified': s.assertIsNone(x['date_evidence'])
             if x['classification'] == 'unproven':
-                blk = re.search(rf'<details id="ns-s-{x["id"]}">.*?</details>', B, re.S).group(0)
-                s.assertIn('<dt>表现结论</dt><dd>未证实：', blk)
+                blk = re.search(rf'<article id="ns-s-{x["id"]}"[^>]*>.*?</article>', B, re.S).group(0).split('<details>')[0]
+                s.assertRegex(blk, '未证实：')
         # 补搜样本标题与仓库外原始记录逐字相同（原始记录只在采集机上；别处 checkout 只跑上面的检查）
         for raw in Path('/workspace/xhs-small-structured-20261109').glob('search-batch*/samples/*/sample.json'):
             r = json.loads(raw.read_text()); s.assertEqual(next(y for y in D['samples'] if y['url'] == r['note_url_clean'])['title'], r['title'])
-        for p in D['proposals']:
-            art = re.search(rf'<article id="ns-{p["id"]}">.*?<details>', B, re.S).group(0)  # 缺口在折叠前可见
-            s.assertTrue(p['support_ids']); s.assertIn(html.escape(p['evidence_gap']), art)
     def test_links_clean_and_private(s):
         for t in re.findall(r'<a\b[^>]*href="https[^"]*"[^>]*>', B):
             s.assertIn('target="_blank"', t); s.assertRegex(t, r'href="https://www\.xiaohongshu\.com/explore/[0-9a-f]{24}"')
