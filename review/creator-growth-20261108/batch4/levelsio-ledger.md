@@ -1,0 +1,14 @@
+# levelsio 证据台账（采集 2026-11-08 UTC+8）
+原始 JSON 在仓库外 /workspace/creator-growth-20261108/b4/。
+
+| 编号 | URL | 时间（UTC+8） | 查看范围 | 原文 | 等级 |
+|---|---|---|---|---|---|
+| P1 | https://x.com/levelsio | 建号 2013-07-08；读于 2026-11-08 | API 资料 | 关注者 990,458；简介：💸https://t.co/sQ0aiU7v02 / 📸https://t.co/lAyoqmSBRX $68K/m / 🎮https://t.co/tF49atJ396 $44K/m / 🏡https://t.co/1oqUgfD6CZ $23K/m / 👙@X $20K/m / 🌍https://t.co/UXK5AFqCaQ $7K/m / 🏩https://t.co/4p4dzTDVN6 $3K/m / 💾@pieter / 📝https://t.co/8VnHmB3uah | 事实 |
+| X1 | https://x.com/levelsio/status/1735086690321023267 | 2023-12-14 07:57 | 全文（API） | ✂️ Aggressively started cutting costs recently  I wasn't really aware how much my money was just evaporating  I cut $456,372/year in costs this month (or 20%) and improved my overall profit margins over all my sites 67% to 87%  Stuff like: - sending weekly job alerts instead of daily (I was sending 70,000 daily emails, bit pricey!) then changing the plan on SendGrid to a lower one, that cut the bi | 事实（文本）/自述 |
+| X2 | https://x.com/levelsio/status/2118663337433030792 | 2026-11-06 19:14 | 全文（API） | Crypto bros go to Paraguay   Forced to open bank account to have ties  Bank fails   Ironically proving their point | 事实（文本）/自述 |
+| X3 | https://x.com/levelsio/status/2118737314943754500 | 2026-11-07 00:08 | 全文（API） | I will publish my full list of 10,000+ blocked AI spammer accounts soon so everyone can block them easily tooo  If you write AI replies under my tweets you will now permanently destroy your X account  Because you'll very quickly end up in a public data set of AI spammers that people will use to block them  Better turn those AI reply bots off today | 事实（文本）/自述 |
+| X4 | https://x.com/levelsio/status/2118746285071028248 | 2026-11-07 00:44 | 全文（API） | The worst part about AI replies it's a negative cost to all of us on here  You squeeze out people who actually put effort to interact with others on here  For some dumb growth strategy that doesn't work anyway  TL:DR: if you're doing AI replies, you're an asshole https://t.co/AsU4k6DWgR | 事实（文本）/自述 |
+| X5 | https://x.com/levelsio/status/2118769886881055063 | 2026-11-07 02:18 | 全文（API） | EU is literally US but somehow still stuck in 2016 woke BS https://t.co/UH0KZGOk3h | 事实（文本）/自述 |
+| X6 | https://x.com/levelsio/status/2119132202952798369 | 2026-11-08 02:17 | 全文（API） | Claude Code can design furniture part by part and then give you a bill of materials to order each part and put it together yourself   And way cheaper than big interior brands sell you their furniture  Furnishing my house I discovered how absolutely insane prices are for the most basic cheap materials put together with a fancy brand tied to it  One shop had a sofa for $30,000 😂  I think with Opus 5 | 事实（文本）/自述 |
+| R | 回复 | 见 /workspace/creator-growth-20261108/b4/levelsio/x-replies.json | API 返回范围 | 页面引用的评论原文均在该文件 | 评论者自述 |
+| W | 网页 | 见 web-excerpts.md | 全文 | — | 自述 |
