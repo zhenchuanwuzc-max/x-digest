@@ -21,18 +21,15 @@
        "captured": "2026-11-09 01:01:24 UTC+8",
        "sort": "最新",
        "sort_evidence": "筛选面板“最新”高亮截图（仓库外）",
-       "status": "scanned_pending",
+       "status": "sampled",
        "scanned_count": 8,
-       "opened_count": 0,
-       "sample_ids": [],
-       "pending_candidates": 8,
+       "opened_count": 2,
+       "sample_ids": [
+        "6af084f0000000002a02bf4d",
+        "6af05a580000000005009721"
+       ],
+       "pending_candidates": 6,
        "pending_list": [
-        {
-         "order": 1,
-         "title": "🔀 AI产品经理选Agent还是工作流",
-         "time_raw": "昨天 23:20",
-         "url": "https://www.xiaohongshu.com/explore/6af084f0000000002a02bf4d"
-        },
         {
          "order": 2,
          "title": "小鹿学习AI产品",
@@ -44,12 +41,6 @@
          "title": "裸辞两个月成功转行ai医疗产品经理",
          "time_raw": "昨天 20:59",
          "url": "https://www.xiaohongshu.com/explore/6af071a9000000001503cec7"
-        },
-        {
-         "order": 4,
-         "title": "🤖 AI产品经理先问4件事",
-         "time_raw": "昨天 19:17",
-         "url": "https://www.xiaohongshu.com/explore/6af05a580000000005009721"
         },
         {
          "order": 5,
@@ -76,7 +67,7 @@
          "url": "https://www.xiaohongshu.com/explore/6aef3f870000000015010e24"
         }
        ],
-       "limits": "仅扫描首8张；未打开笔记/作者主页，未核粉丝。；相对日期无年份，不转换为绝对发布日期。；卡片赞数仅记录界面可见值，不作同龄基线或效果证明。"
+       "limits": "仅扫描首8张；其中 2 篇于 2026-11-09 07:20–07:21 UTC+8 复查打开、核粉丝与互动后转入已核样本，其余未打开、未核粉丝。；相对日期无年份，不转换为绝对发布日期。；卡片赞数仅记录界面可见值，不作同龄基线或效果证明。"
       }
      ]
     },
@@ -365,8 +356,134 @@
     {
      "query": "知识库 效果",
      "source_topic": "TK-14",
-     "this_round": false,
-     "searches": []
+     "this_round": true,
+     "searches": [
+      {
+       "captured": "2026-11-09 07:15 UTC+8",
+       "sort": "最新",
+       "sort_evidence": "搜索页“最新”实际切换并确认高亮，排序截图（仓库外）",
+       "status": "scanned_pending",
+       "scanned_count": 8,
+       "opened_count": 0,
+       "sample_ids": [],
+       "pending_candidates": 8,
+       "pending_list": [
+        {
+         "order": 1,
+         "title": "AI知识库 搞学习真可以！",
+         "time_raw": "昨天 23:48",
+         "url": "https://www.xiaohongshu.com/explore/6af099b90000000002004e29"
+        },
+        {
+         "order": 2,
+         "title": "虚拟资料案例拆解:AI健身知识库",
+         "time_raw": "昨天 08:33",
+         "url": "https://www.xiaohongshu.com/explore/6aefc34c0000000016006737"
+        },
+        {
+         "order": 3,
+         "title": "考研后期海量资料真的可以换种用法！",
+         "time_raw": "2天前",
+         "url": "https://www.xiaohongshu.com/explore/6aedadae000000002b0261b4"
+        },
+        {
+         "order": 4,
+         "title": "机器人自己写程序，长任务89.1%成功",
+         "time_raw": "4天前",
+         "url": "https://www.xiaohongshu.com/explore/6aeafed90000000003016109"
+        },
+        {
+         "order": 5,
+         "title": "别迷信一键导入，好效果靠分屏死磕",
+         "time_raw": "4天前",
+         "url": "https://www.xiaohongshu.com/explore/6aeacdc2000000000300a24b"
+        },
+        {
+         "order": 6,
+         "title": "GEO没效果？根源是知识库没搭好",
+         "time_raw": "10-28",
+         "url": "https://www.xiaohongshu.com/explore/6ae1e5e3000000002b035b13"
+        },
+        {
+         "order": 7,
+         "title": "难怪GEO没效果！漏掉品牌事实知识库",
+         "time_raw": "10-27",
+         "url": "https://www.xiaohongshu.com/explore/6ae09445000000002603a221"
+        },
+        {
+         "order": 8,
+         "title": "救命！腾讯元器要没了，怎么做知识库",
+         "time_raw": "10-26",
+         "url": "https://www.xiaohongshu.com/explore/6ade9de700000000160183e3"
+        }
+       ],
+       "limits": "首 8 张卡；未打开的卡不判合格与否，赞数只记卡面可见值（无数字写页面未显示）。；相对时间无年份，不换算绝对日期。；结果多为学习资料、GEO 营销和 10-26～10-28 的帖，和知识库指标匹配弱。"
+      }
+     ]
+    },
+    {
+     "query": "AI评测集",
+     "source_topic": "TK-02",
+     "this_round": true,
+     "searches": [
+      {
+       "captured": "2026-11-09 07:16 UTC+8",
+       "sort": "最新",
+       "sort_evidence": "搜索页“最新”实际切换并确认高亮，排序截图（仓库外）",
+       "status": "sampled",
+       "scanned_count": 8,
+       "opened_count": 1,
+       "sample_ids": [
+        "6af00cd20000000003015240"
+       ],
+       "pending_candidates": 7,
+       "pending_list": [
+        {
+         "order": 1,
+         "title": "NeurIPS26｜医学 AI 不会拒答",
+         "time_raw": "昨天 23:07",
+         "url": "https://www.xiaohongshu.com/explore/6af06ede000000000e024c54"
+        },
+        {
+         "order": 2,
+         "title": "Benchmark精选周刊｜第13期",
+         "time_raw": "昨天 23:03",
+         "url": "https://www.xiaohongshu.com/explore/6af08f31000000002b030481"
+        },
+        {
+         "order": 3,
+         "title": "AI 开始改自己干活的方式了：美团跑通五轮",
+         "time_raw": "昨天 18:58",
+         "url": "https://www.xiaohongshu.com/explore/6af055de000000000602f5b8"
+        },
+        {
+         "order": 5,
+         "title": "AI产品面试｜项目深挖9问答不上第5个就危了",
+         "time_raw": "昨天 13:39",
+         "url": "https://www.xiaohongshu.com/explore/6af00b17000000001a014fd6"
+        },
+        {
+         "order": 6,
+         "title": "明天面AI产品经理？这8个方向必被问",
+         "time_raw": "昨天 13:33",
+         "url": "https://www.xiaohongshu.com/explore/6af009ab000000000e00e711"
+        },
+        {
+         "order": 7,
+         "title": "Agent评测这样做，告别感觉还行",
+         "time_raw": "昨天 13:29",
+         "url": "https://www.xiaohongshu.com/explore/6af008c2000000001a014774"
+        },
+        {
+         "order": 8,
+         "title": "突发！DeepSeek V4.1 Pro疑似灰度",
+         "time_raw": "昨天 13:20",
+         "url": "https://www.xiaohongshu.com/explore/6af006aa00000000030235a0"
+        }
+       ],
+       "limits": "首 8 张卡；未打开的卡不判合格与否，赞数只记卡面可见值（无数字写页面未显示）。；相对时间无年份，不换算绝对日期。；同作者职场易分享另两篇未打开；DeepSeek 灰度为模型新闻。"
+      }
+     ]
     }
    ]
   },
@@ -609,14 +726,124 @@
     {
      "query": "功能验收",
      "source_topic": "TK-09",
-     "this_round": false,
-     "searches": []
+     "this_round": true,
+     "searches": [
+      {
+       "captured": "2026-11-09 07:15 UTC+8",
+       "sort": "最新",
+       "sort_evidence": "搜索页“最新”实际切换并确认高亮，排序截图（仓库外）",
+       "status": "sampled",
+       "scanned_count": 8,
+       "opened_count": 1,
+       "sample_ids": [
+        "6aeed0b5000000001a0251b0"
+       ],
+       "pending_candidates": 7,
+       "pending_list": [
+        {
+         "order": 1,
+         "title": "AI 说“完成了”就一定对了吗",
+         "time_raw": "昨天 20:36",
+         "url": "https://www.xiaohongshu.com/explore/6af02c1300000000030152a5"
+        },
+        {
+         "order": 2,
+         "title": "验收付款前，先跑通这4个场景",
+         "time_raw": "昨天 20:04",
+         "url": "https://www.xiaohongshu.com/explore/6af065440000000006031b6a"
+        },
+        {
+         "order": 3,
+         "title": "已赚25w｜AI赚💰纯靠抄？3条codex指令直接套",
+         "time_raw": "昨天 19:27",
+         "url": "https://www.xiaohongshu.com/explore/6aef1d78000000001a031bf4"
+        },
+        {
+         "order": 4,
+         "title": "启幕MCP功能验收测试",
+         "time_raw": "昨天 18:07",
+         "url": "https://www.xiaohongshu.com/explore/6af049d5000000001802c317"
+        },
+        {
+         "order": 5,
+         "title": "AI做App越改越崩？先补上这7步",
+         "time_raw": "昨天 13:57",
+         "url": "https://www.xiaohongshu.com/explore/6af00f5f000000000500b750"
+        },
+        {
+         "order": 6,
+         "title": "土豆姐：把AI带成工程团队",
+         "time_raw": "昨天 12:37",
+         "url": "https://www.xiaohongshu.com/explore/6aeffc95000000000203492c"
+        },
+        {
+         "order": 7,
+         "title": "（标题为空）",
+         "time_raw": "昨天 10:02",
+         "url": "https://www.xiaohongshu.com/explore/6aec99480000000015014a59"
+        }
+       ],
+       "limits": "首 8 张卡；未打开的卡不判合格与否，赞数只记卡面可见值（无数字写页面未显示）。；相对时间无年份，不换算绝对日期。；「已赚25w」收益帖与智能家居卡与主题不对口。"
+      }
+     ]
     },
     {
      "query": "任务状态机",
      "source_topic": "TK-12",
      "this_round": false,
      "searches": []
+    },
+    {
+     "query": "AI功能 怎么验收",
+     "source_topic": "TK-09",
+     "this_round": true,
+     "searches": [
+      {
+       "captured": "2026-11-09 07:15 UTC+8",
+       "sort": "最新",
+       "sort_evidence": "搜索页“最新”实际切换并确认高亮，排序截图（仓库外）",
+       "status": "sampled",
+       "scanned_count": 8,
+       "opened_count": 1,
+       "sample_ids": [
+        "6aef487d000000000e00fddb"
+       ],
+       "pending_candidates": 5,
+       "pending_list": [
+        {
+         "order": 1,
+         "title": "减少AI幻觉，提问到验收这样做",
+         "time_raw": "昨天 22:56",
+         "url": "https://www.xiaohongshu.com/explore/6af08d9300000000290115e7"
+        },
+        {
+         "order": 3,
+         "title": "AI好答案的起点：可验收的任务",
+         "time_raw": "昨天 18:40",
+         "url": "https://www.xiaohongshu.com/explore/6af05198000000001503e08e"
+        },
+        {
+         "order": 5,
+         "title": "你买的到底是工具，还是结果",
+         "time_raw": "昨天 10:09",
+         "url": "https://www.xiaohongshu.com/explore/6aefbd88000000000703b1be"
+        },
+        {
+         "order": 6,
+         "title": "AI时代四大能力之审核验收能力",
+         "time_raw": "昨天 07:57",
+         "url": "https://www.xiaohongshu.com/explore/6aefbad80000000003002ac4"
+        },
+        {
+         "order": 7,
+         "title": "AI写的稿子不敢交？缺的不是能力是验收 ✅",
+         "time_raw": "1天前",
+         "url": "https://www.xiaohongshu.com/explore/6aefad5f00000000200088f1"
+        }
+       ],
+       "limits": "首 8 张卡；未打开的卡不判合格与否，赞数只记卡面可见值（无数字写页面未显示）。；相对时间无年份，不换算绝对日期。；另有 2 张卡（已赚25w、AI做App越改越崩）与「功能验收」重合，只在那里列出。"
+      }
+     ]
     }
    ]
   }
@@ -643,5 +870,5 @@
   "checked_none": "本轮已核样本暂未满足条件"
  },
  "search_record_fields": "captured, sort, sort_evidence, status, scanned_count, opened_count, sample_ids（已入精读库）, pending_candidates（扫到但未精读/粉丝或日期待核的条数）, limits；checked_none 还须 no_qualified_basis",
- "round_note": "t248 本轮 8 词补搜到此结束：每词最新排序首 8 张卡，共 64 张；最新排序不等于全是新帖，结果里混有旧帖与无关内容"
+ "round_note": "t248 补搜（2026-11-09 01:0x）8 词，每词最新排序首 8 张卡；2026-11-09 07:15–07:16 每日采样 4 词（功能验收、AI功能 怎么验收、知识库 效果、AI评测集）同样取首 8 张卡，并复查 01:01 池 2 篇；最新排序不等于全是新帖，结果里混有旧帖与无关内容"
 }
