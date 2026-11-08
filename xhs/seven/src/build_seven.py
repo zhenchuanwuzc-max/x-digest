@@ -27,11 +27,12 @@ body.append(head('s1') + f'<p class="mut">原文：{e(s1["article"])}</p><h3>内
   tbl(['方向', '依据', '怎么验证'], [[e(x['name']), e(x['basis']), e(x['validate'])] for x in s1['content_directions']]) +
   '<h3>变现假设（有条件才考虑）</h3>' + tbl(['假设', '前提条件'], [[e(x['name']), e(x['condition'])] for x in s1['monetization_hypotheses']]) +
   f'<p><b>{e(s1["decision"])}</b></p></section>')
-lat = [[ext(x['url'], x['title']), e(x['author']) + '<br><span class="mut">粉丝 ' + (f"{x['followers_verified']}（已核）" if x['followers_verified'] else '未核') + '</span>', e(x['published_raw']), f"赞 {x['counts_2026_11_08']['likes']} / 藏 {x['counts_2026_11_08']['collects']} / 评 {x['counts_2026_11_08']['comments']}",
+def row(x): return [ext(x['url'], x['title']), e(x['author']) + '<br><span class="mut">粉丝 ' + (f"{x['followers_verified']}（已核）" if x['followers_verified'] else '未核') + '</span>', e(x['published_raw']), f"赞 {x['counts_2026_11_08']['likes']} / 藏 {x['counts_2026_11_08']['collects']} / 评 {x['counts_2026_11_08']['comments']}",
         ('同期倾向（相对日期，绝对日未核）' if x['comparable_same_period'] else '不可比：' + e(x['why_not'])), e(x['coverage']), e('、'.join(x['categories'])) + '<br><span class="mut">' + e(x['categories_note']) + '</span>',
-        e(x['skeleton']), e(x['author_claims']), e(x['borrowable_action']), e(x['limits'])] for x in s2['latest']]
-body.append(head('s2') + f'<p class="mut">原文：{e(s2["article"])}</p><h3>最新池（{len(s2["latest"])} 条）</h3><p class="mut">{e(s2["latest_scan"])}。数字为 2026-11-08 页面读数。</p>' +
-  (tbl(['笔记', '作者', '时间（页面原样）', '赞藏评', '同期比较', '读了什么', '分类', '骨架', '作者自述 / 未核', '可借写法（我们的建议）', '边界'], lat, 'wide') if lat else '<p>暂无。</p>') +
+        e(x['skeleton']), e(x['author_claims']), e(x['borrowable_action']), e(x['limits'])]
+body.append(head('s2') + f'<p class="mut">原文：{e(s2["article"])}</p><h3>选帖逻辑</h3><p class="mut">这是日常选题的规则，原样在 ' + ext('../#newsmall', '小红书入口 · 选题热帖：新帖、小号优先') + '，两处读同一份数据。</p>' + ul([e(r) for r in s2['selection_logic']]) + f'<p class="mut">{e(s2["latest_scan"])}。数字为 2026-11-08 页面读数。</p>' +
+  ''.join(f'<h3>{e(lab)}（{len(rs)} 条）</h3>' + tbl(['笔记', '作者', '时间（页面原样）', '赞藏评', '同期比较', '读了什么', '分类', '骨架', '作者自述 / 未核', '可借写法（我们的建议）', '边界'], [row(x) for x in rs], 'wide')
+          for k, lab in s2['tiers'].items() for rs in [[x for x in s2['latest'] if x['tier'] == k]] if rs) +
   '<h3>历史池（主页置顶 / 近期，不代表近期趋势）</h3>' + ul([f'<a href="{e(h["href"])}" target="_blank" rel="noopener noreferrer">{e(h["name"])}</a> — {e(h["note"])}' for h in s2['historical']]) + '</section>')
 body.append(head('s3') + '<div class="g3">' + ''.join(f'<div><h3>{t}</h3>{ul([e(x) for x in s3[k]])}</div>' for t, k in (('已知（Ocean 原话）', 'facts'), ('内容边界', 'boundaries'), ('探索中的假设', 'hypotheses'), ('留空，不替 Ocean 定', 'left_blank'))) + '</div></section>')
 r4 = [[e(r['cat']), e(r['identify']), e(r['need']), e(r['promise']), e(r['suggested_title']) + '<br><span class="mut">我们的建议，不是真实爆款</span>' + ''.join(f'<br><span class="mut">最新骨架《{e(x["title"])}》：{e(x["skeleton"])}</span>' for x in r['latest_refs']), e(r['source_status']) + '<br><span class="mut">' + note(r['source_note']) + '</span>'] for r in s4]

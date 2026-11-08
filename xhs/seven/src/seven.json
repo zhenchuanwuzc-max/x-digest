@@ -19,9 +19,9 @@
    "id": "s2",
    "n": 2,
    "name": "找同期对标",
-   "out": "历史池 4 个人物页；最新池 4 条（同期倾向 3 条，均为相对日期），2 位作者粉丝 <1万 已核",
-   "state": "最新样本少，爆款未证实",
-   "gap": "其余 8 张卡未打开；全部样本的绝对发布日期与年未核；同期对照不足，代表性与爆款效应未证实；sample1/sample2 作者粉丝未核"
+   "out": "新帖主池 3 条（小号候选优先 2、粉丝未核次列 1）；旧帖编辑独列 1；历史池 4 个人物页",
+   "state": "先核新发布，再优先小号同龄比较；爆款未证实",
+   "gap": "其余 8 张卡未打开；全部样本的绝对发布日期与年未核；同类同龄窗口的基线不足，代表性与爆款效应未证实；sample1/sample2 作者粉丝未核"
   },
   {
    "id": "s3",
@@ -125,40 +125,77 @@
   ],
   "latest": [
    {
-    "source_id": "6ac5fa7a000000001203fb99",
-    "url": "https://www.xiaohongshu.com/explore/6ac5fa7a000000001203fb99",
-    "author": "童话。",
-    "followers_verified": null,
+    "source_id": "6aeea270000000000e025ebd",
+    "url": "https://www.xiaohongshu.com/explore/6aeea270000000000e025ebd",
+    "author": "烦死了这破deck",
+    "tier": "small_priority",
+    "followers_verified": 9639,
     "format": "图文",
     "cards_read": 1,
-    "skeleton": "一句反差判断做封面 → 结论式正文 → 评论区收集经验",
-    "author_claims": "“聊了40多个”为作者自述，无对象无来源",
-    "title": "聊了 40 多个用 Claude的大佬，发现目前",
+    "title": "5个免费ai工具 帮我40分钟做出mbb级别deck",
     "pool": "latest_sample",
     "search": {
      "keyword": "AI工具",
      "sort_actually_used": "最新"
     },
-    "published_raw": "卡上“1天前”；详情“编辑于 昨天 03:56”；评论最早 10-07",
-    "comparable_same_period": false,
-    "why_not": "旧帖近期编辑，与 1 天内新发笔记不同期，不能直接比",
+    "published_raw": "详情“1天前 美国”，无编辑标识；唯一评论“1天前”；绝对日期与年未显示",
+    "comparable_same_period": true,
+    "why_not": null,
     "counts_2026_11_08": {
-     "likes": 423,
-     "collects": 288,
-     "comments": 452
+     "likes": 103,
+     "collects": 112,
+     "comments": 1
     },
-    "coverage": "图文 1/1 张",
+    "coverage": "图文 1/1 张（配图与正文无关）+ 长正文全读",
     "categories": [
-     "共鸣"
+     "痛点",
+     "数字",
+     "资源"
     ],
-    "categories_note": "分类为研究者归纳",
-    "borrowable_action": "一句反差判断做封面大字，评论区让读者讲各自经验",
-    "limits": "“聊了40多个”是作者自述，无对象无来源；评论含作者引流群口令"
+    "categories_note": "分类为研究者归纳，可交叉",
+    "skeleton": "开头痛点（付费工具贵）→ 结果承诺（40分钟、5个免费工具）→ 5 个工具逐个讲用途与操作 → 一句话串起流程",
+    "author_claims": "“40分钟做完”“5个完全免费”为作者自述未核；未展示成品 deck，无来源链接；唯一评论质疑 NotebookLM 已能直接出 PPT",
+    "borrowable_action": "痛点开头接一个可核对的结果承诺，正文按工具逐个给用途，最后一句串成流程",
+    "limits": "不能当工具实测；作者粉丝 9639 已核，曝光不可见，同期基线不足，不能称低粉爆款"
+   },
+   {
+    "source_id": "6aef3f870000000015010e24",
+    "url": "https://www.xiaohongshu.com/explore/6aef3f870000000015010e24",
+    "author": "Charles的AI产品进阶-途灵灵",
+    "tier": "small_priority",
+    "followers_verified": 4346,
+    "format": "图文",
+    "cards_read": 13,
+    "title": "自存收藏｜产品经理公认好用的十大skill",
+    "pool": "latest_sample",
+    "search": {
+     "keyword": "AI工具",
+     "sort_actually_used": "最新"
+    },
+    "published_raw": "详情“昨天 16:11 江苏”，无编辑标识；评论均晚于发布、时间线一致；年未显示；卡内页脚 2026.11.06 不等于发布日",
+    "comparable_same_period": true,
+    "why_not": null,
+    "counts_2026_11_08": {
+     "likes": 24,
+     "collects": 28,
+     "comments": 5
+    },
+    "coverage": "图文 13/13 张全读（3 张空白卡重试后读到）",
+    "categories": [
+     "数字",
+     "资源"
+    ],
+    "categories_note": "分类为研究者归纳，可交叉",
+    "skeleton": "封面“10个 skill，按流程装” → 四象限总览（理解/定义/规格/验证） → 每个 skill 一页统一模板：三条职责 + 关键产出 + 上下游 + 人负责检查 → 末页总表",
+    "author_claims": "“公认好用”为标题自述；各 skill 功能为卡内描述，未实测，无仓库链接；十个 skill 名单与老A研究所同主题帖相同，正文与该帖一条评论近乎同句，只记相似，不推断抄袭或 AI 生成",
+    "borrowable_action": "清单类先给总览分组，再一项一页用同一模板，末页给总表",
+    "limits": "作者粉丝 4346 已核；24 赞为绝对值，曝光不可见，不称低粉爆款，不与其他样本排名"
    },
    {
     "source_id": "6aeeec9d0000000015011aa0",
     "url": "https://www.xiaohongshu.com/explore/6aeeec9d0000000015011aa0",
     "author": "阿Win破局思维",
+    "tier": "followers_unverified",
     "followers_verified": null,
     "format": "视频",
     "cards_read": null,
@@ -188,73 +225,40 @@
     "limits": "视频内容与优惠明细未读，不写优惠信息"
    },
    {
-    "source_id": "6aeea270000000000e025ebd",
-    "url": "https://www.xiaohongshu.com/explore/6aeea270000000000e025ebd",
-    "author": "烦死了这破deck",
-    "followers_verified": 9639,
+    "source_id": "6ac5fa7a000000001203fb99",
+    "url": "https://www.xiaohongshu.com/explore/6ac5fa7a000000001203fb99",
+    "author": "童话。",
+    "tier": "edited_old",
+    "followers_verified": null,
     "format": "图文",
     "cards_read": 1,
-    "title": "5个免费ai工具 帮我40分钟做出mbb级别deck",
+    "skeleton": "一句反差判断做封面 → 结论式正文 → 评论区收集经验",
+    "author_claims": "“聊了40多个”为作者自述，无对象无来源",
+    "title": "聊了 40 多个用 Claude的大佬，发现目前",
     "pool": "latest_sample",
     "search": {
      "keyword": "AI工具",
      "sort_actually_used": "最新"
     },
-    "published_raw": "详情“1天前 美国”，无编辑标识；唯一评论“1天前”；绝对日期与年未显示",
-    "comparable_same_period": true,
-    "why_not": null,
+    "published_raw": "卡上“1天前”；详情“编辑于 昨天 03:56”；评论最早 10-07",
+    "comparable_same_period": false,
+    "why_not": "旧帖近期编辑，与 1 天内新发笔记不同期，不能直接比",
     "counts_2026_11_08": {
-     "likes": 103,
-     "collects": 112,
-     "comments": 1
+     "likes": 423,
+     "collects": 288,
+     "comments": 452
     },
-    "coverage": "图文 1/1 张（配图与正文无关）+ 长正文全读",
+    "coverage": "图文 1/1 张",
     "categories": [
-     "痛点",
-     "数字",
-     "资源"
+     "共鸣"
     ],
-    "categories_note": "分类为研究者归纳，可交叉",
-    "skeleton": "开头痛点（付费工具贵）→ 结果承诺（40分钟、5个免费工具）→ 5 个工具逐个讲用途与操作 → 一句话串起流程",
-    "author_claims": "“40分钟做完”“5个完全免费”为作者自述未核；未展示成品 deck，无来源链接；唯一评论质疑 NotebookLM 已能直接出 PPT",
-    "borrowable_action": "痛点开头接一个可核对的结果承诺，正文按工具逐个给用途，最后一句串成流程",
-    "limits": "不能当工具实测；作者粉丝 9639（<1万）已核，但曝光不可见，不能称低粉爆款"
-   },
-   {
-    "source_id": "6aef3f870000000015010e24",
-    "url": "https://www.xiaohongshu.com/explore/6aef3f870000000015010e24",
-    "author": "Charles的AI产品进阶-途灵灵",
-    "followers_verified": 4346,
-    "format": "图文",
-    "cards_read": 13,
-    "title": "自存收藏｜产品经理公认好用的十大skill",
-    "pool": "latest_sample",
-    "search": {
-     "keyword": "AI工具",
-     "sort_actually_used": "最新"
-    },
-    "published_raw": "详情“昨天 16:11 江苏”，无编辑标识；评论均晚于发布、时间线一致；年未显示；卡内页脚 2026.11.06 不等于发布日",
-    "comparable_same_period": true,
-    "why_not": null,
-    "counts_2026_11_08": {
-     "likes": 24,
-     "collects": 28,
-     "comments": 5
-    },
-    "coverage": "图文 13/13 张全读（3 张空白卡重试后读到）",
-    "categories": [
-     "数字",
-     "资源"
-    ],
-    "categories_note": "分类为研究者归纳，可交叉",
-    "skeleton": "封面“10个 skill，按流程装” → 四象限总览（理解/定义/规格/验证） → 每个 skill 一页统一模板：三条职责 + 关键产出 + 上下游 + 人负责检查 → 末页总表",
-    "author_claims": "“公认好用”为标题自述；各 skill 功能为卡内描述，未实测，无仓库链接；十个 skill 名单与老A研究所同主题帖相同，正文与该帖一条评论近乎同句，只记相似，不推断抄袭或 AI 生成",
-    "borrowable_action": "清单类先给总览分组，再一项一页用同一模板，末页给总表",
-    "limits": "作者粉丝 4346（<1万）已核；24 赞为绝对值，曝光不可见，不称低粉爆款，不与其他样本排名"
+    "categories_note": "分类为研究者归纳",
+    "borrowable_action": "一句反差判断做封面大字，评论区让读者讲各自经验",
+    "limits": "“聊了40多个”是作者自述，无对象无来源；评论含作者引流群口令"
    }
   ],
   "latest_scan": "关键词“AI工具”最新排序前 12 张卡轻扫（便利样本，非榜单），打开 4 篇：图文 3 篇共读 15 张卡，视频 1 篇只看标题描述；曝光不可见；不称爆款、不称全平台最热",
-  "pending": "其余 8 张卡未打开；全部样本的绝对发布日期与年未核；同期对照不足，代表性与爆款效应未证实；sample1/sample2 作者粉丝未核",
+  "pending": "其余 8 张卡未打开；全部样本的绝对发布日期与年未核；同类同龄窗口的基线不足，代表性与爆款效应未证实；sample1/sample2 作者粉丝未核",
   "counts": {
    "scanned_cards": 12,
    "opened": 4,
@@ -262,8 +266,23 @@
    "image_cards_read": 15,
    "videos_title_only": 1,
    "comparable": 3,
-   "followers_verified_lt_10k": 2
-  }
+   "main_pool": 3,
+   "small_priority": 2,
+   "followers_unverified": 1,
+   "edited_old": 1
+  },
+  "tiers": {
+   "small_priority": "近期新帖·小号候选（研究对象粉丝较少且已核，无固定门槛）优先",
+   "followers_unverified": "近期新帖·作者粉丝未核（次列，不叫小号）",
+   "edited_old": "旧帖近期编辑（独列历史，不进新帖主池、不做同期比较）"
+  },
+  "selection_logic": [
+   "先核是否真正新发布：看发布标识、有无“编辑于”、最早评论时间；旧帖近期编辑退出新帖主池",
+   "新帖里优先看粉丝较少的作者（研究对象，粉丝须在主页核过；未核不叫小号）；不设固定粉丝门槛",
+   "只在同类、发布时间相近的窗口里比较互动；不按历史累计赞或粉赞比判爆款",
+   "绝对发布时间/年份未核、同期基线不足时明写，不称已验证低粉爆款",
+   "粉丝 >1万 的关注对象研究是另一任务，不受此影响"
+  ]
  },
  "step3": {
   "facts": [

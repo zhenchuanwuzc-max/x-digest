@@ -16,6 +16,7 @@ s2 = P['step2']; latest = []
 for x in s2['latest_pool']:
     y = dict(x); y['url'] = clean_url(y['url']); latest.append(y)
 cmp_n = sum(x['comparable_same_period'] for x in latest)
+s2 = dict(s2, counts=dict(s2['counts'], main_pool=sum(x['tier'] != 'edited_old' for x in latest), **{k: sum(x['tier'] == k for x in latest) for k in s2['tiers']}))
 s4 = [dict(r, source_note=PRIV.get(r['source_note'], r['source_note']), latest_refs=[dict(title=x['title'], skeleton=x['skeleton']) for i in r.get('latest_refs', []) for x in s2['latest_pool'] if x['source_id'] == i]) for r in P['step4']]
 can = sum(r['source_status'].startswith('可写') for r in s4)
 T6 = {t: len(t) for t in [r['suggested_title'] for r in P['step4']] + [P['step5']['title']]}
@@ -23,8 +24,8 @@ S6 = dict(P['step6'], titles=T6, title_over_20=[k for k, v in T6.items() if v > 
 STEPS = [
  dict(id='s1', n=1, name='变现候选', out=f"{len(P['step1']['content_directions'])} 个内容方向候选 + {len(P['step1']['monetization_hypotheses'])} 个变现假设（各写验证条件）",
       state='均未选定', gap='要发几篇后看收藏与评论提问再收敛；不采购、不启动服务'),
- dict(id='s2', n=2, name='找同期对标', out=f"历史池 {len(HIST)} 个人物页；最新池 {len(latest)} 条（同期倾向 {cmp_n} 条，均为相对日期），{s2['counts']['followers_verified_lt_10k']} 位作者粉丝 <1万 已核",
-      state='最新样本少，爆款未证实', gap=s2['pending']),
+ dict(id='s2', n=2, name='找同期对标', out=f"新帖主池 {s2['counts']['main_pool']} 条（小号候选优先 {s2['counts']['small_priority']}、粉丝未核次列 {s2['counts']['followers_unverified']}）；旧帖编辑独列 {s2['counts']['edited_old']}；历史池 {len(HIST)} 个人物页",
+      state='先核新发布，再优先小号同龄比较；爆款未证实', gap=s2['pending']),
  dict(id='s3', n=3, name='探索版账号档案', out=f"已知 {len(P['step3']['facts'])} 条 · 边界 {len(P['step3']['boundaries'])} 条 · 假设 {len(P['step3']['hypotheses'])} 条",
       state='探索中', gap='留空：' + '、'.join(P['step3']['left_blank'])),
  dict(id='s4', n=4, name='七类选题库', out=f"7 类识别标准 + 7 个建议题（{can} 个可写，其余待找源）",
@@ -36,7 +37,15 @@ STEPS = [
       gap='无复盘数据；不改 routine、不自动发帖')]
 OUT.write_text(json.dumps(dict(
  source=P['source'], analysis_note='作者说法与我们的建议分开写；“养号 3–5 天、iOS 流量更稳、AI 味会被限流、出来至少 70 分、超过 90% 新手”等是作者说法，未核实，不照搬。',
- steps=STEPS, step1=P['step1'], step2=dict(article=s2['article'], historical=HIST, latest=latest, latest_scan=s2['latest_scan'], pending=s2['pending'], counts=s2['counts']),
+ steps=STEPS, step1=P['step1'], step2=dict(article=s2['article'], historical=HIST, latest=latest, latest_scan=s2['latest_scan'], pending=s2['pending'], counts=s2['counts'], tiers=s2['tiers'], selection_logic=s2['selection_logic']),
  step3=P['step3'], step4=s4, step4_note=P['step4_note'], step5=P['step5'], step6=S6, step7=P['step7'],
  asof='2026-11-08'), ensure_ascii=False, indent=1))
 print('ok', len(latest), cmp_n, can)
+
+# 日常选题区的同源数据（xhs/index.html「选题热帖：新帖、小号优先」读这份）
+NS = dict(scope="日常选题用：" + s2['latest_scan'], rules=s2['selection_logic'], tiers=s2['tiers'], gaps=s2['pending'],
+          candidates=[dict(tier=x['tier'], url=x['url'], title=x['title'], author=x['author'], followers_verified=x['followers_verified'],
+                           published_raw=x['published_raw'], likes=x['counts_2026_11_08']['likes'], collects=x['counts_2026_11_08']['collects'],
+                           comments=x['counts_2026_11_08']['comments'], skeleton=x['skeleton'], author_claims=x['author_claims']) for x in latest])
+o = OUT.parents[2] / 'topics' / 'src' / 'new-small.json'; o.parent.mkdir(parents=True, exist_ok=True)
+o.write_text(json.dumps(NS, ensure_ascii=False, indent=1) + "\n")

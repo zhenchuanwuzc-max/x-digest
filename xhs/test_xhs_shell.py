@@ -13,6 +13,7 @@ DAY_PAGES = [ROOT / "day" / "index.html", *sorted((ROOT / "day").glob("2026-*.ht
 
 HUB_HREFS = [
     "#top",
+    "#newsmall",
     "#picks",
     "#xhs",
     "#feed",
@@ -86,7 +87,7 @@ class ShellContract(unittest.TestCase):
             by_group,
             {
                 "今天": ["#top", "#xhs", "#feed"],
-                "选题": ["#picks", "#insp", "#xdiff", "#tingji"],
+                "选题": ["#newsmall", "#picks", "#insp", "#xdiff", "#tingji"],
                 "素材与对标": ["#lenny", "#deep", "#raw", "#bench", "#profiles", "#growth"],
                 "库与计划": [
                     "#tools",

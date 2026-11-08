@@ -15,10 +15,16 @@ d = a.load(); ra, rb = a.render(d), b.render(d)
 strip = lambda h: re.sub(r'\s(target|rel)="[^"]*"', '', h)
 block = re.search(r'<li><a href="seven/"[^>]*>.*?</ol></li>', rb, re.S)
 assert block and block.group(0).count('<li>') == 1 + 7, 'seven block missing or not 7 steps'
-assert strip(ra) == strip(rb.replace(block.group(0), '')), 'render differs beyond seven block and target/rel'
+ns = re.search(r'<h2 id="newsmall">.*?</div>', rb, re.S)
+assert ns and '小号' in ns.group(0), 'daily new-small block missing'
+rest = rb.replace(block.group(0), '').replace(ns.group(0), '')
+rest = re.sub(r'<a [^>]*href="#newsmall"[^>]*>[^<]*</a>', '', rest)
+assert strip(ra) == strip(rest), 'render differs beyond seven + newsmall blocks and target/rel'
+for t in re.findall(r'<a\b[^>]*href="https://www.xiaohongshu.com[^"]*"[^>]*>', ns.group(0)): assert 'target="_blank"' in t and 'xsec' not in t, t
 for t in re.findall(r'<a\b[^>]*href="(?:seven|growth)/[^"]*"[^>]*>', rb): assert 'target="_blank" rel="noopener noreferrer"' in t, t
 import tempfile as _t
-for bad in ('{', '{"steps":null}', '{"steps":[{}]}', '{"steps":[]}'):
+for bad in ('{', '{"steps":null}', '{"steps":[{}]}', '{"steps":[]}', '{"rules":[],"tiers":{},"candidates":[]}', '{"rules":[],"tiers":{},"candidates":[],"scope":"x"}'):
+    t0 = Path(_t.mkdtemp()); (t0/'topics/src').mkdir(parents=True); (t0/'topics/src/new-small.json').write_text(bad); keep = b.SITE; b.SITE = t0; assert b._daily_new_small() == '', bad; b.SITE = keep
     t = Path(_t.mkdtemp()); (t/'seven/src').mkdir(parents=True); (t/'seven/src/seven.json').write_text(bad)
     keep = b.SITE; b.SITE = t; assert b._seven_entry() == '', bad; b.SITE = keep
 if '--write' in sys.argv: (W / 'xhs/index.html').write_text(rb)

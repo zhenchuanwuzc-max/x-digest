@@ -351,6 +351,29 @@ def _growth_count():
         return ""
 
 
+def _daily_new_small():
+    """日常选题：新帖、小号优先（2026-11-08 t244/t246）。数据取 SITE/topics/src/new-small.json（由选题工作包导出，七步页第 2/4 步引用同一份）；
+    缺文件或数据坏时整块不出现，日更不中断。"""
+    try:
+        D = json.loads((SITE / 'topics' / 'src' / 'new-small.json').read_text())
+        rules = "".join(f'<li>{E(r)}</li>' for r in D['rules'])
+        tiers = ""
+        for k, lab in D['tiers'].items():
+            rs = [x for x in D['candidates'] if x['tier'] == k]
+            if not rs:
+                continue
+            tiers += f'<h3>{E(lab)}（{len(rs)} 条）</h3><ul>' + "".join(
+                f'<li><a href="{E(x["url"])}" target="_blank" rel="noopener noreferrer">{E(x["title"])}</a> · {E(x["author"])}'
+                f'（粉丝 {E(str(x["followers_verified"])) + "，已核" if x["followers_verified"] else "未核"}）· {E(x["published_raw"])}'
+                f' · 赞藏评 {x["likes"]}/{x["collects"]}/{x["comments"]}<br><span class="muted">骨架：{E(x["skeleton"])}；作者自述未核：{E(x["author_claims"])}</span></li>'
+                for x in rs) + '</ul>'
+        return (f'<h2 id="newsmall"><span class="sec-ico" aria-hidden="true">◆</span> 选题热帖：新帖、小号优先</h2>'
+                f'<div class="card"><p class="muted">{E(D["scope"])}</p><ol>{rules}</ol>{tiers}'
+                f'<p class="muted">{E(D["gaps"])} · 七步拆法见 <a href="seven/#s2">七步工作台</a></p></div>')
+    except Exception:  # 数据缺字段或坏掉：整块不出现
+        return ""
+
+
 def _seven_entry():
     """七步工作台入口与可扫摘要，数据取自站点仓库 xhs/seven/src/seven.json（与工作台同源）；缺文件时不出现。"""
     try:
@@ -768,6 +791,14 @@ def render(d) -> str:
         day_body = day_body + lenny_html
     else:
         day_body = lenny_html
+
+    # 日常选题区：新帖、小号优先块放在「今天写啥」标题后
+    ns = _daily_new_small()
+    if ns:
+        m = _re.search(r'<h2 id="top">.*?</h2>', day_body)
+        day_body = day_body[:m.end()] + ns + day_body[m.end():] if m else ns + day_body
+        k = next((i + 1 for i, (a, _) in enumerate(day_ids) if a == "top"), 0)
+        day_ids = day_ids[:k] + [("newsmall", "新帖小号优先")] + day_ids[k:]
 
     # Place lenny in nav after last signal, before deep/raw
     new_ids: list[tuple[str, str]] = []
