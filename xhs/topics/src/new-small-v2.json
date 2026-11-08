@@ -1,0 +1,972 @@
+{
+ "asof": "2026-11-09",
+ "rules": [
+  "先核是否真正新发布：看发布标识、有无“编辑于”、最早评论时间；旧帖近期编辑退出新帖主池",
+  "新帖里优先看粉丝较少的作者（研究对象，粉丝须在主页核过；未核不叫小号）；不设固定粉丝门槛",
+  "只在同类、发布时间相近的窗口里比较互动；不按历史累计赞或粉赞比判爆款",
+  "绝对发布时间/年份未核、同期基线不足时明写，不称已验证低粉爆款",
+  "粉丝 >1万 的关注对象研究是另一任务，不受此影响"
+ ],
+ "tiers": {
+  "small_priority": "近期新帖·小号候选（研究对象粉丝较少且已核，无固定门槛）优先",
+  "followers_unverified": "近期新帖·作者粉丝未核（次列，不叫小号）",
+  "edited_old": "旧帖近期编辑（独列历史，不进新帖主池、不做同期比较）"
+ },
+ "gaps": "其余 8 张卡未打开；全部样本的绝对发布日期与年未核；同类同龄窗口的基线不足，代表性与爆款效应未证实；sample1/sample2 作者粉丝未核",
+ "counts": {
+  "planned": 14,
+  "this_round": 8,
+  "searched": 8
+ },
+ "keywords_coverage": {
+  "groups": [
+   {
+    "id": "G1",
+    "name": "AI工作流与产出物",
+    "angle": "任务动作",
+    "source_topics": [
+     "TK-03",
+     "TK-10",
+     "TK-17"
+    ],
+    "keywords": [
+     {
+      "query": "产品经理 AI工作流",
+      "source_topic": "TK-03",
+      "this_round": true,
+      "searches": [
+       {
+        "captured": "2026-11-09 01:01:24 UTC+8",
+        "sort": "最新",
+        "sort_evidence": "筛选面板“最新”高亮截图（仓库外）",
+        "status": "scanned_pending",
+        "scanned_count": 8,
+        "opened_count": 0,
+        "sample_ids": [],
+        "pending_candidates": 8,
+        "pending_list": [
+         {
+          "order": 1,
+          "title": "🔀 AI产品经理选Agent还是工作流",
+          "time_raw": "昨天 23:20",
+          "url": "https://www.xiaohongshu.com/explore/6af084f0000000002a02bf4d"
+         },
+         {
+          "order": 2,
+          "title": "小鹿学习AI产品",
+          "time_raw": "昨天 21:22",
+          "url": "https://www.xiaohongshu.com/explore/6af077b3000000000e00dfae"
+         },
+         {
+          "order": 3,
+          "title": "裸辞两个月成功转行ai医疗产品经理",
+          "time_raw": "昨天 20:59",
+          "url": "https://www.xiaohongshu.com/explore/6af071a9000000001503cec7"
+         },
+         {
+          "order": 4,
+          "title": "🤖 AI产品经理先问4件事",
+          "time_raw": "昨天 19:17",
+          "url": "https://www.xiaohongshu.com/explore/6af05a580000000005009721"
+         },
+         {
+          "order": 5,
+          "title": "AI座舱产品经理需要的知识迭代",
+          "time_raw": "昨天 18:58",
+          "url": "https://www.xiaohongshu.com/explore/6af055cb000000000703bc38"
+         },
+         {
+          "order": 6,
+          "title": "值得AI产品经理思考的一条大模型学习路线",
+          "time_raw": "昨天 17:05",
+          "url": "https://www.xiaohongshu.com/explore/6af03b6a000000000b0205ec"
+         },
+         {
+          "order": 7,
+          "title": "不愧是字节挖过来PM，这Agent拆解思路太强了",
+          "time_raw": "1天前",
+          "url": "https://www.xiaohongshu.com/explore/6aef58e7000000000703ae32"
+         },
+         {
+          "order": 8,
+          "title": "自存收藏 | 产品经理公认好用的十大skill",
+          "time_raw": "昨天 08:11",
+          "url": "https://www.xiaohongshu.com/explore/6aef3f870000000015010e24"
+         }
+        ],
+        "limits": "仅扫描首8张；未打开笔记/作者主页，未核粉丝。；相对日期无年份，不转换为绝对发布日期。；卡片赞数仅记录界面可见值，不作同龄基线或效果证明。"
+       }
+      ]
+     },
+     {
+      "query": "AI原型",
+      "source_topic": "TK-17",
+      "this_round": true,
+      "searches": [
+       {
+        "captured": "2026-11-09 01:02:26 UTC+8",
+        "sort": "最新",
+        "sort_evidence": "筛选面板“最新”高亮截图（仓库外）",
+        "status": "sampled",
+        "scanned_count": 8,
+        "opened_count": 1,
+        "sample_ids": [
+         "6af07c1800000000070314bf"
+        ],
+        "pending_candidates": 7,
+        "pending_list": [
+         {
+          "order": 1,
+          "title": "REA之外，做网站原型还有这一招",
+          "time_raw": "昨天 23:28",
+          "url": "https://www.xiaohongshu.com/explore/6af09513000000002301105b"
+         },
+         {
+          "order": 2,
+          "title": "报名｜马来西亚黑客松！从真实问题到AI产品",
+          "time_raw": "昨天 22:23",
+          "url": "https://www.xiaohongshu.com/explore/6af06ab2000000000e00c9a7"
+         },
+         {
+          "order": 4,
+          "title": "智绘表情能用了！3步做",
+          "time_raw": "昨天 21:38",
+          "url": "https://www.xiaohongshu.com/explore/6af07b57000000002b02ae25"
+         },
+         {
+          "order": 5,
+          "title": "用小时候的照片做了一个AI角色！🐥",
+          "time_raw": "昨天 20:28",
+          "url": "https://www.xiaohongshu.com/explore/6af06ad0000000000f03ae4f"
+         },
+         {
+          "order": 6,
+          "title": "AI能力越强，AI产品经理越忙",
+          "time_raw": "昨天 20:14",
+          "url": "https://www.xiaohongshu.com/explore/6af067a6000000001500d214"
+         },
+         {
+          "order": 7,
+          "title": "AI一周画完电路板造真机",
+          "time_raw": "昨天 19:19",
+          "url": "https://www.xiaohongshu.com/explore/6af05adc000000000300aa4b"
+         },
+         {
+          "order": 8,
+          "title": "AI产品岗都是先混进去再说，不要说不会",
+          "time_raw": "昨天 17:26",
+          "url": "https://www.xiaohongshu.com/explore/6af0405200000000190004aa"
+         }
+        ],
+        "limits": "卡序3作为本批视频样本；只读标题/描述/评论，未观看视频。；其余7条未打开，仍待核，不判合格或不合格。；相对时点无年份，不转换为绝对日期。"
+       }
+      ]
+     },
+     {
+      "query": "提示词模板",
+      "source_topic": "TK-03",
+      "this_round": true,
+      "searches": [
+       {
+        "captured": "2026-11-09 01:05:08 UTC+8",
+        "sort": "最新",
+        "sort_evidence": "筛选面板“最新”高亮截图（仓库外）",
+        "status": "sampled",
+        "scanned_count": 8,
+        "opened_count": 1,
+        "sample_ids": [
+         "6af06e030000000003023ef7"
+        ],
+        "pending_candidates": 7,
+        "pending_list": [
+         {
+          "order": 1,
+          "title": "每天一个AI提示词｜废片变明信片",
+          "time_raw": "昨天 22:02",
+          "url": "https://www.xiaohongshu.com/explore/6af080f9000000002500b642"
+         },
+         {
+          "order": 2,
+          "title": "中文找句子游戏提示词和代码分享",
+          "time_raw": "昨天 21:46",
+          "url": "https://www.xiaohongshu.com/explore/6af07d48000000002a01c3a6"
+         },
+         {
+          "order": 3,
+          "title": "未回消息一键变得体回复｜可复制Prompt",
+          "time_raw": "昨天 21:14",
+          "url": "https://www.xiaohongshu.com/explore/6af075d0000000000203649e"
+         },
+         {
+          "order": 4,
+          "title": "AI产品经理的提示词模板，高效使用AI的真相",
+          "time_raw": "昨天 21:10",
+          "url": "https://www.xiaohongshu.com/explore/6af074e1000000001402af71"
+         },
+         {
+          "order": 5,
+          "title": "自用AI女装提示词，直接套用",
+          "time_raw": "昨天 20:48",
+          "url": "https://www.xiaohongshu.com/explore/6af06fb7000000001803a40d"
+         },
+         {
+          "order": 6,
+          "title": "Day21｜一天一个绝美提示词之极简铅笔画",
+          "time_raw": "昨天 20:43",
+          "url": "https://www.xiaohongshu.com/explore/6af06e740000000015023d91"
+         },
+         {
+          "order": 8,
+          "title": "今日提示词：绝美古风艺术（附提示词）",
+          "time_raw": "昨天 18:31",
+          "url": "https://www.xiaohongshu.com/explore/6af04bea000000000703963d"
+         }
+        ],
+        "limits": "卡序7作为图文样本；3/3张读完。；卡序4作者主页粉丝已核（1.6万），但笔记未打开，保留为待核候选。；其余未打开结果不判合格或不合格；相对时点不推算年份。"
+       }
+      ]
+     },
+     {
+      "query": "专家经验 AI",
+      "source_topic": "TK-10",
+      "this_round": false,
+      "searches": []
+     }
+    ]
+   },
+   {
+    "id": "G2",
+    "name": "AI与功能怎么衡量",
+    "angle": "用户痛点",
+    "source_topics": [
+     "TK-02",
+     "TK-13",
+     "TK-14"
+    ],
+    "keywords": [
+     {
+      "query": "AI使用率",
+      "source_topic": "TK-02",
+      "this_round": true,
+      "searches": [
+       {
+        "captured": "2026-11-09 01:03:11 UTC+8",
+        "sort": "最新",
+        "sort_evidence": "筛选面板“最新”高亮截图（仓库外）",
+        "status": "scanned_pending",
+        "scanned_count": 8,
+        "opened_count": 0,
+        "sample_ids": [],
+        "pending_candidates": 8,
+        "pending_list": [
+         {
+          "order": 1,
+          "title": "每天到办公室，脑子一扔，打开AI就开始工作",
+          "time_raw": "昨天 10:30",
+          "url": "https://www.xiaohongshu.com/explore/6aefdeb00000000016032509"
+         },
+         {
+          "order": 2,
+          "title": "非洗白",
+          "time_raw": "1天前",
+          "url": "https://www.xiaohongshu.com/explore/6aef551700000000200096c7"
+         },
+         {
+          "order": 3,
+          "title": "为了完成AI使用率，我先让AI给自己找活",
+          "time_raw": "1天前",
+          "url": "https://www.xiaohongshu.com/explore/6aef3e1f0000000006023530"
+         },
+         {
+          "order": 4,
+          "title": "AI能把科研提速几倍？",
+          "time_raw": "1天前",
+          "url": "https://www.xiaohongshu.com/explore/6aef0d760000000002037c6b"
+         },
+         {
+          "order": 5,
+          "title": "大疆还是很仁慈的厂，做产品真的不容易",
+          "time_raw": "1天前",
+          "url": "https://www.xiaohongshu.com/explore/6aeed80e000000000e02705f"
+         },
+         {
+          "order": 6,
+          "title": "Angelina在硅谷-专注创投",
+          "time_raw": "1天前",
+          "url": "https://www.xiaohongshu.com/explore/6aeec271000000001001260b"
+         },
+         {
+          "order": 7,
+          "title": "如题",
+          "time_raw": "2天前",
+          "url": "https://www.xiaohongshu.com/explore/6aedcfe8000000002a02c68e"
+         },
+         {
+          "order": 8,
+          "title": "日本企业AI 仅9%称 效果超预期 🤖📉",
+          "time_raw": "3天前",
+          "url": "https://www.xiaohongshu.com/explore/6aec0859000000001a017566"
+         }
+        ],
+        "limits": "首8张扫描；未打开笔记/主页，尚无样本，候选仍待核。；卡片含不同相对时间，未作赞数横向比较。"
+       }
+      ]
+     },
+     {
+      "query": "功能上线没效果",
+      "source_topic": "TK-13",
+      "this_round": true,
+      "searches": [
+       {
+        "captured": "2026-11-09 01:15:34 UTC+8",
+        "sort": "最新",
+        "sort_evidence": "筛选面板“最新”高亮截图（仓库外）",
+        "status": "scanned_pending",
+        "scanned_count": 8,
+        "opened_count": 0,
+        "sample_ids": [],
+        "pending_candidates": 8,
+        "pending_list": [
+         {
+          "order": 1,
+          "title": "上Ai没效果 先改工作流",
+          "time_raw": "1天前",
+          "url": "https://www.xiaohongshu.com/explore/6aeef84e000000001200827c"
+         },
+         {
+          "order": 2,
+          "title": "小白手搓小程序上线后发现最大的问题",
+          "time_raw": "2天前",
+          "url": "https://www.xiaohongshu.com/explore/6aedf48e000000002a01e9bb"
+         },
+         {
+          "order": 3,
+          "title": "AI说功能已经做好了，结果实际使用全是问题",
+          "time_raw": "10-27",
+          "url": "https://www.xiaohongshu.com/explore/6ae070f5000000002a03aa59"
+         },
+         {
+          "order": 4,
+          "title": "功能上线后没人用，我才真正理解产品经理",
+          "time_raw": "07-16",
+          "url": "https://www.xiaohongshu.com/explore/6a56e7070000000016024d8c"
+         },
+         {
+          "order": 5,
+          "title": "AI 功能终于上线了，但效果没达标，怎么办",
+          "time_raw": "05-23",
+          "url": "https://www.xiaohongshu.com/explore/6a116f030000000006033d4b"
+         },
+         {
+          "order": 6,
+          "title": "产品上线后效果不达预期，如何复盘与迭代？",
+          "time_raw": "2025-06-13",
+          "url": "https://www.xiaohongshu.com/explore/684c0a2e000000002203522d"
+         },
+         {
+          "order": 7,
+          "title": "vibe coding小程序上线前，我踩过的 7 个坑",
+          "time_raw": "昨天 20:53",
+          "url": "https://www.xiaohongshu.com/explore/6af070ae000000001200da12"
+         },
+         {
+          "order": 8,
+          "title": "Claude能看账单，动不了钱",
+          "time_raw": "昨天 10:25",
+          "url": "https://www.xiaohongshu.com/explore/6aefddb1000000001802dc9d"
+         }
+        ],
+        "limits": "仅扫描首8张卡；相对日期无年份，不换算绝对发布日期。；赞数为卡面可见值，不作同龄/同期比较，无曝光不算率。；未打开笔记/作者主页，全部候选待核；卡序6为2025-06-13，属旧帖，卡序4/5为07-16/05-23旧日期，需单列不当最新。"
+       }
+      ]
+     },
+     {
+      "query": "知识库 效果",
+      "source_topic": "TK-14",
+      "this_round": false,
+      "searches": []
+     }
+    ]
+   },
+   {
+    "id": "G3",
+    "name": "PRD与优先级",
+    "angle": "核心概念",
+    "source_topics": [
+     "TK-16",
+     "TK-15",
+     "TK-07"
+    ],
+    "keywords": [
+     {
+      "query": "怎么写PRD",
+      "source_topic": "TK-16",
+      "this_round": true,
+      "searches": [
+       {
+        "captured": "2026-11-09 01:15:34 UTC+8",
+        "sort": "最新",
+        "sort_evidence": "筛选面板“最新”高亮截图（仓库外）",
+        "status": "sampled",
+        "scanned_count": 8,
+        "opened_count": 1,
+        "sample_ids": [
+         "6af087160000000023012929"
+        ],
+        "pending_candidates": 7,
+        "pending_list": [
+         {
+          "order": 2,
+          "title": "PRD 六项你写全了吗？",
+          "time_raw": "昨天 09:33",
+          "url": "https://www.xiaohongshu.com/explore/6aefd15e000000000e036ca6"
+         },
+         {
+          "order": 3,
+          "title": "穿行测试：PRD 膨胀时代，PM如何把握主线？",
+          "time_raw": "1天前",
+          "url": "https://www.xiaohongshu.com/explore/6aee75ee000000000602ccac"
+         },
+         {
+          "order": 4,
+          "title": "带了个AI产品新人，他的PRD我打回三次",
+          "time_raw": "5天前",
+          "url": "https://www.xiaohongshu.com/explore/6ae9d8bc0000000007001b9f"
+         },
+         {
+          "order": 5,
+          "title": "PRD怎么写",
+          "time_raw": "6天前",
+          "url": "https://www.xiaohongshu.com/explore/6ae8171a000000000300995e"
+         },
+         {
+          "order": 6,
+          "title": "AI产品经理如何写一篇优秀的PRD？",
+          "time_raw": "11-01",
+          "url": "https://www.xiaohongshu.com/explore/6ae6bc020000000025003170"
+         },
+         {
+          "order": 7,
+          "title": "“PRD 人机双写”SKILL",
+          "time_raw": "10-31",
+          "url": "https://www.xiaohongshu.com/explore/6ae598e3000000001802af1b"
+         },
+         {
+          "order": 8,
+          "title": "AI产品经理实战精选PRD",
+          "time_raw": "10-29",
+          "url": "https://www.xiaohongshu.com/explore/6ae2f3e20000000035011815"
+         }
+        ],
+        "limits": "仅扫描首8张卡；相对日期无年份，不换算绝对发布日期。；赞数为卡面可见值，不作同龄/同期比较，无曝光不算率。；卡序2/5/7等较高赞候选未打开，保留待核。"
+       }
+      ]
+     },
+     {
+      "query": "需求排序",
+      "source_topic": "TK-15",
+      "this_round": true,
+      "searches": [
+       {
+        "captured": "2026-11-09 01:15:02 UTC+8",
+        "sort": "最新",
+        "sort_evidence": "筛选面板“最新”高亮截图（仓库外）",
+        "status": "sampled",
+        "scanned_count": 8,
+        "opened_count": 1,
+        "sample_ids": [
+         "6af06bd500000000150158fe"
+        ],
+        "pending_candidates": 7,
+        "pending_list": [
+         {
+          "order": 1,
+          "title": "女性视角下相亲成功最重要的条件",
+          "time_raw": "昨天 22:57",
+          "url": "https://www.xiaohongshu.com/explore/6af08dc2000000002b001ded"
+         },
+         {
+          "order": 2,
+          "title": "第三十二期分享-一堆需求，到底先做谁-下",
+          "time_raw": "昨天 22:11",
+          "url": "https://www.xiaohongshu.com/explore/6af08302000000001503a73c"
+         },
+         {
+          "order": 4,
+          "title": "好的感情 一定是选择出来的，你的潜意识告",
+          "time_raw": "昨天 19:51",
+          "url": "https://www.xiaohongshu.com/explore/6af062570000000002035f61"
+         },
+         {
+          "order": 5,
+          "title": "他对你明明挺好，为何你内心还是很孤独？",
+          "time_raw": "昨天 19:36",
+          "url": "https://www.xiaohongshu.com/explore/6af05ec5000000001803a964"
+         },
+         {
+          "order": 6,
+          "title": "第三十二期分享-需求都很急谁才配叫P0-上",
+          "time_raw": "昨天 11:32",
+          "url": "https://www.xiaohongshu.com/explore/6aefed390000000015020da5"
+         },
+         {
+          "order": 7,
+          "title": "愚公～～养心殿",
+          "time_raw": "1天前",
+          "url": "https://www.xiaohongshu.com/explore/6aeeb585000000000e02515d"
+         },
+         {
+          "order": 8,
+          "title": "预算有限，想覆盖私立医院，优先级怎么排？",
+          "time_raw": "2天前",
+          "url": "https://www.xiaohongshu.com/explore/6aed8845000000002300497c"
+         }
+        ],
+        "limits": "仅扫描首8张卡；相对日期无年份，不换算绝对发布日期。；赞数为卡面可见值，不作同龄/同期比较，无曝光不算率。；结果混入情感/保险“优先级”无关内容，相关性低；卡序2/6为同作者“第三十二期”系列，视频标识，未打开。"
+       }
+      ]
+     },
+     {
+      "query": "达标门槛",
+      "source_topic": "TK-07",
+      "this_round": false,
+      "searches": []
+     }
+    ]
+   },
+   {
+    "id": "G4",
+    "name": "对齐与开会",
+    "angle": "问题长尾",
+    "source_topics": [
+     "TK-08",
+     "TK-04"
+    ],
+    "keywords": [
+     {
+      "query": "会议 Action",
+      "source_topic": "TK-08",
+      "this_round": true,
+      "searches": [
+       {
+        "captured": "2026-11-09 01:15:02 UTC+8",
+        "sort": "最新",
+        "sort_evidence": "筛选面板“最新”高亮截图（仓库外）",
+        "status": "sampled",
+        "scanned_count": 8,
+        "opened_count": 1,
+        "sample_ids": [
+         "6ae673bd000000001901e400"
+        ],
+        "pending_candidates": 7,
+        "pending_list": [
+         {
+          "order": 1,
+          "title": "商务英语|开会怎么表达意见",
+          "time_raw": "昨天 17:33",
+          "url": "https://www.xiaohongshu.com/explore/6af041e50000000002036fc8"
+         },
+         {
+          "order": 2,
+          "title": "联合采购路在何方",
+          "time_raw": "1天前",
+          "url": "https://www.xiaohongshu.com/explore/6aef0614000000000e00cbc6"
+         },
+         {
+          "order": 3,
+          "title": "职场英语18｜项目复盘会怎么开？✨",
+          "time_raw": "1天前",
+          "url": "https://www.xiaohongshu.com/explore/6aef035f000000000e00f9c8"
+         },
+         {
+          "order": 4,
+          "title": "高效开会指南：如何让「议而不决」成为团队的成长加速器",
+          "time_raw": "2天前",
+          "url": "https://www.xiaohongshu.com/explore/6aeda9dc000000000901f547"
+         },
+         {
+          "order": 5,
+          "title": "外企会议没把握｜别瞎给观点",
+          "time_raw": "3天前",
+          "url": "https://www.xiaohongshu.com/explore/6aec335f000000001503c0c2"
+         },
+         {
+          "order": 6,
+          "title": "职场英语｜英文会议开完，邮件怎么发？",
+          "time_raw": "6天前",
+          "url": "https://www.xiaohongshu.com/explore/6ae7c82e000000002702ee64"
+         },
+         {
+          "order": 8,
+          "title": "结束会议，记得确认下一步",
+          "time_raw": "3天前",
+          "url": "https://www.xiaohongshu.com/explore/6ae5d994000000000e00fa64"
+         }
+        ],
+        "limits": "仅扫描首8张卡；相对日期无年份，不换算绝对发布日期。；赞数为卡面可见值，不作同龄/同期比较，无曝光不算率。；结果多为职场英语会议句型，非项目管理工具；本词未发现产品经理场景的会议纪要方法以外的待核判断。"
+       }
+      ]
+     },
+     {
+      "query": "字段对照表",
+      "source_topic": "TK-04",
+      "this_round": false,
+      "searches": []
+     }
+    ]
+   },
+   {
+    "id": "G5",
+    "name": "交付、验收与状态",
+    "angle": "任务动作",
+    "source_topics": [
+     "TK-09",
+     "TK-12"
+    ],
+    "keywords": [
+     {
+      "query": "功能验收",
+      "source_topic": "TK-09",
+      "this_round": false,
+      "searches": []
+     },
+     {
+      "query": "任务状态机",
+      "source_topic": "TK-12",
+      "this_round": false,
+      "searches": []
+     }
+    ]
+   }
+  ],
+  "legacy": [
+   {
+    "query": "AI工具",
+    "sort": "最新",
+    "captured": "2026-11-08",
+    "scan": "前 12 张卡轻扫，打开 4 篇（图文 3 篇共读 15 张卡，视频 1 篇只看标题描述）",
+    "note": "旧池便利样本，早于本关键词计划，不算本轮新搜",
+    "sample_ids": [
+     "6aeea270000000000e025ebd",
+     "6aef3f870000000015010e24",
+     "6aeeec9d0000000015011aa0",
+     "6ac5fa7a000000001203fb99"
+    ]
+   }
+  ],
+  "status_labels": {
+   "scanned_pending": "已扫描，候选待核",
+   "partial": "未完成（部分搜索或中断）",
+   "sampled": "已入精读库",
+   "checked_none": "本轮已核样本暂未满足条件"
+  },
+  "round_note": "t248 本轮 8 词补搜到此结束：每词最新排序首 8 张卡，共 64 张；最新排序不等于全是新帖，结果里混有旧帖与无关内容"
+ },
+ "not_proposed": [
+  "需求排序：已精读的样本讲 AI 落地优先级，和已有 DRICE 稿主题重叠，本轮不另出题",
+  "会议 Action：唯一样本是外企英语句型；行动项主题已发过 M09，不重复",
+  "产品经理 AI工作流、AI使用率、功能上线没效果：首 8 张卡都还没打开，候选待核，暂无可支撑的样本"
+ ],
+ "samples": [
+  {
+   "id": "6aeea270000000000e025ebd",
+   "url": "https://www.xiaohongshu.com/explore/6aeea270000000000e025ebd",
+   "title": "5个免费ai工具 帮我40分钟做出mbb级别deck",
+   "author": "烦死了这破deck",
+   "tier": "small_priority",
+   "format": "图文",
+   "followers": "9639（2026-11-08 主页核过）",
+   "entry": "关键词「AI工具」· 最新排序 · 前 12 张卡轻扫，排序位置未记",
+   "date": "详情“1天前 美国”，无编辑标识；唯一评论“1天前”；绝对日期与年未显示",
+   "date_status": "relative",
+   "date_evidence": null,
+   "classification": "unproven",
+   "classification_evidence": "曝光不可见、同期同龄基线不足，表现未证实",
+   "counts": "赞 103 / 藏 112 / 评 1（2026-11-08 读取）",
+   "same_period": "同类 1 天内样本，但同期基线不足，不比高低、不称爆款",
+   "coverage": "图文 1/1 张（配图与正文无关）+ 长正文全读",
+   "structure": "开头痛点（付费工具贵）→ 结果承诺（40分钟、5个免费工具）→ 5 个工具逐个讲用途与操作 → 一句话串起流程",
+   "borrow": "痛点开头接一个可核对的结果承诺，正文按工具逐个给用途，最后一句串成流程",
+   "claims": "“40分钟做完”“5个完全免费”为作者自述未核；未展示成品 deck，无来源链接；唯一评论质疑 NotebookLM 已能直接出 PPT",
+   "limits": "不能当工具实测；作者粉丝 9639 已核，曝光不可见，同期基线不足，不能称低粉爆款",
+   "batch": "旧池（AI工具，2026-11-08），不算本轮新搜"
+  },
+  {
+   "id": "6aef3f870000000015010e24",
+   "url": "https://www.xiaohongshu.com/explore/6aef3f870000000015010e24",
+   "title": "自存收藏｜产品经理公认好用的十大skill",
+   "author": "Charles的AI产品进阶-途灵灵",
+   "tier": "small_priority",
+   "format": "图文",
+   "followers": "4346（2026-11-08 主页核过）",
+   "entry": "关键词「AI工具」· 最新排序 · 前 12 张卡轻扫，排序位置未记",
+   "date": "详情“昨天 16:11 江苏”，无编辑标识；评论均晚于发布、时间线一致；年未显示；卡内页脚 2026.11.06 不等于发布日",
+   "date_status": "relative",
+   "date_evidence": null,
+   "classification": "unproven",
+   "classification_evidence": "曝光不可见、同期同龄基线不足，表现未证实",
+   "counts": "赞 24 / 藏 28 / 评 5（2026-11-08 读取）",
+   "same_period": "同类 1 天内样本，但同期基线不足，不比高低、不称爆款",
+   "coverage": "图文 13/13 张全读（3 张空白卡重试后读到）",
+   "structure": "封面“10个 skill，按流程装” → 四象限总览（理解/定义/规格/验证） → 每个 skill 一页统一模板：三条职责 + 关键产出 + 上下游 + 人负责检查 → 末页总表",
+   "borrow": "清单类先给总览分组，再一项一页用同一模板，末页给总表",
+   "claims": "“公认好用”为标题自述；各 skill 功能为卡内描述，未实测，无仓库链接；十个 skill 名单与老A研究所同主题帖相同，正文与该帖一条评论近乎同句，只记相似，不推断抄袭或 AI 生成",
+   "limits": "作者粉丝 4346 已核；24 赞为绝对值，曝光不可见，不称低粉爆款，不与其他样本排名",
+   "batch": "旧池（AI工具，2026-11-08），不算本轮新搜"
+  },
+  {
+   "id": "6aeeec9d0000000015011aa0",
+   "url": "https://www.xiaohongshu.com/explore/6aeeec9d0000000015011aa0",
+   "title": "双11囤算力，一条看清AI视频创作工具优惠",
+   "author": "阿Win破局思维",
+   "tier": "followers_unverified",
+   "format": "视频",
+   "followers": "未核",
+   "entry": "关键词「AI工具」· 最新排序 · 前 12 张卡轻扫，排序位置未记",
+   "date": "卡上“1天前”；详情“昨天 01:17”",
+   "date_status": "relative",
+   "date_evidence": null,
+   "classification": "unproven",
+   "classification_evidence": "曝光不可见、同期同龄基线不足，表现未证实",
+   "counts": "赞 173 / 藏 62 / 评 4（2026-11-08 读取）",
+   "same_period": "同类 1 天内样本，但同期基线不足，不比高低、不称爆款",
+   "coverage": "视频：只看标题、描述与标签",
+   "structure": "未读视频内容，只有标题“节点+一条看清”",
+   "borrow": "借节点（双11）做“一条看清”的汇总标题",
+   "claims": "优惠明细未读",
+   "limits": "视频内容与优惠明细未读，不写优惠信息",
+   "batch": "旧池（AI工具，2026-11-08），不算本轮新搜"
+  },
+  {
+   "id": "6ac5fa7a000000001203fb99",
+   "url": "https://www.xiaohongshu.com/explore/6ac5fa7a000000001203fb99",
+   "title": "聊了 40 多个用 Claude的大佬，发现目前",
+   "author": "童话。",
+   "tier": "edited_old",
+   "format": "图文",
+   "followers": "未核",
+   "entry": "关键词「AI工具」· 最新排序 · 前 12 张卡轻扫，排序位置未记",
+   "date": "卡上“1天前”；详情“编辑于 昨天 03:56”；评论最早 10-07",
+   "date_status": "relative",
+   "date_evidence": null,
+   "classification": "unproven",
+   "classification_evidence": "曝光不可见、同期同龄基线不足，表现未证实",
+   "counts": "赞 423 / 藏 288 / 评 452（2026-11-08 读取）",
+   "same_period": "旧帖近期编辑，与 1 天内新发笔记不同期，不能直接比，不做同期比较",
+   "coverage": "图文 1/1 张",
+   "structure": "一句反差判断做封面 → 结论式正文 → 评论区收集经验",
+   "borrow": "一句反差判断做封面大字，评论区让读者讲各自经验",
+   "claims": "“聊了40多个”为作者自述，无对象无来源",
+   "limits": "“聊了40多个”是作者自述，无对象无来源；评论含作者引流群口令",
+   "batch": "旧池（AI工具，2026-11-08），不算本轮新搜"
+  },
+  {
+   "id": "6af06e030000000003023ef7",
+   "url": "https://www.xiaohongshu.com/explore/6af06e030000000003023ef7",
+   "title": "问AI总答不到点上？套这5个公式",
+   "author": "墨墨无鱼",
+   "tier": "small_priority",
+   "format": "图文",
+   "followers": "1（2026-11-09 01:05:27 UTC+8 主页核过）",
+   "entry": "关键词「提示词模板」· 最新排序 · 首 8 张卡第 7 张",
+   "date": "搜索卡“昨天 20:41”；详情“4小时前 美国”；未见编辑标记",
+   "date_status": "relative",
+   "date_evidence": null,
+   "counts": "赞 2 / 藏 3 / 评：未显示数字，评论区为空（2026-11-09 01:05-01:06 UTC+8 读取）",
+   "same_period": "同批同词首 8 卡里只开了这一篇，没有同期同龄基线，不比高低",
+   "coverage": "图文 3/3 张全读",
+   "structure": "标题：问题痛点 + 数量化清单 + 直接可套用承诺 → 首图：同一封面五分类、复制提示、收藏对象明确 → 正文：问题解释 → 五类公式 → 可复制的占位符示例 → 追问技巧 → CTA → 可带走：五类带【】占位符的prompt模板；用户可替换变量后使用。仅为笔记提供的文本产物，不保证效果。",
+   "comments": "页面未见读者评论（评论区为空）",
+   "borrow": "痛点开头 → 分类清单 → 每类一条带【】占位的可复制模板 → 追问句 → 留言提问",
+   "claims": "主页自述每日分享AI小技巧、提示词模板及学习办公提效；未核实履历或实际使用结果。",
+   "limits": "作者主页与笔记未见独立来源引用；模板/效果未实测。；点赞/收藏没有曝光量或同龄同期基线，不能称爆款或保证表现。；公开小号关注数截面为1，不能据此推断账号经营状况。",
+   "classification": "unproven",
+   "classification_evidence": "无曝光分母、同期同龄基线不足，且仅一个低互动样本；无爆款判断。",
+   "batch": "2026-11-09 补搜批 1（4 词）"
+  },
+  {
+   "id": "6af07c1800000000070314bf",
+   "url": "https://www.xiaohongshu.com/explore/6af07c1800000000070314bf",
+   "title": "需求原型出了一遍又一遍，有啥子办法嘛",
+   "author": "星星不说话",
+   "tier": "small_priority",
+   "format": "视频",
+   "followers": "9（2026-11-09 01:07:30 UTC+8 主页核过）",
+   "entry": "关键词「AI原型」· 最新排序 · 首 8 张卡第 3 张",
+   "date": "搜索卡“昨天 21:41”；详情“3小时前 浙江”；未见编辑标记",
+   "date_status": "relative",
+   "date_evidence": null,
+   "counts": "赞 10 / 藏 4 / 评：未显示数字，评论区为空（2026-11-09 01:07-01:08 UTC+8 读取）",
+   "same_period": "同批同词首 8 卡里只开了这一篇，没有同期同龄基线，不比高低",
+   "coverage": "视频：只看标题、完整描述、静态封面与可见评论，未观看",
+   "structure": "标题：反复修改原型的痛点式提问 → 首图：重复返工 vs ‘自己做吧’的对照表达 → 正文：视频正文未看；不得推断步骤或结构。描述只列标签。 → 可带走：从标题/封面可见作者提出‘自己做’方向，但没有据此声称实际方法或可交付物。",
+   "comments": "页面未见读者评论（评论区为空）",
+   "borrow": "只借问题切口：把反复返工的痛点直接写成提问式标题；方法未知，不当已验证做法",
+   "claims": null,
+   "limits": "视频没有观看；内容方法、工具、效果及来源均未知。；仅静态封面、标题、描述和空评论区可用。；赞/藏没有曝光分母或同期同龄基线，不能称爆款或保证表现。",
+   "classification": "unproven",
+   "classification_evidence": "无曝光分母和足够同期同龄基线；互动数只作为采集时页面值。",
+   "batch": "2026-11-09 补搜批 1（4 词）"
+  },
+  {
+   "id": "6af087160000000023012929",
+   "url": "https://www.xiaohongshu.com/explore/6af087160000000023012929",
+   "title": "🚧 AI产品经理写PRD别漏失败状态",
+   "author": "黑带产品经理颖姐",
+   "tier": "small_priority",
+   "format": "图文",
+   "followers": "10（2026-11-09 01:17 UTC+8 主页核过）",
+   "entry": "关键词「怎么写PRD」· 最新排序 · 首 8 张卡第 1 张",
+   "date": "搜索卡“昨天 22:28”；详情“2小时前 广东”；未见编辑标记",
+   "date_status": "relative",
+   "date_evidence": null,
+   "counts": "赞 9 / 藏 11 / 评：未显示数字，评论区为空（2026-11-09 01:16 UTC+8 读取）",
+   "same_period": "同词首 8 卡里只开了这一篇，没有同期同龄基线，不比高低",
+   "coverage": "图文 6/6 张全读",
+   "disclosure": "页面显示“作者声明：含ai生成内容”",
+   "structure": "标题：“别漏”型提醒 + 具体PRD主题（失败状态） → 首图：大字结论+一句副题+三分支图示 → 正文：错误示范→四状态→支付超时例子→未知状态处理→模型/系统边界→逐项检查清单 → 可带走：可套入PRD模板的四状态与六问检查清单（笔记提供的文本框架，未验证）",
+   "comments": "页面未见读者评论（评论区为空）",
+   "borrow": "借信息组织：错误示范 → 分状态拆解 → 一个例子 → 逐项检查清单；“含 AI 生成内容”与作者观点不当已验证方法",
+   "claims": "18年实战派：8年产品+10年交互；深耕AI数据驱动，3个月交付5套系统；精通B端复杂系统从0到1；全链路产品导师，专注分享高阶提效干货；沉淀系统知识库与实战模板，详见评论区（均为主页自述，未核）",
+   "limits": "无曝光分母与同期同龄基线，不称爆款、不算赞粉比。；作者自述/方法未实测。；来源未署名；支付/AI边界说法为作者自述；含AI生成内容声明。",
+   "classification": "unproven",
+   "classification_evidence": "无曝光分母、同期同龄基线不足；仅一个小号样本且互动为个位数。",
+   "batch": "2026-11-09 补搜批 2（4 词）"
+  },
+  {
+   "id": "6af06bd500000000150158fe",
+   "url": "https://www.xiaohongshu.com/explore/6af06bd500000000150158fe",
+   "title": "公司要上 AI，第一批做哪几个？",
+   "author": "大力AI敏捷派",
+   "tier": "small_priority",
+   "format": "图文",
+   "followers": "29（2026-11-09 01:19 UTC+8 主页核过）",
+   "entry": "关键词「需求排序」· 最新排序 · 首 8 张卡第 3 张",
+   "date": "搜索卡“昨天 20:32”；详情“4小时前 湖南”；未见编辑标记",
+   "date_status": "relative",
+   "date_evidence": null,
+   "counts": "赞 未显示 / 藏 未显示 / 评：未显示数字，评论区为空（2026-11-09 01:16-01:19 UTC+8 读取）",
+   "same_period": "同词首 8 卡里只开了这一篇，没有同期同龄基线，不比高低",
+   "coverage": "图文 10/10 张全读（第 7 页首次截图空白，同页等待约 20 秒后重读成功）",
+   "disclosure": null,
+   "structure": "标题：公司场景提问 + 数量化图卡承诺（10张图） → 首图：问题式大标题+一句方法副题+便签墙插画 → 正文：直觉做法错在哪→业务链→三问→合并判据→先别排序→反例边界→责任→五问验收→结论 → 可带走：三问筛动作+链条合并+五问验收的方法框架（作者自述，未实测）；未提供DRICE评分表，不替用户重写已有DRICE稿",
+   "comments": "页面未见读者评论（评论区为空）",
+   "borrow": "借信息组织：先指出直觉做法错在哪 → 给判断问题 → 反例与边界 → 验收问题收尾；方法是作者自述，未实测",
+   "claims": "十年商业操盘手，非程序员 AI 实战派。专注企业 AI 落地，沉淀可复制方法论，持续输出商业观察。（主页自述，未核）",
+   "limits": "无曝光分母与同期同龄基线，不称爆款、不算赞粉比。；作者自述/方法未实测。；未署名外部来源；案例为概括性场景，未核真实公司。；搜索词“需求排序”结果含无关感情/保险内容，本篇与AI落地优先级相关。",
+   "classification": "unproven",
+   "classification_evidence": "无曝光分母、同期同龄基线不足；互动数字未显示；账号为29粉小号，不能据此称爆款。",
+   "batch": "2026-11-09 补搜批 2（4 词）"
+  },
+  {
+   "id": "6ae673bd000000001901e400",
+   "url": "https://www.xiaohongshu.com/explore/6ae673bd000000001901e400",
+   "title": "会开了≠事做了，action item公式！",
+   "author": "桃姐的英语课堂",
+   "tier": "small_priority",
+   "format": "图文",
+   "followers": "29（2026-11-09 01:20 UTC+8 主页核过）",
+   "entry": "关键词「会议 Action」· 最新排序 · 首 8 张卡第 7 张",
+   "date": "搜索卡“11-01”；详情“7天前 美国”；未见编辑标记",
+   "date_status": "conflict",
+   "date_evidence": null,
+   "counts": "赞 2 / 藏 3 / 评：未显示数字，评论区为空（2026-11-09 01:19-01:20 UTC+8 读取）",
+   "same_period": "同词首 8 卡里只开了这一篇，没有同期同龄基线，不比高低",
+   "coverage": "图文 4/4 张全读",
+   "disclosure": "页面显示“作者声明：含ai生成内容”",
+   "structure": "标题：反差等式标题 + “公式”承诺 → 首图：便签公式+反例气泡+示例清单 → 正文：痛点→公式→12句句型→三幕图卡（纪要/认领/催办）→结论 → 可带走：Action+Owner+Deadline 行动项公式与12句英文模板（面向外企英语会议场景；作者自述）",
+   "comments": "页面未见读者评论（评论区为空）",
+   "borrow": "借一句可记住的公式（事项 + 负责人 + 截止）做标题与首图；本篇是外企英语句型，不当产品会议实务证据",
+   "claims": "主页简介栏未显示文字。",
+   "limits": "无曝光分母与同期同龄基线，不称爆款、不算赞粉比。；作者自述/方法未实测。；内容为职场英语表达，不等同产品经理会议实务；含AI生成内容声明。",
+   "classification": "unproven",
+   "classification_evidence": "无曝光分母、同期同龄基线不足；日期口径冲突；29粉小号。",
+   "batch": "2026-11-09 补搜批 2（4 词）"
+  }
+ ],
+ "proposals": [
+  {
+   "id": "P1",
+   "group": "G1",
+   "source_topic": "TK-03",
+   "status": "草案，部分样本已补",
+   "audience_problem": "想让团队用 AI 的产品经理：每个人从空白对话开始，重复踩坑，说不清差异来自输入还是模型",
+   "angle": "不列工具名单，交一份按流程排好的模板：每一项写清职责、产出、谁来检查",
+   "differs_from": "已发 M17 讲 AI 杠杆的理念；本题只交可复用的模板结构",
+   "titles": [
+    "AI模板：一项一页讲清楚",
+    "团队用AI，先交一份模板"
+   ],
+   "outline": [
+    "封面：一句话说清这份模板解决什么",
+    "总览：按工作流程分 3–4 组",
+    "每项一页：用途 / 带【】占位的模板 / 产出 / 谁检查",
+    "末页：答得不好时的追问句 + 一张总表"
+   ],
+   "takeaway": "一份能直接改的模板骨架（每项四栏）",
+   "sample_use": "借结构：清单先总览分组、一项一页同一模板、末页总表；提示词公式帖按场景分类，每类给一条带【】占位的可复制模板，末尾附追问句。工具与模板效果都未实测，不照搬原文",
+   "ocean_case": "待补：听记选题工作台有对应主题条目，需脱敏核对后才能写",
+   "evidence_gap": "「提示词模板」只精读 1 篇、7 条候选待核；「产品经理 AI工作流」首 8 卡全部待核；无同期同龄基线",
+   "next": "等后 4 词结果；待核候选里有产品经理向的模板帖时优先精读再定标题",
+   "support_ids": [
+    "6aef3f870000000015010e24",
+    "6af06e030000000003023ef7",
+    "6aeea270000000000e025ebd"
+   ]
+  },
+  {
+   "id": "P2",
+   "group": "G1",
+   "source_topic": "TK-17",
+   "status": "草案，只有问题切口的样本",
+   "audience_problem": "产品经理：需求原型改了一遍又一遍，每次对方想象的都不一样",
+   "angle": "把返工的痛点直接写成提问，再给“先用可点原型对齐、后写长文”的做法",
+   "differs_from": "已发帖里没有原型对齐题；M17 讲 AI 杠杆，不讲原型",
+   "titles": [
+    "原型总返工？先用可点原型对齐",
+    "原型改来改去，先对齐再画"
+   ],
+   "outline": [
+    "封面：用一句提问写出返工痛点",
+    "为什么长文对齐容易返工（引用来源写稿前再核）",
+    "可点原型的最小做法：只做要对齐的那一步",
+    "对齐时要当场确认的问题清单"
+   ],
+   "takeaway": "一份对齐原型前的确认清单",
+   "support_ids": [
+    "6af07c1800000000070314bf"
+   ],
+   "sample_use": "只借问题切口：返工痛点写成提问式标题与封面；视频未看，作者方法未知，不当已验证做法",
+   "ocean_case": "待补：听记选题工作台有对应主题条目，需脱敏核对后才能写",
+   "evidence_gap": "唯一样本是视频，只读了标题、描述和封面；「AI原型」7 条候选待核；做法部分目前没有真实样本支撑",
+   "next": "精读「AI原型」待核候选里讲原型做法的图文；有支撑再写正文"
+  },
+  {
+   "id": "P3",
+   "group": "G3",
+   "source_topic": "TK-16",
+   "status": "草案，有 1 篇结构样本",
+   "audience_problem": "写 PRD 的产品经理：流程只写了成功那条路，失败、超时、状态未知时开发和测试各猜各的",
+   "angle": "给每个关键动作补“失败了会怎样”：列出几种状态，各写一句系统怎么处理、用户看到什么",
+   "differs_from": "已发 M01–M03 讲问题定义与自检，没有讲流程状态；与 DRICE 优先级无关",
+   "titles": [
+    "PRD别只写成功那条路",
+    "写PRD，先问失败了怎样"
+   ],
+   "outline": [
+    "封面：一句结论 + 一个只写成功的反例",
+    "把一个关键动作拆成几种状态",
+    "用一个具体例子走一遍每种状态",
+    "末页：写完 PRD 逐项自查的问题清单"
+   ],
+   "takeaway": "一张关键动作的状态表和一份自查问题清单",
+   "support_ids": [
+    "6af087160000000023012929"
+   ],
+   "sample_use": "借信息组织：错误示范 → 分状态拆解 → 一个例子 → 检查清单。该帖声明含 AI 生成内容，四状态与边界说法是作者观点，未验证，不照搬",
+   "ocean_case": "待补：本主题（TK-16）没有听记案例，不编；可只写公开方法，或换用听记里有记录的验收主题（TK-09）后脱敏核对",
+   "evidence_gap": "「怎么写PRD」只精读 1 篇，7 条候选待核；无同期同龄基线",
+   "next": "写稿前核对 Lenny 一页纸原文的引用；需要个人案例时先找 Ocean 确认"
+  }
+ ]
+}

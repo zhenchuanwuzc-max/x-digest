@@ -352,8 +352,13 @@ def _growth_count():
 
 
 def _daily_new_small():
-    """日常选题：新帖、小号优先（2026-11-08 t244/t246）。数据取 SITE/topics/src/new-small.json（由选题工作包导出，七步页第 2/4 步引用同一份）；
-    缺文件或数据坏时整块不出现，日更不中断。"""
+    """日常选题：新帖、小号优先（2026-11-08 t244/t246；2026-11-09 t248 结构化）。
+    优先读 SITE/topics/src/new-small-v2.json（关键词覆盖 / 真实样本 / 建议选题三区，由 topics/src/build_new_small.py 生成）；
+    没有 v2 时退回旧 new-small.json 的列表写法。缺文件或数据坏时整块不出现，日更不中断。"""
+    try:
+        return _new_small_v2(json.loads((SITE / 'topics' / 'src' / 'new-small-v2.json').read_text()))
+    except Exception:
+        pass
     try:
         D = json.loads((SITE / 'topics' / 'src' / 'new-small.json').read_text())
         rules = "".join(f'<li>{E(r)}</li>' for r in D['rules'])
@@ -372,6 +377,79 @@ def _daily_new_small():
                 f'<p class="muted">{E(D["gaps"])} · 七步拆法见 <a href="seven/#s2">七步工作台</a></p></div>')
     except Exception:  # 数据缺字段或坏掉：整块不出现
         return ""
+
+
+_NS_SAMPLE_FIELDS = (("followers", "作者粉丝"), ("entry", "入口与排序"), ("date", "日期原文"), ("counts", "赞藏评"),
+                     ("same_period", "同期对照"), ("coverage", "读了多少"), ("structure", "标题承诺 → 首图 → 正文顺序 → 可带走"),
+                     ("disclosure", "页面声明"), ("comments", "读者评论"), ("borrow", "可借鉴"), ("claims", "作者自述（未核）"), ("limits", "缺口与边界"), ("batch", "批次"))
+
+
+def _new_small_v2(D):
+    """t248 结构化渲染：先给建议选题（问题 / 切口 / 能带走 / 提纲），样本证据折叠在后；关键词覆盖按主题列真实搜索状态，未搜不写 0。
+    全块只有外层一个 div，内部用 section / article / details。"""
+    a = lambda u, t: f'<a href="{E(u)}" target="_blank" rel="noopener noreferrer">{E(t)}</a>'
+    S = {s['id']: s for s in D['samples']}
+    G = {g['id']: g for g in D['keywords_coverage']['groups']}
+    used = {}
+    for p in D['proposals']:
+        for i in p['support_ids']:
+            used.setdefault(i, []).append(p['id'])
+    c = D['counts']
+    head = (f'<p class="muted">关键词计划 {c["planned"]} 个 · 本轮优先 {c["this_round"]} 个 · 已完成扫描 {c["searched"]} 个'
+            f'（截至 {E(D["asof"])}，UTC+8；扫描完成不等于全词搜完）。建议选题是草案；样本证据可展开。</p>')
+    props = '<h3>建议选题（按主题）</h3>'
+    for gid in G:
+        ps = [p for p in D['proposals'] if p['group'] == gid]
+        if not ps:
+            continue
+        props += f'<section><h4>{E(gid)} · {E(G[gid]["name"])}</h4>'
+        for p in ps:
+            props += (f'<article id="ns-{E(p["id"])}"><p><b>{E(" / ".join(p["titles"]))}</b> <span class="muted">（{E(p["status"])}）</span></p>'
+                      f'<p>受众问题：{E(p["audience_problem"])}</p><p>切口：{E(p["angle"])}</p><p>能带走：{E(p["takeaway"])}</p>'
+                      f'<p class="muted">证据缺口：{E(p["evidence_gap"])}</p>'
+                      f'<p>提纲：</p><ol>' + "".join(f'<li>{E(o)}</li>' for o in p['outline']) + '</ol>'
+                      f'<details><summary>依据、差异与待补</summary><p>与已发区别：{E(p["differs_from"])}</p>'
+                      f'<p>真实样本：' + "、".join(f'<a href="#ns-s-{E(i)}">{E(S[i]["title"])}</a>' for i in p['support_ids']) + f'；{E(p["sample_use"])}</p>'
+                      f'<p>Ocean 自有案例：{E(p["ocean_case"])}</p><p>下一步：{E(p["next"])}</p></details></article>')
+        props += '</section>'
+    L = D['keywords_coverage']['status_labels']
+    if D.get('not_proposed'):
+        props += '<p class="muted">本轮没出建议的词：</p><ul>' + "".join(f'<li class="muted">{E(x)}</li>' for x in D['not_proposed']) + '</ul>'
+    cov = '<h3>关键词覆盖</h3>' + (f'<p class="muted">{E(D["keywords_coverage"]["round_note"])}</p>' if D['keywords_coverage'].get('round_note') else '') + '<ul>'
+    for g in G.values():
+        items = ""
+        for k in g['keywords']:
+            if not k['searches']:
+                items += f'<li>{E(k["query"])}：' + ('本轮待搜' if k['this_round'] else '后备，待搜') + '</li>'
+                continue
+            r = k['searches'][-1]
+            nums = f'扫 {r["scanned_count"]} 张、开 {r["opened_count"]} 篇' + (f'、入精读库 {len(r["sample_ids"])} 条' if r['sample_ids'] else '') \
+                + (f'、待核候选 {r["pending_candidates"]} 条' if r['pending_candidates'] else '')
+            items += (f'<li><b>{E(k["query"])}：{E(L[r["status"]])}</b>（{E(r["captured"])}，{E(r["sort"])}排序；{nums}）'
+                      + (f'<br><span class="muted">依据：{E(r["no_qualified_basis"])}</span>' if r['status'] == 'checked_none' else '')
+                      + (f'<br><span class="muted">限制：{E(r["limits"])}</span>' if r.get('limits') else '') + '</li>')
+        cov += f'<li><b>{E(g["id"])} {E(g["name"])}</b><ul>{items}</ul></li>'
+    for l in D['keywords_coverage']['legacy']:
+        cov += f'<li><b>旧池</b>：{E(l["query"])}（{E(l["captured"])} {E(l["sort"])}；{E(l["scan"])}；{E(l["note"])}）</li>'
+    cov += '</ul>'
+    smp = '<h3>真实样本</h3><ol>' + "".join(f'<li>{E(r)}</li>' for r in D['rules']) + '</ol>'
+    for k, lab in D['tiers'].items():
+        rs = [s for s in D['samples'] if s['tier'] == k]
+        if not rs:
+            continue
+        smp += f'<h4>{E(lab)}（{len(rs)} 条）</h4>'
+        for s in rs:
+            back = "、".join(f'<a href="#ns-{E(i)}">{E(i)}</a>' for i in used.get(s['id'], []))
+            smp += (f'<details id="ns-s-{E(s["id"])}"><summary>{a(s["url"], s["title"])} · {E(s["author"])} · {E(s["format"])}</summary><dl>'
+                    + "".join(f'<dt>{E(lab2)}</dt><dd>{E(s[f])}</dd>' for f, lab2 in _NS_SAMPLE_FIELDS if s.get(f))
+                    + f'<dt>日期可信度</dt><dd>' + (f'绝对日期已核：{E(s["date_evidence"])}' if s['date_status'] == 'absolute_verified' else '搜索卡与详情日期不一致，原样并列，不推年份或初发日' if s['date_status'] == 'conflict' else '只有相对时间、无年份，新帖身份待核') + '</dd>'
+                    + f'<dt>表现结论</dt><dd>' + ('有证据：' if s['classification'] == 'evidenced' else '未证实：') + f'{E(s["classification_evidence"])}</dd>'
+                    + (f'<dt>支撑的建议</dt><dd>{back}</dd>' if back else '') + '</dl></details>')
+    return (f'<h2 id="newsmall"><span class="sec-ico" aria-hidden="true">◆</span> 选题热帖：新帖、小号优先</h2>'
+            f'<div class="card ns2"><style>.ns2 article,.ns2 details{{border-top:1px solid var(--line,#e6e0d4);padding:.5rem 0}}.ns2 summary{{cursor:pointer}}'
+            f'.ns2 dl{{display:grid;grid-template-columns:9em minmax(0,1fr);gap:.2rem .8rem;margin:.4rem 0;font-size:.92rem}}.ns2 dt{{color:var(--mut,#6a6a62)}}.ns2 dd{{margin:0}}'
+            f'@media(max-width:600px){{.ns2 dl{{grid-template-columns:1fr}}.ns2 dd{{margin-bottom:.3rem}}}}</style>{head}{props}{cov}{smp}'
+            f'<p class="muted">{E(D["gaps"])} · 七步拆法见 <a href="seven/#s2">七步工作台</a></p></div>')
 
 
 def _seven_entry():
