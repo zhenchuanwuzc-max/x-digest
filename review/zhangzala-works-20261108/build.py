@@ -81,10 +81,13 @@ AUD = [
  ("想做内容、做账号的人", "别人怎么做内容、用什么工具", "方法线索和工具名",
   '<a href="#w4">卡 4</a>', '<span class="lv s">自述</span>“7万”和“用 Claude Code 做动画剪辑”都是作者说法。<span class="lv h">假设</span>这类读者存在，没有数据'),
 ]
-arows = "".join(f'<tr><td data-l="读者类型">{a}</td><td data-l="想要什么">{b}</td><td data-l="能拿走什么">{c}</td><td data-l="对应作品">{d}</td><td data-l="证据">{e}</td></tr>' for a,b,c,d,e in AUD)
+DEP = {'想入门 AI、但不是工程师的学习者': '读者现在：可能 L0–L1（推断；学教程不等于已经在用）<br>内容指向：L1–L2 的学习方法（分析）', '想做出第一个作品的人': '读者现在：未知。评论里用 Cursor/Trea 做小程序，说明接触过 L4 类工具，但一次作品不等于工具链进生产，也没有 L3 验收证据<br>内容指向：L4 工具的入门示范', '已在用 AI 工具、想接进日常工作的人': '读者现在：未知<br>内容指向：L4 接入（Claude Code 接进飞书）；不证明 L5', '想做内容、做账号的人': '读者现在：横跨各层，要看具体用法<br>内容指向：卡 4 自述用 Claude Code（L4 类工具）做动画剪辑'}
+arows = "".join(f'<tr><td data-l="读者类型">{a}</td><td data-l="AI 使用深度">{DEP[a]}</td><td data-l="想要什么">{b}</td><td data-l="能拿走什么">{c}</td><td data-l="对应作品">{d}</td><td data-l="证据">{e}</td></tr>' for a,b,c,d,e in AUD)
 audience = ('<section id="audience"><h2>谁在看，为什么愿意看</h2>'
  '<p class="muted"><b>没有真实的粉丝画像数据</b>（年龄、职业、地区都没有），也没有点击或收藏来源。下面的人群和动机都是根据作者自述、少数评论和作品内容推出来的假设，不代表全体粉丝，也没有证明哪类人真的在看。</p>'
- '<div class="tw"><table><thead><tr><th>可能的读者类型（推断）</th><th>可能想要什么</th><th>能拿走什么</th><th>对应作品</th><th>证据</th></tr></thead><tbody>' + arows + '</tbody></table></div>'
+ '<div class="tw"><table><thead><tr><th>可能的读者类型（推断）</th><th>AI 使用深度</th><th>可能想要什么</th><th>能拿走什么</th><th>对应作品</th><th>证据</th></tr></thead><tbody>' + arows + '</tbody></table></div>'
+'<p class="depth"><b>深度怎么标：</b>沿用 <a href="../research/ai-depth-levels-2026-10-28.html#levels">AI 使用深度水位</a>：L0 旁观 / 偶尔问一句；L1 会聊（单轮问答进日常）；L2 会喂（长上下文 + 多轮改稿）；L3 会验（标准、评测、人机分工）；L4 会编（Agent / IDE / 工具链进生产）；L5 流水线（多 Agent + 数据闭环）。表里分开写“读者现在可能在哪层”和“内容指向哪层”；层级不是职业类别，也不是必须按顺序爬的台阶。</p>'
+ '<p class="depth"><span class="lv h">假设</span><b>核心观察：</b>用低门槛的说法吸引浅层读者，内容再指向更深的实践（L4 工具和接入）。这是内容分析，没有证实有读者因此升档，不知道粉丝在各层的分布，也没有 L3 或 L5 读者的证据。</p>'
  '<h3>可能为什么能火、能传开（未验证）</h3><div class="card"><ul class="plain">'
  '<li><span class="lv s">自述</span>她在 2025-09-18 原帖里说，希望“不制造焦虑，只提供切实具体的解决方案和学习方法；不包装自己，只发表真实想法”（<a href="#w1">卡 1</a>）。<span class="lv h">假设</span>对怕被割韭菜的入门读者，这种承诺本身就是看下去的理由。</li>'
  '<li><span class="lv s">自述</span>作者说每天至少 3 位粉丝发帖 @ 她，讲自己看完后做了什么（<a href="#s3">阶段 3</a> 节点 5b）。<span class="lv h">假设</span>读者晒“我做了第一个 X”时会带上她，这可能是一条传播路径；频次是作者口述，传播效果没有数据。</li>'
@@ -133,12 +136,12 @@ out = out.replace('采集 2026-11-01 · 重写 2026-11-08（UTC+8）', '采集 2
 # 样式
 css = ('.lv.h{background:#f1e8fb}\n.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:.8rem}\n'
  '.work{margin:0;overflow-wrap:anywhere}.work h3{margin:.1rem 0 .4rem}.work p{margin:.35rem 0}.work .take{border-top:1px dashed var(--line);padding-top:.45rem}\n'
- '#compare .tw table,#audience .tw table{min-width:36rem}\n'
+ '#compare .tw table{min-width:36rem}#audience .tw table{min-width:52rem}.depth{margin:.5rem 0}\n'
  '@media(max-width:700px){#compare .tw,#audience .tw{overflow:visible}#compare .tw table,#compare .tw tbody,#compare .tw tr,#compare .tw td,#audience .tw table,#audience .tw tbody,#audience .tw tr,#audience .tw td{display:block;width:100%;min-width:0}'
  '#compare .tw thead,#audience .tw thead{display:none}#compare .tw tr,#audience .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}'
  '#compare .tw td,#audience .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}#compare .tw td::before,#audience .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}}\n')
 out = out.replace('details.arch>summary{cursor:pointer;font-weight:700;padding:.6rem 0}\n', css)
-for need in ['id="audience"', 'href="#audience">受众', '#audience .tw thead', 'id="works"', 'href="#works"', '.lv.h', '干货满满', 'Cognitive Commons', '卡 5、卡 6 的原帖正文', '#sources">来源']:
+for need in ['ai-depth-levels-2026-10-28.html#levels', 'data-l="AI 使用深度"', 'id="audience"', 'href="#audience">受众', '#audience .tw thead', 'id="works"', 'href="#works"', '.lv.h', '干货满满', 'Cognitive Commons', '卡 5、卡 6 的原帖正文', '#sources">来源']:
     assert need in out, need
 assert 'id="archive"' not in out and 'details.arch' not in out
 (REPO/"xhs"/"zhangzala.html").write_text(out, encoding="utf-8")
