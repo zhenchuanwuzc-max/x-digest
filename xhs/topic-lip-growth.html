@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>learn-in-public 怎么涨、怎么变现 · 人物成长研究</title>
+<!-- impeccable-polish: fluid + sticky left nav; claims linked; 待核 -->
+<style>
+:root{
+  --bg:#f3f1eb; --surface:#fffcf7; --ink:#1a1c1b; --ink-2:#3d433f; --mut:#59656b;
+  --line:#e2ddd2; --accent:#0d6b52; --accent-soft:#e4f3ec; --warn:#8a5a00; --warn-soft:#fff3d6;
+  --ok:#155724; --ok-soft:#d4edda;
+  --shadow:0 1px 2px rgba(26,28,27,.04),0 8px 24px rgba(26,28,27,.06);
+  --r:14px; --nav-w:13.5rem;
+}
+*{box-sizing:border-box}
+html{color-scheme:light; scroll-behavior:auto}
+body{
+  margin:0; color:var(--ink); background:var(--bg);
+  font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+::selection{background:#cfe8de;color:var(--ink)}
+.shell{display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr); gap:0; min-height:100vh; max-width:74rem; margin:0 auto}
+.nav{
+  position:sticky; top:0; align-self:start; height:100vh;
+  padding:1.5rem 1rem 2rem 1.15rem; border-right:1px solid var(--line);
+  background:linear-gradient(180deg,#f7f5ef,var(--bg)); overflow:auto;
+}
+.nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
+.nav .meta{font-size:.78rem; color:var(--mut); margin:0 0 1.1rem; line-height:1.45}
+.nav a{display:block; color:var(--ink-2); text-decoration:none; font-size:.88rem; padding:.38rem .55rem; border-radius:8px; margin:.12rem 0}
+.nav a:hover,.nav a:focus-visible{background:var(--accent-soft); color:var(--accent); outline:none}
+.nav .sec{font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .35rem; padding-left:.55rem}
+.main{padding:1.75rem 1.5rem 4.5rem; max-width:50rem}
+h1{font-size:clamp(1.35rem,2.2vw,1.7rem); line-height:1.28; letter-spacing:-.025em; margin:0 0 .55rem; font-weight:750}
+h2{font-size:1.12rem; line-height:1.35; margin:2.2rem 0 .65rem; padding-bottom:.45rem; border-bottom:2px solid var(--accent); letter-spacing:-.015em; font-weight:700}
+h3{font-size:1.02rem; line-height:1.4; margin:1.05rem 0 .4rem; font-weight:700}
+p,li{color:var(--ink-2)}
+p{margin:.55rem 0}
+.muted{color:var(--mut); font-size:.94rem; line-height:1.6}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:1.05rem 1.15rem; margin:.85rem 0; box-shadow:var(--shadow)}
+.verdict{border-color:#b7d9cb; background:linear-gradient(180deg,#f4faf7,var(--surface))}
+.tag{display:inline-block; font-size:12px; font-weight:650; line-height:1.5; background:var(--accent-soft); color:var(--accent); padding:.15rem .55rem; border-radius:999px; margin-right:.35rem}
+.tag.warn{background:var(--warn-soft); color:var(--warn)}
+.success{border-left:3px solid var(--accent)}
+.inflect{border-left:3px solid var(--warn)}
+.inflect table{font-size:.92rem}
+.inflect th{white-space:nowrap}
+.success h3{margin-top:1rem}.success h3:first-child{margin-top:0}
+.success .cant{color:var(--warn)}
+a{color:var(--accent); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-all}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px}
+ol,ul{padding-left:1.25rem; margin:.4rem 0 .6rem}
+li{margin:.28rem 0}
+.src{font-size:.88rem; color:var(--mut); margin-top:.45rem}
+.foot{margin-top:2.75rem; font-size:.88rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
+table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:.45rem .55rem; text-align:left; vertical-align:top}
+th{background:#efeae0; color:var(--ink); font-weight:650}
+.metrics{font-variant-numeric:tabular-nums; white-space:nowrap}
+.mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.55rem 0; border-bottom:1px solid var(--line)}
+.mob-nav a{font-size:.8rem; color:var(--accent); text-decoration:none; background:var(--accent-soft); padding:.22rem .5rem; border-radius:999px}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .nav{display:none}
+  .mob-nav{display:flex}
+  .main{padding:1.2rem 1rem 3.5rem}
+}
+.tw{overflow-x:auto;max-width:100%}.tw table{min-width:40rem}
+</style>
+<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid><style>.nav .sub{padding-left:1.2rem;font-size:.82rem}</style></head>
+<body>
+<div class="shell">
+<aside class="nav" aria-label="本页目录">
+  <p class="brand">learn-in-public 怎么涨、怎么变现</p>
+  <a href="growth/">← 人物成长研究</a>
+  <div class="sec">本页</div>
+  <a href="#lip-growth">learn-in-public 账号：怎么涨、怎么变现</a>
+</aside>
+<main class="main">
+<nav class="mob-nav" aria-label="返回"><a href="growth/">← 人物成长研究</a></nav>
+<h2 id="lip-growth">learn-in-public 账号：怎么涨、怎么变现</h2>
+<div class="card">
+  <h3>常见增长动作（有公开出处）</h3>
+  <ul>
+    <li><strong>过程目标先于粉丝 KPI：</strong>张咋啦自述起号只定「连续日更半年」，累计近 500 篇、小红书约 2万→18万（播客/虎嗅转载）→ <span class="tag warn">待核</span>。出处：<a href="https://www.huxiu.com/article/4824449.html">虎嗅文字版</a> · <a href="https://www.xiaoyuzhoufm.com/episode/695af1289b7892496e9811cb">小宇宙</a>。</li>
+    <li><strong>公开学习倒逼理解：</strong>国内复盘文归纳 Zara 方法：高质量输入（长视频/builders）+ learn in public + learn by doing。出处：<a href="https://www.woshipm.com/share/6230525.html">人人都是产品经理 · 实践张 Zara 方法</a>。</li>
+    <li><strong>B站「边做边讲」：</strong>花叔路径——先把 AI 拉进具体任务，再把试错拍成教程；开源项目反哺内容（盒饭财经/人人都是产品经理报道）。出处：<a href="https://www.woshipm.com/ai/6423340.html">我在B站和野生UP主学AI</a>。</li>
+    <li><strong>小红书 build in public：</strong>创业者用笔记记录迭代与求助，产品更新本身即内容（Founder Park / 智源转述）。出处：<a href="https://hub.baai.ac.cn/view/38564">智源社区转载</a>。</li>
+  </ul>
+  <h3>常见变现路径（标清来源；自述待核）</h3>
+  <ul>
+    <li><strong>信任 → 人脉/机会（先不做广告）：</strong>Zara 路径偏长期分发；正职在身时更可持续（复盘文观点）。</li>
+    <li><strong>课程/会员库：</strong>范凯站方现读月/季/年会员（约 US$19.90 / 54.90 / 199.90），框架「AI 生产 + 个人 IP」。出处：<a href="https://fankaishuo.ai/">fankaishuo.ai</a>。</li>
+    <li><strong>Newsletter 赞助/付费档：</strong>海外案例采访称 Superpower Daily 年收约 $10–15 万（赞助+beehiiv 广告网）；AI Tool Report 称约 $10 万/月量级——均为受访自述 → <span class="tag warn">待核</span>。出处：<a href="https://www.creatorspotlight.com/p/superpower-daily">Creator Spotlight · Superpower Daily</a> · <a href="https://www.creatorspotlight.com/p/ai-tool-report-martin-crowley">AI Tool Report</a>。</li>
+    <li><strong>产品公开收入：</strong>levelsio / Marc Lou / Tony Dinh 等在 X bio 自报多产品月收——个人展示，非审计 → <span class="tag warn">待核</span>；可学的是「做一件事就公开一件事」的节奏，不是数字本身。</li>
+    <li><strong>内容 → 产品：</strong>花叔等把教程与开源/App 互相导流（访谈叙述）。</li>
+  </ul>
+  <p class="src">对你：辅系列「我学 AI 的过程」先赚信任与素材；主线课表赚「把活干好」的专业标签；变现对齐远期产品课，不急广告。</p>
+</div>
+
+
+<p class="foot">私密 · 人物成长研究 · <a href="growth/">← 返回首页</a></p>
+</main>
+</div>
+</body>
+</html>

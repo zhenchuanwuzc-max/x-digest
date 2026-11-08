@@ -1,0 +1,51 @@
+528c528
+< <a href="creators.html"><b>对标博主完整档案</b></a>（与本地研究页同步，已去本地路径）。</p>
+---
+> <a href="growth/"><b>人物成长研究</b></a>（每人一页，与本地研究页同步）。</p>
+530,531c530,531
+<   <span>13 位深描 + 分类对照，内容比本页摘要完整得多。</span>
+<   <a class="btn" href="creators.html">打开完整档案 →</a>
+---
+>   <span>14 人各一页，另有分类对照等专题。</span>
+>   <a class="btn" href="growth/">打开人物成长研究 →</a>
+639c639
+< <a href="creators.html#lip-growth">对标档案 · 怎么涨 &amp; 变现</a></p></div>'''
+---
+> <a href="topic-lip-growth.html">专题 · learn-in-public 怎么涨 &amp; 变现</a></p></div>'''
+897a898
+>     """共享源 → 人物页 / 专题页 / creators.html 兼容页。切分规则在站点仓库 xhs/growth/src/split_creators.py。"""
+904,923c905,917
+<     # foot cleanup
+<     html = re.sub(
+<         r'<p class="foot">[\s\S]*?</p>',
+<         '<p class="foot">私密 · x-digest/xhs/creators.html · 与小红书全入口同步 · 导航瞬时跳转 · 不进公开展示 · '
+<         '<a href="./">← 返回小红书全入口</a></p>',
+<         html, count=1,
+<     )
+<     # inject back-link near brand if needed
+<     if '返回选题库' not in html.split('</aside>')[0]:
+<         html = html.replace(
+<             '<div class="sec">导读</div>',
+<             '<div class="sec">选题库</div>\n  <a href="./">← 小红书全入口</a>\n  <div class="sec">导读</div>',
+<             1,
+<         )
+<     for bad in ('/workspace/', '/Users/', 'sources_private', '听记知识库/会议'):
+<         if bad in html:
+<             raise SystemExit(f'creators leak: {bad}')
+<     CREATORS_OUT.parent.mkdir(parents=True, exist_ok=True)
+<     CREATORS_OUT.write_text(html)
+<     print(f'wrote {CREATORS_OUT} ({len(html)} bytes)')
+---
+>     import importlib.util
+>     spec = importlib.util.spec_from_file_location('split_creators', SITE / 'growth' / 'src' / 'split_creators.py')
+>     mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+>     out_dir = CREATORS_OUT.parent
+>     outs = mod.split(html)
+>     for name, page in outs.items():
+>         for bad in ('/workspace/', '/Users/', 'sources_private', '听记知识库/会议'):
+>             if bad in page:
+>                 raise SystemExit(f'creators leak: {bad} in {name}')
+>     out_dir.mkdir(parents=True, exist_ok=True)
+>     for name, page in outs.items():
+>         (out_dir / name).write_text(page)
+>         print(f'wrote {out_dir / name} ({len(page)} bytes)')
