@@ -70,6 +70,29 @@ def card(w):
 works = ('<section id="works"><h2>代表作品拆解</h2><p class="muted">这里只挑有原帖链接的作品，<b>不是确认的热门榜</b>：互动数没有可追溯来源，一律不写。只分析标题和正文里看得到的写法；'
          '视频都没播放。<span class="lv a">观察</span>是页面上看得到的写法；<span class="lv h">假设</span>是对效果或原因的猜测，没验证。</p>'
          '<div class="works">' + "".join(card(w) for w in WORKS) + '</div></section>')
+
+AUD = [
+ ("想入门 AI、但不是工程师的学习者", "从哪学、怎么学，有人带着走一遍", "学习路径和“我也在学”的示范",
+  '<a href="#w1">卡 1</a>；<a href="#s3">阶段 3</a> 节点 5b、6', '<span class="lv s">自述</span>作者把定位说成“非技术视角学 AI”（采访摘录）；作者说读者看了内容后去看完 Karpathy 大模型教程'),
+ ("想做出第一个作品的人", "有人示范不会写代码也能做出东西", "敢动手的理由和一个起点",
+  '<a href="#s3">阶段 3</a> 节点 5c（卡 1 同帖评论）；<a href="#w3">卡 3</a>', '<span class="lv s">评论者自述</span>“狗牯仔的人间喜剧”说看完后用 Cursor 和 Trea 做了小程序；“芒果.beta”说受启发做出第一个视频。<span class="lv h">假设</span>卡 3 的反差标题也打中这类人'),
+ ("已在用 AI 工具、想接进日常工作的人", "把工具接进已经在用的软件", "Claude Code 接入飞书的线索；具体步骤和能否照做未核",
+  '<a href="#w2">卡 2</a>', '<span class="lv f">事实</span>卡 2 正文写“无缝接入飞书…手机上也可以”。<span class="lv h">假设</span>读者是职场用户，没有数据'),
+ ("想做内容、做账号的人", "别人怎么做内容、用什么工具", "方法线索和工具名",
+  '<a href="#w4">卡 4</a>', '<span class="lv s">自述</span>“7万”和“用 Claude Code 做动画剪辑”都是作者说法。<span class="lv h">假设</span>这类读者存在，没有数据'),
+]
+arows = "".join(f'<tr><td data-l="读者类型">{a}</td><td data-l="想要什么">{b}</td><td data-l="能拿走什么">{c}</td><td data-l="对应作品">{d}</td><td data-l="证据">{e}</td></tr>' for a,b,c,d,e in AUD)
+audience = ('<section id="audience"><h2>谁在看，为什么愿意看</h2>'
+ '<p class="muted"><b>没有真实的粉丝画像数据</b>（年龄、职业、地区都没有），也没有点击或收藏来源。下面的人群和动机都是根据作者自述、少数评论和作品内容推出来的假设，不代表全体粉丝，也没有证明哪类人真的在看。</p>'
+ '<div class="tw"><table><thead><tr><th>可能的读者类型（推断）</th><th>可能想要什么</th><th>能拿走什么</th><th>对应作品</th><th>证据</th></tr></thead><tbody>' + arows + '</tbody></table></div>'
+ '<h3>可能为什么能火、能传开（未验证）</h3><div class="card"><ul class="plain">'
+ '<li><span class="lv s">自述</span>她在 2025-09-18 原帖里说，希望“不制造焦虑，只提供切实具体的解决方案和学习方法；不包装自己，只发表真实想法”（<a href="#w1">卡 1</a>）。<span class="lv h">假设</span>对怕被割韭菜的入门读者，这种承诺本身就是看下去的理由。</li>'
+ '<li><span class="lv s">自述</span>作者说每天至少 3 位粉丝发帖 @ 她，讲自己看完后做了什么（<a href="#s3">阶段 3</a> 节点 5b）。<span class="lv h">假设</span>读者晒“我做了第一个 X”时会带上她，这可能是一条传播路径；频次是作者口述，传播效果没有数据。</li>'
+ '<li><span class="lv a">分析</span>根据她“谦虚的学生、learn in public”的自述（<a href="#s3">阶段 3</a> 节点 5a），推测这种姿态可能让读者觉得是同路人而不是老师，降低入门门槛（推断）。</li>'
+ '<li><span class="lv s">自述</span>她在 X 上说，受众的价值是验证 idea、找早期用户（“Signals &gt; distribution”，<a href="#s5">阶段 5</a> 节点 17）。<span class="lv a">分析</span>她把读者当作品的第一批用户，不只是流量。</li>'
+ '<li>标题写法上的差别见下一节<a href="#compare">写法对照</a>，这里不重复。</li>'
+ '</ul></div><p class="muted"><span class="lv b">边界</span>评论只读到 2025-09-18 一篇，另外 4 篇评论没载入；视频都没播放。旧采集里“Codex app 写给非程序员”一类标题没有链接，不作证据。不能据此推断粉丝构成或互动因果。</p></section>')
+
 CMP = [
  ("可带走的东西", "开源项目接入飞书（<a href=\"#w2\">卡 2</a>，正文可见）；模板（<a href=\"#w5\">卡 5</a>，只有标题，待核）", "纯观点、活动预告"),
  ("身份反差", "不会写代码 × GitHub 星（<a href=\"#w3\">卡 3</a>）", "没有前后对比"),
@@ -89,12 +112,12 @@ voice = ('<section id="voice"><h2>语气、节奏与可借鉴写法</h2><div cla
 
 out = src
 out = re.sub(r'<section id="archive">.*?</details></section>\n?', '', out, flags=re.S)
-i = out.index('<section id="limits">'); out = out[:i] + works + "\n" + compare + "\n" + voice + "\n" + out[i:]
+i = out.index('<section id="limits">'); out = out[:i] + works + "\n" + audience + "\n" + compare + "\n" + voice + "\n" + out[i:]
 # 目录
-out = out.replace('  <a href="#limits">失败与边界</a>', '  <a href="#works">代表作品拆解</a>\n  <a href="#compare">写法对照</a>\n  <a href="#voice">语气与节奏</a>\n  <a href="#limits">失败与边界</a>')
+out = out.replace('  <a href="#limits">失败与边界</a>', '  <a href="#works">代表作品拆解</a>\n  <a href="#audience">谁在看</a>\n  <a href="#compare">写法对照</a>\n  <a href="#voice">语气与节奏</a>\n  <a href="#limits">失败与边界</a>')
 out = out.replace('  <a href="#archive">旧版留档</a>\n', '')
 out = out.replace('  <a href="#timeline">时间线</a>\n  <a href="#limits">边界</a>\n  <a href="#for-ocean">借鉴</a>\n  <a href="#archive">留档</a>',
-                  '  <a href="#timeline">时间线</a>\n  <a href="#works">作品</a>\n  <a href="#compare">对照</a>\n  <a href="#voice">语气</a>\n  <a href="#limits">边界</a>\n  <a href="#for-ocean">借鉴</a>\n  <a href="#sources">来源</a>')
+                  '  <a href="#timeline">时间线</a>\n  <a href="#works">作品</a>\n  <a href="#audience">受众</a>\n  <a href="#compare">对照</a>\n  <a href="#voice">语气</a>\n  <a href="#limits">边界</a>\n  <a href="#for-ocean">借鉴</a>\n  <a href="#sources">来源</a>')
 # 头部图例
 out = out.replace('<span class="lv b">边界</span>写不能怎么用。', '<span class="lv b">边界</span>写不能怎么用；作品卡里再分<span class="lv a">观察</span>（看得到的写法）和<span class="lv h">假设</span>（效果或原因，没验证）。')
 # 给 Ocean：去重与改写
@@ -110,12 +133,12 @@ out = out.replace('采集 2026-11-01 · 重写 2026-11-08（UTC+8）', '采集 2
 # 样式
 css = ('.lv.h{background:#f1e8fb}\n.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:.8rem}\n'
  '.work{margin:0;overflow-wrap:anywhere}.work h3{margin:.1rem 0 .4rem}.work p{margin:.35rem 0}.work .take{border-top:1px dashed var(--line);padding-top:.45rem}\n'
- '#compare .tw table{min-width:36rem}\n'
- '@media(max-width:700px){#compare .tw{overflow:visible}#compare .tw table,#compare .tw tbody,#compare .tw tr,#compare .tw td{display:block;width:100%;min-width:0}'
- '#compare .tw thead{display:none}#compare .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}'
- '#compare .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}#compare .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}}\n')
+ '#compare .tw table,#audience .tw table{min-width:36rem}\n'
+ '@media(max-width:700px){#compare .tw,#audience .tw{overflow:visible}#compare .tw table,#compare .tw tbody,#compare .tw tr,#compare .tw td,#audience .tw table,#audience .tw tbody,#audience .tw tr,#audience .tw td{display:block;width:100%;min-width:0}'
+ '#compare .tw thead,#audience .tw thead{display:none}#compare .tw tr,#audience .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}'
+ '#compare .tw td,#audience .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}#compare .tw td::before,#audience .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}}\n')
 out = out.replace('details.arch>summary{cursor:pointer;font-weight:700;padding:.6rem 0}\n', css)
-for need in ['id="works"', 'href="#works"', '.lv.h', '干货满满', 'Cognitive Commons', '卡 5、卡 6 的原帖正文', '#sources">来源']:
+for need in ['id="audience"', 'href="#audience">受众', '#audience .tw thead', 'id="works"', 'href="#works"', '.lv.h', '干货满满', 'Cognitive Commons', '卡 5、卡 6 的原帖正文', '#sources">来源']:
     assert need in out, need
 assert 'id="archive"' not in out and 'details.arch' not in out
 (REPO/"xhs"/"zhangzala.html").write_text(out, encoding="utf-8")

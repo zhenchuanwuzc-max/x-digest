@@ -1,11 +1,11 @@
-2026-11-08 16:32:08 UTC+8
-Ran 9 tests in 0.003s
+2026-11-08 16:43:09 UTC+8
+Ran 10 tests in 0.004s
 
 OK
 Ran 6 tests in 0.013s
 
 OK
-390 {'sw': 390, 'cw': 390, 'wide': [], 'theadShown': 'none', 'nav': 'none', 'cols': 1}
-1440 {'sw': 1440, 'cw': 1440, 'wide': [], 'theadShown': 'table-header-group', 'nav': 'block', 'cols': 3}
+390 {'sw': 390, 'cw': 390, 'wide': [], 'theadShown': 'none', 'audThead': 'none', 'nav': 'none', 'cols': 1}
+1440 {'sw': 1440, 'cw': 1440, 'wide': [], 'theadShown': 'table-header-group', 'audThead': 'table-header-group', 'nav': 'block', 'cols': 3}
 layout ok
 validate_tiers OK

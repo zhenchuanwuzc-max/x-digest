@@ -17,3 +17,6 @@ overview → timeline(s1–s5) → #works（6 张卡 w1–w6）→ #compare → 
 4. 提交：先提交 review 文件（测试和计划），再提交页面。
 5. 本地 Codex（gpt-6.1-sol，只读）做一次静态内容和布局审查 → 修复 → 复测。
 6. 推分支，导出预览目录，准备 PR 文案（由父 bot 开 PR）。
+
+## 第 2 轮（t207/t208，Ocean 授权补充，不上线）
+在 #works 和 #compare 之间加 #audience「谁在看，为什么愿意看」。顺序测试、目录（桌面和手机）、390 宽度小屏卡片检查同步更新。
