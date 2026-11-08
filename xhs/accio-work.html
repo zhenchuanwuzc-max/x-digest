@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accio Work成长深拆 · 时间线 + 代表作品 + 受众深度 · 给 Ocean</title>
+<!-- impeccable: fluid full-width · sticky left elevator · scroll-behavior:auto · cream + black + one highlighter yellow -->
+<style>
+:root{
+  --bg:#f7f4ec; --surface:#fffcf7; --ink:#1a1a18; --ink-2:#3a3a36; --mut:#6a6a62;
+  --line:#e6e0d4; --hi:#ffe566; --hi-soft:#fff6c8;
+  --shadow:0 1px 2px rgba(26,26,24,.04),0 8px 24px rgba(26,26,24,.05);
+  --r:14px; --nav-w:14rem;
+}
+*{box-sizing:border-box}
+html{color-scheme:light; scroll-behavior:auto}
+body{
+  margin:0; color:var(--ink); background:var(--bg);
+  font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+::selection{background:var(--hi); color:var(--ink)}
+mark{background:var(--hi); color:var(--ink); padding:.05em .18em; border-radius:3px; font-style:normal}
+.shell{
+  display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr);
+  gap:0; min-height:100vh; width:100%; max-width:none; margin:0;
+}
+.nav{
+  position:sticky; top:0; align-self:start; height:100vh;
+  padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line);
+  background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto;
+}
+.nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
+.nav .meta{font-size:.76rem; color:var(--mut); margin:0 0 1rem; line-height:1.45}
+.nav a{
+  display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem;
+  padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent;
+}
+.nav a:hover,.nav a:focus-visible{background:var(--hi-soft); outline:none}
+.nav a.active{background:var(--hi); color:var(--ink); font-weight:650; border-left-color:#c9b020}
+.nav .sec{font-size:.7rem; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .3rem; padding-left:.55rem; text-transform:uppercase}
+.main{padding:1.6rem clamp(1rem,3vw,2.4rem) 4.5rem; width:100%; max-width:none}
+h1{font-size:clamp(1.4rem,2.4vw,1.85rem); line-height:1.25; letter-spacing:-.025em; margin:0 0 .5rem; font-weight:750}
+h2{font-size:1.14rem; line-height:1.35; margin:2.1rem 0 .6rem; padding-bottom:.4rem; border-bottom:3px solid var(--hi); letter-spacing:-.015em; font-weight:700}
+h3{font-size:1.02rem; margin:1.2rem 0 .4rem; font-weight:700}
+p,li{color:var(--ink-2)}
+p{margin:.5rem 0}
+.muted{color:var(--mut); font-size:.92rem; line-height:1.55}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:1rem 1.15rem; margin:.8rem 0; box-shadow:var(--shadow)}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr)); gap:.75rem}
+.stat strong{display:block; font-size:1.35rem; letter-spacing:-.02em; margin:.15rem 0}
+.tag{display:inline-block; font-size:12px; font-weight:650; background:var(--hi-soft); color:#6a5a00; padding:.12rem .5rem; border-radius:999px; margin-right:.3rem}
+.tag.warn{background:#fff0d6; color:#8a5a00}
+.tag.ok{background:#e8f5e4; color:#2a5a20}
+a{color:var(--ink); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-word}
+a:hover{background:linear-gradient(180deg,transparent 60%, var(--hi) 60%)}
+a:focus-visible{outline:2px solid #c9b020; outline-offset:2px; border-radius:3px}
+table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:.42rem .5rem; text-align:left; vertical-align:top}
+th{background:#efeae0; font-weight:650}
+.metrics{font-variant-numeric:tabular-nums; white-space:nowrap}
+.quote{border-left:3px solid var(--hi); padding:.35rem .9rem; margin:.55rem 0; background:var(--hi-soft); border-radius:0 8px 8px 0; font-size:.95rem}
+.tpl{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.84rem; white-space:pre-wrap; background:#1a1a18; color:#f7f4ec; padding:1rem 1.1rem; border-radius:10px; overflow:auto}
+.foot{margin-top:2.5rem; font-size:.86rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
+.mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.5rem 0; border-bottom:1px solid var(--line)}
+.mob-nav a{font-size:.8rem; color:var(--ink); text-decoration:none; background:var(--hi-soft); padding:.2rem .5rem; border-radius:999px}
+ul.plain{margin:.35rem 0; padding-left:1.2rem}
+ul.plain li{margin:.28rem 0}
+.piece{border-top:1px dashed var(--line); padding-top:.9rem; margin-top:1.1rem}
+.piece:first-of-type{border-top:none; padding-top:0; margin-top:0}
+.num{font-variant-numeric:tabular-nums; width:2.2rem}
+.sub{font-size:.78rem; color:var(--mut); margin-top:.2rem}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .nav{display:none}
+  .mob-nav{display:flex}
+  .main{padding:1.1rem 1rem 3.5rem}
+}
+</style>
+<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid><style>
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.15rem;margin:0 0 1.2rem;box-shadow:var(--shadow)}
+.stage h3{margin:.1rem 0 .3rem}.stage .q{margin:.2rem 0 .7rem;color:var(--ink-2)}
+.tw{overflow-x:auto;max-width:100%}
+.tw table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:44rem}
+.tw th,.tw td{border-top:1px solid var(--line);padding:.45rem .5rem;vertical-align:top;text-align:left}
+.tw th{font-size:.74rem;color:var(--mut);font-weight:650;background:var(--hi-soft)}
+.lv{display:inline-block;font-size:.7rem;font-weight:650;padding:.05rem .4rem;border-radius:999px;border:1px solid var(--line);margin-right:.25rem}
+.lv.f{background:#e8f3ec}.lv.s{background:var(--hi-soft)}.lv.a{background:#eef0f4}.lv.b{background:#fbe9e7}
+.lv.h{background:#f1e8fb}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:.8rem}
+.work{margin:0;overflow-wrap:anywhere}.work h3{margin:.1rem 0 .4rem}.work p{margin:.35rem 0}.work .take{border-top:1px dashed var(--line);padding-top:.45rem}
+#compare .tw table{min-width:36rem}#audience .tw table{min-width:52rem}.depth{margin:.5rem 0}
+@media(max-width:700px){#compare .tw,#audience .tw{overflow:visible}#compare .tw table,#compare .tw tbody,#compare .tw tr,#compare .tw td,#audience .tw table,#audience .tw tbody,#audience .tw tr,#audience .tw td{display:block;width:100%;min-width:0}#compare .tw thead,#audience .tw thead{display:none}#compare .tw tr,#audience .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}#compare .tw td,#audience .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}#compare .tw td::before,#audience .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}}
+@media(max-width:900px) and (min-width:701px){.tw table{min-width:36rem}}
+@media(max-width:700px){
+.stage .tw{overflow:visible}
+.stage .tw table,.stage .tw tbody,.stage .tw tr,.stage .tw td{display:block;width:100%;min-width:0}
+.stage .tw thead{display:none}
+.stage .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}
+.stage .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}
+.stage .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}
+.stage .tw td[data-l="#"]{font-weight:700}
+}
+</style>
+<style>.brief{border:1px solid #c5d8e0;background:#f3f8fa;border-radius:12px;padding:.8rem 1rem;margin:0 0 1.2rem}.brief h2{margin:0 0 .5rem;font-size:1.02rem;border:0;padding:0}.brief dl{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:.3rem .7rem;margin:0}.brief dt{font-weight:650;color:#1f4f63}.brief dd{margin:0}.brief .hw{margin:.3rem 0 0;padding-left:1.2rem}.brief .hw li{margin:.25rem 0}.brief .eg{display:block;font-size:.8rem;color:#6b7378}.brief .gap{font-size:.8rem;color:#6b7378;margin:.2rem 0 0}@media(max-width:560px){.brief dl{grid-template-columns:1fr}.brief dt{margin-top:.3rem}}</style></head>
+<body>
+<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">Accio深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>小红书只读采集 · 2 篇图文（9 页全读）+ 1 篇视频（标题、描述、评论）</p><a href="growth/" target="_blank" rel="noopener noreferrer">← 人物成长研究</a><div class="sec">本页</div><a href="#brief">实操摘要</a><a href="#overview">账号概况</a><a href="#timeline">3阶段时间线</a><a href="#s1">1 · 产品升级：1688 生意助手</a><a href="#s2">2 · 场景视频：多店周报</a><a href="#s3">3 · 互动活动：征集中文名</a><a href="#works">代表作品拆解</a><a href="#audience">谁在看</a><a href="#compare">写法对照</a><a href="#voice">语气与节奏</a><a href="#limits">失败与边界</a><a href="#for-ocean">给 Ocean</a><a href="#sources">来源与待核</a></aside><main class="main"><nav class="mob-nav" aria-label="移动目录"><a href="growth/" target="_blank" rel="noopener noreferrer">← 人物成长研究</a><a href="#brief">摘要</a><a href="#overview">概况</a><a href="#timeline">时间线</a><a href="#works">作品</a><a href="#audience">受众</a><a href="#compare">对照</a><a href="#voice">语气</a><a href="#limits">边界</a><a href="#for-ocean">借鉴</a><a href="#sources">来源</a></nav><header><h1>Accio Work 成长深拆</h1><p class="muted">按“阶段 → 当时的问题 → 动作 → 作品”排，每条附原始链接。<span class="lv f">事实</span>可从原文核到；<span class="lv s">自述</span>是本人说法；<span class="lv a">分析</span>/<span class="lv a">观察</span>是研究者归纳；<span class="lv h">假设</span>未验证；<span class="lv b">边界</span>写不能怎么用。时间统一 UTC+8，查不到写未知。</p></header><section class="brief" id="brief" aria-label="实操摘要"><h2>实操摘要</h2><dl><dt>面向谁</dt><dd>在 1688 / 国际站开店的商家与运营（推断）</dd><dt>具体痛点</dt><dd>数据分散、上新慢、周报耗时</dd><dt>他咋做</dt><dd>升级帖按商家类型分页讲痛点；视频描述写一个具体麻烦再转到变化；征名活动给现成选项降低评论门槛<ol class="hw"><li><a href="#w1">Accio × 1688 生意助手升级</a>：每页一个痛点 + 产品截图，按定制型工厂 / 现货批发商 / 跨境供应商分场景，结尾评论区许愿<span class="eg">边界：示例数字是宣传，未核；图文 8 页，已读 8/8（第 1–8 页）</span></li><li><a href="#w2">多店运营周报（视频）</a>：描述：挨个登后台、写周报的麻烦 → “但是！绑定后”三条变化<span class="eg">边界：视频未看；省时说法未核；视频笔记：按 Ocean 要求只看标题和描述，未主动播放、未观看或分析视频内容</span></li><li><a href="#w3">万亿身价，在线求名分（征中文名）</a>：6 个候选名 + 可原创 + 写明奖励（Credits 积分）和截止时间<span class="eg">边界：积分不是现金；未见发奖或采纳结果；58 条评论只读首屏；图文 1 页，已读 1/1（第 1 页）</span></li></ol><p class="gap">没列入：图文 2 篇 9 页全读；视频只看描述；征名评论未读完。</p></dd><dt>Ocean 可以做</dt><dd>建议：借“按读者类型分页讲同一个工具”和“问一个答得出的问题 + 现成选项”的评论设计；不照搬宣传示例数字和积分奖励</dd></dl></section>
+
+<section id="overview"><h2>账号概况</h2><div class="grid2"><div class="card"><h3>平台与身份</h3><p>小红书：<a href="https://www.xiaohongshu.com/user/profile/693f73140000000032029ad5" target="_blank" rel="noopener noreferrer">小红书主页</a>，小红书号 63078419557，IP 属地浙江，昵称旁有认证蓝标（类型未核）。<span class="lv f">事实</span>2026-11-08 主页截图：10 关注、1.2 万粉丝、4.5 万获赞与收藏（赞藏合计）。<span class="lv s">自述</span>简介：“全球电商，一个Accio！ 王牌兄弟@阿里国际站”。<span class="lv b">边界</span>是品牌产品号；与阿里国际站的关系只按简介自述与蓝标记录，不推断法律主体或其它平台身份。X、公众号、收入未核。</p></div><div class="card"><h3>内容样本里在做什么</h3><p><span class="lv a">观察</span>三种动作：产品升级图文、按场景讲功能的短视频、评论区征名互动；主页首屏一半以上卡片带视频标记，含“Accio实战局”系列。<span class="lv b">边界</span>三篇形式与发布时间不同，不比较热度。</p></div></div></section>
+<section id="timeline"><h2>3阶段时间线</h2><section id="s1" class="stage"><h3>产品升级：Accio × 1688 生意助手</h3><p class="q"><b>当时的问题：</b>升级帖怎么按人群讲功能。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">1</td><td data-l="日期">页面“3天前”（相对 2026-11-08）</td><td data-l="动作与作品">产品升级图文 → <a href="https://www.xiaohongshu.com/explore/6aec1bfa000000001a03361f" target="_blank" rel="noopener noreferrer">《Accio × 1688生意助手，又放大招了🔥》</a></td><td data-l="事实">图文 8 页，已读 8/8（第 1–8 页）；平台底栏赞 86、藏 33、评 1（2026-11-08 截图）</td><td data-l="自述">“大家希望它下一个版本学会什么技能？评论区许愿”</td><td data-l="分析">封面“正式上线 + 人群定位”→ 每页一个痛点大标题 + 产品截图 → 按定制型工厂 / 现货批发商 / 跨境供应商分场景 → 结尾行动号召</td><td data-l="边界">功能与示例数字（如成交涨 35%、双店 GMV）是宣传示例，未核</td></tr></tbody></table></div></section><section id="s2" class="stage"><h3>场景视频：多店运营周报</h3><p class="q"><b>当时的问题：</b>视频描述怎么写一个场景。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">2</td><td data-l="日期">页面“4天前”</td><td data-l="动作与作品">视频 → <a href="https://www.xiaohongshu.com/explore/6aead456000000000502f1fc" target="_blank" rel="noopener noreferrer">《多店运营终于不用写周报应付老板了📊》</a></td><td data-l="事实">视频笔记：按 Ocean 要求只看标题和描述，未主动播放、未观看或分析视频内容；时长 2:20；平台底栏赞 35、藏 18、评 6</td><td data-l="自述">“开多店的老板谁懂啊，挨个登后台看数据太磨人。运营每天花2小时写周报，纯纯应付工作。”</td><td data-l="分析">描述：一个具体场景的麻烦 → “但是！绑定Accio后”→ 三条变化</td><td data-l="边界">视频未看；节省时间是品牌描述，未核；6 条评论多为泛泛好评</td></tr></tbody></table></div></section><section id="s3" class="stage"><h3>互动活动：在线征集中文名</h3><p class="q"><b>当时的问题：</b>评论区活动怎么设计。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">3</td><td data-l="日期">页面“3天前”；海报写征集时间 2026/11/05–2026/11/09（活动期，不等于发布日）</td><td data-l="动作与作品">单图活动帖 → <a href="https://www.xiaohongshu.com/explore/6aec790e0000000016012404" target="_blank" rel="noopener noreferrer">《万亿身价，在线求名分（求赐中文名）》</a></td><td data-l="事实">图文 1 页，已读 1/1（第 1 页）；平台底栏赞 100、藏 15、评 58</td><td data-l="自述">“与其关在会议室抓秃头，不如把起名大权交给最懂Accio的你们。”</td><td data-l="分析">一个真实困惑（“Accio到底怎么念？”）→ 给 6 个候选名让人选 → 欢迎原创 → 写明奖励和截止时间</td><td data-l="边界">“日消耗 2 万亿 Token”是品牌自述；奖励是 Credits 积分，不是现金，未见发放结果</td></tr></tbody></table></div></section></section>
+<section id="works"><h2>代表作品拆解</h2><p class="muted">只选原文读过、写法各不相同的作品，不是热门榜；不展示互动数。</p><div class="works"><article class="work card" id="w1"><h3>代表作品 1 · Accio × 1688 生意助手升级</h3><p class="links"><a href="https://www.xiaohongshu.com/explore/6aec1bfa000000001a03361f" target="_blank" rel="noopener noreferrer">《Accio × 1688生意助手，又放大招了🔥》</a></p><p class="muted">时间线位置：<a href="#s1">产品升级</a></p><p><span class="lv f">事实</span>图文 8 页，已读 8/8（第 1–8 页）。第 2 页“懂你的店 不用每次从头说”（接店铺数据 + 记忆，示例对话）；第 3 页示例提示词（诊断店铺、找热销品、上架、看哪些商品在赚钱）；第 4 页 1688 与国际站多店一起看；第 5–7 页分三类商家：定制型工厂（全托管谈单、买家画像）、现货批发商（拍照出商详、批量改图）、跨境供应商（多店数据看板）；第 8 页“立刻绑定1688店铺”。<br><span class="lv f">事实</span>可见评论与回复：唯一一条评论是读者说送的积点“几个任务就耗没了”（读者自述用过）；无官方回复。</p><p><span class="lv s">自述</span>“1688 老板们的得力助手，又升级了！”</p><p><span class="lv a">观察</span>用“人群标签”切场景：同一个产品，每类商家一页，只讲这类人最痛的一件事。</p><p><span class="lv h">假设</span>评论反映的需求能否代表更多读者、与写法有无关系，未验证</p><p><span class="lv b">边界</span>功能是否按描述工作未核；截图里的数字是宣传示例，不是经营数据。</p><p class="take"><b>可借鉴写法：</b>讲一个工具时按读者类型分页，每页一个痛点 + 一张截图；数字只用自己真实测到的。</p></article><article class="work card" id="w2"><h3>代表作品 2 · 多店运营周报（视频）</h3><p class="links"><a href="https://www.xiaohongshu.com/explore/6aead456000000000502f1fc" target="_blank" rel="noopener noreferrer">《多店运营终于不用写周报应付老板了📊》</a></p><p class="muted">时间线位置：<a href="#s2">场景视频</a></p><p><span class="lv f">事实</span>视频笔记：按 Ocean 要求只看标题和描述，未主动播放、未观看或分析视频内容；时长 2:20。完整描述：“开多店的老板谁懂啊，挨个登后台看数据太磨人。运营每天花2小时写周报，纯纯应付工作。但是！绑定Accio后：每日自动同步全店运营数据；走势/退款/客单价一眼全览；数据沉淀AI分析，投流效果门儿清。”<br><span class="lv f">事实</span>可见评论与回复：6 条评论多为“很不错”“继续更新”之类的泛泛好评，无作者回复。</p><p><span class="lv s">自述</span>“老板运营都省心，告别无效报表。”</p><p><span class="lv a">观察</span>描述先写一个人人见过的麻烦（挨个登后台、写周报），再用“但是！”转到三条变化。</p><p><span class="lv h">假设</span>评论反映的需求能否代表更多读者、与写法有无关系，未验证</p><p><span class="lv b">边界</span>视频内容未看；“2 小时”与效果是品牌说法，未核。</p><p class="take"><b>可借鉴写法：</b>写场景帖先描述一个具体麻烦，再写变化；变化要能验证，不写未测的省时数字。</p></article><article class="work card" id="w3"><h3>代表作品 3 · 万亿身价，在线求名分（征中文名）</h3><p class="links"><a href="https://www.xiaohongshu.com/explore/6aec790e0000000016012404" target="_blank" rel="noopener noreferrer">《万亿身价，在线求名分（求赐中文名）》</a></p><p class="muted">时间线位置：<a href="#s3">互动活动</a></p><p><span class="lv f">事实</span>图文 1 页，已读 1/1（第 1 页）（单张图卡）。图卡：“Accio中文艺名 你说了算”，6 个候选名（阿牛 / 阿貅 / 阿优 / 阿咻 / 阿来 / 阿财），底部写活动时间。正文给 A 选项（从 6 个里挑）和 B 选项（原创），写明“评论区高赞脑洞（TOP 1）：送出4000 Credits；随机抽取10位‘取名天才’：送出2000 Credits”。<br><span class="lv f">事实</span>可见评论与回复：首屏约 10 条可见评论中，读者提交名字并解释寓意（如“阿里西游”“阿巧”），也有人说“不需要中文名”；首屏未见官方回应；58 条评论未读完。</p><p><span class="lv s">自述</span>“我们，还没有一个响当当的中文名字！”；奖励为品牌自述</p><p><span class="lv a">观察</span>门槛低：读者只要留一个名字；给现成候选降低参与成本，再开放原创；奖励与截止时间写清。</p><p><span class="lv h">假设</span>评论反映的需求能否代表更多读者、与写法有无关系，未验证</p><p><span class="lv b">边界</span>Credits 是积分不是现金，不当收入；未见获奖或采纳结果；“2 万亿 Token”未核。</p><p class="take"><b>可借鉴写法：</b>想要评论时，问一个读者答得出的问题，给几个现成选项，再留一个开放答案。</p></article></div></section>
+<section id="audience"><h2>谁在看，为什么愿意看</h2><p class="muted"><b>没有真实的粉丝画像数据</b>。人群和动机根据账号简介、小红书评论和作品内容推断，不代表全体读者。</p><div class="tw"><table><thead><tr><th>可能的读者类型（推断）</th><th>AI 使用深度</th><th>可能想要什么</th><th>能拿走什么</th><th>对应作品</th><th>证据</th></tr></thead><tbody><tr><td data-l="读者类型">在 1688 / 国际站开店的商家</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：L1–L2（把助手用进日常经营，推断）</td><td data-l="想要什么">数据分散、上新慢、谈单跟进不过来</td><td data-l="能拿走什么">按自己商家类型找到对应功能</td><td data-l="对应作品"><a href="#w1">卡 1</a></td><td data-l="证据"><span class="lv s">评论者自述</span>“送的积点太少了，几个任务就耗没了”</td></tr><tr><td data-l="读者类型">开多店的老板和运营</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：未知</td><td data-l="想要什么">挨个看后台、写周报</td><td data-l="能拿走什么">一个场景下的前后对比（只按描述）</td><td data-l="对应作品"><a href="#w2">卡 2</a></td><td data-l="证据"><span class="lv a">观察</span>评论多为泛泛好评，需求信号弱</td></tr><tr><td data-l="读者类型">关注这个产品的用户</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：不涉及 AI 使用层级</td><td data-l="想要什么">不知道产品名怎么念</td><td data-l="能拿走什么">参与起名、可能拿积分</td><td data-l="对应作品"><a href="#w3">卡 3</a></td><td data-l="证据"><span class="lv s">评论者自述</span>提交名字并解释寓意</td></tr></tbody></table></div><p class="depth"><b>深度怎么标：</b>沿用 <a href="../research/ai-depth-levels-2026-10-28.html#levels" target="_blank" rel="noopener noreferrer">AI 使用深度水位</a> 的 L0–L5（定义见<a href="zhangzala.html#audience" target="_blank" rel="noopener noreferrer">张咋啦页</a>）；分开写读者现在和内容指向，层级不是职业类别。</p><h3>可能为什么能火、能传开（未验证）</h3><div class="card"><ul class="plain"><li><span class="lv a">观察</span>征名帖评论 58 条，比另两篇多。<span class="lv b">边界</span>形式（活动 vs 图文 vs 视频）和奖励不同，不比较、不归因。</li><li><span class="lv a">观察</span>升级帖结尾也问“下一个版本学会什么技能？”，两篇都把评论当作收集反馈的地方。<span class="lv b">边界</span>升级帖只有 1 条评论，收集效果未知。</li></ul></div></section>
+<section id="compare"><h2>普通内容与代表作品：写法差在哪</h2><p class="muted"><span class="lv a">观察</span>只比较写法，不是因果；不展示互动数。样本取自主页首屏，不是“最新最热”筛选；三篇形式不同、曝光不可见，只比写法，不比效果。</p><div class="tw"><table><thead><tr><th>维度</th><th>代表作品</th><th>普通内容</th></tr></thead><tbody><tr><td data-l="维度">类型</td><td data-l="代表作品">产品升级图文 / 场景视频</td><td data-l="普通内容">互动活动单图</td></tr><tr><td data-l="维度">读者拿走什么</td><td data-l="代表作品">按人群找到功能 / 一个场景的变化</td><td data-l="普通内容">参与起名、可能拿积分</td></tr><tr><td data-l="维度">平台底栏数（2026-11-08）</td><td data-l="代表作品">赞 86 / 35，藏 33 / 18，评 1 / 6</td><td data-l="普通内容">赞 100、藏 15、评 58</td></tr><tr><td data-l="维度">日期</td><td data-l="代表作品">3 天前 / 4 天前</td><td data-l="普通内容">3 天前（活动期 11/05–11/09）</td></tr></tbody></table></div></section>
+<section id="voice"><h2>语气、节奏与可借鉴写法</h2><div class="card"><ul class="plain"><li><span class="lv f">事实</span>品牌第一人称“本Accio”，口语和网络梗（“抓秃头”“水灵灵”）。</li><li><span class="lv f">事实</span>正文多用表情符号和分点：🧠⚡️📊🤝。</li><li><span class="lv f">事实</span>结尾常带一个评论区问题。</li></ul></div><pre class="tpl">【一个读者答得出的问题】
+【现成选项】A / B / C
+【开放答案】都不满意就写你的
+【规则】截止时间 · 怎么选 · 奖励（写清是什么）</pre><p class="muted">模板是分析产物，不是作者原话。</p></section>
+<section id="limits"><h2>失败与边界</h2><div class="card"><ul><li><b>样本入口</b>：主页首屏，不是按“最新”排序筛出的热门；三篇形式与时间不同，不比优劣、不归因。</li><li><b>样本</b>：2 篇图文 9 页全读；1 篇视频只看标题、完整描述与评论（Ocean 认可的范围）。</li><li><b>品牌身份</b>：蓝标与“王牌兄弟@阿里国际站”只按页面与自述记录，不推断法律主体或其它平台账号。</li><li><b>数字与奖励</b>：功能截图数字是宣传示例；Credits 是积分，不当收入或已发奖结果。</li><li><b>评论</b>：征名帖 58 条只读了首屏约 10 条。</li><li><b>其它平台与收入</b>：未核。<b>成长</b>：没有可核的时间点，不写增长轨迹。</li></ul></div></section>
+<section id="for-ocean"><h2>可借鉴的做法</h2><p class="muted"><span class="lv a">分析</span>研究者建议，不是成功公式。</p><div class="grid2"><div class="card"><h3>可借鉴</h3><ol><li>按读者类型分页讲同一个工具。</li><li>要评论就问一个答得出的问题，给现成选项。</li></ol></div><div class="card"><h3>不适用</h3><ul><li>宣传示例数字当真实效果。</li><li>积分奖励写成收入。</li></ul></div></div></section>
+<section id="sources"><h2>来源与待核</h2><p><b>状态：小红书只读一手资料；图文全读，视频只看标题描述</b>。主页与 3 篇笔记由只读浏览打开、截图，空白页经等待、重试后补齐；本页只用截图与台账里的原文。</p><div class="tw"><table><thead><tr><th>来源</th><th>读到了</th><th>没读到</th></tr></thead><tbody><tr><td data-l="来源">小红书主页</td><td data-l="读到了">主页截图（粉丝、获赞与收藏、关注、简介、蓝标）与首屏卡标题</td><td data-l="没读到">其余笔记正文；产品入口未访问</td></tr><tr><td data-l="来源">小红书笔记</td><td data-l="读到了">图文 2 篇：1688 助手 8/8、征名 1/1；视频 1 篇：标题、完整描述</td><td data-l="没读到">视频内容（范围内不看）</td></tr><tr><td data-l="来源">评论</td><td data-l="读到了">升级帖 1/1、视频 6/6、征名首屏约 10 条</td><td data-l="没读到">征名其余评论；私信与后台不看</td></tr><tr><td data-l="来源">X / 公众号 / 其它平台 / 收入</td><td data-l="读到了">无</td><td data-l="没读到">未核；不另找同名账号</td></tr></tbody></table></div><ul class="plain"><li>证据台账：<code>review/creator-growth-20261108/accio-work-ledger.md</code>（采集 2026-11-08，UTC+8）。</li><li>证据台账与截图在仓库外，不公开。</li></ul><p><span class="tag warn">待核</span>：征名帖评论读完；更多笔记做对照。</p></section>
+</main></div>
+</body>
+</html>

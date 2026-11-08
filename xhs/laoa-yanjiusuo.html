@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>老A的AI研究所成长深拆 · 时间线 + 代表作品 + 受众深度 · 给 Ocean</title>
+<!-- impeccable: fluid full-width · sticky left elevator · scroll-behavior:auto · cream + black + one highlighter yellow -->
+<style>
+:root{
+  --bg:#f7f4ec; --surface:#fffcf7; --ink:#1a1a18; --ink-2:#3a3a36; --mut:#6a6a62;
+  --line:#e6e0d4; --hi:#ffe566; --hi-soft:#fff6c8;
+  --shadow:0 1px 2px rgba(26,26,24,.04),0 8px 24px rgba(26,26,24,.05);
+  --r:14px; --nav-w:14rem;
+}
+*{box-sizing:border-box}
+html{color-scheme:light; scroll-behavior:auto}
+body{
+  margin:0; color:var(--ink); background:var(--bg);
+  font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+::selection{background:var(--hi); color:var(--ink)}
+mark{background:var(--hi); color:var(--ink); padding:.05em .18em; border-radius:3px; font-style:normal}
+.shell{
+  display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr);
+  gap:0; min-height:100vh; width:100%; max-width:none; margin:0;
+}
+.nav{
+  position:sticky; top:0; align-self:start; height:100vh;
+  padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line);
+  background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto;
+}
+.nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
+.nav .meta{font-size:.76rem; color:var(--mut); margin:0 0 1rem; line-height:1.45}
+.nav a{
+  display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem;
+  padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent;
+}
+.nav a:hover,.nav a:focus-visible{background:var(--hi-soft); outline:none}
+.nav a.active{background:var(--hi); color:var(--ink); font-weight:650; border-left-color:#c9b020}
+.nav .sec{font-size:.7rem; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .3rem; padding-left:.55rem; text-transform:uppercase}
+.main{padding:1.6rem clamp(1rem,3vw,2.4rem) 4.5rem; width:100%; max-width:none}
+h1{font-size:clamp(1.4rem,2.4vw,1.85rem); line-height:1.25; letter-spacing:-.025em; margin:0 0 .5rem; font-weight:750}
+h2{font-size:1.14rem; line-height:1.35; margin:2.1rem 0 .6rem; padding-bottom:.4rem; border-bottom:3px solid var(--hi); letter-spacing:-.015em; font-weight:700}
+h3{font-size:1.02rem; margin:1.2rem 0 .4rem; font-weight:700}
+p,li{color:var(--ink-2)}
+p{margin:.5rem 0}
+.muted{color:var(--mut); font-size:.92rem; line-height:1.55}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:1rem 1.15rem; margin:.8rem 0; box-shadow:var(--shadow)}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr)); gap:.75rem}
+.stat strong{display:block; font-size:1.35rem; letter-spacing:-.02em; margin:.15rem 0}
+.tag{display:inline-block; font-size:12px; font-weight:650; background:var(--hi-soft); color:#6a5a00; padding:.12rem .5rem; border-radius:999px; margin-right:.3rem}
+.tag.warn{background:#fff0d6; color:#8a5a00}
+.tag.ok{background:#e8f5e4; color:#2a5a20}
+a{color:var(--ink); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-word}
+a:hover{background:linear-gradient(180deg,transparent 60%, var(--hi) 60%)}
+a:focus-visible{outline:2px solid #c9b020; outline-offset:2px; border-radius:3px}
+table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:.42rem .5rem; text-align:left; vertical-align:top}
+th{background:#efeae0; font-weight:650}
+.metrics{font-variant-numeric:tabular-nums; white-space:nowrap}
+.quote{border-left:3px solid var(--hi); padding:.35rem .9rem; margin:.55rem 0; background:var(--hi-soft); border-radius:0 8px 8px 0; font-size:.95rem}
+.tpl{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.84rem; white-space:pre-wrap; background:#1a1a18; color:#f7f4ec; padding:1rem 1.1rem; border-radius:10px; overflow:auto}
+.foot{margin-top:2.5rem; font-size:.86rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
+.mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.5rem 0; border-bottom:1px solid var(--line)}
+.mob-nav a{font-size:.8rem; color:var(--ink); text-decoration:none; background:var(--hi-soft); padding:.2rem .5rem; border-radius:999px}
+ul.plain{margin:.35rem 0; padding-left:1.2rem}
+ul.plain li{margin:.28rem 0}
+.piece{border-top:1px dashed var(--line); padding-top:.9rem; margin-top:1.1rem}
+.piece:first-of-type{border-top:none; padding-top:0; margin-top:0}
+.num{font-variant-numeric:tabular-nums; width:2.2rem}
+.sub{font-size:.78rem; color:var(--mut); margin-top:.2rem}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .nav{display:none}
+  .mob-nav{display:flex}
+  .main{padding:1.1rem 1rem 3.5rem}
+}
+</style>
+<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid><style>
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.15rem;margin:0 0 1.2rem;box-shadow:var(--shadow)}
+.stage h3{margin:.1rem 0 .3rem}.stage .q{margin:.2rem 0 .7rem;color:var(--ink-2)}
+.tw{overflow-x:auto;max-width:100%}
+.tw table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:44rem}
+.tw th,.tw td{border-top:1px solid var(--line);padding:.45rem .5rem;vertical-align:top;text-align:left}
+.tw th{font-size:.74rem;color:var(--mut);font-weight:650;background:var(--hi-soft)}
+.lv{display:inline-block;font-size:.7rem;font-weight:650;padding:.05rem .4rem;border-radius:999px;border:1px solid var(--line);margin-right:.25rem}
+.lv.f{background:#e8f3ec}.lv.s{background:var(--hi-soft)}.lv.a{background:#eef0f4}.lv.b{background:#fbe9e7}
+.lv.h{background:#f1e8fb}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:.8rem}
+.work{margin:0;overflow-wrap:anywhere}.work h3{margin:.1rem 0 .4rem}.work p{margin:.35rem 0}.work .take{border-top:1px dashed var(--line);padding-top:.45rem}
+#compare .tw table{min-width:36rem}#audience .tw table{min-width:52rem}.depth{margin:.5rem 0}
+@media(max-width:700px){#compare .tw,#audience .tw{overflow:visible}#compare .tw table,#compare .tw tbody,#compare .tw tr,#compare .tw td,#audience .tw table,#audience .tw tbody,#audience .tw tr,#audience .tw td{display:block;width:100%;min-width:0}#compare .tw thead,#audience .tw thead{display:none}#compare .tw tr,#audience .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}#compare .tw td,#audience .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}#compare .tw td::before,#audience .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}}
+@media(max-width:900px) and (min-width:701px){.tw table{min-width:36rem}}
+@media(max-width:700px){
+.stage .tw{overflow:visible}
+.stage .tw table,.stage .tw tbody,.stage .tw tr,.stage .tw td{display:block;width:100%;min-width:0}
+.stage .tw thead{display:none}
+.stage .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}
+.stage .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}
+.stage .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}
+.stage .tw td[data-l="#"]{font-weight:700}
+}
+</style>
+<style>.brief{border:1px solid #c5d8e0;background:#f3f8fa;border-radius:12px;padding:.8rem 1rem;margin:0 0 1.2rem}.brief h2{margin:0 0 .5rem;font-size:1.02rem;border:0;padding:0}.brief dl{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:.3rem .7rem;margin:0}.brief dt{font-weight:650;color:#1f4f63}.brief dd{margin:0}.brief .hw{margin:.3rem 0 0;padding-left:1.2rem}.brief .hw li{margin:.25rem 0}.brief .eg{display:block;font-size:.8rem;color:#6b7378}.brief .gap{font-size:.8rem;color:#6b7378;margin:.2rem 0 0}@media(max-width:560px){.brief dl{grid-template-columns:1fr}.brief dt{margin-top:.3rem}}</style></head>
+<body>
+<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">老A研究所深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>小红书只读采集 · 3 篇图文，图卡 37 页全读</p><a href="growth/" target="_blank" rel="noopener noreferrer">← 人物成长研究</a><div class="sec">本页</div><a href="#brief">实操摘要</a><a href="#overview">账号概况</a><a href="#timeline">3阶段时间线</a><a href="#s1">1 · 置顶：AI 产品经理求职特训班</a><a href="#s2">2 · 作品集：十几个 Vibe Coding 小项目</a><a href="#s3">3 · 工具清单：产品经理十大 Skill</a><a href="#works">代表作品拆解</a><a href="#audience">谁在看</a><a href="#compare">写法对照</a><a href="#voice">语气与节奏</a><a href="#limits">失败与边界</a><a href="#for-ocean">给 Ocean</a><a href="#sources">来源与待核</a></aside><main class="main"><nav class="mob-nav" aria-label="移动目录"><a href="growth/" target="_blank" rel="noopener noreferrer">← 人物成长研究</a><a href="#brief">摘要</a><a href="#overview">概况</a><a href="#timeline">时间线</a><a href="#works">作品</a><a href="#audience">受众</a><a href="#compare">对照</a><a href="#voice">语气</a><a href="#limits">边界</a><a href="#for-ocean">借鉴</a><a href="#sources">来源</a></nav><header><h1>老A的AI研究所 成长深拆</h1><p class="muted">按“阶段 → 当时的问题 → 动作 → 作品”排，每条附原始链接。<span class="lv f">事实</span>可从原文核到；<span class="lv s">自述</span>是本人说法；<span class="lv a">分析</span>/<span class="lv a">观察</span>是研究者归纳；<span class="lv h">假设</span>未验证；<span class="lv b">边界</span>写不能怎么用。时间统一 UTC+8，查不到写未知。</p></header><section class="brief" id="brief" aria-label="实操摘要"><h2>实操摘要</h2><dl><dt>面向谁</dt><dd>想转 AI 产品经理、想用 AI 做出第一个小应用的人（推断）</dd><dt>具体痛点</dt><dd>转行缺体系；不知道从哪类项目、哪些 Skill 开始</dd><dt>他咋做</dt><dd>先给一张总表让读者挑，再一页一项写清功能、技术栈或场景；置顶放自家课程，评论区问价转私信<ol class="hw"><li><a href="#w1">置顶：AI 产品经理求职特训班（课程）</a>：11 页课程宣传：亮点与人群 → 服务 → offer 拼图 → 1V1 记录 → 7 个模块大纲<span class="eg">边界：课程宣传是自述：价格、交付、学员结果、收入未核；与老A进阶实操置顶课程相似，只记相似；图文 11 页，已读 11/11（第 1–11 页）</span></li><li><a href="#w2">近一个月 Vibe Coding 作品集</a>：第 1 页 12 个案例总表（案例 / 场景 / 验证重点），之后一页一个项目写功能、技术栈、第一步<span class="eg">边界：各页无署名、无来源，是否本人实操未核；图文 15 页，已读 15/15（第 1–15 页）</span></li><li><a href="#w3">产品经理必装的十大 Skill</a>：一页一个 Skill，统一“一句话定位 + 三个应用场景”<span class="eg">边界：卡内无仓库链接，“github上哈”未核；功能未实测；图文 11 页，已读 11/11（第 1–11 页）</span></li></ol><p class="gap">没列入：3 篇样本，图卡 37 页全读；其余笔记、1 条回复未读。</p></dd><dt>Ocean 可以做</dt><dd>建议：借“总表 → 一页一项”的合集结构，补上他缺的署名和可点来源；只放自己真做过的项目；课程导流只观察</dd></dl></section>
+
+<section id="overview"><h2>账号概况</h2><div class="grid2"><div class="card"><h3>平台与身份</h3><p>小红书：<a href="https://www.xiaohongshu.com/user/profile/6355eca2000000001901e148" target="_blank" rel="noopener noreferrer">小红书主页</a>，小红书号 95852065618，IP 属地江苏。<span class="lv f">事实</span>2026-11-08 主页截图：3.8 万关注、3.5 万粉丝、20.8 万获赞与收藏（赞藏合计）。<span class="lv s">自述</span>简介：“专注于AI交流学习，分享AI笔记”“AI算法和AI产品经理知识分享”“AI产品使用与探索重度患者”。<span class="lv b">边界</span>与昵称相近的「老A的AI进阶实操」是另一个账号，主页未见自述关联，未核是否同一人，本页不合并。X、公众号、收入未核。</p></div><div class="card"><h3>内容样本里在做什么</h3><p><span class="lv a">观察</span>三类内容并行：置顶的 AI 产品经理求职课程、Vibe Coding 小项目教程合集、产品经理用的 Skill 清单。<span class="lv b">边界</span>样本 3 篇；读者是否从干货走到课程，没有证据。</p></div></div></section>
+<section id="timeline"><h2>3阶段时间线</h2><section id="s1" class="stage"><h3>置顶：AI 产品经理求职特训班</h3><p class="q"><b>当时的问题：</b>置顶帖在卖什么、怎么讲。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">1</td><td data-l="日期">页面“编辑于 06-08”，原始发布日与年份未显示</td><td data-l="动作与作品">课程宣传 → <a href="https://www.xiaohongshu.com/explore/68382470000000002301d83f" target="_blank" rel="noopener noreferrer">《AI产品经理求职特训班（2026最新）上线！》</a></td><td data-l="事实">图文 11 页，已读 11/11（第 1–11 页）；平台底栏赞 955、藏 1153、评 122（2026-11-08 截图）</td><td data-l="自述">“近期，许多同学在转行成为 AI 产品经理的过程中遇到了不少困难…我们特别推出了 AI 产品经理转型课程。”</td><td data-l="分析">课程亮点与适合人群 → 服务内容 → offer 截图拼图 → 1V1 辅导记录 → 7 个模块大纲（12/20/20/12/12/24/8 课时）</td><td data-l="边界">宣传自述：价格、交付、学员结果、收入均未核；拼图含他人信息，本页不抄录</td></tr></tbody></table></div></section><section id="s2" class="stage"><h3>作品集：十几个 Vibe Coding 小项目</h3><p class="q"><b>当时的问题：</b>一篇里装了哪些项目、怎么排。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">2</td><td data-l="日期">页面“编辑于 10-31”，年份未显示</td><td data-l="动作与作品">项目合集 → <a href="https://www.xiaohongshu.com/explore/6ae55d380000000015006632" target="_blank" rel="noopener noreferrer">《近一个月我的vibecoding作品集（附Prompt》</a></td><td data-l="事实">图文 15 页，已读 15/15（第 1–15 页）；平台底栏赞 20、藏 14、评 7</td><td data-l="自述">“整理了十几个自己最近vibecoding的小作品集。”</td><td data-l="分析">第 1 页 12 个案例总表（案例 / 核心场景 / 验证重点）→ 每页一个项目：功能、技术栈、开发步骤</td><td data-l="边界">“自己最近 vibecoding”是自述；各页无署名、无来源链接，是否本人实操未核</td></tr></tbody></table></div></section><section id="s3" class="stage"><h3>工具清单：产品经理十大 Skill</h3><p class="q"><b>当时的问题：</b>清单怎么组织。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">3</td><td data-l="日期">页面“4天前”（相对 2026-11-08）</td><td data-l="动作与作品">工具清单 → <a href="https://www.xiaohongshu.com/explore/6aeae925000000000602f5c8" target="_blank" rel="noopener noreferrer">《【自用收藏】产品经理必装的十大skill》</a></td><td data-l="事实">图文 11 页，已读 11/11（第 1–11 页）；平台底栏赞 123、藏 180、评 7</td><td data-l="自述">正文逐条列名：“brainstorming方案头脑风暴、write-a-prd需求设计、idea-refine想法精炼…”</td><td data-l="分析">封面备忘录式总清单 → 每个 Skill 一页：一句话定位 + 三个应用场景</td><td data-l="边界">“自用收藏”是自述；卡内无仓库链接，评论里作者答“github上哈”，未核；功能未实测</td></tr></tbody></table></div></section></section>
+<section id="works"><h2>代表作品拆解</h2><p class="muted">只选原文读过、写法各不相同的作品，不是热门榜；不展示互动数。</p><div class="works"><article class="work card" id="w1"><h3>代表作品 1 · 置顶：AI 产品经理求职特训班</h3><p class="links"><a href="https://www.xiaohongshu.com/explore/68382470000000002301d83f" target="_blank" rel="noopener noreferrer">《AI产品经理求职特训班（2026最新）上线！》</a></p><p class="muted">时间线位置：<a href="#s1">置顶</a></p><p><span class="lv f">事实</span>图文 11 页，已读 11/11（第 1–11 页）。第 1 页列课程亮点（108 节直播 + 回放、Agent/RAG/MCP、导师项目、面试辅导）与适合人群；第 2 页两个月学习与 1V1 项目带学；第 3 页 offer 截图拼图（已打码）；第 4 页 1V1 辅导记录表；第 5–11 页 7 个模块：全局讲解 12 课时、传统人工智能 20、大模型技术 20、智能体与 Vibe Coding 12、产品经理系统课 12、项目实战 24、1v1 求职陪跑 8。<br><span class="lv f">事实</span>可见评论与回复：置顶帖；评论多为“什么价格”“求分享”，转化与成交未知。</p><p><span class="lv s">自述</span>“戳我免费share AI产品经理【试看课】”</p><p><span class="lv a">观察</span>用课时数和模块名表现完整度；评论区问价，作者统一回“好嘞，这边发你”。</p><p><span class="lv h">假设</span>评论反映的需求能否代表更多读者、与写法有无关系，未验证</p><p><span class="lv b">边界</span>价格未公开；交付、学员结果、收入未核。模块顺序与课时和「老A的AI进阶实操」置顶课程帖高度相似，只记相似，不判断归属或抄袭。</p><p class="take"><b>可借鉴写法：</b>只作观察：课程导流是否与 Ocean 的方向有关待定，暂不作借鉴。</p></article><article class="work card" id="w2"><h3>代表作品 2 · 近一个月 Vibe Coding 作品集</h3><p class="links"><a href="https://www.xiaohongshu.com/explore/6ae55d380000000015006632" target="_blank" rel="noopener noreferrer">《近一个月我的vibecoding作品集（附Prompt》</a></p><p class="muted">时间线位置：<a href="#s2">作品集</a></p><p><span class="lv f">事实</span>图文 15 页，已读 15/15（第 1–15 页）。第 1 页 12 个案例总表；之后每页一个项目说明：学习番茄钟（React + TypeScript + Vite）、在线记账小程序、语音识别应用（智谱 ASR）、AI 图片生成器、学习打卡小程序、在线商城（Node + Express + MySQL，不做支付）、个人作品集网站、AI 聊天助手（流式输出）、待办 APP、天气应用（OpenWeatherMap）、个人博客（JWT 登录）、外卖落地页（提示词三原则）、AI 情绪治愈平台、Markdown 笔记应用。第 13–14 页两个项目不在第 1 页总表里。<br><span class="lv f">事实</span>可见评论与回复：读者评论“想学习”“求分享”；一位读者问“你vive的是APP，界面是怎么出现的哇”，未见作者回复。</p><p><span class="lv s">自述</span>第 14 页：“我用WorkBuddy+CloudBase在3天内从0做出”（自述未核）</p><p><span class="lv a">观察</span>先给一张总表让读者挑，再每页一个项目，统一写功能、技术栈和第一步。</p><p><span class="lv h">假设</span>评论反映的需求能否代表更多读者、与写法有无关系，未验证</p><p><span class="lv b">边界</span>各页无署名、无来源链接，是作者实操还是整理他人教程未核；第 13 页提到吴恩达的提示词观点，无出处；做出时间等效果是自述。</p><p class="take"><b>可借鉴写法：</b>做项目合集时先给“案例 / 场景 / 验证重点”总表，再一页一个项目；Ocean 只放自己真做过的，并写清来源。</p></article><article class="work card" id="w3"><h3>代表作品 3 · 产品经理必装的十大 Skill</h3><p class="links"><a href="https://www.xiaohongshu.com/explore/6aeae925000000000602f5c8" target="_blank" rel="noopener noreferrer">《【自用收藏】产品经理必装的十大skill》</a></p><p class="muted">时间线位置：<a href="#s3">工具清单</a></p><p><span class="lv f">事实</span>图文 11 页，已读 11/11（第 1–11 页）。封面为备忘录式总清单；第 2–11 页每页一个：brainstorming、write-a-prd、idea-refine、ab-test-setup、analytics-tracking、onboarding-cro、Competitive Analysis、User Research、Mind Map、Product Framework，每页给一句话定位和三个应用场景（如 write-a-prd：评审前对齐、跨部门沟通、迭代记录）。<br><span class="lv f">事实</span>可见评论与回复：评论有人说“有几个我也在用，还不错”，也有两人问在哪找到；一位读者建议“先挑每周必做的活（如写PRD）让 skill 出初稿再逐段改”。</p><p><span class="lv s">自述</span>标题“自用收藏”；评论“这些在哪能找到啊”→ 作者“github上哈”</p><p><span class="lv a">观察</span>一页一个 Skill，统一“它是什么 + 三个场景”，读者能按自己的工作挑。</p><p><span class="lv h">假设</span>评论反映的需求能否代表更多读者、与写法有无关系，未验证</p><p><span class="lv b">边界</span>卡内没有仓库链接，“github上哈”未核；功能是卡内说法，未实测。</p><p class="take"><b>可借鉴写法：</b>清单每项按“它是什么 + 三个场景”写，并附上可点的仓库或文档链接（他缺这一步）。</p></article></div></section>
+<section id="audience"><h2>谁在看，为什么愿意看</h2><p class="muted"><b>没有真实的粉丝画像数据</b>。人群和动机根据作者简介、小红书评论和作品内容推断，不代表全体读者。</p><div class="tw"><table><thead><tr><th>可能的读者类型（推断）</th><th>AI 使用深度</th><th>可能想要什么</th><th>能拿走什么</th><th>对应作品</th><th>证据</th></tr></thead><tbody><tr><td data-l="读者类型">想转 AI 产品经理的在职或求职者</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：求职培训，层级不适用</td><td data-l="想要什么">转行难、缺体系和项目</td><td data-l="能拿走什么">课程大纲和试看课入口</td><td data-l="对应作品"><a href="#w1">卡 1</a></td><td data-l="证据"><span class="lv s">评论者自述</span>“什么价格”“求”</td></tr><tr><td data-l="读者类型">想用 AI 做出第一个小应用的人</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：L4 会编（做应用，推断）</td><td data-l="想要什么">不知道从哪类项目、用什么技术栈开始</td><td data-l="能拿走什么">12 个可挑的小项目和每个的第一步</td><td data-l="对应作品"><a href="#w2">卡 2</a></td><td data-l="证据"><span class="lv s">评论者自述</span>“你vive的是APP，界面是怎么出现的哇”</td></tr><tr><td data-l="读者类型">在用 AI 工具做产品工作的产品经理</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：L4 会编（装用 Skill，推断）</td><td data-l="想要什么">Skill 太多，不知道哪些对产品活有用</td><td data-l="能拿走什么">十个按产品流程挑的 Skill 和用法场景</td><td data-l="对应作品"><a href="#w3">卡 3</a></td><td data-l="证据"><span class="lv s">评论者自述</span>“有几个我也在用，还不错”“在哪能找到？”</td></tr></tbody></table></div><p class="depth"><b>深度怎么标：</b>沿用 <a href="../research/ai-depth-levels-2026-10-28.html#levels" target="_blank" rel="noopener noreferrer">AI 使用深度水位</a> 的 L0–L5（定义见<a href="zhangzala.html#audience" target="_blank" rel="noopener noreferrer">张咋啦页</a>）；分开写读者现在和内容指向，层级不是职业类别。</p><h3>可能为什么能火、能传开（未验证）</h3><div class="card"><ul class="plain"><li><span class="lv a">观察</span>置顶课程帖评论区多为问价、求资料。<span class="lv b">边界</span>评论不等于成交；置顶与近期曝光不同，不比较优劣、不归因。</li><li><span class="lv a">观察</span>作品集和 Skill 清单的评论都有人问“在哪找到/怎么做出来”。<span class="lv b">边界</span>只说明有读者想要可操作的来源，不能推出规模。</li><li><span class="lv a">观察</span>课程 7 个模块的顺序与课时与「老A的AI进阶实操」置顶课程帖高度相似。<span class="lv b">边界</span>只记录为观察：未核是否同一课程方，不判断归属或抄袭。</li></ul></div></section>
+<section id="compare"><h2>普通内容与代表作品：写法差在哪</h2><p class="muted"><span class="lv a">观察</span>只比较写法，不是因果；不展示互动数。样本取自主页置顶与近期，不是“最新最热”筛选；各帖发布时间不同、曝光不可见，只比写法，不比效果。</p><div class="tw"><table><thead><tr><th>维度</th><th>代表作品</th><th>普通内容</th></tr></thead><tbody><tr><td data-l="维度">类型</td><td data-l="代表作品">课程宣传（置顶）</td><td data-l="普通内容">项目合集 / 工具清单</td></tr><tr><td data-l="维度">读者拿走什么</td><td data-l="代表作品">大纲 + 试看课入口</td><td data-l="普通内容">可挑的项目表 / 一页一个 Skill</td></tr><tr><td data-l="维度">平台底栏数（2026-11-08）</td><td data-l="代表作品">赞 955、藏 1153、评 122</td><td data-l="普通内容">赞 20 / 123，藏 14 / 180，评 7 / 7</td></tr><tr><td data-l="维度">日期</td><td data-l="代表作品">编辑于 06-08</td><td data-l="普通内容">编辑于 10-31 / 4 天前</td></tr></tbody></table></div></section>
+<section id="voice"><h2>语气、节奏与可借鉴写法</h2><div class="card"><ul class="plain"><li><span class="lv f">事实</span>标题偏收藏向：“自用收藏”“附Prompt”“2026最新”。</li><li><span class="lv f">事实</span>评论区统一回复“好嘞，注意查收”“这边发你”。</li><li><span class="lv a">观察</span>干货卡统一“一页一项 + 固定字段”的版式。</li></ul></div><pre class="tpl">【总表】案例 · 场景 · 验证重点
+【一页一项】它是什么 / 三个场景 / 第一步
+【来源】仓库或文档链接
+【边界】哪些是自己做过的，哪些是整理</pre><p class="muted">模板是分析产物，不是作者原话。</p></section>
+<section id="limits"><h2>失败与边界</h2><div class="card"><ul><li><b>样本入口</b>：主页的置顶与近期笔记，不是按“最新”排序筛出的热门；历史高赞与近期低赞不比优劣、不归因。</li><li><b>样本</b>：3 篇；图卡 37 页全读（空白页经等待、重试后读到）。</li><li><b>两个老A</b>：与「老A的AI进阶实操」分开研究，不合并数据。</li><li><b>课程</b>：大纲、服务、offer 展示都是宣传自述；不当交付或收入。</li><li><b>作品</b>：作品集各页无署名，是否本人实操未核；Skill 功能未实测。</li><li><b>其它平台与收入</b>：未核。<b>成长</b>：没有可核的时间点，不写增长轨迹。</li></ul></div></section>
+<section id="for-ocean"><h2>可借鉴的做法</h2><p class="muted"><span class="lv a">分析</span>研究者建议，不是成功公式。</p><div class="grid2"><div class="card"><h3>可借鉴</h3><ol><li>项目合集先给总表，再一页一项。</li><li>清单每项写“是什么 + 三个场景”，附可点来源。</li></ol></div><div class="card"><h3>不适用</h3><ul><li>评论区问价转私信的导流。</li><li>无署名的教程截图当成自己的作品。</li><li>未核的“3 天从 0 做出”这类效果。</li></ul></div></div></section>
+<section id="sources"><h2>来源与待核</h2><p><b>状态：小红书只读一手资料；3 篇图文全读</b>。主页与 3 篇笔记由只读浏览打开、截图，空白页经等待、重试后补齐；本页只用截图与台账里的原文。</p><div class="tw"><table><thead><tr><th>来源</th><th>读到了</th><th>没读到</th></tr></thead><tbody><tr><td data-l="来源">小红书主页</td><td data-l="读到了">主页截图（粉丝、获赞与收藏、关注、简介）与首屏标题</td><td data-l="没读到">其余笔记正文</td></tr><tr><td data-l="来源">小红书笔记</td><td data-l="读到了">3 篇图文：课程 11/11、作品集 15/15、Skill 11/11</td><td data-l="没读到">—</td></tr><tr><td data-l="来源">评论</td><td data-l="读到了">可见评论与作者回复</td><td data-l="没读到">1 条回复未展开；私信与后台不看</td></tr><tr><td data-l="来源">X / 公众号 / 其它平台 / 收入</td><td data-l="读到了">无</td><td data-l="没读到">未核；不另找同名账号</td></tr></tbody></table></div><ul class="plain"><li>证据台账：<code>review/creator-growth-20261108/laoa-yanjiusuo-ledger.md</code>（采集 2026-11-08，UTC+8）。</li><li>证据台账与截图在仓库外，不公开。</li></ul><p><span class="tag warn">待核</span>：更多笔记做对照；评论展开。</p></section>
+</main></div>
+</body>
+</html>
