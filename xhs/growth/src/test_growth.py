@@ -128,7 +128,7 @@ class Practice(unittest.TestCase):
         for p in P: s.assertNotIn('不适用', p['metrics']['income']['text'] + p['metrics']['income'].get('note', ''))
         s.assertIn('自述 · 2025-09 · 历史', H); s.assertIn('自述 · 2023-07 · 历史', H)
         cnt = lambda k: sum(p['metrics'][k]['kind'] != '未找到' for p in P)
-        s.assertEqual((cnt('x'), cnt('xhs'), cnt('wx'), cnt('income')), (14, 15, 1, 4))  # 小红书：知新 + 首批 3 + 第二批 4 + 第三批 5
+        s.assertEqual((cnt('x'), cnt('xhs'), cnt('wx'), cnt('income')), (14, 18, 1, 4))  # 小红书：知新 + 首批 3 + 第二批 4 + 第三批 5 + 第四批 3
     def test_brief_on_every_person_page(s):
         seen = {k: set() for k in ('who', 'pain', 'solve', 'ocean')}
         for p in P:
@@ -455,4 +455,37 @@ class FollowBatch3Fufujie(unittest.TestCase):
         priv = [l.strip() for l in pf.read_text().splitlines() if l.strip()] if pf.exists() else []
         for t in (s.h, s.L):
             for bad in ['xsec', 'following', 'inventory', '/workspace/', '登录态', 'channel_type'] + priv: s.assertNotIn(bad, t)
+class FollowBatch4(unittest.TestCase):
+    """第四批（黑灯、门腔）：覆盖完整；年份不推；中性评论标题；不比热度；自述不当事实；不推照片身份身体；隐私。"""
+    @classmethod
+    def setUpClass(c):
+        import sys; sys.path.insert(0, str(Path(__file__).resolve().parents[3]/'review/creator-growth-20261108'))
+        import follow_b4_cards as f; c.f = f; R = Path(__file__).resolve().parents[3]/'review/creator-growth-20261108'
+        c.H = {k: (X/f'{k}.html').read_text() for k in ('heideng', 'menqiang', 'lidan')}
+        c.L = {k: (R/f'{k}-ledger.md').read_text() for k in ('heideng', 'menqiang', 'lidan')}
+        c.Pp = {p['id']: p for p in P}
+    def test_common(s):
+        for k, h in s.H.items():
+            s.assertEqual(s.f.gaps(k), {}); s.assertIn('<h3>可见评论与作者回应</h3>', h)
+            cmp = h[h.index('id="compare"'):h.index('id="voice"')]
+            s.assertNotIn('底栏', cmp); s.assertNotIn('能火', h); s.assertNotIn('普通内容', h)
+            s.assertEqual(s.Pp[k]['metrics']['income']['text'], '未找到公开数值')
+    def test_heideng(s):
+        h = s.H['heideng']
+        for w in ('已读 1/1', '已读 7/7', '初发年份未知', '不当现在可购买', '不等于票房', '原因未说明', '只是作者自述'): s.assertIn(w, h)
+    def test_menqiang(s):
+        h = s.H['menqiang']
+        for w in ('已读 16/16', '未主动播放、未观看', '标题描述层', '不推地点、身份', '不当小号', '关系未'): s.assertIn(w, h)
+        for bad in ('减脂成功', '瘦了', '日本'): s.assertNotIn(bad, h)
+    def test_lidan(s):
+        h = s.H['lidan']
+        for w in ('已读 5/5', '未主动播放、未观看', '标题描述层', '2024-08-12', '不推健康', '不当新帖', '读者说法'): s.assertIn(w, h)
+    def test_privacy(s):
+        pf = Path('/workspace/creator-growth-20261108/following/private-drop-patterns.txt')
+        priv = [l.strip() for l in pf.read_text().splitlines() if l.strip()] if pf.exists() else []
+        names = json.loads(Path('/workspace/creator-growth-20261108/following/private-public-subs-b4.json').read_text())['banned'] if Path('/workspace/creator-growth-20261108/following/private-public-subs-b4.json').exists() else []  # 被替换掉的名字在仓库外
+        for k in s.H:
+            for t in (s.H[k], s.L[k]):
+                for bad in ['xsec', 'following', 'inventory', '/workspace/', '登录态', 'channel_type'] + names + priv: s.assertNotIn(bad, t, k)
+                s.assertIsNone(re.search(r'[\w.+-]+@[\w-]+\.[a-z]{2,}', t), k)
 unittest.main()

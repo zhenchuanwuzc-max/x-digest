@@ -1,0 +1,55 @@
+"""关注第四批加入 xhs/growth/src/people.json（可重复运行，先删后加）。证据在仓库外 following-batch4/；覆盖度见 follow_b4_cards.py。
+首页每个方向最多 3 位重点对标人（已满），第四批只进人物名单。"""
+import json
+from follow_b4_cards import COV, text
+from pathlib import Path
+# 不 import 前几批的 add 脚本（导入会重跑、打乱顺序）；口径与首批一致
+PJ = Path(__file__).resolve().parents[2] / 'xhs/growth/src/people.json'
+U = "https://www.xiaohongshu.com/explore/"; PR = "https://www.xiaohongshu.com/user/profile/"; NF = '未找到公开数值'; UNK = '未核'
+def metrics(uid, fans, extra):
+    return dict(x=dict(text=NF, kind='未找到', note=UNK+'；不按昵称找同名账号'), xhs=dict(text=fans, kind='事实', src=PR+uid, date='2026-11-08 主页截图', note=extra),
+                wx=dict(text=NF, kind='未找到', note=UNK), income=dict(text=NF, kind='未找到', note=UNK+'；课程/服务宣传不等于收入'))
+def w(id, title, step, edge, nid, slug):
+    return dict(id=id, title=title, step=step, edge=edge + '；' + text(COV[slug][id]), src=U + nid)
+NEW = [
+ dict(id='heideng', name='黑灯', ico='灯', href='../heideng.html', handle='小红书号 Dyingsight', tags=['小红书'],
+  desc='脱口秀演员的小红书号（非 AI 账号）；2 篇图文逐页读完（1/1、7/7）。', go='打开成长页',
+  does='用图文回应观众、发专场巡演通告；主页另有大量视频（2 篇样本，视频未看）',
+  users='脱口秀观众、想看专场的人（推断）',
+  metrics=metrics('5b411d0fe8ac2b3139a2e3f9', '18.3 万', '同屏 57 万获赞与收藏（赞藏合计）、288 关注'),
+  brief=dict(who='脱口秀观众、想看专场的人（推断）', pain='想知道专场在哪、出了状况找谁',
+   solve='专场出状况后用一句大字图文直接回应观众；置顶 7 页图文讲专场：场次、创作观、个人经历、合作者、观演提示',
+   ocean='建议：借“出了状况直接、短句回应受众”和“一组图文把一件事讲全：是什么、我怎么想、谁一起做、怎么来”的结构；作者经历和承诺不迁移、不当已核事实',
+   works=[w('w1', '推迟开场后回应观众（图文 1 张）', '一张大字封面 + 一句“酒店费用找我报销”；评论区读者说法不一，作者回一位读者', '推迟原因未说明；报销承诺是作者自述，未核；评论不能还原事件经过', '6ae4a2fc000000001202f067', 'heideng'),
+          w('w2', '《先上车》专场巡演置顶（图文 7 张）', '正文列 9 城场次；7 张卡依次讲海报、创作观、十年经历、主题、合作者、观演提示', '场次是编辑时的通告，现在能否购票未核；读者留城市名不等于票房', '69133e640000000007014f0a', 'heideng')],
+   gap='两篇图文逐页读完；主页视频未打开；置顶视频等三张卡只看标题。')),
+ dict(id='menqiang', name='门腔', ico='腔', href='../menqiang.html', handle='小红书号 114860047', tags=['小红书'],
+  desc='脱口秀演员 / 内容创作者的小红书号（非 AI 账号）；1 篇视频标题描述层，1 篇照片图文 16/16。', go='打开成长页',
+  does='做生活系列视频和穿搭照片图文（2 篇样本，视频未看）',
+  users='喜欢生活、穿搭内容的观众（推断）',
+  metrics=metrics('5950711682ec3934a30f8b88', '49.5 万', '同屏 247.5 万获赞与收藏（赞藏合计）、861 关注'),
+  brief=dict(who='喜欢生活、穿搭内容的观众（推断）', pain='想看轻松的生活记录和穿搭',
+   solve='系列视频在描述里写章节时刻点；照片图文用一句玩笑正文配 16 张照片，评论区作者逗趣回复',
+   ocean='建议：借“系列编号 + 描述里写章节”的整理方式和“一句玩笑正文 + 评论区接梗”；大号成绩不当小号参照，照片不推身份地点',
+   works=[w('w1', '生活系列 Ep5：搬工作室（视频）', '完整描述按时刻点列 5 个章节；评论区作者短回复', '视频未看；章节是作者写的文字，不写实际镜头或效果', '6ae70dd3000000001e01654d', 'menqiang'),
+          w('w2', '“发现一个变瘦的坏处”（照片图文 16 张）', '一句玩笑正文“手机内存会一直不够”配 16 张无文字照片；评论区调侃、作者接话', '不据照片推地点身份，不判断身体或减脂结果', '6ac1b9dc00000000140331e2', 'menqiang')],
+   gap='视频只看标题、完整描述与评论；图文 16/16 读完；置顶视频等三张卡只看标题。')),
+ dict(id='lidan', name='李诞', ico='诞', href='../lidan.html', handle='小红书号 557281248', tags=['小红书'],
+  desc='小红书大号（非 AI 账号）；1 篇近期视频标题描述层，1 篇 2024 年置顶纯文字随笔 5/5。', go='打开成长页',
+  does='近期多发探店、生活视频；置顶一篇纯文字图卡随笔（2 篇样本，视频未看）',
+  users='关注作者生活与文字的观众（推断）',
+  metrics=metrics('5c878d39000000001202d5e0', '268.7 万', '同屏 592.7 万获赞与收藏（赞藏合计）、48 关注'),
+  brief=dict(who='关注作者生活与文字的观众（推断）', pain='想看轻松的探店生活，或想读有共鸣的文字',
+   solve='近期视频描述只写“本期店铺”和标签；置顶随笔把长文放进 5 张白底文字卡，从一件近事写到一段回忆再收到一个判断',
+   ocean='建议：可试“长文放进文字卡、每张一个转折”的排法和“描述只写一个关键信息”的极简描述；作者经历与状态不迁移、不推断；大号成绩不当参照',
+   works=[w('w1', '近期探店视频（视频）', '描述只有“本期店铺：……”和标签；评论区读者聊地域和饮食', '视频未看，不写内容和味道；评论里的地域、身份、口味都是读者说法', '6aeb1640000000001100f550', 'lidan'),
+          w('w2', '“频繁的大雪”：纯文字随笔（置顶图文 5 张，2024-08-12）', '5 张白底文字卡：近事 → 回忆一部纪录片 → 旅行见闻 → 谈信任 → 收尾', '作者自述，未核；不推健康或心理状态；2024 年历史帖，不当新帖', '66bafbdf000000001e01c957', 'lidan')],
+   gap='视频只看标题、描述与评论；文字卡 5/5 读完；另一置顶“收件箱”图文只看标题。')),
+]
+d = json.loads(PJ.read_text())
+ids = {p['id'] for p in NEW}
+d['people'] = [p for p in d['people'] if p['id'] not in ids] + NEW
+for r in d['practice']:
+    r['bench'] = [b for b in r['bench'] if b['pid'] not in ids]
+PJ.write_text(json.dumps(d, ensure_ascii=False, indent=1))
+print('ok', len(d['people']))
