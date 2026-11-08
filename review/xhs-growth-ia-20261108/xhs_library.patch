@@ -1,3 +1,7 @@
+516c516
+<         href = c.get('profile_url') or 'creators.html'
+---
+>         href = c.get('profile_url') or 'growth/'
 528c528
 < <a href="creators.html"><b>对标博主完整档案</b></a>（与本地研究页同步，已去本地路径）。</p>
 ---

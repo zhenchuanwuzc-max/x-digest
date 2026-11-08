@@ -83,4 +83,14 @@ class Migration(unittest.TestCase):
             back = re.compile(r'\s*<a href="growth/">← 人物成长研究</a>\s*')
             s.assertEqual(len(back.findall(new)), 2, n)  # 侧栏 + 手机目录各一个
             s.assertEqual(re.sub(r'\s+', '', pat.sub('', o, count=1)), re.sub(r'\s+', '', back.sub('', new, count=2)), n)
+class NoCompatTraffic(unittest.TestCase):
+    def test_no_internal_links_to_compat(s):
+        bad = []
+        for f in W.rglob('*.html'):
+            if 'review' in f.parts or f == X/'creators.html' or '.git' in f.parts: continue
+            if re.search(r'href="[^"]*creators\.html', f.read_text(errors='ignore')): bad.append(str(f.relative_to(W)))
+        s.assertEqual(bad, [])
+    def test_podcast_header_single_back(s):
+        h = (G/'hector.html').read_text(); bar = h[h.index('<div class="filebar">'):]; bar = bar[:bar.index('<span')]
+        s.assertEqual(re.findall(r'href="([^"]+)"', bar), ['./'])
 unittest.main()

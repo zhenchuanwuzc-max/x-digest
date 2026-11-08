@@ -513,7 +513,7 @@ def _profiles(d):
     for c in d.get('benchmark_profiles') or []:
         inf = ''.join(f'<li>{E(x)}</li>' for x in (c.get('inflect') or []))
         st = ''.join(f'<li>{E(x)}</li>' for x in (c.get('steal') or []))
-        href = c.get('profile_url') or 'creators.html'
+        href = c.get('profile_url') or 'growth/'
         cards.append(
             f'''<div class="card">
   <h3><a href="{E(href)}">{E(c.get('name',''))}</a></h3>

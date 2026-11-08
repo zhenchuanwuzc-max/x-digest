@@ -144,5 +144,8 @@ out = out.replace('details.arch>summary{cursor:pointer;font-weight:700;padding:.
 for need in ['ai-depth-levels-2026-10-28.html#levels', 'data-l="AI 使用深度"', 'id="audience"', 'href="#audience">受众', '#audience .tw thead', 'id="works"', 'href="#works"', '.lv.h', '干货满满', 'Cognitive Commons', '卡 5、卡 6 的原帖正文', '#sources">来源']:
     assert need in out, need
 assert 'id="archive"' not in out and 'details.arch' not in out
+# 2026-11-08 人物成长研究二级页：侧栏只留页内目录 + 回首页（旧“选题库/全入口/对标档案”不再恢复）
+out = re.sub(r'  <div class="sec">选题库</div>\n  <a href="growth/">← 成长记录</a>\n  <a href="\./">小红书全入口</a>\n  <a href="creators\.html#zara">对标档案 · 张咋啦</a>\n', '  <a href="growth/">← 人物成长研究</a>\n', out, count=1)
+out = re.sub(r'(<nav class="mob-nav" aria-label="移动目录">)(\s*)', r'\1\2<a href="growth/">← 人物成长研究</a>\2', out, count=1)
 (REPO/"xhs"/"zhangzala.html").write_text(out, encoding="utf-8")
 print("ok", len(out))
