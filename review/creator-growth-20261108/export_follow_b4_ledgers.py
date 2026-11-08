@@ -11,7 +11,7 @@ DROP = re.compile('|'.join([re.escape(x) for x in PRIV] + ['已关注', 'invento
 def clean(t):
     t = re.sub(r'(https://www\.xiaohongshu\.com/[^\s?`）)]+)\?[^\s`）)]*', r'\1', t)
     return '\n'.join(l for l in t.splitlines() if not DROP.search(l)) + '\n'
-MAP = {'heideng': ('heideng', ['ledger.md']), 'menqiang': ('menqiang', ['ledger.md']), 'lidan': ('lidan', ['ledger.md'])}
+MAP = {'heideng': ('heideng', ['ledger.md']), 'menqiang': ('menqiang', ['ledger.md']), 'lidan': ('lidan', ['ledger.md']), 'pupu-wanzi': ('pupu-wanzi', ['ledger.md'])}
 # 公开副本的替换表（邮箱、联系人、被点名的人）放在仓库外私有文件，不写进公开代码
 SUB = {k: [tuple(x) for x in v] for k, v in json.loads((BASE / 'following/private-public-subs-b4.json').read_text())['sub'].items()}
 for slug, (d, files) in MAP.items():
