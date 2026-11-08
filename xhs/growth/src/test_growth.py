@@ -16,10 +16,13 @@ def resolve(base_dir, href):
 def sanitized():
     h = SHARED.read_text(); h = re.sub(r'/workspace/[^<\s"\']+', '', h); return re.sub(r'/Users/[^<\s"\']+', '', h)
 NF = '未找到公开数值'
+import html as _h
+e_ = _h.escape
 def work_card(h, wid):
     """人物页里某个代表作品卡的片段：从它的 id 到下一个作品卡 / 段落结束。"""
     i = h.index(f'id="{wid}"'); rest = h[i + 5:]
-    ends = [j for j in (rest.find('</article>'), rest.find(' id="' + wid.rsplit('w', 1)[0] + 'w')) if j >= 0]
+    pre = wid.rsplit('w', 1)[0]
+    ends = [j for j in (rest.find('</article>'), rest.find(' id="' + pre + 'w'), rest.find('-audience"')) if j >= 0]
     return h[i:i + 5 + min(ends)]
 def norm(h):
     """去掉 t224 允许的改动：顶部摘要、摘要样式、目录里的摘要链接、target/rel 属性。"""
@@ -60,9 +63,14 @@ class Practice(unittest.TestCase):
             for x in r['bench']:
                 p = by[x['pid']]
                 s.assertIn(f'<p class="bn"><a href="{p["href"]}" target="_blank" rel="noopener noreferrer">{p["name"]}</a>', H)
-                f, _ = resolve(G, p['href']); s.assertIn(f'id="{x["work"]}"', f.read_text(), x)  # 作品锚点真实存在
-                s.assertIn(x['src'], work_card(f.read_text(), x['work']), x)  # 一手来源就在该作品卡里
-                s.assertEqual(x['work'], p['brief']['work']['id'])
+                ws = {w['id']: w for w in p['brief']['works']}
+                s.assertGreaterEqual(len(x['works']), 2, x['pid'])  # 首页每个重点对标人不止一件事
+                s.assertEqual(len(set(x['works'])), len(x['works']))
+                bm = H[H.index(f'<p class="bn"><a href="{p["href"]}"'):]; bm = bm[:bm.index('</div>')]
+                for i in x['works']:
+                    s.assertIn(i, ws, (x['pid'], i))  # 首页和人物页是同一件事
+                    s.assertIn(f'href="{p["href"]}#{i}" target="_blank" rel="noopener noreferrer">', bm)
+                    s.assertIn(ws[i]['step'].replace('“', '&quot;')[:0] or ws[i]['step'][:10], bm.replace('&quot;', '"'))
                 s.assertTrue(x['learn'] and x['skip'])
         for o in M['observations']: s.assertTrue(o.startswith('观察：'))
         for st in M['steps']: s.assertTrue(st.startswith('建议'), st)
@@ -71,23 +79,39 @@ class Practice(unittest.TestCase):
         s.assertIn('L1', top); s.assertIn('L2', top)
     def test_brief_work_backed(s):
         for p in P:
-            w = p['brief']['work']; h = (G/p['href']).resolve().read_text()
-            s.assertIn(f'id="{w["id"]}"', h, p['id']); s.assertTrue(w['title'] and w['step'])
-            b = h[h.index('id="brief"'):]; b = b[:b.index('</section>')]
-            s.assertIn(f'<a href="#{w["id"]}">', b, p['id'])
+            b = p['brief']; ws = b['works']; h = (G/p['href']).resolve().read_text()
+            s.assertGreaterEqual(len(ws), 2, p['id'])  # 不只一件事；不设统一数量
+            s.assertEqual(len({w['id'] for w in ws}), len(ws), p['id'])  # 不同作品卡
+            s.assertEqual(len({w['step'] for w in ws}), len(ws), p['id'])  # 每条信息不同
+            s.assertEqual(len({w['src'] for w in ws}), len(ws), p['id'])  # 不同一手来源
+            top = h[h.index('id="brief"'):]; top = top[:top.index('</section>')]
+            for w in ws:
+                s.assertIn(f'id="{w["id"]}"', h, (p['id'], w['id']))
+                s.assertIn(f'href="{w["src"]}"'.replace('&', '&amp;'), work_card(h, w['id']).replace('&amp;amp;', '&amp;'), (p['id'], w['id']))  # 来源属于该作品卡
+                s.assertTrue(w['title'] and w['step'] and w['edge'], (p['id'], w['id']))
+                s.assertIn(f'<a href="#{w["id"]}">', top, (p['id'], w['id']))  # 本页锚点，不开新页
+                s.assertIn('边界：', top)
             for k in ('who', 'pain', 'solve', 'ocean'): s.assertIn(p['brief'][k][:12], h.replace('&quot;', '"').replace('&#x27;', "'"), (p['id'], k))
+        s.assertEqual(len({p['id'] for p in P}), 14)
     def test_cards_fields_complete(s):
+        tbl = H[H.index('<table class="cmp">'):H.index('</table>')]
+        heads = re.findall(r'<th scope="col">([^<]+)</th>', tbl)
+        s.assertEqual(heads, ['人物', '主要做什么 · 主要用户', 'X 关注者', '小红书粉丝', '公众号关注', '收入'])  # 共享列头
+        s.assertIn('「未找到」= 未找到公开数值', H)
         for p in P:
-            c = H[H.index(f'id="p-{p["id"]}"'):]; c = c[:c.index('</div>\n', c.index('<details'))]
-            for k in ('主要做什么', '主要用户', 'X 关注者', '小红书粉丝', '公众号关注', '收入'): s.assertIn(f'<dt>{k}</dt>', c, (p['id'], k))
+            c = tbl[tbl.index(f'<tr id="p-{p["id"]}">'):]; c = c[:c.index('</tr>')]
+            s.assertIn('主要用户', c); s.assertIn(p['does'][:8], c); s.assertIn(p['users'][:8], c)
+            for lab in heads[2:]: s.assertIn(f'data-l="{lab}"', c, (p['id'], lab))
             s.assertIn('<details><summary>数据口径与来源</summary>', c)
-            for k, v in p['metrics'].items():  # 卡片上看得到口径：公开读取 / 自述 / 未找到公开数值
-                s.assertTrue(v['kind'] != '自述' or v.get('asof'), (p['id'], k))  # 自述必须带时点
+            for k, v in p['metrics'].items():
+                s.assertTrue(v['kind'] != '自述' or v.get('asof'), (p['id'], k))
                 lab = '自述' + (f' · {v.get("asof")}' if v.get('asof') else '') + (' · 历史' if v.get('asof', '2026') < '2026' else '')
-                vis = {'事实': '<span class="k f">公开读取</span>', '自述': f'<span class="k s">{lab}</span>', '未找到': f'<span class="nf">{NF}</span>'}[v['kind']]
+                vis = {'事实': '<span class="k f">公开读取</span>', '自述': f'<span class="k s">{lab}</span>', '未找到': '<span class="nf">未找到</span>'}[v['kind']]
                 s.assertIn(vis, c, (p['id'], k))
+                s.assertIn(e_(v['text']), c, (p['id'], k))  # 完整说法（含「未找到公开数值」）在折叠来源里
             s.assertTrue('推断' in p['users'] or '自述' in p['users'], p['id'])
             s.assertIn(f'href="{p["href"]}" target="_blank" rel="noopener noreferrer"', c)
+        s.assertNotIn('class="card pc"', H)
     def test_metric_rules(s):
         for p in P:
             for k, v in p['metrics'].items():

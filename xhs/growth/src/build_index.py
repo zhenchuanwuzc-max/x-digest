@@ -15,8 +15,9 @@ def _metric(v):
     # 自述数字带短年月；早于 2026 的再标「历史」，免得被当成当前数
     lab = '自述' + (f' · {v["asof"]}' if v.get('asof') else '') + (' · 历史' if v.get('asof', '2026') < '2026' else '')
     tag = {'事实': '<span class="k f">公开读取</span>', '自述': f'<span class="k s">{e(lab)}</span>', '未找到': ''}[v['kind']]  # 未找到：文字本身即标注
-    cls = ' class="nf"' if v['kind'] == '未找到' else ''
-    return f'<span{cls}>{e(v["text"])}</span>{tag}'
+    if v['kind'] == '未找到':  # 表格里短写，图例说明含义；完整说法留在来源折叠里
+        return '<span class="nf">未找到</span>'
+    return f'<span class="v"><span>{e(v["text"])}</span> {tag}</span>'  # 值和口径标签同一格，手机两列网格里不拆行
 
 
 def _sources(p):
@@ -37,10 +38,11 @@ def render():
     by = {p['id']: p for p in P}
 
     def bench(x):
-        p = by[x['pid']]
+        p = by[x['pid']]; ws = {w['id']: w for w in p['brief']['works']}
+        items = ''.join(f'<li><a href="{e(p["href"])}#{e(i)}">{e(ws[i]["title"])}</a>：{e(ws[i]["step"])}'
+                        f'（<a href="{e(ws[i]["src"])}">一手来源</a>）</li>' for i in x['works'])
         return (f'<div class="bm"><p class="bn"><a href="{e(p["href"])}">{e(p["name"])}</a></p>'
-                f'<p class="bw">做了什么：<a href="{e(p["href"])}#{e(x["work"])}">{e(x["title"])}</a> —— {e(x["did"])}'
-                f'（<a href="{e(x["src"])}">一手来源</a>）</p>'
+                f'<p class="bw">做了这些事：</p><ol class="bws">{items}</ol>'
                 f'<p class="bl"><b>学这一步</b>{e(x["learn"])}</p><p class="bs"><b>别照搬</b>{e(x["skip"])}</p></div>')
     rows = ''.join(
         f'''    <div class="pr">
@@ -53,14 +55,11 @@ def render():
     steps = ''.join(f'<li>{e(s)}</li>' for s in data['steps'])
     obs = ''.join(f'<li>{e(s)}</li>' for s in data['observations'])
     people = ''.join(
-        f'''    <div class="card pc" id="p-{p["id"]}">
-      <h3><span class="ico" aria-hidden="true">{e(p["ico"])}</span><a href="{e(p["href"])}">{e(p["name"])}</a></h3>
-      <p class="meta">{e(p["handle"])}</p>
-      <dl><dt>主要做什么</dt><dd>{e(p["does"])}</dd><dt>主要用户</dt><dd>{e(p["users"])}</dd>
-      {''.join(f'<dt>{lab}</dt><dd>{_metric(p["metrics"][k])}</dd>' for k, lab in LABELS)}</dl>
-      {_sources(p)}
-      <a class="go" href="{e(p["href"])}">{e(p["go"])} →</a>
-    </div>
+        f'''    <tr id="p-{p["id"]}">
+      <th scope="row" data-l="人物"><a href="{e(p["href"])}">{e(p["name"])}</a><span class="hd">{e(p["handle"])}</span>{_sources(p)}</th>
+      <td data-l="主要做什么 · 主要用户"><span class="does">{e(p["does"])}</span><span class="usr">用户：{e(p["users"])}</span></td>
+      {''.join(f'<td data-l="{lab}" class="m">{_metric(p["metrics"][k])}</td>' for k, lab in LABELS)}
+    </tr>
 ''' for p in P)
     topics = ''.join(
         f'''    <a class="card" id="t-{t["id"]}" href="{e(t["href"])}">
@@ -93,8 +92,12 @@ def render():
 
   <h2 id="people">人物（{len(P)}）</h2>
   <p class="muted">X 关注者为 2026-11-08 19:14（UTC+8）公共读取；其余数字均注明是本人说法和披露日期，找不到写「未找到公开数值」，不等于没有账号。收入口径不同，不排名、不相加。</p>
-  <div class="grid">
-{people}  </div>
+  <p class="legend">「未找到」= 未找到公开数值，不等于没有账号或没有收入；绿色「公开读取」= 本次实测，黄色「自述」= 本人说法并标年月。</p>
+  <table class="cmp">
+    <thead><tr><th scope="col">人物</th><th scope="col">主要做什么 · 主要用户</th>{''.join(f'<th scope="col">{lab}</th>' for _, lab in LABELS)}</tr></thead>
+    <tbody>
+{people}    </tbody>
+  </table>
 
   <h2 id="topics">专题（{len(T)}）</h2>
   <div class="grid">
