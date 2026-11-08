@@ -1,0 +1,163 @@
+{
+ "note": "关键词计划：全部取自主词表 topics.json 各主题 keywords_zh（主题由 Lenny 公开文与听记选题工作台派生），同义去重；searches 只记真实搜过的结果，未搜不写 0。",
+ "plan_date": "2026-11-09",
+ "groups": [
+  {
+   "id": "G1",
+   "name": "AI工作流与产出物",
+   "angle": "任务动作",
+   "source_topics": [
+    "TK-03",
+    "TK-10",
+    "TK-17"
+   ],
+   "keywords": [
+    {
+     "query": "产品经理 AI工作流",
+     "source_topic": "TK-03",
+     "this_round": true,
+     "searches": []
+    },
+    {
+     "query": "AI原型",
+     "source_topic": "TK-17",
+     "this_round": true,
+     "searches": []
+    },
+    {
+     "query": "提示词模板",
+     "source_topic": "TK-03",
+     "this_round": true,
+     "searches": []
+    },
+    {
+     "query": "专家经验 AI",
+     "source_topic": "TK-10",
+     "this_round": false,
+     "searches": []
+    }
+   ]
+  },
+  {
+   "id": "G2",
+   "name": "AI与功能怎么衡量",
+   "angle": "用户痛点",
+   "source_topics": [
+    "TK-02",
+    "TK-13",
+    "TK-14"
+   ],
+   "keywords": [
+    {
+     "query": "AI使用率",
+     "source_topic": "TK-02",
+     "this_round": true,
+     "searches": []
+    },
+    {
+     "query": "功能上线没效果",
+     "source_topic": "TK-13",
+     "this_round": true,
+     "searches": []
+    },
+    {
+     "query": "知识库 效果",
+     "source_topic": "TK-14",
+     "this_round": false,
+     "searches": []
+    }
+   ]
+  },
+  {
+   "id": "G3",
+   "name": "PRD与优先级",
+   "angle": "核心概念",
+   "source_topics": [
+    "TK-16",
+    "TK-15",
+    "TK-07"
+   ],
+   "keywords": [
+    {
+     "query": "怎么写PRD",
+     "source_topic": "TK-16",
+     "this_round": true,
+     "searches": []
+    },
+    {
+     "query": "需求排序",
+     "source_topic": "TK-15",
+     "this_round": true,
+     "searches": []
+    },
+    {
+     "query": "达标门槛",
+     "source_topic": "TK-07",
+     "this_round": false,
+     "searches": []
+    }
+   ]
+  },
+  {
+   "id": "G4",
+   "name": "对齐与开会",
+   "angle": "问题长尾",
+   "source_topics": [
+    "TK-08",
+    "TK-04"
+   ],
+   "keywords": [
+    {
+     "query": "会议 Action",
+     "source_topic": "TK-08",
+     "this_round": true,
+     "searches": []
+    },
+    {
+     "query": "字段对照表",
+     "source_topic": "TK-04",
+     "this_round": false,
+     "searches": []
+    }
+   ]
+  },
+  {
+   "id": "G5",
+   "name": "交付、验收与状态",
+   "angle": "任务动作",
+   "source_topics": [
+    "TK-09",
+    "TK-12"
+   ],
+   "keywords": [
+    {
+     "query": "功能验收",
+     "source_topic": "TK-09",
+     "this_round": false,
+     "searches": []
+    },
+    {
+     "query": "任务状态机",
+     "source_topic": "TK-12",
+     "this_round": false,
+     "searches": []
+    }
+   ]
+  }
+ ],
+ "legacy": [
+  {
+   "query": "AI工具",
+   "sort": "最新",
+   "captured": "2026-11-08",
+   "scan": "前 12 张卡轻扫，打开 4 篇（图文 3 篇共读 15 张卡，视频 1 篇只看标题描述）",
+   "note": "旧池便利样本，早于本关键词计划，不算本轮新搜",
+   "sample_ids": [
+    "6aeea270000000000e025ebd",
+    "6aef3f870000000015010e24",
+    "6aeeec9d0000000015011aa0",
+    "6ac5fa7a000000001203fb99"
+   ]
+  }
+ ]
+}

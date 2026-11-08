@@ -352,8 +352,13 @@ def _growth_count():
 
 
 def _daily_new_small():
-    """日常选题：新帖、小号优先（2026-11-08 t244/t246）。数据取 SITE/topics/src/new-small.json（由选题工作包导出，七步页第 2/4 步引用同一份）；
-    缺文件或数据坏时整块不出现，日更不中断。"""
+    """日常选题：新帖、小号优先（2026-11-08 t244/t246；2026-11-09 t248 结构化）。
+    优先读 SITE/topics/src/new-small-v2.json（关键词覆盖 / 真实样本 / 建议选题三区，由 topics/src/build_new_small.py 生成）；
+    没有 v2 时退回旧 new-small.json 的列表写法。缺文件或数据坏时整块不出现，日更不中断。"""
+    try:
+        return _new_small_v2(json.loads((SITE / 'topics' / 'src' / 'new-small-v2.json').read_text()))
+    except Exception:
+        pass
     try:
         D = json.loads((SITE / 'topics' / 'src' / 'new-small.json').read_text())
         rules = "".join(f'<li>{E(r)}</li>' for r in D['rules'])
@@ -372,6 +377,68 @@ def _daily_new_small():
                 f'<p class="muted">{E(D["gaps"])} · 七步拆法见 <a href="seven/#s2">七步工作台</a></p></div>')
     except Exception:  # 数据缺字段或坏掉：整块不出现
         return ""
+
+
+_NS_SAMPLE_FIELDS = (("followers", "作者粉丝"), ("entry", "入口与排序"), ("date", "日期可信度"), ("counts", "赞藏评"),
+                     ("same_period", "同期对照"), ("coverage", "读了多少"), ("structure", "标题承诺 → 首图 → 正文顺序 → 可带走"),
+                     ("comments", "读者评论"), ("borrow", "可借鉴"), ("claims", "作者自述（未核）"), ("limits", "缺口与边界"), ("batch", "批次"))
+
+
+def _new_small_v2(D):
+    """t248 结构化渲染：先给建议选题（问题 / 切口 / 能带走 / 提纲），样本证据折叠在后；关键词覆盖按主题列真实搜索状态，未搜不写 0。
+    全块只有外层一个 div，内部用 section / article / details。"""
+    a = lambda u, t: f'<a href="{E(u)}" target="_blank" rel="noopener noreferrer">{E(t)}</a>'
+    S = {s['id']: s for s in D['samples']}
+    G = {g['id']: g for g in D['keywords_coverage']['groups']}
+    used = {}
+    for p in D['proposals']:
+        for i in p['sample_ids']:
+            used.setdefault(i, []).append(p['id'])
+    c = D['counts']
+    head = (f'<p class="muted">关键词计划 {c["planned"]} 个 · 本轮优先 {c["this_round"]} 个 · 已实际搜完 {c["searched"]} 个'
+            f'（截至 {E(D["asof"])}，UTC+8）。建议选题是草案，不是爆款结论；样本证据可展开。</p>')
+    props = '<h3>建议选题（按主题）</h3>'
+    for gid in G:
+        ps = [p for p in D['proposals'] if p['group'] == gid]
+        if not ps:
+            continue
+        props += f'<section><h4>{E(gid)} · {E(G[gid]["name"])}</h4>'
+        for p in ps:
+            props += (f'<article id="ns-{E(p["id"])}"><p><b>{E(" / ".join(p["titles"]))}</b> <span class="muted">（{E(p["status"])}）</span></p>'
+                      f'<p>受众问题：{E(p["audience_problem"])}</p><p>切口：{E(p["angle"])}</p><p>能带走：{E(p["takeaway"])}</p>'
+                      f'<p>提纲：</p><ol>' + "".join(f'<li>{E(o)}</li>' for o in p['outline']) + '</ol>'
+                      f'<details><summary>依据、差异与待补</summary><p>与已发区别：{E(p["differs_from"])}</p>'
+                      f'<p>真实样本：' + "、".join(f'<a href="#ns-s-{E(i)}">{E(S[i]["title"])}</a>' for i in p['sample_ids']) + f'；{E(p["sample_use"])}</p>'
+                      f'<p>Ocean 自有案例：{E(p["ocean_case"])}</p><p>证据缺口：{E(p["evidence_gap"])}</p><p>下一步：{E(p["next"])}</p></details></article>')
+        props += '</section>'
+    cov = '<h3>关键词覆盖</h3><ul>'
+    for g in G.values():
+        items = []
+        for k in g['keywords']:
+            if k['searches']:
+                r = k['searches'][-1]
+                st = f'已搜 {r["captured"]} {r["sort"]}：' + (f'{len(r["sample_ids"])} 条入池' if r.get('sample_ids') else '无合格新帖')
+            else:
+                st = '本轮待搜' if k['this_round'] else '后备，待搜'
+            items.append(f'{E(k["query"])}（{st}）')
+        cov += f'<li><b>{E(g["id"])} {E(g["name"])}</b>：' + "、".join(items) + '</li>'
+    for l in D['keywords_coverage']['legacy']:
+        cov += f'<li><b>旧池</b>：{E(l["query"])}（{E(l["captured"])} {E(l["sort"])}；{E(l["scan"])}；{E(l["note"])}）</li>'
+    cov += '</ul>'
+    smp = '<h3>真实样本</h3><ol>' + "".join(f'<li>{E(r)}</li>' for r in D['rules']) + '</ol>'
+    for k, lab in D['tiers'].items():
+        rs = [s for s in D['samples'] if s['tier'] == k]
+        if not rs:
+            continue
+        smp += f'<h4>{E(lab)}（{len(rs)} 条）</h4>'
+        for s in rs:
+            back = "、".join(f'<a href="#ns-{E(i)}">{E(i)}</a>' for i in used.get(s['id'], []))
+            smp += (f'<details id="ns-s-{E(s["id"])}"><summary>{a(s["url"], s["title"])} · {E(s["author"])} · {E(s["format"])}</summary><dl>'
+                    + "".join(f'<dt>{E(lab2)}</dt><dd>{E(s[f])}</dd>' for f, lab2 in _NS_SAMPLE_FIELDS if s.get(f))
+                    + (f'<dt>支撑的建议</dt><dd>{back}</dd>' if back else '') + '</dl></details>')
+    return (f'<h2 id="newsmall"><span class="sec-ico" aria-hidden="true">◆</span> 选题热帖：新帖、小号优先</h2>'
+            f'<div class="card">{head}{props}{cov}{smp}'
+            f'<p class="muted">{E(D["gaps"])} · 七步拆法见 <a href="seven/#s2">七步工作台</a></p></div>')
 
 
 def _seven_entry():
