@@ -56,8 +56,8 @@ def render():
     obs = ''.join(f'<li>{e(s)}</li>' for s in data['observations'])
     people = ''.join(
         f'''    <tr id="p-{p["id"]}">
-      <th scope="row" data-l="人物"><a href="{e(p["href"])}">{e(p["name"])}</a><span class="hd">{e(p["handle"])}</span>{_sources(p)}</th>
-      <td data-l="主要做什么 · 主要用户"><span class="does">{e(p["does"])}</span><span class="usr">用户：{e(p["users"])}</span></td>
+      <th scope="row" data-l="人物"><a href="{e(p["href"])}">{e(p["name"])}</a><span class="hd">{e(p["handle"])}</span></th>
+      <td data-l="主要做什么 · 主要用户"><span class="does">{e(p["does"])}</span><span class="usr">用户：{e(p["users"])}</span>{_sources(p)}</td>
       {''.join(f'<td data-l="{lab}" class="m">{_metric(p["metrics"][k])}</td>' for k, lab in LABELS)}
     </tr>
 ''' for p in P)

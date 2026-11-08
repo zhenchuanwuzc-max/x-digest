@@ -20,6 +20,12 @@ with sync_playwright() as p:
             if n.startswith('growth'):  # 对比表：桌面单元格内容高度不应远超文字（不留大块空白）
                 gaps = pg.evaluate('''[...document.querySelectorAll("table.cmp tbody tr")].map(r=>r.getBoundingClientRect().height)''')
                 if max(gaps) > (420 if w < 820 else 140): bad.append((n, w, 'row too tall', max(gaps)))
+            if n.startswith('growth'):  # 展开全部「数据口径与来源」后仍不能撑破页面
+                pg.evaluate('document.querySelectorAll("table.cmp details").forEach(d=>d.open=true)')
+                ov2 = pg.evaluate('Math.max(document.documentElement.scrollWidth-innerWidth, document.querySelector("table.cmp").getBoundingClientRect().right-document.querySelector(".main").getBoundingClientRect().right)')
+                if ov2 > 1: bad.append((n, w, 'details open overflow', ov2))
+                pg.screenshot(path=str(OUT / f'growth-details-open-{w}.png'), full_page=False)
+                pg.evaluate('document.querySelectorAll("table.cmp details").forEach(d=>d.open=false)')
             pg.screenshot(path=str(OUT / f'{n.replace("/", "_")}-{w}.png'))
         pg.screenshot  # noqa
     b.close()
