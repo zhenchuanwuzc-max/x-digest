@@ -35,3 +35,6 @@
 
 ## 第四批（下一批，等父 bot 合并部署后再开工）
 Lenny、Shreyas、Ali Abdaal、swyx、levelsio、Justin Welsh：改生成源 /workspace/money/ai-creators-growth.html 对应段落，再重建 xhs/creators.html，保持锚点。
+
+## batch4 (2026-11-08)
+Lenny / Shreyas Doshi / Ali Abdaal / swyx / levelsio / Justin Welsh：review/creator-growth-20261108/batch4/（源副本、构建脚本、6 份台账、网页摘录、测试、布局检查、Codex 摘要）。
