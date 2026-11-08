@@ -381,7 +381,7 @@ def _daily_new_small():
 
 _NS_SAMPLE_FIELDS = (("followers", "作者粉丝"), ("entry", "入口与排序"), ("date", "日期原文"), ("counts", "赞藏评"),
                      ("same_period", "同期对照"), ("coverage", "读了多少"), ("structure", "标题承诺 → 首图 → 正文顺序 → 可带走"),
-                     ("comments", "读者评论"), ("borrow", "可借鉴"), ("claims", "作者自述（未核）"), ("limits", "缺口与边界"), ("batch", "批次"))
+                     ("disclosure", "页面声明"), ("comments", "读者评论"), ("borrow", "可借鉴"), ("claims", "作者自述（未核）"), ("limits", "缺口与边界"), ("batch", "批次"))
 
 
 def _new_small_v2(D):
@@ -413,7 +413,9 @@ def _new_small_v2(D):
                       f'<p>Ocean 自有案例：{E(p["ocean_case"])}</p><p>下一步：{E(p["next"])}</p></details></article>')
         props += '</section>'
     L = D['keywords_coverage']['status_labels']
-    cov = '<h3>关键词覆盖</h3><ul>'
+    if D.get('not_proposed'):
+        props += '<p class="muted">本轮没出建议的词：</p><ul>' + "".join(f'<li class="muted">{E(x)}</li>' for x in D['not_proposed']) + '</ul>'
+    cov = '<h3>关键词覆盖</h3>' + (f'<p class="muted">{E(D["keywords_coverage"]["round_note"])}</p>' if D['keywords_coverage'].get('round_note') else '') + '<ul>'
     for g in G.values():
         items = ""
         for k in g['keywords']:
@@ -440,7 +442,7 @@ def _new_small_v2(D):
             back = "、".join(f'<a href="#ns-{E(i)}">{E(i)}</a>' for i in used.get(s['id'], []))
             smp += (f'<details id="ns-s-{E(s["id"])}"><summary>{a(s["url"], s["title"])} · {E(s["author"])} · {E(s["format"])}</summary><dl>'
                     + "".join(f'<dt>{E(lab2)}</dt><dd>{E(s[f])}</dd>' for f, lab2 in _NS_SAMPLE_FIELDS if s.get(f))
-                    + f'<dt>日期可信度</dt><dd>' + (f'绝对日期已核：{E(s["date_evidence"])}' if s['date_status'] == 'absolute_verified' else '只有相对时间、无年份，新帖身份待核') + '</dd>'
+                    + f'<dt>日期可信度</dt><dd>' + (f'绝对日期已核：{E(s["date_evidence"])}' if s['date_status'] == 'absolute_verified' else '搜索卡与详情日期不一致，原样并列，不推年份或初发日' if s['date_status'] == 'conflict' else '只有相对时间、无年份，新帖身份待核') + '</dd>'
                     + f'<dt>表现结论</dt><dd>' + ('有证据：' if s['classification'] == 'evidenced' else '未证实：') + f'{E(s["classification_evidence"])}</dd>'
                     + (f'<dt>支撑的建议</dt><dd>{back}</dd>' if back else '') + '</dl></details>')
     return (f'<h2 id="newsmall"><span class="sec-ico" aria-hidden="true">◆</span> 选题热帖：新帖、小号优先</h2>'
