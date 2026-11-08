@@ -128,7 +128,7 @@ class Practice(unittest.TestCase):
         for p in P: s.assertNotIn('不适用', p['metrics']['income']['text'] + p['metrics']['income'].get('note', ''))
         s.assertIn('自述 · 2025-09 · 历史', H); s.assertIn('自述 · 2023-07 · 历史', H)
         cnt = lambda k: sum(p['metrics'][k]['kind'] != '未找到' for p in P)
-        s.assertEqual((cnt('x'), cnt('xhs'), cnt('wx'), cnt('income')), (14, 10, 1, 4))  # 小红书：知新 + 首批关注 3 人 + 第二批 4 人
+        s.assertEqual((cnt('x'), cnt('xhs'), cnt('wx'), cnt('income')), (14, 15, 1, 4))  # 小红书：知新 + 首批 3 + 第二批 4 + 第三批 5
     def test_brief_on_every_person_page(s):
         seen = {k: set() for k in ('who', 'pain', 'solve', 'ocean')}
         for p in P:
@@ -285,6 +285,35 @@ class FollowBatch2(unittest.TestCase):
             if p['id'] in s.IDS:
                 s.assertEqual(p['metrics']['income']['text'], NF); s.assertEqual(p['metrics']['x']['kind'], '未找到')
 
+class FollowBatch3(unittest.TestCase):
+    """第三批（可瑞吉）：标题描述层；不照搬虚构经历说法；自述薪资不当收入；隐私。"""
+    def setUp(s):
+        import sys; sys.path.insert(0, str(Path(__file__).resolve().parents[3]/'review/creator-growth-20261108'))
+        import follow_b3_cards as f; s.f = f; s.h = (X/'keruiji.html').read_text()
+        s.p = next(p for p in P if p['id'] == 'keruiji')
+    def test_scope_and_coverage(s):
+        s.assertEqual(s.f.gaps('keruiji'), {}); s.assertEqual(set(s.f.COV['keruiji'].values()), {s.f.VIDEO})
+        for w in ('标题描述层分析', '不是完整通读', '未主动播放、未观看'): s.assertIn(w, s.h)
+        s.assertNotIn('视频未看待补', s.h)
+    def test_no_fake_experience_advice(s):
+        s.assertIn('不照搬“说做过我的实习生”', s.h); s.assertIn('虚假履历风险', s.p['brief']['ocean'])
+        for bad in ('虚构经历', '造假', '欺诈', '骗'): s.assertNotIn(bad, s.h)  # 视频未看，不对作者下判断
+        take = re.search(r'<h2>可借鉴的做法</h2>(.*?)</section>', s.h, re.S).group(1)
+        for m in re.finditer(r'<li>(.*?)</li>', take):
+            if '实习生' in m.group(1): s.assertTrue('不' in m.group(1) or '风险' in m.group(1), m.group(1))
+    def test_self_reported_numbers_not_income(s):
+        s.assertEqual(s.p['metrics']['income']['text'], NF); s.assertEqual(s.p['metrics']['wx']['text'], NF)
+        s.assertIn('不合算', s.h); s.assertIn('不当收入', s.h)
+        for bad in ('年收入约', '年薪约', '存款约', '万元年'): s.assertNotIn(bad, s.h)
+    def test_privacy_and_links(s):
+        L = (Path(__file__).resolve().parents[3]/'review/creator-growth-20261108/keruiji-ledger.md').read_text()
+        pf = Path('/workspace/creator-growth-20261108/following/private-drop-patterns.txt')  # 采集账号过滤词在仓库外
+        priv = [l.strip() for l in pf.read_text().splitlines() if l.strip()] if pf.exists() else []
+        for t in (s.h, L):
+            for bad in ['xsec', 'following', 'inventory', '/workspace/', '登录态'] + priv: s.assertNotIn(bad, t)
+        s.assertNotIn('发布时间不同', s.h); s.assertNotIn('普通内容', s.h)
+        for w in s.p['brief']['works']: s.assertIn(w['src'], s.h); s.assertNotIn('?', w['src'])
+
 class Subpages(unittest.TestCase):
     def pages(s):
         return [X/n for n in PERSON_FILES] + [X/'topic-types.html', X/'topic-lip-growth.html', G/'hector.html']
@@ -347,4 +376,83 @@ class NoCompatTraffic(unittest.TestCase):
     def test_podcast_header_single_back(s):
         h = (G/'hector.html').read_text(); bar = h[h.index('<div class="filebar">'):]; bar = bar[:bar.index('<span')]
         s.assertEqual(re.findall(r'href="([^"]+)"', bar), ['./'])
+class FollowBatch3Will(unittest.TestCase):
+    """第三批 Will：图文全读；时间存疑不当新帖；自述年薪/课程销量不当收入；归属与隐私。"""
+    def setUp(s):
+        import sys; sys.path.insert(0, str(Path(__file__).resolve().parents[3]/'review/creator-growth-20261108'))
+        import follow_b3_cards as f; s.f = f; s.h = (X/'will.html').read_text()
+        s.p = next(p for p in P if p['id'] == 'will')
+    def test_coverage_and_links(s):
+        s.assertEqual(s.f.gaps('will'), {}); s.assertIn('已读 8/8', s.h); s.assertIn('已读 6/6', s.h)
+        s.assertIn('explore/6ae6e6fd000000002301106d', s.h); s.assertIn('《上新：如何系统学习AI产品的UX设计？》', s.h)
+        s.assertIn('explore/6546fd84000000001e02c4ed', s.h); s.assertIn('《我的12年职场路，4个重要认知》', s.h)
+    def test_time_and_money_claims(s):
+        for w in ('时间存疑', '不当最新新帖', '不当收入', '只等了约 6 秒'): s.assertIn(w, s.h)
+        for bad in ('20 秒', '统一等待', '编辑刷新了', '标题描述层', '普通内容'): s.assertNotIn(bad, s.h)
+        s.assertEqual(s.p['metrics']['income']['text'], '未找到公开数值'); s.assertEqual(s.p['metrics']['wx']['text'], '未找到公开数值')
+    def test_privacy(s):
+        L = (Path(__file__).resolve().parents[3]/'review/creator-growth-20261108/will-ledger.md').read_text()
+        pf = Path('/workspace/creator-growth-20261108/following/private-drop-patterns.txt')
+        priv = [l.strip() for l in pf.read_text().splitlines() if l.strip()] if pf.exists() else []
+        for t in (s.h, L):
+            for bad in ['xsec', 'following', 'inventory', '/workspace/', '登录态'] + priv: s.assertNotIn(bad, t)
+            s.assertIsNone(re.search(r'[\w.+-]+@[\w-]+\.[\w.]+', t))  # 公开邮箱不抄录
+class FollowBatch3Huguagua(unittest.TestCase):
+    """第三批胡呱呱：图文全读；同一梗图形式不夸大；不补身份收入；不照搬素材；隐私。"""
+    def setUp(s):
+        import sys; sys.path.insert(0, str(Path(__file__).resolve().parents[3]/'review/creator-growth-20261108'))
+        import follow_b3_cards as f; s.f = f; s.h = (X/'huguagua.html').read_text()
+        s.p = next(p for p in P if p['id'] == 'huguagua')
+    def test_coverage_and_claims(s):
+        s.assertEqual(s.f.gaps('huguagua'), {}); s.assertIn('已读 4/4', s.h); s.assertIn('已读 5/5', s.h)
+        for w in ('不夸大成两种商业模式', '不是事实报道', '不照搬梗图', '不迁移作者的身份', '你没有说明你还不成功'): s.assertIn(w, s.h)
+        for bad in ('普通内容', '说服你', '标题描述层'): s.assertNotIn(bad, s.h)
+        s.assertEqual(s.p['metrics']['income']['text'], '未找到公开数值')
+    def test_privacy(s):
+        L = (Path(__file__).resolve().parents[3]/'review/creator-growth-20261108/huguagua-ledger.md').read_text()
+        pf = Path('/workspace/creator-growth-20261108/following/private-drop-patterns.txt')
+        priv = [l.strip() for l in pf.read_text().splitlines() if l.strip()] if pf.exists() else []
+        for t in (s.h, L):
+            for bad in ['xsec', 'following', 'inventory', '/workspace/', '登录态', 'channel_type'] + priv: s.assertNotIn(bad, t)
+class FollowBatch3Claire(unittest.TestCase):
+    """第三批 Claire：图文全读；去世/病况只是转述；“收入破百万”不当收入；不点名、不跨平台认归属；隐私。"""
+    def setUp(s):
+        import sys; sys.path.insert(0, str(Path(__file__).resolve().parents[3]/'review/creator-growth-20261108'))
+        import follow_b3_cards as f; s.f = f; s.h = (X/'claire.html').read_text()
+        s.p = next(p for p in P if p['id'] == 'claire')
+        s.L = (Path(__file__).resolve().parents[3]/'review/creator-growth-20261108/claire-ledger.md').read_text()
+    def test_coverage_and_claims(s):
+        s.assertEqual(s.f.gaps('claire'), {}); s.assertIn('已读 7/7', s.h)
+        for w in ('不当收入', '口径未写明', '不诊断', '不跨平台认定归属', '只看标题'): s.assertIn(w, s.h)
+        for bad in ('普通内容', '人民币', '净利润一百多万', '吟游诗人'): s.assertNotIn(bad, s.h)
+        s.assertEqual(s.p['metrics']['income']['text'], '未找到公开数值')
+    def test_privacy(s):
+        pf = Path('/workspace/creator-growth-20261108/following/private-drop-patterns.txt')
+        priv = [l.strip() for l in pf.read_text().splitlines() if l.strip()] if pf.exists() else []
+        for t in (s.h, s.L):
+            for bad in ['xsec', 'following', 'inventory', '/workspace/', '登录态', 'channel_type', 't老师', '吟游诗人'] + priv: s.assertNotIn(bad, t)
+class FollowBatch3NoHeatCompare(unittest.TestCase):
+    """第三批四页：不把两篇互动数放在一起比（各条目自己的底栏数可留）。"""
+    def test_no_cross_post_engagement(s):
+        for slug in ('keruiji', 'will', 'huguagua', 'claire', 'fufujie'):
+            h = (X/f'{slug}.html').read_text(); cmp = h[h.index('id="compare"'):h.index('id="voice"')]
+            s.assertNotIn('底栏数差很多', h); s.assertNotIn('底栏', cmp); s.assertNotIn('能火', h); s.assertIn('<h3>可见评论与作者回应</h3>', h)
+class FollowBatch3Fufujie(unittest.TestCase):
+    """第三批付付姐：视频标题描述层；100w 不当收入；宣传自述不审计；权益写法不判矛盾；不断言水军；隐私。"""
+    def setUp(s):
+        import sys; sys.path.insert(0, str(Path(__file__).resolve().parents[3]/'review/creator-growth-20261108'))
+        import follow_b3_cards as f; s.f = f; s.h = (X/'fufujie.html').read_text()
+        s.p = next(p for p in P if p['id'] == 'fufujie')
+        s.L = (Path(__file__).resolve().parents[3]/'review/creator-growth-20261108/fufujie-ledger.md').read_text()
+    def test_claims(s):
+        s.assertEqual(s.f.COV['fufujie']['w1'], s.f.VIDEO); s.assertIn('已读 9/9', s.h); s.assertIn('标题描述层', s.h)
+        for w in ('不当作者收入', '不判为矛盾', '不当另一售价', '未审计'): s.assertIn(w, s.h)
+        for bad in ('疑似宣传', '水军', '口径不一致', '已赚到100w', '普通内容'): s.assertNotIn(bad, s.h)
+        s.assertNotIn('疑似宣传', s.L)
+        s.assertEqual(s.p['metrics']['income']['text'], '未找到公开数值')
+    def test_privacy(s):
+        pf = Path('/workspace/creator-growth-20261108/following/private-drop-patterns.txt')
+        priv = [l.strip() for l in pf.read_text().splitlines() if l.strip()] if pf.exists() else []
+        for t in (s.h, s.L):
+            for bad in ['xsec', 'following', 'inventory', '/workspace/', '登录态', 'channel_type'] + priv: s.assertNotIn(bad, t)
 unittest.main()

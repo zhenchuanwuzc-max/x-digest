@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claire茶仔成长深拆 · 时间线 + 代表作品 + 受众深度 · 给 Ocean</title>
+<!-- impeccable: fluid full-width · sticky left elevator · scroll-behavior:auto · cream + black + one highlighter yellow -->
+<style>
+:root{
+  --bg:#f7f4ec; --surface:#fffcf7; --ink:#1a1a18; --ink-2:#3a3a36; --mut:#6a6a62;
+  --line:#e6e0d4; --hi:#ffe566; --hi-soft:#fff6c8;
+  --shadow:0 1px 2px rgba(26,26,24,.04),0 8px 24px rgba(26,26,24,.05);
+  --r:14px; --nav-w:14rem;
+}
+*{box-sizing:border-box}
+html{color-scheme:light; scroll-behavior:auto}
+body{
+  margin:0; color:var(--ink); background:var(--bg);
+  font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+::selection{background:var(--hi); color:var(--ink)}
+mark{background:var(--hi); color:var(--ink); padding:.05em .18em; border-radius:3px; font-style:normal}
+.shell{
+  display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr);
+  gap:0; min-height:100vh; width:100%; max-width:none; margin:0;
+}
+.nav{
+  position:sticky; top:0; align-self:start; height:100vh;
+  padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line);
+  background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto;
+}
+.nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
+.nav .meta{font-size:.76rem; color:var(--mut); margin:0 0 1rem; line-height:1.45}
+.nav a{
+  display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem;
+  padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent;
+}
+.nav a:hover,.nav a:focus-visible{background:var(--hi-soft); outline:none}
+.nav a.active{background:var(--hi); color:var(--ink); font-weight:650; border-left-color:#c9b020}
+.nav .sec{font-size:.7rem; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .3rem; padding-left:.55rem; text-transform:uppercase}
+.main{padding:1.6rem clamp(1rem,3vw,2.4rem) 4.5rem; width:100%; max-width:none}
+h1{font-size:clamp(1.4rem,2.4vw,1.85rem); line-height:1.25; letter-spacing:-.025em; margin:0 0 .5rem; font-weight:750}
+h2{font-size:1.14rem; line-height:1.35; margin:2.1rem 0 .6rem; padding-bottom:.4rem; border-bottom:3px solid var(--hi); letter-spacing:-.015em; font-weight:700}
+h3{font-size:1.02rem; margin:1.2rem 0 .4rem; font-weight:700}
+p,li{color:var(--ink-2)}
+p{margin:.5rem 0}
+.muted{color:var(--mut); font-size:.92rem; line-height:1.55}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:1rem 1.15rem; margin:.8rem 0; box-shadow:var(--shadow)}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr)); gap:.75rem}
+.stat strong{display:block; font-size:1.35rem; letter-spacing:-.02em; margin:.15rem 0}
+.tag{display:inline-block; font-size:12px; font-weight:650; background:var(--hi-soft); color:#6a5a00; padding:.12rem .5rem; border-radius:999px; margin-right:.3rem}
+.tag.warn{background:#fff0d6; color:#8a5a00}
+.tag.ok{background:#e8f5e4; color:#2a5a20}
+a{color:var(--ink); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-word}
+a:hover{background:linear-gradient(180deg,transparent 60%, var(--hi) 60%)}
+a:focus-visible{outline:2px solid #c9b020; outline-offset:2px; border-radius:3px}
+table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:.42rem .5rem; text-align:left; vertical-align:top}
+th{background:#efeae0; font-weight:650}
+.metrics{font-variant-numeric:tabular-nums; white-space:nowrap}
+.quote{border-left:3px solid var(--hi); padding:.35rem .9rem; margin:.55rem 0; background:var(--hi-soft); border-radius:0 8px 8px 0; font-size:.95rem}
+.tpl{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.84rem; white-space:pre-wrap; background:#1a1a18; color:#f7f4ec; padding:1rem 1.1rem; border-radius:10px; overflow:auto}
+.foot{margin-top:2.5rem; font-size:.86rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
+.mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.5rem 0; border-bottom:1px solid var(--line)}
+.mob-nav a{font-size:.8rem; color:var(--ink); text-decoration:none; background:var(--hi-soft); padding:.2rem .5rem; border-radius:999px}
+ul.plain{margin:.35rem 0; padding-left:1.2rem}
+ul.plain li{margin:.28rem 0}
+.piece{border-top:1px dashed var(--line); padding-top:.9rem; margin-top:1.1rem}
+.piece:first-of-type{border-top:none; padding-top:0; margin-top:0}
+.num{font-variant-numeric:tabular-nums; width:2.2rem}
+.sub{font-size:.78rem; color:var(--mut); margin-top:.2rem}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .nav{display:none}
+  .mob-nav{display:flex}
+  .main{padding:1.1rem 1rem 3.5rem}
+}
+</style>
+<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid><style>
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.15rem;margin:0 0 1.2rem;box-shadow:var(--shadow)}
+.stage h3{margin:.1rem 0 .3rem}.stage .q{margin:.2rem 0 .7rem;color:var(--ink-2)}
+.tw{overflow-x:auto;max-width:100%}
+.tw table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:44rem}
+.tw th,.tw td{border-top:1px solid var(--line);padding:.45rem .5rem;vertical-align:top;text-align:left}
+.tw th{font-size:.74rem;color:var(--mut);font-weight:650;background:var(--hi-soft)}
+.lv{display:inline-block;font-size:.7rem;font-weight:650;padding:.05rem .4rem;border-radius:999px;border:1px solid var(--line);margin-right:.25rem}
+.lv.f{background:#e8f3ec}.lv.s{background:var(--hi-soft)}.lv.a{background:#eef0f4}.lv.b{background:#fbe9e7}
+.lv.h{background:#f1e8fb}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:.8rem}
+.work{margin:0;overflow-wrap:anywhere}.work h3{margin:.1rem 0 .4rem}.work p{margin:.35rem 0}.work .take{border-top:1px dashed var(--line);padding-top:.45rem}
+#compare .tw table{min-width:36rem}#audience .tw table{min-width:52rem}.depth{margin:.5rem 0}
+@media(max-width:700px){#compare .tw,#audience .tw{overflow:visible}#compare .tw table,#compare .tw tbody,#compare .tw tr,#compare .tw td,#audience .tw table,#audience .tw tbody,#audience .tw tr,#audience .tw td{display:block;width:100%;min-width:0}#compare .tw thead,#audience .tw thead{display:none}#compare .tw tr,#audience .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}#compare .tw td,#audience .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}#compare .tw td::before,#audience .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}}
+@media(max-width:900px) and (min-width:701px){.tw table{min-width:36rem}}
+@media(max-width:700px){
+.stage .tw{overflow:visible}
+.stage .tw table,.stage .tw tbody,.stage .tw tr,.stage .tw td{display:block;width:100%;min-width:0}
+.stage .tw thead{display:none}
+.stage .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}
+.stage .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}
+.stage .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}
+.stage .tw td[data-l="#"]{font-weight:700}
+}
+</style>
+<style>.brief{border:1px solid #c5d8e0;background:#f3f8fa;border-radius:12px;padding:.8rem 1rem;margin:0 0 1.2rem}.brief h2{margin:0 0 .5rem;font-size:1.02rem;border:0;padding:0}.brief dl{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:.3rem .7rem;margin:0}.brief dt{font-weight:650;color:#1f4f63}.brief dd{margin:0}.brief .hw{margin:.3rem 0 0;padding-left:1.2rem}.brief .hw li{margin:.25rem 0}.brief .eg{display:block;font-size:.8rem;color:#6b7378}.brief .gap{font-size:.8rem;color:#6b7378;margin:.2rem 0 0}@media(max-width:560px){.brief dl{grid-template-columns:1fr}.brief dt{margin-top:.3rem}}</style></head>
+<body>
+<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">Claire深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>小红书只读采集 · 2 篇图文逐页读完（7/7、7/7）</p><a href="growth/" target="_blank" rel="noopener noreferrer">← 人物成长研究</a><div class="sec">本页</div><a href="#brief">实操摘要</a><a href="#overview">账号概况</a><a href="#timeline">2阶段时间线</a><a href="#s1">1 · 非置顶：一件个人事件引出的反思</a><a href="#s2">2 · 置顶：创业一年的商业判断长文</a><a href="#works">代表作品拆解</a><a href="#audience">谁在看</a><a href="#compare">写法对照</a><a href="#voice">语气与节奏</a><a href="#limits">失败与边界</a><a href="#for-ocean">给 Ocean</a><a href="#sources">来源与待核</a></aside><main class="main"><nav class="mob-nav" aria-label="移动目录"><a href="growth/" target="_blank" rel="noopener noreferrer">← 人物成长研究</a><a href="#brief">摘要</a><a href="#overview">概况</a><a href="#timeline">时间线</a><a href="#works">作品</a><a href="#audience">受众</a><a href="#compare">对照</a><a href="#voice">语气</a><a href="#limits">边界</a><a href="#for-ocean">借鉴</a><a href="#sources">来源</a></nav><header><h1>Claire茶仔 成长深拆</h1><p class="muted">按“阶段 → 当时的问题 → 动作 → 作品”排，每条附原始链接。<span class="lv f">事实</span>可从原文核到；<span class="lv s">自述</span>是本人说法；<span class="lv a">分析</span>/<span class="lv a">观察</span>是研究者归纳；<span class="lv h">假设</span>未验证；<span class="lv b">边界</span>写不能怎么用。时间统一 UTC+8，查不到写未知。</p></header><section class="brief" id="brief" aria-label="实操摘要"><h2>实操摘要</h2><dl><dt>面向谁</dt><dd>职场人、想创业或刚创业的人（推断）</dd><dt>具体痛点</dt><dd>想多赚钱、想创业，不知道哪些生意能赚、要付出什么</dd><dt>他咋做</dt><dd>用照片叠字讲一件个人事件引出的反思；用置顶长文列自己看过的生意方向和判断，评论区逐条答疑<ol class="hw"><li><a href="#w1">同行去世引出的健康反思（图文 7 张）</a>：照片叠字一张一句：从消息到反思创业透支、停直播；评论区作者回读者<span class="eg">边界：去世与病况都是作者转述，未核；日期只见 09-06，年份未显示；图文 7 页，已读 7/7（第 1–7 页）</span></li><li><a href="#w2">“创业一年收入破百万”：哪些生意不赚钱（置顶图文 7 张）</a>：长正文评 MCN、品牌创业、AI 方向，总结“毛利高 + 成本可控 + 资金回流可控”；评论区答疑<span class="eg">边界：“收入破百万”是标题自述：币种、个人或公司、收入或利润口径都没写明，未核，不当收入；图文 7 页，已读 7/7（第 1–7 页）</span></li></ol><p class="gap">没列入：两篇图文逐页读完；主页其余多为视频未读；另一置顶 ENTJ 图文只看标题。</p></dd><dt>Ocean 可以做</dt><dd>建议：借“一件真实事件 → 反思”的叙事和“列方向 + 给判断标准”的长文结构；“收入破百万”只是标题自述，不当收入；作者经历不迁移到 Ocean</dd></dl></section>
+
+<section id="overview"><h2>账号概况</h2><div class="grid2"><div class="card"><h3>平台与身份</h3><p>小红书：<a href="https://www.xiaohongshu.com/user/profile/5cea410f0000000016002668" target="_blank" rel="noopener noreferrer">小红书主页</a>，小红书号 641717886，IP 属地上海。<span class="lv f">事实</span>2026-11-08 主页截图：115 关注、7.2 万粉丝、52.4 万获赞与收藏（赞藏合计）。<span class="lv s">自述</span>简介：字节 → 芯片市场 → 美妆甲方市场部经理；现开一家 MCN 与企业 KOS 公司；大厂离职 → 创业记录。简介还 @ 了另一个账号。<span class="lv b">边界</span>身份、任职、公司都是自述，未核；@ 的账号未点开，不认定归属。X、公众号、收入未核。</p></div><div class="card"><h3>内容样本里在做什么</h3><p><span class="lv a">观察</span>主页首屏多为 vlog 类视频，题目围绕职场、创业、收入。<span class="lv b">边界</span>只读了 2 篇图文；视频未读，不当缺口；另一置顶 ENTJ 图文只看标题，不写其内容。</p></div></div></section>
+<section id="timeline"><h2>2阶段时间线</h2><section id="s1" class="stage"><h3>非置顶：一件个人事件引出的反思</h3><p class="q"><b>当时的问题：</b>从一件事讲到自己的状态。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">1</td><td data-l="日期">页面“09-06”，年份未显示</td><td data-l="动作与作品">图文 → <a href="https://www.xiaohongshu.com/explore/6a9e45000000000026020d31" target="_blank" rel="noopener noreferrer">《总想着要拼命赚钱，刚得知认识的博主去世了》</a></td><td data-l="事实">图文 7 页，已读 7/7（第 1–7 页）；平台底栏赞 872、藏 221、评 86（2026-11-08）</td><td data-l="自述">正文：作者说得知一位同行博主去世，反思创业期透支健康、停掉直播，“好好地健康地活着，已经是一份幸运了”</td><td data-l="分析">照片叠字，一张一句，从消息到反思再到“学会平衡”</td><td data-l="边界">去世消息、作者健康状况都是作者转述，未核；不做任何诊断，不点名</td></tr></tbody></table></div></section><section id="s2" class="stage"><h3>置顶：创业一年的商业判断长文</h3><p class="q"><b>当时的问题：</b>把看过的生意方向列出来，给判断。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">2</td><td data-l="日期">页面“2025-10-29”，无编辑标识</td><td data-l="动作与作品">图文 → <a href="https://www.xiaohongshu.com/explore/6901e0080000000007014ec1" target="_blank" rel="noopener noreferrer">《创业一年收入破百万: 赚钱的生意几乎不存在》</a></td><td data-l="事实">图文 7 页，已读 7/7（第 1–7 页）；平台底栏赞 2781、藏 1520、评 183（2026-11-08）</td><td data-l="自述">标题“创业一年收入破百万”；正文评 MCN、品牌创业、AI 方向，总结“毛利高 + 成本可控 + 资金回流可控”</td><td data-l="分析">长正文 + 7 张生活照叠字，评论区作者逐条答疑</td><td data-l="边界">“收入破百万”只是标题自述：币种、个人或公司、收入或利润都没写明，未核，不当收入；正文里别人的 MCN 利润是转述，也不当作者收入</td></tr></tbody></table></div></section></section>
+<section id="works"><h2>代表作品拆解</h2><p class="muted">只选原文读过、写法各不相同的作品，不是热门榜；不展示互动数。</p><div class="works"><article class="work card" id="w1"><h3>代表作品 1 · 一件个人事件引出的健康反思（图文 7 张）</h3><p class="links"><a href="https://www.xiaohongshu.com/explore/6a9e45000000000026020d31" target="_blank" rel="noopener noreferrer">《总想着要拼命赚钱，刚得知认识的博主去世了》</a></p><p class="muted">时间线位置：<a href="#s1">个人反思</a></p><p><span class="lv f">事实</span>图文 7 页，已读 7/7（第 1–7 页）。第 2 张“没想到下一次沙龙见不到了”；第 4 张“人生不是事业结束之后才开始的”；第 5 张写创业者会算员工、投流、剪辑成本，却觉得自己的时间免费，“身体只是一直没有跟你结算”；第 7 张“学会平衡”“赚不到钱真的不是什么天大的事”。<br><span class="lv f">事实</span>可见评论与回复：<span class="lv s">评论者自述</span>首屏多是读者共鸣、劝休息，分享身边人的经历；作者回复说会休息一个月再复播、提到母亲年初身体出过问题等，都是作者自述。</p><p><span class="lv s">自述</span>“好好地健康地活着，已经是一份幸运了”</p><p><span class="lv a">观察</span>一张照片一句话，从一件事慢慢推到自己的改变；不讲方法，只讲感受和决定。</p><p><span class="lv h">假设</span>评论反映的需求能否代表更多读者、与写法有无关系，未验证</p><p><span class="lv b">边界</span>去世、病况、停播、复播都是作者自述或转述，未核；不做诊断。评论共鸣不证明任何转化。</p><p class="take"><b>可借鉴写法：</b>Ocean 可借“一件真实的事 → 自己怎么想、改了什么”的叙事；只写自己经历过的事，不借别人的悲剧做内容。</p></article><article class="work card" id="w2"><h3>代表作品 2 · “创业一年收入破百万”：哪些生意不赚钱（置顶图文 7 张）</h3><p class="links"><a href="https://www.xiaohongshu.com/explore/6901e0080000000007014ec1" target="_blank" rel="noopener noreferrer">《创业一年收入破百万: 赚钱的生意几乎不存在》</a></p><p class="muted">时间线位置：<a href="#s2">商业判断</a></p><p><span class="lv f">事实</span>图文 7 页，已读 7/7（第 1–7 页）。正文：创业“苦、忙、累”；MCN / 广告代理是“最差路径之一”；品牌创业建议别做；AI 要看 C 端愿不愿买单；赚钱的生意要“毛利高 + 成本可控 + 资金回流可控”，“先从你可能看不起的业务开始做”。7 张图是生活照叠字，如“幸好早点从字节出来了，不要沉迷打工”。<br><span class="lv f">事实</span>可见评论与回复：作者在评论里答读者：直播带货“3% 的人能赚”、团播怎么看、字节经历对客户资源有帮助等。<span class="lv s">评论者自述</span>有读者问工作来源、自述在做 AI / 数字人项目。</p><p><span class="lv s">自述</span>“先从你可能看不起的业务开始做”</p><p><span class="lv a">观察</span>长文先说感受，再逐个方向下判断，最后给一条判断标准；评论区接着答具体问题。</p><p><span class="lv h">假设</span>评论反映的需求能否代表更多读者、与写法有无关系，未验证</p><p><span class="lv b">边界</span>“收入破百万”只是标题自述，口径未写明，未核，不当收入、不换算；正文举的 AI 例子与别人的 MCN 利润都是转述，未核。</p><p class="take"><b>可借鉴写法：</b>Ocean 可借“列方向 + 给判断标准 + 评论区答疑”的结构；数字写清口径，没把握就不写。</p></article></div></section>
+<section id="audience"><h2>谁在看，为什么愿意看</h2><p class="muted"><b>没有真实的粉丝画像数据</b>。人群和动机根据主页简介、小红书评论和图文内容推断，不代表全体读者。</p><div class="tw"><table><thead><tr><th>可能的读者类型（推断）</th><th>AI 使用深度</th><th>可能想要什么</th><th>能拿走什么</th><th>对应作品</th><th>证据</th></tr></thead><tbody><tr><td data-l="读者类型">拼命工作、压力大的职场人和创业者</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：职场 / 创业，层级不适用</td><td data-l="想要什么">想多赚钱，又担心身体</td><td data-l="能拿走什么">一段真实的反思和“学会平衡”</td><td data-l="对应作品"><a href="#w1">卡 1</a></td><td data-l="证据"><span class="lv s">评论者自述</span>说有共鸣、劝作者休息</td></tr><tr><td data-l="读者类型">想创业或刚创业的人</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：创业，层级不适用</td><td data-l="想要什么">不知道哪些生意能赚钱</td><td data-l="能拿走什么">几个方向的判断和一条判断标准（自述观点）</td><td data-l="对应作品"><a href="#w2">卡 2</a></td><td data-l="证据"><span class="lv s">评论者自述</span>问工作来源、团播、带货能不能做</td></tr></tbody></table></div><p class="depth"><b>深度怎么标：</b>沿用 <a href="../research/ai-depth-levels-2026-10-28.html#levels" target="_blank" rel="noopener noreferrer">AI 使用深度水位</a> 的 L0–L5（定义见<a href="zhangzala.html#audience" target="_blank" rel="noopener noreferrer">张咋啦页</a>）；分开写读者现在和内容指向，层级不是职业类别。</p><h3>可见评论与作者回应</h3><div class="card"><ul class="plain"><li><span class="lv a">观察</span>两篇评论区作者都在回复读者。<span class="lv b">边界</span>首屏抽样，不外推全体；评论共鸣不证明转化。</li><li><span class="lv b">边界</span>一篇年份未显示、一篇 2025-10-29，日期不同，不比热度、不归因。</li></ul></div></section>
+<section id="compare"><h2>个人反思与商业判断：写法差在哪</h2><p class="muted"><span class="lv a">观察</span>只比较写法，不是因果；不展示互动数。两篇日期不同、曝光不可见；只比写法与作者回应，不比效果。</p><div class="tw"><table><thead><tr><th>维度</th><th>非置顶：个人反思</th><th>置顶：商业判断</th></tr></thead><tbody><tr><td data-l="维度">类型</td><td data-l="非置顶：个人反思">个人事件反思</td><td data-l="置顶：商业判断">商业判断长文</td></tr><tr><td data-l="维度">形式</td><td data-l="非置顶：个人反思">照片叠字，一张一句</td><td data-l="置顶：商业判断">长正文 + 生活照叠字</td></tr><tr><td data-l="维度">作者在评论区做什么</td><td data-l="非置顶：个人反思">回读者，讲休息、复播（自述）</td><td data-l="置顶：商业判断">逐条答创业问题</td></tr><tr><td data-l="维度">日期</td><td data-l="非置顶：个人反思">09-06（年份未显示）</td><td data-l="置顶：商业判断">2025-10-29</td></tr></tbody></table></div></section>
+<section id="voice"><h2>语气、节奏与可借鉴写法</h2><div class="card"><ul class="plain"><li><span class="lv f">事实</span>叠字短句、口语：“身体只是一直没有跟你结算”。</li><li><span class="lv f">事实</span>长文判断直接：“最差路径之一”“建议别做”。</li><li><span class="lv f">事实</span>评论回复给具体数字和观点，如带货“3% 的人能赚”（自述观点）。</li></ul></div><pre class="tpl">【事件】一件真实发生的事
+【反思】我因此改变了什么
+【判断】一条能检查的标准，写清口径</pre><p class="muted">模板是分析产物，不是作者原话。</p></section>
+<section id="limits"><h2>失败与边界</h2><div class="card"><ul><li><b>范围</b>：两篇图文逐页读完（7/7、7/7），无空白页、无重试；主页其余多为视频，未读，不当缺口。</li><li><b>时间</b>：第 1 篇只见“09-06”，不推年份；两篇日期不同，不比热度。</li><li><b>事件</b>：同行去世、作者健康、停播复播、家人身体都是作者自述或转述，未核；不诊断，不点名。</li><li><b>收入</b>：“收入破百万”只是标题自述，币种、个人或公司、收入或利润口径未写明，不当收入；转述的 MCN 利润也不当作者收入。</li><li><b>身份</b>：简介任职、公司、@ 的另一账号都是自述，不跨平台认定归属；未读的 ENTJ 置顶只看标题，不写其事迹或身价。</li><li><b>评论</b>：只看首屏可见评论；评论共鸣不证明转化。<b>其它平台与收入</b>：未核。</li></ul></div></section>
+<section id="for-ocean"><h2>可借鉴的做法</h2><p class="muted"><span class="lv a">分析</span>研究者建议，不是成功公式。</p><div class="grid2"><div class="card"><h3>可借鉴</h3><ol><li>一件真实的事 → 自己改了什么。</li><li>列方向 + 一条判断标准 + 评论区答疑。</li></ol></div><div class="card"><h3>不适用</h3><ul><li>把标题里的收入数字当事实或收入。</li><li>借别人的不幸做内容，或迁移作者的身份经历。</li></ul></div></div></section>
+<section id="sources"><h2>来源与待核</h2><p><b>状态：小红书只读一手资料；图文逐页读完</b>。主页与 2 篇图文由只读浏览打开、逐页截图；本页只用截图与台账里的原文。</p><div class="tw"><table><thead><tr><th>来源</th><th>读到了</th><th>没读到</th></tr></thead><tbody><tr><td data-l="来源">小红书主页</td><td data-l="读到了">主页截图（粉丝、获赞与收藏、关注、简介）与首屏卡标题</td><td data-l="没读到">其余笔记（多为视频）；@ 的账号未点开</td></tr><tr><td data-l="来源">小红书笔记</td><td data-l="读到了">图文 2 篇，7/7、7/7 张</td><td data-l="没读到">另一置顶 ENTJ 图文（只看标题）</td></tr><tr><td data-l="来源">评论</td><td data-l="读到了">两篇首屏可见评论与作者回复</td><td data-l="没读到">其余评论</td></tr><tr><td data-l="来源">X / 公众号 / 其它平台 / 收入</td><td data-l="读到了">无</td><td data-l="没读到">未核；不另找同名账号</td></tr></tbody></table></div><ul class="plain"><li>证据台账：<code>review/creator-growth-20261108/claire-ledger.md</code>（采集 2026-11-08，UTC+8）。</li><li>证据台账与截图在仓库外，不公开；公开副本不点名被提及者。</li></ul><p><span class="tag warn">待核</span>：另一置顶 ENTJ 图文可另读；评论展开。</p></section>
+</main></div>
+</body>
+</html>
