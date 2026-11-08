@@ -3,7 +3,7 @@ import re, sys, unittest
 from html.parser import HTMLParser
 from pathlib import Path
 PAGE = Path(__file__).resolve().parents[2] / "xhs" / "zhangzala.html"
-ORDER = ["overview", "timeline", "works", "audience", "compare", "voice", "limits", "for-ocean", "sources"]
+ORDER = ["brief", "overview", "timeline", "works", "audience", "compare", "voice", "limits", "for-ocean", "sources"]
 REMOVED = ["archive", "old-milestones", "old-breakout", "pieces", "x-top", "viral", "appendix"]
 BANNED = ["爆款", "294", "中位数", "70,001", "旧版留档", "收藏比", "万赞", "爆款顶"]
 

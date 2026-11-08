@@ -147,5 +147,11 @@ assert 'id="archive"' not in out and 'details.arch' not in out
 # 2026-11-08 人物成长研究二级页：侧栏只留页内目录 + 回首页（旧“选题库/全入口/对标档案”不再恢复）
 out = re.sub(r'  <div class="sec">选题库</div>\n  <a href="growth/">← 成长记录</a>\n  <a href="\./">小红书全入口</a>\n  <a href="creators\.html#zara">对标档案 · 张咋啦</a>\n', '  <a href="growth/">← 人物成长研究</a>\n', out, count=1)
 out = re.sub(r'(<nav class="mob-nav" aria-label="移动目录">)(\s*)', r'\1\2<a href="growth/">← 人物成长研究</a>\2', out, count=1)
+# 2026-11-08 t224：人物页顶部实操摘要 + 跨页链接新标签（共用 xhs/growth/src/page_kit.py）
+import sys; sys.path.insert(0, str(REPO/"xhs/growth/src"))
+from page_kit import with_brief, blankify
+out = out.replace('  <div class="sec">本页</div>\n', '  <div class="sec">本页</div>\n  <a href="#brief">实操摘要</a>\n', 1)
+out = re.sub(r'(<nav class="mob-nav" aria-label="移动目录">\s*<a href="growth/">← 人物成长研究</a>)(\s*)', r'\1\2<a href="#brief">摘要</a>\2', out, count=1)
+out = blankify(with_brief(out, 'zhangzala', '</header>\n'))
 (REPO/"xhs"/"zhangzala.html").write_text(out, encoding="utf-8")
 print("ok", len(out))
