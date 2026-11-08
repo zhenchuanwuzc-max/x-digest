@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>扑扑和丸子成长深拆 · 时间线 + 代表作品 + 受众深度 · 给 Ocean</title>
+<!-- impeccable: fluid full-width · sticky left elevator · scroll-behavior:auto · cream + black + one highlighter yellow -->
+<style>
+:root{
+  --bg:#f7f4ec; --surface:#fffcf7; --ink:#1a1a18; --ink-2:#3a3a36; --mut:#6a6a62;
+  --line:#e6e0d4; --hi:#ffe566; --hi-soft:#fff6c8;
+  --shadow:0 1px 2px rgba(26,26,24,.04),0 8px 24px rgba(26,26,24,.05);
+  --r:14px; --nav-w:14rem;
+}
+*{box-sizing:border-box}
+html{color-scheme:light; scroll-behavior:auto}
+body{
+  margin:0; color:var(--ink); background:var(--bg);
+  font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+::selection{background:var(--hi); color:var(--ink)}
+mark{background:var(--hi); color:var(--ink); padding:.05em .18em; border-radius:3px; font-style:normal}
+.shell{
+  display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr);
+  gap:0; min-height:100vh; width:100%; max-width:none; margin:0;
+}
+.nav{
+  position:sticky; top:0; align-self:start; height:100vh;
+  padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line);
+  background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto;
+}
+.nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
+.nav .meta{font-size:.76rem; color:var(--mut); margin:0 0 1rem; line-height:1.45}
+.nav a{
+  display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem;
+  padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent;
+}
+.nav a:hover,.nav a:focus-visible{background:var(--hi-soft); outline:none}
+.nav a.active{background:var(--hi); color:var(--ink); font-weight:650; border-left-color:#c9b020}
+.nav .sec{font-size:.7rem; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .3rem; padding-left:.55rem; text-transform:uppercase}
+.main{padding:1.6rem clamp(1rem,3vw,2.4rem) 4.5rem; width:100%; max-width:none}
+h1{font-size:clamp(1.4rem,2.4vw,1.85rem); line-height:1.25; letter-spacing:-.025em; margin:0 0 .5rem; font-weight:750}
+h2{font-size:1.14rem; line-height:1.35; margin:2.1rem 0 .6rem; padding-bottom:.4rem; border-bottom:3px solid var(--hi); letter-spacing:-.015em; font-weight:700}
+h3{font-size:1.02rem; margin:1.2rem 0 .4rem; font-weight:700}
+p,li{color:var(--ink-2)}
+p{margin:.5rem 0}
+.muted{color:var(--mut); font-size:.92rem; line-height:1.55}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:1rem 1.15rem; margin:.8rem 0; box-shadow:var(--shadow)}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr)); gap:.75rem}
+.stat strong{display:block; font-size:1.35rem; letter-spacing:-.02em; margin:.15rem 0}
+.tag{display:inline-block; font-size:12px; font-weight:650; background:var(--hi-soft); color:#6a5a00; padding:.12rem .5rem; border-radius:999px; margin-right:.3rem}
+.tag.warn{background:#fff0d6; color:#8a5a00}
+.tag.ok{background:#e8f5e4; color:#2a5a20}
+a{color:var(--ink); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-word}
+a:hover{background:linear-gradient(180deg,transparent 60%, var(--hi) 60%)}
+a:focus-visible{outline:2px solid #c9b020; outline-offset:2px; border-radius:3px}
+table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
+th,td{border:1px solid var(--line); padding:.42rem .5rem; text-align:left; vertical-align:top}
+th{background:#efeae0; font-weight:650}
+.metrics{font-variant-numeric:tabular-nums; white-space:nowrap}
+.quote{border-left:3px solid var(--hi); padding:.35rem .9rem; margin:.55rem 0; background:var(--hi-soft); border-radius:0 8px 8px 0; font-size:.95rem}
+.tpl{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.84rem; white-space:pre-wrap; background:#1a1a18; color:#f7f4ec; padding:1rem 1.1rem; border-radius:10px; overflow:auto}
+.foot{margin-top:2.5rem; font-size:.86rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
+.mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.5rem 0; border-bottom:1px solid var(--line)}
+.mob-nav a{font-size:.8rem; color:var(--ink); text-decoration:none; background:var(--hi-soft); padding:.2rem .5rem; border-radius:999px}
+ul.plain{margin:.35rem 0; padding-left:1.2rem}
+ul.plain li{margin:.28rem 0}
+.piece{border-top:1px dashed var(--line); padding-top:.9rem; margin-top:1.1rem}
+.piece:first-of-type{border-top:none; padding-top:0; margin-top:0}
+.num{font-variant-numeric:tabular-nums; width:2.2rem}
+.sub{font-size:.78rem; color:var(--mut); margin-top:.2rem}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .nav{display:none}
+  .mob-nav{display:flex}
+  .main{padding:1.1rem 1rem 3.5rem}
+}
+</style>
+<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid><style>
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.15rem;margin:0 0 1.2rem;box-shadow:var(--shadow)}
+.stage h3{margin:.1rem 0 .3rem}.stage .q{margin:.2rem 0 .7rem;color:var(--ink-2)}
+.tw{overflow-x:auto;max-width:100%}
+.tw table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:44rem}
+.tw th,.tw td{border-top:1px solid var(--line);padding:.45rem .5rem;vertical-align:top;text-align:left}
+.tw th{font-size:.74rem;color:var(--mut);font-weight:650;background:var(--hi-soft)}
+.lv{display:inline-block;font-size:.7rem;font-weight:650;padding:.05rem .4rem;border-radius:999px;border:1px solid var(--line);margin-right:.25rem}
+.lv.f{background:#e8f3ec}.lv.s{background:var(--hi-soft)}.lv.a{background:#eef0f4}.lv.b{background:#fbe9e7}
+.lv.h{background:#f1e8fb}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:.8rem}
+.work{margin:0;overflow-wrap:anywhere}.work h3{margin:.1rem 0 .4rem}.work p{margin:.35rem 0}.work .take{border-top:1px dashed var(--line);padding-top:.45rem}
+#compare .tw table{min-width:36rem}#audience .tw table{min-width:52rem}.depth{margin:.5rem 0}
+@media(max-width:700px){#compare .tw,#audience .tw{overflow:visible}#compare .tw table,#compare .tw tbody,#compare .tw tr,#compare .tw td,#audience .tw table,#audience .tw tbody,#audience .tw tr,#audience .tw td{display:block;width:100%;min-width:0}#compare .tw thead,#audience .tw thead{display:none}#compare .tw tr,#audience .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}#compare .tw td,#audience .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}#compare .tw td::before,#audience .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}}
+@media(max-width:900px) and (min-width:701px){.tw table{min-width:36rem}}
+@media(max-width:700px){
+.stage .tw{overflow:visible}
+.stage .tw table,.stage .tw tbody,.stage .tw tr,.stage .tw td{display:block;width:100%;min-width:0}
+.stage .tw thead{display:none}
+.stage .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}
+.stage .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}
+.stage .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}
+.stage .tw td[data-l="#"]{font-weight:700}
+}
+</style>
+<style>.brief{border:1px solid #c5d8e0;background:#f3f8fa;border-radius:12px;padding:.8rem 1rem;margin:0 0 1.2rem}.brief h2{margin:0 0 .5rem;font-size:1.02rem;border:0;padding:0}.brief dl{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:.3rem .7rem;margin:0}.brief dt{font-weight:650;color:#1f4f63}.brief dd{margin:0}.brief .hw{margin:.3rem 0 0;padding-left:1.2rem}.brief .hw li{margin:.25rem 0}.brief .eg{display:block;font-size:.8rem;color:#6b7378}.brief .gap{font-size:.8rem;color:#6b7378;margin:.2rem 0 0}@media(max-width:560px){.brief dl{grid-template-columns:1fr}.brief dt{margin-top:.3rem}}</style></head>
+<body>
+<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">扑扑和丸子深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>小红书只读采集 · 1 篇视频（标题描述层）+ 1 篇照片图文 12/12 · 非 AI 账号</p><a href="growth/" target="_blank" rel="noopener noreferrer">← 人物成长研究</a><div class="sec">本页</div><a href="#brief">实操摘要</a><a href="#overview">账号概况</a><a href="#timeline">2阶段时间线</a><a href="#s1">1 · 近期视频：描述只放标签，信息在评论</a><a href="#s2">2 · 照片图文：长叙事 + 12 张生活照</a><a href="#works">代表作品拆解</a><a href="#audience">谁在看</a><a href="#compare">写法对照</a><a href="#voice">语气与节奏</a><a href="#limits">失败与边界</a><a href="#for-ocean">给 Ocean</a><a href="#sources">来源与待核</a></aside><main class="main"><nav class="mob-nav" aria-label="移动目录"><a href="growth/" target="_blank" rel="noopener noreferrer">← 人物成长研究</a><a href="#brief">摘要</a><a href="#overview">概况</a><a href="#timeline">时间线</a><a href="#works">作品</a><a href="#audience">受众</a><a href="#compare">对照</a><a href="#voice">语气</a><a href="#limits">边界</a><a href="#for-ocean">借鉴</a><a href="#sources">来源</a></nav><header><h1>扑扑和丸子 成长深拆</h1><p class="muted">按“阶段 → 当时的问题 → 动作 → 作品”排，每条附原始链接。<span class="lv f">事实</span>可从原文核到；<span class="lv s">自述</span>是本人说法；<span class="lv a">分析</span>/<span class="lv a">观察</span>是研究者归纳；<span class="lv h">假设</span>未验证；<span class="lv b">边界</span>写不能怎么用。时间统一 UTC+8，查不到写未知。</p></header><section class="brief" id="brief" aria-label="实操摘要"><h2>实操摘要</h2><dl><dt>面向谁</dt><dd>喜欢田园生活、养狗、做饭内容的观众（推断）</dd><dt>具体痛点</dt><dd>想看安静的生活记录，想知道别人怎么养狗、用什么</dd><dt>他咋做</dt><dd>视频描述只放标签，信息都在评论区作者回复里；图文用一段长的养狗叙事配 12 张生活照片，评论区作者回复很密<ol class="hw"><li><a href="#w1">和小狗涮火锅（视频）</a>：描述只有标签；读者问机器好不好用、多少钱，作者在评论区回答<span class="eg">边界：视频未看；价格、好用、清洁都是作者评论自述，不当实测或购物推荐；视频笔记：按 Ocean 要求只看标题和描述，未主动播放、未观看或分析视频内容</span></li><li><a href="#w2">“适狗化”好物分享（照片图文 12 张）</a>：长正文讲九年养狗，并写自己换用的护理品与使用感受；12 张生活照片<span class="eg">边界：品牌、成分、效果都是作者自述，未核；页面未见合作标识，但是否商业合作未知，不定性；图文 12 页，已读 12/12（第 1–12 页）</span></li></ol><p class="gap">没列入：视频只看标题、描述与评论；图文 12 张静态画面读完（LIVE 动态未看）；“抗炎餐”等只看标题。</p></dd><dt>Ocean 可以做</dt><dd>建议：可试“评论区认真回答具体问题”和“一段真实的长叙事配照片”；作者对产品的说法不当实测或推荐，是否商业合作未知</dd></dl></section>
+
+<section id="overview"><h2>账号概况</h2><div class="grid2"><div class="card"><h3>平台与身份</h3><p>小红书：<a href="https://www.xiaohongshu.com/user/profile/598072f982ec395d83b5e867" target="_blank" rel="noopener noreferrer">小红书主页</a>，昵称“扑扑和丸子”（页面字形渲染如此，按页面记录），小红书号 115414335，IP 属地山东。<span class="lv f">事实</span>2026-11-08 主页截图：184 关注、18.1 万粉丝、115.4 万获赞与收藏（赞藏合计）。<span class="lv s">自述</span>简介：热爱植物、动物与食物；“二人二狗，两个家 两个花园”；“健康饮食13年”。<span class="lv b">边界</span>简介是自述，未核；未见公开联系方式。X、公众号未核；收入未找到公开数值，不从照片里出现的商品推收入。</p></div><div class="card"><h3>内容样本里在做什么</h3><p><span class="lv a">观察</span>主页首屏是做饭、种菜、养狗的视频和图文，无置顶。<span class="lv b">边界</span>视频只看标题、描述和评论（标题描述层）；“抗炎餐”等卡只看标题，不写其内容。</p></div></div></section>
+<section id="timeline"><h2>2阶段时间线</h2><section id="s1" class="stage"><h3>近期视频：描述只放标签，信息在评论</h3><p class="q"><b>当时的问题：</b>一条生活视频，信息放在哪里。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">1</td><td data-l="日期">页面“昨天 20:51”，相对日期，不换算</td><td data-l="动作与作品">视频 → <a href="https://www.xiaohongshu.com/explore/6aefffdc0000000015017697" target="_blank" rel="noopener noreferrer">《今天切了一大卷羊肉，和小狗涮火锅吃》</a></td><td data-l="事实">视频笔记：按 Ocean 要求只看标题和描述，未主动播放、未观看或分析视频内容；平台底栏赞 610、藏 63、评 119（2026-11-08）</td><td data-l="自述">描述只有标签（#厨房日记 #火锅 #狗狗日常 等）</td><td data-l="分析">读者在评论里问机器好不好用、多少钱、是什么机器，作者逐条回答</td><td data-l="边界">视频未看；机器价格、好用、清洁都是作者评论自述，不当实测或购物推荐</td></tr></tbody></table></div></section><section id="s2" class="stage"><h3>照片图文：长叙事 + 12 张生活照</h3><p class="q"><b>当时的问题：</b>一篇图文怎么讲养狗和用品。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">2</td><td data-l="日期">页面“10-29”，年份未显示，不推年份</td><td data-l="动作与作品">图文 → <a href="https://www.xiaohongshu.com/explore/6ae2df7e00000000350163cf" target="_blank" rel="noopener noreferrer">《爱小狗的具象化，我家的“适狗化”好物分享》</a></td><td data-l="事实">图文 12 页，已读 12/12（第 1–12 页）；平台底栏赞 3572、藏 362、评 197（2026-11-08）</td><td data-l="自述">正文自述：给小狗洗了九年澡、做了八年饭、刷了七年牙；护理用品换成了某个植物配方品牌，并写牙膏、牙刷的使用感受</td><td data-l="分析">长正文 + 12 张无文字照片（狗澡池、刷牙、厨房、菜园、鸡窝、南瓜）；评论区作者回复很密</td><td data-l="边界">品牌、成分、效果都是作者自述，未核；页面未见合作标识，但是否商业合作未知，不定性；照片 LIVE 动态未看</td></tr></tbody></table></div></section></section>
+<section id="works"><h2>代表作品拆解</h2><p class="muted">只选原文读过、写法各不相同的作品，不是热门榜；不展示互动数。</p><div class="works"><article class="work card" id="w1"><h3>代表作品 1 · 和小狗涮火锅（视频）</h3><p class="links"><a href="https://www.xiaohongshu.com/explore/6aefffdc0000000015017697" target="_blank" rel="noopener noreferrer">《今天切了一大卷羊肉，和小狗涮火锅吃》</a></p><p class="muted">时间线位置：<a href="#s1">生活视频</a></p><p><span class="lv f">事实</span>视频笔记：按 Ocean 要求只看标题和描述，未主动播放、未观看或分析视频内容。完整描述只有标签。<br><span class="lv f">事实</span>可见评论与回复：作者在评论里答读者：机器“太好用了，大概三千多”，能切肉片、萝卜片、奶酪片，“每次用完要拆下刀片清洁……不算好拆”；说视频里的是切片机，绞不了肉；读者问羊肉产地，作者说不是、会去找找。<span class="lv s">评论者自述</span>其余多是玩笑互动。共 119 条，只看了首屏。</p><p><span class="lv s">自述</span>作者回复：“视频里的是切片机，绞不了肉的”</p><p><span class="lv a">观察</span>描述不写信息，信息都在评论区：读者问什么，作者答什么，连缺点（不好拆）也说。</p><p><span class="lv h">假设</span>评论反映的需求能否代表更多读者、与写法有无关系，未验证</p><p><span class="lv b">边界</span>视频未看；价格、好用、清洁都是作者自述，不当实测或购物推荐；不据评论推作者年龄或身体。</p><p class="take"><b>可借鉴写法：</b>Ocean 可试在评论区认真回答具体问题，好处和麻烦都说；只说自己真用过的。</p></article><article class="work card" id="w2"><h3>代表作品 2 · “适狗化”好物分享（照片图文 12 张）</h3><p class="links"><a href="https://www.xiaohongshu.com/explore/6ae2df7e00000000350163cf" target="_blank" rel="noopener noreferrer">《爱小狗的具象化，我家的“适狗化”好物分享》</a></p><p class="muted">时间线位置：<a href="#s2">养狗图文</a></p><p><span class="lv f">事实</span>图文 12 页，已读 12/12（第 1–12 页）。12 张都是无文字的生活照片（带 LIVE 标识，只看了静态画面）：狗澡池、给狗刷牙洗澡、厨房里两只狗吃饭、桌上的护理品、菜园、鸡窝、一地南瓜。正文开头“如果九年前我知道金毛会掉这么多毛……”，结尾“只想用自然、安心的方式……全心全意地爱他们”。<br><span class="lv f">事实</span>可见评论与回复：作者回复很密：回读者夸狗聪明、问鸡窝、问刷牙怎么配合（“丸子小时候也不配合……”）、夸南瓜图（“一棵结了至少35个”，作者自述）。<span class="lv s">评论者自述</span>有读者问在哪个城市，未见作者回复。共 197 条，只看了首屏。</p><p><span class="lv s">自述</span>“只想用自然、安心的方式……全心全意地爱他们”</p><p><span class="lv a">观察</span>先讲九年养狗的投入（作者自述，未核），再讲换了什么用品和感受；照片全是生活场景，评论区接着聊生活。</p><p><span class="lv h">假设</span>评论反映的需求能否代表更多读者、与写法有无关系，未验证</p><p><span class="lv b">边界</span>品牌、原料、成分、效果都是作者自述，未核，不当验证结果；页面未见合作标识，但没看到不等于没有，是否商业合作未知，不定性；照片不推地点、身份、年龄或健康。</p><p class="take"><b>可借鉴写法：</b>Ocean 分享自己用的东西时，可试“先讲自己的投入，再讲用了什么、感受如何”；有合作就写明。</p></article></div></section>
+<section id="audience"><h2>谁在看，为什么愿意看</h2><p class="muted"><b>没有真实的粉丝画像数据</b>。人群和动机根据主页简介、小红书评论和标题描述、图文内容推断，不代表全体读者。</p><div class="tw"><table><thead><tr><th>可能的读者类型（推断）</th><th>AI 使用深度</th><th>可能想要什么</th><th>能拿走什么</th><th>对应作品</th><th>证据</th></tr></thead><tbody><tr><td data-l="读者类型">喜欢做饭、厨房器具的观众</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：非 AI 内容，层级不适用</td><td data-l="想要什么">想知道这台机器好不好用、多少钱</td><td data-l="能拿走什么">作者在评论区的回答（自述）</td><td data-l="对应作品"><a href="#w1">卡 1</a></td><td data-l="证据"><span class="lv s">评论者自述</span>问价格、问用途</td></tr><tr><td data-l="读者类型">养狗的人</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：非 AI 内容，层级不适用</td><td data-l="想要什么">怎么给狗洗澡刷牙、用什么</td><td data-l="能拿走什么">一段养狗叙事和用品使用感受（自述）</td><td data-l="对应作品"><a href="#w2">卡 2</a></td><td data-l="证据"><span class="lv s">评论者自述</span>问刷牙怎么配合、夸狗</td></tr></tbody></table></div><p class="depth"><b>深度怎么标：</b>沿用 <a href="../research/ai-depth-levels-2026-10-28.html#levels" target="_blank" rel="noopener noreferrer">AI 使用深度水位</a> 的 L0–L5（定义见<a href="zhangzala.html#audience" target="_blank" rel="noopener noreferrer">张咋啦页</a>）；分开写读者现在和内容指向，层级不是职业类别。</p><h3>可见评论与作者回应</h3><div class="card"><ul class="plain"><li><span class="lv a">观察</span>两篇评论区作者都回复得很密，回答具体问题。<span class="lv b">边界</span>首屏抽样，不外推全体。</li><li><span class="lv b">边界</span>一篇“昨天”、一篇“10-29”无年份，年龄不同，不比热度、不归因。</li></ul></div></section>
+<section id="compare"><h2>生活视频与养狗图文：写法差在哪</h2><p class="muted"><span class="lv a">观察</span>只比较写法，不是因果；不展示互动数。两篇年龄不同、曝光不可见；只比写法与作者回应，不比效果。</p><div class="tw"><table><thead><tr><th>维度</th><th>近期视频：火锅</th><th>图文：养狗用品</th></tr></thead><tbody><tr><td data-l="维度">类型</td><td data-l="近期视频：火锅">视频：描述只放标签</td><td data-l="图文：养狗用品">图文：长叙事 + 12 张照片</td></tr><tr><td data-l="维度">作者在评论区做什么</td><td data-l="近期视频：火锅">答机器价格、用途、清洁（自述）</td><td data-l="图文：养狗用品">回刷牙、鸡窝、南瓜等</td></tr><tr><td data-l="维度">日期</td><td data-l="近期视频：火锅">昨天 20:51（相对日期）</td><td data-l="图文：养狗用品">10-29（年份未显示）</td></tr></tbody></table></div></section>
+<section id="voice"><h2>语气、节奏与可借鉴写法</h2><div class="card"><ul class="plain"><li><span class="lv f">事实</span>评论回复口语、带缺点：“不算好拆”。</li><li><span class="lv f">事实</span>正文用数字讲投入：“洗了九年澡、做了八年饭、刷了七年牙”。</li><li><span class="lv f">事实</span>结尾抒情：“全心全意地爱他们”。</li></ul></div><pre class="tpl">【投入】我做了多久、做了什么
+【用了什么】名称 + 感受（写明是不是合作）
+【缺点】也说出来</pre><p class="muted">模板是分析产物，不是作者原话。</p></section>
+<section id="limits"><h2>失败与边界</h2><div class="card"><ul><li><b>范围</b>：视频按 Ocean 认可的范围只看标题、描述和评论（标题描述层），视频未看；照片图文 12/12 只看静态画面，LIVE 动态未看，无空白页。</li><li><b>时间</b>：“昨天 20:51”不换算；“10-29”无年份，不推年份；年龄不同，不比热度。</li><li><b>产品</b>：机器价格与好用、护理品的成分与效果都是作者自述，未核，不当实测或购物推荐。</li><li><b>合作</b>：页面未见合作标识，但没看到不等于没有；是否商业合作未知，不定性。</li><li><b>照片与健康</b>：不据照片推地点、身份、年龄或健康；作者关于饮食、变老的说法不扩成健康结论；“抗炎餐”只看标题。</li><li><b>收入</b>：未找到公开数值，不从商品露出推收入。<b>评论</b>：只看首屏。</li></ul></div></section>
+<section id="for-ocean"><h2>Ocean 可试的动作</h2><p class="muted"><span class="lv a">分析</span>研究者建议，不是成功公式。</p><div class="grid2"><div class="card"><h3>可借鉴</h3><ol><li>评论区认真回答具体问题，好处和麻烦都说。</li><li>分享用品前先讲自己的投入；有合作就写明。</li></ol></div><div class="card"><h3>不适用</h3><ul><li>把作者对产品的说法当实测或推荐。</li><li>据照片推测别人的地点、身份、年龄或健康。</li></ul></div></div></section>
+<section id="sources"><h2>来源与待核</h2><p><b>状态：小红书只读一手资料；视频只看标题描述</b>。主页、1 篇视频页面、1 篇照片图文由只读浏览打开、截图；本页只用截图与台账里的原文。</p><div class="tw"><table><thead><tr><th>来源</th><th>读到了</th><th>没读到</th></tr></thead><tbody><tr><td data-l="来源">小红书主页</td><td data-l="读到了">主页截图（粉丝、获赞与收藏、关注、简介）与首屏卡标题</td><td data-l="没读到">其余笔记</td></tr><tr><td data-l="来源">小红书笔记</td><td data-l="读到了">视频 1 篇（标题、描述）；图文 1 篇 12/12（静态画面）</td><td data-l="没读到">视频内容与 LIVE 动态（范围内不看）</td></tr><tr><td data-l="来源">评论</td><td data-l="读到了">两篇首屏可见评论与作者回复</td><td data-l="没读到">其余评论</td></tr><tr><td data-l="来源">品牌 / 商品 / X / 公众号 / 收入</td><td data-l="读到了">无</td><td data-l="没读到">未访问；未核</td></tr></tbody></table></div><ul class="plain"><li>证据台账：<code>review/creator-growth-20261108/pupu-wanzi-ledger.md</code>（采集 2026-11-08，UTC+8）。</li><li>证据台账与截图在仓库外，不公开。</li></ul><p><span class="tag warn">待核</span>：“抗炎餐”图文与其他视频只看了标题。</p></section>
+</main></div>
+</body>
+</html>
