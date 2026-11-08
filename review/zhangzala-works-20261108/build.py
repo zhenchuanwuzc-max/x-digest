@@ -9,7 +9,7 @@ L = {
  "400": a(XHS+"68ccbc56000000000e022358?xsec_token=ABUcpaYJnXAnMYht_N_HshQcD3ZgE-cUBYTX9jI9X7_Xw=&xsec_source=pc_user", "《2年400篇笔记，12万粉丝：做小红书的一些感想》"),
  "feishu": a(XHS+"6a1018060000000007027155?xsec_token=AB-QSO3EIltr0KEwJqPLsYnuD1Ptzjx8K3plXk1eA5-dA=&xsec_source=pc_user", "《把Claude Code接入飞书，太爽了！教程+演示》"),
  "gh": a(XHS+"6a2761520000000008032277?xsec_token=ABV4nTHPpFrx7LlpI92U9NtGNxdKD1Xd8K5PORPmqpf5E=&xsec_source=pc_user", "《我在GitHub上有超过3万星（虽然并不会写代码》"),
- "x1w": a("https://x.com/zarazhangrui/status/2070982013822333007", "X：去年不懂 GitHub → 1 万粉仍不会手写代码"),
+ "x1w": a("https://x.com/zarazhangrui/status/2070982013822333007", "X 相关帖（正文本轮待核）"),
  "tw": a(XHS+"6a31edc300000000200387f4?xsec_token=ABQSKYmEqpZfsugCKX7VlrlMwEK09rjxlMv-UP-lMOuLs=&xsec_source=pc_user", "《如何一年在Twitter涨粉7万》"),
  "slides": a(XHS+"69fe6f3a000000001a036be4?xsec_token=ABdee01Gr5r1zV2-5uGrdsl0aT1_wOrZRP4SqcdTvPqII=&xsec_source=pc_user", "《如何用AI做出超级好看的HTML Slides》"),
  "ppt": a(XHS+"6a7993e60000000028032339?xsec_token=ABMBQGh8_o0VP83IM9sGRTdCdWnFi7rn7Xxo79r2jQjz8=&xsec_source=pc_user", "《在AI-native团队里，HTML正在取代PPT》"),
@@ -24,7 +24,7 @@ WORKS = [
   h="回顾帖可能让新读者快速判断“这个人长期在写”；未验证，没有阅读或转化数据。",
   b="“12万粉丝”是标题自述，不是审计值；“2年”的起点日期未知。",
   k="攒到一定篇数后写一篇回顾，用读者行动当证据，不用粉丝数当证据。"),
- dict(id="w2", t="工具接入帖：先讲能干什么，再讲怎么用", links=[L["feishu"]], where=("s5","阶段 5 · 节点 14 · 05-22（年份未知）"),
+ dict(id="w2", t="工具接入帖：一句讲清接进哪里", links=[L["feishu"]], where=("s5","阶段 5 · 节点 14 · 05-22（年份未知）"),
   f="正文：“用这个开源项目，可以把Claude Code无缝接入飞书…手机上也可以！”（2026-11-08 读到）",
   s=None,
   o="标题是“感受词 + 教程+演示”；正文顺序是能干什么 → 像跟同事聊天 → 手机也能用。",
@@ -41,11 +41,11 @@ WORKS = [
  dict(id="w4", t="结果数字帖：一年涨粉 7 万", links=[L["tw"]], where=("s5","阶段 5 · 节点 16b · 06-16 编辑（年份未知）"),
   f="标题如上；正文自述“视频的动画和剪辑都是 Claude Code 做的”（2026-11-08 读到）。",
   s="“7万”是标题自述。",
-  o="标题是“如何 + 时间 + 结果数字”；作品本身也是用 AI 做的，内容和方法互相佐证。",
-  h="用 AI 做的视频讲 AI 方法，可能增加可信度；未验证。",
+  o="标题是“如何 + 时间 + 结果数字”；正文点明视频的动画和剪辑用 Claude Code 做。",
+  h="点明“用 AI 做的”可能增加可信度；未验证。",
   b="视频没播放，涨粉方法的具体步骤未知，本页不写；旧采集里的封面数字没复核，已删掉。",
-  k="讲方法的帖，最好本身就是用这个方法做出来的，并在正文点明。"),
- dict(id="w5", t="模板帖与判断句帖：HTML Slides 系", links=[L["slides"], L["ppt"]], where=("s5","阶段 5 · 节点 15 附近 · 05-08 等（年份未知）"),
+  k="作品用了什么工具，在正文一句点明。"),
+ dict(id="w5", t="HTML Slides 系：结果标题与判断句标题", links=[L["slides"], L["ppt"]], where=("s5","阶段 5 · 节点 15 附近 · 05-08 等（年份未知）"),
   f="只有 2026-11-01 旧采集的标题和链接；本轮没打开原帖。",
   s=None,
   o="一篇是“如何 + 结果形容词”，一篇是“A 正在取代 B”的判断句；两篇都围绕 HTML 做演示文稿。",
@@ -55,7 +55,7 @@ WORKS = [
  dict(id="w6", t="X 短句：领先的人反而觉得落后", links=[L["ahead"]], where=("s5","阶段 5 · X 平台 · 日期本轮未核"),
   f="链接来自 2026-11-01 旧采集；本轮只确认链接，没复核全文和日期。",
   s=None,
-  o="开头是反常识判断，句子短，没有教程内容。",
+  o="旧采集记下的开头是反常识判断；全文长度和内容本轮未核。",
   h="反常识短句适合做小红书封面大字；未验证。",
   b="X 互动数旧采集没复核，不展示；不能说明她在小红书怎么写。",
   k="封面一句反常识判断，正文配一个自己的现场故事。"),
@@ -71,19 +71,19 @@ works = ('<section id="works"><h2>代表作品拆解</h2><p class="muted">这里
          '视频都没播放。<span class="lv a">观察</span>是页面上看得到的写法；<span class="lv h">假设</span>是对效果或原因的猜测，没验证。</p>'
          '<div class="works">' + "".join(card(w) for w in WORKS) + '</div></section>')
 CMP = [
- ("可带走的东西", "模板、开源项目、接入教程（<a href=\"#w2\">卡 2</a>、<a href=\"#w5\">卡 5</a>）", "纯观点、活动预告"),
+ ("可带走的东西", "开源项目接入飞书（<a href=\"#w2\">卡 2</a>，正文可见）；模板（<a href=\"#w5\">卡 5</a>，只有标题，待核）", "纯观点、活动预告"),
  ("身份反差", "不会写代码 × GitHub 星（<a href=\"#w3\">卡 3</a>）", "没有前后对比"),
  ("标题写法", "如何 + 结果、教程+演示、数字结果、A 正在取代 B（<a href=\"#w4\">卡 4</a>、<a href=\"#w5\">卡 5</a>）", "直播预告、随感"),
- ("形式", "正文一两句，主体在视频或资产里（视频本身未播放）（<a href=\"#w2\">卡 2</a>）", "图文预告"),
+ ("形式", "正文一两句（<a href=\"#w2\">卡 2</a>、<a href=\"#w3\">卡 3</a> 可见）；视频未播放，主体内容未知", "图文预告"),
 ]
 rows = "".join(f'<tr><td data-l="维度">{d}</td><td data-l="代表作品">{x}</td><td data-l="普通帖">{y}</td></tr>' for d,x,y in CMP)
-compare = ('<section id="compare"><h2>普通帖与代表作品：写法差在哪</h2><p class="muted"><span class="lv a">观察</span>只比较标题和正文写法，<b>不是因果</b>：没有同曝光对比，也不展示互动数。“普通帖”一列来自 2026-11-01 旧采集的主页浏览印象，没逐篇复核。</p>'
-           '<div class="tw"><table><thead><tr><th>维度</th><th>代表作品</th><th>普通帖</th></tr></thead><tbody>' + rows + '</tbody></table></div></section>')
+compare = ('<section id="compare"><h2>普通帖与代表作品：写法差在哪</h2><p class="muted"><span class="lv a">观察</span>只比较标题和正文写法，<b>不是因果</b>：没有同曝光对比，也不展示互动数。“普通帖”一列只是 2026-11-01 旧采集的主页浏览印象，没有逐篇来源，整列待核。</p>'
+           '<div class="tw"><table><thead><tr><th>维度</th><th>代表作品</th><th>普通帖（旧采集印象，待核）</th></tr></thead><tbody>' + rows + '</tbody></table></div></section>')
 voice = ('<section id="voice"><h2>语气、节奏与可借鉴写法</h2><div class="card"><ul class="plain">'
- '<li><span class="lv s">自述</span>学生和 Builder 的语气：她自称“谦虚的学生、learn in public”（<a href="#w1">卡 1</a>），写“我刚学会”，少说教。</li>'
- '<li><span class="lv a">观察</span>正文很短，价值放在模板、仓库或教程里（<a href="#w2">卡 2</a>、<a href="#w3">卡 3</a>）。</li>'
- '<li><span class="lv a">观察</span>标题直接说结果或判断（<a href="#w4">卡 4</a>、<a href="#w5">卡 5</a>、<a href="#w6">卡 6</a>）。</li>'
- '<li><span class="lv a">观察</span>小红书和 X 是同一个人设，飞书官方文章也写明“Zara（小红书博主‘张咋啦’）”。</li>'
+ '<li><span class="lv s">自述</span>她自称“谦虚的学生、learn in public”（<a href="#w1">卡 1</a>）。<span class="lv a">分析</span>据此推断语气偏学习者分享，是研究者判断。</li>'
+ '<li><span class="lv a">观察</span>已读到的正文很短，一两句（<a href="#w2">卡 2</a>、<a href="#w3">卡 3</a>）；视频未播放，其余内容未知。</li>'
+ ''
+ '<li><span class="lv f">事实</span>飞书官方文章写明“Zara（小红书博主‘张咋啦’）”，即小红书和 X 是同一人；两边语气是否一致没逐篇比较。</li>'
  '<li><span class="lv s">自述</span>节奏有两个口径：约 1.5 天一篇（采访）和约 1.7 天一篇（2025-09-18 原帖），见<a href="#s3">阶段 3</a>，不合并。</li>'
  '</ul></div><pre class="tpl">【标题】我用 [工具] 做了 [可拿走的结果]（附模板/清单）\n【封面】一句话结果 + 数字或前后对比\n【正文 1–3 句】给什么 → 谁适用 → 一句反差\n【资产】模板截图 / Prompt / 仓库 / 检查清单\n【话题】3–5 个圈层标签\n【别】30 分钟完整版口播（图文改成一页清单）</pre></section>')
 
@@ -100,7 +100,7 @@ out = out.replace('<span class="lv b">边界</span>写不能怎么用。', '<spa
 # 给 Ocean：去重与改写
 out = out.replace('<li>点赞高不等于方法有效：旧爆款表只有标题与点赞，没有同曝光对照，不作因果。</li>',
                   '<li>代表作品的写法对照只是观察，没有互动数据和同曝光对比，不能当成方法有效的证明。</li>')
-out = out.replace('<li>每帖给一件能拿走的东西，并写清一个限制。</li>', '<li>每帖给一件能拿走的东西，并写清一个限制；标题直说结果，不用“干货满满”“赋能”这类空词。</li>')
+out = out.replace('<li>每帖给一件能拿走的东西，并写清一个限制。</li>', '<li>每帖给一件能拿走的东西，并写清一个限制；不用“干货满满”“赋能”这类空词。</li>')
 # 来源：补旧采集线索与本轮待核
 out = out.replace('<a href="https://x.com/zarazhangrui/status/2079395028485488707" target="_blank" rel="noopener">X 80k 帖</a></li></ul>',
   '<a href="https://x.com/zarazhangrui/status/2079395028485488707" target="_blank" rel="noopener">X 80k 帖</a></li>'
