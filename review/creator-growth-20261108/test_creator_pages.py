@@ -10,7 +10,7 @@ PAGES = {"kazike": dict(banned=["爆款","746","万赞","中位数","4855","9158
  "huashu": dict(banned=["72.3k","10–20 万/项目","爆款"], ledger="huashu-ledger.md"),
  "fankai": dict(banned=["46.0k","会员价目","爆款"], ledger="fankai-ledger.md"),
  "hector": dict(banned=["爆款"], ledger="hector-ledger.md")}
-ORDER = ["overview","timeline","works","audience","compare","voice","limits","for-ocean","sources"]
+ORDER = ["brief","overview","timeline","works","audience","compare","voice","limits","for-ocean","sources"]
 class P(HTMLParser):
     def __init__(s): super().__init__(); s.ids=[]; s.hrefs=[]; s.top=[]; s.d=0
     def handle_starttag(s,t,a):

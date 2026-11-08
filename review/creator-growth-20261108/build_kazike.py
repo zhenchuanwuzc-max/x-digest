@@ -2,6 +2,8 @@
 import re
 from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
+import sys; sys.path.insert(0, str(REPO/'xhs/growth/src'))
+from page_kit import with_brief, blankify
 zz = (REPO/"xhs/zhangzala.html").read_text(encoding="utf-8")
 head = zz[:zz.index("</head>")+len("</head>")]
 head = re.sub(r"<title>.*?</title>", "<title>卡兹克成长深拆 · 时间线 + 代表作品 + 受众深度 · 给 Ocean</title>", head, flags=re.S)
@@ -127,11 +129,12 @@ overview=('<section id="overview"><h2>账号概况</h2><div class="grid2">'
  '<div class="card"><h3>定位</h3><p>'+S+'做 IP，让读者把他当信息源（<a href="#w3">卡 3</a>）；2026 年起多写自己用 Agent 做开发的过程。</p></div></div></section>')
 nav=('<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">卡兹克深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>X 一手资料深化 · 小红书未核</p>'
  '<a href="growth/">← 人物成长研究</a>'
- '<div class="sec">本页</div><a href="#overview">账号概况</a><a href="#timeline">五阶段时间线</a><a href="#s1">1 · 起点</a><a href="#s2">2 · 公众号起号</a><a href="#s3">3 · 预告片与剧组</a><a href="#s4">4 · 公司与 IP</a><a href="#s5">5 · X 与开源</a>'
+ '<div class="sec">本页</div><a href="#brief">实操摘要</a><a href="#overview">账号概况</a><a href="#timeline">五阶段时间线</a><a href="#s1">1 · 起点</a><a href="#s2">2 · 公众号起号</a><a href="#s3">3 · 预告片与剧组</a><a href="#s4">4 · 公司与 IP</a><a href="#s5">5 · X 与开源</a>'
  '<a href="#works">代表作品拆解</a><a href="#audience">谁在看</a><a href="#compare">写法对照</a><a href="#voice">语气与节奏</a><a href="#limits">失败与边界</a><a href="#for-ocean">给 Ocean</a><a href="#sources">来源与待核</a></aside>'
- '<main class="main"><nav class="mob-nav" aria-label="移动目录"><a href="growth/">← 人物成长研究</a><a href="#overview">概况</a><a href="#timeline">时间线</a><a href="#works">作品</a><a href="#audience">受众</a><a href="#compare">对照</a><a href="#voice">语气</a><a href="#limits">边界</a><a href="#for-ocean">借鉴</a><a href="#sources">来源</a></nav>'
+ '<main class="main"><nav class="mob-nav" aria-label="移动目录"><a href="growth/">← 人物成长研究</a><a href="#brief">摘要</a><a href="#overview">概况</a><a href="#timeline">时间线</a><a href="#works">作品</a><a href="#audience">受众</a><a href="#compare">对照</a><a href="#voice">语气</a><a href="#limits">边界</a><a href="#for-ocean">借鉴</a><a href="#sources">来源</a></nav>'
  '<header><h1>数字生命卡兹克 成长深拆</h1><p class="muted">按“阶段 → 当时的问题 → 动作 → 作品”排，每条附原始链接。<span class="lv f">事实</span>可从原文核到；<span class="lv s">自述</span>是本人说法；<span class="lv a">分析</span>/<span class="lv a">观察</span>是研究者归纳；<span class="lv h">假设</span>未验证；<span class="lv b">边界</span>写不能怎么用。时间统一 UTC+8，查不到写未知。</p></header>')
 works=('<section id="works"><h2>代表作品拆解</h2><p class="muted">只选原文读过、写法各不相同的作品，不是热门榜；不展示互动数。</p><div class="works">'+"".join(card(w) for w in WORKS)+'</div></section>')
 timeline='<section id="timeline"><h2>五阶段时间线</h2>'+"".join(STAGES)+'</section>'
 html=head+"\n<body>\n"+nav+"\n"+overview+"\n"+timeline+"\n"+works+"\n"+audience+"\n"+compare+"\n"+voice+"\n"+limits+"\n"+forocean+"\n"+sources+"\n</main></div>\n</body>\n</html>\n"
+html=blankify(with_brief(html,'kazike','</header>'))
 (REPO/"xhs/kazike.html").write_text(html,encoding="utf-8"); print("ok",len(html))

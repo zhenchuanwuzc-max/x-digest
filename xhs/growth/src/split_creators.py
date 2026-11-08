@@ -5,6 +5,9 @@ split(html) -> {相对 xhs/ 的文件名: 内容}。不复制正文：每段只�
 """
 import html as H, json, re
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from page_kit import with_brief, blankify, BRIEF_CSS
 
 D = Path(__file__).resolve().parent
 META = json.loads((D / 'people.json').read_text())
@@ -98,14 +101,19 @@ def split(html):
         content = ''.join(sec for _, sec in parts)
         if person:
             title = brand = person['name']
+            content = with_brief(content, pid, '</p>\n', start='</h2>')
+            toc = '<a href="#brief">实操摘要</a>\n  ' + toc
             for x in person.get('extra', []):
                 content += f'<p class="muted">附：<a href="{H.escape(x["page_href"])}">{H.escape(x["label"])} →</a></p>\n'
         else:
             t = TOPICS[pid]
             title = brand = t['name']
-        out[fname] = _page(head, f'{title} · 人物成长研究', brand, toc, content)
+        page = _page(head, f'{title} · 人物成长研究', brand, toc, content)
+        if person:
+            page = page.replace('</head>', BRIEF_CSS + '</head>', 1)
+        out[fname] = blankify(page)
     vid = re.search(r'<div class="card verdict" id="verdict"', body)
     if vid:
         compat.insert(0, ('verdict', 'growth/#total'))
-    out['creators.html'] = _compat(head, compat)
+    out['creators.html'] = blankify(_compat(head, compat))
     return out
