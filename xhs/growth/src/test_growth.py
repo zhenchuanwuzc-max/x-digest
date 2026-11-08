@@ -16,6 +16,11 @@ def resolve(base_dir, href):
 def sanitized():
     h = SHARED.read_text(); h = re.sub(r'/workspace/[^<\s"\']+', '', h); return re.sub(r'/Users/[^<\s"\']+', '', h)
 NF = '未找到公开数值'
+def work_card(h, wid):
+    """人物页里某个代表作品卡的片段：从它的 id 到下一个作品卡 / 段落结束。"""
+    i = h.index(f'id="{wid}"'); rest = h[i + 5:]
+    ends = [j for j in (rest.find('</article>'), rest.find(' id="' + wid.rsplit('w', 1)[0] + 'w')) if j >= 0]
+    return h[i:i + 5 + min(ends)]
 def norm(h):
     """去掉 t224 允许的改动：顶部摘要、摘要样式、目录里的摘要链接、target/rel 属性。"""
     h = re.sub(r'<section class="brief" id="brief".*?</section>\n', '', h, flags=re.S).replace(page_kit.BRIEF_CSS, '')
@@ -56,7 +61,7 @@ class Practice(unittest.TestCase):
                 p = by[x['pid']]
                 s.assertIn(f'<p class="bn"><a href="{p["href"]}" target="_blank" rel="noopener noreferrer">{p["name"]}</a>', H)
                 f, _ = resolve(G, p['href']); s.assertIn(f'id="{x["work"]}"', f.read_text(), x)  # 作品锚点真实存在
-                s.assertIn(x['src'], f.read_text(), x)  # 一手来源就是人物页里该作品引用的链接
+                s.assertIn(x['src'], work_card(f.read_text(), x['work']), x)  # 一手来源就在该作品卡里
                 s.assertEqual(x['work'], p['brief']['work']['id'])
                 s.assertTrue(x['learn'] and x['skip'])
         for o in M['observations']: s.assertTrue(o.startswith('观察：'))
