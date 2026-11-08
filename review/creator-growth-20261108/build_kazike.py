@@ -117,7 +117,7 @@ COV=[("X","资料 + 2026-10-27～11-07 原创帖 16 条 + 2026-01 帖 25 条（A
  ("评论","X 长文对话 25 条（API 返回范围）","公众号评论、小红书评论"),
  ("作品原文","公众号 SD 回顾全文；方法论全文（转载）；OPC 演讲全文（转载）；GitHub 仓库首页","预告片原帖与视频；第二篇 SD 教程原文；PIKA、Genie 等旧版逐拆篇目")]
 cov="".join(f'<tr><td data-l="来源">{p}</td><td data-l="读到了">{r}</td><td data-l="没读到">{n}</td></tr>' for p,r,n in COV)
-sources=('<section id="sources"><h2>来源与待核</h2><p><b>状态：初步深化</b>。X 和公众号原文已补一手资料；小红书一手资料缺失，待解除限制后补。</p>'
+sources=('<section id="sources"><h2>来源与待核</h2><p><b>状态：X 一手资料深化；小红书未核</b>。核心证据：X 本人帖与配套帖全文、公众号三篇原文（两篇转载）、GitHub 仓库首页；X 长文正文接口 404 未读。小红书没核：不据此判断他在小红书的效果。</p>'
  '<div class="tw"><table><thead><tr><th>来源</th><th>读到了</th><th>没读到</th></tr></thead><tbody>'+cov+'</tbody></table></div>'
  '<ul class="plain"><li>证据台账：<code>review/creator-growth-20261108/kazike-ledger.md</code>（采集 2026-11-08，UTC+8）。</li>'
  '<li>旧采集线索（2026-11-04/05，本轮未复核，只留链接）：'+a("https://mp.weixin.qq.com/s/PwM38eRIS4M8tjergbscYg","PIKA 上手评测")+" · "+a("https://mp.weixin.qq.com/s/J8raD9KkcIjf3LE1VF-yxg","两周 10 技巧")+" · "+a("https://mp.weixin.qq.com/s/5ZUzMj2yqavPeXJu2T0cTQ","2023 早期专访")+" · "+a("https://juejin.cn/post/7625574757921636367","风格 Skill 开源")+" · "+a("https://bingqiangzhou.github.io/posts/digital-life-khazix-analysis/","晚点聊 109 学习笔记（二手）")+'。</li></ul>'
@@ -125,7 +125,7 @@ sources=('<section id="sources"><h2>来源与待核</h2><p><b>状态：初步深
 overview=('<section id="overview"><h2>账号概况</h2><div class="grid2">'
  '<div class="card"><h3>平台</h3><p>主阵地：微信公众号「数字生命卡兹克」（本人演讲自述）。X：'+a("https://x.com/Khazix0918","@Khazix0918")+'，2022-02 建号，2026-01 起活跃（本人帖自述 294 天）。小红书：本人说有账号，本轮未读。</p></div>'
  '<div class="card"><h3>定位</h3><p>'+S+'做 IP，让读者把他当信息源（<a href="#w3">卡 3</a>）；2026 年起多写自己用 Agent 做开发的过程。</p></div></div></section>')
-nav=('<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">卡兹克深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>初步深化 · 小红书待补</p>'
+nav=('<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">卡兹克深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>X 一手资料深化 · 小红书未核</p>'
  '<div class="sec">选题库</div><a href="growth/">← 成长记录</a><a href="./">小红书全入口</a><a href="creators.html#kazike">对标档案 · 卡兹克</a>'
  '<div class="sec">本页</div><a href="#overview">账号概况</a><a href="#timeline">五阶段时间线</a><a href="#s1">1 · 起点</a><a href="#s2">2 · 公众号起号</a><a href="#s3">3 · 预告片与剧组</a><a href="#s4">4 · 公司与 IP</a><a href="#s5">5 · X 与开源</a>'
  '<a href="#works">代表作品拆解</a><a href="#audience">谁在看</a><a href="#compare">写法对照</a><a href="#voice">语气与节奏</a><a href="#limits">失败与边界</a><a href="#for-ocean">给 Ocean</a><a href="#sources">来源与待核</a></aside>'

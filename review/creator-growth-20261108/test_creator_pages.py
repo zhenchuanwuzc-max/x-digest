@@ -1,9 +1,12 @@
-"""成长人物页结构测试（本批：卡兹克）。python3 review/creator-growth-20261108/test_creator_pages.py"""
+"""成长人物页结构测试（卡兹克、宝玉、歸藏、向阳乔木）。python3 review/creator-growth-20261108/test_creator_pages.py"""
 import re, unittest
 from html.parser import HTMLParser
 from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
-PAGES = {"kazike": dict(banned=["爆款","746","万赞","中位数","4855","9158","4874","300 万","13 场","160 位","六位数"], ledger="kazike-ledger.md")}
+PAGES = {"kazike": dict(banned=["爆款","746","万赞","中位数","4855","9158","4874","300 万","13 场","160 位","六位数"], ledger="kazike-ledger.md"),
+ "baoyu": dict(banned=["263.2k","偏薄专页","爆款","115.5万"], ledger="baoyu-ledger.md"),
+ "guizang": dict(banned=["183.8k","7.8万","2.5万","2000 付费","11万","爆款"], ledger="guizang-ledger.md"),
+ "qiaomu": dict(banned=["134.1k","六万多","3 万","爆款"], ledger="qiaomu-ledger.md")}
 ORDER = ["overview","timeline","works","audience","compare","voice","limits","for-ocean","sources"]
 class P(HTMLParser):
     def __init__(s): super().__init__(); s.ids=[]; s.hrefs=[]; s.top=[]; s.d=0

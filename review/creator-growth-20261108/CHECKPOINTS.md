@@ -18,3 +18,4 @@
 | principle-model-the-domain | 已读 | 6 张卡用一张 WORKS 表加一个渲染函数；证据层级固定 5 种标签 | 做了：build.py 里的 WORKS 表 |
 | principle-sequence-verifiable-units | 已读 | 先在旧页上跑测试看到红，再改页面看到绿；每个提交单独验证 | 做了：见 verify.out |
 | principle-separate-before-serializing-shared-state | 已读 | 单写手；审查只读；预览导出到仓库外目录 | 做了 |
+| 第2批 | 宝玉/歸藏/乔木 页面+台账+测试+布局+Codex 审查 | 完成 2026-11-08 |
