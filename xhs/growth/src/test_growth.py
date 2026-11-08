@@ -16,6 +16,11 @@ def resolve(base_dir, href):
 def sanitized():
     h = SHARED.read_text(); h = re.sub(r'/workspace/[^<\s"\']+', '', h); return re.sub(r'/Users/[^<\s"\']+', '', h)
 NF = '未找到公开数值'
+def work_card(h, wid):
+    """人物页里某个代表作品卡的片段：从它的 id 到下一个作品卡 / 段落结束。"""
+    i = h.index(f'id="{wid}"'); rest = h[i + 5:]
+    ends = [j for j in (rest.find('</article>'), rest.find(' id="' + wid.rsplit('w', 1)[0] + 'w')) if j >= 0]
+    return h[i:i + 5 + min(ends)]
 def norm(h):
     """去掉 t224 允许的改动：顶部摘要、摘要样式、目录里的摘要链接、target/rel 属性。"""
     h = re.sub(r'<section class="brief" id="brief".*?</section>\n', '', h, flags=re.S).replace(page_kit.BRIEF_CSS, '')
@@ -30,7 +35,9 @@ class Home(unittest.TestCase):
         s.assertEqual(re.findall(r'href="([^"]+)"', nav), ['#total', '#steps', '#people', '#topics'])
         top = H[H.index('id="total"'):H.index('id="people"')]
         s.assertGreaterEqual(top.count('class="pr"'), 3)
-        for k in ('痛点', '别人怎么解（证据）', 'Ocean 可以做', '交付样例', '怎么验证'): s.assertEqual(top.count(f'<dt>{k}</dt>'), top.count('class="pr"'), k)
+        for k in ('面向谁', '痛点', 'Ocean 借鉴', '怎么验证'): s.assertEqual(top.count(f'<dt>{k}</dt>'), top.count('class="pr"'), k)
+        for blk in top.split('<div class="pr">')[1:]:  # 每个方向先出对标人，再出面向谁
+            s.assertLess(blk.index('class="bn"'), blk.index('<dt>面向谁</dt>'))
         s.assertGreaterEqual(top[top.index('id="steps"'):].count('<li>'), 3)
         s.assertEqual(H.count('id="p-'), 14); s.assertEqual(H.count('id="t-'), len(T))
     def test_each_person_own_target(s):
@@ -45,16 +52,30 @@ class Home(unittest.TestCase):
 
 class Practice(unittest.TestCase):
     def test_advice_marked_and_evidence_named(s):
-        names = {p['name'] for p in P} | {'乔木', '宝玉', '卡兹克', '张咋啦', '花叔', 'Lenny', 'Shreyas'}
+        by = {p['id']: p for p in P}
         for r in M['practice']:
             s.assertTrue(r['ocean'].startswith('建议：'), r['ocean'])
-            s.assertTrue(any(n in r['evidence'] for n in names), r['evidence'])
             s.assertIn('推断', r['who'])
+            s.assertTrue(1 <= len(r['bench']) <= 3)
+            for x in r['bench']:
+                p = by[x['pid']]
+                s.assertIn(f'<p class="bn"><a href="{p["href"]}" target="_blank" rel="noopener noreferrer">{p["name"]}</a>', H)
+                f, _ = resolve(G, p['href']); s.assertIn(f'id="{x["work"]}"', f.read_text(), x)  # 作品锚点真实存在
+                s.assertIn(x['src'], work_card(f.read_text(), x['work']), x)  # 一手来源就在该作品卡里
+                s.assertEqual(x['work'], p['brief']['work']['id'])
+                s.assertTrue(x['learn'] and x['skip'])
         for o in M['observations']: s.assertTrue(o.startswith('观察：'))
         for st in M['steps']: s.assertTrue(st.startswith('建议'), st)
         top = H[H.index('id="total"'):H.index('id="people"')]
-        for bad in ('预计', '保证', '月入', '涨粉到', '我在大厂', '我做过'): s.assertNotIn(bad, top)
+        for bad in ('预计', '保证', '月入', '涨粉到', '我在大厂', '我做过', '排名第'): s.assertNotIn(bad, top)
         s.assertIn('L1', top); s.assertIn('L2', top)
+    def test_brief_work_backed(s):
+        for p in P:
+            w = p['brief']['work']; h = (G/p['href']).resolve().read_text()
+            s.assertIn(f'id="{w["id"]}"', h, p['id']); s.assertTrue(w['title'] and w['step'])
+            b = h[h.index('id="brief"'):]; b = b[:b.index('</section>')]
+            s.assertIn(f'<a href="#{w["id"]}">', b, p['id'])
+            for k in ('who', 'pain', 'solve', 'ocean'): s.assertIn(p['brief'][k][:12], h.replace('&quot;', '"').replace('&#x27;', "'"), (p['id'], k))
     def test_cards_fields_complete(s):
         for p in P:
             c = H[H.index(f'id="p-{p["id"]}"'):]; c = c[:c.index('</div>\n', c.index('<details'))]
@@ -94,7 +115,7 @@ class Practice(unittest.TestCase):
             between = h[heading:b]
             s.assertLessEqual(between.count('<p'), 2, f.name)  # 只隔着简介
             s.assertNotIn('class="card"', between, f.name)
-            for k in ('面向谁', '具体痛点', '本人怎么解决', 'Ocean 可以做'): s.assertIn(f'<dt>{k}</dt>', h[b:b + 3000])
+            for k in ('面向谁', '具体痛点', '他咋做', 'Ocean 可以做'): s.assertIn(f'<dt>{k}</dt>', h[b:b + 3000])
             s.assertTrue(p['brief']['ocean'].startswith('建议：'), p['id'])
             s.assertTrue('推断' in p['brief']['who'] or '自述' in p['brief']['who'], p['id'])
             for k in seen:

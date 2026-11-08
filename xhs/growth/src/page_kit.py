@@ -11,9 +11,11 @@ BRIEF_CSS = ('<style>.brief{border:1px solid #c5d8e0;background:#f3f8fa;border-r
 
 def brief_html(pid):
     b = PEOPLE[pid]['brief']
-    rows = [('面向谁', b['who']), ('具体痛点', b['pain']), ('本人怎么解决', b['solve']), ('Ocean 可以做', b['ocean'])]
+    w = b['work']
+    how = (H.escape(b['solve']) + f'<br>代表作品：<a href="#{H.escape(w["id"])}">{H.escape(w["title"])}</a> —— {H.escape(w["step"])}')
+    rows = [('面向谁', H.escape(b['who'])), ('具体痛点', H.escape(b['pain'])), ('他咋做', how), ('Ocean 可以做', H.escape(b['ocean']))]
     return ('<section class="brief" id="brief" aria-label="实操摘要"><h2>实操摘要</h2><dl>'
-            + ''.join(f'<dt>{k}</dt><dd>{H.escape(v)}</dd>' for k, v in rows)
+            + ''.join(f'<dt>{k}</dt><dd>{v}</dd>' for k, v in rows)
             + '</dl></section>\n')
 
 
