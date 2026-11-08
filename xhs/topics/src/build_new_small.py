@@ -16,7 +16,8 @@ def legacy(x):
     return dict(id=x['source_id'], url=x['url'], title=x['title'], author=x['author'], tier=x['tier'], format=x['format'],
         followers=(f"{v}（2026-11-08 主页核过）" if v else "未核"),
         entry=f"关键词「{x['search']['keyword']}」· {x['search']['sort_actually_used']}排序 · 前 12 张卡轻扫，排序位置未记",
-        date=x['published_raw'] + "；只有相对时间、无年份，不称新帖已核",
+        date=x['published_raw'], date_status='relative', date_evidence=None,
+        classification='unproven', classification_evidence='曝光不可见、同期同龄基线不足，表现未证实',
         counts=f"赞 {x['counts_2026_11_08']['likes']} / 藏 {x['counts_2026_11_08']['collects']} / 评 {x['counts_2026_11_08']['comments']}（2026-11-08 读取）",
         same_period=("同类 1 天内样本，但同期基线不足，不比高低、不称爆款" if x['comparable_same_period'] else (x['why_not'] or "不同期") + "，不做同期比较"),
         coverage=x['coverage'], structure=x['skeleton'], borrow=x['borrowable_action'],
@@ -30,15 +31,24 @@ for s in samples:
     assert s['tier'] in OLD['tiers'], s['tier']
 groups = KW['groups']
 allkw = [k for g in groups for k in g['keywords']]
-searched = [k for k in allkw if k['searches']]
+searched = [k for k in allkw if any(r['status'] != 'partial' for r in k['searches'])]  # 只算至少完成过一次扫描的词
+ST = KW['search_status']
 for k in allkw:
     for r in k['searches']:
-        assert set(r.get('sample_ids', [])) <= ids, k['query']
+        assert r['status'] in ST and r.get('sort_evidence') and r.get('limits'), k['query']
+        assert isinstance(r['scanned_count'], int) and isinstance(r['opened_count'], int) and isinstance(r['pending_candidates'], int), k['query']
+        assert set(r['sample_ids']) <= ids, k['query']
+        if r['status'] == 'checked_none':  # 只有核完、无待核候选、写明依据，才可说本轮已核样本暂未满足条件
+            assert r['pending_candidates'] == 0 and r.get('no_qualified_basis') and not r['sample_ids'], k['query']
+        if r['status'] == 'sampled': assert r['sample_ids'], k['query']
+for s_ in samples:
+    assert s_['date_status'] in ('relative', 'absolute_verified') and (s_['date_status'] == 'relative' or s_['date_evidence']), s_['id']
+    assert s_['classification'] in ('unproven', 'evidenced') and s_['classification_evidence'], s_['id']
 for p in PR['proposals']:
     assert all(len(t) <= 20 for t in p['titles']), p['id']
-    assert set(p['sample_ids']) <= ids and p['group'] in {g['id'] for g in groups}, p['id']
+    assert p['support_ids'] and set(p['support_ids']) <= ids and p['evidence_gap'] and p['group'] in {g['id'] for g in groups}, p['id']
 out = dict(asof=max([KW['plan_date']] + [f['captured'] for f in EXTRA]), rules=OLD['rules'], tiers=OLD['tiers'], gaps=OLD['gaps'],
     counts=dict(planned=len(allkw), this_round=sum(k['this_round'] for k in allkw), searched=len(searched)),
-    keywords_coverage=dict(groups=groups, legacy=KW['legacy']), samples=samples, proposals=PR['proposals'])
+    keywords_coverage=dict(groups=groups, legacy=KW['legacy'], status_labels=ST), samples=samples, proposals=PR['proposals'])
 (S / 'new-small-v2.json').write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n")
 print('ok', out['counts'], len(samples), 'samples', len(PR['proposals']), 'proposals')

@@ -159,5 +159,12 @@
     "6ac5fa7a000000001203fb99"
    ]
   }
- ]
+ ],
+ "search_status": {
+  "scanned_pending": "已扫描，候选待核",
+  "partial": "未完成（部分搜索或中断）",
+  "sampled": "已入精读库",
+  "checked_none": "本轮已核样本暂未满足条件"
+ },
+ "search_record_fields": "captured, sort, sort_evidence, status, scanned_count, opened_count, sample_ids（已入精读库）, pending_candidates（扫到但未精读/粉丝或日期待核的条数）, limits；checked_none 还须 no_qualified_basis"
 }
