@@ -1,5 +1,5 @@
 # 审查记录
-- Codex gpt-6.1-sol（high，只读），一次审查，见 codex-review.md 和 codex-review.log。7 条问题（6 条 P2、1 条 P3），已全部改完：
+- Codex gpt-6.1-sol（high，只读），一次审查，见 codex-review.md；原始日志本地留存（/workspace/zhangzala-integrate-20261108/codex-review.log，bot store 有备份），不进仓库。7 条问题（6 条 P2、1 条 P3），已全部改完：
   1. X 链接文字里的“1 万粉”删掉，改成“X 相关帖（正文本轮待核）”。
   2. 卡 4 删掉对视频内容的推断，只保留正文自述；卡 2 标题改成正文实际的顺序。
   3. 对照表和语气段只写正文能看到的内容，卡 5 的模板标为“待核”。
