@@ -159,7 +159,7 @@
        "sample_ids": [
         "6af06e030000000003023ef7"
        ],
-       "pending_candidates": 8,
+       "pending_candidates": 7,
        "pending_list": [
         {
          "order": 1,
@@ -196,12 +196,6 @@
          "title": "Day21｜一天一个绝美提示词之极简铅笔画",
          "time_raw": "昨天 20:43",
          "url": "https://www.xiaohongshu.com/explore/6af06e740000000015023d91"
-        },
-        {
-         "order": 7,
-         "title": "问AI总答不到点上？套这5个公式",
-         "time_raw": "昨天 20:41",
-         "url": "https://www.xiaohongshu.com/explore/6af06e030000000003023ef7"
         },
         {
          "order": 8,

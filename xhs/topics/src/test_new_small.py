@@ -41,14 +41,15 @@ class NewSmall(unittest.TestCase):
         for r in D['rules']: s.assertIn(html.escape(r), B)
     def test_samples_keep_real_titles_and_unproven_status(s):
         src = {x['source_id']: x['title'] for x in json.loads((X / 'seven/src/seven.json').read_text())['step2']['latest']}
-        for x in D['samples']:
+        for x in D['samples']:  # 对全部已提交样本检查
             if x['id'] in src: s.assertEqual(x['title'], src[x['id']])  # 原标题完整保留，≤20 字只约束建议标题
-        for raw in Path('/workspace/xhs-small-structured-20261109').glob('search-batch*/samples/*/sample.json'):  # 补搜样本：与仓库外原始记录逐字相同
-            r = json.loads(raw.read_text()); x = next(y for y in D['samples'] if y['url'] == r['note_url_clean']); s.assertEqual(x['title'], r['title'])
             if x['date_status'] != 'absolute_verified': s.assertIsNone(x['date_evidence'])
             if x['classification'] == 'unproven':
                 blk = re.search(rf'<details id="ns-s-{x["id"]}">.*?</details>', B, re.S).group(0)
                 s.assertIn('<dt>表现结论</dt><dd>未证实：', blk)
+        # 补搜样本标题与仓库外原始记录逐字相同（原始记录只在采集机上；别处 checkout 只跑上面的检查）
+        for raw in Path('/workspace/xhs-small-structured-20261109').glob('search-batch*/samples/*/sample.json'):
+            r = json.loads(raw.read_text()); s.assertEqual(next(y for y in D['samples'] if y['url'] == r['note_url_clean'])['title'], r['title'])
         for p in D['proposals']:
             art = re.search(rf'<article id="ns-{p["id"]}">.*?<details>', B, re.S).group(0)  # 缺口在折叠前可见
             s.assertTrue(p['support_ids']); s.assertIn(html.escape(p['evidence_gap']), art)

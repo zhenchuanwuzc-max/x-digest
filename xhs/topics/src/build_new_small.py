@@ -39,6 +39,8 @@ for k in allkw:
         assert r['status'] in ST and r.get('sort_evidence') and r.get('limits'), k['query']
         assert isinstance(r['scanned_count'], int) and isinstance(r['opened_count'], int) and isinstance(r['pending_candidates'], int), k['query']
         assert set(r['sample_ids']) <= ids, k['query']
+        assert r['pending_candidates'] == len(r['pending_list']) and not {x['url'].rsplit('/', 1)[1] for x in r['pending_list']} & set(r['sample_ids']), k['query']  # 已入库样本不再算待核
+        assert len(r['sample_ids']) + r['pending_candidates'] <= r['scanned_count'], k['query']
         if r['status'] == 'checked_none':  # 只有核完、无待核候选、写明依据，才可说本轮已核样本暂未满足条件
             assert r['pending_candidates'] == 0 and r.get('no_qualified_basis') and not r['sample_ids'], k['query']
         if r['status'] == 'sampled': assert r['sample_ids'], k['query']
