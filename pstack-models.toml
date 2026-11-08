@@ -1,0 +1,13 @@
+# Project-local pstack model map for x-digest (2026-11-08 最小初始化)。
+# 优先于全局 ~/.codex/pstack-models.toml；只列 box 上 codex-cli 0.165.0 的 models_cache 中实际出现的模型。
+# 预算按 codex-hub-dispatch 默认：开发 high、探查 medium；审查用另一模型。
+schema_version = 1
+budget = "medium"
+target_reasoning_effort = "high"
+
+[roles]
+"feature, refactoring" = { model = "gpt-6.1-terra", reasoning_effort = "high" }
+"bug-fix" = { model = "gpt-6.1-terra", reasoning_effort = "high" }
+"how explorer" = { model = "gpt-6.1-terra", reasoning_effort = "medium" }
+"swarm workers" = { model = "gpt-6.1-terra", reasoning_effort = "medium" }
+"reviewer" = { model = "gpt-6.1-sol", reasoning_effort = "high" }
