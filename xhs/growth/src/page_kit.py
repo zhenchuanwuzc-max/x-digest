@@ -6,13 +6,15 @@ META = json.loads((Path(__file__).resolve().parent / 'people.json').read_text())
 PEOPLE = {p['id']: p for p in META['people']}
 BRIEF_CSS = ('<style>.brief{border:1px solid #c5d8e0;background:#f3f8fa;border-radius:12px;padding:.8rem 1rem;margin:0 0 1.2rem}'
              '.brief h2{margin:0 0 .5rem;font-size:1.02rem;border:0;padding:0}.brief dl{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:.3rem .7rem;margin:0}'
-             '.brief dt{font-weight:650;color:#1f4f63}.brief dd{margin:0}@media(max-width:560px){.brief dl{grid-template-columns:1fr}.brief dt{margin-top:.3rem}}</style>')
+             '.brief dt{font-weight:650;color:#1f4f63}.brief dd{margin:0}.brief .hw{margin:.3rem 0 0;padding-left:1.2rem}.brief .hw li{margin:.25rem 0}.brief .eg{display:block;font-size:.8rem;color:#6b7378}.brief .gap{font-size:.8rem;color:#6b7378;margin:.2rem 0 0}@media(max-width:560px){.brief dl{grid-template-columns:1fr}.brief dt{margin-top:.3rem}}</style>')
 
 
 def brief_html(pid):
     b = PEOPLE[pid]['brief']
-    w = b['work']
-    how = (H.escape(b['solve']) + f'<br>代表作品：<a href="#{H.escape(w["id"])}">{H.escape(w["title"])}</a> —— {H.escape(w["step"])}')
+    items = ''.join(f'<li><a href="#{H.escape(w["id"])}">{H.escape(w["title"])}</a>：{H.escape(w["step"])}'
+                    f'<span class="eg">边界：{H.escape(w["edge"])}</span></li>' for w in b['works'])
+    gap = f'<p class="gap">没列入：{H.escape(b["gap"])}</p>' if b.get('gap') else ''
+    how = H.escape(b['solve']) + f'<ol class="hw">{items}</ol>' + gap
     rows = [('面向谁', H.escape(b['who'])), ('具体痛点', H.escape(b['pain'])), ('他咋做', how), ('Ocean 可以做', H.escape(b['ocean']))]
     return ('<section class="brief" id="brief" aria-label="实操摘要"><h2>实操摘要</h2><dl>'
             + ''.join(f'<dt>{k}</dt><dd>{v}</dd>' for k, v in rows)

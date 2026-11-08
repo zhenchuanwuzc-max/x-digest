@@ -33,7 +33,7 @@ body{
 .nav a{display:block;color:var(--ink-2);text-decoration:none;font-size:.88rem;padding:.38rem .55rem;border-radius:8px;margin:.12rem 0}
 .nav a:hover,.nav a:focus-visible{background:var(--accent-soft);color:var(--accent);outline:none}
 .nav .sec{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:1rem 0 .35rem;padding-left:.55rem}
-.main{padding:1.75rem 1.5rem 4.5rem;max-width:52rem}
+.main{padding:1.75rem 1.5rem 4.5rem;max-width:62rem}
 h1{font-size:clamp(1.4rem,2.3vw,1.8rem);line-height:1.28;letter-spacing:-.025em;margin:0 0 .55rem;font-weight:750}
 h2{font-size:1.12rem;line-height:1.35;margin:2rem 0 .75rem;padding-bottom:.45rem;border-bottom:2px solid var(--accent);letter-spacing:-.015em;font-weight:700}
 .muted{color:var(--mut);font-size:.94rem;line-height:1.6;margin:.4rem 0 1.2rem}
@@ -75,7 +75,7 @@ a.card:hover,a.card:focus-visible{border-color:#9bb8c4;outline:none}
 .card{padding:.8rem 1rem;gap:.3rem}.card p{font-size:.86rem}
 .total{margin:0;padding-left:1.1rem}.total li{margin:.35rem 0}
 .prs{display:grid;gap:.8rem}.pr{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:.85rem 1rem}
-.bms{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:.6rem;margin:.2rem 0 .7rem}.bm{border-left:3px solid var(--accent);background:#f6faf8;border-radius:8px;padding:.5rem .7rem}.bm p{margin:.15rem 0;font-size:.87rem}.bn a{font-weight:750;font-size:1.02rem;color:var(--accent)}.bl b,.bs b{display:inline-block;font-size:.72rem;border-radius:999px;padding:0 .4rem;margin-right:.35rem}.bl b{background:#e4f3ec;color:#0d6b52}.bs b{background:#fff0d6;color:#8a5a00}.pr .lv{display:block;font-size:.78rem;color:var(--mut)}.pr h3{margin:0 0 .2rem;font-size:1rem}.pr .lv{margin:0 0 .5rem;font-size:.8rem;color:var(--mut)}
+.bms{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:.6rem;margin:.2rem 0 .7rem}.bm{border-left:3px solid var(--accent);background:#f6faf8;border-radius:8px;padding:.5rem .7rem}.bws{margin:.1rem 0 .3rem;padding-left:1.1rem;font-size:.85rem}.bws li{margin:.2rem 0}.bm p{margin:.15rem 0;font-size:.87rem}.bn a{font-weight:750;font-size:1.02rem;color:var(--accent)}.bl b,.bs b{display:inline-block;font-size:.72rem;border-radius:999px;padding:0 .4rem;margin-right:.35rem}.bl b{background:#e4f3ec;color:#0d6b52}.bs b{background:#fff0d6;color:#8a5a00}.pr .lv{display:block;font-size:.78rem;color:var(--mut)}.pr h3{margin:0 0 .2rem;font-size:1rem}.pr .lv{margin:0 0 .5rem;font-size:.8rem;color:var(--mut)}
 .pr dl,.pc dl{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:.25rem .6rem;margin:0;font-size:.88rem}
 .pr dt,.pc dt{color:var(--mut);font-weight:600}.pr dd,.pc dd{margin:0}
 .steps li,.obs li{margin:.3rem 0}.obs{color:var(--ink-2);font-size:.9rem}
@@ -83,6 +83,25 @@ a.card:hover,a.card:focus-visible{border-color:#9bb8c4;outline:none}
 .pc details{font-size:.78rem;color:var(--mut)}.pc details ul{padding-left:1rem;margin:.3rem 0}.pc .go{font-size:.84rem;font-weight:650;color:var(--accent);text-decoration:none}
 .pc h3 a{color:inherit;text-decoration:none}
 @media(max-width:560px){.pr dl,.pc dl{grid-template-columns:1fr}.pr dt,.pc dt{margin-top:.25rem}}
+.legend{font-size:.82rem;color:var(--mut);margin:.2rem 0 .5rem}
+.cmp{width:100%;border-collapse:collapse;font-size:.86rem;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.cmp th,.cmp td{border-bottom:1px solid var(--line);padding:.5rem .55rem;text-align:left;vertical-align:top}
+.cmp thead th{font-size:.76rem;color:var(--mut);font-weight:650;background:#f4f1ea;white-space:nowrap}
+.cmp tbody th{width:9.5rem;font-weight:700}.cmp tbody th a{color:var(--accent);text-decoration:none;font-size:.95rem}
+.cmp .hd{display:block;font-weight:400;font-size:.74rem;color:var(--mut)}
+.cmp .does{display:block}.cmp .usr{display:block;color:var(--mut);font-size:.8rem;margin-top:.15rem}
+.cmp td.m{width:7.2rem;font-variant-numeric:tabular-nums}.cmp td.m:last-child{width:11rem}
+.cmp .nf{color:var(--mut)}.cmp .k{display:inline-block;margin:.1rem 0 0}
+.cmp details{font-size:.74rem;font-weight:400;color:var(--mut);margin-top:.25rem}.cmp details ul{padding-left:1rem;margin:.25rem 0;overflow-wrap:anywhere}
+@media(max-width:820px){
+ .cmp,.cmp tbody,.cmp tr,.cmp th,.cmp td{display:block;width:auto!important}
+ .cmp thead{display:none}.cmp{border:0;background:none}
+ .cmp tr{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.45rem .7rem;margin:0 0 .55rem}
+ .cmp th,.cmp td{border:0;padding:.15rem 0}
+ .cmp td.m{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:.4rem}
+ .cmp td.m::before{content:attr(data-l);font-size:.78rem;color:var(--mut)}
+ .cmp details ul{width:auto}
+}
 </style>
 <link rel="stylesheet" href="../xhs-fluid.css" data-xhs-fluid></head>
 <body>
@@ -105,19 +124,19 @@ a.card:hover,a.card:focus-visible{border-color:#9bb8c4;outline:none}
   <div class="prs">
     <div class="pr">
       <h3>把 AI 用进真实工作，一帖一个操作</h3>
-      <div class="bms"><div class="bm"><p class="bn"><a href="../qiaomu.html" target="_blank" rel="noopener noreferrer">向阳乔木</a></p><p class="bw">做了什么：<a href="../qiaomu.html#w2" target="_blank" rel="noopener noreferrer">三步操作帖：用 AI 读超长的书</a> —— 把一个具体操作拆成三步写（<a href="https://x.com/vista8/status/1740720440178532610" target="_blank" rel="noopener noreferrer">一手来源</a>）</p><p class="bl"><b>学这一步</b>一帖只讲一个操作，步骤编号</p><p class="bs"><b>别照搬</b>他“靠知识库出圈”出自第三方人物稿，没有转发数据，不当成规律</p></div><div class="bm"><p class="bn"><a href="../baoyu.html" target="_blank" rel="noopener noreferrer">宝玉</a></p><p class="bw">做了什么：<a href="../baoyu.html#w2" target="_blank" rel="noopener noreferrer">管理经验迁移：Agent 交 PR 必须带截图</a> —— 把带人时的规矩原样定给 Agent（<a href="https://x.com/dotey/status/2118569598379229219" target="_blank" rel="noopener noreferrer">一手来源</a>）</p><p class="bl"><b>学这一步</b>把职场里已有的规矩迁移给 AI，规矩本身就是内容</p><p class="bs"><b>别照搬</b>场景是代码 PR，非技术读者要换成自己的工作环节</p></div></div>
+      <div class="bms"><div class="bm"><p class="bn"><a href="../qiaomu.html" target="_blank" rel="noopener noreferrer">向阳乔木</a></p><p class="bw">做了这些事：</p><ol class="bws"><li><a href="../qiaomu.html#w1" target="_blank" rel="noopener noreferrer">中文 AI 账号推荐清单（2023）</a>：十几个账号，每个一句“为什么值得看”，结尾请读者补（<a href="https://x.com/vista8/status/1733509609959379094" target="_blank" rel="noopener noreferrer">一手来源</a>）</li><li><a href="../qiaomu.html#w2" target="_blank" rel="noopener noreferrer">三步操作帖：用 AI 读超长的书</a>：先写自己的需求和卡点，再给三步：转 PDF、切 3 份、按目录问（<a href="https://x.com/vista8/status/1740720440178532610" target="_blank" rel="noopener noreferrer">一手来源</a>）</li><li><a href="../qiaomu.html#w4" target="_blank" rel="noopener noreferrer">两天的进度帖串</a>：起因、卡住、白忙半天、第一版完成，每帖只讲一步（<a href="https://x.com/vista8/status/2118382278065999994" target="_blank" rel="noopener noreferrer">一手来源</a>）</li></ol><p class="bl"><b>学这一步</b>一帖只讲一个操作；清单每条写“为什么值得看”；做东西时把卡住的一步也发</p><p class="bs"><b>别照搬</b>他“靠知识库出圈”出自第三方人物稿，没有转发数据，不当规律</p></div><div class="bm"><p class="bn"><a href="../baoyu.html" target="_blank" rel="noopener noreferrer">宝玉</a></p><p class="bw">做了这些事：</p><ol class="bws"><li><a href="../baoyu.html#w1" target="_blank" rel="noopener noreferrer">课程翻译合集（2023）</a>：一门课同时给课程地址、X 线程、B站、YouTube 四个入口（<a href="https://x.com/dotey/status/1673922279007485953" target="_blank" rel="noopener noreferrer">一手来源</a>）</li><li><a href="../baoyu.html#w2" target="_blank" rel="noopener noreferrer">Agent 交 PR 必须带截图</a>：把带人时的规矩原样定给 Agent，次日补帖回应误解（<a href="https://x.com/dotey/status/2118569598379229219" target="_blank" rel="noopener noreferrer">一手来源</a>）</li><li><a href="../baoyu.html#w4" target="_blank" rel="noopener noreferrer">新闻长帖</a>：标题直接写结论，正文第一句交代来源和日期，再解释名词（<a href="https://x.com/dotey/status/2119283516143776186" target="_blank" rel="noopener noreferrer">一手来源</a>）</li></ol><p class="bl"><b>学这一步</b>一份内容给多个入口；把职场已有规矩迁移给 AI；转述新闻先写结论和出处</p><p class="bs"><b>别照搬</b>场景多是代码与英文资料，非技术读者要换成自己的工作环节</p></div></div>
       <dl><dt>面向谁</dt><dd>大厂里想把 AI 用进日常工作的非技术职场人（推断）<span class="lv">读者现在：多在 L1 会聊（推断）；内容指向：L2 会喂 → L3 会验</span></dd><dt>痛点</dt><dd>会问 AI，但不知道怎么放进周报、需求、复盘；不确定结果能不能信</dd>
       <dt>Ocean 借鉴</dt><dd>建议：学乔木的“三步写法”——挑 3 个自己真做过的环节，各写“原来怎么做 → 用 AI 怎么做 → 哪一步必须人来核”（全部脱敏）</dd><dt>怎么验证</dt><dd>看收藏和“求模板 / 我也试了”的具体留言，不看粉丝数</dd></dl>
     </div>
     <div class="pr">
       <h3>把活干好的产品方法，一篇一个判断</h3>
-      <div class="bms"><div class="bm"><p class="bn"><a href="../lenny.html" target="_blank" rel="noopener noreferrer">Lenny Rachitsky</a></p><p class="bw">做了什么：<a href="../lenny.html#lenny-w1" target="_blank" rel="noopener noreferrer">里程碑问答《1,000,000》</a> —— 用读者提问组织复盘，每个问题给具体数字（<a href="https://www.lennysnewsletter.com/p/1000000" target="_blank" rel="noopener noreferrer">一手来源</a>）</p><p class="bl"><b>学这一步</b>用读者的真实问题组织复盘，每题给具体数字</p><p class="bs"><b>别照搬</b>他的订阅规模和团队配置</p></div><div class="bm"><p class="bn"><a href="../shreyas.html" target="_blank" rel="noopener noreferrer">Shreyas Doshi</a></p><p class="bw">做了什么：<a href="../shreyas.html#shreyas-w2" target="_blank" rel="noopener noreferrer">一句话判断：两种 PM</a> —— 用两句原话对照两种自我定位（<a href="https://x.com/shreyas/status/2108301324102279535" target="_blank" rel="noopener noreferrer">一手来源</a>）</p><p class="bl"><b>学这一步</b>两句原话对照，让读者自己对号入座</p><p class="bs"><b>别照搬</b>“更难被录用”这类结论是他的观察，没有数据</p></div></div>
+      <div class="bms"><div class="bm"><p class="bn"><a href="../lenny.html" target="_blank" rel="noopener noreferrer">Lenny Rachitsky</a></p><p class="bw">做了这些事：</p><ol class="bws"><li><a href="../lenny.html#lenny-w1" target="_blank" rel="noopener noreferrer">里程碑问答《1,000,000》</a>：用读者提问组织复盘，每个问题给具体数字（<a href="https://www.lennysnewsletter.com/p/1000000" target="_blank" rel="noopener noreferrer">一手来源</a>）</li><li><a href="../lenny.html#lenny-w2" target="_blank" rel="noopener noreferrer">免费薪酬工具发布</a>：一帖讲清能查什么、数据从哪来、多久更新（<a href="https://x.com/lennysan/status/2117731838760464398" target="_blank" rel="noopener noreferrer">一手来源</a>）</li><li><a href="../lenny.html#lenny-w4" target="_blank" rel="noopener noreferrer">第六年礼物指南</a>：每年同期的固定栏目，声明无利益，附一个 AI 用法（<a href="https://x.com/lennysan/status/2117660747555856859" target="_blank" rel="noopener noreferrer">一手来源</a>）</li></ol><p class="bl"><b>学这一步</b>用读者真实问题组织复盘；工具帖写清数据来源；做一个每年同期的固定栏目</p><p class="bs"><b>别照搬</b>他的订阅规模、团队配置和合作方资源</p></div><div class="bm"><p class="bn"><a href="../shreyas.html" target="_blank" rel="noopener noreferrer">Shreyas Doshi</a></p><p class="bw">做了这些事：</p><ol class="bws"><li><a href="../shreyas.html#shreyas-w1" target="_blank" rel="noopener noreferrer">PM 框架合集线程（2021）</a>：首帖只写是什么、给谁，正文放在线程里（<a href="https://x.com/shreyas/status/1399042778613485578" target="_blank" rel="noopener noreferrer">一手来源</a>）</li><li><a href="../shreyas.html#shreyas-w2" target="_blank" rel="noopener noreferrer">一句话判断：两种 PM</a>：用两句原话对照两种自我定位（<a href="https://x.com/shreyas/status/2108301324102279535" target="_blank" rel="noopener noreferrer">一手来源</a>）</li><li><a href="../shreyas.html#shreyas-w3" target="_blank" rel="noopener noreferrer">反常识：别再“多和用户聊”</a>：先承认常规建议对谁成立，再划出不适用的人（<a href="https://x.com/shreyas/status/2110393175525454315" target="_blank" rel="noopener noreferrer">一手来源</a>）</li></ol><p class="bl"><b>学这一步</b>合集先写“给谁”；两句原话对照；反驳常见建议前先说它对谁成立</p><p class="bs"><b>别照搬</b>“前 20%”“更难被录用”这类划分没有数据</p></div></div>
       <dl><dt>面向谁</dt><dd>想把活干好的 PM 和职场新人（推断）<span class="lv">层级不适用（方法类）</span></dd><dt>痛点</dt><dd>知道很多框架，到了具体会议、需求、复盘还是拿不准</dd>
       <dt>Ocean 借鉴</dt><dd>建议：从 Lenny 素材池选一篇，按 Shreyas 的对照写法配一个大厂日常的脱敏场景：情境 → 两种做法 → 判断</dd><dt>怎么验证</dt><dd>评论里是否出现“我们团队也这样”的具体场景；没有就换场景</dd></dl>
     </div>
     <div class="pr">
       <h3>公开学 AI 的过程，作品比感想多</h3>
-      <div class="bms"><div class="bm"><p class="bn"><a href="../zhangzala.html" target="_blank" rel="noopener noreferrer">张咋啦（Zara Zhang）</a></p><p class="bw">做了什么：<a href="../zhangzala.html#w2" target="_blank" rel="noopener noreferrer">工具接入帖</a> —— 标题一句说清接进哪个软件，正文说明接进去能干什么（<a href="https://www.xiaohongshu.com/explore/6a1018060000000007027155" target="_blank" rel="noopener noreferrer">一手来源</a>）</p><p class="bl"><b>学这一步</b>标题一句讲清“接进哪里”，读者一眼知道能干什么</p><p class="bs"><b>别照搬</b>她的粉丝数字和身份反差标题</p></div><div class="bm"><p class="bn"><a href="../huashu.html" target="_blank" rel="noopener noreferrer">花叔</a></p><p class="bw">做了什么：<a href="../huashu.html#w1" target="_blank" rel="noopener noreferrer">一年复盘</a> —— 把收入数字和“不如上班”一起写出来（<a href="https://www.huasheng.ai/insights/wechat-2247484223-1/" target="_blank" rel="noopener noreferrer">一手来源</a>）</p><p class="bl"><b>学这一步</b>复盘里把代价和没做成的部分一起写</p><p class="bs"><b>别照搬</b>离职背景和收入对比；不涉及职业去留</p></div></div>
+      <div class="bms"><div class="bm"><p class="bn"><a href="../zhangzala.html" target="_blank" rel="noopener noreferrer">张咋啦（Zara Zhang）</a></p><p class="bw">做了这些事：</p><ol class="bws"><li><a href="../zhangzala.html#w1" target="_blank" rel="noopener noreferrer">两年回顾帖（2025-09）</a>：标题放篇数和结果，正文写感想，后半段放读者“我做了第一个 X”的反馈（<a href="https://www.xiaohongshu.com/explore/68ccbc56000000000e022358?xsec_token=ABUcpaYJnXAnMYht_N_HshQcD3ZgE-cUBYTX9jI9X7_Xw=&amp;xsec_source=pc_user" target="_blank" rel="noopener noreferrer">一手来源</a>）</li><li><a href="../zhangzala.html#w2" target="_blank" rel="noopener noreferrer">Claude Code 接入飞书</a>：标题一句说清接进哪个软件，正文说明接进去能干什么（<a href="https://www.xiaohongshu.com/explore/6a1018060000000007027155?xsec_token=AB-QSO3EIltr0KEwJqPLsYnuD1Ptzjx8K3plXk1eA5-dA=&amp;xsec_source=pc_user" target="_blank" rel="noopener noreferrer">一手来源</a>）</li><li><a href="../zhangzala.html#w4" target="_blank" rel="noopener noreferrer">一年在 Twitter 涨粉 7 万</a>：标题“如何 + 时间 + 结果数字”，正文点明视频动画和剪辑用 Claude Code 做（<a href="https://www.xiaohongshu.com/explore/6a31edc300000000200387f4?xsec_token=ABQSKYmEqpZfsugCKX7VlrlMwEK09rjxlMv-UP-lMOuLs=&amp;xsec_source=pc_user" target="_blank" rel="noopener noreferrer">一手来源</a>）</li></ol><p class="bl"><b>学这一步</b>标题一句讲清接进哪里；作品用了什么工具在正文点明；里程碑时放读者反馈</p><p class="bs"><b>别照搬</b>她的粉丝数字和身份反差标题；视频里的步骤本页没看到</p></div><div class="bm"><p class="bn"><a href="../huashu.html" target="_blank" rel="noopener noreferrer">花叔</a></p><p class="bw">做了这些事：</p><ol class="bws"><li><a href="../huashu.html#w1" target="_blank" rel="noopener noreferrer">离开大厂一年复盘（2024-03）</a>：把收入数字和“不如上班”一起写出来（<a href="https://www.huasheng.ai/insights/wechat-2247484223-1/" target="_blank" rel="noopener noreferrer">一手来源</a>）</li><li><a href="../huashu.html#w2" target="_blank" rel="noopener noreferrer">小票笔记发布</a>：一条帖讲清灵感来源、开发工具和耗时（<a href="https://x.com/AlchainHust/status/1993324209682948102" target="_blank" rel="noopener noreferrer">一手来源</a>）</li><li><a href="../huashu.html#w4" target="_blank" rel="noopener noreferrer">自我拆解：这条涨粉视频不太能抄</a>：发好结果后马上补帖说哪些条件别人没有（<a href="https://x.com/AlchainHust/status/2112450926393139666" target="_blank" rel="noopener noreferrer">一手来源</a>）</li></ol><p class="bl"><b>学这一步</b>复盘把代价写进去；发布写清灵感、工具和耗时；好结果后说清哪些条件别人没有</p><p class="bs"><b>别照搬</b>离职背景和收入对比；不涉及职业去留</p></div></div>
       <dl><dt>面向谁</dt><dd>想开始自己动手用 AI 做点东西的同路人（推断）<span class="lv">读者现在：L1–L2（推断）；内容指向：L2 会喂，个别工具例子到 L4 会编</span></dd><dt>痛点</dt><dd>不知道从哪开始，怕被说外行</dd>
       <dt>Ocean 借鉴</dt><dd>建议：辅系列「我学 AI 的过程」每周一篇，固定三段：试了什么 / 卡在哪 / 下周试什么</dd><dt>怎么验证</dt><dd>先定连续 N 期的过程目标；看有没有读者说“照着做了”</dd></dl>
     </div>
@@ -128,120 +147,82 @@ a.card:hover,a.card:focus-visible{border-color:#9bb8c4;outline:none}
 
   <h2 id="people">人物（14）</h2>
   <p class="muted">X 关注者为 2026-11-08 19:14（UTC+8）公共读取；其余数字均注明是本人说法和披露日期，找不到写「未找到公开数值」，不等于没有账号。收入口径不同，不排名、不相加。</p>
-  <div class="grid">
-    <div class="card pc" id="p-kazike">
-      <h3><span class="ico" aria-hidden="true">卡</span><a href="../kazike.html" target="_blank" rel="noopener noreferrer">卡兹克</a></h3>
-      <p class="meta">Rockhazix</p>
-      <dl><dt>主要做什么</dt><dd>公众号写 AI 工具实测与观点，带内容团队做 IP；2026 起在 X 写用 Agent 做开发</dd><dt>主要用户</dt><dd>想跟上 AI 新工具、找可信信息源的中文读者（推断）</dd>
-      <dt>X 关注者</dt><dd><span>106,816</span><span class="k f">公开读取</span></dd><dt>小红书粉丝</dt><dd><span>约 10 万</span><span class="k s">自述 · 2026-05</span></dd><dt>公众号关注</dt><dd><span class="nf">未找到公开数值</span></dd><dt>收入</dt><dd><span class="nf">未找到公开数值</span></dd></dl>
-      <details><summary>数据口径与来源</summary><ul><li>X 关注者：106,816 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/Khazix0918" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：约 10 万 · 2026-05-18 内部分享（虎嗅转载） · 原话“小红书也才马上才摸到10万粉” · <a href="https://www.huxiu.com/article/4859145.html" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 早期自述“最初的500个粉丝”（2023 回顾），不是当前数</li><li>收入：未找到公开数值</li></ul></details>
-      <a class="go" href="../kazike.html" target="_blank" rel="noopener noreferrer">打开成长页 →</a>
-    </div>
-    <div class="card pc" id="p-zhangzala">
-      <h3><span class="ico" aria-hidden="true">张</span><a href="../zhangzala.html" target="_blank" rel="noopener noreferrer">张咋啦（Zara Zhang）</a></h3>
-      <p class="meta">给「AI具身牛马」参考</p>
-      <dl><dt>主要做什么</dt><dd>小红书 / X 以学生视角公开学 AI、做小工具</dd><dt>主要用户</dt><dd>想开始用 AI、同样从零学的中文年轻职场人（推断）</dd>
-      <dt>X 关注者</dt><dd><span>94,890</span><span class="k f">公开读取</span></dd><dt>小红书粉丝</dt><dd><span>12 万</span><span class="k s">自述 · 2025-09 · 历史</span></dd><dt>公众号关注</dt><dd><span class="nf">未找到公开数值</span></dd><dt>收入</dt><dd><span class="nf">未找到公开数值</span></dd></dl>
-      <details><summary>数据口径与来源</summary><ul><li>X 关注者：94,890 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/zarazhangrui" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：12 万 · 2025-09-18 笔记标题 · 标题《2年400篇笔记，12万粉丝》 · <a href="https://www.xiaohongshu.com/explore/68ccbc56000000000e022358" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值</li></ul></details>
-      <a class="go" href="../zhangzala.html" target="_blank" rel="noopener noreferrer">打开成长页 →</a>
-    </div>
-    <div class="card pc" id="p-baoyu">
-      <h3><span class="ico" aria-hidden="true">宝</span><a href="../baoyu.html" target="_blank" rel="noopener noreferrer">宝玉</a></h3>
-      <p class="meta">@dotey</p>
-      <dl><dt>主要做什么</dt><dd>翻译、解读 AI 一手资料，写软件工程与带人经验</dd><dt>主要用户</dt><dd>想读懂英文 AI 一手资料的中文开发者与技术管理者（推断）</dd>
-      <dt>X 关注者</dt><dd><span>267,278</span><span class="k f">公开读取</span></dd><dt>小红书粉丝</dt><dd><span class="nf">未找到公开数值</span></dd><dt>公众号关注</dt><dd><span class="nf">未找到公开数值</span></dd><dt>收入</dt><dd><span class="nf">未找到公开数值</span></dd></dl>
-      <details><summary>数据口径与来源</summary><ul><li>X 关注者：267,278 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/dotey" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值</li></ul></details>
-      <a class="go" href="../baoyu.html" target="_blank" rel="noopener noreferrer">打开成长页 →</a>
-    </div>
-    <div class="card pc" id="p-guizang">
-      <h3><span class="ico" aria-hidden="true">歸</span><a href="../guizang.html" target="_blank" rel="noopener noreferrer">歸藏</a></h3>
-      <p class="meta">@op7418</p>
-      <dl><dt>主要做什么</dt><dd>AIGC 周刊与工具实测，免费两年后转付费</dd><dt>主要用户</dt><dd>想跟进 AI 图像视频工具的设计师与创作者（推断）</dd>
-      <dt>X 关注者</dt><dd><span>187,005</span><span class="k f">公开读取</span></dd><dt>小红书粉丝</dt><dd><span class="nf">未找到公开数值</span></dd><dt>公众号关注</dt><dd><span class="nf">未找到公开数值</span></dd><dt>收入</dt><dd><span class="nf">未找到公开数值</span></dd></dl>
-      <details><summary>数据口径与来源</summary><ul><li>X 关注者：187,005 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/op7418" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值 · 有付费周刊，未见收入金额</li></ul></details>
-      <a class="go" href="../guizang.html" target="_blank" rel="noopener noreferrer">打开成长页 →</a>
-    </div>
-    <div class="card pc" id="p-qiaomu">
-      <h3><span class="ico" aria-hidden="true">乔</span><a href="../qiaomu.html" target="_blank" rel="noopener noreferrer">向阳乔木</a></h3>
-      <p class="meta">@vista8</p>
-      <dl><dt>主要做什么</dt><dd>PM 视角整理 AI 用法、写专栏与书，开源 Skill</dd><dt>主要用户</dt><dd>想把 AI 用进工作的 PM 与知识工作者（推断）</dd>
-      <dt>X 关注者</dt><dd><span>137,439</span><span class="k f">公开读取</span></dd><dt>小红书粉丝</dt><dd><span class="nf">未找到公开数值</span></dd><dt>公众号关注</dt><dd><span class="nf">未找到公开数值</span></dd><dt>收入</dt><dd><span class="nf">未找到公开数值</span></dd></dl>
-      <details><summary>数据口径与来源</summary><ul><li>X 关注者：137,439 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/vista8" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值 · 2026-10-20 · 自述收到图书版税，未披露金额 · <a href="https://x.com/vista8/status/2112382506809032813" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details>
-      <a class="go" href="../qiaomu.html" target="_blank" rel="noopener noreferrer">打开成长页 →</a>
-    </div>
-    <div class="card pc" id="p-huashu">
-      <h3><span class="ico" aria-hidden="true">花</span><a href="../huashu.html" target="_blank" rel="noopener noreferrer">花叔</a></h3>
-      <p class="meta">@AlchainHust</p>
-      <dl><dt>主要做什么</dt><dd>不写代码用 AI 做产品，开源 Skill，多平台讲过程</dd><dt>主要用户</dt><dd>想离开大厂或用 AI 做产品的非程序员（推断）</dd>
-      <dt>X 关注者</dt><dd><span>73,974</span><span class="k f">公开读取</span></dd><dt>小红书粉丝</dt><dd><span class="nf">未找到公开数值</span></dd><dt>公众号关注</dt><dd><span class="nf">未找到公开数值</span></dd><dt>收入</dt><dd><span>“通过AI赚了大几十万”</span><span class="k s">自述 · 2024-03 · 历史</span></dd></dl>
-      <details><summary>数据口径与来源</summary><ul><li>X 关注者：73,974 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/AlchainHust" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：“通过AI赚了大几十万” · 2024-03-04 发表 · 离职后约一年、个人收入、币种未写明；同文说“比不上继续上班的收入” · <a href="https://www.huasheng.ai/insights/wechat-2247484223-1/" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details>
-      <a class="go" href="../huashu.html" target="_blank" rel="noopener noreferrer">打开成长页 →</a>
-    </div>
-    <div class="card pc" id="p-fankai">
-      <h3><span class="ico" aria-hidden="true">范</span><a href="../fankai.html" target="_blank" rel="noopener noreferrer">范凯说 AI</a></h3>
-      <p class="meta">@fankaishuoai</p>
-      <dl><dt>主要做什么</dt><dd>讲 AI 实践、个人 IP 与独立经营，做课程与企业咨询</dd><dt>主要用户</dt><dd>想用 AI 经营个人事业的职场人与小老板（推断）</dd>
-      <dt>X 关注者</dt><dd><span>46,869</span><span class="k f">公开读取</span></dd><dt>小红书粉丝</dt><dd><span class="nf">未找到公开数值</span></dd><dt>公众号关注</dt><dd><span>订阅号 1.2 万</span><span class="k s">自述 · 2026-11</span></dd><dt>收入</dt><dd><span class="nf">未找到公开数值</span></dd></dl>
-      <details><summary>数据口径与来源</summary><ul><li>X 关注者：46,869 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/fankaishuoai" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：订阅号 1.2 万 · 2026-11-05 · 同帖：视频号 6.5 万、YouTube 9400、Substack 800 · <a href="https://x.com/fankaishuoai/status/2118250800539725943" target="_blank" rel="noopener noreferrer">来源</a></li><li>收入：未找到公开数值 · 2026-10-25 · 自述 X 分成只是“零花钱”，主业 AI 企业咨询 · <a href="https://x.com/fankaishuoai/status/2114246530316239112" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details>
-      <a class="go" href="../fankai.html" target="_blank" rel="noopener noreferrer">打开成长页 →</a>
-    </div>
-    <div class="card pc" id="p-hector">
-      <h3><span class="ico" aria-hidden="true">H</span><a href="../hector.html" target="_blank" rel="noopener noreferrer">Hector Serrano</a></h3>
-      <p class="meta">@hectorserrranoo</p>
-      <dl><dt>主要做什么</dt><dd>Wispr Flow 第二位营销员工，搭付费 UGC 创作者体系</dd><dt>主要用户</dt><dd>做增长和内容的营销人（推断）</dd>
-      <dt>X 关注者</dt><dd><span>20,400</span><span class="k f">公开读取</span></dd><dt>小红书粉丝</dt><dd><span class="nf">未找到公开数值</span></dd><dt>公众号关注</dt><dd><span class="nf">未找到公开数值</span></dd><dt>收入</dt><dd><span class="nf">未找到公开数值</span></dd></dl>
-      <details><summary>数据口径与来源</summary><ul><li>X 关注者：20,400 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/hectorserrranoo" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值 · 受雇员工，未找到公开个人收入数值</li></ul></details>
-      <a class="go" href="../hector.html" target="_blank" rel="noopener noreferrer">打开成长页 →</a>
-    </div>
-    <div class="card pc" id="p-lenny">
-      <h3><span class="ico" aria-hidden="true">L</span><a href="../lenny.html" target="_blank" rel="noopener noreferrer">Lenny Rachitsky</a></h3>
-      <p class="meta">@lennysan</p>
-      <dl><dt>主要做什么</dt><dd>产品 / 增长 / 职业 newsletter 与播客</dd><dt>主要用户</dt><dd>产品经理与创业者（自述订户约一半 PM、四分之一以上创始人）</dd>
-      <dt>X 关注者</dt><dd><span>457,529</span><span class="k f">公开读取</span></dd><dt>小红书粉丝</dt><dd><span class="nf">未找到公开数值</span></dd><dt>公众号关注</dt><dd><span class="nf">未找到公开数值</span></dd><dt>收入</dt><dd><span class="nf">未找到公开数值</span></dd></dl>
-      <details><summary>数据口径与来源</summary><ul><li>X 关注者：457,529 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/lennysan" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值 · 2025-03-04 · 自述播客“generates more revenue than the newsletter”，未给金额 · <a href="https://www.lennysnewsletter.com/p/1000000" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details>
-      <a class="go" href="../lenny.html" target="_blank" rel="noopener noreferrer">打开成长页 →</a>
-    </div>
-    <div class="card pc" id="p-shreyas">
-      <h3><span class="ico" aria-hidden="true">S</span><a href="../shreyas.html" target="_blank" rel="noopener noreferrer">Shreyas Doshi</a></h3>
-      <p class="meta">@shreyas</p>
-      <dl><dt>主要做什么</dt><dd>产品判断力短帖，顾问、教练与 Maven 课</dd><dt>主要用户</dt><dd>资深 PM 与产品负责人（推断）</dd>
-      <dt>X 关注者</dt><dd><span>405,417</span><span class="k f">公开读取</span></dd><dt>小红书粉丝</dt><dd><span class="nf">未找到公开数值</span></dd><dt>公众号关注</dt><dd><span class="nf">未找到公开数值</span></dd><dt>收入</dt><dd><span class="nf">未找到公开数值</span></dd></dl>
-      <details><summary>数据口径与来源</summary><ul><li>X 关注者：405,417 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/shreyas" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值 · 课程售价不算收入</li></ul></details>
-      <a class="go" href="../shreyas.html" target="_blank" rel="noopener noreferrer">打开成长页 →</a>
-    </div>
-    <div class="card pc" id="p-ali">
-      <h3><span class="ico" aria-hidden="true">A</span><a href="../ali.html" target="_blank" rel="noopener noreferrer">Ali Abdaal</a></h3>
-      <p class="meta">@AliAbdaal</p>
-      <dl><dt>主要做什么</dt><dd>YouTube 效率内容 → 课程、书、App</dd><dt>主要用户</dt><dd>想提高效率、做副业创作者的年轻职场人和学生（推断）</dd>
-      <dt>X 关注者</dt><dd><span>356,655</span><span class="k f">公开读取</span></dd><dt>小红书粉丝</dt><dd><span class="nf">未找到公开数值</span></dd><dt>公众号关注</dt><dd><span class="nf">未找到公开数值</span></dd><dt>收入</dt><dd><span>2020 年业务年营收 $1M</span><span class="k s">自述 · 2020 · 历史</span></dd></dl>
-      <details><summary>数据口径与来源</summary><ul><li>X 关注者：356,655 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/AliAbdaal" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：2020 年业务年营收 $1M · About 页（2026-11-08 读取） · 公司营收，不是个人收入 · <a href="https://aliabdaal.com/about/" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details>
-      <a class="go" href="../ali.html" target="_blank" rel="noopener noreferrer">打开成长页 →</a>
-    </div>
-    <div class="card pc" id="p-swyx">
-      <h3><span class="ico" aria-hidden="true">x</span><a href="../swyx.html" target="_blank" rel="noopener noreferrer">swyx</a></h3>
-      <p class="meta">@swyx</p>
-      <dl><dt>主要做什么</dt><dd>Learn in Public、Latent Space 播客、AI Engineer 大会</dd><dt>主要用户</dt><dd>转向 AI 应用的软件工程师（推断）</dd>
-      <dt>X 关注者</dt><dd><span>211,808</span><span class="k f">公开读取</span></dd><dt>小红书粉丝</dt><dd><span class="nf">未找到公开数值</span></dd><dt>公众号关注</dt><dd><span class="nf">未找到公开数值</span></dd><dt>收入</dt><dd><span class="nf">未找到公开数值</span></dd></dl>
-      <details><summary>数据口径与来源</summary><ul><li>X 关注者：211,808 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/swyx" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值</li></ul></details>
-      <a class="go" href="../swyx.html" target="_blank" rel="noopener noreferrer">打开成长页 →</a>
-    </div>
-    <div class="card pc" id="p-levelsio">
-      <h3><span class="ico" aria-hidden="true">P</span><a href="../levelsio.html" target="_blank" rel="noopener noreferrer">levelsio（Pieter Levels）</a></h3>
-      <p class="meta">@levelsio</p>
-      <dl><dt>主要做什么</dt><dd>独立做产品并公开收入（Photo AI、Nomad List 等）</dd><dt>主要用户</dt><dd>独立开发者与想做副业的程序员（推断）</dd>
-      <dt>X 关注者</dt><dd><span>990,469</span><span class="k f">公开读取</span></dd><dt>小红书粉丝</dt><dd><span class="nf">未找到公开数值</span></dd><dt>公众号关注</dt><dd><span class="nf">未找到公开数值</span></dd><dt>收入</dt><dd><span>Photo AI 月营收 $61,808</span><span class="k s">自述 · 2023-07 · 历史</span></dd></dl>
-      <details><summary>数据口径与来源</summary><ul><li>X 关注者：990,469 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/levelsio" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：Photo AI 月营收 $61,808 · 2023-07 · 单产品月营收；2026-11-08 X 简介另列各产品月收入（如 $68K/m），口径不同不相加 · <a href="https://levels.io/photoai-14000-lines-raw-php-revenue" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details>
-      <a class="go" href="../levelsio.html" target="_blank" rel="noopener noreferrer">打开成长页 →</a>
-    </div>
-    <div class="card pc" id="p-justinwelsh">
-      <h3><span class="ico" aria-hidden="true">J</span><a href="../justinwelsh.html" target="_blank" rel="noopener noreferrer">Justin Welsh</a></h3>
-      <p class="meta">@thejustinwelsh</p>
-      <dl><dt>主要做什么</dt><dd>一人公司：周刊、课程、LinkedIn/X 格言帖</dd><dt>主要用户</dt><dd>想离开公司做一人生意的上班族与创作者（推断）</dd>
-      <dt>X 关注者</dt><dd><span>594,136</span><span class="k f">公开读取</span></dd><dt>小红书粉丝</dt><dd><span class="nf">未找到公开数值</span></dd><dt>公众号关注</dt><dd><span class="nf">未找到公开数值</span></dd><dt>收入</dt><dd><span>累计营收 $10M</span><span class="k s">自述 · 2025-06 · 历史</span></dd></dl>
-      <details><summary>数据口径与来源</summary><ul><li>X 关注者：594,136 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/thejustinwelsh" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：累计营收 $10M · 2025-06-07 发表 · 上线后 5 年 9 个月的业务营收；X 导流帖另说 $15M profit，口径不同不合并 · <a href="https://justinwelsh.me/essays/my-10m-journey" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details>
-      <a class="go" href="../justinwelsh.html" target="_blank" rel="noopener noreferrer">打开成长页 →</a>
-    </div>
-  </div>
+  <p class="legend">「未找到」= 未找到公开数值，不等于没有账号或没有收入；绿色「公开读取」= 本次实测，黄色「自述」= 本人说法并标年月。</p>
+  <table class="cmp">
+    <thead><tr><th scope="col">人物</th><th scope="col">主要做什么 · 主要用户</th><th scope="col">X 关注者</th><th scope="col">小红书粉丝</th><th scope="col">公众号关注</th><th scope="col">收入</th></tr></thead>
+    <tbody>
+    <tr id="p-kazike">
+      <th scope="row" data-l="人物"><a href="../kazike.html" target="_blank" rel="noopener noreferrer">卡兹克</a><span class="hd">Rockhazix</span></th>
+      <td data-l="主要做什么 · 主要用户"><span class="does">公众号写 AI 工具实测与观点，带内容团队做 IP；2026 起在 X 写用 Agent 做开发</span><span class="usr">用户：想跟上 AI 新工具、找可信信息源的中文读者（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：106,816 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/Khazix0918" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：约 10 万 · 2026-05-18 内部分享（虎嗅转载） · 原话“小红书也才马上才摸到10万粉” · <a href="https://www.huxiu.com/article/4859145.html" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 早期自述“最初的500个粉丝”（2023 回顾），不是当前数</li><li>收入：未找到公开数值</li></ul></details></td>
+      <td data-l="X 关注者" class="m"><span class="v"><span>106,816</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>约 10 万</span> <span class="k s">自述 · 2026-05</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
+    </tr>
+    <tr id="p-zhangzala">
+      <th scope="row" data-l="人物"><a href="../zhangzala.html" target="_blank" rel="noopener noreferrer">张咋啦（Zara Zhang）</a><span class="hd">给「AI具身牛马」参考</span></th>
+      <td data-l="主要做什么 · 主要用户"><span class="does">小红书 / X 以学生视角公开学 AI、做小工具</span><span class="usr">用户：想开始用 AI、同样从零学的中文年轻职场人（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：94,890 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/zarazhangrui" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：12 万 · 2025-09-18 笔记标题 · 标题《2年400篇笔记，12万粉丝》 · <a href="https://www.xiaohongshu.com/explore/68ccbc56000000000e022358" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值</li></ul></details></td>
+      <td data-l="X 关注者" class="m"><span class="v"><span>94,890</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>12 万</span> <span class="k s">自述 · 2025-09 · 历史</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
+    </tr>
+    <tr id="p-baoyu">
+      <th scope="row" data-l="人物"><a href="../baoyu.html" target="_blank" rel="noopener noreferrer">宝玉</a><span class="hd">@dotey</span></th>
+      <td data-l="主要做什么 · 主要用户"><span class="does">翻译、解读 AI 一手资料，写软件工程与带人经验</span><span class="usr">用户：想读懂英文 AI 一手资料的中文开发者与技术管理者（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：267,278 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/dotey" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值</li></ul></details></td>
+      <td data-l="X 关注者" class="m"><span class="v"><span>267,278</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
+    </tr>
+    <tr id="p-guizang">
+      <th scope="row" data-l="人物"><a href="../guizang.html" target="_blank" rel="noopener noreferrer">歸藏</a><span class="hd">@op7418</span></th>
+      <td data-l="主要做什么 · 主要用户"><span class="does">AIGC 周刊与工具实测，免费两年后转付费</span><span class="usr">用户：想跟进 AI 图像视频工具的设计师与创作者（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：187,005 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/op7418" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值 · 有付费周刊，未见收入金额</li></ul></details></td>
+      <td data-l="X 关注者" class="m"><span class="v"><span>187,005</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
+    </tr>
+    <tr id="p-qiaomu">
+      <th scope="row" data-l="人物"><a href="../qiaomu.html" target="_blank" rel="noopener noreferrer">向阳乔木</a><span class="hd">@vista8</span></th>
+      <td data-l="主要做什么 · 主要用户"><span class="does">PM 视角整理 AI 用法、写专栏与书，开源 Skill</span><span class="usr">用户：想把 AI 用进工作的 PM 与知识工作者（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：137,439 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/vista8" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值 · 2026-10-20 · 自述收到图书版税，未披露金额 · <a href="https://x.com/vista8/status/2112382506809032813" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details></td>
+      <td data-l="X 关注者" class="m"><span class="v"><span>137,439</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
+    </tr>
+    <tr id="p-huashu">
+      <th scope="row" data-l="人物"><a href="../huashu.html" target="_blank" rel="noopener noreferrer">花叔</a><span class="hd">@AlchainHust</span></th>
+      <td data-l="主要做什么 · 主要用户"><span class="does">不写代码用 AI 做产品，开源 Skill，多平台讲过程</span><span class="usr">用户：想离开大厂或用 AI 做产品的非程序员（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：73,974 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/AlchainHust" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：“通过AI赚了大几十万” · 2024-03-04 发表 · 离职后约一年、个人收入、币种未写明；同文说“比不上继续上班的收入” · <a href="https://www.huasheng.ai/insights/wechat-2247484223-1/" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details></td>
+      <td data-l="X 关注者" class="m"><span class="v"><span>73,974</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="v"><span>“通过AI赚了大几十万”</span> <span class="k s">自述 · 2024-03 · 历史</span></span></td>
+    </tr>
+    <tr id="p-fankai">
+      <th scope="row" data-l="人物"><a href="../fankai.html" target="_blank" rel="noopener noreferrer">范凯说 AI</a><span class="hd">@fankaishuoai</span></th>
+      <td data-l="主要做什么 · 主要用户"><span class="does">讲 AI 实践、个人 IP 与独立经营，做课程与企业咨询</span><span class="usr">用户：想用 AI 经营个人事业的职场人与小老板（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：46,869 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/fankaishuoai" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：订阅号 1.2 万 · 2026-11-05 · 同帖：视频号 6.5 万、YouTube 9400、Substack 800 · <a href="https://x.com/fankaishuoai/status/2118250800539725943" target="_blank" rel="noopener noreferrer">来源</a></li><li>收入：未找到公开数值 · 2026-10-25 · 自述 X 分成只是“零花钱”，主业 AI 企业咨询 · <a href="https://x.com/fankaishuoai/status/2114246530316239112" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details></td>
+      <td data-l="X 关注者" class="m"><span class="v"><span>46,869</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="v"><span>订阅号 1.2 万</span> <span class="k s">自述 · 2026-11</span></span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
+    </tr>
+    <tr id="p-hector">
+      <th scope="row" data-l="人物"><a href="../hector.html" target="_blank" rel="noopener noreferrer">Hector Serrano</a><span class="hd">@hectorserrranoo</span></th>
+      <td data-l="主要做什么 · 主要用户"><span class="does">Wispr Flow 第二位营销员工，搭付费 UGC 创作者体系</span><span class="usr">用户：做增长和内容的营销人（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：20,400 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/hectorserrranoo" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值 · 受雇员工，未找到公开个人收入数值</li></ul></details></td>
+      <td data-l="X 关注者" class="m"><span class="v"><span>20,400</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
+    </tr>
+    <tr id="p-lenny">
+      <th scope="row" data-l="人物"><a href="../lenny.html" target="_blank" rel="noopener noreferrer">Lenny Rachitsky</a><span class="hd">@lennysan</span></th>
+      <td data-l="主要做什么 · 主要用户"><span class="does">产品 / 增长 / 职业 newsletter 与播客</span><span class="usr">用户：产品经理与创业者（自述订户约一半 PM、四分之一以上创始人）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：457,529 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/lennysan" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值 · 2025-03-04 · 自述播客“generates more revenue than the newsletter”，未给金额 · <a href="https://www.lennysnewsletter.com/p/1000000" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details></td>
+      <td data-l="X 关注者" class="m"><span class="v"><span>457,529</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
+    </tr>
+    <tr id="p-shreyas">
+      <th scope="row" data-l="人物"><a href="../shreyas.html" target="_blank" rel="noopener noreferrer">Shreyas Doshi</a><span class="hd">@shreyas</span></th>
+      <td data-l="主要做什么 · 主要用户"><span class="does">产品判断力短帖，顾问、教练与 Maven 课</span><span class="usr">用户：资深 PM 与产品负责人（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：405,417 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/shreyas" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值 · 课程售价不算收入</li></ul></details></td>
+      <td data-l="X 关注者" class="m"><span class="v"><span>405,417</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
+    </tr>
+    <tr id="p-ali">
+      <th scope="row" data-l="人物"><a href="../ali.html" target="_blank" rel="noopener noreferrer">Ali Abdaal</a><span class="hd">@AliAbdaal</span></th>
+      <td data-l="主要做什么 · 主要用户"><span class="does">YouTube 效率内容 → 课程、书、App</span><span class="usr">用户：想提高效率、做副业创作者的年轻职场人和学生（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：356,655 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/AliAbdaal" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：2020 年业务年营收 $1M · About 页（2026-11-08 读取） · 公司营收，不是个人收入 · <a href="https://aliabdaal.com/about/" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details></td>
+      <td data-l="X 关注者" class="m"><span class="v"><span>356,655</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="v"><span>2020 年业务年营收 $1M</span> <span class="k s">自述 · 2020 · 历史</span></span></td>
+    </tr>
+    <tr id="p-swyx">
+      <th scope="row" data-l="人物"><a href="../swyx.html" target="_blank" rel="noopener noreferrer">swyx</a><span class="hd">@swyx</span></th>
+      <td data-l="主要做什么 · 主要用户"><span class="does">Learn in Public、Latent Space 播客、AI Engineer 大会</span><span class="usr">用户：转向 AI 应用的软件工程师（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：211,808 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/swyx" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值</li></ul></details></td>
+      <td data-l="X 关注者" class="m"><span class="v"><span>211,808</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
+    </tr>
+    <tr id="p-levelsio">
+      <th scope="row" data-l="人物"><a href="../levelsio.html" target="_blank" rel="noopener noreferrer">levelsio（Pieter Levels）</a><span class="hd">@levelsio</span></th>
+      <td data-l="主要做什么 · 主要用户"><span class="does">独立做产品并公开收入（Photo AI、Nomad List 等）</span><span class="usr">用户：独立开发者与想做副业的程序员（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：990,469 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/levelsio" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：Photo AI 月营收 $61,808 · 2023-07 · 单产品月营收；2026-11-08 X 简介另列各产品月收入（如 $68K/m），口径不同不相加 · <a href="https://levels.io/photoai-14000-lines-raw-php-revenue" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details></td>
+      <td data-l="X 关注者" class="m"><span class="v"><span>990,469</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="v"><span>Photo AI 月营收 $61,808</span> <span class="k s">自述 · 2023-07 · 历史</span></span></td>
+    </tr>
+    <tr id="p-justinwelsh">
+      <th scope="row" data-l="人物"><a href="../justinwelsh.html" target="_blank" rel="noopener noreferrer">Justin Welsh</a><span class="hd">@thejustinwelsh</span></th>
+      <td data-l="主要做什么 · 主要用户"><span class="does">一人公司：周刊、课程、LinkedIn/X 格言帖</span><span class="usr">用户：想离开公司做一人生意的上班族与创作者（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：594,136 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/thejustinwelsh" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：累计营收 $10M · 2025-06-07 发表 · 上线后 5 年 9 个月的业务营收；X 导流帖另说 $15M profit，口径不同不合并 · <a href="https://justinwelsh.me/essays/my-10m-journey" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details></td>
+      <td data-l="X 关注者" class="m"><span class="v"><span>594,136</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="v"><span>累计营收 $10M</span> <span class="k s">自述 · 2025-06 · 历史</span></span></td>
+    </tr>
+    </tbody>
+  </table>
 
   <h2 id="topics">专题（4）</h2>
   <div class="grid">

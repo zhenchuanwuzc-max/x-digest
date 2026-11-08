@@ -43,11 +43,36 @@
     "pain": "工具太多，不知道哪个真能用、怎么上手",
     "solve": "自己先试，写成上手教程和实测，把自己做成可信的信息源（本人说法）",
     "ocean": "建议：每周挑一个工作里真会用到的 AI 功能，写“我试了什么、在哪一步卡住”",
-    "work": {
-     "id": "w5",
-     "title": "一年复盘 + 两天后开源",
-     "step": "先发一年复盘，两天后把用到的东西开源成仓库"
-    }
+    "works": [
+     {
+      "id": "w1",
+      "title": "怀旧回顾《SD时代的消亡》",
+      "step": "借一条产品新闻回顾行业，把自己起号时的 30 粉、500 粉写进去",
+      "edge": "只读公众号正文，评论没看；数字是自述",
+      "src": "https://mp.weixin.qq.com/s/tBN6tiV_KGbfU-8EaR9KfQ"
+     },
+     {
+      "id": "w2",
+      "title": "三年内容方法论",
+      "step": "把内部分享写成长文：获取信息 → 找角度 → 创作，每步配真实案例",
+      "edge": "常读、赞阅比是他的内部标准，不是审计",
+      "src": "https://www.huxiu.com/article/4859145.html"
+     },
+     {
+      "id": "w4",
+      "title": "X 短帖：两个模型的性格",
+      "step": "同一个拼表任务，并排写两个模型的回答，不下结论",
+      "edge": "评论没读",
+      "src": "https://x.com/Khazix0918/status/2115691027860443268"
+     },
+     {
+      "id": "w5",
+      "title": "一年复盘 + 两天后开源",
+      "step": "先发一年复盘，两天后把打磨好的 Agent 工具开源，再补 Windows 支持",
+      "edge": "X 长文正文读不到，视频没看；star 等是自述",
+      "src": "https://x.com/Khazix0918/status/2117054331849720246"
+     }
+    ]
    }
   },
   {
@@ -93,11 +118,30 @@
     "pain": "怕自己是外行、不知道从哪学起",
     "solve": "以学生身份公开学习，每篇讲一个刚学会的东西，用读者“照做了”当反馈",
     "ocean": "建议：辅系列定“连续发满 N 期”的过程目标，用评论里的“照做了”判断是否继续",
-    "work": {
-     "id": "w2",
-     "title": "工具接入帖",
-     "step": "标题一句说清接进哪个软件，正文说明接进去能干什么"
-    }
+    "works": [
+     {
+      "id": "w1",
+      "title": "两年回顾帖（2025-09）",
+      "step": "标题放篇数和结果，正文写感想，后半段放读者“我做了第一个 X”的反馈",
+      "edge": "“12万粉丝”是标题自述；起点日期未知",
+      "src": "https://www.xiaohongshu.com/explore/68ccbc56000000000e022358?xsec_token=ABUcpaYJnXAnMYht_N_HshQcD3ZgE-cUBYTX9jI9X7_Xw=&xsec_source=pc_user"
+     },
+     {
+      "id": "w2",
+      "title": "Claude Code 接入飞书",
+      "step": "标题一句说清接进哪个软件，正文说明接进去能干什么",
+      "edge": "视频没播放、评论没载入，不写演示步骤",
+      "src": "https://www.xiaohongshu.com/explore/6a1018060000000007027155?xsec_token=AB-QSO3EIltr0KEwJqPLsYnuD1Ptzjx8K3plXk1eA5-dA=&xsec_source=pc_user"
+     },
+     {
+      "id": "w4",
+      "title": "一年在 Twitter 涨粉 7 万",
+      "step": "标题“如何 + 时间 + 结果数字”，正文点明视频动画和剪辑用 Claude Code 做",
+      "edge": "视频没播放，涨粉方法未知；7万是自述",
+      "src": "https://www.xiaohongshu.com/explore/6a31edc300000000200387f4?xsec_token=ABQSKYmEqpZfsugCKX7VlrlMwEK09rjxlMv-UP-lMOuLs=&xsec_source=pc_user"
+     }
+    ],
+    "gap": "w3、w5、w6 只核到标题或链接、视频没播放，不列为“他咋做”。"
    }
   },
   {
@@ -138,11 +182,36 @@
     "pain": "原文长、英文、更新快",
     "solve": "翻译 + 解读一手资料，再把带人经验写成给 Agent 的规则",
     "ocean": "建议：从 Lenny 素材池挑一篇，按“原文要点 → 大厂里怎么用”本地化",
-    "work": {
-     "id": "w2",
-     "title": "管理经验迁移：Agent 交 PR 必须带截图",
-     "step": "把带人时的规矩原样定给 Agent"
-    }
+    "works": [
+     {
+      "id": "w1",
+      "title": "课程翻译合集（2023）",
+      "step": "一门课同时给课程地址、X 线程、B站、YouTube 四个入口",
+      "edge": "只读帖子，课程视频没看",
+      "src": "https://x.com/dotey/status/1673922279007485953"
+     },
+     {
+      "id": "w3",
+      "title": "用自己的开源项目讲字幕原理",
+      "step": "先列三种坏字幕，再拿 BaoCut 讲五个坑，分上下集",
+      "edge": "视频没看",
+      "src": "https://x.com/dotey/status/2110506560375939160"
+     },
+     {
+      "id": "w2",
+      "title": "Agent 交 PR 必须带截图",
+      "step": "把带人时的规矩原样定给 Agent，次日补帖回应误解",
+      "edge": "直接回复只读 22 条；截图没看",
+      "src": "https://x.com/dotey/status/2118569598379229219"
+     },
+     {
+      "id": "w4",
+      "title": "新闻长帖",
+      "step": "标题直接写结论，正文第一句交代来源和日期，再解释名词",
+      "edge": "没逐条对照英文原文核翻译",
+      "src": "https://x.com/dotey/status/2119283516143776186"
+     }
+    ]
    }
   },
   {
@@ -184,11 +253,36 @@
     "pain": "新工具天天出，不知道哪个值得学",
     "solve": "每周整理周刊 + 好玩的实测例子，免费积累两年后才收费",
     "ocean": "建议：先把一类内容固定成周更栏目，不急着收费",
-    "work": {
-     "id": "w1",
-     "title": "实测帖",
-     "step": "参数、耗时、硬件全写出来"
-    }
+    "works": [
+     {
+      "id": "w1",
+      "title": "SD 转视频实测（2023）",
+      "step": "工具链、分辨率、帧数、显卡和耗时全写出来",
+      "edge": "视频没看",
+      "src": "https://x.com/op7418/status/1673742391537463297"
+     },
+     {
+      "id": "w4",
+      "title": "专访：免费两年后收费（2024）",
+      "step": "把增长放缓和“抗拒收费”的犹豫都讲出来",
+      "edge": "平台方访谈，可能有删改；订阅数是当时自述",
+      "src": "https://xiaobot.beehiiv.com/p/aigc"
+     },
+     {
+      "id": "w5",
+      "title": "周刊续费帖",
+      "step": "一条帖讲清为什么改平台、优惠多少、怎么买",
+      "edge": "评论没读，转化数据没有",
+      "src": "https://x.com/op7418/status/2114716867327918392"
+     },
+     {
+      "id": "w2",
+      "title": "新模型当天的表情包例子",
+      "step": "用流行梗演示新模型，附整段可复制的提示词和踩坑",
+      "edge": "直接回复只读 20 条",
+      "src": "https://x.com/op7418/status/2118181775688241456"
+     }
+    ]
    }
   },
   {
@@ -232,11 +326,36 @@
     "pain": "知道 AI 能用，但没有可直接套的整理方法",
     "solve": "先公开一份自己整理的 AI 飞书知识库，被同行转发后出圈（第三方人物稿里的本人说法）；2026 年再把自用流程做成开源 Skill",
     "ocean": "建议：把一个真实工作环节（如写周报、拆需求）的 AI 流程整理成可复制清单",
-    "work": {
-     "id": "w2",
-     "title": "三步操作帖：用 AI 读超长的书",
-     "step": "把一个具体操作拆成三步写"
-    }
+    "works": [
+     {
+      "id": "w1",
+      "title": "中文 AI 账号推荐清单（2023）",
+      "step": "十几个账号，每个一句“为什么值得看”，结尾请读者补",
+      "edge": "评论没读",
+      "src": "https://x.com/vista8/status/1733509609959379094"
+     },
+     {
+      "id": "w2",
+      "title": "三步操作帖：用 AI 读超长的书",
+      "step": "先写自己的需求和卡点，再给三步：转 PDF、切 3 份、按目录问",
+      "edge": "评论没读；模型能力已变化",
+      "src": "https://x.com/vista8/status/1740720440178532610"
+     },
+     {
+      "id": "w3",
+      "title": "Kindle 助手开源",
+      "step": "第一句写完整用法，再写一条做的时候学到的经验",
+      "edge": "评论只读 25 条；仓库未打开核",
+      "src": "https://x.com/vista8/status/2118332250211365326"
+     },
+     {
+      "id": "w4",
+      "title": "两天的进度帖串",
+      "step": "起因、卡住、白忙半天、第一版完成，每帖只讲一步",
+      "edge": "评论没读；开源是否兑现未核",
+      "src": "https://x.com/vista8/status/2118382278065999994"
+     }
+    ]
    }
   },
   {
@@ -281,11 +400,36 @@
     "pain": "不知道离开后能赚多少、代价是什么",
     "solve": "把收入、耗时和“不如上班”都写出来，再用开源作品证明能力",
     "ocean": "建议：写 AI 实操时把花的时间和没做成的部分一起写；不涉及职业去留",
-    "work": {
-     "id": "w1",
-     "title": "一年复盘",
-     "step": "把收入数字和“不如上班”一起写出来"
-    }
+    "works": [
+     {
+      "id": "w1",
+      "title": "离开大厂一年复盘（2024-03）",
+      "step": "把收入数字和“不如上班”一起写出来",
+      "edge": "收入是自述；只读到搜索返回的全文",
+      "src": "https://www.huasheng.ai/insights/wechat-2247484223-1/"
+     },
+     {
+      "id": "w2",
+      "title": "小票笔记发布",
+      "step": "一条帖讲清灵感来源、开发工具和耗时",
+      "edge": "小红书原帖和数据没核",
+      "src": "https://x.com/AlchainHust/status/1993324209682948102"
+     },
+     {
+      "id": "w3",
+      "title": "GitHub 星标里程碑",
+      "step": "借里程碑把作品整理成清单，结尾问读者用过哪个",
+      "edge": "星标数没独立核；评论没读",
+      "src": "https://x.com/AlchainHust/status/2108771483363475529"
+     },
+     {
+      "id": "w4",
+      "title": "自我拆解：这条涨粉视频不太能抄",
+      "step": "发好结果后马上补帖说哪些条件别人没有",
+      "edge": "视频没看",
+      "src": "https://x.com/AlchainHust/status/2112450926393139666"
+     }
+    ]
    }
   },
   {
@@ -333,11 +477,29 @@
     "pain": "不知道 AI 怎么变成稳定事业",
     "solve": "讲 AI 实践 + 个人 IP 方法，把内容放在有 URL 的平台积累资产（本人说法）",
     "ocean": "建议：每篇图文都能沉淀成一个可链接的长期条目（合集或文档）",
-    "work": {
-     "id": "w4",
-     "title": "流程公开",
-     "step": "口述 → AI 整理 → 人工改 → 一键发两个平台"
-    }
+    "works": [
+     {
+      "id": "w5",
+      "title": "被质疑后摆出旧作品",
+      "step": "列 JavaEye、丁香医生、疫情地图回应质疑",
+      "edge": "履历未独立核；评论没读",
+      "src": "https://x.com/fankaishuoai/status/2117207311643279662"
+     },
+     {
+      "id": "w4",
+      "title": "写作流程公开",
+      "step": "口述 → AI 整理 → 人工改 → 一键发两个平台，写清人和 AI 各管哪段",
+      "edge": "技能代码没看",
+      "src": "https://x.com/fankaishuoai/status/2110196505768534155"
+     },
+     {
+      "id": "w1",
+      "title": "YouTube / Substack 对比帖",
+      "step": "用自己两个平台的数字对比，落到“内容有 URL”这个判断",
+      "edge": "数字是本人说法；回复只读 11 条",
+      "src": "https://x.com/fankaishuoai/status/2118250800539725943"
+     }
+    ]
    }
   },
   {
@@ -379,11 +541,30 @@
     "pain": "自然内容难规模化，付费合作不知道怎么定",
     "solve": "先自己做广告找到能用的说法，再用保底合约批量请创作者",
     "ocean": "建议：只取“先自己验证说法、再放大”的顺序，不照搬付费投放",
-    "work": {
-     "id": "w3",
-     "title": "播客：把方法一次讲透",
-     "step": "在播客里把付费创作者体系一次讲完"
-    }
+    "works": [
+     {
+      "id": "w1",
+      "title": "放弃足球的长帖",
+      "step": "讲清当时逼他转行的那件事（父亲被裁、19 岁退役）",
+      "edge": "家庭细节无法核实；回复没读",
+      "src": "https://x.com/hectorserrranoo/status/2104378428317204605"
+     },
+     {
+      "id": "w3",
+      "title": "播客：把方法一次讲透",
+      "step": "在播客里讲付费 UGC、smart retainer、怎么招人",
+      "edge": "音频没逐句核；公司数据未审计",
+      "src": "growth/hector.html"
+     },
+     {
+      "id": "w5",
+      "title": "招聘帖",
+      "step": "列主持人条件，同时说明频道做挑战和幕后内容",
+      "edge": "招聘结果未知",
+      "src": "https://x.com/hectorserrranoo/status/2117351027930542178"
+     }
+    ],
+    "gap": "w2、w4 是一两行短观点，动作信息少，不列。"
    }
   },
   {
@@ -434,11 +615,29 @@
     "pain": "方法零散，缺可直接用的框架和数据",
     "solve": "深度调研写成框架文，再用播客扩展，先免费后付费",
     "ocean": "建议：从 Lenny 素材池选题，一篇一件方法，配大厂日常里的脱敏场景",
-    "work": {
-     "id": "lenny-w1",
-     "title": "里程碑问答《1,000,000》",
-     "step": "用读者提问组织复盘，每个问题给具体数字"
-    }
+    "works": [
+     {
+      "id": "lenny-w1",
+      "title": "里程碑问答《1,000,000》",
+      "step": "用读者提问组织复盘，每个问题给具体数字",
+      "edge": "数字和归因都是本人说法",
+      "src": "https://www.lennysnewsletter.com/p/1000000"
+     },
+     {
+      "id": "lenny-w2",
+      "title": "免费薪酬工具发布",
+      "step": "一帖讲清能查什么、数据从哪来、多久更新",
+      "edge": "数据质量未核",
+      "src": "https://x.com/lennysan/status/2117731838760464398"
+     },
+     {
+      "id": "lenny-w4",
+      "title": "第六年礼物指南",
+      "step": "每年同期的固定栏目，声明无利益，附一个 AI 用法",
+      "edge": "是否带来订阅未知",
+      "src": "https://x.com/lennysan/status/2117660747555856859"
+     }
+    ]
    }
   },
   {
@@ -480,11 +679,29 @@
     "pain": "知道很多框架，但判断时仍然拿不准",
     "solve": "一条短帖讲一个产品判断原则，再延伸到顾问、教练和 Maven 课",
     "ocean": "建议：把“把活干好”里的一个判断写成短卡：情境 → 判断 → 反例",
-    "work": {
-     "id": "shreyas-w2",
-     "title": "一句话判断：两种 PM",
-     "step": "用两句原话对照两种自我定位"
-    }
+    "works": [
+     {
+      "id": "shreyas-w1",
+      "title": "PM 框架合集线程（2021）",
+      "step": "首帖只写是什么、给谁，正文放在线程里",
+      "edge": "线程后续各条没读到",
+      "src": "https://x.com/shreyas/status/1399042778613485578"
+     },
+     {
+      "id": "shreyas-w2",
+      "title": "一句话判断：两种 PM",
+      "step": "用两句原话对照两种自我定位",
+      "edge": "“更难被录用”是他的观察，没有数据",
+      "src": "https://x.com/shreyas/status/2108301324102279535"
+     },
+     {
+      "id": "shreyas-w3",
+      "title": "反常识：别再“多和用户聊”",
+      "step": "先承认常规建议对谁成立，再划出不适用的人",
+      "edge": "“前 20%”是他的划分，没有数据",
+      "src": "https://x.com/shreyas/status/2110393175525454315"
+     }
+    ]
    }
   },
   {
@@ -529,11 +746,29 @@
     "pain": "想更高效，又怕效率方法只是鸡汤",
     "solve": "YouTube 讲效率方法（频道起点是给自己的医学申请辅导生意引流），再做成课、书和 App",
     "ocean": "建议：效率类选题要有自己的使用记录，不讲没试过的方法",
-    "work": {
-     "id": "ali-w1",
-     "title": "公开日记式 newsletter",
-     "step": "把一次上线当天写成日记，结尾给三条做法"
-    }
+    "works": [
+     {
+      "id": "ali-w1",
+      "title": "公开日记式 newsletter",
+      "step": "把一次上线当天写成日记，结尾给三条做法",
+      "edge": "截图和收入是自述",
+      "src": "https://aliabdaal.com/newsletter/celebrate-every-win-big-or-small/"
+     },
+     {
+      "id": "ali-w2",
+      "title": "向关注者提问",
+      "step": "把自己卡住的建站问题直接发出来问",
+      "edge": "回复只读到 2 条",
+      "src": "https://x.com/AliAbdaal/status/2083884396264767991"
+     },
+     {
+      "id": "ali-w4",
+      "title": "产品招募帖",
+      "step": "先讲自己做创作者时的痛点，再讲做了什么、申请链接",
+      "edge": "产品成绩未知",
+      "src": "https://x.com/AliAbdaal/status/2108148562101985569"
+     }
+    ]
    }
   },
   {
@@ -574,11 +809,29 @@
     "pain": "岗位新、名字乱，不知道该学什么",
     "solve": "用一篇文给岗位命名，再办大会和播客把人聚在一起",
     "ocean": "建议：给自己的系列起一个能被复述的名字（如“我学 AI 的过程”）",
-    "work": {
-     "id": "swyx-w2",
-     "title": "命名文《The Rise of the AI Engineer》",
-     "step": "先给新岗位起名，再宣布大会把这群人聚起来"
-    }
+    "works": [
+     {
+      "id": "swyx-w1",
+      "title": "Learn In Public（2018）",
+      "step": "一条总规则 + 一串马上能做的动作",
+      "edge": "影响力只看到自述的译本数",
+      "src": "https://swyx.io/learn-in-public"
+     },
+     {
+      "id": "swyx-w2",
+      "title": "The Rise of the AI Engineer",
+      "step": "先给新岗位起名，再宣布大会把这群人聚起来",
+      "edge": "岗位趋势是他的判断",
+      "src": "https://www.latent.space/p/ai-engineer"
+     },
+     {
+      "id": "swyx-w3",
+      "title": "每周 IPO 跟踪",
+      "step": "把一次热点做成有期限的固定栏目",
+      "edge": "后续是否坚持未知",
+      "src": "https://x.com/swyx/status/2118905788915982341"
+     }
+    ]
    }
   },
   {
@@ -623,11 +876,30 @@
     "pain": "缺少真实的收入和成本例子",
     "solve": "产品进度和收入公开发，用具体数字讲",
     "ocean": "建议：只借“用具体数字讲进展”，Ocean 的数字只写自己的、不涉及东家",
-    "work": {
-     "id": "levelsio-w1",
-     "title": "公开承诺帖 12 startups",
-     "step": "公开“每月做一个产品”的规则和进度表"
-    }
+    "works": [
+     {
+      "id": "levelsio-w1",
+      "title": "12 startups（2014）",
+      "step": "公开“每月做一个产品”的规则和进度表",
+      "edge": "12 个项目完成情况没逐个核",
+      "src": "https://levels.io/12-startups-12-months/"
+     },
+     {
+      "id": "levelsio-w2",
+      "title": "Photo AI 14,000 行 PHP（2023）",
+      "step": "四句话：代码量、不用框架、付费人数、月收入",
+      "edge": "收入是自述",
+      "src": "https://levels.io/photoai-14000-lines-raw-php-revenue"
+     },
+     {
+      "id": "levelsio-w3",
+      "title": "用 Claude Code 设计家具",
+      "step": "从自己装修的具体痛点讲一个 AI 用法",
+      "edge": "设计能否落地没验证",
+      "src": "https://x.com/levelsio/status/2119132202952798369"
+     }
+    ],
+    "gap": "w4（公开拉黑 AI 回复）本页标为不建议照搬，不列。"
    }
   },
   {
@@ -672,11 +944,29 @@
     "pain": "不知道第一步卖什么、怎么从服务走到产品",
     "solve": "先服务后产品，内容主题和产品主题一致，复盘写成编号步骤",
     "ocean": "建议：复盘类内容按编号步骤写；变现后置，先建立信任",
-    "work": {
-     "id": "justinwelsh-w1",
-     "title": "23 步复盘长文",
-     "step": "把 $10M 复盘写成编号步骤"
-    }
+    "works": [
+     {
+      "id": "justinwelsh-w1",
+      "title": "$10M 23 步复盘",
+      "step": "把复盘写成编号步骤",
+      "edge": "全部数字自述",
+      "src": "https://justinwelsh.me/essays/my-10m-journey"
+     },
+     {
+      "id": "justinwelsh-w2",
+      "title": "一句话格言",
+      "step": "把一个反常识观点压成两行对仗",
+      "edge": "同一句会重复发",
+      "src": "https://x.com/thejustinwelsh/status/2118328001708388635"
+     },
+     {
+      "id": "justinwelsh-w3",
+      "title": "固定导流帖",
+      "step": "格言帖之间穿插周刊或免费指南入口",
+      "edge": "转化效果未知",
+      "src": "https://x.com/thejustinwelsh/status/2118742791295566103"
+     }
+    ]
    }
   }
  ],
@@ -718,21 +1008,23 @@
    "bench": [
     {
      "pid": "qiaomu",
-     "work": "w2",
-     "title": "三步操作帖：用 AI 读超长的书",
-     "did": "把一个具体操作拆成三步写",
-     "src": "https://x.com/vista8/status/1740720440178532610",
-     "learn": "一帖只讲一个操作，步骤编号",
-     "skip": "他“靠知识库出圈”出自第三方人物稿，没有转发数据，不当成规律"
+     "learn": "一帖只讲一个操作；清单每条写“为什么值得看”；做东西时把卡住的一步也发",
+     "skip": "他“靠知识库出圈”出自第三方人物稿，没有转发数据，不当规律",
+     "works": [
+      "w1",
+      "w2",
+      "w4"
+     ]
     },
     {
      "pid": "baoyu",
-     "work": "w2",
-     "title": "管理经验迁移：Agent 交 PR 必须带截图",
-     "did": "把带人时的规矩原样定给 Agent",
-     "src": "https://x.com/dotey/status/2118569598379229219",
-     "learn": "把职场里已有的规矩迁移给 AI，规矩本身就是内容",
-     "skip": "场景是代码 PR，非技术读者要换成自己的工作环节"
+     "learn": "一份内容给多个入口；把职场已有规矩迁移给 AI；转述新闻先写结论和出处",
+     "skip": "场景多是代码与英文资料，非技术读者要换成自己的工作环节",
+     "works": [
+      "w1",
+      "w2",
+      "w4"
+     ]
     }
    ],
    "who": "大厂里想把 AI 用进日常工作的非技术职场人（推断）",
@@ -746,21 +1038,23 @@
    "bench": [
     {
      "pid": "lenny",
-     "work": "lenny-w1",
-     "title": "里程碑问答《1,000,000》",
-     "did": "用读者提问组织复盘，每个问题给具体数字",
-     "src": "https://www.lennysnewsletter.com/p/1000000",
-     "learn": "用读者的真实问题组织复盘，每题给具体数字",
-     "skip": "他的订阅规模和团队配置"
+     "learn": "用读者真实问题组织复盘；工具帖写清数据来源；做一个每年同期的固定栏目",
+     "skip": "他的订阅规模、团队配置和合作方资源",
+     "works": [
+      "lenny-w1",
+      "lenny-w2",
+      "lenny-w4"
+     ]
     },
     {
      "pid": "shreyas",
-     "work": "shreyas-w2",
-     "title": "一句话判断：两种 PM",
-     "did": "用两句原话对照两种自我定位",
-     "src": "https://x.com/shreyas/status/2108301324102279535",
-     "learn": "两句原话对照，让读者自己对号入座",
-     "skip": "“更难被录用”这类结论是他的观察，没有数据"
+     "learn": "合集先写“给谁”；两句原话对照；反驳常见建议前先说它对谁成立",
+     "skip": "“前 20%”“更难被录用”这类划分没有数据",
+     "works": [
+      "shreyas-w1",
+      "shreyas-w2",
+      "shreyas-w3"
+     ]
     }
    ],
    "who": "想把活干好的 PM 和职场新人（推断）",
@@ -774,21 +1068,23 @@
    "bench": [
     {
      "pid": "zhangzala",
-     "work": "w2",
-     "title": "工具接入帖",
-     "did": "标题一句说清接进哪个软件，正文说明接进去能干什么",
-     "src": "https://www.xiaohongshu.com/explore/6a1018060000000007027155",
-     "learn": "标题一句讲清“接进哪里”，读者一眼知道能干什么",
-     "skip": "她的粉丝数字和身份反差标题"
+     "learn": "标题一句讲清接进哪里；作品用了什么工具在正文点明；里程碑时放读者反馈",
+     "skip": "她的粉丝数字和身份反差标题；视频里的步骤本页没看到",
+     "works": [
+      "w1",
+      "w2",
+      "w4"
+     ]
     },
     {
      "pid": "huashu",
-     "work": "w1",
-     "title": "一年复盘",
-     "did": "把收入数字和“不如上班”一起写出来",
-     "src": "https://www.huasheng.ai/insights/wechat-2247484223-1/",
-     "learn": "复盘里把代价和没做成的部分一起写",
-     "skip": "离职背景和收入对比；不涉及职业去留"
+     "learn": "复盘把代价写进去；发布写清灵感、工具和耗时；好结果后说清哪些条件别人没有",
+     "skip": "离职背景和收入对比；不涉及职业去留",
+     "works": [
+      "w1",
+      "w2",
+      "w4"
+     ]
     }
    ],
    "who": "想开始自己动手用 AI 做点东西的同路人（推断）",
