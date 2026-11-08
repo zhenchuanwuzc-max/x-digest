@@ -24,7 +24,7 @@ def render(c):
     head=zz[:zz.index("</head>")+len("</head>")]
     head=re.sub(r"<title>.*?</title>",f"<title>{c['name']}成长深拆 · 时间线 + 代表作品 + 受众深度 · 给 Ocean</title>",head,flags=re.S)
     nst=len(c["stages"])
-    nav=(f'<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">{c["short"]}深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>X 一手资料深化 · 小红书未核</p>'+
+    nav=(f'<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">{c["short"]}深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>'+c.get("meta","X 一手资料深化 · 小红书未核")+'</p>'+
      '<a href="growth/">← 人物成长研究</a>'+
      f'<div class="sec">本页</div><a href="#brief">实操摘要</a><a href="#overview">账号概况</a><a href="#timeline">{nst}阶段时间线</a>'+"".join(f'<a href="#s{i+1}">{i+1} · {t}</a>' for i,t in enumerate(c["stage_nav"]))+
      '<a href="#works">代表作品拆解</a><a href="#audience">谁在看</a><a href="#compare">写法对照</a><a href="#voice">语气与节奏</a><a href="#limits">失败与边界</a><a href="#for-ocean">给 Ocean</a><a href="#sources">来源与待核</a></aside>'
@@ -34,7 +34,7 @@ def render(c):
     timeline=f'<section id="timeline"><h2>{nst}阶段时间线</h2>'+"".join(c["stages"])+'</section>'
     works='<section id="works"><h2>代表作品拆解</h2><p class="muted">只选原文读过、写法各不相同的作品，不是热门榜；不展示互动数。</p><div class="works">'+"".join(card(w) for w in c["works"])+'</div></section>'
     arows="".join(f'<tr><td data-l="读者类型">{a_}</td><td data-l="AI 使用深度">{d}</td><td data-l="想要什么">{b_}</td><td data-l="能拿走什么">{c_}</td><td data-l="对应作品">{w_}</td><td data-l="证据">{e}</td></tr>' for a_,b_,c_,w_,e,d in c["aud"])
-    audience=('<section id="audience"><h2>谁在看，为什么愿意看</h2><p class="muted"><b>没有真实的粉丝画像数据</b>。人群和动机根据作者自述、X 评论和作品内容推断，不代表全体读者。</p>'
+    audience=('<section id="audience"><h2>谁在看，为什么愿意看</h2><p class="muted"><b>没有真实的粉丝画像数据</b>。人群和动机根据'+c.get("aud_basis","作者自述、X 评论和作品内容")+'推断，不代表全体读者。</p>'
      '<div class="tw"><table><thead><tr><th>可能的读者类型（推断）</th><th>AI 使用深度</th><th>可能想要什么</th><th>能拿走什么</th><th>对应作品</th><th>证据</th></tr></thead><tbody>'+arows+'</tbody></table></div>'
      '<p class="depth"><b>深度怎么标：</b>沿用 <a href="../research/ai-depth-levels-2026-10-28.html#levels">AI 使用深度水位</a> 的 L0–L5（定义见<a href="zhangzala.html#audience">张咋啦页</a>）；分开写读者现在和内容指向，层级不是职业类别。</p>'
      '<h3>可能为什么能火、能传开（未验证）</h3><div class="card">'+ul(c["why"])+'</div></section>')
@@ -47,7 +47,7 @@ def render(c):
      '<div class="card"><h3>可借鉴</h3><ol>'+"".join(f"<li>{x}</li>" for x in c["take"])+'</ol></div>'
      '<div class="card"><h3>不适用</h3><ul>'+"".join(f"<li>{x}</li>" for x in c["skip"])+'</ul></div></div></section>')
     cov="".join(f'<tr><td data-l="来源">{p}</td><td data-l="读到了">{r}</td><td data-l="没读到">{n}</td></tr>' for p,r,n in c["cov"])
-    sources=('<section id="sources"><h2>来源与待核</h2><p><b>状态：X 一手资料深化；小红书未核</b>。'+c["status"]+'</p>'
+    sources=('<section id="sources"><h2>来源与待核</h2><p><b>状态：'+c.get("status_head","X 一手资料深化；小红书未核")+'</b>。'+c["status"]+'</p>'
      '<div class="tw"><table><thead><tr><th>来源</th><th>读到了</th><th>没读到</th></tr></thead><tbody>'+cov+'</tbody></table></div>'
      f'<ul class="plain"><li>证据台账：<code>review/creator-growth-20261108/{c["slug"]}-ledger.md</code>（采集 2026-11-08，UTC+8）。</li>'+"".join(f"<li>{x}</li>" for x in c["src_extra"])+'</ul>'
      '<p><span class="tag warn">待核</span>：'+c["todo"]+'</p></section>')

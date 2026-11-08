@@ -42,9 +42,9 @@ class Home(unittest.TestCase):
         for blk in top.split('<div class="pr">')[1:]:  # 每个方向先出对标人，再出面向谁
             s.assertLess(blk.index('class="bn"'), blk.index('<dt>面向谁</dt>'))
         s.assertGreaterEqual(top[top.index('id="steps"'):].count('<li>'), 3)
-        s.assertEqual(H.count('id="p-'), 14); s.assertEqual(H.count('id="t-'), len(T))
+        s.assertEqual(H.count('id="p-'), len(P)); s.assertEqual(H.count('id="t-'), len(T))
     def test_each_person_own_target(s):
-        targets = [p['href'] for p in P]; s.assertEqual(len(set(targets)), 14)
+        targets = [p['href'] for p in P]; s.assertEqual(len(set(targets)), len(P))
         for p in P:
             s.assertNotIn('creators.html', p['href']); s.assertNotIn('#', p['href'])
             f, _ = resolve(G, p['href']); s.assertTrue(f.exists(), p['href'])
@@ -92,7 +92,7 @@ class Practice(unittest.TestCase):
                 s.assertIn(f'<a href="#{w["id"]}">', top, (p['id'], w['id']))  # 本页锚点，不开新页
                 s.assertIn('边界：', top)
             for k in ('who', 'pain', 'solve', 'ocean'): s.assertIn(p['brief'][k][:12], h.replace('&quot;', '"').replace('&#x27;', "'"), (p['id'], k))
-        s.assertEqual(len({p['id'] for p in P}), 14)
+        s.assertEqual(len({p['id'] for p in P}), len(P)); s.assertGreaterEqual(len(P), 15)  # 人数取自数据，不写死
     def test_cards_fields_complete(s):
         tbl = H[H.index('<table class="cmp">'):H.index('</table>')]
         heads = re.findall(r'<th scope="col">([^<]+)</th>', tbl)
@@ -122,11 +122,13 @@ class Practice(unittest.TestCase):
                 if k == 'income' and v['kind'] != '未找到':
                     s.assertTrue(v.get('note') or '营收' in v['text'], p['id'])
                     s.assertTrue(re.search(r'营收|收入|赚', v['text'] + v.get('note', '')), p['id'])
-            x = p['metrics']['x']; s.assertEqual(x['kind'], '事实'); s.assertIn('2026-11-08', x['date']); s.assertRegex(x['text'], r'^[\d,]+$')
+            x = p['metrics']['x']
+            if x['kind'] == '事实': s.assertIn('2026-11-08', x['date']); s.assertRegex(x['text'], r'^[\d,]+$')
+            else: s.assertEqual(x['kind'], '未找到'); s.assertTrue(x.get('note'), p['id'])  # 没有 X 时写明为什么
         for p in P: s.assertNotIn('不适用', p['metrics']['income']['text'] + p['metrics']['income'].get('note', ''))
         s.assertIn('自述 · 2025-09 · 历史', H); s.assertIn('自述 · 2023-07 · 历史', H)
         cnt = lambda k: sum(p['metrics'][k]['kind'] != '未找到' for p in P)
-        s.assertEqual((cnt('x'), cnt('xhs'), cnt('wx'), cnt('income')), (14, 2, 1, 4))
+        s.assertEqual((cnt('x'), cnt('xhs'), cnt('wx'), cnt('income')), (14, 3, 1, 4))
     def test_brief_on_every_person_page(s):
         seen = {k: set() for k in ('who', 'pain', 'solve', 'ocean')}
         for p in P:
@@ -164,6 +166,27 @@ class Practice(unittest.TestCase):
                 if h and (h.group(1).startswith('growth/') or h.group(1).split('#')[0] in files):
                     n += 1; s.assertIn('target="_blank" rel="noopener noreferrer"', t, (f.name, t))
             s.assertGreater(n, 0, f.name)
+
+class Zhixin(unittest.TestCase):
+    """第 15 人（小红书只读采集）的口径：更正后的采集时间、图卡内嵌阅读数不当数据、别人经历不归他、未核出处不当事实。"""
+    h = (X/'zhixin.html').read_text()
+    def test_capture_time_corrected(s):
+        s.assertIsNone(re.search(r'20:[1-3]\d', s.h))  # 采集只写日期；20:20–30 作废
+        s.assertIn('2026-11-08', s.h)
+    def test_embedded_reads_not_used_as_data(s):
+        for n in ('2179', '5069'):
+            for m in re.finditer(n, s.h): s.assertIn('排版元素', s.h[m.start():m.start() + 80])
+    def test_attribution_boundaries(s):
+        s.assertIn('Katie', s.h); s.assertIn('经历属于', s.h)
+        s.assertIn('未核，不作事实', s.h)  # 平台 AI 给的访谈出处
+        s.assertIn('不背书', s.h); s.assertIn('署仓库名', s.h)  # GitHub 卡有仓库署名，不能写成全无出处
+        s.assertIn('编辑于 2025-09-23', s.h); s.assertIn('评论最早 2025-09-19', s.h)
+        s.assertIn('2026.11.04', s.h); s.assertIn('2天前', s.h)
+    def test_no_invented_level_or_growth(s):
+        s.assertIn('不写增长轨迹', s.h)
+        z = next(p for p in P if p['id'] == 'zhixin')
+        s.assertEqual(z['metrics']['xhs']['kind'], '事实'); s.assertEqual(z['metrics']['xhs']['date'], '2026-11-08 主页截图')
+        s.assertIn('『这些观点AI，我更容易做；hah』', z['brief']['ocean']); s.assertTrue(z['brief']['ocean'].startswith('建议：'))
 
 class Subpages(unittest.TestCase):
     def pages(s):
