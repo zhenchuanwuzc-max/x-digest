@@ -38,9 +38,10 @@ def render(c):
      '<div class="tw"><table><thead><tr><th>可能的读者类型（推断）</th><th>AI 使用深度</th><th>可能想要什么</th><th>能拿走什么</th><th>对应作品</th><th>证据</th></tr></thead><tbody>'+arows+'</tbody></table></div>'
      '<p class="depth"><b>深度怎么标：</b>沿用 <a href="../research/ai-depth-levels-2026-10-28.html#levels">AI 使用深度水位</a> 的 L0–L5（定义见<a href="zhangzala.html#audience">张咋啦页</a>）；分开写读者现在和内容指向，层级不是职业类别。</p>'
      '<h3>可能为什么能火、能传开（未验证）</h3><div class="card">'+ul(c["why"])+'</div></section>')
-    crow="".join(f'<tr><td data-l="维度">{d}</td><td data-l="代表作品">{x}</td><td data-l="普通内容">{y}</td></tr>' for d,x,y in c["cmp"])
-    compare=('<section id="compare"><h2>普通内容与代表作品：写法差在哪</h2><p class="muted"><span class="lv a">观察</span>只比较写法，不是因果；不展示互动数。'+c["cmp_note"]+'</p>'
-     '<div class="tw"><table><thead><tr><th>维度</th><th>代表作品</th><th>普通内容</th></tr></thead><tbody>'+crow+'</tbody></table></div></section>')
+    h1,h2=c.get("cmp_heads",("代表作品","普通内容"))  # 两篇都是代表作时可改列名，默认不变
+    crow="".join(f'<tr><td data-l="维度">{d}</td><td data-l="{h1}">{x}</td><td data-l="{h2}">{y}</td></tr>' for d,x,y in c["cmp"])
+    compare=('<section id="compare"><h2>'+c.get("cmp_title","普通内容与代表作品：写法差在哪")+'</h2><p class="muted"><span class="lv a">观察</span>只比较写法，不是因果；不展示互动数。'+c["cmp_note"]+'</p>'
+     f'<div class="tw"><table><thead><tr><th>维度</th><th>{h1}</th><th>{h2}</th></tr></thead><tbody>'+crow+'</tbody></table></div></section>')
     voice=('<section id="voice"><h2>语气、节奏与可借鉴写法</h2><div class="card">'+ul(c["voice"])+f'</div><pre class="tpl">{c["tpl"]}</pre><p class="muted">模板是分析产物，不是作者原话。</p></section>')
     limits='<section id="limits"><h2>失败与边界</h2><div class="card"><ul>'+"".join(f"<li>{x}</li>" for x in c["limits"])+'</ul></div></section>'
     forocean=('<section id="for-ocean"><h2>'+c.get("ocean_head","给 Ocean（「AI具身牛马」）的借鉴")+'</h2><p class="muted"><span class="lv a">分析</span>研究者建议，不是成功公式。</p><div class="grid2">'
