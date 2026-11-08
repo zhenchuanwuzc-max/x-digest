@@ -1,0 +1,128 @@
+--- /workspace/lenny-zh-20261108/xhs_library.py.pre	2026-11-08 09:25:26.925200223 +0800
++++ xhs_library.py	2026-11-08 09:34:22.209428576 +0800
+@@ -524,31 +524,103 @@
+ </div>
+ {''.join(cards)}'''
+ 
++LENNY_DIR = Path('/workspace/lenny/newsletter-MD')
++LENNY_CARDS = ROOT / 'monitors' / 'lenny_cards_zh.json'
++LENNY_USED = ROOT / 'monitors' / 'xhs_lenny_used.json'
++LENNY_CSS = (
++    '.lz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));gap:.9rem;align-items:start}'
++    '.lz{min-width:0;overflow-wrap:anywhere;background:#fffcf7;border:1px solid var(--line);border-radius:16px;padding:.9rem 1rem}'
++    '.lz h3{color:var(--accent);font-size:1.02rem;margin:.3rem 0 .45rem;line-height:1.4}'
++    '.lz p{margin:.28rem 0;font-size:.9rem;line-height:1.55}'
++    '.lz p b{display:block;font-size:.7rem;color:var(--mut);font-weight:650;letter-spacing:.03em}'
++    '.lz .pill{display:inline-block;font-size:.7rem;font-weight:650;background:var(--accent-soft);color:var(--accent);padding:.1rem .55rem;border-radius:999px;margin:0 .3rem .2rem 0}'
++    '.lz .pill.mut{background:#efece5;color:var(--mut)}'
++    '.lz details{margin-top:.4rem;font-size:.8rem;color:var(--mut)}.lz details>summary{cursor:pointer}'
++    '.lz-grp>summary{cursor:pointer;font-weight:700;padding:.5rem 0;color:var(--ink)}'
++)
++
++
++def _lenny_meta(fname):
++    """front matter url + H1 中文部分（无卡片元数据时的机械兜底）。"""
++    path = LENNY_DIR / fname
++    if not path.exists():
++        return None
++    head = path.read_text(errors='ignore')[:4000]
++    url = (re.search(r'^url:\s*"?([^"\n]+)"?', head, re.M) or [None, ''])[1]
++    h1 = (re.search(r'^#\s+(.+)$', head, re.M) or [None, ''])[1]
++    zh = h1.split(' — ')[0].strip() if ' — ' in h1 else ''
++    return {'url': url.strip(), 'h1_zh': zh}
++
++
++def _lenny_status(pool):
++    used_doc = {}
++    if LENNY_USED.exists():
++        used_doc = json.loads(LENNY_USED.read_text())
++    used = list(dict.fromkeys(
++        [x.get('file', '') for x in (pool.get('used_links') or [])]
++        + list(pool.get('used') or []) + list(used_doc.get('used') or [])))
++    groups = [
++        ('cand', '候选 · 下一批可写', list(pool.get('next_candidates') or [])),
++        ('used', '已用 · 可复盘与延伸', used),
++        ('map', '课表已映射', list(pool.get('curriculum_mapped') or [])[:25]),
++        ('unused', '未用样例', [f for f in (pool.get('unused_sample') or []) if f not in set(used)][:15]),
++    ]
++    status = {}
++    for key, _label, files in groups:
++        for f in files:
++            if f:
++                status.setdefault(f, []).append(key)
++    return groups, status
++
++
++LENNY_PILL = {'cand': '候选', 'used': '已用', 'map': '课表映射', 'unused': '未用样例'}
++
++
++def _lenny_card(f, st, cards):
++    c = cards.get(f) or {}
++    meta = _lenny_meta(f)
++    pills = ''.join(f'<span class="pill">{LENNY_PILL[k]}</span>' for k in st)
++    url = (meta or {}).get('url') or ''
++    if not url.startswith(('https://', 'http://')):
++        url = ''
++    link = f'<a href="{E(url)}" target="_blank" rel="noopener">Lenny 原文</a>' if url else '原文链接缺失'
++    if meta is None:
++        return (f'<article class="lz">{pills}<span class="pill mut">本地库缺原文</span>'
++                f'<h3>原文缺失，未解读</h3><details><summary>溯源</summary><code>{E(f)}</code></details></article>')
++    if not (c.get('title_zh') and c.get('reason') and c.get('audience') and c.get('angle')):
++        t = meta.get('h1_zh') or '（无中文标题）'
++        return (f'<article class="lz">{pills}<span class="pill mut">未解读</span><h3>{E(t)}</h3>'
++                f'<p class="muted">尚未逐篇阅读，暂无推荐理由 / 面向用户 / 切入视角。</p><p>{link}</p>'
++                f'<details><summary>溯源</summary><code>{E(f)}</code></details></article>')
++    fu = f'<p><b>可复盘 / 延伸</b>{E(c["followup"])}</p>' if ('used' in st and c.get('followup')) else ''
++    ev = ''.join(f'<li>「{E(x.get("quote",""))}」· {E(x.get("section",""))}</li>' for x in (c.get('evidence') or []))
++    return (f'<article class="lz">{pills}<h3>{E(c["title_zh"])}</h3>'
++            f'<p><b>推荐理由</b>{E(c["reason"])}</p><p><b>面向用户</b>{E(c["audience"])}</p>'
++            f'<p><b>切入视角</b>{E(c["angle"])}</p>{fu}<p>{link}</p>'
++            f'<details><summary>溯源</summary><code>{E(f)}</code><ul>{ev}</ul></details></article>')
++
++
+ def _lenny(d):
+     pool = d.get('lenny_pool') or {}
+     home = pool.get('home_url') or 'https://www.lennysnewsletter.com/'
+-    used_links = pool.get('used_links') or []
+-    if used_links:
+-        used = ''.join(
+-            f'<li><code>{E(x.get("file",""))}</code>'
+-            + (f' · <a href="{E(x["url"])}" target="_blank" rel="noopener">原文</a>' if x.get('url') else '')
+-            + '</li>' for x in used_links
+-        )
+-    else:
+-        used = ''.join(f'<li><code>{E(x)}</code></li>' for x in (pool.get('used') or [])) or '<li class="muted">尚无</li>'
+-    nxt = ''.join(f'<li><code>{E(x)}</code></li>' for x in (pool.get('next_candidates') or [])) or '<li class="muted">—</li>'
+-    mapped = ''.join(f'<li><code>{E(x)}</code></li>' for x in (pool.get('curriculum_mapped') or [])[:25])
+-    unused = ''.join(f'<li><code>{E(x)}</code></li>' for x in (pool.get('unused_sample') or [])[:15])
+-    return f'''<h2 id="lenny">Lenny 素材池</h2>
+-<p class="muted">本地库约 {E(str(pool.get('all_count','?')))} 篇 ·
+-<a href="{E(home)}" target="_blank" rel="noopener">lennysnewsletter.com</a>
+-· used = monitors/xhs_lenny_used.json</p>
+-<div class="grid2">
+-  <div class="card"><h3>已 used（选题写入）</h3><ul class="compact">{used}</ul></div>
+-  <div class="card"><h3>next_candidates</h3><ul class="compact">{nxt}</ul></div>
+-  <div class="card"><h3>课表已映射（节选）</h3><ul class="compact">{mapped}</ul></div>
+-  <div class="card"><h3>未 used 样例</h3><ul class="compact">{unused}</ul></div>
+-</div>'''
++    cards = json.loads(LENNY_CARDS.read_text()) if LENNY_CARDS.exists() else {}
++    groups, status = _lenny_status(pool)
++    seen, parts, done = set(), [], 0
++    for key, label, files in groups:
++        items = [f for f in dict.fromkeys(files) if f and f not in seen]
++        seen.update(items)
++        if not items:
++            continue
++        body = ''.join(_lenny_card(f, status[f], cards) for f in items)
++        done += sum(1 for f in items if _lenny_meta(f) is not None and all((cards.get(f) or {}).get(k) for k in ('title_zh', 'reason', 'audience', 'angle')))
++        opened = ' open' if key == 'cand' else ''
++        parts.append(f'<details class="lz-grp"{opened}><summary>{label}（{len(items)}）</summary>'
++                     f'<div class="lz-grid">{body}</div></details>')
++    return (f'<style>{LENNY_CSS}</style><h2 id="lenny">Lenny 素材池</h2>'
++            f'<p class="muted">本地库共 {E(str(pool.get("all_count","?")))} 篇；本块展示 {len(seen)} 篇，'
++            f'已逐篇解读 {done} 篇，其余标「未解读」或「本地库缺原文」。一篇只出现在一个分组，标签显示它的全部状态。'
++            f' · <a href="{E(home)}" target="_blank" rel="noopener">lennysnewsletter.com</a></p>'
++            + ''.join(parts))
+ 
+ def _growth(d):
+     g = d.get('growth') or {}
