@@ -415,18 +415,18 @@ def _new_small_v2(D):
     L = D['keywords_coverage']['status_labels']
     cov = '<h3>关键词覆盖</h3><ul>'
     for g in G.values():
-        items = []
+        items = ""
         for k in g['keywords']:
-            if k['searches']:
-                r = k['searches'][-1]
-                st = (f'{E(r["captured"])} {E(r["sort"])}：{E(L[r["status"]])}；扫 {r["scanned_count"]} 张、开 {r["opened_count"]} 篇'
-                      + (f'、入精读库 {len(r["sample_ids"])} 条' if r['sample_ids'] else '')
-                      + (f'、待核候选 {r["pending_candidates"]} 条' if r['pending_candidates'] else '')
-                      + (f'；依据：{E(r["no_qualified_basis"])}' if r['status'] == 'checked_none' else ''))
-            else:
-                st = '本轮待搜' if k['this_round'] else '后备，待搜'
-            items.append(f'{E(k["query"])}（{st if k["searches"] else E(st)}）')
-        cov += f'<li><b>{E(g["id"])} {E(g["name"])}</b>：' + "、".join(items) + '</li>'
+            if not k['searches']:
+                items += f'<li>{E(k["query"])}：' + ('本轮待搜' if k['this_round'] else '后备，待搜') + '</li>'
+                continue
+            r = k['searches'][-1]
+            nums = f'扫 {r["scanned_count"]} 张、开 {r["opened_count"]} 篇' + (f'、入精读库 {len(r["sample_ids"])} 条' if r['sample_ids'] else '') \
+                + (f'、待核候选 {r["pending_candidates"]} 条' if r['pending_candidates'] else '')
+            items += (f'<li><b>{E(k["query"])}：{E(L[r["status"]])}</b>（{E(r["captured"])}，{E(r["sort"])}排序；{nums}）'
+                      + (f'<br><span class="muted">依据：{E(r["no_qualified_basis"])}</span>' if r['status'] == 'checked_none' else '')
+                      + (f'<br><span class="muted">限制：{E(r["limits"])}</span>' if r.get('limits') else '') + '</li>')
+        cov += f'<li><b>{E(g["id"])} {E(g["name"])}</b><ul>{items}</ul></li>'
     for l in D['keywords_coverage']['legacy']:
         cov += f'<li><b>旧池</b>：{E(l["query"])}（{E(l["captured"])} {E(l["sort"])}；{E(l["scan"])}；{E(l["note"])}）</li>'
     cov += '</ul>'

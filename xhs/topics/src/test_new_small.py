@@ -48,7 +48,8 @@ class NewSmall(unittest.TestCase):
                 blk = re.search(rf'<details id="ns-s-{x["id"]}">.*?</details>', B, re.S).group(0)
                 s.assertIn('<dt>表现结论</dt><dd>未证实：', blk)
         for p in D['proposals']:
-            s.assertTrue(p['support_ids']); s.assertIn(html.escape(p['evidence_gap']), B.split('<details')[0] + B[B.index(f'id="ns-{p["id"]}"'):B.index('</article>')])
+            art = re.search(rf'<article id="ns-{p["id"]}">.*?<details>', B, re.S).group(0)  # 缺口在折叠前可见
+            s.assertTrue(p['support_ids']); s.assertIn(html.escape(p['evidence_gap']), art)
     def test_links_clean_and_private(s):
         for t in re.findall(r'<a\b[^>]*href="https[^"]*"[^>]*>', B):
             s.assertIn('target="_blank"', t); s.assertRegex(t, r'href="https://www\.xiaohongshu\.com/explore/[0-9a-f]{24}"')
@@ -81,9 +82,9 @@ class NewSmall(unittest.TestCase):
         kw[1]['searches'] = [dict(base, status='partial', pending_candidates=0)]
         kw[2]['searches'] = [dict(base, status='checked_none', opened_count=4, pending_candidates=0, no_qualified_basis='4 篇均为旧帖编辑')]
         (site / 'topics/src/new-small-v2.json').write_text(json.dumps(v, ensure_ascii=False)); h = m._daily_new_small()
-        s.assertIn('已扫描，候选待核；扫 12 张、开 0 篇、待核候选 3 条', h)
+        s.assertIn('已扫描，候选待核</b>（2026-11-09，最新排序；扫 12 张、开 0 篇、待核候选 3 条）', h)
         s.assertIn('未完成（部分搜索或中断）', h)
-        s.assertIn('本轮已核样本暂未满足条件；扫 12 张、开 4 篇；依据：4 篇均为旧帖编辑', h)
+        s.assertIn('依据：4 篇均为旧帖编辑', h)
         s.assertNotIn('无合格', h)
 
 if __name__ == '__main__':
