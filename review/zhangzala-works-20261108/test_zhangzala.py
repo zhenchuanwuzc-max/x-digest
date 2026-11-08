@@ -54,5 +54,13 @@ class T(unittest.TestCase):
         self.assertIn('没有真实的粉丝画像数据', sec)
         for c in ['#w1','#w2','#w3','#w4']: self.assertIn(f'href="{c}"', sec)
         self.assertNotRegex(sec, r'\d+(\.\d+)?%')
+    def test_depth_levels(self):
+        sec=re.search(r'<section id="audience">.*?</section>', self.html, re.S).group(0)
+        self.assertIn('href="../research/ai-depth-levels-2026-10-28.html#levels"', sec)
+        self.assertTrue((PAGE.parent / "../research/ai-depth-levels-2026-10-28.html").resolve().exists())
+        for lv in ["L0 旁观","L1 会聊","L2 会喂","L3 会验","L4 会编","L5 流水线"]: self.assertIn(lv, sec)
+        self.assertEqual(sec.count('data-l="AI 使用深度"'), 4)
+        self.assertEqual(sec.count('读者现在：'), 4); self.assertEqual(sec.count('内容指向：'), 4)
+        self.assertIn('不证明 L5', sec); self.assertIn('没有 L3 验收证据', sec); self.assertIn('不是职业类别', sec)
 
 if __name__=="__main__": unittest.main(verbosity=1)

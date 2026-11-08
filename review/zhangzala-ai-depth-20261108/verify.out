@@ -1,0 +1,11 @@
+2026-11-08 16:56:07 UTC+8
+Ran 11 tests in 0.005s
+
+OK
+Ran 6 tests in 0.014s
+
+OK
+390 {'sw': 390, 'cw': 390, 'wide': [], 'theadShown': 'none', 'audThead': 'none', 'nav': 'none', 'cols': 1}
+1440 {'sw': 1440, 'cw': 1440, 'wide': [], 'theadShown': 'table-header-group', 'audThead': 'table-header-group', 'nav': 'block', 'cols': 3}
+layout ok
+validate_tiers OK
