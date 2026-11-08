@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>成长记录 · 专属入口</title>
+<title>成长记录 · 按人进</title>
 <link rel="icon" href="icon.svg" type="image/svg+xml"/>
 <style>
 :root{
@@ -52,10 +52,6 @@ h2{font-size:1.12rem;line-height:1.35;margin:2rem 0 .75rem;padding-bottom:.45rem
   display:flex;flex-direction:column;gap:.55rem;
   background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
   padding:1.15rem 1.2rem;box-shadow:var(--shadow);text-decoration:none;color:inherit;
-  transition:border-color .15s,box-shadow .15s,transform .15s;
-}
-a.card:hover,a.card:focus-visible{
-  border-color:#9bb8c4;box-shadow:0 4px 18px rgba(31,79,99,.12);transform:translateY(-1px);outline:none;
 }
 .card .ico{
   width:40px;height:40px;border-radius:10px;display:grid;place-items:center;
@@ -72,128 +68,142 @@ a.card:hover,a.card:focus-visible{
 .tag.new{background:#fff0d6;color:#8a5a00}
 .foot{margin-top:2.2rem;font-size:.82rem;color:var(--mut)}
 .foot a{color:var(--accent)}
+.nav a.nm{display:flex;gap:.5rem;align-items:center}.nav a.nm i{font-style:normal;width:1.4rem;height:1.4rem;border-radius:6px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font-size:.72rem;font-weight:750;flex:0 0 auto}.card:target{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.card .go{text-decoration:none}.card .go:hover{text-decoration:underline}.card .xtra{font-size:.82rem;color:var(--accent);text-decoration:none}.card .xtra:hover{text-decoration:underline}
 </style>
 <link rel="stylesheet" href="../xhs-fluid.css" data-xhs-fluid></head>
 <body>
 <div class="shell">
-<aside class="nav">
+<aside class="nav" aria-label="按人名">
   <div class="brand-row">
     <img src="icon.svg" width="28" height="28" alt=""/>
     <p class="brand">成长记录</p>
   </div>
-  <p class="meta">专属入口 · 私密<br>与小红书全入口分开<br>2026-11-05 加深</p>
-  <div class="sec">加深档</div>
-  <a href="../kazike.html" target="_blank" rel="noopener">卡兹克</a>
-  <a href="../zhangzala.html" target="_blank" rel="noopener">张咋啦</a>
-  <div class="sec">独立页</div>
-  <a href="../guizang.html" target="_blank" rel="noopener">歸藏</a>
-  <a href="../huashu.html" target="_blank" rel="noopener">花叔</a>
-  <a href="../fankai.html" target="_blank" rel="noopener">范凯说 AI</a>
-  <a href="../baoyu.html" target="_blank" rel="noopener">宝玉</a>
-  <a href="../qiaomu.html" target="_blank" rel="noopener">向阳乔木</a>
-  <div class="sec">其他</div>
-  <a href="hector.html" target="_blank" rel="noopener">Hector Serrano</a>
-  <a href="../creators.html" target="_blank" rel="noopener">对标完整档案</a>
-  <a href="../creators.html#lenny" target="_blank" rel="noopener">Lenny（档案内）</a>
-  <div class="sec">相关</div>
-  <a href="../">← 小红书全入口</a>
-  <a href="https://zhenchuanwuzc-max.github.io/x-digest/">情报站首页</a>
+  <p class="meta">按人进 · 14 人 · 私密</p>
+  <a class="nm" href="#p-kazike"><i aria-hidden="true">卡</i>卡兹克</a>
+  <a class="nm" href="#p-zhangzala"><i aria-hidden="true">张</i>张咋啦（Zara Zhang）</a>
+  <a class="nm" href="#p-baoyu"><i aria-hidden="true">宝</i>宝玉</a>
+  <a class="nm" href="#p-guizang"><i aria-hidden="true">歸</i>歸藏</a>
+  <a class="nm" href="#p-qiaomu"><i aria-hidden="true">乔</i>向阳乔木</a>
+  <a class="nm" href="#p-huashu"><i aria-hidden="true">花</i>花叔</a>
+  <a class="nm" href="#p-fankai"><i aria-hidden="true">范</i>范凯说 AI</a>
+  <a class="nm" href="#p-hector"><i aria-hidden="true">H</i>Hector Serrano</a>
+  <a class="nm" href="#p-lenny"><i aria-hidden="true">L</i>Lenny Rachitsky</a>
+  <a class="nm" href="#p-shreyas"><i aria-hidden="true">S</i>Shreyas Doshi</a>
+  <a class="nm" href="#p-ali"><i aria-hidden="true">A</i>Ali Abdaal</a>
+  <a class="nm" href="#p-swyx"><i aria-hidden="true">x</i>swyx</a>
+  <a class="nm" href="#p-levelsio"><i aria-hidden="true">P</i>levelsio（Pieter Levels）</a>
+  <a class="nm" href="#p-justinwelsh"><i aria-hidden="true">J</i>Justin Welsh</a>
 </aside>
 <main class="main">
-  <h1>成长记录 · 专属入口</h1>
-  <p class="muted">每人一页独立 URL。这里只做目录，不塞进小红书全入口正文。</p>
-  <div class="lead">2026-11-05：卡兹克 / 张咋啦升到同档深拆；歸藏、花叔、范凯、宝玉、乔木各有独立成长页。看谁涨粉、怎么起号、长文怎么写——按人进。</div>
+  <h1>成长记录 · 按人进</h1>
+  <p class="muted">每人一张卡、一个链接。这一页是成长记录的唯一入口。</p>
+  <div class="lead">14 人都在下面，每人一张卡。点左栏名字跳到卡片，点卡片底部的链接打开那个人的分析。</div>
 
-  <h2 id="people">加深档（卡兹克同深度）</h2>
+  <h2 id="people">人物（14）</h2>
   <div class="grid">
-    <a class="card" href="../kazike.html" target="_blank" rel="noopener">
+    <div class="card" id="p-kazike">
       <div class="ico" aria-hidden="true">卡</div>
       <h3>卡兹克</h3>
-      <p><span class="tag">加深</span><span class="tag">公众号</span> 五阶段时间线 + 5 张代表作品 + 谁在看（AI 深度）+ 写法对照；2026-11-08 X 与公众号一手资料深化，小红书未核。</p>
-      <p class="meta">Rockhazix · 2026-11-08 一手资料重写</p>
-      <span class="go">打开深拆 →</span>
-    </a>
-    <a class="card" href="../zhangzala.html" target="_blank" rel="noopener">
+      <p><span class="tag">公众号</span> 五阶段时间线 + 5 张代表作品 + 谁在看（AI 深度）+ 写法对照；2026-11-08 X 与公众号一手资料深化，小红书未核。</p>
+      <p class="meta">Rockhazix</p>
+      <a class="go" href="../kazike.html" target="_blank" rel="noopener">打开成长页 →</a>
+    </div>
+    <div class="card" id="p-zhangzala">
       <div class="ico" aria-hidden="true">张</div>
       <h3>张咋啦（Zara Zhang）</h3>
-      <p><span class="tag">加深</span><span class="tag">X</span><span class="tag">小红书</span> 五阶段时间线 + 6 张代表作品 + 谁在看（AI 深度）+ 写法对照 + 给 Ocean。</p>
-      <p class="meta">给「AI具身牛马」参考 · 2026-11-05</p>
-      <span class="go">打开深拆 →</span>
-    </a>
-    <a class="card" href="../baoyu.html" target="_blank" rel="noopener">
+      <p><span class="tag">X</span><span class="tag">小红书</span> 五阶段时间线 + 6 张代表作品 + 谁在看（AI 深度）+ 写法对照 + 给 Ocean。</p>
+      <p class="meta">给「AI具身牛马」参考</p>
+      <a class="go" href="../zhangzala.html" target="_blank" rel="noopener">打开成长页 →</a>
+    </div>
+    <div class="card" id="p-baoyu">
       <div class="ico" aria-hidden="true">宝</div>
       <h3>宝玉</h3>
-      <p><span class="tag">加深</span><span class="tag">X</span> 五阶段时间线：工程经理 → 课程翻译 → 自己做字幕工具 → 带人经验搬给 Agent；5 张代表作品 + 谁在看（AI 深度）+ 写法对照。X 一手资料深化，小红书未核。</p>
-      <p class="meta">@dotey · 2026-11-08 一手资料重写</p>
-      <span class="go">打开深拆 →</span>
-    </a>
-    <a class="card" href="../guizang.html" target="_blank" rel="noopener">
+      <p><span class="tag">X</span> 五阶段时间线：工程经理 → 课程翻译 → 自己做字幕工具 → 带人经验搬给 Agent；5 张代表作品 + 谁在看（AI 深度）+ 写法对照。X 一手资料深化，小红书未核。</p>
+      <p class="meta">@dotey</p>
+      <a class="go" href="../baoyu.html" target="_blank" rel="noopener">打开成长页 →</a>
+    </div>
+    <div class="card" id="p-guizang">
       <div class="ico" aria-hidden="true">歸</div>
       <h3>歸藏</h3>
-      <p><span class="tag">加深</span><span class="tag">X</span> 五阶段时间线：设计背景 → ChatGPT 当周开周刊 → 实测帖 → 免费两年转付费 → 提示词库；5 张代表作品 + 谁在看 + 写法对照。X 一手资料深化，周刊正文未读，小红书未核。</p>
-      <p class="meta">@op7418 · 2026-11-08 一手资料重写</p>
-      <span class="go">打开深拆 →</span>
-    </a>
-    <a class="card" href="../qiaomu.html" target="_blank" rel="noopener">
+      <p><span class="tag">X</span> 五阶段时间线：设计背景 → ChatGPT 当周开周刊 → 实测帖 → 免费两年转付费 → 提示词库；5 张代表作品 + 谁在看 + 写法对照。X 一手资料深化，周刊正文未读，小红书未核。</p>
+      <p class="meta">@op7418</p>
+      <a class="go" href="../guizang.html" target="_blank" rel="noopener">打开成长页 →</a>
+    </div>
+    <div class="card" id="p-qiaomu">
       <div class="ico" aria-hidden="true">乔</div>
       <h3>向阳乔木</h3>
-      <p><span class="tag">加深</span><span class="tag">X</span> 五阶段时间线：SEO 与字节 → ChatGPT 后上 X → 写专栏 → GEO 与书 → Skill 复利开源；5 张代表作品 + 谁在看 + 写法对照。X 一手资料深化，小红书未核。</p>
-      <p class="meta">@vista8 · 2026-11-08 一手资料重写</p>
-      <span class="go">打开深拆 →</span>
-    </a>
-    <a class="card" href="../huashu.html" target="_blank" rel="noopener">
+      <p><span class="tag">X</span> 五阶段时间线：SEO 与字节 → ChatGPT 后上 X → 写专栏 → GEO 与书 → Skill 复利开源；5 张代表作品 + 谁在看 + 写法对照。X 一手资料深化，小红书未核。</p>
+      <p class="meta">@vista8</p>
+      <a class="go" href="../qiaomu.html" target="_blank" rel="noopener">打开成长页 →</a>
+    </div>
+    <div class="card" id="p-huashu">
       <div class="ico" aria-hidden="true">花</div>
       <h3>花叔</h3>
-      <p><span class="tag">加深</span><span class="tag">X</span> 五阶段：大厂用户研究 → 离职学 AI → 小猫补光灯 → 开源 Skill → 多平台兑现；5 张代表作品 + 谁在看 + 写法对照。X 一手资料深化，小红书未核。</p>
-      <p class="meta">@AlchainHust · 2026-11-08 一手资料重写</p>
-      <span class="go">打开深拆 →</span>
-    </a>
-    <a class="card" href="../fankai.html" target="_blank" rel="noopener">
+      <p><span class="tag">X</span> 五阶段：大厂用户研究 → 离职学 AI → 小猫补光灯 → 开源 Skill → 多平台兑现；5 张代表作品 + 谁在看 + 写法对照。X 一手资料深化，小红书未核。</p>
+      <p class="meta">@AlchainHust</p>
+      <a class="go" href="../huashu.html" target="_blank" rel="noopener">打开成长页 →</a>
+    </div>
+    <div class="card" id="p-fankai">
       <div class="ico" aria-hidden="true">范</div>
       <h3>范凯说 AI</h3>
-      <p><span class="tag">加深</span><span class="tag">X</span> 五阶段：JavaEye → 视频号/公众号 → AI 实践与咨询 → 转 YouTube 和 Substack → AI + 个人 IP；5 张代表作品 + 谁在看 + 写法对照。X 一手资料深化，小红书未核。</p>
-      <p class="meta">@fankaishuoai · 2026-11-08 一手资料重写</p>
-      <span class="go">打开深拆 →</span>
-    </a>
-    <a class="card" href="../hector.html" target="_blank" rel="noopener">
-      <div class="ico" aria-hidden="true">H</div>
-      <h3>Hector Serrano · 成长深拆</h3>
-      <p><span class="tag">加深</span><span class="tag">X</span> 身份已核（@hectorserrranoo）。五阶段：足球 → 海投进 Wispr → 自己做所有广告 → 付费 UGC 体系 → 公司频道；播客全文对照见下方原卡。</p>
-      <p class="meta">@hectorserrranoo · 2026-11-08</p>
-      <span class="go">打开深拆 →</span>
-    </a>
-  </div>
-
-  <h2>独立成长页（从深描抽出）</h2>
-  <div class="grid">
-    <a class="card" href="hector.html" target="_blank" rel="noopener">
+      <p><span class="tag">X</span> 五阶段：JavaEye → 视频号/公众号 → AI 实践与咨询 → 转 YouTube 和 Substack → AI + 个人 IP；5 张代表作品 + 谁在看 + 写法对照。X 一手资料深化，小红书未核。</p>
+      <p class="meta">@fankaishuoai</p>
+      <a class="go" href="../fankai.html" target="_blank" rel="noopener">打开成长页 →</a>
+    </div>
+    <div class="card" id="p-hector">
       <div class="ico" aria-hidden="true">H</div>
       <h3>Hector Serrano</h3>
-      <p><span class="tag">海外</span><span class="tag">付费 UGC</span> Wispr Flow 内容增长：从自然 UGC 到 retainer。</p>
-      <p class="meta">播客全文对照 · 2026-11-01</p>
-      <span class="go">打开个案 →</span>
-    </a>
-  </div>
-
-  <h2>合集与海外</h2>
-  <div class="grid">
-    <a class="card" href="../creators.html" target="_blank" rel="noopener">
-      <div class="ico" aria-hidden="true">档</div>
-      <h3>对标完整档案</h3>
-      <p><span class="tag">国内+海外</span> 全员深描合集；独立页未覆盖的人仍在这里。</p>
-      <p class="meta">与选题库同步 · 证据优先</p>
-      <span class="go">打开档案 →</span>
-    </a>
-    <a class="card" href="../creators.html#lenny" target="_blank" rel="noopener">
+      <p><span class="tag">X</span> 身份已核（@hectorserrranoo）。五阶段：足球 → 海投进 Wispr → 自己做所有广告 → 付费 UGC 体系 → 公司频道。</p>
+      <p class="meta">@hectorserrranoo</p>
+      <a class="go" href="../hector.html" target="_blank" rel="noopener">打开成长页 →</a><a class="xtra" href="hector.html" target="_blank" rel="noopener">附：原播客全文对照 →</a>
+    </div>
+    <div class="card" id="p-lenny">
       <div class="ico" aria-hidden="true">L</div>
       <h3>Lenny Rachitsky</h3>
-      <p><span class="tag">档案内</span> 本批未拆独立页；点进档案 Lenny 专节（方法密度母体）。</p>
-      <p class="meta">creators.html#lenny</p>
-      <span class="go">打开专节 →</span>
-    </a>
+      <p><span class="tag">X</span> 前 Airbnb，开写是为了整理自己的思考；X 上主要做 newsletter / 播客分发：嘉宾金句、要点帖、产品发布，很少写长观点。2026-11-08 X 一手资料深拆，小红书未核。</p>
+      <p class="meta">@lennysan</p>
+      <a class="go" href="../creators.html#lenny" target="_blank" rel="noopener">打开档案专节 →</a><a class="xtra" href="../#lenny" target="_blank" rel="noopener">附：小红书入口里的 Lenny 素材库 →</a>
+    </div>
+    <div class="card" id="p-shreyas">
+      <div class="ico" aria-hidden="true">S</div>
+      <h3>Shreyas Doshi</h3>
+      <p><span class="tag">X</span> 前 Stripe PM；X 上几乎只写一个主题：产品人的判断力，再接教练和 Maven 课。2026-11-08 X 一手资料深拆，小红书未核。</p>
+      <p class="meta">@shreyas</p>
+      <a class="go" href="../creators.html#shreyas" target="_blank" rel="noopener">打开档案专节 →</a>
+    </div>
+    <div class="card" id="p-ali">
+      <div class="ico" aria-hidden="true">A</div>
+      <h3>Ali Abdaal</h3>
+      <p><span class="tag">X</span> 医生 → YouTube 效率内容 → 课程、书、App；频道起点是给自己的医学申请辅导生意引流，X 不是主战场。2026-11-08 X 一手资料深拆，小红书未核。</p>
+      <p class="meta">@AliAbdaal</p>
+      <a class="go" href="../creators.html#ali" target="_blank" rel="noopener">打开档案专节 →</a>
+    </div>
+    <div class="card" id="p-swyx">
+      <div class="ico" aria-hidden="true">x</div>
+      <h3>swyx</h3>
+      <p><span class="tag">X</span> Learn in Public → Latent Space → AI Engineer 大会；用一篇文给一类人命名，同时开大会。2026-11-08 X 一手资料深拆，小红书未核。</p>
+      <p class="meta">@swyx</p>
+      <a class="go" href="../creators.html#swyx" target="_blank" rel="noopener">打开档案专节 →</a>
+    </div>
+    <div class="card" id="p-levelsio">
+      <div class="ico" aria-hidden="true">P</div>
+      <h3>levelsio（Pieter Levels）</h3>
+      <p><span class="tag">X</span> 独立做产品、公开收入；用“12 个月 12 个产品”的公开承诺逼自己发布，公开收入后来成了固定内容。2026-11-08 X 一手资料深拆，小红书未核。</p>
+      <p class="meta">@levelsio</p>
+      <a class="go" href="../creators.html#levelsio" target="_blank" rel="noopener">打开档案专节 →</a>
+    </div>
+    <div class="card" id="p-justinwelsh">
+      <div class="ico" aria-hidden="true">J</div>
+      <h3>Justin Welsh</h3>
+      <p><span class="tag">X</span> LinkedIn 起家的一人公司：先用老本行积累关注，先做服务再做产品；X 上几乎全是一句话格言，夹着固定导流帖。2026-11-08 X 一手资料深拆，小红书未核。</p>
+      <p class="meta">@thejustinwelsh</p>
+      <a class="go" href="../creators.html#justinwelsh" target="_blank" rel="noopener">打开档案专节 →</a>
+    </div>
   </div>
+  <p class="muted">附属合集：<a href="../creators.html" target="_blank" rel="noopener">对标完整档案</a>。六位海外创作者的专节都在这份合集里；合集里还有未单独列卡的人。</p>
 
-  <p class="foot">私密 · <a href="./">x-digest/xhs/growth/</a> · 主站侧栏「成长记录」进这里 · 不进公开周报</p>
+  <p class="foot">私密 · <a href="./">x-digest/xhs/growth/</a> · <a href="../">小红书全入口</a> · <a href="https://zhenchuanwuzc-max.github.io/x-digest/">情报站首页</a> · 名单源 src/people.json，由 src/build_index.py 生成</p>
 </main>
 </div>
 </body>

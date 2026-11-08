@@ -1,0 +1,190 @@
+{
+ "collection": {
+  "href": "../creators.html",
+  "name": "对标完整档案",
+  "note": "六位海外创作者的专节都在这份合集里；合集里还有未单独列卡的人。"
+ },
+ "people": [
+  {
+   "id": "kazike",
+   "name": "卡兹克",
+   "ico": "卡",
+   "href": "../kazike.html",
+   "handle": "Rockhazix",
+   "tags": [
+    "公众号"
+   ],
+   "desc": "五阶段时间线 + 5 张代表作品 + 谁在看（AI 深度）+ 写法对照；2026-11-08 X 与公众号一手资料深化，小红书未核。",
+   "go": "打开成长页"
+  },
+  {
+   "id": "zhangzala",
+   "name": "张咋啦（Zara Zhang）",
+   "ico": "张",
+   "href": "../zhangzala.html",
+   "handle": "给「AI具身牛马」参考",
+   "tags": [
+    "X",
+    "小红书"
+   ],
+   "desc": "五阶段时间线 + 6 张代表作品 + 谁在看（AI 深度）+ 写法对照 + 给 Ocean。",
+   "go": "打开成长页"
+  },
+  {
+   "id": "baoyu",
+   "name": "宝玉",
+   "ico": "宝",
+   "href": "../baoyu.html",
+   "handle": "@dotey",
+   "tags": [
+    "X"
+   ],
+   "desc": "五阶段时间线：工程经理 → 课程翻译 → 自己做字幕工具 → 带人经验搬给 Agent；5 张代表作品 + 谁在看（AI 深度）+ 写法对照。X 一手资料深化，小红书未核。",
+   "go": "打开成长页"
+  },
+  {
+   "id": "guizang",
+   "name": "歸藏",
+   "ico": "歸",
+   "href": "../guizang.html",
+   "handle": "@op7418",
+   "tags": [
+    "X"
+   ],
+   "desc": "五阶段时间线：设计背景 → ChatGPT 当周开周刊 → 实测帖 → 免费两年转付费 → 提示词库；5 张代表作品 + 谁在看 + 写法对照。X 一手资料深化，周刊正文未读，小红书未核。",
+   "go": "打开成长页"
+  },
+  {
+   "id": "qiaomu",
+   "name": "向阳乔木",
+   "ico": "乔",
+   "href": "../qiaomu.html",
+   "handle": "@vista8",
+   "tags": [
+    "X"
+   ],
+   "desc": "五阶段时间线：SEO 与字节 → ChatGPT 后上 X → 写专栏 → GEO 与书 → Skill 复利开源；5 张代表作品 + 谁在看 + 写法对照。X 一手资料深化，小红书未核。",
+   "go": "打开成长页"
+  },
+  {
+   "id": "huashu",
+   "name": "花叔",
+   "ico": "花",
+   "href": "../huashu.html",
+   "handle": "@AlchainHust",
+   "tags": [
+    "X"
+   ],
+   "desc": "五阶段：大厂用户研究 → 离职学 AI → 小猫补光灯 → 开源 Skill → 多平台兑现；5 张代表作品 + 谁在看 + 写法对照。X 一手资料深化，小红书未核。",
+   "go": "打开成长页"
+  },
+  {
+   "id": "fankai",
+   "name": "范凯说 AI",
+   "ico": "范",
+   "href": "../fankai.html",
+   "handle": "@fankaishuoai",
+   "tags": [
+    "X"
+   ],
+   "desc": "五阶段：JavaEye → 视频号/公众号 → AI 实践与咨询 → 转 YouTube 和 Substack → AI + 个人 IP；5 张代表作品 + 谁在看 + 写法对照。X 一手资料深化，小红书未核。",
+   "go": "打开成长页"
+  },
+  {
+   "id": "hector",
+   "name": "Hector Serrano",
+   "ico": "H",
+   "href": "../hector.html",
+   "handle": "@hectorserrranoo",
+   "tags": [
+    "X"
+   ],
+   "desc": "身份已核（@hectorserrranoo）。五阶段：足球 → 海投进 Wispr → 自己做所有广告 → 付费 UGC 体系 → 公司频道。",
+   "go": "打开成长页",
+   "extra": [
+    {
+     "href": "hector.html",
+     "label": "原播客全文对照"
+    }
+   ]
+  },
+  {
+   "id": "lenny",
+   "name": "Lenny Rachitsky",
+   "ico": "L",
+   "href": "../creators.html#lenny",
+   "handle": "@lennysan",
+   "tags": [
+    "X"
+   ],
+   "desc": "前 Airbnb，开写是为了整理自己的思考；X 上主要做 newsletter / 播客分发：嘉宾金句、要点帖、产品发布，很少写长观点。2026-11-08 X 一手资料深拆，小红书未核。",
+   "go": "打开档案专节",
+   "extra": [
+    {
+     "href": "../#lenny",
+     "label": "小红书入口里的 Lenny 素材库"
+    }
+   ]
+  },
+  {
+   "id": "shreyas",
+   "name": "Shreyas Doshi",
+   "ico": "S",
+   "href": "../creators.html#shreyas",
+   "handle": "@shreyas",
+   "tags": [
+    "X"
+   ],
+   "desc": "前 Stripe PM；X 上几乎只写一个主题：产品人的判断力，再接教练和 Maven 课。2026-11-08 X 一手资料深拆，小红书未核。",
+   "go": "打开档案专节"
+  },
+  {
+   "id": "ali",
+   "name": "Ali Abdaal",
+   "ico": "A",
+   "href": "../creators.html#ali",
+   "handle": "@AliAbdaal",
+   "tags": [
+    "X"
+   ],
+   "desc": "医生 → YouTube 效率内容 → 课程、书、App；频道起点是给自己的医学申请辅导生意引流，X 不是主战场。2026-11-08 X 一手资料深拆，小红书未核。",
+   "go": "打开档案专节"
+  },
+  {
+   "id": "swyx",
+   "name": "swyx",
+   "ico": "x",
+   "href": "../creators.html#swyx",
+   "handle": "@swyx",
+   "tags": [
+    "X"
+   ],
+   "desc": "Learn in Public → Latent Space → AI Engineer 大会；用一篇文给一类人命名，同时开大会。2026-11-08 X 一手资料深拆，小红书未核。",
+   "go": "打开档案专节"
+  },
+  {
+   "id": "levelsio",
+   "name": "levelsio（Pieter Levels）",
+   "ico": "P",
+   "href": "../creators.html#levelsio",
+   "handle": "@levelsio",
+   "tags": [
+    "X"
+   ],
+   "desc": "独立做产品、公开收入；用“12 个月 12 个产品”的公开承诺逼自己发布，公开收入后来成了固定内容。2026-11-08 X 一手资料深拆，小红书未核。",
+   "go": "打开档案专节"
+  },
+  {
+   "id": "justinwelsh",
+   "name": "Justin Welsh",
+   "ico": "J",
+   "href": "../creators.html#justinwelsh",
+   "handle": "@thejustinwelsh",
+   "tags": [
+    "X"
+   ],
+   "desc": "LinkedIn 起家的一人公司：先用老本行积累关注，先做服务再做产品；X 上几乎全是一句话格言，夹着固定导流帖。2026-11-08 X 一手资料深拆，小红书未核。",
+   "go": "打开档案专节"
+  }
+ ]
+}
