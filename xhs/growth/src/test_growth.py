@@ -128,7 +128,7 @@ class Practice(unittest.TestCase):
         for p in P: s.assertNotIn('不适用', p['metrics']['income']['text'] + p['metrics']['income'].get('note', ''))
         s.assertIn('自述 · 2025-09 · 历史', H); s.assertIn('自述 · 2023-07 · 历史', H)
         cnt = lambda k: sum(p['metrics'][k]['kind'] != '未找到' for p in P)
-        s.assertEqual((cnt('x'), cnt('xhs'), cnt('wx'), cnt('income')), (14, 20, 1, 4))  # 小红书：知新 + 首批 3 + 第二批 4 + 第三批 5 + 第四批 5
+        s.assertEqual((cnt('x'), cnt('xhs'), cnt('wx'), cnt('income')), (14, 21, 1, 4))  # 小红书：知新 + 首批 3 + 第二批 4 + 第三批 5 + 第四批 6
     def test_brief_on_every_person_page(s):
         seen = {k: set() for k in ('who', 'pain', 'solve', 'ocean')}
         for p in P:
@@ -461,8 +461,8 @@ class FollowBatch4(unittest.TestCase):
     def setUpClass(c):
         import sys; sys.path.insert(0, str(Path(__file__).resolve().parents[3]/'review/creator-growth-20261108'))
         import follow_b4_cards as f; c.f = f; R = Path(__file__).resolve().parents[3]/'review/creator-growth-20261108'
-        c.H = {k: (X/f'{k}.html').read_text() for k in ('heideng', 'menqiang', 'lidan', 'pupu-wanzi', 'sinuo')}
-        c.L = {k: (R/f'{k}-ledger.md').read_text() for k in ('heideng', 'menqiang', 'lidan', 'pupu-wanzi', 'sinuo')}
+        c.H = {k: (X/f'{k}.html').read_text() for k in ('heideng', 'menqiang', 'lidan', 'pupu-wanzi', 'sinuo', 'taozi')}
+        c.L = {k: (R/f'{k}-ledger.md').read_text() for k in ('heideng', 'menqiang', 'lidan', 'pupu-wanzi', 'sinuo', 'taozi')}
         c.Pp = {p['id']: p for p in P}
     def test_common(s):
         for k, h in s.H.items():
@@ -488,6 +488,10 @@ class FollowBatch4(unittest.TestCase):
         h = s.H['sinuo']
         for w in ('已读 1/1', '已读 4/4', '平台 AI', '不当讲者原话', '演讲视频未看', '不当实际爆款', '未实测', '自述，未核'): s.assertIn(w, h)
         for bad in ('演讲已读', '讲者原话：'): s.assertNotIn(bad, h)
+    def test_taozi(s):
+        h = s.H['taozi']
+        for w in ('未主动播放、未观看', '不是作者原话', '编辑于 2025-08-26', '不是首发日期', '自述，未核', '不比热度', '只看标题'): s.assertIn(w, h)
+        for bad in ('年入百万', '爆款', '视频里她说'): s.assertNotIn(bad, h)
     def test_privacy(s):
         pf = Path('/workspace/creator-growth-20261108/following/private-drop-patterns.txt')
         priv = [l.strip() for l in pf.read_text().splitlines() if l.strip()] if pf.exists() else []
