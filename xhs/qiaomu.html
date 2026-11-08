@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>向阳乔木成长页 · 给 Ocean</title>
+<title>向阳乔木（@vista8）成长深拆 · 时间线 + 代表作品 + 受众深度 · 给 Ocean</title>
+<!-- impeccable: fluid full-width · sticky left elevator · scroll-behavior:auto · cream + black + one highlighter yellow -->
 <style>
 :root{
   --bg:#f7f4ec; --surface:#fffcf7; --ink:#1a1a18; --ink-2:#3a3a36; --mut:#6a6a62;
@@ -20,11 +21,21 @@ body{
 }
 ::selection{background:var(--hi); color:var(--ink)}
 mark{background:var(--hi); color:var(--ink); padding:.05em .18em; border-radius:3px; font-style:normal}
-.shell{display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr); gap:0; min-height:100vh; width:100%; max-width:none; margin:0}
-.nav{position:sticky; top:0; align-self:start; height:100vh; padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line); background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto}
+.shell{
+  display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr);
+  gap:0; min-height:100vh; width:100%; max-width:none; margin:0;
+}
+.nav{
+  position:sticky; top:0; align-self:start; height:100vh;
+  padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line);
+  background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto;
+}
 .nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
 .nav .meta{font-size:.76rem; color:var(--mut); margin:0 0 1rem; line-height:1.45}
-.nav a{display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem; padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent}
+.nav a{
+  display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem;
+  padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent;
+}
 .nav a:hover,.nav a:focus-visible{background:var(--hi-soft); outline:none}
 .nav a.active{background:var(--hi); color:var(--ink); font-weight:650; border-left-color:#c9b020}
 .nav .sec{font-size:.7rem; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .3rem; padding-left:.55rem; text-transform:uppercase}
@@ -40,17 +51,25 @@ p{margin:.5rem 0}
 .stat strong{display:block; font-size:1.35rem; letter-spacing:-.02em; margin:.15rem 0}
 .tag{display:inline-block; font-size:12px; font-weight:650; background:var(--hi-soft); color:#6a5a00; padding:.12rem .5rem; border-radius:999px; margin-right:.3rem}
 .tag.warn{background:#fff0d6; color:#8a5a00}
+.tag.ok{background:#e8f5e4; color:#2a5a20}
 a{color:var(--ink); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-word}
 a:hover{background:linear-gradient(180deg,transparent 60%, var(--hi) 60%)}
+a:focus-visible{outline:2px solid #c9b020; outline-offset:2px; border-radius:3px}
 table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
 th,td{border:1px solid var(--line); padding:.42rem .5rem; text-align:left; vertical-align:top}
 th{background:#efeae0; font-weight:650}
+.metrics{font-variant-numeric:tabular-nums; white-space:nowrap}
 .quote{border-left:3px solid var(--hi); padding:.35rem .9rem; margin:.55rem 0; background:var(--hi-soft); border-radius:0 8px 8px 0; font-size:.95rem}
+.tpl{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.84rem; white-space:pre-wrap; background:#1a1a18; color:#f7f4ec; padding:1rem 1.1rem; border-radius:10px; overflow:auto}
 .foot{margin-top:2.5rem; font-size:.86rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
 .mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.5rem 0; border-bottom:1px solid var(--line)}
 .mob-nav a{font-size:.8rem; color:var(--ink); text-decoration:none; background:var(--hi-soft); padding:.2rem .5rem; border-radius:999px}
 ul.plain{margin:.35rem 0; padding-left:1.2rem}
 ul.plain li{margin:.28rem 0}
+.piece{border-top:1px dashed var(--line); padding-top:.9rem; margin-top:1.1rem}
+.piece:first-of-type{border-top:none; padding-top:0; margin-top:0}
+.num{font-variant-numeric:tabular-nums; width:2.2rem}
+.sub{font-size:.78rem; color:var(--mut); margin-top:.2rem}
 @media(max-width:900px){
   .shell{grid-template-columns:1fr}
   .nav{display:none}
@@ -58,116 +77,47 @@ ul.plain li{margin:.28rem 0}
   .main{padding:1.1rem 1rem 3.5rem}
 }
 </style>
-<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid></head>
+<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid><style>
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.15rem;margin:0 0 1.2rem;box-shadow:var(--shadow)}
+.stage h3{margin:.1rem 0 .3rem}.stage .q{margin:.2rem 0 .7rem;color:var(--ink-2)}
+.tw{overflow-x:auto;max-width:100%}
+.tw table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:44rem}
+.tw th,.tw td{border-top:1px solid var(--line);padding:.45rem .5rem;vertical-align:top;text-align:left}
+.tw th{font-size:.74rem;color:var(--mut);font-weight:650;background:var(--hi-soft)}
+.lv{display:inline-block;font-size:.7rem;font-weight:650;padding:.05rem .4rem;border-radius:999px;border:1px solid var(--line);margin-right:.25rem}
+.lv.f{background:#e8f3ec}.lv.s{background:var(--hi-soft)}.lv.a{background:#eef0f4}.lv.b{background:#fbe9e7}
+.lv.h{background:#f1e8fb}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:.8rem}
+.work{margin:0;overflow-wrap:anywhere}.work h3{margin:.1rem 0 .4rem}.work p{margin:.35rem 0}.work .take{border-top:1px dashed var(--line);padding-top:.45rem}
+#compare .tw table{min-width:36rem}#audience .tw table{min-width:52rem}.depth{margin:.5rem 0}
+@media(max-width:700px){#compare .tw,#audience .tw{overflow:visible}#compare .tw table,#compare .tw tbody,#compare .tw tr,#compare .tw td,#audience .tw table,#audience .tw tbody,#audience .tw tr,#audience .tw td{display:block;width:100%;min-width:0}#compare .tw thead,#audience .tw thead{display:none}#compare .tw tr,#audience .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}#compare .tw td,#audience .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}#compare .tw td::before,#audience .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}}
+@media(max-width:900px) and (min-width:701px){.tw table{min-width:36rem}}
+@media(max-width:700px){
+.stage .tw{overflow:visible}
+.stage .tw table,.stage .tw tbody,.stage .tw tr,.stage .tw td{display:block;width:100%;min-width:0}
+.stage .tw thead{display:none}
+.stage .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}
+.stage .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}
+.stage .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}
+.stage .tw td[data-l="#"]{font-weight:700}
+}
+</style>
+</head>
 <body>
-<div class="shell">
-<aside class="nav" aria-label="目录">
-  <p class="brand">乔木深拆</p>
-  <p class="meta">私密 · 写给 Ocean<br>从 creators 抽出 · 2026-11-05</p>
-  <div class="sec">选题库</div>
-  <a href="growth/">← 成长记录</a>
-  <a href="./">小红书全入口</a>
-  <a href="creators.html">对标档案</a>
-  <div class="sec">本页</div>
-  <a href="#overview">账号概况</a>
-  <a href="#timeline">时间线</a>
-  <a href="#breakout">破壁 / 代表</a>
-  <a href="#inflect">拐点</a>
-  <a href="#success">成功经验</a>
-  <a href="#for-ocean">给 Ocean</a>
-  <a href="#sources">来源与待核</a>
-</aside>
-<main class="main">
-<nav class="mob-nav" aria-label="移动目录">
-  <a href="#overview">概况</a>
-  <a href="#timeline">时间线</a>
-  <a href="#inflect">拐点</a>
-  <a href="#for-ocean">借鉴</a>
-</nav>
-
-<header>
-  <h1>向阳乔木成长页 · 国内 PM + AI 实操</h1>
-  <p class="muted">X <a href="https://x.com/vista8">@vista8</a> · ~134.1k · <a href="https://www.qiaomu.ai/about/">qiaomu.ai/about</a>。与「大厂 PM 语境」最近的中文账号之一。</p>
-</header>
-<section id="overview">
-  <h2>账号概况</h2>
-  <div class="grid2">
-    <div class="card stat"><span class="tag">X</span><strong>~134.1k</strong><span class="muted">@vista8</span></div>
-    <div class="card stat"><span class="tag">背景</span><strong>前字节商业化 AI PM</strong><span class="muted">About：每日用 AI 写成专栏，已坚持三年（自述）</span></div>
-    <div class="card stat"><span class="tag">内容</span><strong>Prompt / 工具 / 活动</strong><span class="muted">短平快实操 + 社群转化</span></div>
-    <div class="card stat"><span class="tag">产品化</span><strong>书 / 播客 / 训练营</strong><span class="muted">《AI 领导力》《AI 营销：从 SEO 到 GEO》等</span></div>
-  </div>
-</section>
-<section id="timeline">
-  <h2>时间线</h2>
-  <table>
-    <thead><tr><th>阶段</th><th>事件</th><th>出处</th></tr></thead>
-    <tbody>
-      <tr><td>离开字节后</td><td>每日用 AI 写成专栏，About 称已坚持三年</td><td>qiaomu.ai/about</td></tr>
-      <tr><td>持续</td><td>可复用 Prompt 实战（如后台文案重写）+ 公众号工作流拆解</td><td>X / 公众号</td></tr>
-      <tr><td>近期</td><td>合著出书；Next Token 播客；GEO 训练营</td><td>About</td></tr>
-    </tbody>
-  </table>
-</section>
-<section id="breakout">
-  <h2>招牌干货</h2>
-  <ul class="plain">
-    <li><strong>先跑通再动笔：</strong>工具先用、提示词先验证、方法论能复用再写。</li>
-    <li><strong>可复用 Prompt：</strong>粘贴即用，转化门槛低。</li>
-    <li><strong>一句话需求→PRD</strong> 等实操文（公众号合集以现读为准）。</li>
-  </ul>
-</section>
-<section id="inflect">
-  <h2>拐点</h2>
-  <table>
-    <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
-    <tbody>
-      <tr><td>离开字节后</td><td>公开 AI 实践专栏</td><td>大厂 PM → 公开作者</td><td>先跑通再动笔</td></tr>
-      <tr><td>持续</td><td>Prompt 模板资产化</td><td>零散技巧 → 可复制模板</td><td>粘贴即用</td></tr>
-      <tr><td>近期</td><td>书/播客/企业服务</td><td>个人专栏 → 产品化</td><td>同一母题产品化（你兼职先课表）</td></tr>
-    </tbody>
-  </table>
-</section>
-<section id="success">
-  <h2>成功经验</h2>
-  <p>国内读者立刻能用的口吻 + 可复制 Prompt；避免纯工具清单——每帖绑一个「把活干好」判断。</p>
-</section>
-<section id="for-ocean">
-  <h2>给 Ocean</h2>
-  <div class="card">
-    <ol>
-      <li>一张卡给可复制 Prompt/清单，配一句大厂场景。</li>
-      <li>方法骨架仍用 Lenny 本地库；AI 实操辅系列抄「先自己跑通再发」。</li>
-      <li>避免做成纯工具清单号。</li>
-    </ol>
-    <h3>暂时别学</h3>
-    <ul class="plain">
-      <li>连续创业者 + 合著出书 + GEO 企业训练营（全职带宽）。</li>
-      <li>开源 Agent Skills / 多站矩阵——后期可选一件小事开源。</li>
-    </ul>
-  </div>
-</section>
-<section id="sources">
-  <h2>来源</h2>
-  <p>qiaomu.ai/about · creators 深描 · X @vista8。起号精确粉里程碑公开少 → 以 About 自述与模式观察为主。</p>
-</section>
-
-<div class="foot"><p>私密 · x-digest · 从 creators 深描抽成独立成长页 · 2026-11-05 · 不编数字</p></div>
-</main>
-</div>
-<script>
-(function(){
-  const links=[...document.querySelectorAll('.nav a[href^="#"]')];
-  const map=links.map(a=>({a,el:document.querySelector(a.getAttribute('href'))})).filter(x=>x.el);
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(en=>{
-      if(!en.isIntersecting) return;
-      const id=en.target.id;
-      links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+id));
-    });
-  },{rootMargin:'-20% 0px -70% 0px', threshold:0});
-  map.forEach(({el})=>io.observe(el));
-})();
-</script>
+<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">乔木深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>X 一手资料深化 · 小红书未核</p><div class="sec">选题库</div><a href="growth/">← 成长记录</a><a href="./">小红书全入口</a><a href="creators.html#qiaomu">对标档案 · 乔木</a><div class="sec">本页</div><a href="#overview">账号概况</a><a href="#timeline">5阶段时间线</a><a href="#s1">1 · SEO 与大厂</a><a href="#s2">2 · ChatGPT 后上 X</a><a href="#s3">3 · 离开字节写专栏</a><a href="#s4">4 · GEO、书、播客</a><a href="#s5">5 · Skill 复利与开源</a><a href="#works">代表作品拆解</a><a href="#audience">谁在看</a><a href="#compare">写法对照</a><a href="#voice">语气与节奏</a><a href="#limits">失败与边界</a><a href="#for-ocean">给 Ocean</a><a href="#sources">来源与待核</a></aside><main class="main"><nav class="mob-nav" aria-label="移动目录"><a href="#overview">概况</a><a href="#timeline">时间线</a><a href="#works">作品</a><a href="#audience">受众</a><a href="#compare">对照</a><a href="#voice">语气</a><a href="#limits">边界</a><a href="#for-ocean">借鉴</a><a href="#sources">来源</a></nav><header><h1>向阳乔木（@vista8） 成长深拆</h1><p class="muted">按“阶段 → 当时的问题 → 动作 → 作品”排，每条附原始链接。<span class="lv f">事实</span>可从原文核到；<span class="lv s">自述</span>是本人说法；<span class="lv a">分析</span>/<span class="lv a">观察</span>是研究者归纳；<span class="lv h">假设</span>未验证；<span class="lv b">边界</span>写不能怎么用。时间统一 UTC+8，查不到写未知。</p></header>
+<section id="overview"><h2>账号概况</h2><div class="grid2"><div class="card"><h3>平台</h3><p>X：<a href="https://x.com/vista8" target="_blank" rel="noopener">@vista8</a>，2007-06 建号，2026-11-08 API 读到 137,413 关注者；简介“喜欢摇滚乐、爱钓鱼的PM”。网站：<a href="https://www.qiaomu.ai/" target="_blank" rel="noopener">qiaomu.ai 首页</a>、乔木博客；公众号「向阳乔木推荐看」（<a href="https://www.qiaomu.ai/about/" target="_blank" rel="noopener">qiaomu.ai/about</a>）。小红书：本轮未读。</p></div><div class="card"><h3>定位</h3><p><span class="lv s">自述</span>“先跑通，再动笔。工具我先用，提示词我先验证，方法论我先确认能复用，再写给别人看。”（<a href="https://www.qiaomu.ai/about/" target="_blank" rel="noopener">qiaomu.ai/about</a>）<span class="lv a">观察</span>2026 年 X 上主要是自己做工具的过程帖、提示词和 GEO 大会宣传。</p></div></div></section>
+<section id="timeline"><h2>5阶段时间线</h2><section id="s1" class="stage"><h3>阶段 1 · 2005–2024：SEO 创业，再进字节</h3><p class="q"><b>当时的问题：</b>AI 来之前，手上有哪些能力。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">1</td><td data-l="日期">2005 前后起（节目介绍）</td><td data-l="动作与作品">分类信息网站、黄页 88 网，做 SEO 和流量 → <a href="https://www.xiaoyuzhoufm.com/episode/6aed7a995b7c4709bfe1fdae" target="_blank" rel="noopener">灯下白 EP57 节目介绍</a></td><td data-l="事实">搜索返回的节目介绍摘录</td><td data-l="自述">—</td><td data-l="分析">SEO 经历是后来做 GEO 的底子（节目介绍也这么说）</td><td data-l="边界">节目没听</td></tr><tr><td data-l="#">2</td><td data-l="日期">约 2018–2024（博客）</td><td data-l="动作与作品">字节六年：教育、飞书、TikTok 商业化 AI（Symphony Assistant） → <a href="https://blog.qiaomu.ai/rock-bar-to-ai-product-qiaomu" target="_blank" rel="noopener">《从摇滚爱好者到 AI 自媒体》（本人博客，播客转写由 AI 成文）</a></td><td data-l="事实">搜索返回的原文摘录</td><td data-l="自述">“他在字节待了六年”；做帮达人写广告脚本的 AI 产品</td><td data-l="分析">在大厂一线做过 AI 产品</td><td data-l="边界">博客由 AI 根据播客转写成文，等同转述的自述</td></tr><tr><td data-l="#">3</td><td data-l="日期">2026-10-25 15:43</td><td data-l="动作与作品"><a href="https://x.com/vista8/status/2114261636722946473" target="_blank" rel="noopener">X：回忆字节 GenAI 部门</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“记得那年还在字节GenAI部门做产品经理”</td><td data-l="分析">—</td><td data-l="边界">—</td></tr></tbody></table></div></section><section id="s2" class="stage"><h3>阶段 2 · 2022-12 起：ChatGPT 后开始在 X 活跃</h3><p class="q"><b>当时的问题：</b>去哪看 AI 一手信息。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">4</td><td data-l="日期">2022 年底起（博客）</td><td data-l="动作与作品">2007 年注册 X 但很少发，ChatGPT 后开始活跃 → <a href="https://blog.qiaomu.ai/rock-bar-to-ai-product-qiaomu" target="_blank" rel="noopener">《从摇滚爱好者到 AI 自媒体》（本人博客，播客转写由 AI 成文）</a></td><td data-l="事实">API：账号 2007-06-09 创建</td><td data-l="自述">“身边的字节朋友说，要去源头看信息，源头就是 X”</td><td data-l="分析">—</td><td data-l="边界">—</td></tr><tr><td data-l="#">5</td><td data-l="日期">未知（第三方人物稿）</td><td data-l="动作与作品">整理 AI 工具、人物、论文的飞书知识库，被同行转发 → <a href="https://news.qq.com/rain/a/20251109A047FM00" target="_blank" rel="noopener">腾讯新闻 2025-11-09 人物稿</a></td><td data-l="事实">搜索返回的原文摘录</td><td data-l="自述">稿中问答：出圈靠“一份自己整理的飞书知识库…被橘子、宝玉、tw93 等转了一圈”</td><td data-l="分析">整理型内容带来第一波关注</td><td data-l="边界">第三方稿，同一篇里粉丝数前后说法不一致，本页不写数字；知识库本身未打开</td></tr><tr><td data-l="#">6</td><td data-l="日期">2023-12-09 23:31</td><td data-l="动作与作品"><a href="https://x.com/vista8/status/1733509609959379094" target="_blank" rel="noopener">X：中文 AI 账号推荐清单</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“推荐我的两个好友，我们共同主持Fingerfly访谈节目（虽然断更两个月😄）”</td><td data-l="分析">整理别人也是他的内容形态</td><td data-l="边界">—</td></tr><tr><td data-l="#">7</td><td data-l="日期">2023-12-29 21:04</td><td data-l="动作与作品"><a href="https://x.com/vista8/status/1740720440178532610" target="_blank" rel="noopener">X：用 AI 读整本书</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">—</td><td data-l="分析">把一次读书需求写成三步操作</td><td data-l="边界">—</td></tr></tbody></table></div></section><section id="s3" class="stage"><h3>阶段 3 · 2024 离开字节；AI 专栏（起点未核）</h3><p class="q"><b>当时的问题：</b>离开大厂后，靠什么继续。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">8</td><td data-l="日期">2024（博客）</td><td data-l="动作与作品">离开字节 → <a href="https://blog.qiaomu.ai/rock-bar-to-ai-product-qiaomu" target="_blank" rel="noopener">《从摇滚爱好者到 AI 自媒体》（本人博客，播客转写由 AI 成文）</a></td><td data-l="事实">搜索返回的原文摘录</td><td data-l="自述">原因是两个孩子转学，“下班时间基本在晚上十点、十点半”</td><td data-l="分析">—</td><td data-l="边界">—</td></tr><tr><td data-l="#">9</td><td data-l="日期">未知（关于页说已坚持三年）</td><td data-l="动作与作品">把每天用 AI 的方式写成专栏 → <a href="https://www.qiaomu.ai/about/" target="_blank" rel="noopener">qiaomu.ai/about</a></td><td data-l="事实">关于页全文已读</td><td data-l="自述">“已经坚持了三年”</td><td data-l="分析">—</td><td data-l="边界">“三年”是本人说法</td></tr></tbody></table></div></section><section id="s4" class="stage"><h3>阶段 4 · 2025–2026：GEO、合著、播客</h3><p class="q"><b>当时的问题：</b>个人内容怎么变成生意。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">10</td><td data-l="日期">未知（关于页、博客）</td><td data-l="动作与作品">和姚金刚研究 GEO、合著两本书、做企业服务；主理 Next Token 播客 → <a href="https://www.qiaomu.ai/about/" target="_blank" rel="noopener">qiaomu.ai/about</a></td><td data-l="事实">关于页全文已读</td><td data-l="自述">合著《AI 领导力》《AI 营销：从 SEO 到 GEO》；博客说两人整理的《GEO 白皮书》公开发出</td><td data-l="分析">内容 → 书 → 企业服务</td><td data-l="边界">书和白皮书没读</td></tr><tr><td data-l="#">11</td><td data-l="日期">2026-11-05 18:34 起</td><td data-l="动作与作品"><a href="https://x.com/vista8/status/2118290872781652467" target="_blank" rel="noopener">X：GEO 大会每天介绍一位嘉宾</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“计划每天介绍一位参会嘉宾，直至大会召开”</td><td data-l="分析">X 也是自家活动的宣传位</td><td data-l="边界">—</td></tr></tbody></table></div></section><section id="s5" class="stage"><h3>阶段 5 · 2026：Skill 复利，连发自用工具</h3><p class="q"><b>当时的问题：</b>AI 编程变强后，PM 能不能自己做出来。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">12</td><td data-l="日期">2026-11-06（博客）</td><td data-l="动作与作品">把提示词和开发经验沉淀成 Skill → <a href="https://blog.qiaomu.ai/rock-bar-to-ai-product-qiaomu" target="_blank" rel="noopener">《从摇滚爱好者到 AI 自媒体》（本人博客，播客转写由 AI 成文）</a></td><td data-l="事实">搜索返回的原文摘录</td><td data-l="自述">“等这些 Skill 积累到一定数量…回车，等 20 分钟，网站上线”</td><td data-l="分析">速度来自积累的 Skill，不是单次技巧</td><td data-l="边界">AI 成文的转述</td></tr><tr><td data-l="#">13</td><td data-l="日期">2026-11-05 21:18</td><td data-l="动作与作品"><a href="https://x.com/vista8/status/2118332250211365326" target="_blank" rel="noopener">X：开源乔木 Kindle 助手</a></td><td data-l="事实">帖子全文已读；评论 25 条</td><td data-l="自述">“自己有两个 Kindle”</td><td data-l="分析">自用需求 → 开源</td><td data-l="边界">仓库未打开</td></tr><tr><td data-l="#">14</td><td data-l="日期">2026-11-06 00:37 → 11-07 08:49</td><td data-l="动作与作品"><a href="https://x.com/vista8/status/2118382278065999994" target="_blank" rel="noopener">X：不续费 ScreenStudio，改 Cap</a> · <a href="https://x.com/vista8/status/2118868459295797281" target="_blank" rel="noopener">Capwise 第一版</a></td><td data-l="事实">系列帖全文已读</td><td data-l="自述">“既然 AI 这么强了，不如自己写一个自用”</td><td data-l="分析">两天连发进度帖</td><td data-l="边界">计划“下周末开源”，未核</td></tr><tr><td data-l="#">15</td><td data-l="日期">2026-11-08（首页）</td><td data-l="动作与作品"><a href="https://www.qiaomu.ai/" target="_blank" rel="noopener">qiaomu.ai 首页</a></td><td data-l="事实">首页已读</td><td data-l="自述">首页写“102个上线的网站与开源项目”“10,711颗 GitHub Star”</td><td data-l="分析">—</td><td data-l="边界">首页自述数字，未独立核</td></tr></tbody></table></div></section></section>
+<section id="works"><h2>代表作品拆解</h2><p class="muted">只选原文读过、写法各不相同的作品，不是热门榜；不展示互动数。</p><div class="works"><article class="work card" id="w1"><h3>代表作品 1 · 整理型：一张同行推荐清单</h3><p class="links"><a href="https://x.com/vista8/status/1733509609959379094" target="_blank" rel="noopener">X：中文 AI 账号推荐</a></p><p class="muted">时间线位置：<a href="#s2">阶段 2 · 节点 6</a></p><p><span class="lv f">事实</span>帖子全文已读。十几个账号，每个一句话介绍和链接（含宝玉、歸藏），最后求留言补充。</p><p><span class="lv a">观察</span>每条都短，重点是“这个人值得看在哪”；结尾留口子让读者补充。</p><p><span class="lv h">假设</span>这类清单被清单里的人转发，可能是整理者被看见的方式；第三方稿说他靠知识库出圈，但没有转发数据。</p><p><span class="lv b">边界</span>评论没读。</p><p class="take"><b>可借鉴写法：</b>整理清单时每条写一句“为什么值得看”，结尾请读者补。</p></article><article class="work card" id="w2"><h3>代表作品 2 · 三步操作帖：用 AI 读一本超长的书</h3><p class="links"><a href="https://x.com/vista8/status/1740720440178532610" target="_blank" rel="noopener">X：用 AI 读整本书</a></p><p class="muted">时间线位置：<a href="#s2">阶段 2 · 节点 7</a></p><p><span class="lv f">事实</span>帖子全文已读。问题：《人类简史》37 万字超过上下文；步骤：转 PDF、切成 3 份、按目录提问。</p><p><span class="lv a">观察</span>先讲自己的真实需求，再讲卡在哪，再给步骤和工具链接。</p><p><span class="lv h">假设</span>读书是很多人的需求，步骤又简单；未验证。</p><p><span class="lv b">边界</span>评论没读；模型能力现在已变化。</p><p class="take"><b>可借鉴写法：</b>教程帖先写自己的需求和卡点，再写步骤。</p></article><article class="work card" id="w3"><h3>代表作品 3 · 自用工具开源：一句话说清它干什么</h3><p class="links"><a href="https://x.com/vista8/status/2118332250211365326" target="_blank" rel="noopener">X：乔木 Kindle 助手</a></p><p class="muted">时间线位置：<a href="#s5">阶段 5 · 节点 13</a></p><p><span class="lv f">事实</span>帖子全文已读。“拖 epub 进去，转成双语对照版，一键发送到 Kindle。”还写了为什么做 GUI、为什么加翻译、固定术语改善质量。</p><p><span class="lv s">自述</span>“很多书没中文版，参考开源项目加上了翻译。”</p><p><span class="lv a">观察</span>第一句就是完整用法；后面是做的过程中学到的一条经验。</p><p><span class="lv h">假设</span>吃灰 Kindle 是很多人的共同处境，评论里多人这么说；只看了 25 条。</p><p><span class="lv b">边界</span>评论只读 25 条；仓库和 App 未打开核。</p><p class="take"><b>可借鉴写法：</b>开源帖第一句写完整用法，再写一条做的时候学到的经验。</p></article><article class="work card" id="w4"><h3>代表作品 4 · 边做边发：两天的进度帖串</h3><p class="links"><a href="https://x.com/vista8/status/2118382278065999994" target="_blank" rel="noopener">X：起因</a> · <a href="https://x.com/vista8/status/2118626034123993303" target="_blank" rel="noopener">X：先解决中文识别</a> · <a href="https://x.com/vista8/status/2118729792371802173" target="_blank" rel="noopener">X：卡在美颜</a> · <a href="https://x.com/vista8/status/2118868459295797281" target="_blank" rel="noopener">X：第一版完成</a></p><p class="muted">时间线位置：<a href="#s5">阶段 5 · 节点 14</a></p><p><span class="lv f">事实</span>四帖全文已读。起因是付费软件的痛点；中间写“改造进入困难区”“白忙活了半天”；最后列第一版功能和下一步。</p><p><span class="lv a">观察</span>失败也发；每帖只讲一步。</p><p><span class="lv h">假设</span>连续进度让读者追着看结局；未验证。</p><p><span class="lv b">边界</span>评论没读；开源是否兑现未核。</p><p class="take"><b>可借鉴写法：</b>做一个东西时，把卡住的那天也发出来。</p></article><article class="work card" id="w5"><h3>代表作品 5 · 一句提示词 + 有温度的结果</h3><p class="links"><a href="https://x.com/vista8/status/2118338640313286873" target="_blank" rel="noopener">X：HN 数据库里的人生经验</a></p><p class="muted">时间线位置：<a href="#s5">阶段 5</a></p><p><span class="lv f">事实</span>帖子全文已读。提示词：“从 hackernews 12G数据库找出最被大家推崇认可的人生经验”；结果每条附来源文章。</p><p><span class="lv a">观察</span>技术操作只占一句，篇幅给结果；每条结果写出处。</p><p><span class="lv h">假设</span>不懂技术的人也能读结果；未验证。</p><p><span class="lv b">边界</span>评论没读；12G 数据库是自述。</p><p class="take"><b>可借鉴写法：</b>技术帖把篇幅给结果，并给每条结果写出处。</p></article></div></section>
+<section id="audience"><h2>谁在看，为什么愿意看</h2><p class="muted"><b>没有真实的粉丝画像数据</b>。人群和动机根据作者自述、X 评论和作品内容推断，不代表全体读者。</p><div class="tw"><table><thead><tr><th>可能的读者类型（推断）</th><th>AI 使用深度</th><th>可能想要什么</th><th>能拿走什么</th><th>对应作品</th><th>证据</th></tr></thead><tbody><tr><td data-l="读者类型">想用 AI 提效的职场人和 PM</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：L2 会喂</td><td data-l="想要什么">可照做的方法</td><td data-l="能拿走什么">步骤和提示词</td><td data-l="对应作品"><a href="#w2">卡 2</a>、<a href="#w5">卡 5</a></td><td data-l="证据"><span class="lv s">自述</span>“先跑通，再动笔”（<a href="https://www.qiaomu.ai/about/" target="_blank" rel="noopener">qiaomu.ai/about</a>）</td></tr><tr><td data-l="读者类型">有英文书要读的人</td><td data-l="AI 使用深度">读者现在：评论者多在问怎么用、质量如何，层级未知<br>内容指向：用 App 是 L1；改源码是 L4</td><td data-l="想要什么">开箱即用的工具</td><td data-l="能拿走什么">双语电子书</td><td data-l="对应作品"><a href="#w3">卡 3</a></td><td data-l="证据"><span class="lv s">评论者自述</span>“我吃灰多年的 Kindle 终于又有救了”；“木哥，翻译质量好吗？”</td></tr><tr><td data-l="读者类型">在用 Agent 做小工具的人</td><td data-l="AI 使用深度">读者现在：有评论者自述用 Bot 做小工具，层级未知；只代表评论者<br>内容指向：L4 会编</td><td data-l="想要什么">别人怎么做、卡在哪</td><td data-l="能拿走什么">Skill 思路和进度</td><td data-l="对应作品"><a href="#w4">卡 4</a>；<a href="#s5">阶段 5</a></td><td data-l="证据"><span class="lv s">评论者自述</span>“我自己用 Bot 也是先把重复动作做成小工具”；有人指出 README 写明 Kindle 要先越狱</td></tr><tr><td data-l="读者类型">企业和营销从业者</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：营销方法，层级不适用</td><td data-l="想要什么">GEO 方法和服务</td><td data-l="能拿走什么">书、白皮书、大会</td><td data-l="对应作品"><a href="#s4">阶段 4</a></td><td data-l="证据"><span class="lv s">自述</span>关于页列出面向企业的 GEO 咨询和培训</td></tr></tbody></table></div><p class="depth"><b>深度怎么标：</b>沿用 <a href="../research/ai-depth-levels-2026-10-28.html#levels">AI 使用深度水位</a> 的 L0–L5（定义见<a href="zhangzala.html#audience">张咋啦页</a>）；分开写读者现在和内容指向，层级不是职业类别。</p><h3>可能为什么能火、能传开（未验证）</h3><div class="card"><ul class="plain"><li><span class="lv s">评论者自述</span>第三方稿里他自己说 X 涨粉靠“高频分享 + 真测真讲”（<a href="https://news.qq.com/rain/a/20251109A047FM00" target="_blank" rel="noopener">腾讯新闻 2025-11-09 人物稿</a>，搜索摘录）。<span class="lv a">观察</span>本轮读到的帖子确实多是自己做过的东西。</li><li><span class="lv s">自述</span>出圈靠整理型的知识库被同行转发（同上）。<span class="lv h">假设</span>整理者容易被被整理的人转发；没有数据。</li><li><span class="lv s">自述</span>速度来自 Skill 积累（<a href="https://blog.qiaomu.ai/rock-bar-to-ai-product-qiaomu" target="_blank" rel="noopener">《从摇滚爱好者到 AI 自媒体》（本人博客，播客转写由 AI 成文）</a>）。<span class="lv a">观察</span>他把开发速度归因于 Skill 积累；本轮读到 11-05～11-07 连发了 Kindle 助手和 Capwise 两个项目，稳定产量和原因未核。</li><li><span class="lv s">评论者自述</span>Kindle 帖评论里有人补充使用门槛、有人建议用邮箱推送代替 GUI。<span class="lv b">边界</span>只读 25 条。</li></ul></div></section>
+<section id="compare"><h2>普通内容与代表作品：写法差在哪</h2><p class="muted"><span class="lv a">观察</span>只比较写法，不是因果；不展示互动数。普通内容一列来自同期 X 帖原文：<a href="https://x.com/vista8/status/2119101016021025251" target="_blank" rel="noopener">安卓机试试</a> · <a href="https://x.com/vista8/status/2119015563670532515" target="_blank" rel="noopener">折叠屏 181 度</a> · <a href="https://x.com/vista8/status/2119260920505622535" target="_blank" rel="noopener">GEO 大会嘉宾介绍</a>（2026-11-07～11-08，全文已读）。</p><div class="tw"><table><thead><tr><th>维度</th><th>代表作品</th><th>普通内容</th></tr></thead><tbody><tr><td data-l="维度">开头</td><td data-l="代表作品">一句完整用法或真实需求（<a href="#w3">卡 3</a>、<a href="#w2">卡 2</a>）</td><td data-l="普通内容">“哇，有点东西”或活动嘉宾介绍</td></tr><tr><td data-l="维度">个人经历</td><td data-l="代表作品">自己的 Kindle、自己的付费软件痛点（<a href="#w4">卡 4</a>）</td><td data-l="普通内容">聚会见闻</td></tr><tr><td data-l="维度">读者能拿走什么</td><td data-l="代表作品">工具、步骤、提示词（<a href="#w5">卡 5</a>）</td><td data-l="普通内容">一个链接或一则趣闻</td></tr><tr><td data-l="维度">形式</td><td data-l="代表作品">多段，常带“1. 2. 3.”</td><td data-l="普通内容">一两句</td></tr></tbody></table></div></section>
+<section id="voice"><h2>语气、节奏与可借鉴写法</h2><div class="card"><ul class="plain"><li><span class="lv f">事实</span>口语化感叹开头：“我去，grok bot 的 aha 瞬间！”“哇，有点东西”。</li><li><span class="lv f">事实</span>常用编号列表，一条一句。</li><li><span class="lv f">事实</span>提示词原句直接贴出来，加引号（<a href="#w5">卡 5</a>）。</li><li><span class="lv a">观察</span>失败也写，语气轻松：“白忙活了半天”。</li></ul></div><pre class="tpl">【第一句】这个东西干什么（一句完整用法）
+【为什么做】我自己的需求或付费软件的痛点
+【怎么做的】一条做的时候学到的经验
+【进度】卡住了也发一帖
+【结尾】开源地址放评论区</pre><p class="muted">模板是分析产物，不是作者原话。</p></section>
+<section id="limits"><h2>失败与边界</h2><div class="card"><ul><li><b>自述和转述</b>：博客由 AI 根据播客转写成文；腾讯稿是第三方人物稿且粉丝数前后不一，本页不写数字。</li><li><b>首页数字</b>：上线项目数、GitHub star 是首页自述，没逐一核。</li><li><b>平台</b>：公众号、播客、书都没读；小红书没读（他做的“随想”栏目说能同步到小红书，账号情况未核）。</li><li><b>评论</b>：只读了一条帖的 25 条。</li><li><b>早期</b>：2022-12 到 2023-11 的帖子本轮没抽。</li></ul></div></section>
+<section id="for-ocean"><h2>给 Ocean（「AI具身牛马」）的借鉴</h2><p class="muted"><span class="lv a">分析</span>研究者建议，不是成功公式。</p><div class="grid2"><div class="card"><h3>可借鉴</h3><ol><li>写自己用 AI 解决一个真实小麻烦的过程，第一句写完整用法。</li><li>把卡住的那天也发出来，做成连续进度。</li><li>整理同行清单，每条一句为什么值得看。</li><li>把常用提示词沉淀成可复用的东西，产出才稳定。</li></ol></div><div class="card"><h3>不适用</h3><ul><li>二十年 SEO 和创业积累、合著出书、企业 GEO 服务，照搬不了。</li><li>他的开发节奏建立在多年积累的 Skill 上，兼职从零起步追不上。</li><li>GEO 大会这类活动宣传不适合个人兼职账号。</li></ul></div></div></section>
+<section id="sources"><h2>来源与待核</h2><p><b>状态：X 一手资料深化；小红书未核</b>。X 和个人网站已补一手资料；博客、腾讯稿、节目介绍只读到搜索摘录，证据偏弱；小红书没核：不据此判断他在小红书的效果，也不标双发。</p><div class="tw"><table><thead><tr><th>来源</th><th>读到了</th><th>没读到</th></tr></thead><tbody><tr><td data-l="来源">X</td><td data-l="读到了">资料（API）+ 2026-11-05 18:34～11-08 10:49 帖 25 条 + 2026-10 关键词搜索 15 条 + 2023-12 帖 25 条</td><td data-l="没读到">2022-12 到 2023-11；2024–2025 大部分帖子</td></tr><tr><td data-l="来源">小红书</td><td data-l="读到了">无</td><td data-l="没读到">主页、笔记、评论都没读：300013 安全限制，按规定停止。旧采集（2026-11-02～06 日报）里只有他的 X 帖</td></tr><tr><td data-l="来源">评论</td><td data-l="读到了">Kindle 助手帖评论 25 条（API 返回范围）</td><td data-l="没读到">其他帖、公众号、博客评论</td></tr><tr><td data-l="来源">作品原文</td><td data-l="读到了">关于页全文；首页；X 帖全文；本人博客和腾讯稿为搜索返回的原文摘录；播客节目介绍摘录</td><td data-l="没读到">公众号文章；两本书；GEO 白皮书；飞书知识库；播客音频</td></tr></tbody></table></div><ul class="plain"><li>证据台账：<code>review/creator-growth-20261108/qiaomu-ledger.md</code>（采集 2026-11-08，UTC+8）。</li><li>小报童、即刻等其他平台本轮没查。</li></ul><p><span class="tag warn">待核</span>：小红书账号是否存在；飞书知识库原文和发布时间；2022-12 到 2023 年的起号帖；公众号开号时间；Capwise 是否开源；首页数字。</p></section>
+</main></div>
 </body>
 </html>

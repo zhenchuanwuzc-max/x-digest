@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>宝玉成长页 · 给 Ocean</title>
+<title>宝玉（@dotey）成长深拆 · 时间线 + 代表作品 + 受众深度 · 给 Ocean</title>
+<!-- impeccable: fluid full-width · sticky left elevator · scroll-behavior:auto · cream + black + one highlighter yellow -->
 <style>
 :root{
   --bg:#f7f4ec; --surface:#fffcf7; --ink:#1a1a18; --ink-2:#3a3a36; --mut:#6a6a62;
@@ -20,11 +21,21 @@ body{
 }
 ::selection{background:var(--hi); color:var(--ink)}
 mark{background:var(--hi); color:var(--ink); padding:.05em .18em; border-radius:3px; font-style:normal}
-.shell{display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr); gap:0; min-height:100vh; width:100%; max-width:none; margin:0}
-.nav{position:sticky; top:0; align-self:start; height:100vh; padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line); background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto}
+.shell{
+  display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr);
+  gap:0; min-height:100vh; width:100%; max-width:none; margin:0;
+}
+.nav{
+  position:sticky; top:0; align-self:start; height:100vh;
+  padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line);
+  background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto;
+}
 .nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
 .nav .meta{font-size:.76rem; color:var(--mut); margin:0 0 1rem; line-height:1.45}
-.nav a{display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem; padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent}
+.nav a{
+  display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem;
+  padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent;
+}
 .nav a:hover,.nav a:focus-visible{background:var(--hi-soft); outline:none}
 .nav a.active{background:var(--hi); color:var(--ink); font-weight:650; border-left-color:#c9b020}
 .nav .sec{font-size:.7rem; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .3rem; padding-left:.55rem; text-transform:uppercase}
@@ -40,17 +51,25 @@ p{margin:.5rem 0}
 .stat strong{display:block; font-size:1.35rem; letter-spacing:-.02em; margin:.15rem 0}
 .tag{display:inline-block; font-size:12px; font-weight:650; background:var(--hi-soft); color:#6a5a00; padding:.12rem .5rem; border-radius:999px; margin-right:.3rem}
 .tag.warn{background:#fff0d6; color:#8a5a00}
+.tag.ok{background:#e8f5e4; color:#2a5a20}
 a{color:var(--ink); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-word}
 a:hover{background:linear-gradient(180deg,transparent 60%, var(--hi) 60%)}
+a:focus-visible{outline:2px solid #c9b020; outline-offset:2px; border-radius:3px}
 table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
 th,td{border:1px solid var(--line); padding:.42rem .5rem; text-align:left; vertical-align:top}
 th{background:#efeae0; font-weight:650}
+.metrics{font-variant-numeric:tabular-nums; white-space:nowrap}
 .quote{border-left:3px solid var(--hi); padding:.35rem .9rem; margin:.55rem 0; background:var(--hi-soft); border-radius:0 8px 8px 0; font-size:.95rem}
+.tpl{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.84rem; white-space:pre-wrap; background:#1a1a18; color:#f7f4ec; padding:1rem 1.1rem; border-radius:10px; overflow:auto}
 .foot{margin-top:2.5rem; font-size:.86rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
 .mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.5rem 0; border-bottom:1px solid var(--line)}
 .mob-nav a{font-size:.8rem; color:var(--ink); text-decoration:none; background:var(--hi-soft); padding:.2rem .5rem; border-radius:999px}
 ul.plain{margin:.35rem 0; padding-left:1.2rem}
 ul.plain li{margin:.28rem 0}
+.piece{border-top:1px dashed var(--line); padding-top:.9rem; margin-top:1.1rem}
+.piece:first-of-type{border-top:none; padding-top:0; margin-top:0}
+.num{font-variant-numeric:tabular-nums; width:2.2rem}
+.sub{font-size:.78rem; color:var(--mut); margin-top:.2rem}
 @media(max-width:900px){
   .shell{grid-template-columns:1fr}
   .nav{display:none}
@@ -58,105 +77,47 @@ ul.plain li{margin:.28rem 0}
   .main{padding:1.1rem 1rem 3.5rem}
 }
 </style>
-<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid></head>
+<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid><style>
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.15rem;margin:0 0 1.2rem;box-shadow:var(--shadow)}
+.stage h3{margin:.1rem 0 .3rem}.stage .q{margin:.2rem 0 .7rem;color:var(--ink-2)}
+.tw{overflow-x:auto;max-width:100%}
+.tw table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:44rem}
+.tw th,.tw td{border-top:1px solid var(--line);padding:.45rem .5rem;vertical-align:top;text-align:left}
+.tw th{font-size:.74rem;color:var(--mut);font-weight:650;background:var(--hi-soft)}
+.lv{display:inline-block;font-size:.7rem;font-weight:650;padding:.05rem .4rem;border-radius:999px;border:1px solid var(--line);margin-right:.25rem}
+.lv.f{background:#e8f3ec}.lv.s{background:var(--hi-soft)}.lv.a{background:#eef0f4}.lv.b{background:#fbe9e7}
+.lv.h{background:#f1e8fb}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:.8rem}
+.work{margin:0;overflow-wrap:anywhere}.work h3{margin:.1rem 0 .4rem}.work p{margin:.35rem 0}.work .take{border-top:1px dashed var(--line);padding-top:.45rem}
+#compare .tw table{min-width:36rem}#audience .tw table{min-width:52rem}.depth{margin:.5rem 0}
+@media(max-width:700px){#compare .tw,#audience .tw{overflow:visible}#compare .tw table,#compare .tw tbody,#compare .tw tr,#compare .tw td,#audience .tw table,#audience .tw tbody,#audience .tw tr,#audience .tw td{display:block;width:100%;min-width:0}#compare .tw thead,#audience .tw thead{display:none}#compare .tw tr,#audience .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}#compare .tw td,#audience .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}#compare .tw td::before,#audience .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}}
+@media(max-width:900px) and (min-width:701px){.tw table{min-width:36rem}}
+@media(max-width:700px){
+.stage .tw{overflow:visible}
+.stage .tw table,.stage .tw tbody,.stage .tw tr,.stage .tw td{display:block;width:100%;min-width:0}
+.stage .tw thead{display:none}
+.stage .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}
+.stage .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}
+.stage .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}
+.stage .tw td[data-l="#"]{font-weight:700}
+}
+</style>
+</head>
 <body>
-<div class="shell">
-<aside class="nav" aria-label="目录">
-  <p class="brand">宝玉深拆</p>
-  <p class="meta">私密 · 素材偏薄专页<br>2026-11-05</p>
-  <div class="sec">选题库</div>
-  <a href="growth/">← 成长记录</a>
-  <a href="./">小红书全入口</a>
-  <a href="creators.html">对标档案</a>
-  <div class="sec">本页</div>
-  <a href="#overview">账号概况</a>
-  <a href="#timeline">时间线</a>
-  <a href="#breakout">破壁 / 代表</a>
-  <a href="#inflect">拐点</a>
-  <a href="#success">成功经验</a>
-  <a href="#for-ocean">给 Ocean</a>
-  <a href="#sources">来源与待核</a>
-</aside>
-<main class="main">
-<nav class="mob-nav" aria-label="移动目录">
-  <a href="#overview">概况</a>
-  <a href="#timeline">时间线</a>
-  <a href="#inflect">拐点</a>
-  <a href="#for-ocean">借鉴</a>
-</nav>
-
-<header>
-  <h1>宝玉成长页 · 高信噪比长帖</h1>
-  <p class="muted">X <a href="https://x.com/dotey">@dotey</a> · ~263.2k（creators metrics）。拐点形态是<strong>体裁信任</strong>，非单次病毒数字。不编造阅读量。</p>
-</header>
-<section id="overview">
-  <h2>账号概况</h2>
-  <div class="grid2">
-    <div class="card stat"><span class="tag">X</span><strong>~263.2k</strong><span class="muted">@dotey</span></div>
-    <div class="card stat"><span class="tag">体裁</span><strong>长帖/线程 + 译文</strong><span class="muted">信噪比优先于日更鸡汤</span></div>
-    <div class="card stat"><span class="tag">破壁类型</span><strong>中文第一时间可读版</strong><span class="muted">关键论文/产品发布</span></div>
-    <div class="card stat"><span class="tag">公开节点</span><strong>单篇粉/收入稀缺</strong><span class="muted">不编造</span></div>
-  </div>
-</section>
-<section id="timeline">
-  <h2>可观察模式</h2>
-  <ul class="plain">
-    <li>持续输出高密度长帖/线程；宁可慢更。</li>
-    <li>爆款 URL 时效快，发帖前用 X 时间线核对。</li>
-  </ul>
-</section>
-<section id="breakout">
-  <h2>代表</h2>
-  <p>「中文第一时间可读版」体裁本身即破壁；具体单篇随时效变化，本页不锁死阅读量。</p>
-</section>
-<section id="inflect">
-  <h2>拐点</h2>
-  <table>
-    <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
-    <tbody>
-      <tr><td>持续</td><td>关键发布的中文可读长帖</td><td>普通转发 → 高信噪入口之一</td><td>密度+可读；非鸡汤日更</td></tr>
-      <tr><td>说明</td><td colspan="3">公开「单篇前后粉/收入」稀缺；拐点是体裁信任。</td></tr>
-    </tbody>
-  </table>
-</section>
-<section id="success">
-  <h2>成功经验</h2>
-  <ul class="plain">
-    <li>高信噪比长帖；译文/深度笔记密度；榜单标签仅参考。</li>
-  </ul>
-</section>
-<section id="for-ocean">
-  <h2>给 Ocean</h2>
-  <div class="card">
-    <ol>
-      <li>Lenny 转述走「密度 + 可核对来源」：每帖带框架名与出处。</li>
-      <li>主线少追日更热点，一篇讲透一个判断。</li>
-    </ol>
-    <h3>暂时别学</h3>
-    <p>拼粉丝体量与「第一时间中文解读」速度战；你差异化是大厂 PM 现场，不是翻译赛道头部。</p>
-  </div>
-</section>
-<section id="sources">
-  <h2>来源</h2>
-  <p>creators 深描 · X @dotey。素材够做概况+拐点+给 Ocean；细粒度起号复盘公开稀缺 → 本页偏薄专页。</p>
-</section>
-
-<div class="foot"><p>私密 · x-digest · 从 creators 深描抽成独立成长页 · 2026-11-05 · 不编数字</p></div>
-</main>
-</div>
-<script>
-(function(){
-  const links=[...document.querySelectorAll('.nav a[href^="#"]')];
-  const map=links.map(a=>({a,el:document.querySelector(a.getAttribute('href'))})).filter(x=>x.el);
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(en=>{
-      if(!en.isIntersecting) return;
-      const id=en.target.id;
-      links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+id));
-    });
-  },{rootMargin:'-20% 0px -70% 0px', threshold:0});
-  map.forEach(({el})=>io.observe(el));
-})();
-</script>
+<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">宝玉深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>X 一手资料深化 · 小红书未核</p><div class="sec">选题库</div><a href="growth/">← 成长记录</a><a href="./">小红书全入口</a><a href="creators.html#baoyu">对标档案 · 宝玉</a><div class="sec">本页</div><a href="#overview">账号概况</a><a href="#timeline">5阶段时间线</a><a href="#s1">1 · 工程师底子</a><a href="#s2">2 · 课程翻译</a><a href="#s3">3 · 博客与翻译 Prompt</a><a href="#s4">4 · 自己做工具</a><a href="#s5">5 · 把管理经验搬给 Agent</a><a href="#works">代表作品拆解</a><a href="#audience">谁在看</a><a href="#compare">写法对照</a><a href="#voice">语气与节奏</a><a href="#limits">失败与边界</a><a href="#for-ocean">给 Ocean</a><a href="#sources">来源与待核</a></aside><main class="main"><nav class="mob-nav" aria-label="移动目录"><a href="#overview">概况</a><a href="#timeline">时间线</a><a href="#works">作品</a><a href="#audience">受众</a><a href="#compare">对照</a><a href="#voice">语气</a><a href="#limits">边界</a><a href="#for-ocean">借鉴</a><a href="#sources">来源</a></nav><header><h1>宝玉（@dotey） 成长深拆</h1><p class="muted">按“阶段 → 当时的问题 → 动作 → 作品”排，每条附原始链接。<span class="lv f">事实</span>可从原文核到；<span class="lv s">自述</span>是本人说法；<span class="lv a">分析</span>/<span class="lv a">观察</span>是研究者归纳；<span class="lv h">假设</span>未验证；<span class="lv b">边界</span>写不能怎么用。时间统一 UTC+8，查不到写未知。</p></header>
+<section id="overview"><h2>账号概况</h2><div class="grid2"><div class="card"><h3>平台</h3><p>X：<a href="https://x.com/dotey" target="_blank" rel="noopener">@dotey</a>，2007-04 建号，2026-11-08 API 读到 267,231 关注者；简介 “AI Engineer, dedicated to learning and disseminating knowledge about AI…”。博客：<a href="https://baoyu.io" target="_blank" rel="noopener">baoyu.io 首页</a>。微博也有账号（宝玉xp），只见搜索摘要，粉丝数不写。小红书：本轮未读。</p></div><div class="card"><h3>定位</h3><p><span class="lv s">自述</span>“我做自媒体本质是费曼学习法：要学 AI，就把学到的东西分享出来”（<a href="https://baoyu.io/blog/2026-08-31/ai-native-thinking" target="_blank" rel="noopener">《AI 原生思维》腾讯内部分享整理（本人博客）</a>，搜索返回的原文摘录）。<span class="lv a">观察</span>2026 年 X 上两类帖并行：中文转述英文一手新闻；自己用 Agent 做工具的实践。</p></div></div></section>
+<section id="timeline"><h2>5阶段时间线</h2><section id="s1" class="stage"><h3>阶段 1 · AI 之前：工程师和管理者（起始年份未核）</h3><p class="q"><b>当时的问题：</b>AI 来之前，靠什么建立“说话可信”。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">1</td><td data-l="日期">2022-06-21（访谈发布）</td><td data-l="动作与作品">接受 CSDN 访谈，讲转专业和职业路径 → <a href="http://m.cncms.com.cn/news/20220621/062132124.html" target="_blank" rel="noopener">2022 CSDN《程序人生》访谈（转载）</a></td><td data-l="事实">搜索返回的转载摘录，未读全文</td><td data-l="自述">“目前在美国，在Groupon做engineering manager”；大学时把校园 BBS 代码改好后“顺便就把这个代码开源出来”</td><td data-l="分析">AI 之前已有工程经理身份和分享习惯</td><td data-l="边界">转载站，非 CSDN 原页；职位是 2022 年说法</td></tr><tr><td data-l="#">2</td><td data-l="日期">未知（本人回顾）</td><td data-l="动作与作品">写《软件工程之美》专栏 → <a href="https://baoyu.io/blog/2026-08-31/ai-native-thinking" target="_blank" rel="noopener">《AI 原生思维》腾讯内部分享整理（本人博客）</a></td><td data-l="事实">—</td><td data-l="自述">“最早写《软件工程之美》专栏，这几年主要写 AI”</td><td data-l="分析">—</td><td data-l="边界">专栏原文本轮没读</td></tr></tbody></table></div></section><section id="s2" class="stage"><h3>阶段 2 · 2023：把英文课程翻成中文</h3><p class="q"><b>当时的问题：</b>ChatGPT 之后，中文读者去哪学系统课程。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">3</td><td data-l="日期">2023-06-28 13:12</td><td data-l="动作与作品"><a href="https://x.com/dotey/status/1673922279007485953" target="_blank" rel="noopener">X：最近翻译的系列课程</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">—</td><td data-l="分析">一门课同时给 X 线程、B站、YouTube 三个入口</td><td data-l="边界">课程视频没看</td></tr><tr><td data-l="#">4</td><td data-l="日期">2023-06-30 03:20</td><td data-l="动作与作品"><a href="https://x.com/dotey/status/1674498061937045516" target="_blank" rel="noopener">X：#AI开源项目推荐# ChatLaw</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">—</td><td data-l="分析">同期大量“开源项目推荐”格式帖，偏信息整理</td><td data-l="边界">2023 年上半年只抽了 25 条</td></tr><tr><td data-l="#">5</td><td data-l="日期">2023-12-09</td><td data-l="动作与作品"><a href="https://x.com/vista8/status/1733509609959379094" target="_blank" rel="noopener">向阳乔木 2023-12-09 推荐清单</a></td><td data-l="事实">帖子全文已读（他人帖）</td><td data-l="自述">—</td><td data-l="分析">同行对他的描述：“专注于LLM精品课程翻译，Prompt学习，AI行业第一手资讯”</td><td data-l="边界">这是同行看法，不是数据</td></tr></tbody></table></div></section><section id="s3" class="stage"><h3>阶段 3 · 2024：博客翻译栏和翻译 Prompt</h3><p class="q"><b>当时的问题：</b>翻译量大了，怎么让翻译又快又稳。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">6</td><td data-l="日期">2024-03</td><td data-l="动作与作品"><a href="https://baoyu.io/?page=16" target="_blank" rel="noopener">baoyu.io 2024-03 文章列表</a></td><td data-l="事实">搜索返回的列表摘录</td><td data-l="自述">—</td><td data-l="分析">文章标 [译]，翻吴恩达、Satya Nadella 等访谈；同月发“一个相对通用的翻译 Prompt…基于三步翻译法”</td><td data-l="边界">单篇未读；只说明有这类内容</td></tr></tbody></table></div></section><section id="s4" class="stage"><h3>阶段 4 · 2025–2026：自己做产品和开源</h3><p class="q"><b>当时的问题：</b>只翻译别人做的东西，还是自己做一个。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">7</td><td data-l="日期">2026-08-31（博客日期）</td><td data-l="动作与作品">腾讯内部分享整理 → <a href="https://baoyu.io/blog/2026-08-31/ai-native-thinking" target="_blank" rel="noopener">《AI 原生思维》腾讯内部分享整理（本人博客）</a></td><td data-l="事实">搜索返回的原文摘录</td><td data-l="自述">以“自己做了三年的字幕翻译 App”为主线；起点是想给吴恩达视频做双语字幕</td><td data-l="分析">翻译需求直接变成了他自己的产品</td><td data-l="边界">PPT 和全文未逐段读</td></tr><tr><td data-l="#">8</td><td data-l="日期">2026-10-15 07:02</td><td data-l="动作与作品"><a href="https://x.com/dotey/status/2110506560375939160" target="_blank" rel="noopener">X：BaoCut 字幕难点讲解视频</a></td><td data-l="事实">帖子文字全文已读</td><td data-l="自述">“这些问题都是我在做字幕翻译时遇到的难点”</td><td data-l="分析">用自己的开源项目做科普素材</td><td data-l="边界">视频没看，不分析视频内容</td></tr><tr><td data-l="#">9</td><td data-l="日期">2026-11-05 02:45</td><td data-l="动作与作品"><a href="https://x.com/dotey/status/2118052017755005210" target="_blank" rel="noopener">X：开源 Cicada</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">—</td><td data-l="分析">同一条翻译主线延伸到会议实时字幕</td><td data-l="边界">仓库未打开核</td></tr><tr><td data-l="#">10</td><td data-l="日期">2026-11-07 03:41</td><td data-l="动作与作品"><a href="https://x.com/dotey/status/2118790959341441289" target="_blank" rel="noopener">X：DeepSeek Harness 插件</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“还要自己实现插件自动更新机制 😂”</td><td data-l="分析">—</td><td data-l="边界">—</td></tr></tbody></table></div></section><section id="s5" class="stage"><h3>阶段 5 · 2026：带团队的经验用在 Agent 上</h3><p class="q"><b>当时的问题：</b>Agent 写代码越来越多，人怎么验收。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">11</td><td data-l="日期">2026-07-29（博客日期）</td><td data-l="动作与作品"><a href="https://baoyu.io" target="_blank" rel="noopener">baoyu.io 首页</a>《从 TL 到 EM》</td><td data-l="事实">只读到首页标题和摘要</td><td data-l="自述">摘要：“人的价值就该从盯实现，转向定方向和验收结果”</td><td data-l="分析">—</td><td data-l="边界">正文未读</td></tr><tr><td data-l="#">12</td><td data-l="日期">2026-11-06 13:02</td><td data-l="动作与作品"><a href="https://x.com/dotey/status/2118569598379229219" target="_blank" rel="noopener">X：让 Agent 交 PR 带截图</a> · <a href="https://x.com/dotey/status/2119261146364391846" target="_blank" rel="noopener">补充说明</a></td><td data-l="事实">两帖全文已读；直接回复 22 条</td><td data-l="自述">以前要求粗心员工 PR 带截屏，“现在我也把这一套应用在 AI 身上了”</td><td data-l="分析">把管人的办法原样迁移给模型，评论区共鸣集中在这点</td><td data-l="边界">直接回复只读到 API 返回的 22 条</td></tr></tbody></table></div></section></section>
+<section id="works"><h2>代表作品拆解</h2><p class="muted">只选原文读过、写法各不相同的作品，不是热门榜；不展示互动数。</p><div class="works"><article class="work card" id="w1"><h3>代表作品 1 · 课程翻译合集：一门课给三个入口</h3><p class="links"><a href="https://x.com/dotey/status/1673922279007485953" target="_blank" rel="noopener">X：最近翻译的系列课程</a></p><p class="muted">时间线位置：<a href="#s2">阶段 2 · 节点 3</a></p><p><span class="lv f">事实</span>帖子全文已读。列出《Building Systems with the ChatGPT API》和 Google《Generative AI learning path》，每门给课程地址、X 线程、B站、YouTube 播放列表。</p><p><span class="lv a">观察</span>没有观点句，全是可点的入口；读者按自己常用的平台选。</p><p><span class="lv h">假设</span>系统课的中文版在 2023 年少，可能是他早期被收藏、被推荐的原因；没有数据。</p><p><span class="lv b">边界</span>只读了帖子，没看课程视频本身。</p><p class="take"><b>可借鉴写法：</b>一份整理同时给多个平台入口，让读者不用换平台。</p></article><article class="work card" id="w2"><h3>代表作品 2 · 管理经验迁移：Agent 交 PR 必须带截图</h3><p class="links"><a href="https://x.com/dotey/status/2118569598379229219" target="_blank" rel="noopener">X：PR 截图</a> · <a href="https://x.com/dotey/status/2119261146364391846" target="_blank" rel="noopener">X：补充说明</a></p><p class="muted">时间线位置：<a href="#s5">阶段 5 · 节点 12</a></p><p><span class="lv f">事实</span>两帖全文已读。先讲以前团队一个员工不自测，后来要求 PR 带截屏；再说现在对 Agent 也这样。补充帖说截图“重点是给人看的”。</p><p><span class="lv s">自述</span>“这样效果很好，至少去截图的时候得测试一遍。”</p><p><span class="lv a">观察</span>一个真实带人场景 + 一条可以马上照做的规则；11-08 补一帖回应误解。</p><p><span class="lv h">假设</span>部分评论者提到类似的交付验收问题，说明这条规则能让一部分人对号；只读了 22 条直接回复。</p><p><span class="lv b">边界</span>直接回复只读到 22 条；截图本身没看。</p><p class="take"><b>可借鉴写法：</b>把过去带人的一条土办法，原样搬给 AI，并说清楚它为什么有效。</p></article><article class="work card" id="w3"><h3>代表作品 3 · 拿自己的开源项目讲原理</h3><p class="links"><a href="https://x.com/dotey/status/2110506560375939160" target="_blank" rel="noopener">X：BaoCut 字幕难点</a></p><p class="muted">时间线位置：<a href="#s4">阶段 4 · 节点 8</a></p><p><span class="lv f">事实</span>帖子文字全文已读。先列三种常见坏字幕，再说“这期拿我的开源项目 BaoCut 做例子”，讲五个坑，预告下集。</p><p><span class="lv s">自述</span>“这些问题都是我在做字幕翻译时遇到的难点。”</p><p><span class="lv a">观察</span>开头是读者都见过的坏体验，不是技术名词；分上下集。</p><p><span class="lv h">假设</span>用读者见过的坏字幕开头，可能让不做开发的人也愿意看；未验证。</p><p><span class="lv b">边界</span>视频（英文版和中文版）没看，本页不评价视频内容。</p><p class="take"><b>可借鉴写法：</b>讲技术原理前，先列三个读者亲眼见过的坏结果。</p></article><article class="work card" id="w4"><h3>代表作品 4 · 新闻长帖：结论做标题，再解释名词</h3><p class="links"><a href="https://x.com/dotey/status/2119283516143776186" target="_blank" rel="noopener">X：Anthropic 科研会话报告</a> · <a href="https://x.com/dotey/status/2118175728164348187" target="_blank" rel="noopener">X：Austin Lau 加入 OpenAI</a></p><p class="muted">时间线位置：<a href="#s5">阶段 5</a></p><p><span class="lv f">事实</span>两帖全文已读。标题直接给结论（如“科学家用 Claude 最多的是分析数据和写论文，他们最看重的提想法反而用得最少”），正文第一句交代来源和日期；人事帖先写“先说&quot;增长&quot;是做什么的”。</p><p><span class="lv a">观察</span>标题像新闻导语；正文先补背景名词，再讲事。</p><p><span class="lv h">假设</span>英文原文读不动的读者可以只看标题拿到结论；没有验证。</p><p><span class="lv b">边界</span>没逐条对照英文原文核翻译准确度。</p><p class="take"><b>可借鉴写法：</b>转述新闻时，标题写结论，正文第一句写谁、哪天、在哪发的。</p></article><article class="work card" id="w5"><h3>代表作品 5 · 可复用的小技巧：让 Agent 解释它自己</h3><p class="links"><a href="https://x.com/dotey/status/2118431419424714878" target="_blank" rel="noopener">X：逆向技巧</a></p><p class="muted">时间线位置：<a href="#s5">阶段 5</a></p><p><span class="lv f">事实</span>帖子全文已读。思路是让 Agent 看到相关上下文，再问它；例子是给 Claude Duet 装一个 Skill 后问它为什么能弹出安装卡片。</p><p><span class="lv a">观察</span>一句原理 + 一个他这几天真实在做的例子 + 可以直接复制的提问。</p><p><span class="lv h">假设</span>对已经在用 Agent 的人，这类“一句话技巧”成本低、好收藏；没有数据。</p><p><span class="lv b">边界</span>评论没读。</p><p class="take"><b>可借鉴写法：</b>技巧帖给一句原理，再给一个可复制的原句。</p></article></div></section>
+<section id="audience"><h2>谁在看，为什么愿意看</h2><p class="muted"><b>没有真实的粉丝画像数据</b>。人群和动机根据作者自述、X 评论和作品内容推断，不代表全体读者。</p><div class="tw"><table><thead><tr><th>可能的读者类型（推断）</th><th>AI 使用深度</th><th>可能想要什么</th><th>能拿走什么</th><th>对应作品</th><th>证据</th></tr></thead><tbody><tr><td data-l="读者类型">想跟上英文 AI 一手消息、但读英文慢的中文读者</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：资讯和观点，L0–L1 都能读</td><td data-l="想要什么">不用自己读英文原文</td><td data-l="能拿走什么">结论式标题和名词解释</td><td data-l="对应作品"><a href="#w4">卡 4</a></td><td data-l="证据"><span class="lv a">观察</span>同行把他描述为“AI行业第一手资讯”（<a href="https://x.com/vista8/status/1733509609959379094" target="_blank" rel="noopener">向阳乔木 2023-12-09 推荐清单</a>）</td></tr><tr><td data-l="读者类型">在用 Coding Agent 的工程师和技术管理者</td><td data-l="AI 使用深度">读者现在：评论者里有人已让 Agent 写代码并验收（约 L3–L4），只代表评论者<br>内容指向：L3 会验</td><td data-l="想要什么">让 Agent 交付可验收的结果</td><td data-l="能拿走什么">一条验收规则</td><td data-l="对应作品"><a href="#w2">卡 2</a></td><td data-l="证据"><span class="lv s">评论者自述</span>“我现在给 Claude Code / Codex 收工也强制这样”；“截图能证明页面跑过，但证明不了行为正确。”</td></tr><tr><td data-l="读者类型">想学 Prompt 和 Skill 的人</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：上下文提问技巧，约 L2；不足以判断 L4</td><td data-l="想要什么">能马上用的技巧</td><td data-l="能拿走什么">可复制的提问句</td><td data-l="对应作品"><a href="#w5">卡 5</a>；<a href="#s3">阶段 3</a></td><td data-l="证据"><span class="lv s">自述</span>翻译 Prompt“基于三步翻译法”（2024 列表摘录）</td></tr><tr><td data-l="读者类型">想系统学课程的人（2023 年为主）</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：L1–L2 入门</td><td data-l="想要什么">中文版系统课</td><td data-l="能拿走什么">课程入口</td><td data-l="对应作品"><a href="#w1">卡 1</a></td><td data-l="证据"><span class="lv a">观察</span>一门课给三个平台入口</td></tr></tbody></table></div><p class="depth"><b>深度怎么标：</b>沿用 <a href="../research/ai-depth-levels-2026-10-28.html#levels">AI 使用深度水位</a> 的 L0–L5（定义见<a href="zhangzala.html#audience">张咋啦页</a>）；分开写读者现在和内容指向，层级不是职业类别。</p><h3>可能为什么能火、能传开（未验证）</h3><div class="card"><ul class="plain"><li><span class="lv s">自述</span>他把写作当费曼学习法（<a href="https://baoyu.io/blog/2026-08-31/ai-native-thinking" target="_blank" rel="noopener">《AI 原生思维》腾讯内部分享整理（本人博客）</a>）。<span class="lv h">假设</span>学到就发、持续多年，读者可能是在跟“一个一直在学的人”，而不是单篇。</li><li><span class="lv a">观察</span>翻译需求最后变成他自己的字幕产品（<a href="#s4">阶段 4</a>）。<span class="lv h">假设</span>翻译者 → 做工具的人，让他的转述多了“我自己做过”的分量。</li><li><span class="lv s">自述</span>工程经理经历（<a href="#s1">阶段 1</a>）。<span class="lv a">观察</span>代表作品 2 直接用了带人经验，这是纯资讯号没有的。</li><li><span class="lv s">评论者自述</span>PR 截图帖评论里有补充、有反驳（“只能证明确实跑过”），也有“管人的办法原封不动拿来管AI，居然还挺好使”。<span class="lv b">边界</span>只读到 22 条直接回复。</li></ul></div></section>
+<section id="compare"><h2>普通内容与代表作品：写法差在哪</h2><p class="muted"><span class="lv a">观察</span>只比较写法，不是因果；不展示互动数。普通内容一列来自同期 X 帖原文：<a href="https://x.com/dotey/status/2119130688737718462" target="_blank" rel="noopener">Mac 玩燕云十六声</a> · <a href="https://x.com/dotey/status/2119108669392720336" target="_blank" rel="noopener">GPUI 链接</a> · <a href="https://x.com/dotey/status/2118202485265555813" target="_blank" rel="noopener">帮转招人</a>（2026-11-05～11-08，全文已读）。</p><div class="tw"><table><thead><tr><th>维度</th><th>代表作品</th><th>普通内容</th></tr></thead><tbody><tr><td data-l="维度">开头</td><td data-l="代表作品">结论句或读者见过的坏体验（<a href="#w3">卡 3</a>、<a href="#w4">卡 4</a>）</td><td data-l="普通内容">一句感受或一条链接</td></tr><tr><td data-l="维度">个人经历</td><td data-l="代表作品">带团队、做字幕产品的真实经历（<a href="#w2">卡 2</a>）</td><td data-l="普通内容">玩游戏、转招聘</td></tr><tr><td data-l="维度">读者能拿走什么</td><td data-l="代表作品">规则、技巧、课程入口（<a href="#w1">卡 1</a>、<a href="#w5">卡 5</a>）</td><td data-l="普通内容">一个链接或一句提醒</td></tr><tr><td data-l="维度">形式</td><td data-l="代表作品">长帖，分段，有来源和日期</td><td data-l="普通内容">一两句话</td></tr></tbody></table></div></section>
+<section id="voice"><h2>语气、节奏与可借鉴写法</h2><div class="card"><ul class="plain"><li><span class="lv f">事实</span>新闻长帖第一句交代来源和日期，如“Anthropic 11 月 4 日发布研究报告”（<a href="#w4">卡 4</a>）。</li><li><span class="lv f">事实</span>解释名词用很口语的句子：“先说&quot;增长&quot;是做什么的。”</li><li><span class="lv f">事实</span>实践帖带一点自嘲：“还要自己实现插件自动更新机制 😂”。</li><li><span class="lv a">观察</span>2026-11-05～11-08 抓到的 20 条里，长帖多是 Anthropic 和行业新闻转述，夹着自己的实践帖。</li><li><span class="lv a">观察</span>有人误解时隔天补一帖说明（11-06 发，11-08 补）（<a href="#w2">卡 2</a>），不在评论里逐条回。</li></ul></div><pre class="tpl">【标题】一句结论（谁 + 发现了什么 + 反直觉的地方）
+【第一句】来源、日期
+【名词】先用一句话解释读者可能不懂的词
+【正文】分几条讲事实
+【我的看法】一句，基于自己做过的事</pre><p class="muted">模板是分析产物，不是作者原话。</p></section>
+<section id="limits"><h2>失败与边界</h2><div class="card"><ul><li><b>翻译准确度</b>：本轮没有逐条对照英文原文，不能说他的转述都准。</li><li><b>评论覆盖</b>：只读了一条帖的 22 条直接回复，读者画像全是推断。</li><li><b>平台</b>：微博只见搜索摘要；公众号“赛博禅心”授权发布只见第三方百科说法；小红书没读。</li><li><b>数字</b>：只写 API 读到的 X 关注者；微博粉丝、GitHub star、提示词传播范围都没核，不写。</li><li><b>视频</b>：BaoCut、Cicada 的视频都没看。</li></ul></div></section>
+<section id="for-ocean"><h2>给 Ocean（「AI具身牛马」）的借鉴</h2><p class="muted"><span class="lv a">分析</span>研究者建议，不是成功公式。</p><div class="grid2"><div class="card"><h3>可借鉴</h3><ol><li>写 AI 新闻时标题写结论，正文第一句写来源和日期。</li><li>把大厂带人的一条土办法搬给 Agent，讲清楚为什么有效——这正是 Ocean 的 PM 背景能写的。</li><li>讲原理前先列读者亲眼见过的坏结果。</li><li>有人误解时补一帖说明，不吵架。</li></ol></div><div class="card"><h3>不适用</h3><ul><li>二十多年工程和管理履历、旅美背景，照搬不了。</li><li>每天多条英文新闻转述的产量和速度，不适合兼职。</li><li>翻译赛道已有头部，Ocean 的差异在大厂 PM 现场。</li></ul></div></div></section>
+<section id="sources"><h2>来源与待核</h2><p><b>状态：X 一手资料深化；小红书未核</b>。X 和博客已补一手资料；腾讯分享和 2022 访谈只读到搜索摘录，证据偏弱；小红书没核：不据此判断他在小红书的效果，也不标双发。</p><div class="tw"><table><thead><tr><th>来源</th><th>读到了</th><th>没读到</th></tr></thead><tbody><tr><td data-l="来源">X</td><td data-l="读到了">资料（API）+ 2026-11-05～11-08 帖 20 条 + 2026-10 关键词搜索 24 条 + 2023 上半年 25 条</td><td data-l="没读到">2023–2025 大部分帖子；X 长文正文</td></tr><tr><td data-l="来源">小红书</td><td data-l="读到了">无</td><td data-l="没读到">主页、笔记、评论都没读：300013 安全限制，按规定停止。旧采集（2026-11-02～06 日报）里只有他的 X 帖，没有小红书笔记</td></tr><tr><td data-l="来源">评论</td><td data-l="读到了">PR 截图帖直接回复 22 条（API 返回 25 条，3 条回复别的帖）</td><td data-l="没读到">其他帖评论；博客评论</td></tr><tr><td data-l="来源">作品原文</td><td data-l="读到了">X 帖全文；baoyu.io 首页标题与摘要；腾讯分享整理与 2022 访谈为搜索返回的原文摘录</td><td data-l="没读到">博客正文逐篇；课程视频；BaoCut 视频；《软件工程之美》</td></tr></tbody></table></div><ul class="plain"><li>证据台账：<code>review/creator-growth-20261108/baoyu-ledger.md</code>（采集 2026-11-08，UTC+8）。</li><li>博客：<a href="https://baoyu.io/about" target="_blank" rel="noopener">baoyu.io/about</a> 2026-11-08 返回 404。</li><li>第三方百科（低证据，只作线索）：<a href="https://nexttoken.tv/wiki/people/baoyu" target="_blank" rel="noopener">Next Token Wiki · 宝玉</a>（baoyu-skills 2026-01 创建、公众号授权等说法未核）。</li></ul><p><span class="tag warn">待核</span>：小红书账号是否存在；腾讯分享全文；2022 访谈原页；baoyu-skills 仓库与创建时间；微博粉丝数；2023–2025 起号过程的本人说法。</p></section>
+</main></div>
 </body>
 </html>

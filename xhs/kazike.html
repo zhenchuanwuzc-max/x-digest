@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>卡兹克深拆 · 起号复盘 + 工作流 + 28篇长文 · 给 Ocean</title>
+<title>卡兹克成长深拆 · 时间线 + 代表作品 + 受众深度 · 给 Ocean</title>
 <!-- impeccable: fluid full-width · sticky left elevator · scroll-behavior:auto · cream + black + one highlighter yellow -->
 <style>
 :root{
@@ -68,6 +68,8 @@ ul.plain{margin:.35rem 0; padding-left:1.2rem}
 ul.plain li{margin:.28rem 0}
 .piece{border-top:1px dashed var(--line); padding-top:.9rem; margin-top:1.1rem}
 .piece:first-of-type{border-top:none; padding-top:0; margin-top:0}
+.num{font-variant-numeric:tabular-nums; width:2.2rem}
+.sub{font-size:.78rem; color:var(--mut); margin-top:.2rem}
 @media(max-width:900px){
   .shell{grid-template-columns:1fr}
   .nav{display:none}
@@ -75,464 +77,47 @@ ul.plain li{margin:.28rem 0}
   .main{padding:1.1rem 1rem 3.5rem}
 }
 </style>
-<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid></head>
+<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid><style>
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.15rem;margin:0 0 1.2rem;box-shadow:var(--shadow)}
+.stage h3{margin:.1rem 0 .3rem}.stage .q{margin:.2rem 0 .7rem;color:var(--ink-2)}
+.tw{overflow-x:auto;max-width:100%}
+.tw table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:44rem}
+.tw th,.tw td{border-top:1px solid var(--line);padding:.45rem .5rem;vertical-align:top;text-align:left}
+.tw th{font-size:.74rem;color:var(--mut);font-weight:650;background:var(--hi-soft)}
+.lv{display:inline-block;font-size:.7rem;font-weight:650;padding:.05rem .4rem;border-radius:999px;border:1px solid var(--line);margin-right:.25rem}
+.lv.f{background:#e8f3ec}.lv.s{background:var(--hi-soft)}.lv.a{background:#eef0f4}.lv.b{background:#fbe9e7}
+.lv.h{background:#f1e8fb}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:.8rem}
+.work{margin:0;overflow-wrap:anywhere}.work h3{margin:.1rem 0 .4rem}.work p{margin:.35rem 0}.work .take{border-top:1px dashed var(--line);padding-top:.45rem}
+#compare .tw table{min-width:36rem}#audience .tw table{min-width:52rem}.depth{margin:.5rem 0}
+@media(max-width:700px){#compare .tw,#audience .tw{overflow:visible}#compare .tw table,#compare .tw tbody,#compare .tw tr,#compare .tw td,#audience .tw table,#audience .tw tbody,#audience .tw tr,#audience .tw td{display:block;width:100%;min-width:0}#compare .tw thead,#audience .tw thead{display:none}#compare .tw tr,#audience .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}#compare .tw td,#audience .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}#compare .tw td::before,#audience .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}}
+@media(max-width:900px) and (min-width:701px){.tw table{min-width:36rem}}
+@media(max-width:700px){
+.stage .tw{overflow:visible}
+.stage .tw table,.stage .tw tbody,.stage .tw tr,.stage .tw td{display:block;width:100%;min-width:0}
+.stage .tw thead{display:none}
+.stage .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}
+.stage .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}
+.stage .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}
+.stage .tw td[data-l="#"]{font-weight:700}
+}
+</style>
+</head>
 <body>
-<div class="shell">
-<aside class="nav" aria-label="目录">
-  <p class="brand">卡兹克深拆</p>
-  <p class="meta">私密 · 写给 Ocean<br>采集 2026-11-04（America/Los_Angeles）<br>精读 ≥28 篇 · 2026-11-05 加深 · 不编数字 · 缺数标待核</p>
-  <div class="sec">选题库</div>
-  <a href="growth/">← 成长记录</a>
-  <a href="./">小红书全入口</a>
-  <a href="creators.html">对标档案</a>
-  <div class="sec">本页</div>
-  <a href="#overview">账号概况</a>
-  <a href="#qihhao">起号复盘</a>
-  <a href="#breakout">破壁作品</a>
-  <a href="#workflow">工作流</a>
-  <a href="#pieces">25+ 篇逐拆</a>
-  <a href="#viral">爆款 vs 普通</a>
-  <a href="#voice">语气与禁词</a>
-  <a href="#template">可套用模板</a>
-  <a href="#for-ocean">给 Ocean</a>
-  <a href="#sources">来源与待核</a>
-</aside>
-<main class="main">
-<nav class="mob-nav" aria-label="移动目录">
-  <a href="#overview">概况</a>
-  <a href="#qihhao">起号</a>
-  <a href="#pieces">逐拆</a>
-  <a href="#viral">爆款差</a>
-  <a href="#template">模板</a>
-  <a href="#for-ocean">借鉴</a>
-</nav>
-
-<header>
-  <h1>卡兹克深拆 · 起号复盘 + 工作流 + 长文写法</h1>
-  <p class="muted">对象：数字生命卡兹克（公众号 Rockhazix / X <a href="https://x.com/Khazix0918">@Khazix0918</a>）。本页是浅页升级版：真实精读 ≥27 篇长文/复盘/访谈，逐篇拆写法，并单独做「起号复盘」。数字一律有出处；查不到标 <span class="tag warn">待核</span>。不开浏览器读小红书。</p>
-</header>
-
-<section id="overview">
-  <h2>账号概况</h2>
-  <div class="grid2">
-    <div class="card stat"><span class="tag">X</span><strong>~10.4 万粉</strong><span class="muted">@Khazix0918 · 采集时点 2026-11-04 · public_metrics</span></div>
-    <div class="card stat"><span class="tag">公众号</span><strong>近百万 / 全平台 100万+</strong><span class="muted">本人 OPC 演讲：「离百万粉丝还差一点点，但全平台加起来已经一百多万」· <a href="https://www.10100.com/article/149149135">10100 转载</a></span></div>
-    <div class="card stat"><span class="tag">小红书</span><strong>「马上才摸到 10 万粉」</strong><span class="muted">本人方法论文自述（2026-05）· 第三方聚合曾报 7–8 万，口径不一 → <span class="tag warn">待核精确值</span></span></div>
-    <div class="card stat"><span class="tag">产出</span><strong>746 篇 / ~日更</strong><span class="muted">第三方：爬虫彪哥统计到 2026-06 · <a href="https://juejin.cn/post/7656415518811865122">掘金</a></span></div>
-  </div>
-  <p>定位自述：「AI 殿堂的门童——把门打开，把人引进去。」主阵地是<strong>微信公众号图文</strong>；X / 视频号 / 小红书 / B 站多为分发。变现以品牌商单 + 虚实传媒 MCN + 顾问/大会为主（报价六位数传闻 → <span class="tag warn">待核</span>）。</p>
-</section>
-
-<section id="qihhao">
-  <h2>起号复盘 · 从 0 到行业顶流</h2>
-  <p class="muted">优先用他本人复盘 / 访谈 / 演讲原句；第三方统计只作交叉。缺精确粉丝里程碑时间点处一律待核。</p>
-
-  <h3>1. 时间线（0 → 近百万）</h3>
-  <table>
-    <thead><tr><th>时间</th><th>事件</th><th>出处</th></tr></thead>
-    <tbody>
-      <tr><td>2015-10</td><td>大学注册号，首篇《中国的二胎…》阅读量没破百；2017-03 后断更约 6 年（2185 天）</td><td>爬虫彪哥上篇（第三方统计）</td></tr>
-      <tr><td>2022-12</td><td>ChatGPT 后第 7 天把接口接进微信群；「第三天微信号就被封了」</td><td>本人 OPC 演讲</td></tr>
-      <tr><td>2023-02-25/26</td><td><mark>重启第一篇</mark>《关于 ChatGPT 的兄弟 - AI 绘图的小思考》（日期：彪哥记 2/25；本人演讲说 2/26）</td><td>双方口径差 1 天 → <span class="tag warn">待核</span></td></tr>
-      <tr><td>2023 初起号</td><td>「只有可怜的 <mark>30 个粉丝</mark>，每篇文章阅读量不到 100」；<mark>第二篇</mark> SD 画美女教程「阅读量破了万，也为我积累了最初的 <mark>500 个粉丝</mark>」</td><td>本人《SD 时代消亡》<a href="https://mp.weixin.qq.com/s/tBN6tiV_KGbfU-8EaR9KfQ">原文</a></td></tr>
-      <tr><td>2023-02 → 08</td><td>起号期 <mark>55 篇，月均约 9 篇</mark>：2 月 3 / 3 月 12 / 4 月 7（住院停更）/ 5 月 12 / 6 月 9 / 7 月 11。内容占比约：测评 40% · 教程 30% · 热点 20% · 观点日常 10%</td><td>爬虫彪哥上篇</td></tr>
-      <tr><td>2023-08-03</td><td><mark>身份跃迁爆款</mark>：《我用 AI 做了一部《流浪地球 3》的预告片》——5 晚 · MJ 693 张图 · Gen2 185 镜头 · 选 60 剪成约 72 秒；被郭帆转发；全网播放<strong>千万级</strong></td><td>微博自述 + 专访 + AI Maker 嘉宾页</td></tr>
-      <tr><td>2023-08 → 2024-12</td><td>爆发期 337 篇，月均约 20，近乎日更；从「教 AI」→「用 AI 做作品」</td><td>爬虫彪哥</td></tr>
-      <tr><td>2024-02-16</td><td>Sora 解析文全网首发，单篇阅读 <mark>300 万+</mark>；次日做了 13 场券商线上路演</td><td>AI Maker 嘉宾页 + 晚点聊口述（经学习笔记）</td></tr>
-      <tr><td>2024-03</td><td>公司收缩后<strong>裸辞全职</strong>做账号</td><td>晚点聊 109 / 学习笔记</td></tr>
-      <tr><td>2024-10</td><td>「登顶」AI 公众号影响力榜，之后连续一年多第一</td><td>本人 OPC 演讲</td></tr>
-      <tr><td>2025-02-10</td><td>杭州虚实传媒成立（法人张仁杰）</td><td>工商第三方</td></tr>
-      <tr><td>2025-03</td><td>AIFUT / AI 未来大会路线；从博主→组织者</td><td>彪哥 + 本人开源文广告段</td></tr>
-      <tr><td>2026-04</td><td>开源 khazix-skills；万人大会</td><td>掘金开源文</td></tr>
-      <tr><td>2026-07 演讲时</td><td>「全平台加起来已经一百多万，公众号也快破了」</td><td>OPC 演讲</td></tr>
-    </tbody>
-  </table>
-
-  <h3>2. 粉丝里程碑（1万 / 5万 / 10万）</h3>
-  <div class="card">
-    <ul class="plain">
-      <li><strong>30 → 500</strong>：本人原句可证（第二篇 SD 教程破万阅）。</li>
-      <li><strong>1 万粉时间点</strong>：公开复盘里<strong>未找到精确日期</strong> → <span class="tag warn">待核</span>。推断窗口：起号期末～流浪地球出圈前后（2023 夏），但非本人原句。</li>
-      <li><strong>5 万粉</strong>：本人方法论文只说「常读用户比例统计前提是至少 5 万以上粉丝」，等于承认曾过 5 万，但<strong>无日期</strong> → <span class="tag warn">待核</span>。</li>
-      <li><strong>10 万粉</strong>：2023 年底专访仍写「尽管粉丝数量还未超过十万」；2024-02 Sora 刷屏后加速。精确破 10 万日 → <span class="tag warn">待核</span>。小红书侧本人 2026-05 说「马上才摸到 10 万粉」。</li>
-      <li>「294 天破 10 万」类说法：本轮检索<strong>未在本人原文坐实</strong> → <span class="tag warn">待核 / 勿采信</span>。</li>
-    </ul>
-  </div>
-
-  <h3>3. 前三个月发什么 · 频率</h3>
-  <div class="quote">「关键词就三个，教程，热点，快。」「起号阶段不需要深度，只需要有用和快。」——爬虫彪哥对 55 篇的归纳（第三方）</div>
-  <p>本人同期姿态可从 SD 消亡文倒推：第二篇就上 SD 教程，说明<strong>工具保姆级教程是起号发动机</strong>。3 月挤满 GPT-4 / 文心一言 / NewBing / Prompt 大全 / 工具大全。策略一句话：<mark>热点当天或次日出，不跟人比深度，跟人比速度</mark>（彪哥列后续 o1/Sora/Claude 发布间隔 1–4 小时，多为爆发期例证）。</p>
-
-  <h3>4. 首个爆款是哪篇</h3>
-  <ul class="plain">
-    <li><strong>账号级「第一个破万阅」</strong>（起号点火）：第二篇 Stable Diffusion 画美女教程 · 破万阅 · +500 粉 —— 本人原句。</li>
-    <li><strong>身份跃迁爆款</strong>（出圈）：2023-08-03 流浪地球 3 AI 预告片 · 全网千万播放 · 郭帆转发 —— 本人多次复盘。意义：「从『教 AI 的人』变成『用 AI 的人』」（彪哥归纳，与本人后续叙事一致）。</li>
-    <li><strong>阅读量现象级</strong>：2024-02 Sora 解析 · 单篇 300 万+ —— 嘉宾页口径。</li>
-  </ul>
-
-  <h3>5. 平台扩张顺序</h3>
-  <p><mark>公众号（主阵地，2023-02 重启）→ 微博/视频分发（流浪地球时期）→ 知乎 / B 站 → X（@Khazix0918）→ 视频号（晚点聊提及全职后做视频）→ 小红书（本人承认起步晚，2026 才摸 10 万）→ GitHub 开源（2026-04 skills）→ 自建 AIHOT。</mark> B 站约 1.8 万粉（2026-09 API 实测，第三方笔记），远小于公众号影响力 → 核心资产仍是公众号图文 + 私域群。</p>
-
-  <h3>6. 变现路径</h3>
-  <ol>
-    <li><strong>品牌商单 / 定制图文视频</strong>（主现金流；六位数/篇传闻 → <span class="tag warn">待核</span>）</li>
-    <li><strong>金融机构路演</strong>（Sora/Pika 爆文次日 13 场券商路演 —— 晚点聊口述）</li>
-    <li><strong>影视顾问</strong>（流浪地球 3 AI 相关；CCTV6 短片）</li>
-    <li><strong>虚实传媒 MCN</strong>（2025-02；对外称约 160 位博主 → 第三方仅确认少数，<span class="tag warn">待核</span>）</li>
-    <li><strong>大会 / 顾问 / 开源声誉</strong>（AIFUT、khazix-skills）</li>
-    <li>公开姿态<strong>不太主推卖课</strong>（人物报道口径）</li>
-  </ol>
-  <div class="quote">「唯一能跳出这个金字塔的东西，叫 IP。……我们做自媒体的本质——为了做 IP。」——OPC 演讲原句</div>
-  <div class="quote">「经历了从零到快 100 万粉，经历了无数篇爆文和无数篇扑街的稿子，最后沉淀下来的所有的流程，其实也就是这么朴素的三步：获取信息，找角度，然后创作。」——三年方法论原文</div>
-</section>
-
-
-<section id="breakout">
-  <h2>破壁作品清单（可点）</h2>
-  <p class="muted">从 creators 深描与本人复盘交叉；阅读量仅写有出处的。</p>
-  <ol class="plain">
-    <li><strong>身份跃迁：</strong>《我用 AI 做了一部〈流浪地球 3〉的预告片》——五晚 / MJ+Gen2；郭帆转发；全网千万级播放（本人多次复盘）。</li>
-    <li><strong>工具首测：</strong><a href="https://mp.weixin.qq.com/s/PwM38eRIS4M8tjergbscYg">PIKA1.0 上手评测</a> → <a href="https://mp.weixin.qq.com/s/J8raD9KkcIjf3LE1VF-yxg">两周后 10 技巧复访</a>（「评测→技巧」连更模板）。</li>
-    <li><strong>阅读现象级：</strong>Sora「现实不存在了」系解析 · 单篇 300 万+（嘉宾页口径）· <a href="https://www.163.com/dy/article/IS6KRJI2055627NS.html">得到合作转载</a>。</li>
-    <li><strong>起号点火：</strong>第二篇 SD 画美女教程 · 破万阅 · 30→500 粉（本人《SD 时代消亡》原句）。</li>
-    <li><strong>评论区 IP：</strong><a href="https://mp.weixin.qq.com/s/bxNN8Uw4yHcK6A4_xSV2IA">鲜虾包文</a>——互动本身成记忆点。</li>
-    <li><strong>X 系统长文：</strong>折腾一年 Agent 自动化 · ~4855 赞 / 9158 书签（2026-11-04 采集）。</li>
-  </ol>
-</section>
-
-<section id="workflow">
-  <h2>工作流 / 方法论深挖</h2>
-  <div class="card">
-    <h3>晚点聊 109 口述生产系统</h3>
-    <ul class="plain">
-      <li><strong>选题：</strong>模型打分筛选全网资讯；社群讨论焦点反推选题。</li>
-      <li><strong>日节奏：</strong>早 8 早报 → 晚 8 内参 → 深夜再汇总外网；自述用自动化替代两个实习生。</li>
-      <li><strong>写作分工：</strong>选题工业化、写作保持人手；ChatGPT 干大活、DeepResearch 调研、Cursor/Trae 写小工具；视频「尽量不要出现 AI 的东西」因信任经济。</li>
-      <li><strong>线下杠杆：</strong>活动约 2000 报名收 200：用 DeepResearch 约 11 分钟完成去年多人手工筛选（自述）。</li>
-    </ul>
-    <p class="muted">出处：晚点聊 LateTalk 109 · 经 <a href="https://bingqiangzhou.github.io/posts/digital-life-khazix-analysis/">学习笔记</a> 与 creators 深描交叉。</p>
-  </div>
-  <div class="card">
-    <h3>三年方法论 · 四指标（本人公开）</h3>
-    <ul class="plain">
-      <li>本质=讲故事；信息搬运 vs 做菜；三步：广域信息 → <mark>反差角度（约 60% 精力）</mark> → 节奏+底线。</li>
-      <li>四指标：常读约 30% · 赞阅≥2.5% · 转阅≥8% · 完读长文约 30%（前提常读统计至少 5 万粉）。</li>
-      <li><mark>「第一反应想到的角度不要写」</mark>；七夕反例《民政局排队离婚》；DeepSeek 9.9 用「北京折叠」三层空间。</li>
-    </ul>
-    <p class="muted"><a href="https://www.huxiu.com/article/4859145.html">虎嗅 · 三年内容方法论</a></p>
-  </div>
-  <div class="card">
-    <h3>OPC 三个判断（为何做 IP）</h3>
-    <ol>
-      <li>人类处理信息速度跟不上 AI 产内容 → 优质内容易被淹没。</li>
-      <li>全人类注意力总量近似恒定 → 稀缺的是注意力。</li>
-      <li>普通人越来越难分辨真假 → 人们选<strong>信息源</strong>不选单条信息。</li>
-    </ol>
-    <div class="quote">「唯一能跳出这个金字塔的东西，叫 IP。」——OPC 演讲</div>
-  </div>
-  <div class="card">
-    <h3>格式清单（迁到小红书）</h3>
-    <table>
-      <thead><tr><th>格式</th><th>他怎么用</th><th>你怎么迁</th></tr></thead>
-      <tbody>
-        <tr><td>首发实测</td><td>Pika/Sora 强判断标题</td><td>少追模型首发；改「方法首发」</td></tr>
-        <tr><td>技巧复访</td><td>评测后两周 10 技巧</td><td>同方法第二篇：清单卡/反例卡</td></tr>
-        <tr><td>作品展示</td><td>流浪地球预告片</td><td>辅系列「做一件小事」贴结果</td></tr>
-        <tr><td>社群日更</td><td>早报/内参</td><td>digest 私域即可；公域不必日更资讯</td></tr>
-        <tr><td>评论区人格</td><td>鲜虾包</td><td>固定评论引导句 + 认真回前排</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<section id="pieces">
-  <h2>25+ 篇长文逐拆（含早期 / 复盘）</h2>
-  <p class="muted">每篇固定栏：钩子 · 结构骨架 · 可抄手法 · 爆/平判定（有 X 或公开阅读数据则写，否则待核）。</p>
-
-  <div class="piece card">
-    <h3>01 · SD 时代消亡（起号自述金矿）</h3>
-    <p><span class="tag ok">复盘</span> <a href="https://mp.weixin.qq.com/s/tBN6tiV_KGbfU-8EaR9KfQ">微信原文</a></p>
-    <p><strong>钩子</strong>：liblib 2.0 公告一句「新用户不会用了」→ 宣布一个时代消逝。</p>
-    <p><strong>骨架</strong>：新闻刺激 → 个人闪回（30 粉 / 第二篇破万）→ 黄金时代百科（WebUI/Comfy/ControlNet/LoRA）→ 门槛升高与商业降维 → 商业必然性 → 老狗伤感收束「工具会消失，品味不会」。</p>
-    <p><strong>可抄</strong>：用<strong>时代葬礼</strong>叙事包裹产品新闻；把自己的起号数字嵌进怀旧，信任感爆炸。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>02 · 我为什么会做 AI 自媒体（OPC 演讲）</h3>
-    <p><span class="tag ok">起号动机</span> <a href="https://www.10100.com/article/149149135">转载</a></p>
-    <p><strong>钩子</strong>：能力金字塔被 AI 上吞 → 唯 IP 可逃。</p>
-    <p><strong>骨架</strong>：自我介绍含数据 → 预告片破壁故事 → 2022 ChatGPT 封号插曲 → 三个判断（信息生产速度 / 注意力恒定 / 真假难辨）→ 人们选信息源不选信息 → IP 结论。</p>
-    <p><strong>可抄</strong>：起号期对外叙事要有<strong>生存哲学</strong>，不只是教程清单。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>03 · 打开 AI 生成视频的盲盒（早期专访）</h3>
-    <p><span class="tag">2023 访谈</span> <a href="https://mp.weixin.qq.com/s/5ZUzMj2yqavPeXJu2T0cTQ">原文</a></p>
-    <p><strong>要点</strong>：名字来源（英雄联盟卡兹克 + 流浪地球数字生命）；当时「粉丝还未超过十万」；预告片五晚细节；高考作文玩法。</p>
-    <p><strong>可抄</strong>：早期访谈是粉丝里程碑的<strong>锚点证据</strong>（未破 10 万）。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>04 · 三年内容方法论内部分享</h3>
-    <p><span class="tag ok">方法论全文</span> <a href="https://www.huxiu.com/article/4859145.html">虎嗅</a></p>
-    <p><strong>钩子</strong>：白板意识流分享 → 索性公开。</p>
-    <p><strong>骨架</strong>：本质=讲故事（人类简史）→ 信息搬运 vs 做菜 → 三步（广域信息 / 反差角度 60% / 节奏+底线）→ 四指标（常读~30% · 赞阅≥2.5% · 转阅≥8% · 完读长文~30%）。</p>
-    <p><strong>可抄</strong>：<mark>「第一反应想到的角度不要写」</mark>；七夕反例《民政局排队离婚》；DeepSeek 9.9 用「北京折叠」三层空间。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>05 · 我做内容的 10 条私藏方法论</h3>
-    <p><span class="tag">方法论</span> 微信 / 小红书分享后公开</p>
-    <p><strong>骨架</strong>：受小红书邀请 → 惶恐人设 → 10 条凝练（与三年方法论互补，偏执行口诀）。</p>
-    <p><strong>可抄</strong>：把内部课拆成对外「私藏清单」，标题自带稀缺。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>06 · 卡兹克风格创作.skill 开源</h3>
-    <p><span class="tag ok">深拆全文</span> <a href="https://juejin.cn/post/7625574757921636367">掘金</a></p>
-    <p><strong>钩子</strong>：别人蒸馏我的风格 → 不如我自己开源真·命根子。</p>
-    <p><strong>骨架</strong>：开源声明 → 安装 → 模型组合（Opus 创意 + GPT 验幻觉）→ 迭代四步（样本→AI写→人重写→差分回灌，3–4 轮）→ 四层自检（硬性/风格/质量/<mark>活人感终审</mark>）→ DeepSeek 9.9 凌晨书架神之一手 → 「是不是人写的」过时论。</p>
-    <p><strong>可抄</strong>：公开方法论时<strong>留灵魂时刻故事</strong>，证明 Skill 复刻不了判断。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>07 · 约束先行（四个字）</h3>
-    <p><span class="tag ok">Agent 心法</span> <a href="https://juejin.cn/post/7628224961767882792">掘金</a></p>
-    <p><strong>钩子</strong>：文件夹散乱应激 → Claude 规整 → 反思全局 CLAUDE.md。</p>
-    <p><strong>骨架</strong>：模拟经营强迫症人设 → 小事 → 规则层级（全局/项目/规范/记忆）→ 全文贴出自己的全局 md → 「CLAUDE.md 就是路网」。</p>
-    <p><strong>可抄</strong>：技术文用<strong>游戏/城市路网</strong>类比；结尾把人生统一成「一辈子都在建约束」。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>08 · 分享 6 个必装 Skills</h3>
-    <p><a href="https://juejin.cn/post/7622320484483792936">掘金</a></p>
-    <p><strong>骨架</strong>：评论区提问起笔 → 逐个：问题痛点 → 装前装后对比截图叙事 → 收束「最牛逼的 skill 是你自己造的」。</p>
-    <p><strong>可抄</strong>：清单文也要有<strong>价值观压轴</strong>，避免纯导航站。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>09 · 横纵分析法 Deep Research Prompt</h3>
-    <p><a href="https://juejin.cn/post/7627751127489937423">掘金</a></p>
-    <p><strong>骨架</strong>：金融旧方法论 → Prompt 全文开箱 → 使用演示（13 分钟 Harness 报告）→ 局限坦诚。</p>
-    <p><strong>可抄</strong>：<mark>把可复制资产放正文</mark>（完整 Prompt），降低收藏党流失。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>10 · 折腾一年的 Agent 自动化系统（2026-11-02）</h3>
-    <p><span class="tag ok">X 爆款对照</span> X 长文卡约 <strong>4855 赞 / 9158 书签</strong>（采集 11-04）</p>
-    <p><strong>钩子</strong>：一年血泪 → 系统全开源姿态。</p>
-    <p><strong>骨架</strong>：问题（重复劳动）→ 架构分层 → 具体流水线 → 踩坑 → 开源/可复用 → 愿景。</p>
-    <p><strong>可抄</strong>：长文爆款 = <mark>可抄走的系统</mark> + 一年沉没成本叙事。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>11 · 开源 Agent-Autoloop（2026-11-04）</h3>
-    <p><a href="https://www.woshipm.com/ai/6489012.html">woshipm</a>（若 404 用检索镜像）</p>
-    <p><strong>骨架</strong>：接上篇系统 → 开源仓库 → 用法 → 边界。</p>
-    <p><strong>可抄</strong>：系列文「昨天讲概念今天给仓库」，连更吃推荐。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>12 · AI 时代的虚无主义（2026-10-23）</h3>
-    <p><span class="tag">情绪文</span> 虎嗅/凤摘要精读</p>
-    <p><strong>钩子</strong>：工具越强人越空——不是产品评测，是「用完之后的空」。。</p>
-    <p><strong>骨架</strong>：现象扫描（什么都快了）→ 个人体感（产出多了意义稀）→ 文化参照 → <mark>不给鸡汤</mark>的收束（承认虚无，不假装解药）。</p>
-    <p><strong>可抄</strong>：热点工具周也要穿插情绪长文，防账号工具人化；但起号期别写——他是有粉丝底座后才写。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>13 · 手把手 AI 逆向现实世界（2026-10-26）</h3>
-    <p><a href="https://www.woshipm.com/ai/6486788.html">相关 woshipm 系</a></p>
-    <p><strong>骨架</strong>：场景钩子 → 步骤演示 → 失败/幻觉 → 适用边界。</p>
-    <p><strong>可抄</strong>：教程中段必须有<strong>翻车镜头</strong>，才像真人跑过。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>14 · ChatGPT 与 Codex 共用额度（2026-11-01）</h3>
-    <p>woshipm 转载</p>
-    <p><strong>钩子</strong>：额度政策变更 → 立刻问「谁的钱包/工作流先疼」。</p>
-    <p><strong>骨架</strong>：变更事实 → 对谁疼（重度 Codex 用户）→ 实测/算账 → 应对建议 → 不强行升华。</p>
-    <p><strong>可抄</strong>：变更文要帮读者<strong>算清楚损失</strong>，不是复述 changelog；大厂 PM 可套「配额变更对团队成本」口径。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>15 · AI 水平 10 个等级</h3>
-    <p>优设等转载</p>
-    <p><strong>骨架</strong>：观察三年 → 分层框架 → 每级画像+例子 → 读者自我对号。</p>
-    <p><strong>可抄</strong>：<mark>等级文天然高转发</mark>（读者发朋友圈站队）。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>16 · Harness Engineering 一文读懂</h3>
-    <p>虎嗅摘要级精读</p>
-    <p><strong>骨架</strong>：新词定义 → 为什么现在重要 → 案例 → 与 Prompt 工程对比。</p>
-    <p><strong>可抄</strong>：抢先给英文圈概念起<strong>中文教学名</strong>。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>17 · Loop Engineering / Prompt 该退环境了</h3>
-    <p>虎嗅系摘要精读</p>
-    <p><strong>钩子</strong>：宣言式——Prompt 工程「该退环境了」。</p>
-    <p><strong>骨架</strong>：旧范式死亡证明（单次 Prompt 不够）→ Loop/环境新范式操作 → 个人实践对照 → 给从业者行动句。</p>
-    <p><strong>可抄</strong>：抢先给英文圈概念起<strong>中文教学名</strong>；标题带死亡隐喻提高转发。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>18 · DeepSeek 蓝色大肥鱼（2026-10-30）</h3>
-    <p><span class="tag">文化观察</span> <a href="https://www.woshipm.com/ai/6486788.html">woshipm</a> · X 互动显著低于系统文（约几十赞量级，采集对照）</p>
-    <p><strong>钩子</strong>：全网鱼灾。</p>
-    <p><strong>骨架</strong>：梗起源 → 二创生态 → QQ/桌宠/B 站鱼灾 → <mark>濠梁之辩</mark>升维 → 「鱼之乐是人之乐」。</p>
-    <p><strong>可抄</strong>：玩梗文结尾必须接<strong>古典/哲学</strong>，否则烂成段子号；本品互动普通，说明梗≠爆。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>19 · Google Genie 4（2026-10-28）</h3>
-    <p><a href="https://www.woshipm.com/ai/6485251.html">woshipm 全文</a></p>
-    <p><strong>钩子</strong>：「激动的心，颤抖的手」+ 等了 14 个月。</p>
-    <p><strong>骨架</strong>：个人玩家身份 → 演示拆解 → 视频生成 vs 世界模型 → Genie vs World Labs 分野 → Gemini 引导智能体合流 → 游戏/影游未来 → 《头号玩家》愿景。</p>
-    <p><strong>可抄</strong>：评测文用<strong>双路线对照表叙事</strong>抬认知；结尾回到童年/玩家梦。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>20 · OpenAI 2026 开发者大会总结</h3>
-    <p>2026-09-30 · woshipm 摘要</p>
-    <p><strong>钩子</strong>：「帮大家总结」——替没空看完的人打工。</p>
-    <p><strong>骨架</strong>：会场/直播体感 → 分主题速记 → <mark>对创作者意味着什么</mark> → 行动清单（不是新闻稿复述）。</p>
-    <p><strong>可抄</strong>：大会文只写「跟我读者有关的切片」；结尾给 3 条可执行动作。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>21–23 · 平量发文对照（Buddy One / Anthropic IPO 细节 / Kimi K3.1）</h3>
-    <p>X 文章卡采集：互动显著低于「一年系统」「Excel 短帖」。</p>
-    <p><strong>共性</strong>：信息增量够但<strong>缺个人沉没成本 + 缺可抄资产 + 缺情绪弧</strong> → 易成「又一篇讯」。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>24 · X 短帖爆款：Claude vs Codex 用 Excel 测</h3>
-    <p>约 <strong>4874 赞</strong>量级（与长文系统文同阶）</p>
-    <p><strong>手法</strong>：一张图 / 一个反差实验 / 结论刺耳。证明他的爆不只靠长文。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>25 · 「花 5 天搭流水线」类 X 帖</h3>
-    <p>高收藏向：承诺可复现时间盒。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>26 · 晚点聊 109（口述生产系统）</h3>
-    <p>经 <a href="https://bingqiangzhou.github.io/posts/digital-life-khazix-analysis/">学习笔记</a> 引用</p>
-    <p><strong>要点</strong>：早 8 早报 / 晚 8 内参 / 深夜扫 X；20+ 源 AI 打分；选题工业化、写作保持人手；视频「尽量不要出现 AI 的东西」因信任经济。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>27 · DeepSeek 9.9 / 北京折叠（在开源 Skill 文中完整复述）</h3>
-    <p>凌晨卡文 → 书架看到《北京折叠》→ 三层信息空间 → AI 只负责扩写。</p>
-    <p><strong>可抄</strong>：把爆款生产过程写成<strong>可教学的幕后</strong>，二次收割。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>28 · DeepSeek Harness 养鱼教程（2026-11-03）</h3>
-    <p><span class="tag warn">正文全文站待核</span> 标题+X 数据已采集；articles-read #18</p>
-    <p><strong>钩子</strong>：把「Harness」从概念落到养鱼教程——可操作、可截图。</p>
-    <p><strong>骨架（据标题与系列语境）</strong>：概念回顾 → 环境/约束怎么配 → 演示步骤 → 翻车/边界 → 开箱资产。</p>
-    <p><strong>可抄</strong>：概念文第二天接「手把手」；系列连更吃推荐。精确步骤以全文站为准 → 待核。</p>
-  </div>
-
-  <div class="piece card">
-    <h3>29 · PIKA 首测 → 技巧复访（破壁连更模板）</h3>
-    <p><a href="https://mp.weixin.qq.com/s/PwM38eRIS4M8tjergbscYg">上手评测</a> · <a href="https://mp.weixin.qq.com/s/J8raD9KkcIjf3LE1VF-yxg">两周 10 技巧</a></p>
-    <p><strong>骨架</strong>：全网首发感标题 → 上手体感 →（间隔）沉淀技巧清单 → 自述次日路演（次数 <span class="tag warn">待核</span>）。</p>
-    <p><strong>可抄</strong>：同一产品写两篇——第一篇抢时间，第二篇抢可带走清单。</p>
-  </div>
-</section>
-
-<section id="viral">
-  <h2>爆款 vs 普通 · 差在哪</h2>
-  <table>
-    <thead><tr><th>维度</th><th>爆款侧（系统文 / Excel 帖 / Sora / 流浪地球）</th><th>普通侧（大肥鱼 / 常规产品讯）</th></tr></thead>
-    <tbody>
-      <tr><td>个人沉没成本</td><td>一年 / 五晚 / 凌晨 2:30 卡文</td><td>几乎无</td></tr>
-      <tr><td>可带走资产</td><td>仓库、Prompt、Skill、表格结论</td><td>看完即走</td></tr>
-      <tr><td>角度</td><td>反差 / 陌生化 / 双路线对照</td><td>大众第一反应</td></tr>
-      <tr><td>情绪弧</td><td>有波峰波谷（升番）</td><td>平直说明书</td></tr>
-      <tr><td>身份</td><td>「我就是热点本人」</td><td>「我在报道热点」</td></tr>
-      <tr><td>X 数据例</td><td>系统文 ~4.8k 赞 / Excel ~4.8k 赞</td><td>大肥鱼 ~几十赞量级</td></tr>
-    </tbody>
-  </table>
-</section>
-
-<section id="voice">
-  <h2>语气 · 禁词 · 节奏（来自开源 Skill + 原文）</h2>
-  <ul class="plain">
-    <li>自称：有见识的普通人在认真聊打动他的事。</li>
-    <li>口语：牛逼、这玩意、原地起飞；单句成段；省略号。</li>
-    <li><strong>禁</strong>：赋能、抓手、闭环、首先其次、在当今 AI 快速发展的时代、说白了/本质上（过度）。</li>
-    <li>开头：具体场景切入，不用宏大时代腔。</li>
-    <li>节奏：sketch 升番；英雄之旅；先抑后扬对比旧版。</li>
-  </ul>
-</section>
-
-<section id="template">
-  <h2>可套用模板（一句话 + 骨架）</h2>
-  <p><mark>一句话</mark>：<strong>具体小事钩子 → 反差角度（情理之中预料之外）→ 亲跑证据 → 可抄资产 → 升到时代/品味 → 弱者口吻收束。</strong></p>
-  <pre class="tpl">【标题】我用 [工具] 花了 [时间盒] 做了 [反差结果]，发现 [违背常识的结论]
-【开头 3 行】昨天/上周具体场景。一句话结果。悬念钩子。
-【中段】旧做法有多痛 → 我怎么跑 → 翻车 → 最终流程（可复制）
-【资产】Prompt / 清单 / 仓库链接 / 表格
-【结尾】抬到品味或信任；不鸡汤；邀三连星标</pre>
-</section>
-
-<section id="for-ocean">
-  <h2>给 Ocean 的借鉴</h2>
-  <div class="card">
-    <h3>可直接套的动作</h3>
-    <ol>
-      <li><strong>起号对照帖</strong>：「卡兹克第二篇 SD 教程破万阅时只有 30→500 粉——我若用同一打法，第一周发什么」（教程+热点+快，不写纯观点）。</li>
-      <li><strong>约束先行实操</strong>：公开你自己的全局 Agent 规范（路网比喻），对照他开源的 CLAUDE.md 结构。</li>
-      <li><strong>反差实验短帖</strong>：学 Excel 测模型——同一任务两模型，一张图结论刺耳（短内容也可爆）。</li>
-      <li><strong>评测→技巧复访</strong>：同一方法第二篇做清单/反例卡（抄 PIKA 连更节奏）；主线用「方法首发」代替「模型首发」。</li>
-      <li><strong>低配选题流水线</strong>：digest 打分→选题（学早报/内参结构，不必雇人日更资讯）。</li>
-      <li><strong>评论区一问</strong>：固定引导句 + 认真回前排（鲜虾包逻辑的低配版）。</li>
-    </ol>
-    <h3>暂时别学</h3>
-    <ul class="plain">
-      <li>一上来就写「AI 虚无」情绪长文（他是有粉丝底座后才写）。</li>
-      <li>纯搬运发布会 / 赌全网模型首发（早期 AI 视频窗口不可复制）。</li>
-      <li>全职肝日更资讯 + 多账号矩阵；线下 2000 筛 200 活动杠杆。</li>
-      <li>假装全人工不用 AI——他公开说 2026 还装纯人工是说谎。</li>
-    </ul>
-  </div>
-</section>
-
-<section id="sources">
-  <h2>来源与待核清单</h2>
-  <ul class="plain">
-    <li>本人微信/转载：SD 消亡、三年方法论、10 条方法论、Skill 开源、约束先行、6 Skills、横纵 Prompt、Genie4、大肥鱼、Agent 系统等。</li>
-    <li>本人演讲/访谈：OPC「我为什么做 AI 自媒体」、科普作协视频盲盒专访、晚点聊 109（经学习笔记）。</li>
-    <li>第三方：爬虫彪哥上篇（746 篇/四阶段）、bingqiangzhou 学习笔记、AI Maker 嘉宾页。</li>
-    <li>X：@Khazix0918 public_metrics（本页赞藏数为 2026-11-04 采集快照）。</li>
-  </ul>
-  <p><span class="tag warn">待核</span> 精确项：1万/5万/10万粉精确日期；「294 天破 10 万」；公众号实时粉数；商单报价；MCN 160 人；小红书精确粉；部分早期教程原文链接（第二篇 SD 教程标题以本人复述为准）。</p>
-</section>
-
-<div class="foot">
-  <p>私密页 · 仅供 Ocean · 采集时区 America/Los_Angeles · 2026-11-04 深拆 / 2026-11-05 加深：破壁清单、工作流、篇目 28–29、给 Ocean 扩写。</p>
-</div>
-</main>
-</div>
-<script>
-(function(){
-  const links=[...document.querySelectorAll('.nav a[href^="#"]')];
-  const map=links.map(a=>({a,el:document.querySelector(a.getAttribute('href'))})).filter(x=>x.el);
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(en=>{
-      if(!en.isIntersecting) return;
-      const id=en.target.id;
-      links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+id));
-    });
-  },{rootMargin:'-20% 0px -70% 0px', threshold:0});
-  map.forEach(({el})=>io.observe(el));
-})();
-</script>
+<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">卡兹克深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>X 一手资料深化 · 小红书未核</p><div class="sec">选题库</div><a href="growth/">← 成长记录</a><a href="./">小红书全入口</a><a href="creators.html#kazike">对标档案 · 卡兹克</a><div class="sec">本页</div><a href="#overview">账号概况</a><a href="#timeline">五阶段时间线</a><a href="#s1">1 · 起点</a><a href="#s2">2 · 公众号起号</a><a href="#s3">3 · 预告片与剧组</a><a href="#s4">4 · 公司与 IP</a><a href="#s5">5 · X 与开源</a><a href="#works">代表作品拆解</a><a href="#audience">谁在看</a><a href="#compare">写法对照</a><a href="#voice">语气与节奏</a><a href="#limits">失败与边界</a><a href="#for-ocean">给 Ocean</a><a href="#sources">来源与待核</a></aside><main class="main"><nav class="mob-nav" aria-label="移动目录"><a href="#overview">概况</a><a href="#timeline">时间线</a><a href="#works">作品</a><a href="#audience">受众</a><a href="#compare">对照</a><a href="#voice">语气</a><a href="#limits">边界</a><a href="#for-ocean">借鉴</a><a href="#sources">来源</a></nav><header><h1>数字生命卡兹克 成长深拆</h1><p class="muted">按“阶段 → 当时的问题 → 动作 → 作品”排，每条附原始链接。<span class="lv f">事实</span>可从原文核到；<span class="lv s">自述</span>是本人说法；<span class="lv a">分析</span>/<span class="lv a">观察</span>是研究者归纳；<span class="lv h">假设</span>未验证；<span class="lv b">边界</span>写不能怎么用。时间统一 UTC+8，查不到写未知。</p></header>
+<section id="overview"><h2>账号概况</h2><div class="grid2"><div class="card"><h3>平台</h3><p>主阵地：微信公众号「数字生命卡兹克」（本人演讲自述）。X：<a href="https://x.com/Khazix0918" target="_blank" rel="noopener">@Khazix0918</a>，2022-02 建号，2026-01 起活跃（本人帖自述 294 天）。小红书：本人说有账号，本轮未读。</p></div><div class="card"><h3>定位</h3><p><span class="lv s">自述</span>做 IP，让读者把他当信息源（<a href="#w3">卡 3</a>）；2026 年起多写自己用 Agent 做开发的过程。</p></div></div></section>
+<section id="timeline"><h2>五阶段时间线</h2><section id="s1" class="stage"><h3>阶段 1 · 2022 年底：产品与设计背景</h3><p class="q"><b>当时的问题：</b>AI 出来后，自己这类“执行层”工作会不会被替代。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">1</td><td data-l="日期">2022 年底（月份自述）</td><td data-l="动作与作品">在公司推动全员用 ChatGPT，把它接进微信群服务客户 → <a href="https://www.10100.com/article/149149135" target="_blank" rel="noopener">《我为什么会做AI自媒体？》OPC 演讲（转载稿）</a></td><td data-l="事实">—</td><td data-l="自述">“GPT出来第七天我们就把它接进了微信群服务客户，第三天，微信号就被封了”；之前“一直是产品经理，在互联网金融领域做设计、做产品”</td><td data-l="分析">起点是一次产品尝试和一次失败，不是内容计划</td><td data-l="边界">演讲转载稿；X 帖里他又自称“一年前…完全不懂开发的设计师”，两种身份说法并存，不合并</td></tr></tbody></table></div></section><section id="s2" class="stage"><h3>阶段 2 · 2023-02 起：公众号起号</h3><p class="q"><b>当时的问题：</b>没有粉丝，写什么能被看见。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">2</td><td data-l="日期">2023-02-26（演讲自述）</td><td data-l="动作与作品">公众号写下第一篇 → <a href="https://www.10100.com/article/149149135" target="_blank" rel="noopener">《我为什么会做AI自媒体？》OPC 演讲（转载稿）</a></td><td data-l="事实">—</td><td data-l="自述">“2023年2月26日写下第一篇文章”</td><td data-l="分析">—</td><td data-l="边界">旧资料另有 2-25 的说法，本页只用本人说法</td></tr><tr><td data-l="#">3</td><td data-l="日期">2023 年初（2025 年回顾）</td><td data-l="动作与作品">第二篇写 Stable Diffusion 画美女教程 → 回顾见 <a href="https://mp.weixin.qq.com/s/tBN6tiV_KGbfU-8EaR9KfQ" target="_blank" rel="noopener">《今天，好像见证了属于SD时代的消亡。》</a></td><td data-l="事实">回顾文全文已读</td><td data-l="自述">“只有可怜的30个粉丝，每篇文章的阅读量不到100…第二篇…阅读量破了万，也为我积累了最初的500个粉丝”</td><td data-l="分析">工具上手教程是最早被看见的内容</td><td data-l="边界">第二篇原文没找到，标题以本人复述为准</td></tr></tbody></table></div></section><section id="s3" class="stage"><h3>阶段 3 · 2023–2024：AI 视频预告片与剧组</h3><p class="q"><b>当时的问题：</b>做出一个别人没做过的东西。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">4</td><td data-l="日期">2023（月份本轮未核）</td><td data-l="动作与作品">用 AI 做《流浪地球》系列预告片 → 回顾见 <a href="https://www.10100.com/article/149149135" target="_blank" rel="noopener">《我为什么会做AI自媒体？》OPC 演讲（转载稿）</a></td><td data-l="事实">—</td><td data-l="自述">“我们做了整整五个晚上，但当时国内几乎没人用AI视频做内容，所以它莫名其妙就火了”；之后结识郭帆</td><td data-l="分析">作品让身份从“讲 AI”变成“用 AI 做东西”（分析）</td><td data-l="边界">预告片原帖与播放数据本轮没核，不写数字</td></tr><tr><td data-l="#">5</td><td data-l="日期">2024-10（演讲自述）</td><td data-l="动作与作品">加入《流浪地球3》剧组做 AI 相关工作 → <a href="https://www.10100.com/article/149149135" target="_blank" rel="noopener">《我为什么会做AI自媒体？》OPC 演讲（转载稿）</a></td><td data-l="事实">—</td><td data-l="自述">“2024年10月正式加入剧组做AI相关的工作，一干就是两年”</td><td data-l="分析">—</td><td data-l="边界">—</td></tr></tbody></table></div></section><section id="s4" class="stage"><h3>阶段 4 · 2024-10 起：从账号到公司与 IP（与阶段 5 并行）</h3><p class="q"><b>当时的问题：</b>账号做大后，怎么把经验变成团队能力。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">6</td><td data-l="日期">2024-10（演讲自述）</td><td data-l="动作与作品">公众号行业榜单登顶 → <a href="https://www.10100.com/article/149149135" target="_blank" rel="noopener">《我为什么会做AI自媒体？》OPC 演讲（转载稿）</a></td><td data-l="事实">—</td><td data-l="自述">“2024年10月就登顶了，之后连续一年多稳坐第一”；“全平台加起来已经一百多万，公众号也快破了”</td><td data-l="分析">—</td><td data-l="边界">榜单名称和原始榜单本轮未核；粉丝数是自述</td></tr><tr><td data-l="#">7</td><td data-l="日期">2026-05-18</td><td data-l="动作与作品">给公司经纪团队做内部分享后公开方法论 → <a href="https://www.huxiu.com/article/4859145.html" target="_blank" rel="noopener">三年内容方法论（虎嗅转载公众号原文）</a></td><td data-l="事实">全文已读（转载）</td><td data-l="自述">分享是为了“服务我们签约的所有MCN的博主们”；“小红书也才马上才摸到10万粉”</td><td data-l="分析">角色从博主变成带团队的人</td><td data-l="边界">常读约 30% 等内部指标是自述，不能当审计数据</td></tr><tr><td data-l="#">8</td><td data-l="日期">2026-07-08（转载日期）</td><td data-l="动作与作品">OPC 演讲讲为什么做 IP → <a href="https://www.10100.com/article/149149135" target="_blank" rel="noopener">《我为什么会做AI自媒体？》OPC 演讲（转载稿）</a></td><td data-l="事实">全文已读（转载）</td><td data-l="自述">“唯一能跳出这个金字塔的东西，叫IP”</td><td data-l="分析">—</td><td data-l="边界">转载稿可能有编辑，个别句子不通顺</td></tr></tbody></table></div></section><section id="s5" class="stage"><h3>阶段 5 · 2026-01 起：上 X、学开发、开源（与阶段 4 并行）</h3><p class="q"><b>当时的问题：</b>从“写 AI”到“自己搭 Agent 系统”，怎么让更多人用上。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">9</td><td data-l="日期">2026-01-23</td><td data-l="动作与作品"><a href="https://x.com/Khazix0918/status/2014662983474090260" target="_blank" rel="noopener">X 帖：Skills 管理三件套</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“更多的还是从一个非编程专业用户角度出发…普通用户用起来实在太难太难了”</td><td data-l="分析">明确把读者设成不会编程的普通用户</td><td data-l="边界">—</td></tr><tr><td data-l="#">10</td><td data-l="日期">2026-11-02</td><td data-l="动作与作品"><a href="https://x.com/Khazix0918/status/2117054043868860521" target="_blank" rel="noopener">X 长文：折腾一年的 Agent 自动化系统</a> · <a href="https://x.com/Khazix0918/status/2117054331849720246" target="_blank" rel="noopener">配套帖</a></td><td data-l="事实">配套帖全文已读</td><td data-l="自述">“一年前，我是一个完全不懂开发的设计师”；“百万月活的公益产品…9000 star”</td><td data-l="分析">—</td><td data-l="边界">X 长文正文接口读不到，未读；star 和月活是自述</td></tr><tr><td data-l="#">11</td><td data-l="日期">2026-11-02</td><td data-l="动作与作品"><a href="https://x.com/Khazix0918/status/2117187358760354067" target="_blank" rel="noopener">X：10 万粉纪念</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“2026.1.12～2026.11.2 294天，从0到1，10万粉”</td><td data-l="分析">—</td><td data-l="边界">这是 X 账号的自述，不是公众号；旧版把“294 天”当未证实的公众号说法，现已更正</td></tr><tr><td data-l="#">12</td><td data-l="日期">2026-11-04 / 11-06</td><td data-l="动作与作品"><a href="https://x.com/Khazix0918/status/2117861191305609408" target="_blank" rel="noopener">开源 Agent-Autoloop</a> · <a href="https://x.com/Khazix0918/status/2118682277102391312" target="_blank" rel="noopener">Windows 兼容</a> · <a href="https://github.com/KKKKhazix/agent-autoloop" target="_blank" rel="noopener">GitHub：agent-autoloop</a></td><td data-l="事实">帖子全文已读；仓库首页存在</td><td data-l="自述">“发之前其实战战兢兢的，怕大家觉得这就是个玩具”；“开源没几天，已经3.5K的Star”</td><td data-l="分析">长文讲经历，两天后整理出仓库</td><td data-l="边界">star 是自述，未独立核</td></tr></tbody></table></div></section></section>
+<section id="works"><h2>代表作品拆解</h2><p class="muted">只选原文读过、写法各不相同的作品，不是热门榜；不展示互动数。</p><div class="works"><article class="work card" id="w1"><h3>代表作品 1 · 怀旧回顾：用一条产品新闻讲一个时代</h3><p class="links"><a href="https://mp.weixin.qq.com/s/tBN6tiV_KGbfU-8EaR9KfQ" target="_blank" rel="noopener">《今天，好像见证了属于SD时代的消亡。》</a></p><p class="muted">时间线位置：<a href="#s2">阶段 2 · 起号回顾（写于 2025）</a></p><p><span class="lv f">事实</span>公众号全文已读。从 liblib 2.0 公告切入，回顾 WebUI、ComfyUI、ControlNet、LoRA 的年代，结尾“工具会消失，但是品味，却永远不会。”</p><p><span class="lv s">自述</span>把自己起号时 30 粉、第二篇破万阅读、500 粉嵌在文中。</p><p><span class="lv a">观察</span>大量单句成段；先新闻、再个人闪回、再行业回顾、最后落到“品味”。</p><p><span class="lv h">假设</span>老读者的共同记忆加上作者亲历数字，可能让这类回顾比纯资讯更容易被转发；没有转发数据。</p><p><span class="lv b">边界</span>只读了公众号正文，没看评论区。</p><p class="take"><b>可借鉴写法：</b>写行业变化时，把自己当年的一个具体数字放进去。</p></article><article class="work card" id="w2"><h3>代表作品 2 · 方法论公开：把内部分享写成长文</h3><p class="links"><a href="https://www.huxiu.com/article/4859145.html" target="_blank" rel="noopener">三年内容方法论（虎嗅转载公众号原文）</a></p><p class="muted">时间线位置：<a href="#s4">阶段 4 · 节点 7</a></p><p><span class="lv f">事实</span>全文已读（虎嗅转载）。三步：获取信息、找角度、创作；举了七夕“民政局排队离婚”和 DeepSeek 9.9 两个角度例子。</p><p><span class="lv s">自述</span>“如果一篇内容能爆，30%在获取信息的能力上，60%在找角度的能力上，最后10%才是创作本身”；自称“内容领域上的小学生”。</p><p><span class="lv a">观察</span>每一步都配一个跨领域类比（《人类简史》、美第奇效应、喜剧“三番”）。</p><p><span class="lv h">假设</span>同行和团队成员可能把它当操作手册收藏；没有数据。</p><p><span class="lv b">边界</span>文中的常读、赞阅比等是他自己的内部标准，不是行业审计。</p><p class="take"><b>可借鉴写法：</b>方法论文每一条配一个反例或真实案例。</p></article><article class="work card" id="w3"><h3>代表作品 3 · 演讲：为什么做 IP</h3><p class="links"><a href="https://www.10100.com/article/149149135" target="_blank" rel="noopener">《我为什么会做AI自媒体？》OPC 演讲（转载稿）</a></p><p class="muted">时间线位置：<a href="#s4">阶段 4 · 节点 8</a></p><p><span class="lv f">事实</span>转载稿全文已读。三个判断：人处理信息跟不上 AI 产内容；注意力总量恒定；普通人难辨真假 → “人们会选择信息源，而不是信息本身”。</p><p><span class="lv s">自述</span>起点、预告片、剧组经历都在这篇里自述。</p><p><span class="lv a">观察</span>自我介绍先给数据和破壁作品，再讲判断，最后给结论。</p><p><span class="lv h">假设</span>“选信息源”的说法也解释了他为什么持续露出个人经历；这是推断。</p><p><span class="lv b">边界</span>转载稿，原视频没看。</p><p class="take"><b>可借鉴写法：</b>对外讲为什么做，先讲一个让自己焦虑的问题。</p></article><article class="work card" id="w4"><h3>代表作品 4 · X 短帖：用一个场景讲两个模型的性格</h3><p class="links"><a href="https://x.com/Khazix0918/status/2115691027860443268" target="_blank" rel="noopener">X：Claude 和 Codex 的性格差异</a></p><p class="muted">时间线位置：<a href="#s5">阶段 5</a></p><p><span class="lv f">事实</span>全文已读。场景：每周下载 20 个 Excel 拼表；GPT 给鼠标脚本，Claude 反问为什么不直接写 SQL。</p><p><span class="lv a">观察</span>只用一段对话，没有结论句，靠两个回答的反差。</p><p><span class="lv h">假设</span>办公场景人人熟悉，读者容易拿自己对号；没有验证。</p><p><span class="lv b">边界</span>评论区没读。</p><p class="take"><b>可借鉴写法：</b>比较两个工具时，给同一个任务，各写一句回答。</p></article><article class="work card" id="w5"><h3>代表作品 5 · 一年复盘 + 两天后开源：从经历到仓库</h3><p class="links"><a href="https://x.com/Khazix0918/status/2117054331849720246" target="_blank" rel="noopener">X：一年复盘配套帖</a> · <a href="https://x.com/Khazix0918/status/2117861191305609408" target="_blank" rel="noopener">X：开源 Agent-Autoloop</a> · <a href="https://github.com/KKKKhazix/agent-autoloop" target="_blank" rel="noopener">GitHub：agent-autoloop</a></p><p class="muted">时间线位置：<a href="#s5">阶段 5 · 节点 10–12</a></p><p><span class="lv f">事实</span>配套帖和开源帖全文已读；仓库首页简介：“让你的命令行 Agent 在后台自己接活、自己跟进到底”。</p><p><span class="lv s">自述</span>“一年前，我连CI是什么都不知道，半年前，我甚至连CDN是什么都不知道”；“怕大家觉得这就是个玩具”。</p><p><span class="lv a">观察</span>11-02 先讲个人一年的变化，11-04 自述“花了两天”重新打磨后开源，11-06 补 Windows 支持。</p><p><span class="lv h">假设</span>“不懂开发的设计师”这个起点，可能让同样不会编程的读者觉得自己也能试；没有验证。</p><p><span class="lv b">边界</span>X 长文正文读不到；视频没看；star、月活都是自述。</p><p class="take"><b>可借鉴写法：</b>复盘之后，把能复用的成果整理出来给读者。</p></article></div></section>
+<section id="audience"><h2>谁在看，为什么愿意看</h2><p class="muted"><b>没有真实的粉丝画像数据</b>。人群和动机根据作者自述、X 评论和作品内容推断，不代表全体读者。</p><div class="tw"><table><thead><tr><th>可能的读者类型（推断）</th><th>AI 使用深度</th><th>可能想要什么</th><th>能拿走什么</th><th>对应作品</th><th>证据</th></tr></thead><tbody><tr><td data-l="读者类型">非编程专业、想用上 AI 工具的普通用户</td><td data-l="AI 使用深度">读者现在：未知（“非编程专业”不能说明会不会用 Agent）<br>内容指向：Skills 等工具的上手；具体到哪层要看篇目</td><td data-l="想要什么">有人把复杂工具讲到能用</td><td data-l="能拿走什么">上手路径和“设计师也能学会”的示范</td><td data-l="对应作品"><a href="#s5">阶段 5</a> 节点 9；<a href="#w5">卡 5</a></td><td data-l="证据"><span class="lv s">自述</span>他说文章“从一个非编程专业用户角度出发”</td></tr><tr><td data-l="读者类型">想自己搭 Agent 自动化的人</td><td data-l="AI 使用深度">读者现在：未知。评论者尝试过搭建，不等于工具链进生产<br>内容指向：L4（自述系统含中台和插件）；是否到 L5 数据闭环未核</td><td data-l="想要什么">一套跑过一年的系统和能改的代码</td><td data-l="能拿走什么">仓库和架构思路</td><td data-l="对应作品"><a href="#w5">卡 5</a>；X 长文评论区</td><td data-l="证据"><span class="lv s">评论者自述</span>“我也国庆那段时间想搭一个，但是搭的一坨狗屎”；“这个自动化系统没开源吗？”；“最大的问题，是 token 不够。”</td></tr><tr><td data-l="读者类型">做内容的同行和团队成员</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：内容方法，不是 AI 使用深度，层级不适用</td><td data-l="想要什么">可照做的方法和判断标准</td><td data-l="能拿走什么">三步法和角度例子</td><td data-l="对应作品"><a href="#w2">卡 2</a></td><td data-l="证据"><span class="lv s">自述</span>分享是为了服务“签约的所有MCN的博主们”</td></tr><tr><td data-l="读者类型">想找可信 AI 信息源的人</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：资讯和观点，层级未知</td><td data-l="想要什么">不用自己判断每条消息真假</td><td data-l="能拿走什么">一个持续露出的个人信息源</td><td data-l="对应作品"><a href="#w3">卡 3</a></td><td data-l="证据"><span class="lv s">自述</span>“人们会选择信息源，而不是信息本身”</td></tr></tbody></table></div><p class="depth"><b>深度怎么标：</b>沿用 <a href="../research/ai-depth-levels-2026-10-28.html#levels">AI 使用深度水位</a> 的 L0–L5（定义见<a href="zhangzala.html#audience">张咋啦页</a>）；分开写读者现在和内容指向，层级不是职业类别。</p><h3>可能为什么能火、能传开（未验证）</h3><div class="card"><ul class="plain"><li><span class="lv s">自述</span>他认为读者选的是信息源（<a href="#w3">卡 3</a>）。<span class="lv h">假设</span>长期公开个人经历、失败和作品，可能是在攒“信任这个人”，而不是单篇流量。</li><li><span class="lv s">自述</span>他说找角度是三步里最重要的一步（<a href="#w2">卡 2</a>）。<span class="lv a">观察</span>代表作品都有一个反差点：时代葬礼、两个模型的对话、设计师搭 Agent。</li><li><span class="lv s">自述</span>他要求“保持谦逊…你只是爱分享了一点”（<a href="#w2">卡 2</a>）。<span class="lv h">假设</span>弱者口吻可能降低读者的距离感。</li><li><span class="lv s">评论者自述</span>X 长文评论里有人说“用心好文，慢慢消化学习”，也有人追问开源和封号问题。<span class="lv b">边界</span>只读到 API 返回的 25 条，不能代表全部评论。</li></ul></div></section>
+<section id="compare"><h2>普通内容与代表作品：写法差在哪</h2><p class="muted"><span class="lv a">观察</span>只比较写法，不是因果；不展示互动数。普通内容一列来自同期 X 帖原文：<a href="https://x.com/Khazix0918/status/2116054660851311061" target="_blank" rel="noopener">Qwen 观察</a> · <a href="https://x.com/Khazix0918/status/2116801460579234047" target="_blank" rel="noopener">AIHOT 榜单更新</a> · <a href="https://x.com/Khazix0918/status/2119083614382219734" target="_blank" rel="noopener">重置监控</a>（2026-10-30～11-07，全文已读）。</p><div class="tw"><table><thead><tr><th>维度</th><th>代表作品</th><th>普通内容</th></tr></thead><tbody><tr><td data-l="维度">开头</td><td data-l="代表作品">具体场景或新闻（<a href="#w1">卡 1</a>、<a href="#w4">卡 4</a>）</td><td data-l="普通内容">直接说更新了什么</td></tr><tr><td data-l="维度">个人经历</td><td data-l="代表作品">完整经历和时间线：起号数字、一年学开发（<a href="#w1">卡 1</a>、<a href="#w5">卡 5</a>）</td><td data-l="普通内容">个人实践的简短反馈（如自家产品换模型）</td></tr><tr><td data-l="维度">读者能拿走什么</td><td data-l="代表作品">方法、仓库、可对照的场景（<a href="#w2">卡 2</a>、<a href="#w5">卡 5</a>）</td><td data-l="普通内容">榜单、产品更新、免费 API</td></tr><tr><td data-l="维度">形式</td><td data-l="代表作品">长文、对话式短帖</td><td data-l="普通内容">简短更新</td></tr></tbody></table></div></section>
+<section id="voice"><h2>语气、节奏与可借鉴写法</h2><div class="card"><ul class="plain"><li><span class="lv f">事实</span>这篇的结尾求互动：“随手点个赞、在看、转发三连吧…我们，下次再见。”（<a href="#w1">卡 1</a>）；其他篇是否都这样没逐篇核。</li><li><span class="lv f">事实</span>口语和自嘲：“一个老狗的失落”“全部拉满算求”。<span class="lv a">观察</span>正式观点用很口语的话说。</li><li><span class="lv a">观察</span>长文大量单句成段，用来控制停顿（<a href="#w1">卡 1</a>）。</li><li><span class="lv s">自述</span>公众号文章“经常4、5千字”（<a href="#w2">卡 2</a>）。<span class="lv a">观察</span>2026-10-27 到 11-07 的 X 原创帖抓到 16 条，多为短更新，长内容另发 X 文章。</li><li><span class="lv f">事实</span>X 简介和帖子反复出现“愿我们永远对世界保持好奇”。</li></ul></div><pre class="tpl">【开头】一条具体新闻或一个工作场景
+【中段】我当年 / 我这一年的一个具体数字或失败
+【反差】大家第一反应会怎么写，我换一个角度
+【资产】方法、仓库或可对照的例子
+【结尾】落到品味或好奇心，再求一次互动</pre><p class="muted">模板是分析产物，不是作者原话。</p></section>
+<section id="limits"><h2>失败与边界</h2><div class="card"><ul><li><b>自述里的失败</b>：微信号接 GPT 第三天被封（<a href="#s1">阶段 1</a>）；方法论里说会“追热点追慢了焦虑得睡不着”“憋了四五千字最后数据很差”。</li><li><b>平台差异</b>：他自己说公众号之外“其他的平台我们自己做的也不是特别好”；不能用公众号或 X 的成绩推断小红书。</li><li><b>身份说法</b>：演讲说是互金产品经理，X 帖说是设计师；两者都是自述，本页并列。</li><li><b>数字</b>：粉丝、star、月活、常读比例都是自述；榜单、预告片播放、商单报价等本轮没有原始数据，不写。</li></ul></div></section>
+<section id="for-ocean"><h2>给 Ocean（「AI具身牛马」）的借鉴</h2><p class="muted"><span class="lv a">分析</span>研究者建议，不是成功公式。</p><div class="grid2"><div class="card"><h3>可借鉴</h3><ol><li>写工具时站在“非编程专业用户”的角度，像他在 Skills 帖里说的那样。</li><li>复盘之后给一样能复用的东西（清单、模板或仓库）。</li><li>比较两个工具，用同一个办公场景写两句回答。</li><li>先想大家第一反应会怎么写，再换角度。</li></ol></div><div class="card"><h3>不适用</h3><ul><li>剧组经历、公司和 MCN 团队照搬不了。</li><li>公众号榜单位置和长期积累不是起号速度。</li><li>他自述小红书接近 10 万粉，但本轮没读他的小红书主页、笔记和评论，不能拿来当小红书打法范本。</li></ul></div></div></section>
+<section id="sources"><h2>来源与待核</h2><p><b>状态：X 一手资料深化；小红书未核</b>。核心证据：X 本人帖与配套帖全文、公众号三篇原文（两篇转载）、GitHub 仓库首页；X 长文正文接口 404 未读。小红书没核：不据此判断他在小红书的效果。</p><div class="tw"><table><thead><tr><th>来源</th><th>读到了</th><th>没读到</th></tr></thead><tbody><tr><td data-l="来源">X</td><td data-l="读到了">资料 + 2026-10-27～11-07 原创帖 16 条 + 2026-01 帖 25 条（API）</td><td data-l="没读到">X 长文正文（接口 404）；2026-01 之前的帖</td></tr><tr><td data-l="来源">小红书</td><td data-l="读到了">无</td><td data-l="没读到">主页、笔记、评论都没读：上午遇到 300013 安全限制，按规定停止。只有作者自述“马上才摸到10万粉”</td></tr><tr><td data-l="来源">评论</td><td data-l="读到了">X 长文对话 25 条（API 返回范围）</td><td data-l="没读到">公众号评论、小红书评论</td></tr><tr><td data-l="来源">作品原文</td><td data-l="读到了">公众号 SD 回顾全文；方法论全文（转载）；OPC 演讲全文（转载）；GitHub 仓库首页</td><td data-l="没读到">预告片原帖与视频；第二篇 SD 教程原文；PIKA、Genie 等旧版逐拆篇目</td></tr></tbody></table></div><ul class="plain"><li>证据台账：<code>review/creator-growth-20261108/kazike-ledger.md</code>（采集 2026-11-08，UTC+8）。</li><li>旧采集线索（2026-11-04/05，本轮未复核，只留链接）：<a href="https://mp.weixin.qq.com/s/PwM38eRIS4M8tjergbscYg" target="_blank" rel="noopener">PIKA 上手评测</a> · <a href="https://mp.weixin.qq.com/s/J8raD9KkcIjf3LE1VF-yxg" target="_blank" rel="noopener">两周 10 技巧</a> · <a href="https://mp.weixin.qq.com/s/5ZUzMj2yqavPeXJu2T0cTQ" target="_blank" rel="noopener">2023 早期专访</a> · <a href="https://juejin.cn/post/7625574757921636367" target="_blank" rel="noopener">风格 Skill 开源</a> · <a href="https://bingqiangzhou.github.io/posts/digital-life-khazix-analysis/" target="_blank" rel="noopener">晚点聊 109 学习笔记（二手）</a>。</li></ul><p><span class="tag warn">待核</span>：小红书主页与笔记；预告片发布日期与原帖；公众号榜单原始来源；X 长文正文；公司和 MCN 规模；第二篇 SD 教程原文。</p></section>
+</main></div>
 </body>
 </html>

@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>范凯说AI成长页 · 给 Ocean</title>
+<title>范凯说AI（@fankaishuoai）成长深拆 · 时间线 + 代表作品 + 受众深度 · 给 Ocean</title>
+<!-- impeccable: fluid full-width · sticky left elevator · scroll-behavior:auto · cream + black + one highlighter yellow -->
 <style>
 :root{
   --bg:#f7f4ec; --surface:#fffcf7; --ink:#1a1a18; --ink-2:#3a3a36; --mut:#6a6a62;
@@ -20,11 +21,21 @@ body{
 }
 ::selection{background:var(--hi); color:var(--ink)}
 mark{background:var(--hi); color:var(--ink); padding:.05em .18em; border-radius:3px; font-style:normal}
-.shell{display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr); gap:0; min-height:100vh; width:100%; max-width:none; margin:0}
-.nav{position:sticky; top:0; align-self:start; height:100vh; padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line); background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto}
+.shell{
+  display:grid; grid-template-columns:var(--nav-w) minmax(0,1fr);
+  gap:0; min-height:100vh; width:100%; max-width:none; margin:0;
+}
+.nav{
+  position:sticky; top:0; align-self:start; height:100vh;
+  padding:1.4rem 1rem 2rem 1.1rem; border-right:1px solid var(--line);
+  background:linear-gradient(180deg,#faf7ef,var(--bg)); overflow:auto;
+}
 .nav .brand{font-weight:750; font-size:.95rem; letter-spacing:-.02em; margin:0 0 .35rem; line-height:1.35}
 .nav .meta{font-size:.76rem; color:var(--mut); margin:0 0 1rem; line-height:1.45}
-.nav a{display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem; padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent}
+.nav a{
+  display:block; color:var(--ink-2); text-decoration:none; font-size:.86rem;
+  padding:.36rem .55rem; border-radius:8px; margin:.1rem 0; border-left:3px solid transparent;
+}
 .nav a:hover,.nav a:focus-visible{background:var(--hi-soft); outline:none}
 .nav a.active{background:var(--hi); color:var(--ink); font-weight:650; border-left-color:#c9b020}
 .nav .sec{font-size:.7rem; letter-spacing:.06em; color:var(--mut); margin:1rem 0 .3rem; padding-left:.55rem; text-transform:uppercase}
@@ -40,17 +51,25 @@ p{margin:.5rem 0}
 .stat strong{display:block; font-size:1.35rem; letter-spacing:-.02em; margin:.15rem 0}
 .tag{display:inline-block; font-size:12px; font-weight:650; background:var(--hi-soft); color:#6a5a00; padding:.12rem .5rem; border-radius:999px; margin-right:.3rem}
 .tag.warn{background:#fff0d6; color:#8a5a00}
+.tag.ok{background:#e8f5e4; color:#2a5a20}
 a{color:var(--ink); text-underline-offset:3px; text-decoration-thickness:1px; word-break:break-word}
 a:hover{background:linear-gradient(180deg,transparent 60%, var(--hi) 60%)}
+a:focus-visible{outline:2px solid #c9b020; outline-offset:2px; border-radius:3px}
 table{width:100%; border-collapse:collapse; font-size:.86rem; margin:.55rem 0; background:var(--surface)}
 th,td{border:1px solid var(--line); padding:.42rem .5rem; text-align:left; vertical-align:top}
 th{background:#efeae0; font-weight:650}
+.metrics{font-variant-numeric:tabular-nums; white-space:nowrap}
 .quote{border-left:3px solid var(--hi); padding:.35rem .9rem; margin:.55rem 0; background:var(--hi-soft); border-radius:0 8px 8px 0; font-size:.95rem}
+.tpl{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.84rem; white-space:pre-wrap; background:#1a1a18; color:#f7f4ec; padding:1rem 1.1rem; border-radius:10px; overflow:auto}
 .foot{margin-top:2.5rem; font-size:.86rem; color:var(--mut); border-top:1px solid var(--line); padding-top:1rem}
 .mob-nav{display:none; gap:.35rem; flex-wrap:wrap; margin:0 0 1rem; padding:.5rem 0; border-bottom:1px solid var(--line)}
 .mob-nav a{font-size:.8rem; color:var(--ink); text-decoration:none; background:var(--hi-soft); padding:.2rem .5rem; border-radius:999px}
 ul.plain{margin:.35rem 0; padding-left:1.2rem}
 ul.plain li{margin:.28rem 0}
+.piece{border-top:1px dashed var(--line); padding-top:.9rem; margin-top:1.1rem}
+.piece:first-of-type{border-top:none; padding-top:0; margin-top:0}
+.num{font-variant-numeric:tabular-nums; width:2.2rem}
+.sub{font-size:.78rem; color:var(--mut); margin-top:.2rem}
 @media(max-width:900px){
   .shell{grid-template-columns:1fr}
   .nav{display:none}
@@ -58,116 +77,46 @@ ul.plain li{margin:.28rem 0}
   .main{padding:1.1rem 1rem 3.5rem}
 }
 </style>
-<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid></head>
+<link rel="stylesheet" href="xhs-fluid.css" data-xhs-fluid><style>
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.15rem;margin:0 0 1.2rem;box-shadow:var(--shadow)}
+.stage h3{margin:.1rem 0 .3rem}.stage .q{margin:.2rem 0 .7rem;color:var(--ink-2)}
+.tw{overflow-x:auto;max-width:100%}
+.tw table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:44rem}
+.tw th,.tw td{border-top:1px solid var(--line);padding:.45rem .5rem;vertical-align:top;text-align:left}
+.tw th{font-size:.74rem;color:var(--mut);font-weight:650;background:var(--hi-soft)}
+.lv{display:inline-block;font-size:.7rem;font-weight:650;padding:.05rem .4rem;border-radius:999px;border:1px solid var(--line);margin-right:.25rem}
+.lv.f{background:#e8f3ec}.lv.s{background:var(--hi-soft)}.lv.a{background:#eef0f4}.lv.b{background:#fbe9e7}
+.lv.h{background:#f1e8fb}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:.8rem}
+.work{margin:0;overflow-wrap:anywhere}.work h3{margin:.1rem 0 .4rem}.work p{margin:.35rem 0}.work .take{border-top:1px dashed var(--line);padding-top:.45rem}
+#compare .tw table{min-width:36rem}#audience .tw table{min-width:52rem}.depth{margin:.5rem 0}
+@media(max-width:700px){#compare .tw,#audience .tw{overflow:visible}#compare .tw table,#compare .tw tbody,#compare .tw tr,#compare .tw td,#audience .tw table,#audience .tw tbody,#audience .tw tr,#audience .tw td{display:block;width:100%;min-width:0}#compare .tw thead,#audience .tw thead{display:none}#compare .tw tr,#audience .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}#compare .tw td,#audience .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}#compare .tw td::before,#audience .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}}
+@media(max-width:900px) and (min-width:701px){.tw table{min-width:36rem}}
+@media(max-width:700px){
+.stage .tw{overflow:visible}
+.stage .tw table,.stage .tw tbody,.stage .tw tr,.stage .tw td{display:block;width:100%;min-width:0}
+.stage .tw thead{display:none}
+.stage .tw tr{border:1px solid var(--line);border-radius:12px;padding:.55rem .7rem;margin:0 0 .7rem;background:#fff}
+.stage .tw td{border:0;padding:.22rem 0;overflow-wrap:anywhere}
+.stage .tw td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:650;color:var(--mut)}
+.stage .tw td[data-l="#"]{font-weight:700}
+}
+</style>
+</head>
 <body>
-<div class="shell">
-<aside class="nav" aria-label="目录">
-  <p class="brand">范凯深拆</p>
-  <p class="meta">私密 · 写给 Ocean<br>从 creators 抽出 · 2026-11-05</p>
-  <div class="sec">选题库</div>
-  <a href="growth/">← 成长记录</a>
-  <a href="./">小红书全入口</a>
-  <a href="creators.html">对标档案</a>
-  <div class="sec">本页</div>
-  <a href="#overview">账号概况</a>
-  <a href="#timeline">时间线</a>
-  <a href="#breakout">破壁 / 代表</a>
-  <a href="#inflect">拐点</a>
-  <a href="#success">成功经验</a>
-  <a href="#for-ocean">给 Ocean</a>
-  <a href="#sources">来源与待核</a>
-</aside>
-<main class="main">
-<nav class="mob-nav" aria-label="移动目录">
-  <a href="#overview">概况</a>
-  <a href="#timeline">时间线</a>
-  <a href="#inflect">拐点</a>
-  <a href="#for-ocean">借鉴</a>
-</nav>
-
-<header>
-  <h1>范凯说 AI · 成长页</h1>
-  <p class="muted">X <a href="https://x.com/fankaishuoai">@fankaishuoai</a> · 课程站 <a href="https://fankaishuo.ai/">fankaishuo.ai</a>。公式：AI 生产 + 个人 IP。</p>
-</header>
-<section id="overview">
-  <h2>账号概况</h2>
-  <div class="grid2">
-    <div class="card stat"><span class="tag">X</span><strong>~46.0k</strong><span class="muted">@fankaishuoai · creators metrics</span></div>
-    <div class="card stat"><span class="tag">站</span><strong>fankaishuo.ai</strong><span class="muted">会员价目以现读为准（常见月/季/年档）</span></div>
-    <div class="card stat"><span class="tag">框架</span><strong>AI + 个人 IP</strong><span class="muted">AI 管生产/交付，IP 管信任/销售</span></div>
-    <div class="card stat"><span class="tag">分发</span><strong>X / YouTube / 站</strong><span class="muted">内容主题预留=课名</span></div>
-  </div>
-</section>
-<section id="timeline">
-  <h2>时间线 / 模式</h2>
-  <ul class="plain">
-    <li>定位成型：公开公式「AI + 个人 IP」——<a href="https://fankai.me/p/ai-personal-brand-trust">长文</a>。</li>
-    <li>产品化：课程地图（知识库 / Grok Bot / 多 Agent / 编程 / 写作等，制作中）——<a href="https://fankaishuo.ai/courses">课程页</a>。</li>
-    <li>未见公布「某日粉数/收入跳变」审计数字 → 不编造拐点金额。</li>
-  </ul>
-</section>
-<section id="breakout">
-  <h2>招牌干货</h2>
-  <ul class="plain">
-    <li>超级个体公式：AI 管生产，IP 管信任（反贩卖焦虑）。</li>
-    <li>课程地图与会员站意向。</li>
-    <li>「自己试过再推荐」的判断姿态。</li>
-  </ul>
-</section>
-<section id="inflect">
-  <h2>拐点</h2>
-  <table>
-    <thead><tr><th>何时</th><th>发生了什么</th><th>之前 → 之后</th><th>为何有效</th></tr></thead>
-    <tbody>
-      <tr><td>定位成型</td><td>公开「AI + 个人 IP」公式</td><td>散点 AI 内容 → 可复述事业框架</td><td>读者能转述的一句定位</td></tr>
-      <tr><td>产品化</td><td>课程站地图上线（制作中）</td><td>免费为主 → 会员课库意向</td><td>内容主题=课名</td></tr>
-      <tr><td>说明</td><td colspan="3">无公开粉/收入跳变审计；不编造。</td></tr>
-    </tbody>
-  </table>
-</section>
-<section id="success">
-  <h2>成功经验</h2>
-  <div class="card">
-    <p>信任观：经营长期判断信任，不是贩卖焦虑。课程仍在制作中——对你意味着「先免费系列课表」。</p>
-  </div>
-</section>
-<section id="for-ocean">
-  <h2>给 Ocean</h2>
-  <div class="card">
-    <h3>可抄</h3>
-    <ol>
-      <li>远期变现骨架：内容主题=课表主题（「如何把活干好」）。</li>
-      <li>现阶段帖内最多轻带；先把系列跑出信任再谈会员。</li>
-      <li>公开「自己试过再推荐」，对齐反焦虑。</li>
-    </ol>
-    <h3>暂时别学</h3>
-    <ul class="plain">
-      <li>现在就上五门系统课+会员站（需全职制作带宽）。</li>
-      <li>OPC 全栈交付叙事扩成泛 AI 创业课；你兼职先垂直 PM 方法。</li>
-    </ul>
-  </div>
-</section>
-<section id="sources">
-  <h2>来源与待核</h2>
-  <p>fankai.me 长文 · fankaishuo.ai · creators 深描。待核：会员现价与上线节数、粉数跳变。</p>
-</section>
-
-<div class="foot"><p>私密 · x-digest · 从 creators 深描抽成独立成长页 · 2026-11-05 · 不编数字</p></div>
-</main>
-</div>
-<script>
-(function(){
-  const links=[...document.querySelectorAll('.nav a[href^="#"]')];
-  const map=links.map(a=>({a,el:document.querySelector(a.getAttribute('href'))})).filter(x=>x.el);
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(en=>{
-      if(!en.isIntersecting) return;
-      const id=en.target.id;
-      links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+id));
-    });
-  },{rootMargin:'-20% 0px -70% 0px', threshold:0});
-  map.forEach(({el})=>io.observe(el));
-})();
-</script>
+<div class="shell"><aside class="nav" aria-label="目录"><p class="brand">范凯深拆</p><p class="meta">私密 · 写给 Ocean<br>一手资料采集 2026-11-08（UTC+8）<br>X 一手资料深化 · 小红书未核</p><div class="sec">选题库</div><a href="growth/">← 成长记录</a><a href="./">小红书全入口</a><a href="creators.html#fankai">对标档案 · 范凯</a><div class="sec">本页</div><a href="#overview">账号概况</a><a href="#timeline">5阶段时间线</a><a href="#s1">1 · JavaEye 与互联网产品</a><a href="#s2">2 · 国内视频号与公众号</a><a href="#s3">3 · AI 实践与课程</a><a href="#s4">4 · 转向 YouTube 和 Substack</a><a href="#s5">5 · AI + 个人 IP</a><a href="#works">代表作品拆解</a><a href="#audience">谁在看</a><a href="#compare">写法对照</a><a href="#voice">语气与节奏</a><a href="#limits">失败与边界</a><a href="#for-ocean">给 Ocean</a><a href="#sources">来源与待核</a></aside><main class="main"><nav class="mob-nav" aria-label="移动目录"><a href="#overview">概况</a><a href="#timeline">时间线</a><a href="#works">作品</a><a href="#audience">受众</a><a href="#compare">对照</a><a href="#voice">语气</a><a href="#limits">边界</a><a href="#for-ocean">借鉴</a><a href="#sources">来源</a></nav><header><h1>范凯说AI（@fankaishuoai） 成长深拆</h1><p class="muted">按“阶段 → 当时的问题 → 动作 → 作品”排，每条附原始链接。<span class="lv f">事实</span>可从原文核到；<span class="lv s">自述</span>是本人说法；<span class="lv a">分析</span>/<span class="lv a">观察</span>是研究者归纳；<span class="lv h">假设</span>未验证；<span class="lv b">边界</span>写不能怎么用。时间统一 UTC+8，查不到写未知。</p></header>
+<section id="overview"><h2>账号概况</h2><div class="grid2"><div class="card"><h3>平台</h3><p>X：<a href="https://x.com/fankaishuoai" target="_blank" rel="noopener">@fankaishuoai</a>（交接文件里的账号，已用 API 核对：简介链向 fankaishuo.ai 和 YouTube @fankaishuoai），2007-06 建号，2026-11-08 读到 46,865 关注者。个人网站：<a href="https://fankai.me" target="_blank" rel="noopener">fankai.me</a>（Substack）；课程站 fankaishuo.ai；YouTube；国内只同步视频号和公众号（本人说法）。小红书：本轮未读。</p></div><div class="card"><h3>定位</h3><p><span class="lv s">自述</span>简介“用 AI 创造价值，把个人能力经营成事业”；他说“AI 时代，个体的两个超级杠杆：AI + 个人 IP”（<a href="https://x.com/fankaishuoai/status/2111843550526865596" target="_blank" rel="noopener">X</a>）。<span class="lv a">观察</span>X 上是即时观点和实测，沉淀内容放 Substack 和 YouTube。</p></div></div></section>
+<section id="timeline"><h2>5阶段时间线</h2><section id="s1" class="stage"><h3>阶段 1 · 2003–2020：做网站、做产品</h3><p class="q"><b>当时的问题：</b>AI 来之前，手上有哪些能力。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">1</td><td data-l="日期">2026-11-02 18:48</td><td data-l="动作与作品"><a href="https://x.com/fankaishuoai/status/2117207311643279662" target="_blank" rel="noopener">X：放下心结</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“我2003年创业做JavaEye网站，2010年网站卖掉套现”；画过丁香医生在线问诊原型；2020 年带团队做疫情地图</td><td data-l="分析">AI 之前已有技术和产品履历，这是他说话底气的来源</td><td data-l="边界">履历是本人说法，未独立核</td></tr><tr><td data-l="#">2</td><td data-l="日期">2026-10-23 11:34</td><td data-l="动作与作品"><a href="https://x.com/fankaishuoai/status/2113473989775704548" target="_blank" rel="noopener">X：技术审美</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“2002年，我用上 Hibernate就断定EJB必死”</td><td data-l="分析">习惯用早年判断对了的经历给新判断背书</td><td data-l="边界">—</td></tr></tbody></table></div></section><section id="s2" class="stage"><h3>阶段 2 · 起始未核：微信视频号和公众号</h3><p class="q"><b>当时的问题：</b>AI 内容先在哪做。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">3</td><td data-l="日期">2026-11-05 15:55</td><td data-l="动作与作品"><a href="https://x.com/fankaishuoai/status/2118250800539725943" target="_blank" rel="noopener">X：平台对比</a></td><td data-l="事实">帖子全文已读；回复 11 条</td><td data-l="自述">视频号“经营了三年多，6.5 万粉丝”；订阅号“同样经营了三年多，1.2 万粉丝”</td><td data-l="分析">国内平台是起点</td><td data-l="边界">起始时间未核；2026-11 自述已经营三年多</td></tr></tbody></table></div></section><section id="s3" class="stage"><h3>阶段 3 · 2026 上半年：AI 实践、教程、企业咨询</h3><p class="q"><b>当时的问题：</b>从聊 AI 到教人把 AI 用起来。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">4</td><td data-l="日期">2026-02</td><td data-l="动作与作品"><a href="https://fankai.me/archive" target="_blank" rel="noopener">fankai.me 文章归档（Substack）</a></td><td data-l="事实">归档页标题和摘要已读</td><td data-l="自述">2026-02 有 OpenClaw 教程</td><td data-l="分析">教程是最早一批 Substack 文章</td><td data-l="边界">正文没读</td></tr><tr><td data-l="#">5</td><td data-l="日期">2026-05-20 22:04</td><td data-l="动作与作品"><a href="https://x.com/fankaishuoai/status/2057100064468934912" target="_blank" rel="noopener">X：客户买单的理由</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“我做企业 AI 咨询”</td><td data-l="分析">内容之外还有咨询</td><td data-l="边界">—</td></tr><tr><td data-l="#">6</td><td data-l="日期">2026-05-24 23:25</td><td data-l="动作与作品"><a href="https://x.com/fankaishuoai/status/2058569986520826071" target="_blank" rel="noopener">X：50 岁</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“今年我已经50岁了”</td><td data-l="分析">年龄和阅历是他和多数 AI 博主不同的地方</td><td data-l="边界">—</td></tr></tbody></table></div></section><section id="s4" class="stage"><h3>阶段 4 · 2026 下半年：转向 YouTube 和 Substack</h3><p class="q"><b>当时的问题：</b>哪个平台的内容能长期留住。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">7</td><td data-l="日期">2026-10-26 20:16</td><td data-l="动作与作品"><a href="https://x.com/fankaishuoai/status/2114692519124676767" target="_blank" rel="noopener">X：第 40 期直播三平台数据</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">每周日直播第 40 期；YouTube“其实观看时长更长，用户更忠诚”</td><td data-l="分析">用直播数据对比平台</td><td data-l="边界">数字是本人后台截图口述，本页不展示</td></tr><tr><td data-l="#">8</td><td data-l="日期">2026-10-30 20:42</td><td data-l="动作与作品"><a href="https://x.com/fankaishuoai/status/2116148629597823315" target="_blank" rel="noopener">X：OPC 别指望 X</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“X 说到底就是拉新的场所，不是沉淀用户和转化的场所”</td><td data-l="分析">明确把 X 当拉新</td><td data-l="边界">—</td></tr><tr><td data-l="#">9</td><td data-l="日期">2026-11-05 15:55</td><td data-l="动作与作品"><a href="https://x.com/fankaishuoai/status/2118250800539725943" target="_blank" rel="noopener">X：YouTube 不到一年超过视频号</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">YouTube“只做了不到一年”，长视频播放“稳稳超过微信视频号”；“最关键的其实不是粉丝数，而是这两个平台上的内容有 URL”</td><td data-l="分析">用自己的数字论证“内容资产”</td><td data-l="边界">数字是本人说法</td></tr></tbody></table></div></section><section id="s5" class="stage"><h3>阶段 5 · 2026-10 起：AI + 个人 IP 的公开主张</h3><p class="q"><b>当时的问题：</b>把 AI 实践变成事业，靠什么。</p><div class="tw"><table><thead><tr><th>#</th><th>日期（UTC+8）</th><th>当时动作 → 作品</th><th><span class="lv f">事实</span></th><th><span class="lv s">自述</span></th><th><span class="lv a">分析</span></th><th><span class="lv b">边界</span></th></tr></thead><tbody><tr><td data-l="#">10</td><td data-l="日期">2026-10-18 23:35</td><td data-l="动作与作品"><a href="https://x.com/fankaishuoai/status/2111843550526865596" target="_blank" rel="noopener">X：两个超级杠杆</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“用 AI 把有价值的东西做出来，用个人 IP 让需要它的人愿意选择你”</td><td data-l="分析">形成一句可复述的定位</td><td data-l="边界">对应视频没看</td></tr><tr><td data-l="#">11</td><td data-l="日期">2026-10-30 20:48</td><td data-l="动作与作品"><a href="https://x.com/fankaishuoai/status/2116150129556365492" target="_blank" rel="noopener">X：三年目标</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">目标：邮件列表 10 万、YouTube 30 万；X“就当每天发发吐槽”</td><td data-l="分析">公开目标</td><td data-l="边界">这是目标，不是成绩</td></tr><tr><td data-l="#">12</td><td data-l="日期">2026-10-14 10:30</td><td data-l="动作与作品"><a href="https://x.com/fankaishuoai/status/2110196505768534155" target="_blank" rel="noopener">X：一键发布技能</a></td><td data-l="事实">帖子全文已读</td><td data-l="自述">“内容和观点还是应该来自于人，但是繁琐的事都交给 AI 吧”</td><td data-l="分析">自己的写作流程也用 AI</td><td data-l="边界">—</td></tr></tbody></table></div></section></section>
+<section id="works"><h2>代表作品拆解</h2><p class="muted">只选原文读过、写法各不相同的作品，不是热门榜；不展示互动数。</p><div class="works"><article class="work card" id="w1"><h3>代表作品 1 · 平台对比帖：用自己的数字讲“内容资产”</h3><p class="links"><a href="https://x.com/fankaishuoai/status/2118250800539725943" target="_blank" rel="noopener">X：YouTube 和 Substack</a></p><p class="muted">时间线位置：<a href="#s4">阶段 4 · 节点 9</a></p><p><span class="lv f">事实</span>帖子全文已读。把 YouTube 不到一年 vs 视频号三年多、Substack vs 订阅号并排对比，再落到“内容有 URL”。</p><p><span class="lv s">自述</span>“做海外中文自媒体，最大的心理障碍是怕没流量…事实证明完全想反了”。</p><p><span class="lv a">观察</span>数字只是由头，结论是一个可迁移的判断：能被搜到、能长期留存。</p><p><span class="lv h">假设</span>回复里多人复述“一年干过三年”，说明对比点容易传；只看了 11 条。</p><p><span class="lv b">边界</span>数字是本人说法；回复 11 条。</p><p class="take"><b>可借鉴写法：</b>用自己两个平台的对比讲一个判断，而不是只晒数字。</p></article><article class="work card" id="w2"><h3>代表作品 2 · 实测帖：同一模型开什么思考档位</h3><p class="links"><a href="https://x.com/fankaishuoai/status/2117827477708185969" target="_blank" rel="noopener">X：思考档位最佳实践</a></p><p class="muted">时间线位置：<a href="#s5">阶段 5</a></p><p><span class="lv f">事实</span>帖子全文已读。三条规则：简单任务、复杂任务、超复杂任务各用什么模型和档位。</p><p><span class="lv a">观察</span>先提一个读者没想过的问题，再给三条能照做的规则。</p><p><span class="lv h">假设</span>对每天用多个模型的人，规则比评测分更有用；未验证。</p><p><span class="lv b">边界</span>规则来自他个人测试，没有公开测试方法。</p><p class="take"><b>可借鉴写法：</b>实测结论写成三条可照做的规则。</p></article><article class="work card" id="w3"><h3>代表作品 3 · 个人 IP 主张：一句话定位</h3><p class="links"><a href="https://x.com/fankaishuoai/status/2111843550526865596" target="_blank" rel="noopener">X：两个超级杠杆</a> · <a href="https://x.com/fankaishuoai/status/2113246669705986475" target="_blank" rel="noopener">X：价值与变现</a></p><p class="muted">时间线位置：<a href="#s5">阶段 5 · 节点 10</a></p><p><span class="lv f">事实</span>两帖全文已读：“光营销没价值，那是割韭菜；光研究AI不卖，那是自娱自乐。”</p><p><span class="lv a">观察</span>对仗句，好记好转。</p><p><span class="lv h">假设</span>一句能复述的定位，方便读者向别人介绍他；推断。</p><p><span class="lv b">边界</span>对应长视频没看。</p><p class="take"><b>可借鉴写法：</b>把定位写成一句对仗、能被转述的话。</p></article><article class="work card" id="w4"><h3>代表作品 4 · 流程公开：口述 → AI 整理 → 人工改 → 一键发两个平台</h3><p class="links"><a href="https://x.com/fankaishuoai/status/2110196505768534155" target="_blank" rel="noopener">X：一键发布</a></p><p class="muted">时间线位置：<a href="#s5">阶段 5 · 节点 12</a></p><p><span class="lv f">事实</span>帖子全文已读。写作流程四步，最后“手工点发布”。</p><p><span class="lv a">观察</span>明确哪部分交给 AI、哪部分自己做。</p><p><span class="lv h">假设</span>想用 AI 写作又怕“AI 味”的读者会关心这条边界；未验证。</p><p><span class="lv b">边界</span>技能代码没看。</p><p class="take"><b>可借鉴写法：</b>公开流程时写清人和 AI 各管哪一段。</p></article><article class="work card" id="w5"><h3>代表作品 5 · 履历帖：被质疑后摆出旧作品</h3><p class="links"><a href="https://x.com/fankaishuoai/status/2117207311643279662" target="_blank" rel="noopener">X：放下心结</a></p><p class="muted">时间线位置：<a href="#s1">阶段 1 · 节点 1</a></p><p><span class="lv f">事实</span>帖子全文已读。他回顾自己曾觉得要先做出赚钱的 AI 产品才能理直气壮讲 AI，随后列 JavaEye、丁香医生、疫情地图。</p><p><span class="lv s">自述</span>“所以随便别人怎么说去，我爱干啥就干啥，怎么着吧。”</p><p><span class="lv a">观察</span>情绪化开头，用具体作品收尾。</p><p><span class="lv h">假设</span>资深履历让部分读者信他的判断，也引来对立；评论没读。</p><p><span class="lv b">边界</span>履历未独立核；评论没读。</p><p class="take"><b>可借鉴写法：</b>被质疑时用具体作品回应，而不是只表态。</p></article></div></section>
+<section id="audience"><h2>谁在看，为什么愿意看</h2><p class="muted"><b>没有真实的粉丝画像数据</b>。人群和动机根据作者自述、X 评论和作品内容推断，不代表全体读者。</p><div class="tw"><table><thead><tr><th>可能的读者类型（推断）</th><th>AI 使用深度</th><th>可能想要什么</th><th>能拿走什么</th><th>对应作品</th><th>证据</th></tr></thead><tbody><tr><td data-l="读者类型">想做个人 IP、一人公司的人</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：内容经营，层级不适用</td><td data-l="想要什么">选平台、积累资产的方法</td><td data-l="能拿走什么">平台判断和目标</td><td data-l="对应作品"><a href="#w1">卡 1</a>、<a href="#w3">卡 3</a></td><td data-l="证据"><span class="lv s">评论者自述</span>“平台不值钱，跨平台还能复用的内容资产才值钱”；“海外平台一年干过微信三年”</td></tr><tr><td data-l="读者类型">每天用多个模型的人</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：模型配置建议，本轮不定级</td><td data-l="想要什么">模型怎么配</td><td data-l="能拿走什么">思考档位规则</td><td data-l="对应作品"><a href="#w2">卡 2</a></td><td data-l="证据"><span class="lv f">事实</span>卡 2 帖全文：三条档位规则</td></tr><tr><td data-l="读者类型">搭 Agent 工具的人</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：约 L4（工具进日常流程），仓库未读</td><td data-l="想要什么">可复用的开源工具</td><td data-l="能拿走什么">开源仓库</td><td data-l="对应作品">—</td><td data-l="证据"><span class="lv s">自述</span>他说开源了 grokbot-local-agent、agent-relay 等（<a href="https://x.com/fankaishuoai/status/2113287259931771179" target="_blank" rel="noopener">X</a>）</td></tr><tr><td data-l="读者类型">不会编程、想用 AI 做事的人</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：L2–L3</td><td data-l="想要什么">入门路径</td><td data-l="能拿走什么">教程文章</td><td data-l="对应作品"><a href="#s3">阶段 3</a></td><td data-l="证据"><span class="lv s">自述</span>Substack 文章《不会编程，怎么用好 AI？先抓住这两件事》：“把需求讲清楚，把验收做扎实”（归档摘要）</td></tr><tr><td data-l="读者类型">想跟上 AI 行业观点的中文读者</td><td data-l="AI 使用深度">读者现在：未知<br>内容指向：L0–L1</td><td data-l="想要什么">有经验的人怎么看</td><td data-l="能拿走什么">直播、观点帖</td><td data-l="对应作品"><a href="#s4">阶段 4</a></td><td data-l="证据"><span class="lv s">自述</span>每周日直播已 40 期</td></tr></tbody></table></div><p class="depth"><b>深度怎么标：</b>沿用 <a href="../research/ai-depth-levels-2026-10-28.html#levels">AI 使用深度水位</a> 的 L0–L5（定义见<a href="zhangzala.html#audience">张咋啦页</a>）；分开写读者现在和内容指向，层级不是职业类别。</p><h3>可能为什么能火、能传开（未验证）</h3><div class="card"><ul class="plain"><li><span class="lv s">自述</span>他把自己定位成“手艺人”，更在意作品（<a href="https://x.com/fankaishuoai/status/2116937518738440558" target="_blank" rel="noopener">X</a>）。<span class="lv a">观察</span>代表作品都给能照做的规则或判断，而不是转述新闻。</li><li><span class="lv s">自述</span>他认为 X 是拉新、Substack 和 YouTube 才能沉淀（<a href="#s4">阶段 4</a>）。<span class="lv h">假设</span>X 上的尖锐观点带来曝光，长内容留人。</li><li><span class="lv s">自述</span>他自述的年龄（50 岁）和二十多年履历构成个人叙事。<span class="lv h">假设</span>可能影响可信度，也可能引来对立；未验证。</li><li><span class="lv s">评论者自述</span>平台对比帖回复多是认同和复述，也有人问 Substack 怎么用。<span class="lv b">边界</span>只读 11 条。</li></ul></div></section>
+<section id="compare"><h2>普通内容与代表作品：写法差在哪</h2><p class="muted"><span class="lv a">观察</span>只比较写法，不是因果；不展示互动数。普通内容一列来自同期 X 帖原文：<a href="https://x.com/fankaishuoai/status/2117809230724096196" target="_blank" rel="noopener">安检疑问</a> · <a href="https://x.com/fankaishuoai/status/2060913186963104256" target="_blank" rel="noopener">上海图书馆</a> · <a href="https://x.com/fankaishuoai/status/2060162983075225937" target="_blank" rel="noopener">痛风</a>（2026-05～11，全文已读）。</p><div class="tw"><table><thead><tr><th>维度</th><th>代表作品</th><th>普通内容</th></tr></thead><tbody><tr><td data-l="维度">开头</td><td data-l="代表作品">一个判断或问题（<a href="#w1">卡 1</a>、<a href="#w2">卡 2</a>）</td><td data-l="普通内容">生活见闻或一句情绪</td></tr><tr><td data-l="维度">个人经历</td><td data-l="代表作品">自己的平台数字、测试、流程</td><td data-l="普通内容">出差、安检、身体状况</td></tr><tr><td data-l="维度">读者能拿走什么</td><td data-l="代表作品">规则、判断、流程</td><td data-l="普通内容">一个感受</td></tr><tr><td data-l="维度">形式</td><td data-l="代表作品">编号列表 + 结论</td><td data-l="普通内容">几句随想</td></tr></tbody></table></div></section>
+<section id="voice"><h2>语气、节奏与可借鉴写法</h2><div class="card"><ul class="plain"><li><span class="lv f">事实</span>常用对仗句和“说到底”收尾：“说到底，个人网站+邮件列表才是你真正可以沉淀的用户资产。”</li><li><span class="lv f">事实</span>立场鲜明，常批评国内平台和其他公司。</li><li><span class="lv s">自述</span>他说 X 是“阅后即焚”的平台，想法随时发，“也不怕打脸”（<a href="https://x.com/fankaishuoai/status/2115694621993095296" target="_blank" rel="noopener">X</a>）。</li><li><span class="lv a">观察</span>教程类内容多是编号三条规则。</li></ul></div><pre class="tpl">【开头】一个大家想反了的判断
+【证据】我自己两个平台/两个模型的对比
+【规则】三条能照做的规则
+【收尾】“说到底……”一句结论</pre><p class="muted">模板是分析产物，不是作者原话。</p></section>
+<section id="limits"><h2>失败与边界</h2><div class="card"><ul><li><b>数字</b>：各平台粉丝、直播数据、履历都是本人说法，没独立核。</li><li><b>立场</b>：大量政治、行业的强观点帖，本页不评价，只分析写法。</li><li><b>平台</b>：YouTube 视频、Substack 正文、视频号都没读；小红书没读，旧页说小红书是主平台，本轮找不到依据。</li><li><b>课程</b>：付费课程没买，不评价。</li><li><b>评论</b>：只读一条帖 11 条回复。</li></ul></div></section>
+<section id="for-ocean"><h2>给 Ocean（「AI具身牛马」）的借鉴</h2><p class="muted"><span class="lv a">分析</span>研究者建议，不是成功公式。</p><div class="grid2"><div class="card"><h3>可借鉴</h3><ol><li>用自己两个平台的对比讲一个判断。</li><li>实测结论写成三条可照做的规则。</li><li>把定位写成一句对仗、能被转述的话。</li><li>公开写作流程时写清人和 AI 的分工。</li></ol></div><div class="card"><h3>不适用</h3><ul><li>二十多年创业和大厂履历带来的背书。</li><li>把 X 当吐槽场的强对立风格。</li><li>海外平台为主的路线，跟 Ocean 当前平台不同。</li></ul></div></div></section>
+<section id="sources"><h2>来源与待核</h2><p><b>状态：X 一手资料深化；小红书未核</b>。X 帖和 Substack 归档已补一手资料；长文与视频正文未读。小红书没核：不据此判断他在小红书的效果，也不标双发。</p><div class="tw"><table><thead><tr><th>来源</th><th>读到了</th><th>没读到</th></tr></thead><tbody><tr><td data-l="来源">X</td><td data-l="读到了">资料（API）+ 2026-11-02～11-08 帖 25 条 + 2026-05 帖 25 条 + 关键词搜索 25 条</td><td data-l="没读到">2026-05 之前的大部分帖子</td></tr><tr><td data-l="来源">小红书</td><td data-l="读到了">无</td><td data-l="没读到">主页、笔记、评论都没读：300013 安全限制；旧页说的小红书主平台本轮无依据，已删除</td></tr><tr><td data-l="来源">评论</td><td data-l="读到了">平台对比帖回复 11 条（API 返回范围）</td><td data-l="没读到">其他帖、YouTube、Substack 评论</td></tr><tr><td data-l="来源">作品原文</td><td data-l="读到了">X 帖全文；fankai.me 首页和文章归档（标题与摘要）</td><td data-l="没读到">Substack 正文；YouTube 视频；直播；付费课程</td></tr></tbody></table></div><ul class="plain"><li>证据台账：<code>review/creator-growth-20261108/fankai-ledger.md</code>（采集 2026-11-08，UTC+8）。</li><li>账号核对：交接文件写的 @fankaishuoai，API 简介链接与课程站、YouTube 一致。</li></ul><p><span class="tag warn">待核</span>：Substack 正文与发布时间；YouTube 代表视频；视频号起始时间；小红书账号是否存在；课程站现状。</p></section>
+</main></div>
 </body>
 </html>
