@@ -10,9 +10,9 @@ DROP = re.compile('|'.join([re.escape(x) for x in PRIV] + ['已关注', 'invento
 def clean(t):
     t = re.sub(r'(https://www\.xiaohongshu\.com/[^\s?`）)]+)\?[^\s`）)]*', r'\1', t)
     return '\n'.join(l for l in t.splitlines() if not DROP.search(l)) + '\n'
-MAP = {'keruiji': ('keruiji', ['ledger.md']), 'will': ('will', ['ledger.md']), 'huguagua': ('huguagua', ['ledger.md']), 'claire': ('claire', ['ledger.md'])}
+MAP = {'keruiji': ('keruiji', ['ledger.md']), 'will': ('will', ['ledger.md']), 'huguagua': ('huguagua', ['ledger.md']), 'claire': ('claire', ['ledger.md']), 'fufujie': ('fufujie', ['ledger.md'])}
 # 公开副本里不点名被提及的去世者，也不把简介里 @ 的另一账号写成归属
-SUB = {'claire': [('“t老师”', '一位'), ('t老师', '该博主'), ('@吟游诗人茶仔', '@另一账号（未点开）')]}
+SUB = {'fufujie': [('（读者自述，评论正文疑似宣传性质，真实性未核）', '（读者自述，真实性未核）'), ('，不同位置口径不同，均未核；仅记录页面可见文字。', '；见文末复核附注：不同位置写法不同，未判为矛盾，均未核。')], 'huguagua': [('“你没有说服你还不成功”（按图上可见字记录）', '“你没有说明你还不成功”（原采集笔误记作“说服”，已按 p4 截图更正）')], 'claire': [('“t老师”', '一位'), ('t老师', '该博主'), ('@吟游诗人茶仔', '@另一账号（未点开）')]}
 for slug, (d, files) in MAP.items():
     parts = [f'# {slug} 证据台账（公开副本：已去链接参数与采集账号信息；原件在仓库外）\n']
     for n in files:

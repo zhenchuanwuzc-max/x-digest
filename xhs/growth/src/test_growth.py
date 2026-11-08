@@ -128,7 +128,7 @@ class Practice(unittest.TestCase):
         for p in P: s.assertNotIn('不适用', p['metrics']['income']['text'] + p['metrics']['income'].get('note', ''))
         s.assertIn('自述 · 2025-09 · 历史', H); s.assertIn('自述 · 2023-07 · 历史', H)
         cnt = lambda k: sum(p['metrics'][k]['kind'] != '未找到' for p in P)
-        s.assertEqual((cnt('x'), cnt('xhs'), cnt('wx'), cnt('income')), (14, 14, 1, 4))  # 小红书：知新 + 首批 3 + 第二批 4 + 第三批 4
+        s.assertEqual((cnt('x'), cnt('xhs'), cnt('wx'), cnt('income')), (14, 15, 1, 4))  # 小红书：知新 + 首批 3 + 第二批 4 + 第三批 5
     def test_brief_on_every_person_page(s):
         seen = {k: set() for k in ('who', 'pain', 'solve', 'ocean')}
         for p in P:
@@ -296,10 +296,11 @@ class FollowBatch3(unittest.TestCase):
         for w in ('标题描述层分析', '不是完整通读', '未主动播放、未观看'): s.assertIn(w, s.h)
         s.assertNotIn('视频未看待补', s.h)
     def test_no_fake_experience_advice(s):
-        s.assertIn('不照搬“说做过我的实习生”', s.h); s.assertIn('虚构经历', s.p['brief']['ocean'])
+        s.assertIn('不照搬“说做过我的实习生”', s.h); s.assertIn('虚假履历风险', s.p['brief']['ocean'])
+        for bad in ('虚构经历', '造假', '欺诈', '骗'): s.assertNotIn(bad, s.h)  # 视频未看，不对作者下判断
         take = re.search(r'<h2>可借鉴的做法</h2>(.*?)</section>', s.h, re.S).group(1)
         for m in re.finditer(r'<li>(.*?)</li>', take):
-            if '实习生' in m.group(1): s.assertTrue('不' in m.group(1) or '虚构' in m.group(1), m.group(1))
+            if '实习生' in m.group(1): s.assertTrue('不' in m.group(1) or '风险' in m.group(1), m.group(1))
     def test_self_reported_numbers_not_income(s):
         s.assertEqual(s.p['metrics']['income']['text'], NF); s.assertEqual(s.p['metrics']['wx']['text'], NF)
         s.assertIn('不合算', s.h); s.assertIn('不当收入', s.h)
@@ -433,7 +434,25 @@ class FollowBatch3Claire(unittest.TestCase):
 class FollowBatch3NoHeatCompare(unittest.TestCase):
     """第三批四页：不把两篇互动数放在一起比（各条目自己的底栏数可留）。"""
     def test_no_cross_post_engagement(s):
-        for slug in ('keruiji', 'will', 'huguagua', 'claire'):
+        for slug in ('keruiji', 'will', 'huguagua', 'claire', 'fufujie'):
             h = (X/f'{slug}.html').read_text(); cmp = h[h.index('id="compare"'):h.index('id="voice"')]
-            s.assertNotIn('底栏数差很多', h); s.assertNotIn('底栏', cmp)
+            s.assertNotIn('底栏数差很多', h); s.assertNotIn('底栏', cmp); s.assertNotIn('能火', h); s.assertIn('<h3>可见评论与作者回应</h3>', h)
+class FollowBatch3Fufujie(unittest.TestCase):
+    """第三批付付姐：视频标题描述层；100w 不当收入；宣传自述不审计；权益写法不判矛盾；不断言水军；隐私。"""
+    def setUp(s):
+        import sys; sys.path.insert(0, str(Path(__file__).resolve().parents[3]/'review/creator-growth-20261108'))
+        import follow_b3_cards as f; s.f = f; s.h = (X/'fufujie.html').read_text()
+        s.p = next(p for p in P if p['id'] == 'fufujie')
+        s.L = (Path(__file__).resolve().parents[3]/'review/creator-growth-20261108/fufujie-ledger.md').read_text()
+    def test_claims(s):
+        s.assertEqual(s.f.COV['fufujie']['w1'], s.f.VIDEO); s.assertIn('已读 9/9', s.h); s.assertIn('标题描述层', s.h)
+        for w in ('不当作者收入', '不判为矛盾', '不当另一售价', '未审计'): s.assertIn(w, s.h)
+        for bad in ('疑似宣传', '水军', '口径不一致', '已赚到100w', '普通内容'): s.assertNotIn(bad, s.h)
+        s.assertNotIn('疑似宣传', s.L)
+        s.assertEqual(s.p['metrics']['income']['text'], '未找到公开数值')
+    def test_privacy(s):
+        pf = Path('/workspace/creator-growth-20261108/following/private-drop-patterns.txt')
+        priv = [l.strip() for l in pf.read_text().splitlines() if l.strip()] if pf.exists() else []
+        for t in (s.h, s.L):
+            for bad in ['xsec', 'following', 'inventory', '/workspace/', '登录态', 'channel_type'] + priv: s.assertNotIn(bad, t)
 unittest.main()
