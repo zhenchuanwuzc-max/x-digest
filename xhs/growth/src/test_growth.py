@@ -188,6 +188,13 @@ class Zhixin(unittest.TestCase):
         s.assertEqual(z['metrics']['xhs']['kind'], '事实'); s.assertEqual(z['metrics']['xhs']['date'], '2026-11-08 主页截图')
         s.assertIn('『这些观点AI，我更容易做；hah』', z['brief']['ocean']); s.assertTrue(z['brief']['ocean'].startswith('建议：'))
 
+class OceanPositioning(unittest.TestCase):
+    """t241：账号身份仍在摸索——首页与源都不得把定位写死。"""
+    def test_home_matches_source_and_not_fixed(s):
+        pos = json.loads((G/'src/people.json').read_text())['positioning']['text']
+        s.assertIn('账号方向仍在探索', pos); s.assertIn(pos, H)
+        for bad in ('大厂产品经理，讲进门后', '不求职', '按 Ocean 的定位'): s.assertNotIn(bad, pos + H)
+
 class FollowBatch1(unittest.TestCase):
     """小红书关注首批 3 人：覆盖度来自 follow_b1_cards.COV；公开页不泄露关注关系与带 token 链接。"""
     IDS = ('lulu-ai', 'laoa-jinjie', 'karl-aigc')

@@ -83,7 +83,7 @@ def render():
 <main class="main">
   <h1>人物成长研究</h1>
   <h2 id="total">总判断：对标谁 → 他做了什么 → Ocean 借鉴哪一步</h2>
-  <p class="muted">按 Ocean 的定位（<a href="{e(pos["src"])}">{e(pos["src_label"])}</a>：{e(pos["text"])}）选三个方向，每个方向先看对标的人和他的具体作品，再看面向谁、痛点和可借鉴的一步。{e(data["total_source"])}</p>
+  <p class="muted">Ocean 的账号（<a href="{e(pos["src"])}">{e(pos["src_label"])}</a>）：{e(pos["text"])}。每个方向先看对标的人和他的具体作品，再看面向谁、痛点和可借鉴的一步。{e(data["total_source"])}</p>
   <div class="prs">
 {rows}  </div>
   <h2 id="steps">先做什么（建议的小实验顺序）</h2>
