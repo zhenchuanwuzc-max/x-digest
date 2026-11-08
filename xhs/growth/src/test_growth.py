@@ -128,7 +128,7 @@ class Practice(unittest.TestCase):
         for p in P: s.assertNotIn('不适用', p['metrics']['income']['text'] + p['metrics']['income'].get('note', ''))
         s.assertIn('自述 · 2025-09 · 历史', H); s.assertIn('自述 · 2023-07 · 历史', H)
         cnt = lambda k: sum(p['metrics'][k]['kind'] != '未找到' for p in P)
-        s.assertEqual((cnt('x'), cnt('xhs'), cnt('wx'), cnt('income')), (14, 6, 1, 4))  # 小红书：知新 + 首批关注 3 人
+        s.assertEqual((cnt('x'), cnt('xhs'), cnt('wx'), cnt('income')), (14, 10, 1, 4))  # 小红书：知新 + 首批关注 3 人 + 第二批 4 人
     def test_brief_on_every_person_page(s):
         seen = {k: set() for k in ('who', 'pain', 'solve', 'ocean')}
         for p in P:
@@ -236,6 +236,54 @@ class FollowBatch1(unittest.TestCase):
             if p['id'] in s.IDS:
                 s.assertEqual(p['metrics']['income']['kind'], '未找到'); s.assertEqual(p['metrics']['x']['kind'], '未找到')
                 s.assertEqual(p['metrics']['xhs']['date'], '2026-11-08 主页截图')
+
+class FollowBatch2(unittest.TestCase):
+    """小红书关注第二批 3 人：覆盖度来自 follow_b2_cards.COV；隐私、品牌身份、积分与视频范围边界。"""
+    IDS = ('laoa-yanjiusuo', 'jason-effi', 'accio-work', 'zhiwei')
+    def setUp(s):
+        import sys; sys.path.insert(0, str(Path(__file__).resolve().parents[3]/'review/creator-growth-20261108'))
+        import follow_b2_cards as f; s.f = f
+        s.h = {i: (X/f'{i}.html').read_text() for i in s.IDS}
+    def test_coverage(s):
+        for i in s.IDS:
+            s.assertEqual(s.f.gaps(i), {}, i)
+        s.assertEqual(sum(c['total'] for c in s.f.COV['laoa-yanjiusuo'].values()), 37)
+        s.assertEqual(s.f.COV['jason-effi']['w2'], s.f.VIDEO); s.assertEqual(s.f.COV['accio-work']['w2'], s.f.VIDEO)
+        for i in ('jason-effi', 'accio-work', 'zhiwei'): s.assertIn('只看标题和描述', s.h[i])
+        s.assertEqual(set(s.f.COV['zhiwei'].values()), {s.f.VIDEO})
+        for h in s.h.values():
+            for bad in ('待补', '部分可读', '待重试'): s.assertNotIn(bad, h)
+    def test_multiple_actions_with_sources(s):
+        for p in P:
+            if p['id'] in s.IDS:
+                ws = p['brief']['works']; s.assertGreaterEqual(len(ws), 2)
+                s.assertEqual(len({w['src'] for w in ws}), len(ws))
+                for w in ws: s.assertIn(w['src'], s.h[p['id']]); s.assertNotIn('?', w['src'])
+    def test_privacy(s):
+        for i, h in s.h.items():
+            for bad in ('xsec', 'following', '关注名单', '5098143774', 'AI具身牛马', '/workspace/'): s.assertNotIn(bad, h)
+            L = (Path(__file__).resolve().parents[3]/f'review/creator-growth-20261108/{i}-ledger.md').read_text()
+            for bad in ('xsec', 'AI具身牛马', '5098143774', '已关注', 'following', 'inventory'): s.assertNotIn(bad, L)
+    def test_codex_fixes(s):
+        for i in ('jason-effi', 'accio-work', 'zhiwei'):
+            s.assertNotIn('视频未播放', s.h[i]); s.assertIn('未主动播放、未观看', s.h[i])
+        s.assertNotIn('至少 3 位读者', s.h['jason-effi'])
+        for h in s.h.values():  # 可见评论放事实格，“假设”格只放未验证的推断
+            for m in re.finditer(r'<span class="lv h">假设</span>(.*?)</', h): s.assertNotIn('可见评论', m.group(1))
+            s.assertIn('可见评论与回复', h)
+    def test_boundaries(s):
+        s.assertIn('不合并', s.h['laoa-yanjiusuo']); s.assertIn('老A的AI进阶实操', s.h['laoa-yanjiusuo'])
+        s.assertIn('不判断归属或抄袭', s.h['laoa-yanjiusuo']); s.assertIn('不当交付或收入', s.h['laoa-yanjiusuo'])
+        A = s.h['accio-work']
+        s.assertIn('不推断法律主体', A); s.assertIn('Credits 是积分', A); s.assertIn('活动期，不等于发布日', A)
+        s.assertIn('不当作者原文', s.h['jason-effi'])
+        Z = s.h['zhiwei']; s.assertIn('标题描述层分析', Z); s.assertIn('不是完整通读', Z); s.assertIn('不当经营事实', Z); s.assertIn('不是创业结果', Z)
+        for h in s.h.values():
+            s.assertIn('不是按“最新”排序筛出的热门', h); s.assertIn('<h2>可借鉴的做法</h2>', h)
+            for bad in ('爆款', '小号优先', '新帖主池'): s.assertNotIn(bad, h)
+        for p in P:
+            if p['id'] in s.IDS:
+                s.assertEqual(p['metrics']['income']['text'], NF); s.assertEqual(p['metrics']['x']['kind'], '未找到')
 
 class Subpages(unittest.TestCase):
     def pages(s):
