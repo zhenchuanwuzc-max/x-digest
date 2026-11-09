@@ -6,6 +6,7 @@ import sys
 D = Path(__file__).resolve().parent
 sys.path.insert(0, str(D))
 from page_kit import blankify
+from people_table_ui import AUDIENCE_RULES, row_meta
 OUT = D.parent / 'index.html'
 e = html.escape
 LABELS = (('x', 'X 关注者'), ('xhs', '小红书粉丝'), ('wx', '公众号关注'), ('income', '收入'))
@@ -54,13 +55,43 @@ def render():
 ''' for r in data['practice'])
     steps = ''.join(f'<li>{e(s)}</li>' for s in data['steps'])
     obs = ''.join(f'<li>{e(s)}</li>' for s in data['observations'])
+    metas = [row_meta(p, i) for i, p in enumerate(P)]
+    audience_all = []
+    for name, _ in AUDIENCE_RULES:
+        if any(name in m['audience'] for m in metas):
+            audience_all.append(name)
     people = ''.join(
-        f'''    <tr id="p-{p["id"]}">
+        f'''    <tr id="p-{p["id"]}" data-ord="{m['ord']}" data-x="{'' if m['x'] is None else m['x']}" data-xhs="{'' if m['xhs'] is None else m['xhs']}" data-lang="{m['lang']}" data-audience="{' '.join(m['audience'])}" data-lang-basis="{e('；'.join(m['lang_basis']))}" data-audience-basis="{e('；'.join(m['audience_basis']))}">
       <th scope="row" data-l="人物"><a href="{e(p["href"])}">{e(p["name"])}</a><span class="hd">{e(p["handle"])}</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">{e(p["does"])}</span><span class="usr">用户：{e(p["users"])}</span>{_sources(p)}</td>
       {''.join(f'<td data-l="{lab}" class="m">{_metric(p["metrics"][k])}</td>' for k, lab in LABELS)}
     </tr>
-''' for p in P)
+''' for p, m in zip(P, metas))
+    sort_btns = (
+        '<button type="button" class="ptb on" data-sort="ord" aria-pressed="true">原顺序</button>'
+        '<button type="button" class="ptb" data-sort="x" data-dir="1" aria-pressed="false">X关注者 ↑</button>'
+        '<button type="button" class="ptb" data-sort="x" data-dir="-1" aria-pressed="false">X关注者 ↓</button>'
+        '<button type="button" class="ptb" data-sort="xhs" data-dir="1" aria-pressed="false">小红书粉丝 ↑</button>'
+        '<button type="button" class="ptb" data-sort="xhs" data-dir="-1" aria-pressed="false">小红书粉丝 ↓</button>'
+    )
+    lang_btns = (
+        '<button type="button" class="ptb on" data-lang="all" aria-pressed="true">全部</button>'
+        '<button type="button" class="ptb" data-lang="zh" aria-pressed="false">中文</button>'
+    )
+    tag_btns = ''.join(
+        f'<button type="button" class="ptb tagb" data-tag="{e(t)}" aria-pressed="false">{e(t)}</button>'
+        for t in audience_all
+    )
+    toolbar = f'''  <div id="people-toolbar" class="people-toolbar" role="region" aria-label="人物表排序与筛选">
+    <div class="pt-row"><span class="pt-lab" id="pt-sort-lab">排序</span><div class="pt-btns" role="group" aria-labelledby="pt-sort-lab">{sort_btns}</div></div>
+    <div class="pt-row"><span class="pt-lab" id="pt-lang-lab">内容语言</span><div class="pt-btns" role="group" aria-labelledby="pt-lang-lab">{lang_btns}</div></div>
+    <div class="pt-row"><span class="pt-lab" id="pt-tag-lab">主要用户（点选并集）</span><div class="pt-btns" role="group" aria-labelledby="pt-tag-lab">{tag_btns}</div></div>
+    <div class="pt-row pt-meta"><span id="people-status">显示 {len(P)} / {len(P)} 人</span>
+      <button type="button" class="ptb" data-clear aria-label="清空筛选并恢复原顺序">清空筛选</button></div>
+    <p id="people-empty" class="people-empty" hidden>没有符合当前筛选的人。可点「清空筛选」或改选标签。</p>
+    <p class="legend">排序用解析值（约数如「约 10 万」按 100000 排），格子仍显示原文与口径；未知数值升序降序都置尾。中文 = 有中文内容/中文平台证据；其余保留在「全部」。受众标签从「用户」文案归纳，原文含「推断」的仍是推断。</p>
+  </div>
+'''
     topics = ''.join(
         f'''    <a class="card" id="t-{t["id"]}" href="{e(t["href"])}">
       <h3>{e(t["name"])}</h3>
@@ -93,7 +124,7 @@ def render():
   <h2 id="people">人物（{len(P)}）</h2>
   <p class="muted">X 关注者为 2026-11-08 19:14（UTC+8）公共读取；其余数字均注明是本人说法和披露日期，找不到写「未找到公开数值」，不等于没有账号。收入口径不同，不排名、不相加。</p>
   <p class="legend">「未找到」= 未找到公开数值，不等于没有账号或没有收入；绿色「公开读取」= 本次实测，黄色「自述」= 本人说法并标年月。</p>
-  <table class="cmp">
+{toolbar}  <table class="cmp">
     <thead><tr><th scope="col">人物</th><th scope="col">主要做什么 · 主要用户</th>{''.join(f'<th scope="col">{lab}</th>' for _, lab in LABELS)}</tr></thead>
     <tbody>
 {people}    </tbody>
@@ -106,6 +137,7 @@ def render():
   <p class="foot">私密 · <a href="../">小红书创作中心</a> · <a href="https://zhenchuanwuzc-max.github.io/x-digest/">情报站首页</a></p>
 </main>
 </div>
+<script src="people_table.js" defer></script>
 </body>
 </html>
 '''

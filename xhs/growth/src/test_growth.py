@@ -99,7 +99,7 @@ class Practice(unittest.TestCase):
         s.assertEqual(heads, ['人物', '主要做什么 · 主要用户', 'X 关注者', '小红书粉丝', '公众号关注', '收入'])  # 共享列头
         s.assertIn('「未找到」= 未找到公开数值', H)
         for p in P:
-            c = tbl[tbl.index(f'<tr id="p-{p["id"]}">'):]; c = c[:c.index('</tr>')]
+            i = tbl.index(f'id="p-{p["id"]}"'); c = tbl[i:]; c = c[:c.index('</tr>')]
             s.assertIn('主要用户', c); s.assertIn(p['does'][:8], c); s.assertIn(p['users'][:8], c)
             for lab in heads[2:]: s.assertIn(f'data-l="{lab}"', c, (p['id'], lab))
             s.assertIn('<details><summary>数据口径与来源</summary>', c)

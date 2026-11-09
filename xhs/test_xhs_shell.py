@@ -34,6 +34,7 @@ HUB_HREFS = [
     "#profiles",
     "#growth",
     "#log",
+    "seven/",
     "growth/",
     "day/",
 ]
@@ -77,7 +78,8 @@ class ShellContract(unittest.TestCase):
         self.assertEqual(nav.count('<details class="navg" open>'), 2)
         self.assertEqual(nav.count("<details"), 4)
         hrefs = re.findall(r'href="([^"]+)"', nav)
-        self.assertEqual(sorted(hrefs), sorted(HUB_HREFS))
+        self.assertEqual(sorted(set(hrefs)), sorted(set(HUB_HREFS)))
+        self.assertGreaterEqual(hrefs.count("seven/"), 2)  # 顶栏按钮 + 完整页
         grouped = re.findall(
             r'<details class="navg"(?: open)?><summary>(.*?)</summary>(.*?)</details>',
             nav,
@@ -102,6 +104,8 @@ class ShellContract(unittest.TestCase):
             },
         )
         tail = nav.rsplit("</details>", 1)[-1]
+        self.assertIn('href="seven/"', tail)
+        self.assertIn("七步工作台", tail)
         self.assertIn('href="growth/"', tail)
         self.assertIn("成长记录专属入口", tail)
         self.assertIn('href="day/"', tail)
@@ -121,6 +125,8 @@ class ShellContract(unittest.TestCase):
     def test_hub_stays_a_full_entry(self):
         html = HUB.read_text(encoding="utf-8")
         self.assertIn("小红书 · 全入口", html)
+        self.assertIn('id="hub-jump"', html)
+        self.assertIn('href="seven/"', html)
         self.assertIn("id='picks'", html)
         self.assertIn("id=\"p1\"", html)
         self.assertNotIn('http-equiv="refresh"', html)

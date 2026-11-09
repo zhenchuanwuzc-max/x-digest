@@ -95,12 +95,27 @@ a.card:hover,a.card:focus-visible{border-color:#9bb8c4;outline:none}
 .cmp details{font-size:.74rem;font-weight:400;color:var(--mut);margin-top:.25rem}.cmp details ul{padding-left:1rem;margin:.25rem 0;overflow-wrap:anywhere}
 @media(max-width:820px){
  .cmp,.cmp tbody,.cmp tr,.cmp th,.cmp td{display:block;width:auto!important}
+ .cmp tr[hidden]{display:none!important}
  .cmp thead{display:none}.cmp{border:0;background:none}
  .cmp tr{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.45rem .7rem;margin:0 0 .55rem}
  .cmp th,.cmp td{border:0;padding:.15rem 0}
  .cmp td.m{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:.4rem}
  .cmp td.m::before{content:attr(data-l);font-size:.78rem;color:var(--mut)}
  .cmp details ul{width:auto}
+}
+
+.people-toolbar{margin:.4rem 0 1rem;padding:.75rem .85rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.people-toolbar .pt-row{display:flex;flex-wrap:wrap;gap:.45rem .55rem;align-items:center;margin:.25rem 0}
+.people-toolbar .pt-lab{flex:0 0 auto;font-size:.78rem;font-weight:650;color:var(--mut);min-width:6.5rem}
+.people-toolbar .pt-btns{display:flex;flex-wrap:wrap;gap:.35rem;min-width:0}
+.people-toolbar .ptb{appearance:none;border:1px solid var(--line);background:#fff;color:var(--ink-2);font:inherit;font-size:.82rem;padding:.28rem .55rem;border-radius:999px;cursor:pointer;line-height:1.3}
+.people-toolbar .ptb:hover,.people-toolbar .ptb:focus-visible{border-color:var(--accent);outline:2px solid var(--accent-soft);outline-offset:1px}
+.people-toolbar .ptb.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.people-toolbar .pt-meta{justify-content:space-between;gap:.75rem;font-size:.84rem;color:var(--mut)}
+.people-empty{margin:.35rem 0 0;padding:.55rem .7rem;background:#fff0d6;border-radius:8px;color:#8a5a00;font-size:.88rem}
+@media(max-width:820px){
+  .people-toolbar .pt-lab{min-width:100%;margin-bottom:.1rem}
+  .people-toolbar .ptb{font-size:.8rem}
 }
 </style>
 <link rel="stylesheet" href="../xhs-fluid.css" data-xhs-fluid></head>
@@ -154,170 +169,179 @@ a.card:hover,a.card:focus-visible{border-color:#9bb8c4;outline:none}
   <h2 id="people">人物（33）</h2>
   <p class="muted">X 关注者为 2026-11-08 19:14（UTC+8）公共读取；其余数字均注明是本人说法和披露日期，找不到写「未找到公开数值」，不等于没有账号。收入口径不同，不排名、不相加。</p>
   <p class="legend">「未找到」= 未找到公开数值，不等于没有账号或没有收入；绿色「公开读取」= 本次实测，黄色「自述」= 本人说法并标年月。</p>
+  <div id="people-toolbar" class="people-toolbar" role="region" aria-label="人物表排序与筛选">
+    <div class="pt-row"><span class="pt-lab" id="pt-sort-lab">排序</span><div class="pt-btns" role="group" aria-labelledby="pt-sort-lab"><button type="button" class="ptb on" data-sort="ord" aria-pressed="true">原顺序</button><button type="button" class="ptb" data-sort="x" data-dir="1" aria-pressed="false">X关注者 ↑</button><button type="button" class="ptb" data-sort="x" data-dir="-1" aria-pressed="false">X关注者 ↓</button><button type="button" class="ptb" data-sort="xhs" data-dir="1" aria-pressed="false">小红书粉丝 ↑</button><button type="button" class="ptb" data-sort="xhs" data-dir="-1" aria-pressed="false">小红书粉丝 ↓</button></div></div>
+    <div class="pt-row"><span class="pt-lab" id="pt-lang-lab">内容语言</span><div class="pt-btns" role="group" aria-labelledby="pt-lang-lab"><button type="button" class="ptb on" data-lang="all" aria-pressed="true">全部</button><button type="button" class="ptb" data-lang="zh" aria-pressed="false">中文</button></div></div>
+    <div class="pt-row"><span class="pt-lab" id="pt-tag-lab">主要用户（点选并集）</span><div class="pt-btns" role="group" aria-labelledby="pt-tag-lab"><button type="button" class="ptb tagb" data-tag="PM" aria-pressed="false">PM</button><button type="button" class="ptb tagb" data-tag="开发者" aria-pressed="false">开发者</button><button type="button" class="ptb tagb" data-tag="创作者" aria-pressed="false">创作者</button><button type="button" class="ptb tagb" data-tag="AI工具使用者" aria-pressed="false">AI工具使用者</button><button type="button" class="ptb tagb" data-tag="设计师" aria-pressed="false">设计师</button><button type="button" class="ptb tagb" data-tag="职场人" aria-pressed="false">职场人</button><button type="button" class="ptb tagb" data-tag="学生" aria-pressed="false">学生</button><button type="button" class="ptb tagb" data-tag="创业者" aria-pressed="false">创业者</button><button type="button" class="ptb tagb" data-tag="营销人" aria-pressed="false">营销人</button><button type="button" class="ptb tagb" data-tag="商家运营" aria-pressed="false">商家运营</button><button type="button" class="ptb tagb" data-tag="知识付费受众" aria-pressed="false">知识付费受众</button><button type="button" class="ptb tagb" data-tag="非技术人" aria-pressed="false">非技术人</button><button type="button" class="ptb tagb" data-tag="读者/观众" aria-pressed="false">读者/观众</button></div></div>
+    <div class="pt-row pt-meta"><span id="people-status">显示 33 / 33 人</span>
+      <button type="button" class="ptb" data-clear aria-label="清空筛选并恢复原顺序">清空筛选</button></div>
+    <p id="people-empty" class="people-empty" hidden>没有符合当前筛选的人。可点「清空筛选」或改选标签。</p>
+    <p class="legend">排序用解析值（约数如「约 10 万」按 100000 排），格子仍显示原文与口径；未知数值升序降序都置尾。中文 = 有中文内容/中文平台证据；其余保留在「全部」。受众标签从「用户」文案归纳，原文含「推断」的仍是推断。</p>
+  </div>
   <table class="cmp">
     <thead><tr><th scope="col">人物</th><th scope="col">主要做什么 · 主要用户</th><th scope="col">X 关注者</th><th scope="col">小红书粉丝</th><th scope="col">公众号关注</th><th scope="col">收入</th></tr></thead>
     <tbody>
-    <tr id="p-kazike">
+    <tr id="p-kazike" data-ord="0" data-x="106816" data-xhs="100000" data-lang="zh" data-audience="AI工具使用者 读者/观众" data-lang-basis="文案含「中文」；tags含公众号；does含中文平台；小红书粉丝有数值（约 10 万）" data-audience-basis="匹配「AI工具使用者」← users；匹配「读者/观众」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../kazike.html" target="_blank" rel="noopener noreferrer">卡兹克</a><span class="hd">Rockhazix</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">公众号写 AI 工具实测与观点，带内容团队做 IP；2026 起在 X 写用 Agent 做开发</span><span class="usr">用户：想跟上 AI 新工具、找可信信息源的中文读者（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：106,816 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/Khazix0918" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：约 10 万 · 2026-05-18 内部分享（虎嗅转载） · 原话“小红书也才马上才摸到10万粉” · <a href="https://www.huxiu.com/article/4859145.html" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 早期自述“最初的500个粉丝”（2023 回顾），不是当前数</li><li>收入：未找到公开数值</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="v"><span>106,816</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>约 10 万</span> <span class="k s">自述 · 2026-05</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-zhangzala">
+    <tr id="p-zhangzala" data-ord="1" data-x="94890" data-xhs="120000" data-lang="zh" data-audience="AI工具使用者 职场人" data-lang-basis="文案含「中文」；tags含小红书；does含中文平台；小红书粉丝有数值（12 万）" data-audience-basis="匹配「AI工具使用者」← users；匹配「职场人」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../zhangzala.html" target="_blank" rel="noopener noreferrer">张咋啦（Zara Zhang）</a><span class="hd">给「AI具身牛马」参考</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">小红书 / X 以学生视角公开学 AI、做小工具</span><span class="usr">用户：想开始用 AI、同样从零学的中文年轻职场人（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：94,890 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/zarazhangrui" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：12 万 · 2025-09-18 笔记标题 · 标题《2年400篇笔记，12万粉丝》 · <a href="https://www.xiaohongshu.com/explore/68ccbc56000000000e022358" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="v"><span>94,890</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>12 万</span> <span class="k s">自述 · 2025-09 · 历史</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-baoyu">
+    <tr id="p-baoyu" data-ord="2" data-x="267278" data-xhs="" data-lang="zh" data-audience="开发者" data-lang-basis="文案含「中文」" data-audience-basis="匹配「开发者」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../baoyu.html" target="_blank" rel="noopener noreferrer">宝玉</a><span class="hd">@dotey</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">翻译、解读 AI 一手资料，写软件工程与带人经验</span><span class="usr">用户：想读懂英文 AI 一手资料的中文开发者与技术管理者（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：267,278 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/dotey" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="v"><span>267,278</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-guizang">
+    <tr id="p-guizang" data-ord="3" data-x="187005" data-xhs="" data-lang="unknown" data-audience="创作者 AI工具使用者 设计师" data-lang-basis="无中文内容平台或「中文」字样证据，不猜" data-audience-basis="匹配「创作者」← users；匹配「AI工具使用者」← users；匹配「设计师」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../guizang.html" target="_blank" rel="noopener noreferrer">歸藏</a><span class="hd">@op7418</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">AIGC 周刊与工具实测，免费两年后转付费</span><span class="usr">用户：想跟进 AI 图像视频工具的设计师与创作者（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：187,005 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/op7418" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值 · 有付费周刊，未见收入金额</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="v"><span>187,005</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-qiaomu">
+    <tr id="p-qiaomu" data-ord="4" data-x="137439" data-xhs="" data-lang="unknown" data-audience="PM" data-lang-basis="无中文内容平台或「中文」字样证据，不猜" data-audience-basis="匹配「PM」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../qiaomu.html" target="_blank" rel="noopener noreferrer">向阳乔木</a><span class="hd">@vista8</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">PM 视角整理 AI 用法、写专栏与书，开源 Skill</span><span class="usr">用户：想把 AI 用进工作的 PM 与知识工作者（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：137,439 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/vista8" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值 · 2026-10-20 · 自述收到图书版税，未披露金额 · <a href="https://x.com/vista8/status/2112382506809032813" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="v"><span>137,439</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-huashu">
+    <tr id="p-huashu" data-ord="5" data-x="73974" data-xhs="" data-lang="unknown" data-audience="开发者 AI工具使用者 非技术人" data-lang-basis="无中文内容平台或「中文」字样证据，不猜" data-audience-basis="匹配「开发者」← users；匹配「AI工具使用者」← users；匹配「非技术人」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../huashu.html" target="_blank" rel="noopener noreferrer">花叔</a><span class="hd">@AlchainHust</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">不写代码用 AI 做产品，开源 Skill，多平台讲过程</span><span class="usr">用户：想离开大厂或用 AI 做产品的非程序员（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：73,974 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/AlchainHust" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：“通过AI赚了大几十万” · 2024-03-04 发表 · 离职后约一年、个人收入、币种未写明；同文说“比不上继续上班的收入” · <a href="https://www.huasheng.ai/insights/wechat-2247484223-1/" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="v"><span>73,974</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="v"><span>“通过AI赚了大几十万”</span> <span class="k s">自述 · 2024-03 · 历史</span></span></td>
     </tr>
-    <tr id="p-fankai">
+    <tr id="p-fankai" data-ord="6" data-x="46869" data-xhs="" data-lang="zh" data-audience="AI工具使用者 职场人 创业者" data-lang-basis="公众号关注有数值（订阅号 1.2 万）" data-audience-basis="匹配「AI工具使用者」← users；匹配「职场人」← users；匹配「创业者」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../fankai.html" target="_blank" rel="noopener noreferrer">范凯说 AI</a><span class="hd">@fankaishuoai</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">讲 AI 实践、个人 IP 与独立经营，做课程与企业咨询</span><span class="usr">用户：想用 AI 经营个人事业的职场人与小老板（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：46,869 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/fankaishuoai" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：订阅号 1.2 万 · 2026-11-05 · 同帖：视频号 6.5 万、YouTube 9400、Substack 800 · <a href="https://x.com/fankaishuoai/status/2118250800539725943" target="_blank" rel="noopener noreferrer">来源</a></li><li>收入：未找到公开数值 · 2026-10-25 · 自述 X 分成只是“零花钱”，主业 AI 企业咨询 · <a href="https://x.com/fankaishuoai/status/2114246530316239112" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="v"><span>46,869</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="v"><span>订阅号 1.2 万</span> <span class="k s">自述 · 2026-11</span></span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-hector">
+    <tr id="p-hector" data-ord="7" data-x="20400" data-xhs="" data-lang="unknown" data-audience="营销人" data-lang-basis="无中文内容平台或「中文」字样证据，不猜" data-audience-basis="匹配「营销人」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../hector.html" target="_blank" rel="noopener noreferrer">Hector Serrano</a><span class="hd">@hectorserrranoo</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">Wispr Flow 第二位营销员工，搭付费 UGC 创作者体系</span><span class="usr">用户：做增长和内容的营销人（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：20,400 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/hectorserrranoo" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值 · 受雇员工，未找到公开个人收入数值</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="v"><span>20,400</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-lenny">
+    <tr id="p-lenny" data-ord="8" data-x="457529" data-xhs="" data-lang="unknown" data-audience="PM 创业者" data-lang-basis="无中文内容平台或「中文」字样证据，不猜" data-audience-basis="匹配「PM」← users；匹配「创业者」← users；users 原文未标推断">
       <th scope="row" data-l="人物"><a href="../lenny.html" target="_blank" rel="noopener noreferrer">Lenny Rachitsky</a><span class="hd">@lennysan</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">产品 / 增长 / 职业 newsletter 与播客</span><span class="usr">用户：产品经理与创业者（自述订户约一半 PM、四分之一以上创始人）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：457,529 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/lennysan" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值 · 2025-03-04 · 自述播客“generates more revenue than the newsletter”，未给金额 · <a href="https://www.lennysnewsletter.com/p/1000000" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="v"><span>457,529</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-shreyas">
+    <tr id="p-shreyas" data-ord="9" data-x="405417" data-xhs="" data-lang="unknown" data-audience="PM" data-lang-basis="无中文内容平台或「中文」字样证据，不猜" data-audience-basis="匹配「PM」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../shreyas.html" target="_blank" rel="noopener noreferrer">Shreyas Doshi</a><span class="hd">@shreyas</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">产品判断力短帖，顾问、教练与 Maven 课</span><span class="usr">用户：资深 PM 与产品负责人（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：405,417 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/shreyas" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值 · 课程售价不算收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="v"><span>405,417</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-ali">
+    <tr id="p-ali" data-ord="10" data-x="356655" data-xhs="" data-lang="unknown" data-audience="创作者 职场人 学生" data-lang-basis="无中文内容平台或「中文」字样证据，不猜" data-audience-basis="匹配「创作者」← users；匹配「职场人」← users；匹配「学生」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../ali.html" target="_blank" rel="noopener noreferrer">Ali Abdaal</a><span class="hd">@AliAbdaal</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">YouTube 效率内容 → 课程、书、App</span><span class="usr">用户：想提高效率、做副业创作者的年轻职场人和学生（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：356,655 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/AliAbdaal" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：2020 年业务年营收 $1M · About 页（2026-11-08 读取） · 公司营收，不是个人收入 · <a href="https://aliabdaal.com/about/" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="v"><span>356,655</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="v"><span>2020 年业务年营收 $1M</span> <span class="k s">自述 · 2020 · 历史</span></span></td>
     </tr>
-    <tr id="p-swyx">
+    <tr id="p-swyx" data-ord="11" data-x="211808" data-xhs="" data-lang="unknown" data-audience="开发者" data-lang-basis="无中文内容平台或「中文」字样证据，不猜" data-audience-basis="匹配「开发者」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../swyx.html" target="_blank" rel="noopener noreferrer">swyx</a><span class="hd">@swyx</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">Learn in Public、Latent Space 播客、AI Engineer 大会</span><span class="usr">用户：转向 AI 应用的软件工程师（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：211,808 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/swyx" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="v"><span>211,808</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-levelsio">
+    <tr id="p-levelsio" data-ord="12" data-x="990469" data-xhs="" data-lang="unknown" data-audience="开发者" data-lang-basis="无中文内容平台或「中文」字样证据，不猜" data-audience-basis="匹配「开发者」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../levelsio.html" target="_blank" rel="noopener noreferrer">levelsio（Pieter Levels）</a><span class="hd">@levelsio</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">独立做产品并公开收入（Photo AI、Nomad List 等）</span><span class="usr">用户：独立开发者与想做副业的程序员（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：990,469 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/levelsio" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：Photo AI 月营收 $61,808 · 2023-07 · 单产品月营收；2026-11-08 X 简介另列各产品月收入（如 $68K/m），口径不同不相加 · <a href="https://levels.io/photoai-14000-lines-raw-php-revenue" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="v"><span>990,469</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="v"><span>Photo AI 月营收 $61,808</span> <span class="k s">自述 · 2023-07 · 历史</span></span></td>
     </tr>
-    <tr id="p-justinwelsh">
+    <tr id="p-justinwelsh" data-ord="13" data-x="594136" data-xhs="" data-lang="unknown" data-audience="创作者 职场人" data-lang-basis="无中文内容平台或「中文」字样证据，不猜" data-audience-basis="匹配「创作者」← users；匹配「职场人」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../justinwelsh.html" target="_blank" rel="noopener noreferrer">Justin Welsh</a><span class="hd">@thejustinwelsh</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">一人公司：周刊、课程、LinkedIn/X 格言帖</span><span class="usr">用户：想离开公司做一人生意的上班族与创作者（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：594,136 · 2026-11-08 19:14 UTC+8 公共读取 · <a href="https://x.com/thejustinwelsh" target="_blank" rel="noopener noreferrer">来源</a></li><li>小红书粉丝：未找到公开数值</li><li>公众号关注：未找到公开数值</li><li>收入：累计营收 $10M · 2025-06-07 发表 · 上线后 5 年 9 个月的业务营收；X 导流帖另说 $15M profit，口径不同不合并 · <a href="https://justinwelsh.me/essays/my-10m-journey" target="_blank" rel="noopener noreferrer">来源</a></li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="v"><span>594,136</span> <span class="k f">公开读取</span></span></td><td data-l="小红书粉丝" class="m"><span class="nf">未找到</span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="v"><span>累计营收 $10M</span> <span class="k s">自述 · 2025-06 · 历史</span></span></td>
     </tr>
-    <tr id="p-zhixin">
+    <tr id="p-zhixin" data-ord="14" data-x="" data-xhs="17000" data-lang="zh" data-audience="读者/观众" data-lang-basis="文案含「中文」；tags含小红书；does含中文平台；小红书粉丝有数值（1.7 万）" data-audience-basis="匹配「读者/观众」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../zhixin.html" target="_blank" rel="noopener noreferrer">知新的AI笔记</a><span class="hd">小红书号 49626736847</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">小红书整理 AI 访谈、外文文章和开源榜单，配少量个人评语（4 篇样本）</span><span class="usr">用户：想了解 AI 会怎么影响工作、关注大厂动态的中文读者（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未找；按要求不另找同名账号拼接身份</li><li>小红书粉丝：1.7 万 · 2026-11-08 主页截图 · 同屏另有 31.7 万获赞与收藏（赞藏合计）、61 关注；搜索卡显示 332 篇 · <a href="https://www.xiaohongshu.com/user/profile/686011fb000000001b023a74" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值</li><li>收入：未找到公开数值</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>1.7 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-lulu-ai">
+    <tr id="p-lulu-ai" data-ord="15" data-x="" data-xhs="11000" data-lang="zh" data-audience="AI工具使用者 非技术人" data-lang-basis="tags含小红书；小红书粉丝有数值（1.1 万）" data-audience-basis="匹配「AI工具使用者」← users；匹配「非技术人」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../lulu-ai.html" target="_blank" rel="noopener noreferrer">Lulu的AI野路子</a><span class="hd">小红书号 8748271280</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">以学习者身份做 AI 入门视频：GitHub、Skill 清单、RAG 学习记录（3 篇样本）</span><span class="usr">用户：想入门 AI 编程 / Vibe Coding 的非技术人（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：1.1 万 · 2026-11-08 主页截图 · 同屏 9.7 万获赞与收藏（赞藏合计）、213 关注 · <a href="https://www.xiaohongshu.com/user/profile/65340940000000000301e006" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>1.1 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-laoa-jinjie">
+    <tr id="p-laoa-jinjie" data-ord="16" data-x="" data-xhs="33000" data-lang="zh" data-audience="PM AI工具使用者" data-lang-basis="tags含小红书；小红书粉丝有数值（3.3 万）" data-audience-basis="匹配「PM」← users；匹配「AI工具使用者」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../laoa-jinjie.html" target="_blank" rel="noopener noreferrer">老A的AI进阶实操</a><span class="hd">小红书号 27765125436</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">做 Skill 场景清单、Agent 设计模式图解等图卡，置顶 AI 产品经理转型课程（3 篇样本）</span><span class="usr">用户：想转 AI 产品经理的人；在找好用 Skill 的 AI 工具用户（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：3.3 万 · 2026-11-08 主页截图 · 同屏 19.6 万获赞与收藏（赞藏合计）、3.7 万关注 · <a href="https://www.xiaohongshu.com/user/profile/638efeda0000000024017551" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>3.3 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-karl-aigc">
+    <tr id="p-karl-aigc" data-ord="17" data-x="" data-xhs="42000" data-lang="zh" data-audience="PM AI工具使用者" data-lang-basis="tags含小红书；小红书粉丝有数值（4.2 万）" data-audience-basis="匹配「PM」← users；匹配「AI工具使用者」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../karl-aigc.html" target="_blank" rel="noopener noreferrer">Karl的AIGC产品丨光之年</a><span class="hd">小红书号 27247756200</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">围绕 AI 产品经理求职做 MBTI 岗位卡、Agent 项目/教程截图合集，置顶 1v1 陪跑训练营（3 篇样本）</span><span class="usr">用户：想转行或求职 AI 产品经理的人（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：4.2 万 · 2026-11-08 主页截图 · 同屏 31.9 万获赞与收藏（赞藏合计）、4.6 万关注；主页有蓝色认证标，类型未核 · <a href="https://www.xiaohongshu.com/user/profile/6593d82500000000220006c0" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>4.2 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-laoa-yanjiusuo">
+    <tr id="p-laoa-yanjiusuo" data-ord="18" data-x="" data-xhs="35000" data-lang="zh" data-audience="PM AI工具使用者" data-lang-basis="tags含小红书；小红书粉丝有数值（3.5 万）" data-audience-basis="匹配「PM」← users；匹配「AI工具使用者」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../laoa-yanjiusuo.html" target="_blank" rel="noopener noreferrer">老A的AI研究所</a><span class="hd">小红书号 95852065618</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">做 Vibe Coding 项目合集、产品经理 Skill 清单等图卡，置顶 AI 产品经理求职特训班（3 篇样本）</span><span class="usr">用户：想转 AI 产品经理的人；想用 AI 做小应用、找产品类 Skill 的人（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：3.5 万 · 2026-11-08 主页截图 · 同屏 20.8 万获赞与收藏（赞藏合计）、3.8 万关注 · <a href="https://www.xiaohongshu.com/user/profile/6355eca2000000001901e148" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>3.5 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-jason-effi">
+    <tr id="p-jason-effi" data-ord="19" data-x="" data-xhs="21000" data-lang="zh" data-audience="AI工具使用者" data-lang-basis="tags含小红书；小红书粉丝有数值（2.1 万）" data-audience-basis="匹配「AI工具使用者」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../jason-effi.html" target="_blank" rel="noopener noreferrer">杰森的效率工坊</a><span class="hd">小红书号 jason_effi_lab</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">写 Codex / Claude Code 一类 Agent 工具的安装接入教程，视频讲 Hook 等概念（3 篇样本）</span><span class="usr">用户：在用 Codex、Claude Code、Obsidian 的人（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：2.1 万 · 2026-11-08 主页截图 · 同屏 18.1 万获赞与收藏（赞藏合计）、12 关注 · <a href="https://www.xiaohongshu.com/user/profile/60935957000000000101fbf7" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>2.1 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-accio-work">
+    <tr id="p-accio-work" data-ord="20" data-x="" data-xhs="12000" data-lang="zh" data-audience="商家运营" data-lang-basis="tags含小红书；小红书粉丝有数值（1.2 万）" data-audience-basis="匹配「商家运营」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../accio-work.html" target="_blank" rel="noopener noreferrer">Accio Work</a><span class="hd">小红书号 63078419557</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">产品升级图文按商家类型讲功能、场景短视频、评论区征名活动（3 篇样本）</span><span class="usr">用户：在 1688 / 国际站开店的商家与运营（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：1.2 万 · 2026-11-08 主页截图 · 同屏 4.5 万获赞与收藏（赞藏合计）、10 关注；昵称旁有认证蓝标，类型未核 · <a href="https://www.xiaohongshu.com/user/profile/693f73140000000032029ad5" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>1.2 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-zhiwei">
+    <tr id="p-zhiwei" data-ord="21" data-x="" data-xhs="116000" data-lang="zh" data-audience="商家运营" data-lang-basis="tags含小红书；小红书粉丝有数值（11.6 万）" data-audience-basis="匹配「商家运营」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../zhiwei.html" target="_blank" rel="noopener noreferrer">知危</a><span class="hd">小红书号 4953699768</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">做商业与行业话题视频，标题用“现象 + 数字 + 疑问”（2 篇样本，视频未看）</span><span class="usr">用户：想了解新消费、想开店、关心行业变化的人（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：11.6 万 · 2026-11-08 主页截图 · 同屏 25.6 万获赞与收藏（赞藏合计）、6 关注 · <a href="https://www.xiaohongshu.com/user/profile/6006722f0000000001007574" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>11.6 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-keruiji">
+    <tr id="p-keruiji" data-ord="22" data-x="" data-xhs="46000" data-lang="zh" data-audience="学生" data-lang-basis="tags含小红书；小红书粉丝有数值（4.6 万）" data-audience-basis="匹配「学生」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../keruiji.html" target="_blank" rel="noopener noreferrer">可瑞吉crazy</a><span class="hd">小红书号 Young_857</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">做校招、实习、谈薪话题视频；置顶求职标题帖和第一人称履历时间线（2 篇样本，视频未看）</span><span class="usr">用户：找工作、找实习的大学生和校招生（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：4.6 万 · 2026-11-08 主页截图 · 同屏 38 万获赞与收藏（赞藏合计）、143 关注 · <a href="https://www.xiaohongshu.com/user/profile/644e9cc5000000002a00b723" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>4.6 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-will">
+    <tr id="p-will" data-ord="23" data-x="" data-xhs="33000" data-lang="zh" data-audience="PM AI工具使用者 设计师" data-lang-basis="tags含小红书；小红书粉丝有数值（3.3 万）" data-audience-basis="匹配「PM」← users；匹配「AI工具使用者」← users；匹配「设计师」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../will.html" target="_blank" rel="noopener noreferrer">Will</a><span class="hd">小红书号 4357439177</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">做 UI/UX 学习与 AI 产品设计图文；样本是一篇 AI 入口设计原则整理和一篇置顶职场时间线（2 篇样本）</span><span class="usr">用户：做 AI 产品的设计师、产品经理，想转行或往管理走的设计师（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：3.3 万 · 2026-11-08 主页截图 · 同屏 29.6 万获赞与收藏（赞藏合计）、29 关注 · <a href="https://www.xiaohongshu.com/user/profile/64a767bf000000002a037e33" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>3.3 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-huguagua">
+    <tr id="p-huguagua" data-ord="24" data-x="" data-xhs="29000" data-lang="zh" data-audience="职场人" data-lang-basis="tags含小红书；小红书粉丝有数值（2.9 万）" data-audience-basis="匹配「职场人」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../huguagua.html" target="_blank" rel="noopener noreferrer">胡呱呱</a><span class="hd">小红书号 DabbyX</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">用青蛙配“前一句期待、后一句反转”的短句梗图，讲假期、打工和职场情绪（2 篇样本）</span><span class="usr">用户：感到上班累、想找“嘴替”的打工人（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：2.9 万 · 2026-11-08 主页截图 · 同屏 15 万获赞与收藏（赞藏合计）、385 关注 · <a href="https://www.xiaohongshu.com/user/profile/5f68c917000000000101d63c" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>2.9 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-claire">
+    <tr id="p-claire" data-ord="25" data-x="" data-xhs="72000" data-lang="zh" data-audience="职场人 创业者" data-lang-basis="tags含小红书；小红书粉丝有数值（7.2 万）" data-audience-basis="匹配「职场人」← users；匹配「创业者」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../claire.html" target="_blank" rel="noopener noreferrer">Claire茶仔</a><span class="hd">小红书号 641717886</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">记录大厂离职后创业的经历与判断：一篇个人事件反思，一篇置顶商业判断长文（2 篇样本；其余多为视频，未读）</span><span class="usr">用户：职场人、想创业或刚创业的人（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：7.2 万 · 2026-11-08 主页截图 · 同屏 52.4 万获赞与收藏（赞藏合计）、115 关注 · <a href="https://www.xiaohongshu.com/user/profile/5cea410f0000000016002668" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>7.2 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-fufujie">
+    <tr id="p-fufujie" data-ord="26" data-x="" data-xhs="17000" data-lang="zh" data-audience="创作者 创业者 知识付费受众" data-lang-basis="tags含小红书；小红书粉丝有数值（1.7 万）" data-audience-basis="匹配「创作者」← users；匹配「创业者」← users；匹配「知识付费受众」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../fufujie.html" target="_blank" rel="noopener noreferrer">付付姐很正</a><span class="hd">小红书号 fufujie777</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">做自媒体起号、个人 IP 变现视频，并用置顶图文介绍 299 元付费内容圈（2 篇样本）</span><span class="usr">用户：想做自媒体副业、一人公司、知识付费的人（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：1.7 万 · 2026-11-08 主页截图 · 同屏 12.2 万获赞与收藏（赞藏合计）、346 关注 · <a href="https://www.xiaohongshu.com/user/profile/5df5a2cf00000000010052bc" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>1.7 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-heideng">
+    <tr id="p-heideng" data-ord="27" data-x="" data-xhs="183000" data-lang="zh" data-audience="读者/观众" data-lang-basis="tags含小红书；小红书粉丝有数值（18.3 万）" data-audience-basis="匹配「读者/观众」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../heideng.html" target="_blank" rel="noopener noreferrer">黑灯</a><span class="hd">小红书号 Dyingsight</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">用图文回应观众、发专场巡演通告；主页另有大量视频（2 篇样本，视频未看）</span><span class="usr">用户：脱口秀观众、想看专场的人（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：18.3 万 · 2026-11-08 主页截图 · 同屏 57 万获赞与收藏（赞藏合计）、288 关注 · <a href="https://www.xiaohongshu.com/user/profile/5b411d0fe8ac2b3139a2e3f9" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>18.3 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-menqiang">
+    <tr id="p-menqiang" data-ord="28" data-x="" data-xhs="495000" data-lang="zh" data-audience="读者/观众" data-lang-basis="tags含小红书；小红书粉丝有数值（49.5 万）" data-audience-basis="匹配「读者/观众」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../menqiang.html" target="_blank" rel="noopener noreferrer">门腔</a><span class="hd">小红书号 114860047</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">做生活系列视频和穿搭照片图文（2 篇样本，视频未看）</span><span class="usr">用户：喜欢生活、穿搭内容的观众（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：49.5 万 · 2026-11-08 主页截图 · 同屏 247.5 万获赞与收藏（赞藏合计）、861 关注 · <a href="https://www.xiaohongshu.com/user/profile/5950711682ec3934a30f8b88" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>49.5 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-lidan">
+    <tr id="p-lidan" data-ord="29" data-x="" data-xhs="2687000" data-lang="zh" data-audience="读者/观众" data-lang-basis="tags含小红书；小红书粉丝有数值（268.7 万）" data-audience-basis="匹配「读者/观众」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../lidan.html" target="_blank" rel="noopener noreferrer">李诞</a><span class="hd">小红书号 557281248</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">近期多发探店、生活视频；置顶一篇纯文字图卡随笔（2 篇样本，视频未看）</span><span class="usr">用户：关注作者生活与文字的观众（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：268.7 万 · 2026-11-08 主页截图 · 同屏 592.7 万获赞与收藏（赞藏合计）、48 关注 · <a href="https://www.xiaohongshu.com/user/profile/5c878d39000000001202d5e0" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>268.7 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-pupu-wanzi">
+    <tr id="p-pupu-wanzi" data-ord="30" data-x="" data-xhs="181000" data-lang="zh" data-audience="读者/观众" data-lang-basis="tags含小红书；小红书粉丝有数值（18.1 万）" data-audience-basis="匹配「读者/观众」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../pupu-wanzi.html" target="_blank" rel="noopener noreferrer">扑扑和丸子</a><span class="hd">小红书号 115414335</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">记录做饭、种菜、养狗的生活；视频描述只放标签，图文用长正文配照片（2 篇样本，视频未看）</span><span class="usr">用户：喜欢田园生活、养狗、做饭内容的观众（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：18.1 万 · 2026-11-08 主页截图 · 同屏 115.4 万获赞与收藏（赞藏合计）、184 关注 · <a href="https://www.xiaohongshu.com/user/profile/598072f982ec395d83b5e867" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>18.1 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-sinuo">
+    <tr id="p-sinuo" data-ord="31" data-x="" data-xhs="36000" data-lang="zh" data-audience="PM AI工具使用者 设计师" data-lang-basis="tags含小红书；小红书粉丝有数值（3.6 万）" data-audience-basis="匹配「PM」← users；匹配「AI工具使用者」← users；匹配「设计师」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../sinuo.html" target="_blank" rel="noopener noreferrer">丝诺姐姐</a><span class="hd">小红书号 SW2812</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">分享 AI 产品经理相关的演讲后记和设计灵感资源清单（2 篇样本）</span><span class="usr">用户：AI 产品经理、做 vibe coding 的人、设计师（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：3.6 万 · 2026-11-08 主页截图 · 同屏 34.4 万获赞与收藏（赞藏合计）、232 关注 · <a href="https://www.xiaohongshu.com/user/profile/55f920a9c2bdeb18338ab696" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>3.6 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
     </tr>
-    <tr id="p-taozi">
+    <tr id="p-taozi" data-ord="32" data-x="" data-xhs="150000" data-lang="zh" data-audience="创业者 读者/观众" data-lang-basis="tags含小红书；小红书粉丝有数值（15 万）" data-audience-basis="匹配「创业者」← users；匹配「读者/观众」← users；users 原文含「推断」，标签同属推断非实测身份">
       <th scope="row" data-l="人物"><a href="../taozi.html" target="_blank" rel="noopener noreferrer">我是桃子🥕</a><span class="hd">小红书号 541078431</span></th>
       <td data-l="主要做什么 · 主要用户"><span class="does">用视频讲创业、心力和个人经历；描述只放标签（2 篇样本，视频未看）</span><span class="usr">用户：想做个人事业、关心女性成长的读者（推断）</span><details><summary>数据口径与来源</summary><ul><li>X 关注者：未找到公开数值 · 未核；不按昵称找同名账号</li><li>小红书粉丝：15 万 · 2026-11-08 主页截图 · 同屏 163.9 万获赞与收藏（赞藏合计）、406 关注 · <a href="https://www.xiaohongshu.com/user/profile/56a0d49e6a6a69226609a2c5" target="_blank" rel="noopener noreferrer">来源</a></li><li>公众号关注：未找到公开数值 · 未核</li><li>收入：未找到公开数值 · 未核；课程/服务宣传不等于收入</li></ul></details></td>
       <td data-l="X 关注者" class="m"><span class="nf">未找到</span></td><td data-l="小红书粉丝" class="m"><span class="v"><span>15 万</span> <span class="k f">公开读取</span></span></td><td data-l="公众号关注" class="m"><span class="nf">未找到</span></td><td data-l="收入" class="m"><span class="nf">未找到</span></td>
@@ -348,5 +372,6 @@ a.card:hover,a.card:focus-visible{border-color:#9bb8c4;outline:none}
   <p class="foot">私密 · <a href="../" target="_blank" rel="noopener noreferrer">小红书创作中心</a> · <a href="https://zhenchuanwuzc-max.github.io/x-digest/" target="_blank" rel="noopener noreferrer">情报站首页</a></p>
 </main>
 </div>
+<script src="people_table.js" defer></script>
 </body>
 </html>

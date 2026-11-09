@@ -206,11 +206,13 @@ def _nav(d, day_ids=None):
     links_s = _load_shell().group_hub_links(entries)
     links_s += (
         '<div class="sec">完整页</div>'
+        '<a href="seven/">七步工作台 →</a>'
         '<a href="growth/">成长记录专属入口 →</a>'
         '<a href="day/">往期日页归档 →</a>'
     )
     mob_s = "".join(mob)
     mob_s += (
+        '<a href="seven/">七步工作台</a>'
         '<a href="growth/">成长记录</a>'
         '<a href="day/">往期日页</a>'
     )
@@ -222,6 +224,7 @@ def _nav(d, day_ids=None):
         '<div class="brand-row"><img src="icon.svg" width="28" height="28" alt=""/>'
         f'<p class="brand" style="margin:0">{brand}</p></div>'
         f'<p class="meta">私密全入口 · {updated}<br>不进入公开周报</p>'
+        '<a class="nav-seven" href="seven/">七步工作台 →</a>'
         + links_s +
         "</aside>"
     )
@@ -967,10 +970,16 @@ def render(d) -> str:
         f'<nav class="mob">{mob}</nav>',
         f"<h1>{title} · 全入口</h1>",
         f'<p class="muted">今天的选题与信号在上 · 库长驻在下 · 更新 {updated} · 旧 daily/、feed/ 留档不进导航</p>',
+        '<p class="hub-jump" id="hub-jump">'
+        '<a class="btn" href="seven/">七步工作台 →</a>'
+        '<a class="btn btn-soft" href="growth/">人物成长研究 →</a>'
+        '</p>',
         day_body,
         lib_body,
         '<p class="foot">私密页 · 仅 x-digest · 由 <code>xhs_library.py</code> + <code>xhs_day_build.py</code> 生成 · 公开 sanitize 不得收录本目录</p>',
-        "</main></div></body></html>",
+        "</main></div>",
+        '<script src="hub_nav.js" defer></script>',
+        "</body></html>",
     ]
     return _module_links_blank("".join(parts))
 
