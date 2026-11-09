@@ -171,6 +171,16 @@ class Interaction(unittest.TestCase):
             page.set_viewport_size({'width': 390, 'height': 800})
             page.click('button[data-clear]')
             s.assertEqual(page.evaluate('document.documentElement.scrollWidth - innerWidth'), 0)
+            page.click('button[data-lang="zh"]')
+            vis = page.evaluate("""() => [...document.querySelectorAll('table.cmp tbody tr')].map(r => ({
+              id: r.id, hidden: r.hidden,
+              display: getComputedStyle(r).display
+            }))""")
+            for row in vis:
+                if row['hidden']:
+                    s.assertEqual(row['display'], 'none', row)
+                else:
+                    s.assertNotEqual(row['display'], 'none', row)
             b.close()
 
 
