@@ -19,6 +19,11 @@ ns = re.search(r'<h2 id="newsmall">.*?</div>', rb, re.S)
 assert ns and '小号' in ns.group(0), 'daily new-small block missing'
 rest = rb.replace(block.group(0), '').replace(ns.group(0), '')
 rest = re.sub(r'<a [^>]*href="#newsmall"[^>]*>[^<]*</a>', '', rest)
+# t254/t255：首屏七步入口、侧栏/手机七步链、当前锚点脚本——相对旧基线的允许增量
+assert 'id="hub-jump"' in rb and 'href="seven/"' in rb
+rest = re.sub(r'<p class="hub-jump"[^>]*>.*?</p>', '', rest)
+rest = re.sub(r'<a\b[^>]*href="seven/"[^>]*>[^<]*</a>', '', rest)
+rest = re.sub(r'<script src="hub_nav\.js"[^>]*></script>', '', rest)
 assert strip(ra) == strip(rest), 'render differs beyond seven + newsmall blocks and target/rel'
 for t in re.findall(r'<a\b[^>]*href="https://www.xiaohongshu.com[^"]*"[^>]*>', ns.group(0)): assert 'target="_blank"' in t and 'xsec' not in t, t
 for t in re.findall(r'<a\b[^>]*href="(?:seven|growth)/[^"]*"[^>]*>', rb): assert 'target="_blank" rel="noopener noreferrer"' in t, t

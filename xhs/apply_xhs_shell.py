@@ -12,6 +12,7 @@ HUB_GROUPS = (
 )
 HUB_TAIL = (
     '<div class="sec">完整页</div>'
+    '<a href="seven/">七步工作台 →</a>'
     '<a href="growth/">成长记录专属入口 →</a>'
     '<a href="day/">往期日页归档 →</a>'
 )
