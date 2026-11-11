@@ -28,3 +28,11 @@ playbook: feature
 | 4 验证 | 待做 | |
 | 5 Opening a PR | 待做 | |
 | 6 合并上线与线上核对 | 待做 | Ocean 已授权网站改动直接上线 |
+
+## 收口
+| 步骤 | 状态 | 证据 |
+|---|---|---|
+| 实现 | 做了 | PR #48 squash b811ebf |
+| 验证 | 做了 | 单测全绿；线上 hub/day/11-09/11-10 已核 |
+| Opening a PR | 做了 | https://github.com/zhenchuanwuzc-max/x-digest/pull/48 |
+| 合并上线与线上核对 | 做了 | 2026-11-10 09:20 UTC+8 拉线上通过；#47 已关 |
