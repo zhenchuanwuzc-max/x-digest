@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="robots" content="noindex,nofollow"/><title>今天写啥 · 2026-11-14 · 归档</title><style>
+:root{--bg:#f3f1eb;--surface:#fffcf7;--ink:#1a1c1b;--ink-2:#3d433f;--mut:#59656b;--line:#e2ddd2;--accent:#0d6b52;--accent-soft:#e4f3ec;--warn:#8a5a00;--warn-soft:#fff3d6;--ok:#1e6b3a;--ok-soft:#e6f4ea;--shadow:0 1px 2px rgba(26,28,27,.04),0 8px 24px rgba(26,28,27,.06);--r:14px;--nav-w:14rem}
+*{box-sizing:border-box}html{scroll-behavior:auto}
+body{margin:0;color:var(--ink);background:var(--bg);font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.shell{display:grid;grid-template-columns:var(--nav-w) minmax(0,1fr);max-width:none;margin:0 auto;min-height:100vh}
+.nav{position:sticky;top:0;align-self:start;height:100vh;overflow:auto;padding:1.4rem 1rem 2rem;border-right:1px solid var(--line);background:linear-gradient(180deg,#f7f5ef,var(--bg))}
+.nav .brand{font-weight:750;font-size:.95rem;margin:0 0 .3rem}
+.nav .meta{font-size:.76rem;color:var(--mut);margin:0 0 1rem;line-height:1.45}
+.nav a{display:block;color:var(--ink-2);text-decoration:none;font-size:.82rem;padding:.32rem .5rem;border-radius:8px;margin:.08rem 0}
+.nav a:hover,.nav a:focus,.nav a.on{background:var(--accent-soft);color:var(--accent)}
+.nav a.on{font-weight:650}
+.nav .sec{font-size:.7rem;letter-spacing:.06em;color:var(--mut);margin:.9rem 0 .3rem;padding-left:.5rem}
+.main{padding:1.6rem clamp(1rem,3vw,3rem) 4rem;min-width:0;max-width:78rem}
+h1{font-size:clamp(1.35rem,2.2vw,1.75rem);letter-spacing:-.025em;margin:0 0 .55rem;font-weight:750;line-height:1.28}
+h2{font-size:1.2rem;margin:2.4rem 0 1rem;padding-bottom:.4rem;border-bottom:2px solid var(--accent);font-weight:700;scroll-margin-top:.5rem;letter-spacing:-.01em}
+h3{font-size:1rem;margin:.15rem 0 .45rem;font-weight:700}
+p,li{color:var(--ink-2)}.muted{color:var(--mut);font-size:.92rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.1rem;margin:.7rem 0;box-shadow:var(--shadow)}
+.verdict{border-color:#b7d9cb;border-left:4px solid var(--accent);background:linear-gradient(180deg,#fff,#fffcf7);padding:1.15rem 1.25rem 1.2rem}
+.verdict .lead{margin:0 0 .85rem;color:var(--ink);font-weight:650;font-size:1.05rem;max-width:46rem;line-height:1.75}
+.verdict ul{margin:.2rem 0 .7rem;padding-left:1.15rem}
+.verdict li{margin:.35rem 0}
+.one{font-size:.95rem;color:var(--ok);background:var(--ok-soft);border-radius:10px;padding:.65rem .85rem;margin:.85rem 0 0;font-weight:650}
+.tag{display:inline-block;font-size:11px;font-weight:650;background:var(--ok-soft);color:var(--ok);padding:.1rem .45rem;border-radius:999px;margin-left:.35rem;vertical-align:middle}
+.tag.accent{background:var(--accent-soft);color:var(--accent)}
+.warn{font-size:.86rem;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:.55rem .7rem;margin:.7rem 0}
+a{color:var(--accent);text-underline-offset:3px}
+code{font-size:.78rem;background:#efeae0;padding:.05rem .3rem;border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:.86rem;background:var(--surface);margin:.5rem 0}
+th,td{border:1px solid var(--line);padding:.4rem .5rem;text-align:left;vertical-align:top}th{background:#efeae0}
+.tw{overflow-x:auto;margin:.5rem 0 1.2rem;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.tw table{margin:0;min-width:36rem}
+.tw th{background:#f7f5ef;font-size:.78rem;color:var(--mut)}
+.tw td,.tw th{padding:.55rem .7rem}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right;font-weight:650;color:var(--accent)}
+td.nowrap{white-space:nowrap}
+ul.compact{margin:.2rem 0 0;padding-left:1.1rem;font-size:.84rem}
+.kwgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(17.5rem,1fr));gap:1rem;align-items:stretch}
+.kwcard{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.05rem 1.05rem;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:100%}
+.kwh{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin:0 0 .55rem;padding-bottom:.55rem;border-bottom:1px solid var(--line)}
+.kwh h3{margin:0;font-size:1.02rem;font-weight:750;letter-spacing:-.01em}
+.kwbadge{flex:0 0 auto;font-size:.72rem;font-weight:650;color:var(--accent);background:var(--accent-soft);padding:.18rem .5rem;border-radius:999px;white-space:nowrap}
+.kwnote{margin:0 0 .7rem;font-size:.88rem;color:var(--mut);line-height:1.55}
+ol.posts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem;flex:1}
+ol.posts li{margin:0;padding:.55rem .6rem;border-radius:10px;background:#f7f5ef;border:1px solid transparent}
+ol.posts li:hover{border-color:var(--line);background:#fff}
+ol.posts a{display:block;color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;font-weight:650;font-size:.92rem;line-height:1.4}
+.pmeta{display:block;margin-top:.28rem;font-size:.75rem;color:var(--mut);font-weight:500;line-height:1.4}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:1rem}
+.cols .card{margin:0;padding:1.05rem 1.15rem}
+.cols .card h3{margin:0 0 .55rem;font-size:1.02rem;line-height:1.35}
+.cols .card p{margin:.45rem 0;font-size:.92rem}
+.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(22rem,1fr));gap:1rem;align-items:start}
+.pick{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.1rem 1.15rem 1.2rem;margin:0;box-shadow:var(--shadow);position:relative}
+.pick .n{position:absolute;top:.95rem;right:1rem;font-size:.72rem;font-weight:700;color:var(--mut);letter-spacing:.04em}
+.pick h3{font-size:1.08rem;margin:0 1.8rem .55rem 0;font-weight:750;line-height:1.35}
+.row{margin:.45rem 0;font-size:.92rem;line-height:1.55}
+.row b{display:block;font-size:.72rem;color:var(--mut);font-weight:650;letter-spacing:.03em;margin-bottom:.08rem}
+.insp{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:.75rem}
+.insp li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem;margin:0;box-shadow:var(--shadow)}
+.insp .t{font-weight:650;font-size:.95rem}
+.insp .m{font-size:.8rem;color:var(--mut);margin-top:.15rem}
+.insp .a{font-size:.86rem;color:var(--ink-2);margin-top:.25rem}
+ul.x{margin:.4rem 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.65rem}
+ul.x li{margin:0;padding:.85rem 1rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+ul.x li b{display:block;margin-bottom:.25rem;color:var(--ink)}
+.signals{margin:.3rem 0 0;padding-left:1.15rem}
+.signals li{margin:.28rem 0;color:var(--ink-2);font-size:.92rem}
+.foot{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--mut);font-size:.85rem}
+.mob{display:none;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:.35rem;margin:0 0 1rem;position:sticky;top:0;z-index:5;background:var(--bg);padding:.55rem 0}
+.mob a{font-size:.78rem;background:var(--accent-soft);color:var(--accent);text-decoration:none;padding:.2rem .5rem;border-radius:999px;white-space:nowrap}
+.mob a.on{background:var(--accent);color:#fff}
+details.rawfold{margin:1rem 0;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:.4rem .9rem .9rem}
+details.rawfold > summary{cursor:pointer;font-weight:700;padding:.55rem 0;color:var(--ink)}
+.hub-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.05rem;margin:.6rem 0;box-shadow:var(--shadow)}
+.hub-card a{color:var(--ink);text-decoration:none;font-weight:700;font-size:1.02rem}
+.hub-card a:hover{color:var(--accent)}
+.hub-card p{margin:.35rem 0 0;color:var(--ink-2);font-size:.9rem}
+.toc a{display:inline-block;margin:0 .55rem .35rem 0;font-size:.88rem;color:var(--accent);text-decoration:none;background:var(--accent-soft);padding:.28rem .6rem;border-radius:999px}
+.partial{font-size:.86rem;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:.55rem .7rem;margin:0 0 1rem}
+.sec-ico{display:inline-block;margin-right:.35rem;font-style:normal;font-weight:700;opacity:.9}.brand-row{display:flex;align-items:center;gap:.55rem;margin:0 0 .3rem}.brand-row img{width:28px;height:28px;border-radius:7px;flex:0 0 auto}.rawfold{margin:.6rem 0 1.2rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:.4rem .9rem .7rem}.rawfold summary{cursor:pointer;font-weight:650;color:var(--accent);padding:.35rem 0}
+.topics{grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}
+.topics .pick{min-width:0;overflow-wrap:anywhere;background:#fffcf7;border:1px solid var(--line);border-radius:16px;padding:1rem 1.1rem 1.05rem}
+.topics .pk-top{display:flex;align-items:center;justify-content:space-between;min-height:1.3rem;margin-bottom:.35rem}
+.topics .pick .n{position:static}
+.topics .pick h3{color:var(--accent);margin:0 0 .5rem;font-size:1.05rem}
+.topics .pill{display:inline-block;font-size:.72rem;font-weight:650;background:var(--accent-soft);color:var(--accent);padding:.12rem .6rem;border-radius:999px}
+.topics .who,.topics .why1{margin:.3rem 0;font-size:.92rem;line-height:1.55}
+.topics .who b{font-size:.72rem;color:var(--mut);margin-right:.4rem}
+.topics .refs{margin:.45rem 0 .2rem;padding-left:1.1rem;font-size:.86rem}
+.topics .refs li{margin:.15rem 0}
+.topics details.more{margin-top:.5rem;font-size:.88rem}
+.topics details.more>summary{cursor:pointer;color:var(--accent);font-weight:650}
+details.verdict-fold{margin:1rem 0 0}
+details.verdict-fold>summary{cursor:pointer;font-weight:650;color:var(--mut);padding:.35rem 0}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}.nav{display:none}.mob{display:flex}
+  .main{padding:1.1rem 1rem 3rem}
+  h2,h1{scroll-margin-top:3.6rem}
+  .topics,.cols,.kwgrid,.insp{grid-template-columns:1fr}
+  .mob{margin:0 -1rem .8rem;padding:.5rem 1rem}
+  .kwh{flex-wrap:wrap}
+}
+</style><link rel="stylesheet" href="../xhs-shell.css" data-xhs-shell></head><body><div class="shell"><aside class="nav"><div class="brand-row"><img src="../icon.svg" alt=""/><p class="brand" style="margin:0">每日选题 · 11/14</p></div><p class="meta">私密 x-digest · 小红书今天搜索受阻（500，已停手）；大号主页和 Amber 已读；X 早报已发布；推荐流未采</p><div class="sec">本页</div><a href="#top" data-s="top">今天什么火</a><a href="#xhs" data-s="xhs">帖子与原因</a><a href="#picks" data-s="picks">建议选题</a><a href="#deep" data-s="deep">主题对应</a><a href="#feed" data-s="feed">推荐流</a><a href="#insp" data-s="insp">X 新赞</a><a href="#xdiff" data-s="xdiff">X 早报旁证</a><a href="#raw" data-s="raw">覆盖与待核</a><a href="#watch" data-s="watch">观察中</a><a href="#notes" data-s="notes">来源说明</a><a href="#day-foot" data-s="day-foot">页脚</a><div class="sec">其他</div><a href="index.html">往期日页</a><a href="../">小红书全入口</a><a href="2026-11-13.html">← 11-13</a></aside><main class="main"><nav class="mob"><a href="#top" data-s="top">今天什么火</a><a href="#xhs" data-s="xhs">帖子与原因</a><a href="#picks" data-s="picks">建议选题</a><a href="#deep" data-s="deep">主题对应</a><a href="#feed" data-s="feed">推荐流</a><a href="#insp" data-s="insp">X 新赞</a><a href="#xdiff" data-s="xdiff">X 早报旁证</a><a href="#raw" data-s="raw">覆盖与待核</a><a href="#watch" data-s="watch">观察中</a><a href="#notes" data-s="notes">来源说明</a><a href="#day-foot" data-s="day-foot">页脚</a><a href="../">小红书</a></nav><style>.hf article.post{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:.9rem 1.05rem;margin:.8rem 0;box-shadow:var(--shadow)}.hf article.post h3{margin:0 0 .4rem;font-size:1.02rem}.hf dl{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:.2rem .8rem;margin:.4rem 0;font-size:.92rem}.hf dt{color:var(--mut)}.hf dd{margin:0;overflow-wrap:anywhere}.hf .why{margin:.3rem 0 0;padding-left:1.1rem}.hf .why li{margin:.2rem 0}.hf .flag{display:inline-block;font-size:.75rem;font-weight:650;color:var(--warn);background:var(--warn-soft);border-radius:999px;padding:.05rem .5rem;margin-left:.4rem;vertical-align:middle}.hf .tw td{overflow-wrap:anywhere}@media(max-width:600px){.hf dl{grid-template-columns:1fr}.hf dd{margin-bottom:.3rem}}</style><h1 id='top'>今天写啥 · 2026-11-14</h1><div class='hf'><p class='muted'>口径：大号只读；今天 07:28:47 UTC+8 首个搜索词返回 500，停手未重试。Ocean 电脑离线，浏览走盒子网络。</p><p class="muted" id="hot-rule">热帖门槛：近7天赞≥200或藏≥300；8到30天赞≥500或藏≥800。小号只是达标后的加分，不是入选条件。</p><div class="card verdict"><p class="lead"><b>今天关键词搜索没采到数据，热帖区留空。</b>07:28:47 UTC+8 打开第一个搜索词「需求一页纸」时，小红书返回 HTTP ERROR 500（没有出现 300031、验证码或登录页）。Ocean 的电脑离线，浏览走盒子自己的网络。按规矩立刻停手，没有重试，也没有继续搜「一页纸方案」「AI产品 指标」，没有复读旧帖，也没有再打开补登用的旧笔记。</p>
+<ul><li>今天不判断搜索里有没有达标热帖，也不出新选题。</li><li>大号主页和 Amber 主页在搜索之前已经只读打开，记录见下方。</li><li>顺延到下一轮：TK-16「需求一页纸」「一页纸方案」，TK-02「AI产品 指标」；平克马、长成一棵树复读；补登 5 篇（推需求三步、入行、SLG/PLG、IPO三人、PRD）。</li></ul></div><h2 id='xhs'>帖子、数据与可能原因</h2><div class="card"><p class="muted">搜索没有采到帖子可列。Amber 两篇新帖未达标，只记在点名监控里，不进热帖区。</p></div><h2 id='picks'>建议怎么写</h2><div class="card"><p><b>今天不出新选题。</b>之前的两条（AI做看板先对齐指标口径、原型稿补样本）热度证据见 <a href="2026-11-11.html">11-11 日页</a>，今天没有重读。</p></div><h2 id='deep'>主题 × 关键词 × 证据对应</h2><div class="card">
+<p>主题词今天没搜成，顺延：TK-16「需求一页纸」「一页纸方案」，TK-02「AI产品 指标」。</p>
+<p>发布地图（Mac Mini，publication.py）：新登记《11.13大模型排行榜TOP50》（ID 6af67f5b000000002b03df6f；今天主页卡片 2 赞，读取 07:18 UTC+8；发布时间依据 11-13 详情「6分钟前」和创作中心 11:09）。另把 Catwu 帖今天详情读到的「11-04 美国」写成更正，与 11-11「5天前 美国」（当时记为约 11-06）并列，不猜哪个对。计划补登的 5 篇因搜索 500 停手再次顺延。来源链接仍未补。主页标签「笔记・15」，实际可见 16 篇（15 篇旧帖加这篇排行榜）。</p>
+</div><h2 id='feed'>推荐流</h2><div class="card"><p>推荐流今天没有采。</p></div><h2 id='insp'>Ocean 灵感 · X 新赞</h2><div class="card"><p>X 点赞新增 2 条进灵感池（点赞列表前 40 条里未入库的；接口不给点赞时刻，只按未入库去重）。两条都和产品经理主线关系不大，今天不进选题：@ddny09 谈字节 SeeDance 掌舵人（帖赞 2351）；@TodayKan「商单这就来了」（帖赞 42）。</p></div><h2 id='xdiff'>X 早报旁证</h2><div class="card"><p class="muted">X 早报 11-14 已在 06:13 UTC+8 发布，只作补充，不当小红书热度。<a href="https://zhenchuanwuzc-max.github.io/x-digest/2026-11-14.html" target="_blank" rel="noopener">打开早报</a></p>
+<ul>
+<li>Grok Bot 官号：Bot 可以进会议（早报记约 3316 赞 / 506 收藏，03:11 UTC+8）。</li>
+<li>ChatGPT Wallet：美国 Pro 用户的 dot 可在确认后代付款（官号帖，The Verge 有补充报道）。</li>
+<li>情报官3 提到一个可写角度：Claude Meetings 在有外部人员的客户会上几乎不出力。只作信号，今天不据此出选题。</li>
+<li>Anthropic 工程博客谈如何设计和报告安全评测（早报记约 1219 赞 / 338 收藏）。</li>
+</ul></div><h2 id='raw'>关键词覆盖与待核库</h2><div class="card">
+<p>点名监控 · 红发魔女Amber：07:21–07:24 UTC+8 只读打开主页一次。粉丝 12.3万，获赞与收藏 151.1万，关注 115。头部写 IP 属地北京，同时仍显示标签「四川成都」。</p>
+<p>相对 11-12 快照有两篇新标题，均未达热帖门槛（近7天赞≥200或藏≥300），只记快照，不进热帖区：</p>
+<ul>
+<li>「全网50万粉丝博主，3天用AI手搓个人网站」：22 赞、14 藏、4 评；页面显示「编辑于13小时前，北京」（编辑不等于初发）；视频，ID 6af6d7f2000000002a03ba27。</li>
+<li>「0基础做 AI 短剧！从剧本到成片教程」：主页卡片 54 赞，未开详情；ID 6af5608f0000000023013cf3。11-13 卡片曾见 42 赞。</li>
+</ul>
+<p>读取中误触搜索建议进过结果页，已立即返回，未点开结果。没有 300031。人物库目前没有 Amber 专属成长页，今天只更新了 amber.json 快照。</p>
+</div><details class="rawfold" id="watch"><summary>观察中（未达标）</summary><p class="muted">今天没有从搜索放入观察中的帖子。Amber 两篇新帖未达标，只记在点名监控里。</p></details><h2 id='notes'>来源与说明</h2><div class="card"><ul>
+<li>热帖门槛不变：近7天赞≥200或藏≥300；8到30天赞≥500或藏≥800。</li>
+<li>Ocean 电脑离线，这次浏览走盒子自己的网络。</li>
+<li>07:16–07:18 UTC+8 只读打开大号主页；07:21–07:24 只读打开 Amber 主页；07:28:47 打开第一个搜索词即 HTTP 500，立即停手，没有重试。</li>
+</ul></div></div><p class='foot' id='day-foot'>私密 · <a href='index.html'>往期日页</a> · <a href='../'>小红书全入口</a></p></main></div><script>
+(function(){
+  var ids=["top", "xhs", "picks", "deep", "feed", "insp", "xdiff", "raw", "watch", "notes", "day-foot"], links=document.querySelectorAll('[data-s]');
+  function cur(){
+    var y=window.scrollY+80, c=ids[0];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]); if(el&&el.offsetTop<=y) c=ids[i];}
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-2) c=ids[ids.length-1];
+    links.forEach(function(a){var on=a.getAttribute('data-s')===c; a.classList.toggle('on',on);
+      if(on&&a.parentNode.classList.contains('mob')){var p=a.parentNode; p.scrollLeft=a.offsetLeft-p.clientWidth/2+a.clientWidth/2;}});
+  }
+  window.addEventListener('scroll',cur,{passive:true}); window.addEventListener('hashchange',cur); cur();
+})();
+</script></body></html>
