@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="robots" content="noindex,nofollow"/><title>今天写啥 · 2026-11-18 · 归档</title><style>
+:root{--bg:#f3f1eb;--surface:#fffcf7;--ink:#1a1c1b;--ink-2:#3d433f;--mut:#59656b;--line:#e2ddd2;--accent:#0d6b52;--accent-soft:#e4f3ec;--warn:#8a5a00;--warn-soft:#fff3d6;--ok:#1e6b3a;--ok-soft:#e6f4ea;--shadow:0 1px 2px rgba(26,28,27,.04),0 8px 24px rgba(26,28,27,.06);--r:14px;--nav-w:14rem}
+*{box-sizing:border-box}html{scroll-behavior:auto}
+body{margin:0;color:var(--ink);background:var(--bg);font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.shell{display:grid;grid-template-columns:var(--nav-w) minmax(0,1fr);max-width:none;margin:0 auto;min-height:100vh}
+.nav{position:sticky;top:0;align-self:start;height:100vh;overflow:auto;padding:1.4rem 1rem 2rem;border-right:1px solid var(--line);background:linear-gradient(180deg,#f7f5ef,var(--bg))}
+.nav .brand{font-weight:750;font-size:.95rem;margin:0 0 .3rem}
+.nav .meta{font-size:.76rem;color:var(--mut);margin:0 0 1rem;line-height:1.45}
+.nav a{display:block;color:var(--ink-2);text-decoration:none;font-size:.82rem;padding:.32rem .5rem;border-radius:8px;margin:.08rem 0}
+.nav a:hover,.nav a:focus,.nav a.on{background:var(--accent-soft);color:var(--accent)}
+.nav a.on{font-weight:650}
+.nav .sec{font-size:.7rem;letter-spacing:.06em;color:var(--mut);margin:.9rem 0 .3rem;padding-left:.5rem}
+.main{padding:1.6rem clamp(1rem,3vw,3rem) 4rem;min-width:0;max-width:78rem}
+h1{font-size:clamp(1.35rem,2.2vw,1.75rem);letter-spacing:-.025em;margin:0 0 .55rem;font-weight:750;line-height:1.28}
+h2{font-size:1.2rem;margin:2.4rem 0 1rem;padding-bottom:.4rem;border-bottom:2px solid var(--accent);font-weight:700;scroll-margin-top:.5rem;letter-spacing:-.01em}
+h3{font-size:1rem;margin:.15rem 0 .45rem;font-weight:700}
+p,li{color:var(--ink-2)}.muted{color:var(--mut);font-size:.92rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.1rem;margin:.7rem 0;box-shadow:var(--shadow)}
+.verdict{border-color:#b7d9cb;border-left:4px solid var(--accent);background:linear-gradient(180deg,#fff,#fffcf7);padding:1.15rem 1.25rem 1.2rem}
+.verdict .lead{margin:0 0 .85rem;color:var(--ink);font-weight:650;font-size:1.05rem;max-width:46rem;line-height:1.75}
+.verdict ul{margin:.2rem 0 .7rem;padding-left:1.15rem}
+.verdict li{margin:.35rem 0}
+.one{font-size:.95rem;color:var(--ok);background:var(--ok-soft);border-radius:10px;padding:.65rem .85rem;margin:.85rem 0 0;font-weight:650}
+.tag{display:inline-block;font-size:11px;font-weight:650;background:var(--ok-soft);color:var(--ok);padding:.1rem .45rem;border-radius:999px;margin-left:.35rem;vertical-align:middle}
+.tag.accent{background:var(--accent-soft);color:var(--accent)}
+.warn{font-size:.86rem;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:.55rem .7rem;margin:.7rem 0}
+a{color:var(--accent);text-underline-offset:3px}
+code{font-size:.78rem;background:#efeae0;padding:.05rem .3rem;border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:.86rem;background:var(--surface);margin:.5rem 0}
+th,td{border:1px solid var(--line);padding:.4rem .5rem;text-align:left;vertical-align:top}th{background:#efeae0}
+.tw{overflow-x:auto;margin:.5rem 0 1.2rem;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.tw table{margin:0;min-width:36rem}
+.tw th{background:#f7f5ef;font-size:.78rem;color:var(--mut)}
+.tw td,.tw th{padding:.55rem .7rem}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right;font-weight:650;color:var(--accent)}
+td.nowrap{white-space:nowrap}
+ul.compact{margin:.2rem 0 0;padding-left:1.1rem;font-size:.84rem}
+.kwgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(17.5rem,1fr));gap:1rem;align-items:stretch}
+.kwcard{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.05rem 1.05rem;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:100%}
+.kwh{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin:0 0 .55rem;padding-bottom:.55rem;border-bottom:1px solid var(--line)}
+.kwh h3{margin:0;font-size:1.02rem;font-weight:750;letter-spacing:-.01em}
+.kwbadge{flex:0 0 auto;font-size:.72rem;font-weight:650;color:var(--accent);background:var(--accent-soft);padding:.18rem .5rem;border-radius:999px;white-space:nowrap}
+.kwnote{margin:0 0 .7rem;font-size:.88rem;color:var(--mut);line-height:1.55}
+ol.posts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem;flex:1}
+ol.posts li{margin:0;padding:.55rem .6rem;border-radius:10px;background:#f7f5ef;border:1px solid transparent}
+ol.posts li:hover{border-color:var(--line);background:#fff}
+ol.posts a{display:block;color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;font-weight:650;font-size:.92rem;line-height:1.4}
+.pmeta{display:block;margin-top:.28rem;font-size:.75rem;color:var(--mut);font-weight:500;line-height:1.4}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:1rem}
+.cols .card{margin:0;padding:1.05rem 1.15rem}
+.cols .card h3{margin:0 0 .55rem;font-size:1.02rem;line-height:1.35}
+.cols .card p{margin:.45rem 0;font-size:.92rem}
+.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(22rem,1fr));gap:1rem;align-items:start}
+.pick{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.1rem 1.15rem 1.2rem;margin:0;box-shadow:var(--shadow);position:relative}
+.pick .n{position:absolute;top:.95rem;right:1rem;font-size:.72rem;font-weight:700;color:var(--mut);letter-spacing:.04em}
+.pick h3{font-size:1.08rem;margin:0 1.8rem .55rem 0;font-weight:750;line-height:1.35}
+.row{margin:.45rem 0;font-size:.92rem;line-height:1.55}
+.row b{display:block;font-size:.72rem;color:var(--mut);font-weight:650;letter-spacing:.03em;margin-bottom:.08rem}
+.insp{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:.75rem}
+.insp li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem;margin:0;box-shadow:var(--shadow)}
+.insp .t{font-weight:650;font-size:.95rem}
+.insp .m{font-size:.8rem;color:var(--mut);margin-top:.15rem}
+.insp .a{font-size:.86rem;color:var(--ink-2);margin-top:.25rem}
+ul.x{margin:.4rem 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.65rem}
+ul.x li{margin:0;padding:.85rem 1rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+ul.x li b{display:block;margin-bottom:.25rem;color:var(--ink)}
+.signals{margin:.3rem 0 0;padding-left:1.15rem}
+.signals li{margin:.28rem 0;color:var(--ink-2);font-size:.92rem}
+.foot{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--mut);font-size:.85rem}
+.mob{display:none;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:.35rem;margin:0 0 1rem;position:sticky;top:0;z-index:5;background:var(--bg);padding:.55rem 0}
+.mob a{font-size:.78rem;background:var(--accent-soft);color:var(--accent);text-decoration:none;padding:.2rem .5rem;border-radius:999px;white-space:nowrap}
+.mob a.on{background:var(--accent);color:#fff}
+details.rawfold{margin:1rem 0;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:.4rem .9rem .9rem}
+details.rawfold > summary{cursor:pointer;font-weight:700;padding:.55rem 0;color:var(--ink)}
+.hub-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.05rem;margin:.6rem 0;box-shadow:var(--shadow)}
+.hub-card a{color:var(--ink);text-decoration:none;font-weight:700;font-size:1.02rem}
+.hub-card a:hover{color:var(--accent)}
+.hub-card p{margin:.35rem 0 0;color:var(--ink-2);font-size:.9rem}
+.toc a{display:inline-block;margin:0 .55rem .35rem 0;font-size:.88rem;color:var(--accent);text-decoration:none;background:var(--accent-soft);padding:.28rem .6rem;border-radius:999px}
+.partial{font-size:.86rem;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:.55rem .7rem;margin:0 0 1rem}
+.sec-ico{display:inline-block;margin-right:.35rem;font-style:normal;font-weight:700;opacity:.9}.brand-row{display:flex;align-items:center;gap:.55rem;margin:0 0 .3rem}.brand-row img{width:28px;height:28px;border-radius:7px;flex:0 0 auto}.rawfold{margin:.6rem 0 1.2rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:.4rem .9rem .7rem}.rawfold summary{cursor:pointer;font-weight:650;color:var(--accent);padding:.35rem 0}
+.topics{grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}
+.topics .pick{min-width:0;overflow-wrap:anywhere;background:#fffcf7;border:1px solid var(--line);border-radius:16px;padding:1rem 1.1rem 1.05rem}
+.topics .pk-top{display:flex;align-items:center;justify-content:space-between;min-height:1.3rem;margin-bottom:.35rem}
+.topics .pick .n{position:static}
+.topics .pick h3{color:var(--accent);margin:0 0 .5rem;font-size:1.05rem}
+.topics .pill{display:inline-block;font-size:.72rem;font-weight:650;background:var(--accent-soft);color:var(--accent);padding:.12rem .6rem;border-radius:999px}
+.topics .who,.topics .why1{margin:.3rem 0;font-size:.92rem;line-height:1.55}
+.topics .who b{font-size:.72rem;color:var(--mut);margin-right:.4rem}
+.topics .refs{margin:.45rem 0 .2rem;padding-left:1.1rem;font-size:.86rem}
+.topics .refs li{margin:.15rem 0}
+.topics details.more{margin-top:.5rem;font-size:.88rem}
+.topics details.more>summary{cursor:pointer;color:var(--accent);font-weight:650}
+details.verdict-fold{margin:1rem 0 0}
+details.verdict-fold>summary{cursor:pointer;font-weight:650;color:var(--mut);padding:.35rem 0}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}.nav{display:none}.mob{display:flex}
+  .main{padding:1.1rem 1rem 3rem}
+  h2,h1{scroll-margin-top:3.6rem}
+  .topics,.cols,.kwgrid,.insp{grid-template-columns:1fr}
+  .mob{margin:0 -1rem .8rem;padding:.5rem 1rem}
+  .kwh{flex-wrap:wrap}
+}
+</style><link rel="stylesheet" href="../xhs-shell.css" data-xhs-shell></head><body><div class="shell"><aside class="nav"><div class="brand-row"><img src="../icon.svg" alt=""/><p class="brand" style="margin:0">每日选题 · 11/18</p></div><p class="meta">私密 x-digest · 小红书今天 3 篇达标热帖，给 2 条做法；大号新登记 1 篇；Amber 无新帖；X 早报已发布；推荐流未采</p><div class="sec">本页</div><a href="#top" data-s="top">今天什么火</a><a href="#xhs" data-s="xhs">帖子与原因</a><a href="#picks" data-s="picks">建议选题</a><a href="#deep" data-s="deep">主题对应</a><a href="#feed" data-s="feed">推荐流</a><a href="#insp" data-s="insp">X 新赞</a><a href="#xdiff" data-s="xdiff">X 早报旁证</a><a href="#raw" data-s="raw">覆盖与待核</a><a href="#watch" data-s="watch">观察中</a><a href="#notes" data-s="notes">来源说明</a><a href="#day-foot" data-s="day-foot">页脚</a><div class="sec">其他</div><a href="index.html">往期日页</a><a href="../">小红书全入口</a><a href="2026-11-17.html">← 11-17</a></aside><main class="main"><nav class="mob"><a href="#top" data-s="top">今天什么火</a><a href="#xhs" data-s="xhs">帖子与原因</a><a href="#picks" data-s="picks">建议选题</a><a href="#deep" data-s="deep">主题对应</a><a href="#feed" data-s="feed">推荐流</a><a href="#insp" data-s="insp">X 新赞</a><a href="#xdiff" data-s="xdiff">X 早报旁证</a><a href="#raw" data-s="raw">覆盖与待核</a><a href="#watch" data-s="watch">观察中</a><a href="#notes" data-s="notes">来源说明</a><a href="#day-foot" data-s="day-foot">页脚</a><a href="../">小红书</a></nav><style>.hf article.post{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:.9rem 1.05rem;margin:.8rem 0;box-shadow:var(--shadow)}.hf article.post h3{margin:0 0 .4rem;font-size:1.02rem}.hf dl{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:.2rem .8rem;margin:.4rem 0;font-size:.92rem}.hf dt{color:var(--mut)}.hf dd{margin:0;overflow-wrap:anywhere}.hf .why{margin:.3rem 0 0;padding-left:1.1rem}.hf .why li{margin:.2rem 0}.hf .flag{display:inline-block;font-size:.75rem;font-weight:650;color:var(--warn);background:var(--warn-soft);border-radius:999px;padding:.05rem .5rem;margin-left:.4rem;vertical-align:middle}.hf .tw td{overflow-wrap:anywhere}@media(max-width:600px){.hf dl{grid-template-columns:1fr}.hf dd{margin-bottom:.3rem}}</style><h1 id='top'>今天写啥 · 2026-11-18</h1><div class='hf'><p class='muted'>口径：大号只读；最多点赞+一周内。面板无一个月内。3 篇达标，其中 1 篇可做选题。</p><p class="muted" id="hot-rule">热帖门槛：近7天赞≥200或藏≥300；8到30天赞≥500或藏≥800。小号只是达标后的加分，不是入选条件。</p><div class="card verdict"><p class="lead"><b>今天有 3 篇达标热帖，都来自「最多点赞」+「一周内」。其中 1 篇讲增长归因，可以做成选题；1 篇是健身自测，偏题；1 篇是大号转述土豆姐的视频，只读了标题和描述，没有看视频。</b>门槛仍是：近7天赞≥200或藏≥300。筛选面板实际选项是不限、一天内、一周内、半年内，没有「一个月内」。采集走页顶搜索框，没有直开搜索链接。</p>
+<ul>
+<li><a href="https://www.xiaohongshu.com/explore/6af321fb000000002501c1dd" target="_blank" rel="noopener">做增长，每天都在回答三个问题</a> · 大厂用户增长笔记 · 近7天窗口。详情页时点「6天前 北京」。赞 550、收藏 234、评论 2。读取 07:46–07:48 UTC+8。作者主页粉丝 5840（07:48:49 UTC+8）。图文 8 张已看完。正文先问为什么涨、为什么跌、为什么不涨不跌，再讲数据只能说明发生了什么，归因还要结合业务判断；后半段转到 Bencher AI 招募专家做评测任务（未点申请或活动按钮）。</li>
+<li><a href="https://www.xiaohongshu.com/explore/6af7eb15000000002a028551" target="_blank" rel="noopener">健身一年达标自测｜你卡在第几项？</a> · 追求薄肌的中登 · 近7天窗口。详情页时点「3天前 四川」。赞 215、收藏 135、评论 185。读取 07:38–07:40 UTC+8。作者主页粉丝 1173（07:40:29 UTC+8）。图文 7 张已看完，讲自然健身力量自测（深蹲、硬拉、推肩、卧推、引体），有 PDF 附件。跟产品「达标门槛」不是一件事。</li>
+<li><a href="https://www.xiaohongshu.com/explore/6afc2143000000002501ca7b" target="_blank" rel="noopener">所有代码都是一坨*？看完这个教程再说</a> · 量子位 · 近7天窗口。详情页时点「昨天 17:41 北京」。赞 208、收藏 230；评论区写「这是一片荒地点击评论」，未见评论文本。读取约 07:50 UTC+8。作者主页粉丝 23.1万（07:50:34 UTC+8）。视频，没有播放，只读了标题、完整描述和可见评论。描述说转述 Grok Bot 核心工程师 Lauren Tan 的 AI 编程经验。作者声明含 ai 生成内容。</li>
+</ul>
+<p>「AI产品指标」扫 10 开 0，最高可见赞 59，无达标。「功能上线没效果」前 10 张最高可见赞 11，无达标。对口但未达标的例子：「阿里8年策略产品：Agent 指标体系搭建」59 赞、「6张图搭完一套能用的评测体系」50 赞，「功能上线后数据回收不全，多半是埋点那一步」5 赞，都不进热帖区。</p>
+</div><h2 id='xhs'>帖子、数据与可能原因</h2><div class="card">
+<h3>可能为什么受欢迎（可见事实 / 待验证解释 / 缺证）</h3>
+<p><b>增长三问。</b>可见事实：近7天窗口里赞 550、藏 234、评 2；作者粉丝 5840；开头三问很具体，随后用 GMV 涨跌拆流量、转化、客单和大盘自然量；后半段是 Bencher AI 专家招募和 100 元活动说明；图卡里有 X 原帖和活动页截图；评论只有 2 条，其中一条是作者置顶「内推码如下：」。待验证解释：前半段归因方法清楚，后半段带招募和奖励，可能把想报名的人留下来。缺证：没有曝光数据，不能算点击率或收藏率；只有一次读取，不能说正在上涨；活动页截图显示时限是 2026.11.12–11.13，今天已过，报名是否还有效待核。</p>
+<p><b>健身自测。</b>可见事实：近7天窗口里赞 215、藏 135、评 185；作者粉丝 1173；五项可自测标准写得很具体，有 PDF；作者置顶自己先报成绩，并问别人卡在哪个动作；评论里有人问「达标是指可以做组吗」，也有人觉得标准过高，作者回「给个参考而已」。待验证解释：可对号入座、可评论报成绩、有附件，可能把评论做高。缺证：同样没有曝光；藏 135 没有到 300，只是赞过了 200。这不是产品指标门槛。</p>
+<p><b>量子位视频。</b>可见事实：近7天窗口里赞 208、藏 230；作者粉丝 23.1万；发布原文写「昨天 17:41」；描述转述土豆姐讲代码库、规则、测试与验证，并提到月交付 11000 个 PR、回滚率约 0.5%（这是视频描述里的说法，不是本轮核实）。待验证解释：大号分发、标题冲，加上最近 X 上也在传土豆姐，可能带来点击。缺证：没有看视频，不能分析成片；评论未见文本；没有曝光；描述里的交付数字未核。</p>
+</div>
+<div class="card">
+<p>Amber 旧帖有连续快照，只记时点，不进热帖区、不给选题：「惊到我了！这是AI自动剪辑包装的..」（<a href="https://www.xiaohongshu.com/explore/6af439d6000000002a02f46c" target="_blank" rel="noopener">6af439d6</a>）：11-12 07:28 详情 35 赞 / 20 藏 / 18 评，当时写「13小时前 四川」；11-14 07:24 主页卡片 198 赞；11-16 07:38 主页卡片 324 赞；11-17 07:20 主页卡片 458 赞；今天 07:26 主页卡片 588 赞。今天没开详情，藏、评和发布时间都没有重核。</p>
+</div><h2 id='picks'>建议怎么写</h2><div class="card">
+<h3>数据涨了先分清是谁的功</h3>
+<p><b>对哪些人管用：</b>每天要看 DAU、GMV 这类业务数字，并且得判断涨跌原因的产品经理。</p>
+<p><b>切口：</b>把「为什么涨、为什么跌、为什么不涨不跌」写成每天的归因习惯。先分清是策略有效，还是大盘自然变化。</p>
+<p><b>标题：</b>数据涨了先分清是谁的功（12 字）</p>
+<p><b>提纲：</b>先写三问。再用 GMV 举例：涨了要拆流量、转化、客单，以及大促带来的自然量。点明数据能说明发生了什么，判断还要结合用户、商品、渠道和策略。听记里有「做了 3.0 不就一定能加单」这句，可作脱敏现场。不写 Bencher 招募。</p>
+<p><b>真实样本：</b>最近对口最高赞就是下面这篇。同类不限时间的最高赞，今天没有另搜，标缺口。</p>
+<ul>
+<li>最近最高赞（本次「专家经验 AI」+「一周内」样本池）：<a href="https://www.xiaohongshu.com/explore/6af321fb000000002501c1dd" target="_blank" rel="noopener">做增长，每天都在回答三个问题</a> · 大厂用户增长笔记 · 赞 550、藏 234、评 2 · 6天前 北京</li>
+<li>同类最高赞：本次未搜「不限」时间，缺口</li>
+</ul>
+<p><b>已发稿差异：</b>跟「产品不增长了，先查哪五个问题？」不同。那篇是增长停滞时的排查清单；这篇是每天对涨、跌、持平做归因，并写出 AI 能列出很多原因、真正难的是判断哪条符合业务。</p>
+<p><b>Lenny / 听记：</b>可对 M15 实验文化（承认自己未必知道正确答案）。听记在「GGS亚卖×物流需求优先级对齐」P0021。写的时候只用已有原话，不编新现场。</p>
+</div>
+<div class="card">
+<h3>专家经验先交出判断过程</h3>
+<p><b>对哪些人管用：</b>想把业务专家的经验做成 AI 评测或诊断能力的产品经理。</p>
+<p><b>切口：</b>交付的是判断过程：看什么、怎么解释、何时推翻。不是只交一份原因清单或成品报告。</p>
+<p><b>标题：</b>专家经验先交出判断过程（12 字）</p>
+<p><b>提纲：</b>先写最小判断链和反例。对照今天这篇热帖里的原话：列出很多可能原因，不等于知道哪个判断符合业务。听记里广告诊断曾要求「至少给我一个完整思路，基于思路才知道怎么呈现」。用增长归因或广告诊断其中一个现场即可，一篇只讲一件事。</p>
+<p><b>真实样本：</b>同上，最近对口最高赞仍是「做增长，每天都在回答三个问题」。同类不限时间最高赞本次未搜，标缺口。</p>
+<p><b>已发稿差异：</b>M17「顶尖PM的AI杠杆」已经发过。这篇不复读杠杆，只写判断过程怎么交付。</p>
+<p><b>Lenny / 听记：</b>M17 已有公开方法。听记在 servicebuddy 广告需求对接讨论 P0128、P0129。DRICE 听记配对仍是缺口，这条不用 DRICE。</p>
+</div>
+<div class="card">
+<p>健身自测和量子位视频都过了门槛，但今天不拿来做选题。前者是体能标准，后者没看视频，也不是产品经理主线方法。</p>
+</div><h2 id='deep'>主题 × 关键词 × 证据对应</h2><div class="card">
+<p>今天词表：TK-02「AI产品指标」、TK-07「达标门槛」、TK-10「专家经验 AI」、TK-13「功能上线没效果」已搜完。下轮可查还没轮到的 core/rotation：TK-12 任务状态机、TK-15 DRICE（听记配对仍空）。</p>
+<p>发布地图（Mac Mini，publication.py list 开跑时读取，map_digest <code>9d8be22f0b28871e3a2b68c649b0ea08d1ccf7bd163778443f00e49d4998dc1c</code>，与 11-15 至 11-17 相同）：今天新登记 1 篇「Qwen4 Max上了国产第2」（<a href="https://www.xiaohongshu.com/explore/6afbdb6900000000090236a3" target="_blank" rel="noopener">6afbdb69</a>），仅自己可见，详情「昨天 12:43 欧洲地区」，赞/藏/评未显示数字，正文无来源链接。写入后 map_digest <code>b165ffad62848b67362fc717dbf5717bff4633b9e0852a82aa099241f8af393a</code>，记录 25 条，无 conflicts。主页标签「笔记・15」，实际可见 17 篇。读取 07:23:08–07:25:20 UTC+8。Catwu 今天卡片 1370，11-17 是 1364；evals 帖 9，11-17 是 8；获赞与收藏 1743，11-17 是 1733。计划补登的 5 篇今天未打开（已开过搜索详情，11-15 补登触发过 300031，今日不再点旧帖）。仍剩 8 篇初发日期未知（200刀喂Claude、AI时代PM、5套工作流、推需求三步、入行、SLG/PLG、IPO三人；PRD 仅「编辑于 07-07」，不猜初发）。来源链接仍未录（含今天新登记，已记无链接）。</p>
+</div><h2 id='feed'>推荐流</h2><div class="card"><p>推荐流今天没有采。</p></div><h2 id='insp'>Ocean 灵感 · X 新赞</h2><div class="card"><p>X 点赞列表已拉到。账号 @max59546071，user_id 1053071489698750464。点赞接口不给点赞时刻，只按未入库去重，前 40 条里新追加 29 条，见灵感池。其中不少是过夜后出现的 Grok Bot / 土豆姐相关讨论，发帖日期从 8 月到昨天都有，不能当成「过去一天新赞」。跟主线关系大多不强，只作主题信号，不当热帖替代。摘几条稍近的：</p>
+<ul>
+<li>@levelsio 11-17：跟普通人解释自己在乱做各种东西时的感受（可见 2508 赞）</li>
+<li>@qihang_zeng6688 11-17：写土豆姐 2015 年第一次技术大会分享（可见 270 赞）；另有两条也在转述她怎么用 AI</li>
+<li>@vikingmute 11-17：推荐 Addy Osmani 讲 Claude 的长文，提到可翻译后做起号（可见 229 赞）</li>
+<li>@0xChonsy 11-17：转述 Lauren Tan 如何稳住 agent 工作（可见 701 赞，弱相关）</li>
+<li>@DoraLizi 11-16：转述贝索斯谈不完整信息时怎么决策（可见 675 赞，弱相关）</li>
+<li>@Yooeec3 11-17：晒一下午做小红书的成果（可见 491 赞，内容经营，不是产品经理主线）</li>
+</ul></div><h2 id='xdiff'>X 早报旁证</h2><div class="card"><p class="muted">X 早报 11-18 已在约 06:06 UTC+8 发布，只作补充，不当小红书热度。<a href="https://zhenchuanwuzc-max.github.io/x-digest/2026-11-18.html" target="_blank" rel="noopener">打开早报</a></p>
+<ul>
+<li>OpenAI 官方：发布 GPT-6.2 Astra 和 Sol，称更强、更省 token，并首次把 Ultrafast 开给 Pro 200（早报记 11/18 01:54 台北，约 25052 赞 / 3577 收藏，待核）。这是官方博客和官方号说明，未实测。</li>
+<li>ClaudeDevs：Claude Platform 上线 Linked billing 公测，第三方平台用 Claude 时不必再让客户交出 API 密钥（早报记 11/18 02:00 台北，约 1595 赞 / 355 收藏）。官方产品说明，未实测。</li>
+<li>Sundar Pichai：Gemini Tasks 向美国、日本、韩国、加拿大、澳大利亚和印度免费开放，可代打电话、下单，并强调先问再买（早报记 11/18 01:20 台北，约 2867 赞 / 722 收藏）。官方博客转述，未实测。</li>
+</ul>
+<p>大号今天新发的「Qwen4 Max上了国产第2」是仅自己可见，跟早报里此前已报过的 Qwen4-Max 用法是相关话题，但早报不当小红书热度，也不替代上面的选题。</p>
+</div><h2 id='raw'>关键词覆盖与待核库</h2><div class="card">
+<p>点名监控 · 红发魔女Amber：07:25:42–07:26:34 UTC+8 只读打开主页一次。粉丝 12.4万，获赞与收藏 151.3万，关注 115，均与 11-17 相同。头部写 IP 属地四川（11-17 头部写北京），同时仍显示标签「四川成都」。</p>
+<p>对照 11-17 快照，最近 10 条标题和 ID 都相同，没有新标题。今天只记主页卡片，未开详情。一篇旧帖有连续快照，见上方，不进热帖区。</p>
+<p>没有 300031。人物库目前没有 Amber 专属成长页，今天只更新了 amber.json 快照。</p>
+</div><details class="rawfold" id="watch"><summary>观察中（未达标）</summary><p class="muted">观察中（未达标，不当热帖、不给选题）</p>
+<div class="card">
+<ul>
+<li>「AI产品指标」+一周内，未打开详情：阿里8年策略产品：Agent 指标体系搭建，策略AI产品轩廷，1天前，可见赞 59；6张图搭完一套能用的评测体系，产品经理Windy，4天前，可见赞 50；如何评测 Personal Agent？我整理了9个指标，刘铁柱，3天前，可见赞 48。</li>
+<li>「功能上线没效果」+一周内，前 10 张最高可见赞 11，未打开。对口例子：功能上线后数据回收不全，多半是埋点那一步，小林学长，1天前，可见赞 5；上线后效果不好，怎么一轮轮改好？猫咪大王搞AIPM，3天前，可见赞 4；功能上线后如何评估其真实增量效果? Coco聊商分，2天前，可见赞 9。第 10 张之后更后面的卡片见到上千赞，但不在前 10 张扫卡范围，未打开、不当热帖。</li>
+</ul>
+</div></details><h2 id='notes'>来源与说明</h2><div class="card"><ul>
+<li>热帖门槛不变：近7天赞≥200或藏≥300；8到30天赞≥500或藏≥800。</li>
+<li>浏览走盒子自己的网络。搜索改用页顶搜索框，没有再直开 search_result 链接（11-16 那样做过一次，当时是 HTTP 500）。</li>
+<li>07:23:08–07:25:20 UTC+8 只读打开大号主页并打开新帖详情；07:25:42–07:26:34 只读打开 Amber 主页；07:28–07:58 依次搜「AI产品指标」「达标门槛」「专家经验 AI」「功能上线没效果」。全程未见 300031、HTTP 500、验证码或登录墙。</li>
+<li>推荐流未采。发布地图新登记 1 篇，补登未做。X 早报已到，X 点赞已追加 29 条。</li>
+</ul></div></div><p class='foot' id='day-foot'>私密 · <a href='index.html'>往期日页</a> · <a href='../'>小红书全入口</a></p></main></div><script>
+(function(){
+  var ids=["top", "xhs", "picks", "deep", "feed", "insp", "xdiff", "raw", "watch", "notes", "day-foot"], links=document.querySelectorAll('[data-s]');
+  function cur(){
+    var y=window.scrollY+80, c=ids[0];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]); if(el&&el.offsetTop<=y) c=ids[i];}
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-2) c=ids[ids.length-1];
+    links.forEach(function(a){var on=a.getAttribute('data-s')===c; a.classList.toggle('on',on);
+      if(on&&a.parentNode.classList.contains('mob')){var p=a.parentNode; p.scrollLeft=a.offsetLeft-p.clientWidth/2+a.clientWidth/2;}});
+  }
+  window.addEventListener('scroll',cur,{passive:true}); window.addEventListener('hashchange',cur); cur();
+})();
+</script></body></html>
