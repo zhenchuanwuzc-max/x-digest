@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="robots" content="noindex,nofollow"/><title>今天写啥 · 2026-11-24 · 归档</title><style>
+:root{--bg:#f3f1eb;--surface:#fffcf7;--ink:#1a1c1b;--ink-2:#3d433f;--mut:#59656b;--line:#e2ddd2;--accent:#0d6b52;--accent-soft:#e4f3ec;--warn:#8a5a00;--warn-soft:#fff3d6;--ok:#1e6b3a;--ok-soft:#e6f4ea;--shadow:0 1px 2px rgba(26,28,27,.04),0 8px 24px rgba(26,28,27,.06);--r:14px;--nav-w:14rem}
+*{box-sizing:border-box}html{scroll-behavior:auto}
+body{margin:0;color:var(--ink);background:var(--bg);font:16.5px/1.7 "PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.shell{display:grid;grid-template-columns:var(--nav-w) minmax(0,1fr);max-width:none;margin:0 auto;min-height:100vh}
+.nav{position:sticky;top:0;align-self:start;height:100vh;overflow:auto;padding:1.4rem 1rem 2rem;border-right:1px solid var(--line);background:linear-gradient(180deg,#f7f5ef,var(--bg))}
+.nav .brand{font-weight:750;font-size:.95rem;margin:0 0 .3rem}
+.nav .meta{font-size:.76rem;color:var(--mut);margin:0 0 1rem;line-height:1.45}
+.nav a{display:block;color:var(--ink-2);text-decoration:none;font-size:.82rem;padding:.32rem .5rem;border-radius:8px;margin:.08rem 0}
+.nav a:hover,.nav a:focus,.nav a.on{background:var(--accent-soft);color:var(--accent)}
+.nav a.on{font-weight:650}
+.nav .sec{font-size:.7rem;letter-spacing:.06em;color:var(--mut);margin:.9rem 0 .3rem;padding-left:.5rem}
+.main{padding:1.6rem clamp(1rem,3vw,3rem) 4rem;min-width:0;max-width:78rem}
+h1{font-size:clamp(1.35rem,2.2vw,1.75rem);letter-spacing:-.025em;margin:0 0 .55rem;font-weight:750;line-height:1.28}
+h2{font-size:1.2rem;margin:2.4rem 0 1rem;padding-bottom:.4rem;border-bottom:2px solid var(--accent);font-weight:700;scroll-margin-top:.5rem;letter-spacing:-.01em}
+h3{font-size:1rem;margin:.15rem 0 .45rem;font-weight:700}
+p,li{color:var(--ink-2)}.muted{color:var(--mut);font-size:.92rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.1rem;margin:.7rem 0;box-shadow:var(--shadow)}
+.verdict{border-color:#b7d9cb;border-left:4px solid var(--accent);background:linear-gradient(180deg,#fff,#fffcf7);padding:1.15rem 1.25rem 1.2rem}
+.verdict .lead{margin:0 0 .85rem;color:var(--ink);font-weight:650;font-size:1.05rem;max-width:46rem;line-height:1.75}
+.verdict ul{margin:.2rem 0 .7rem;padding-left:1.15rem}
+.verdict li{margin:.35rem 0}
+.one{font-size:.95rem;color:var(--ok);background:var(--ok-soft);border-radius:10px;padding:.65rem .85rem;margin:.85rem 0 0;font-weight:650}
+.tag{display:inline-block;font-size:11px;font-weight:650;background:var(--ok-soft);color:var(--ok);padding:.1rem .45rem;border-radius:999px;margin-left:.35rem;vertical-align:middle}
+.tag.accent{background:var(--accent-soft);color:var(--accent)}
+.warn{font-size:.86rem;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:.55rem .7rem;margin:.7rem 0}
+a{color:var(--accent);text-underline-offset:3px}
+code{font-size:.78rem;background:#efeae0;padding:.05rem .3rem;border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:.86rem;background:var(--surface);margin:.5rem 0}
+th,td{border:1px solid var(--line);padding:.4rem .5rem;text-align:left;vertical-align:top}th{background:#efeae0}
+.tw{overflow-x:auto;margin:.5rem 0 1.2rem;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.tw table{margin:0;min-width:36rem}
+.tw th{background:#f7f5ef;font-size:.78rem;color:var(--mut)}
+.tw td,.tw th{padding:.55rem .7rem}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right;font-weight:650;color:var(--accent)}
+td.nowrap{white-space:nowrap}
+ul.compact{margin:.2rem 0 0;padding-left:1.1rem;font-size:.84rem}
+.kwgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(17.5rem,1fr));gap:1rem;align-items:stretch}
+.kwcard{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.05rem 1.05rem;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:100%}
+.kwh{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin:0 0 .55rem;padding-bottom:.55rem;border-bottom:1px solid var(--line)}
+.kwh h3{margin:0;font-size:1.02rem;font-weight:750;letter-spacing:-.01em}
+.kwbadge{flex:0 0 auto;font-size:.72rem;font-weight:650;color:var(--accent);background:var(--accent-soft);padding:.18rem .5rem;border-radius:999px;white-space:nowrap}
+.kwnote{margin:0 0 .7rem;font-size:.88rem;color:var(--mut);line-height:1.55}
+ol.posts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem;flex:1}
+ol.posts li{margin:0;padding:.55rem .6rem;border-radius:10px;background:#f7f5ef;border:1px solid transparent}
+ol.posts li:hover{border-color:var(--line);background:#fff}
+ol.posts a{display:block;color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;font-weight:650;font-size:.92rem;line-height:1.4}
+.pmeta{display:block;margin-top:.28rem;font-size:.75rem;color:var(--mut);font-weight:500;line-height:1.4}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:1rem}
+.cols .card{margin:0;padding:1.05rem 1.15rem}
+.cols .card h3{margin:0 0 .55rem;font-size:1.02rem;line-height:1.35}
+.cols .card p{margin:.45rem 0;font-size:.92rem}
+.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(22rem,1fr));gap:1rem;align-items:start}
+.pick{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.1rem 1.15rem 1.2rem;margin:0;box-shadow:var(--shadow);position:relative}
+.pick .n{position:absolute;top:.95rem;right:1rem;font-size:.72rem;font-weight:700;color:var(--mut);letter-spacing:.04em}
+.pick h3{font-size:1.08rem;margin:0 1.8rem .55rem 0;font-weight:750;line-height:1.35}
+.row{margin:.45rem 0;font-size:.92rem;line-height:1.55}
+.row b{display:block;font-size:.72rem;color:var(--mut);font-weight:650;letter-spacing:.03em;margin-bottom:.08rem}
+.insp{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:.75rem}
+.insp li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem;margin:0;box-shadow:var(--shadow)}
+.insp .t{font-weight:650;font-size:.95rem}
+.insp .m{font-size:.8rem;color:var(--mut);margin-top:.15rem}
+.insp .a{font-size:.86rem;color:var(--ink-2);margin-top:.25rem}
+ul.x{margin:.4rem 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.65rem}
+ul.x li{margin:0;padding:.85rem 1rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+ul.x li b{display:block;margin-bottom:.25rem;color:var(--ink)}
+.signals{margin:.3rem 0 0;padding-left:1.15rem}
+.signals li{margin:.28rem 0;color:var(--ink-2);font-size:.92rem}
+.foot{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--mut);font-size:.85rem}
+.mob{display:none;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:.35rem;margin:0 0 1rem;position:sticky;top:0;z-index:5;background:var(--bg);padding:.55rem 0}
+.mob a{font-size:.78rem;background:var(--accent-soft);color:var(--accent);text-decoration:none;padding:.2rem .5rem;border-radius:999px;white-space:nowrap}
+.mob a.on{background:var(--accent);color:#fff}
+details.rawfold{margin:1rem 0;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:.4rem .9rem .9rem}
+details.rawfold > summary{cursor:pointer;font-weight:700;padding:.55rem 0;color:var(--ink)}
+.hub-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.05rem;margin:.6rem 0;box-shadow:var(--shadow)}
+.hub-card a{color:var(--ink);text-decoration:none;font-weight:700;font-size:1.02rem}
+.hub-card a:hover{color:var(--accent)}
+.hub-card p{margin:.35rem 0 0;color:var(--ink-2);font-size:.9rem}
+.toc a{display:inline-block;margin:0 .55rem .35rem 0;font-size:.88rem;color:var(--accent);text-decoration:none;background:var(--accent-soft);padding:.28rem .6rem;border-radius:999px}
+.partial{font-size:.86rem;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:.55rem .7rem;margin:0 0 1rem}
+.sec-ico{display:inline-block;margin-right:.35rem;font-style:normal;font-weight:700;opacity:.9}.brand-row{display:flex;align-items:center;gap:.55rem;margin:0 0 .3rem}.brand-row img{width:28px;height:28px;border-radius:7px;flex:0 0 auto}.rawfold{margin:.6rem 0 1.2rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:.4rem .9rem .7rem}.rawfold summary{cursor:pointer;font-weight:650;color:var(--accent);padding:.35rem 0}
+.topics{grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}
+.topics .pick{min-width:0;overflow-wrap:anywhere;background:#fffcf7;border:1px solid var(--line);border-radius:16px;padding:1rem 1.1rem 1.05rem}
+.topics .pk-top{display:flex;align-items:center;justify-content:space-between;min-height:1.3rem;margin-bottom:.35rem}
+.topics .pick .n{position:static}
+.topics .pick h3{color:var(--accent);margin:0 0 .5rem;font-size:1.05rem}
+.topics .pill{display:inline-block;font-size:.72rem;font-weight:650;background:var(--accent-soft);color:var(--accent);padding:.12rem .6rem;border-radius:999px}
+.topics .who,.topics .why1{margin:.3rem 0;font-size:.92rem;line-height:1.55}
+.topics .who b{font-size:.72rem;color:var(--mut);margin-right:.4rem}
+.topics .refs{margin:.45rem 0 .2rem;padding-left:1.1rem;font-size:.86rem}
+.topics .refs li{margin:.15rem 0}
+.topics details.more{margin-top:.5rem;font-size:.88rem}
+.topics details.more>summary{cursor:pointer;color:var(--accent);font-weight:650}
+details.verdict-fold{margin:1rem 0 0}
+details.verdict-fold>summary{cursor:pointer;font-weight:650;color:var(--mut);padding:.35rem 0}
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}.nav{display:none}.mob{display:flex}
+  .main{padding:1.1rem 1rem 3rem}
+  h2,h1{scroll-margin-top:3.6rem}
+  .topics,.cols,.kwgrid,.insp{grid-template-columns:1fr}
+  .mob{margin:0 -1rem .8rem;padding:.5rem 1rem}
+  .kwh{flex-wrap:wrap}
+}
+</style><link rel="stylesheet" href="../xhs-shell.css" data-xhs-shell></head><body><div class="shell"><aside class="nav"><div class="brand-row"><img src="../icon.svg" alt=""/><p class="brand" style="margin:0">每日选题 · 11/24</p></div><p class="meta">私密 x-digest · 小红书今天 2 篇达标热帖，给 2 条做法；大号无新帖；Amber 有新帖未达标；X 早报已发布；推荐流未采</p><div class="sec">本页</div><a href="#top" data-s="top">今天什么火</a><a href="#xhs" data-s="xhs">帖子与原因</a><a href="#picks" data-s="picks">建议选题</a><a href="#deep" data-s="deep">主题对应</a><a href="#feed" data-s="feed">推荐流</a><a href="#insp" data-s="insp">X 新赞</a><a href="#xdiff" data-s="xdiff">X 早报旁证</a><a href="#raw" data-s="raw">覆盖与待核</a><a href="#watch" data-s="watch">观察中</a><a href="#notes" data-s="notes">来源说明</a><a href="#day-foot" data-s="day-foot">页脚</a><div class="sec">其他</div><a href="index.html">往期日页</a><a href="../">小红书全入口</a><a href="2026-11-23.html">← 11-23</a></aside><main class="main"><nav class="mob"><a href="#top" data-s="top">今天什么火</a><a href="#xhs" data-s="xhs">帖子与原因</a><a href="#picks" data-s="picks">建议选题</a><a href="#deep" data-s="deep">主题对应</a><a href="#feed" data-s="feed">推荐流</a><a href="#insp" data-s="insp">X 新赞</a><a href="#xdiff" data-s="xdiff">X 早报旁证</a><a href="#raw" data-s="raw">覆盖与待核</a><a href="#watch" data-s="watch">观察中</a><a href="#notes" data-s="notes">来源说明</a><a href="#day-foot" data-s="day-foot">页脚</a><a href="../">小红书</a></nav><style>.hf article.post{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:.9rem 1.05rem;margin:.8rem 0;box-shadow:var(--shadow)}.hf article.post h3{margin:0 0 .4rem;font-size:1.02rem}.hf dl{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:.2rem .8rem;margin:.4rem 0;font-size:.92rem}.hf dt{color:var(--mut)}.hf dd{margin:0;overflow-wrap:anywhere}.hf .why{margin:.3rem 0 0;padding-left:1.1rem}.hf .why li{margin:.2rem 0}.hf .flag{display:inline-block;font-size:.75rem;font-weight:650;color:var(--warn);background:var(--warn-soft);border-radius:999px;padding:.05rem .5rem;margin-left:.4rem;vertical-align:middle}.hf .tw td{overflow-wrap:anywhere}@media(max-width:600px){.hf dl{grid-template-columns:1fr}.hf dd{margin-bottom:.3rem}}</style><h1 id='top'>今天写啥 · 2026-11-24</h1><div class='hf'><p class='muted'>口径：大号只读；最多点赞+一周内。面板无一个月内。2 篇达标，给 2 条做法。</p><p class="muted" id="hot-rule">热帖门槛：近7天赞≥200或藏≥300；8到30天赞≥500或藏≥800。小号只是达标后的加分，不是入选条件。</p><div class="card verdict"><p class="lead"><b>今天「最多点赞」+「一周内」打开后，有 2 篇可以进热帖区。</b>都来自「AI写报告」。一篇讲用 ChatGPT6 写文献综述的五步流程，作者图卡写要让它处理材料，不直接写完整篇。另一篇给出两条可复制指令，用来改 ChatGPT 里常见的防御性写法。两篇都可以对照着看。后一篇要去掉「仍有待核验」这类话，跟数据报告里「缺证据就留空」不是一件事，不适合直接改写成转述稿。「数据口径对齐」和「自动化触达」没有达标帖。门槛仍是：近7天赞≥200或藏≥300。筛选面板实际选项是不限、一天内、一周内、半年内，没有「一个月内」。采集走页顶搜索框，没有直开搜索链接。「数据口径对齐」和「自动化触达」的面板已高亮「一周内」，但前 10 张里多张时间原文是 MM-DD，已照录；这两词最高可见赞分别是 3 和 2，按近7天门槛仍没有达标帖，也没有改用「半年内」。</p>
+<ul>
+<li><a href="https://www.xiaohongshu.com/explore/6afec0d0000000002a00fc9d" target="_blank" rel="noopener">普及一下，ChatGPT6写综述可以达到的强度</a> · nono · 近7天窗口。搜索卡「4天前」；详情页可见「4天前 湖北」，未见「编辑于」，未见单独初发时间，不猜具体日期。赞 1769、收藏 2366、评论 共 194 条。读取约 07:42–07:45 UTC+8。作者主页粉丝 75（07:45:29 UTC+8）。图文 5 页，全部出图，无缺页。右侧正文只有标题和话题，方法都在图卡里：先用 ChatGPT6 按相关程度筛文献，再用固定模板提取研究问题、方法、发现和局限，并抽查原文；随后做主题分组和对比矩阵，按主题一节一节生成初稿，最后润色、切到审稿人角色挑毛病，作者自己再加批判性评论。这是作者自述的流程和耗时（一周出初稿、两周投出去；筛文献「十分钟之内」从 200 篇到 30 篇），不作核实，也不当作 Ocean 的现场。封面图设计写有「20.9万人关注了她」「1.5万」等数字，和详情底栏 1769 赞、主页 75 粉丝不一致，只把设计数字当作图卡自述。正文无外部来源链接。可见评论大量在要指令，图卡和正文都没有放出可复制的完整指令；作者可见回复很短，没有在可见主评里贴指令。</li>
+<li><a href="https://www.xiaohongshu.com/explore/6afbe7fb000000001803bd87" target="_blank" rel="noopener">ChatGPT 防御性写作？两条指令搞定</a> · 老马AI手记 · 近7天窗口。搜索卡「6天前」可见赞 477；详情页可见「6天前 北京」，未见「编辑于」，未见单独初发时间。赞 478、收藏 572、评论 共 10 条。读取约 07:46–07:48 UTC+8。作者主页粉丝 251（07:48:12 UTC+8）。图文 7 页，全部出图，无缺页。正文把两条指令全文写出，图卡是同一套指令的分页：一条用来去掉过度免责和犹豫措辞，一条用八条原则改论文叙事。作者写明这是「一位博主整理的指令和skill」，不自称原创。正文无外部来源链接；作者在评论里贴了 GitHub：https://github.com/Kiterlin/anti-defensive-writing 。可见评论有人问有没有用、要完整提示词，多去 @点点，由点点作答。详情页属地写北京，作者主页首屏写 IP属地：天津，两处原文不一致，只照录。这篇过了门槛，可当「问题定义 + 可复制指令」的结构参考；它要去掉「仍有待核验」这类话，跟听记里「数是怎么样就怎么样、缺证据留空」不是同一件事，今天不拿来做转述选题。</li>
+</ul>
+<p>「AI写报告」前 10 张里卡片可见赞达标的还有 2 篇，按规则只精读排在最前的 2 篇，其余未打开，不给选题：GPT 6.2更新｜无脑选Sol中档，附选择一览图（强子（创业中），卡「5天前」赞 239）；第 4 张卡片脚注区无文字标题（星川灿宸，卡「6天前」赞 211）。</p>
+</div><h2 id='xhs'>帖子、数据与可能原因</h2><div class="card">
+<h3>可能为什么受欢迎（可见事实 / 待验证解释 / 缺证）</h3>
+<p><b>ChatGPT6 写综述流程（nono）。</b>可见事实：近7天窗口里赞 1769、藏 2366、评 194；作者粉丝 75，收藏明显高于点赞；右侧正文很短，五页图卡把流程摊开；可见评论高度集中在「求指令」，正文和图卡都没有放出可复制的完整指令。封面设计数字和实时计数、主页粉丝对不上。待验证解释：收藏高，可能是因为五步流程本身能带走，标题里的「可以达到的强度」也容易让人停下来；评论一直在要指令，也可能把讨论继续下去。缺证：没有曝光，不能算收藏率；只有一次读取，不能说正在上涨；作者写的耗时和筛文献效果未核；封面「20.9万人关注了她」不是主页粉丝数；同池还有 2 篇卡片达标但未打开，不能拿这两篇的赞藏当「AI写报告」的全站结论。</p>
+<p><b>防御性写作两条指令（老马AI手记）。</b>可见事实：近7天窗口里赞 478、藏 572、评 10；作者粉丝 251；正文和图卡都给出可复制的两条指令；作者自己说明指令来自另一位博主的整理，并在评论里贴了 GitHub。待验证解释：收藏高于点赞，可能是因为读者能直接把指令拿走；封面把「需要说明的是」「可能在一定程度上」这类常见句子亮出来，也容易对上号。缺证：没有曝光，不能算收藏率；只有一次读取，不能说正在上涨；未核指令来源原文；详情属地和主页 IP 原文不一致，原因不明；这篇要改掉的句式里包括「仍有待核验」，和数据报告里需要保留的缺口不是一件事。</p>
+</div>
+<div class="card">
+<p>Amber 今天有 1 条新帖，未过门槛，只记快照，不进热帖区、不给选题：「快递员：你的外卖已送达...」（<a href="https://www.xiaohongshu.com/explore/6b045576000000002b0068f8" target="_blank" rel="noopener">6b045576</a>），主页卡片可见赞 94，收藏未显示，卡片未显示相对时间，读取 07:21:02–07:25:17 UTC+8，未开详情。昨天那条新帖「霍格沃茨城堡3D个人网页，可以玩～」（<a href="https://www.xiaohongshu.com/explore/6b02ab20000000002a026dde" target="_blank" rel="noopener">6b02ab20</a>）11-23 07:18–07:20 卡片赞 31，今天 07:21–07:25 卡片赞 168，仍无相对时间和收藏，未开详情，不按已精读热帖处理。「告别Opus5.5，一键口播动效包装！」（<a href="https://www.xiaohongshu.com/explore/6b01a038000000002a025db2" target="_blank" rel="noopener">6b01a038</a>）连续快照只并列时点：11-22 07:30–07:31 卡片赞 137；11-23 07:18–07:20 卡片赞 341；今天 07:21–07:25 卡片赞 473。三次主页卡片都没显示相对时间和收藏，今天未开详情，不按已精读热帖处理。旧帖有连续快照，只记时点，不进热帖区、不给选题：「惊到我了！这是AI自动剪辑包装的..」（<a href="https://www.xiaohongshu.com/explore/6af439d6000000002a02f46c" target="_blank" rel="noopener">6af439d6</a>）：11-12 07:28 详情 35 赞 / 20 藏 / 18 评，当时写「13小时前 四川」；11-21 07:19–07:21 主页卡片 759 赞；11-22 07:30–07:31 主页卡片 774 赞；11-23 07:18–07:20 主页卡片 781 赞；今天 07:21–07:25 主页卡片 795 赞。今天没开详情。</p>
+</div><h2 id='picks'>建议怎么写</h2><div class="card">
+<h3>让AI整理，结论自己写</h3>
+<p><b>对哪些人管用：</b>要让 AI 写数据报告，却总得到一堆正确的空话，结论也分不清是数字里带来的，还是模型自己补的产品经理。</p>
+<p><b>切口：</b>只让 AI 整理材料，结论和解释由人写。</p>
+<p><b>标题：</b>让AI整理，结论自己写（11 字）</p>
+<p><b>提纲：</b>只写这一步。今天这篇热帖讲文献综述时，作者把 ChatGPT6 放在筛文献、抽字段、做对照的位置，初稿按节生成，批判性评论留作者自己写。这篇不写综述投稿，也不转述作者的耗时自述。只落到数据报告：原始结果区留给模型整理，人写结论区单独放，缺证据就留空。不编新的业务现场。</p>
+<p><b>真实样本：</b></p>
+<ul>
+<li>最近最高赞（本次「AI写报告」+「一周内」样本池里，对口且已打开的）：<a href="https://www.xiaohongshu.com/explore/6afec0d0000000002a00fc9d" target="_blank" rel="noopener">普及一下，ChatGPT6写综述可以达到的强度</a> · nono · 赞 1769、藏 2366、评 194 · 详情「4天前 湖北」。同池已打开的第二篇是防御性写作指令，赞 478、藏 572。同池还有 2 篇卡片达标但未打开，不拿来当已读样本。</li>
+<li>同类最高赞：本次未搜「不限」时间，缺口</li>
+</ul>
+<p><b>已发稿差异：</b>跟已发的「顶尖PM的AI杠杆」不同。那篇讲要建系统，而不是只卷提示词；这篇只讲写数据报告时，整理和结论要分开。也不是已发的 Anthropic「AI也要做梦」两篇，那两篇是记忆和做梦机制。也不是「1121 GitHub本周TOP10」。</p>
+<p><b>Lenny / 听记：</b>可对 TK-11 / M20。Lenny 侧是构建 AI 产品的反直觉建议那篇，本轮没有再摘金句。听记里有一条脱敏现场：数是怎么样就怎么样，AI 不要去解读，要人去解读。写稿前还要回读并确认能用的原话，不编例子。</p>
+</div>
+<div class="card">
+<h3>AI摘数用同一套模板再抽查</h3>
+<p><b>对哪些人管用：</b>已经让 AI 从材料里抽数字、抽字段，却很少对照原文抽查的产品经理。</p>
+<p><b>切口：</b>固定提取模板，再抽查原文。</p>
+<p><b>标题：</b>AI摘数用同一套模板再抽查（13 字）</p>
+<p><b>提纲：</b>只写这一步。今天这篇热帖在「结构化精读」里用同一套模板抽研究问题、方法、发现和局限，并写明要抽查，尤其方法学论文要对照原文。这篇不写文献综述，只把「同一套模板 + 对照原文抽查」落到数据报告的摘数、摘字段。不编新的业务现场。</p>
+<p><b>真实样本：</b></p>
+<ul>
+<li>最近相关且已打开的热帖：<a href="https://www.xiaohongshu.com/explore/6afec0d0000000002a00fc9d" target="_blank" rel="noopener">普及一下，ChatGPT6写综述可以达到的强度</a> · nono · 赞 1769、藏 2366、评 194。它讲的是综述精读模板，不是数据报表字段，只作方法对照。</li>
+<li>同类最高赞：本次未搜「不限」时间，缺口</li>
+</ul>
+<p><b>已发稿差异：</b>跟已发的「如何从日常工作找到evals来评测模型」不同。那篇是找评测题；这篇只讲让 AI 按固定模板摘数之后，还要对照原文抽查。也不是已发的「顶尖PM的AI杠杆」。</p>
+<p><b>Lenny / 听记：</b>可对 TK-11，也和 TK-04「交付物是字段对照表+样例核对」相邻。听记里 TK-04 有一条脱敏现场：源接口改版后要确认取数口径和取出方式是否变了。写稿前还要回读并确认能用的原话，不编例子。本轮没有再摘 Lenny 金句。</p>
+</div>
+<div class="card">
+<p>老马那篇过了门槛，但今天不拿来做转述选题：正文要去掉「仍有待核验」这类话，让观点写得更冲；数据报告这边需要把事实和解释分开，缺证据就留空。它更适合当「问题定义 + 两条可复制指令」的结构参考。「数据口径对齐」和「自动化触达」都没有达到门槛的帖子；这两词在「一周内」高亮下仍出现不少 MM-DD 时间原文，已照录，最高可见赞分别是 3 和 2，没有改用「半年内」去凑数。</p>
+</div><h2 id='deep'>主题 × 关键词 × 证据对应</h2><div class="card">
+<p>今天词表：TK-04「数据口径对齐」、TK-11「AI写报告」、TK-12「自动化触达」已搜完。下轮可查较久未轮到的：TK-15 DRICE，以及 TK-01 指标口径 / AI看板、TK-17 可点原型。</p>
+<p>发布地图（Mac Mini，publication.py list 开跑时读取，map_digest <code>4971a145e265dd75c7fedc06228efc3349c7680e5334c93106356f202717779f</code>，与 11-22 写入「1121 GitHub本周TOP10」之后相同）：今天主页没有新标题、没有新 ID，未做 publication.py add。主页标签今天仍写「笔记・16」，列表实际可见 21 张卡片，标题和 ID 与 11-23 一致。读取 07:16:54–07:19:45 UTC+8。头部并列：关注 41→41；粉丝 61→63；获赞与收藏 1905→1916；IP属地 中国香港→浙江。可见赞有变化的仅 3 条，只并列数字：「1119大模型排行榜Top50新Neon」23→27；「11.18大模型排行榜TOP50」57→62；Catwu 1390→1391。计划补登的旧帖今天未打开（已开过主页、Amber、三词搜索、两篇热帖详情和两个作者主页；11-15 补登触发过 300031，今日不再点旧帖）。仍剩 8 篇初发日期未知（200刀喂Claude、AI时代PM、5套工作流、推需求三步、入行、SLG/PLG、IPO三人；PRD 仅「编辑于 07-07」，不猜初发）。来源链接仍未录。</p>
+</div><h2 id='feed'>推荐流</h2><div class="card"><p>推荐流今天没有采。</p></div><h2 id='insp'>Ocean 灵感 · X 新赞</h2><div class="card">
+<p>X 点赞 2026-11-24 约 07:15 UTC+8 读取，接口返回 40 条；按已入库去重后新追加 0 条。接口不给点赞时刻，不能严格限定过去一天。前 40 条与 11-22 已入库的名单重合，没有新 ID。</p>
+</div><h2 id='xdiff'>X 早报旁证</h2><div class="card"><p class="muted">X 早报 11-24 已在约 06:07 UTC+8 发布，只作补充，不当小红书热度。<a href="https://zhenchuanwuzc-max.github.io/x-digest/2026-11-24.html" target="_blank" rel="noopener">打开早报</a></p>
+<p>今天早报是周报形态，可见条目包括 ChatGPT 将停用部分 GPT-5.6、Claude 插件与桌面版改版、Gemini 4 Neon 相关演示、宝玉谈 Agent「验证完了」如何才算真验证等。没有拿里面的新闻替代主线词表。主线仍是数据口径对齐、AI 写报告时事实和解释的边界、以及自动化触达的中间态。</p>
+</div><h2 id='raw'>关键词覆盖与待核库</h2><div class="card">
+<p>搜索证据：三词均为页顶搜索框、「最多点赞」+「一周内」。面板无「一个月内」，未用「半年内」。截图在 observations/2026-11-24/shots/。</p>
+<ul>
+<li>数据口径对齐：扫 10 开 0，达标 0，最高可见赞 3。「一周内」已高亮，但前 10 张多张时间为 MM-DD，已照录。截图 search-数据口径对齐-likes-week.png。</li>
+<li>AI写报告：扫 10 开 2，卡片达标 4。截图 search-AI写报告-likes-week.png，以及两篇详情、全部图卡和作者主页截图。</li>
+<li>自动化触达：扫 10 开 0，达标 0，最高可见赞 2。同样存在「一周内」高亮但部分卡为 MM-DD 的情况。截图 search-自动化触达-likes-week.png。</li>
+</ul>
+<p>大号主页与 Amber 主页截图见同目录 main-profile.png、notes-bottom.png、amber-profile.png、amber-profile-2.png。公开页不放 token 链接。</p>
+</div><details class="rawfold" id="watch"><summary>观察中（未达标）</summary><div class="card">
+<p>红发魔女Amber（hongfamonvAI）今天 07:21:02–07:25:17 UTC+8 只读打开主页一次。粉丝 12.4万，获赞与收藏 151.9万（11-23 为 151.8万），关注 115，IP属地四川（标签仍写四川成都）。置顶仍是爱丽丝 3D 游戏（卡片赞 4683，昨天 4615）和自动包装口播（卡片赞 8531，昨天 8446）。新帖「快递员：你的外卖已送达...」（<a href="https://www.xiaohongshu.com/explore/6b045576000000002b0068f8" target="_blank" rel="noopener">6b045576</a>）卡片可见赞 94，收藏未显示，未达近7天赞≥200或可见藏≥300的门槛，未开详情，不进热帖区。昨天清单中的其余已加载笔记仍在。人物库暂无她的独立成长页，故只更新 amber.json 快照，未新建成长页。</p>
+</div></details><h2 id='notes'>来源与说明</h2><div class="card">
+<p>X 早报已在约 06:07 UTC+8 落地。全程大号只读，未见 300031、验证码或登录限制。发布地图无新帖，未做新登记；补登未做。写稿等 Ocean 点头，发布另需聊天里明确批准。</p>
+</div></div><p class='foot' id='day-foot'>私密 · <a href='index.html'>往期日页</a> · <a href='../'>小红书全入口</a></p></main></div><script>
+(function(){
+  var ids=["top", "xhs", "picks", "deep", "feed", "insp", "xdiff", "raw", "watch", "notes", "day-foot"], links=document.querySelectorAll('[data-s]');
+  function cur(){
+    var y=window.scrollY+80, c=ids[0];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]); if(el&&el.offsetTop<=y) c=ids[i];}
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-2) c=ids[ids.length-1];
+    links.forEach(function(a){var on=a.getAttribute('data-s')===c; a.classList.toggle('on',on);
+      if(on&&a.parentNode.classList.contains('mob')){var p=a.parentNode; p.scrollLeft=a.offsetLeft-p.clientWidth/2+a.clientWidth/2;}});
+  }
+  window.addEventListener('scroll',cur,{passive:true}); window.addEventListener('hashchange',cur); cur();
+})();
+</script></body></html>
